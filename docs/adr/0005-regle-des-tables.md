@@ -1,12 +1,12 @@
 # 0005 — Un claim qui nomme des tables va dans systems/
 
-Statut : proposé, à confirmer par Francesco.
+Statut : accepté, 2026-10-10 (Francesco).
 
 ## Contexte
 
 La v0.4 donne une règle pratique : un claim qui doit nommer des tables va dans systems/. SPEC.md dit l'inverse (citer une table n'impose pas systems/), sans qu'une révision l'explique.
 
-## Décision proposée
+## Décision
 
 Garder la règle de la v0.4, contrôlée : un claim de domains/ avec tables non vide est ROUGE.
 

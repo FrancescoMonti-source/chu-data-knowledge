@@ -12,7 +12,7 @@ Statut : accepté, 2026-10-09 (architecture v0.4, annexe). Certaines lignes sont
 | Copier les preuves depuis cora | les contrôles automatiques n'ouvrent pas un autre dépôt privé | en vigueur |
 | Protection des données dans la requête, pas de checklist | la personne qui exécute ne suit pas toujours une checklist | en vigueur, plus un filtre avant tout enregistrement (0001) |
 | Pas de skill par système | dialectes et pièges sont des faits qui évoluent, pas des procédures | en vigueur |
-| Quatre skills au départ | la structure se mérite avec de vraies enquêtes | proposé à nouveau (0006) |
+| Quatre skills au départ | la structure se mérite avec de vraies enquêtes | en vigueur (0006) |
 | Debrief par tous, rétro par les mainteneurs en cas de répétition | évite une nouvelle règle pour chaque anecdote | en vigueur, sans arrêt après deux échecs (0001) |
 | « Refs #N », jamais « Closes #N » | un résultat partiel ne doit pas fermer l'enquête | en vigueur ; contrôle à venir avec GitHub |
 | Étiquette dormant, pas de fermeture automatique | fermer n'est pas résoudre | à venir avec GitHub |

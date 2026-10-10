@@ -18,7 +18,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | pas de champ authority dans un claim |
 | ROUGE | termes présents dans un GLOSSARY.md ; liens vers des ids qui existent, du bon type |
 | ROUGE | claim de systems/ ou domains/ : au moins une preuve, aucune prémisse d'enquête ; claim d'enquête : au moins une preuve ou une prémisse |
-| ROUGE | claim de domains/ sans tables (à confirmer : docs/adr/0005) |
+| ROUGE | claim de domains/ sans tables (docs/adr/0005) |
 | ROUGE | s'il cite des preuves : documentary, au moins une lecture ; empirical observed, une exécution sans unknown |
 | ROUGE | superseded : un autre claim déclare le remplacer |
 | ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes |

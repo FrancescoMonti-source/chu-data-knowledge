@@ -1,12 +1,12 @@
 # 0006 — Quatre skills : frame, research, relay, sediment
 
-Statut : proposé, à confirmer par Francesco.
+Statut : accepté, 2026-10-10 (Francesco).
 
 ## Contexte
 
 La v0.4 prévoit quatre skills. La première version (Codex) les a fusionnées en une seule, qui renvoie aux conventions. Francesco n'est pas sûr de cette fusion (2026-10-10).
 
-## Décision proposée
+## Décision
 
 Quatre skills courtes, qui ne contiennent que des étapes avec leur critère de fin, et renvoient à docs/agents/ pour les règles.
 

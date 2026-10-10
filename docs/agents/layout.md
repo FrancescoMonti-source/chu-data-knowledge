@@ -23,7 +23,7 @@ Une enquête : voir investigations/README.md.
 
 ## Les règles
 
-- **Le sujet décide.** Un claim va dans systems/ s'il décrit un système concret, dans domains/ s'il décrit le modèle d'un domaine. Règle pratique, contrôlée : un claim qui nomme des tables (tables non vide) va dans systems/. *À confirmer : docs/adr/0005.*
+- **Le sujet décide.** Un claim va dans systems/ s'il décrit un système concret, dans domains/ s'il décrit le modèle d'un domaine. Règle pratique, contrôlée : un claim qui nomme des tables (tables non vide) va dans systems/. (docs/adr/0005)
 - **Une exécution lit toujours un système.** Sa preuve va dans `systems/<système>/evidence/`.
 - **Une lecture va où va son sujet.** Un passage du dictionnaire CORA sur une règle du PMSI va dans domains/pmsi/evidence/ ; s'il décrit le comportement de CORA, dans systems/cora/evidence/. L'autorité vient de la source, jamais du dossier.
 - **Une fiche, plusieurs preuves.** Un document lu dix fois donne une seule fiche dans sources/ et dix preuves.
