@@ -1,0 +1,83 @@
+# Preuves et sources
+
+Une preuve enregistre ce qu'on a observé ; un claim dit ce que ça signifie. Une preuve peut soutenir plusieurs claims. Chaque preuve est un fichier dans le dossier evidence/ de son sujet (layout.md). Deux types : execution et reading.
+
+Avant d'écrire une preuve : le filtre de privacy.md. L'en-tête suit les règles d'écriture de claims.md (texte libre entre guillemets doubles).
+
+## Exécution
+
+Une exécution d'une requête à l'hôpital, toujours dans `systems/<système>/evidence/`. Le fichier contient le résultat ; la requête reste une seule fois dans requests/.
+
+```markdown
+---
+id: 20261008-mvt-rum
+type: execution
+request: 20261007-mvt-rum
+run_at: 2026-10-08 09:14
+database: CORAPROD
+executed_by: Francesco
+modified: no
+person_data: masked
+---
+| request_id | database_name | run_at | ANNEE | N_MVT |
+|---|---|---|---|---|
+| 20261007-mvt-rum | CORAPROD | 2026-10-08 09:14 | 2025 | 1520 |
+```
+
+| Champ | Valeurs |
+|---|---|
+| request | l'id de la requête |
+| run_at, database | recopiés du résultat, où la requête les imprime |
+| executed_by | la personne qui a exécuté |
+| modified | no · yes · unknown. Si yes, la requête réellement exécutée suit le résultat, dans un bloc sql |
+| person_data | recopié de la requête : masked ou no-person-data |
+
+Une valeur inconnue s'écrit unknown. Un claim empirique observed demande une exécution sans unknown.
+
+## Lecture
+
+Un passage lu dans un document, dans le dossier evidence/ du système ou du domaine dont parle le passage.
+
+```markdown
+---
+id: 20261007-dictionnaire-mvt-rum
+type: reading
+source: dictionnaire-cora-2020
+locator: page 42
+read_by: Francesco
+read_at: 2026-10-07
+---
+> « … » (courte citation)
+```
+
+| Champ | Valeurs |
+|---|---|
+| source | l'id de la fiche dans sources/ |
+| locator | l'endroit exact : page, chapitre, section |
+| read_by, read_at | qui a lu, et quand |
+
+Sous l'en-tête, une courte citation, en lignes qui commencent par >.
+
+## Sources
+
+Une fiche par document et par édition, dans sources/. Le document lui-même n'est ajouté que s'il peut être partagé.
+
+```markdown
+---
+id: dictionnaire-cora-2020
+title: Dictionnaire des données CORA
+publisher: l'éditeur de CORA
+edition: "2020"
+location: où le trouver
+authority: vendor-doc
+---
+```
+
+| authority | Sens |
+|---|---|
+| official | texte réglementaire, guide de l'ATIH |
+| vendor-doc | documentation de l'éditeur d'un logiciel |
+| local | document du CHU |
+| unknown | origine inconnue |
+
+L'autorité dit d'où vient le document, pas s'il a raison : une documentation d'éditeur peut se tromper (exemple : JR009 dans cora_knowledge).
