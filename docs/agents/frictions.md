@@ -20,4 +20,8 @@ L'agent corrige le contenu, jamais le contrôle, et réessaie : changer un contr
 
 ## Rétro
 
-Le mainteneur la lance de temps en temps. Il lit les sections Frictions et propose un changement seulement pour une friction répétée au moins deux fois, ou liée à la sécurité des données. Il peut aussi proposer de retirer une règle. Une erreur évidente dans une skill se corrige tout de suite. Une décision reçoit un ADR dans docs/adr/.
+Le mainteneur la lance de temps en temps, avec la skill retro. Elle propose un changement seulement pour une friction répétée au moins deux fois, ou liée à la sécurité des données ; elle peut aussi proposer de retirer une règle. Chaque friction examinée reçoit une marque à la fin de sa ligne :
+
+  `- 2026-10-12, relay : … → rétro 2026-12-01 : contrôle ajouté.`
+
+Une erreur évidente dans une skill se corrige tout de suite, sans attendre la rétro. Une décision reçoit un ADR dans docs/adr/.

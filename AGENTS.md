@@ -30,9 +30,10 @@ Ce dépôt garde, avec leurs preuves, ce que nous découvrons sur les données d
 
 Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
 
-- **frame :** cadrer une question et chercher ce qu'on sait déjà.
-- **research :** lire un document et en tirer des preuves.
+- **frame :** cadrer la question avec la personne.
+- **research :** chercher ce qui est déjà écrit, dans les claims du dépôt puis dans les documents.
 - **relay :** l'aller-retour à l'hôpital.
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
+- **retro :** pour le mainteneur, sur demande : proposer des changements de règles à partir des frictions.
 
-Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/, jamais pour un claim) et domain-modeling.
+Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/, et dans retro ; jamais pour un claim) et domain-modeling.

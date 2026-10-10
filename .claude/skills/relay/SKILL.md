@@ -23,3 +23,5 @@ Cette skill donne les étapes. Le protocole et ses règles : docs/agents/request
    Fini quand : le résultat ne contient que des agrégats, sans effectif de 1 à 9 en clair.
 6. **Enregistrer** la preuve d'exécution (docs/agents/evidence.md) et la relier au plan. Lancer `python checks/check.py`, puis commit.
    Fini quand : aucun ROUGE, et la preuve est citée dans le plan.
+
+Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. sediment quand les preuves suffisent pour répondre.
