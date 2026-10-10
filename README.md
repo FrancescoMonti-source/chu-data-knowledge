@@ -23,7 +23,7 @@ Puis poser une question à son agent : il commence par la cadrer avec vous.
 
 ## Une enquête, étape par étape
 
-Chaque étape est une skill. L'agent la suit de lui-même : il suffit de lui poser la question.
+Chaque étape est une skill. L'agent les suit de lui-même : il suffit de lui poser la question.
 
 | Étape | Skill | Ce que vous faites | Ce que vous obtenez |
 |---|---|---|---|
@@ -31,9 +31,12 @@ Chaque étape est une skill. L'agent la suit de lui-même : il suffit de lui pos
 | Chercher | research | vous indiquez ou fournissez les documents | ce que le dépôt sait déjà ; s'il ne suffit pas, une enquête avec un plan, puis une preuve par passage lu |
 | Interroger l'hôpital | relay | vous exécutez la requête à l'hôpital et rapportez le résultat | une requête prête à copier, puis le résultat enregistré comme preuve |
 | Conclure | sediment | vous relisez les conclusions et donnez votre accord pour le merge | des claims que d'autres enquêtes réutiliseront |
-| Finir la session | retro | quand vous vous arrêtez, vous lancez la retro (`/retro` dans Claude Code) et parlez avec l'agent de ce qui a gêné | une issue friction ouverte ou complétée ; le mainteneur la corrige quand elle revient |
 
 research et relay peuvent alterner : un résultat de l'hôpital peut demander un nouveau document, sans l'imposer.
+
+## Finir une session
+
+Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro` dans Claude Code ; avec Codex, demandez-la. C'est la seule skill que l'agent ne lance pas de lui-même. Vous parlez avec lui de ce qui a gêné et de sa cause ; il ouvre ou complète une issue friction sur GitHub. Le mainteneur corrige une friction quand elle revient.
 
 ## Skills à installer soi-même
 
