@@ -1,6 +1,6 @@
 # 0006 — Cinq skills : frame, research, relay, sediment, retro
 
-Statut : accepté, 2026-10-10 (Francesco).
+Statut : accepté, 2026-10-10 (Francesco). La retro est modifiée par 0008 : lancée par tous en fin de session.
 
 ## Contexte
 

@@ -31,7 +31,7 @@ Chaque étape est une skill. L'agent la suit de lui-même : il suffit de lui pos
 | Chercher | research | vous indiquez ou fournissez les documents | ce que le dépôt sait déjà ; s'il ne suffit pas, une enquête avec un plan, puis une preuve par passage lu |
 | Interroger l'hôpital | relay | vous exécutez la requête à l'hôpital et rapportez le résultat | une requête prête à copier, puis le résultat enregistré comme preuve |
 | Conclure | sediment | vous relisez les conclusions et donnez votre accord pour le merge | des claims que d'autres enquêtes réutiliseront |
-| Améliorer | retro | (mainteneur) vous lancez la rétro de temps en temps | des propositions de changement de règles, fondées sur les frictions notées |
+| Finir la session | retro | quand vous vous arrêtez, vous lancez la retro (`/retro` dans Claude Code) et parlez avec l'agent de ce qui a gêné | une issue friction ouverte ou complétée ; le mainteneur la corrige quand elle revient |
 
 research et relay peuvent alterner : un résultat de l'hôpital peut demander un nouveau document, sans l'imposer.
 

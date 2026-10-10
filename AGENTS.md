@@ -21,7 +21,7 @@ Ce dépôt garde, avec leurs preuves, ce que nous découvrons sur les données d
 | écrire une preuve ou une fiche de source | docs/agents/evidence.md |
 | préparer une requête, enregistrer un résultat | docs/agents/requests.md |
 | réutiliser, relire ou contester un claim | docs/agents/review.md |
-| noter une friction | docs/agents/frictions.md |
+| corriger une friction | .agents/skills/retro/SKILL.md, « Corriger » |
 | comprendre un message ROUGE ou ORANGE | docs/agents/checks.md |
 | comprendre un mot de la méthode | docs/agents/GLOSSARY.md |
 | savoir pourquoi une règle existe | docs/adr/ |
@@ -34,6 +34,6 @@ Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans 
 - **research :** chercher ce qui est déjà écrit, dans les claims du dépôt puis dans les documents.
 - **relay :** l'aller-retour à l'hôpital.
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
-- **retro :** pour le mainteneur, sur demande : proposer des changements de règles à partir des frictions.
+- **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction.
 
-Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/, et dans retro ; jamais pour un claim) et domain-modeling.
+Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/ ; jamais pour un claim) et domain-modeling.

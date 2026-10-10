@@ -14,7 +14,7 @@ Après la v0.4, une séance de questions a modifié l'architecture. SPEC.md la r
 | 2. Trois sortes de claims : documentaire, empirique, décision. refuted_if seulement pour les empiriques. | Champ kind ; decision ajoute responsible et reconsider_when (docs/agents/claims.md). |
 | 3. L'autorité est dans la source ou la preuve, pas dans le claim. | authority dans la fiche de la source ; un claim avec authority est ROUGE. |
 | 4. Un filtre avant tout enregistrement, et une procédure minimale d'incident. | docs/agents/privacy.md. Le contrôle cherche des valeurs, pas des libellés (Francesco, 2026-10-10). |
-| 5. Des contrôles sur des propriétés définies ; des frictions légères. | Pas d'arrêt après deux échecs ; pas de contrôle des mots « non vérifié » ; debrief d'une ligne (docs/agents/frictions.md). |
+| 5. Des contrôles sur des propriétés définies ; des frictions légères. | Pas d'arrêt après deux échecs ; pas de contrôle des mots « non vérifié » ; debrief d'une ligne, remplacé par la retro en fin de session (0008). |
 | 6. Organisation et procédures modifiables ; l'usage peut commencer sans nouveau pilote. | Une règle change par un ADR ; la première vraie enquête peut être le premier usage. |
 
 ## Conséquences

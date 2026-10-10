@@ -11,5 +11,3 @@ But, population, période, unité d'analyse, mesure, comparaison.
 
 ## Plan
 1. <étape> : <à quoi elle sert>
-
-## Frictions

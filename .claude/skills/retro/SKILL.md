@@ -1,26 +1,35 @@
 ---
 name: retro
-description: Rétrospective du mainteneur sur les frictions notées dans les enquêtes, pour proposer des changements de règles. Seulement quand le mainteneur la demande.
+description: Rétrospective en fin de session : relever les accrocs avec la personne, comprendre leur cause, puis ouvrir ou compléter une issue friction sur GitHub. Quand la personne la demande.
 disable-model-invocation: true
 ---
 
 # retro
 
-Debrief note, rétro change : cette skill propose, le mainteneur décide. Elle s'inspire de la skill retro de supermatt, appliquée aux frictions des enquêtes plutôt qu'à une session de code.
+La personne la lance quand elle s'arrête, tant que la session est fraîche. La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige. Elle s'inspire de la skill retro de supermatt.
 
-1. **Charger writing-for-agents** (installée hors du dépôt) : toute modification d'une skill, d'AGENTS.md ou de docs/agents/ suit ses règles.
-2. **Rassembler les frictions :** les lignes des sections Frictions de chaque `investigations/*/README.md` (et des issues friction, sur GitHub). Une ligne déjà examinée par une rétro porte « → rétro <date> ».
-   Fini quand : chaque README d'enquête a été lu, et chaque friction non examinée est listée avec son enquête et sa date.
-3. **Regrouper** les frictions qui décrivent le même accroc, et compter les répétitions, lignes déjà examinées comprises : un accroc qui revient après un changement montre que le changement n'a pas suffi.
-   Fini quand : chaque friction non examinée appartient à un groupe.
-4. **Chercher la cause** de chaque groupe, dans cet ordre :
-   - **Contrôle :** un contrôle aurait-il attrapé l'erreur ? Une règle qu'on peut contrôler devient un contrôle, avec son test, plutôt qu'une phrase de plus.
-   - **Pointeur :** l'agent a-t-il manqué une règle qui existe ? Il manque alors un pointeur dans AGENTS.md, une skill ou docs/agents/.
-   - **Dérive :** deux règles se contredisent-elles, ou une règle cite-t-elle un chemin, un champ ou une commande qui n'existe plus ? Une contradiction passe avant le reste.
-   - **Étape floue :** une étape de skill dit-elle mal quoi faire, ou son critère de fin est-il trop vague ?
-   - **Poids mort :** une règle ne change-t-elle rien, ou est-elle écrite deux fois ?
-5. **Filtrer.** Garder un groupe seulement s'il s'est répété au moins deux fois, ou s'il touche la sécurité des données ; s'il cite les lignes de friction qui le montrent ; et si la leçon n'est pas déjà écrite dans les règles. Corriger la règle existante plutôt qu'en ajouter une. Proposer aussi de retirer : si les skills et docs/agents/ ne font que grandir d'une rétro à l'autre, la rétro ajoute sans retirer.
-   Fini quand : chaque groupe est gardé ou écarté, avec sa raison.
-6. **Présenter** au mainteneur les propositions gardées, de la plus grave à la moins grave : les frictions citées, la cause, le changement (fichier et texte). Si aucune ne reste, le dire, avec la raison de chaque écart.
-7. **Appliquer ce que le mainteneur accepte :** un commit par changement, un ADR si c'est une décision (docs/adr/). Puis marquer chaque friction examinée : « → rétro <date> : <changement> », ou « → rétro <date> : écartée ».
-   Fini quand : chaque friction examinée porte sa marque, et `python checks/check.py` ne donne aucun ROUGE.
+Une friction, c'est tout accroc pendant une session : une correction de la personne, un contrôle qui échoue, une étape refaite, une règle introuvable ou mal comprise. Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois qu'il revient, un commentaire.
+
+1. **Relever** les accrocs de la session : corrections de la personne, contrôles qui ont échoué, étapes refaites, outils refusés, règles cherchées ou mal comprises. Les présenter en une ligne chacun, et demander à la personne ce qui manque.
+   Fini quand : la personne a confirmé la liste. Une liste vide est un bon résultat : la retro s'arrête là.
+2. **Comprendre** chaque accroc avec la personne : ce qui s'est passé, et pourquoi. Prendre la première cause qui convient, dans cet ordre :
+   - **check :** un contrôle aurait attrapé l'erreur. Une règle qu'on peut contrôler devient un contrôle, avec son test.
+   - **pointer :** la règle existe, mais l'agent ne l'a pas trouvée : il manque un pointeur dans AGENTS.md, une skill ou docs/agents/.
+   - **drift :** deux règles se contredisent, ou une règle cite un chemin, un champ ou une commande qui n'existe plus.
+   - **unclear-step :** une étape de skill dit mal quoi faire, ou son critère de fin est trop vague.
+   - **dead-weight :** une règle ne change rien, ou elle est écrite deux fois : la retirer.
+
+   Écarter un accroc ponctuel que rien dans les règles n'aurait évité. Pour chacun des autres, proposer une correction : corriger la règle existante plutôt qu'en ajouter une.
+   Fini quand : chaque accroc a une cause et une correction que la personne accepte, ou il est écarté avec sa raison.
+3. **Chercher** parmi les issues friction, ouvertes et fermées, celle qui décrit le même accroc : `gh issue list --label friction --state all`, puis `gh issue view <n>`.
+   Fini quand : chaque accroc gardé est relié à une issue, ou il est nouveau.
+4. **Écrire.** Accroc déjà connu : un commentaire « Occurrence : <date>, <skill>, <enquête> : <ce qui s'est passé> », et `gh issue reopen` si l'issue était fermée. Accroc nouveau : une issue au format de .github/ISSUE_TEMPLATE/friction.md, avec l'étiquette friction. Sans `gh`, donner le texte à la personne, qui le colle. Décrire l'accroc, jamais les données : aucun extrait de résultat (docs/agents/privacy.md).
+   Fini quand : chaque accroc gardé a son issue ou son commentaire, et la personne sait quelles issues ont deux occurrences ou plus.
+
+## Corriger (mainteneur)
+
+Le mainteneur corrige une friction quand elle a au moins deux occurrences, ou tout de suite si elle touche la sécurité des données. Une erreur évidente dans une skill se corrige aussi tout de suite.
+
+- Charger writing-for-agents pour toute modification d'une skill, d'AGENTS.md ou de docs/agents/.
+- Un commit par changement ; un ADR si c'est une décision (docs/adr/).
+- Fermer l'issue avec un commentaire qui cite le commit ou l'ADR. Une friction qui revient après sa correction rouvre l'issue : la correction n'a pas suffi.

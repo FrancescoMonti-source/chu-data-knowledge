@@ -4,7 +4,7 @@ Une enquête répond à une question précise. Un dossier par enquête, nommé p
 
 ```text
 investigations/uf-vs-rum/
-  README.md   la question, le cadrage, le plan, les choix, les conclusions, les frictions
+  README.md   la question, le cadrage, le plan, les choix, les conclusions
   claims/     les claims d'enquête
 ```
 
@@ -29,9 +29,6 @@ Pourquoi une étape a été ajoutée ou sautée ; les décisions de méthode.
 
 ## Conclusions
 Les claims de l'enquête, avec leur état de relecture.
-
-## Frictions
-- <date>, <skill> : <ce qui s'est passé>
 ```
 
 Le plan est un échafaudage. Sur GitHub, il vit dans l'issue, et un plan revu est un nouveau commentaire « Plan revu ». Tant que le dépôt est local, il vit ici : un plan revu s'ajoute en dessous, avec sa date et sa raison, sans réécrire l'ancien. Le plan valable est le dernier.

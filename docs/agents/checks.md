@@ -37,6 +37,10 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 - L'author et le relecteur sont déclarés, pas prouvés.
 - Aucun contrôle ne sait si un claim est vrai.
 
+## Quand un contrôle échoue
+
+L'agent corrige le contenu, jamais le contrôle, et relance : changer un contrôle, c'est changer les règles. Il n'y a pas d'arrêt obligé après plusieurs échecs (docs/adr/0001). S'il ne sait pas corriger, il le dit à la personne.
+
 ## Règles de confiance
 
 Ce que rien ne contrôle reste une règle, déclarée comme telle :
@@ -51,7 +55,7 @@ Ce que rien ne contrôle reste une règle, déclarée comme telle :
 
 ## Pas encore construit
 
-Ces contrôles viendront avec GitHub : « Refs #N » au lieu de « Closes #N » dans une PR, issue fermée sans section Frictions, étiquette dormant.
+Ces contrôles viendront avec GitHub : « Refs #N » au lieu de « Closes #N » dans une PR, étiquette dormant.
 
 ## Tests
 

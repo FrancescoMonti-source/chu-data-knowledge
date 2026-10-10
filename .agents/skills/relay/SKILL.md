@@ -12,8 +12,8 @@ Cette skill donne les étapes. Le protocole et ses règles : docs/agents/request
 1. **Décider person_data.** La demande touche-t-elle des personnes, patients ou personnel ? Dans le doute, oui : masked.
 2. **Écrire la requête** dans `systems/<système>/requests/`, en suivant les claims sur les tables qu'elle touche.
    Fini quand : `python checks/check.py` ne donne aucun ROUGE sur la requête, et chaque règle de requests.md a été vérifiée à la main, suppression secondaire comprise.
-3. **Livrer.** Faire le commit de la requête, puis la donner à la personne, avec les deux lignes pour elle et le rappel de prévenir si elle la modifie (requests.md, « Aller »). Noter les frictions de la session (docs/agents/frictions.md).
-   Fini quand : la requête livrée est dans un commit, la personne l'a, et la section Frictions de l'enquête a sa ligne, même « aucune ».
+3. **Livrer.** Faire le commit de la requête, puis la donner à la personne, avec les deux lignes pour elle et le rappel de prévenir si elle la modifie (requests.md, « Aller »). Si elle s'arrête là, lui rappeler la retro.
+   Fini quand : la requête livrée est dans un commit, et la personne l'a.
 
 ## Retour
 
