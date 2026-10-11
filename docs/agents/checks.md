@@ -39,7 +39,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 
 ## Quand un contrôle échoue
 
-L'agent corrige le contenu, jamais le contrôle, et relance : changer un contrôle, c'est changer les règles. Il n'y a pas d'arrêt obligé après plusieurs échecs (docs/adr/0001). S'il ne sait pas corriger, il le dit à la personne.
+L'agent corrige le contenu et relance. Il n'y a pas d'arrêt obligé après plusieurs échecs (docs/adr/0001). S'il ne sait pas corriger, il le dit à la personne.
 
 ## Règles de confiance
 
