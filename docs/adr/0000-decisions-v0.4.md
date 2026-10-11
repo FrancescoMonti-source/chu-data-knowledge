@@ -15,7 +15,7 @@ Statut : accepté, 2026-10-09 (architecture v0.4, annexe). Certaines lignes sont
 | Quatre skills au départ | la structure se mérite avec de vraies enquêtes | modifié : cinq skills, retro écrite dès le départ (0006) |
 | Debrief par tous, rétro par les mainteneurs en cas de répétition | évite une nouvelle règle pour chaque anecdote | modifié : retro par tous en fin de session, correction par le mainteneur en cas de répétition (0008) ; sans arrêt après deux échecs (0001) |
 | « Refs #N », jamais « Closes #N » | un résultat partiel ne doit pas fermer l'enquête | en vigueur ; contrôle à venir avec GitHub |
-| Étiquette dormant, pas de fermeture automatique | fermer n'est pas résoudre | à venir avec GitHub |
+| Étiquette dormant, pas de fermeture automatique | fermer n'est pas résoudre | à faire ; en attendant, une enquête suspendue garde son issue ouverte, avec un commentaire (sediment) |
 | Quatre liens | ce sont ceux qu'utilisent les contrôles ; le reste, ce sont des champs | en vigueur |
 | Pas d'index au départ | la recherche dans les champs des claims suffit ; un index généré met en conflit les PR parallèles | en vigueur |
 | Token sans « Administration » ; pas de compte pour les agents | protège les réglages à faible coût | à appliquer à l'arrivée sur GitHub |
