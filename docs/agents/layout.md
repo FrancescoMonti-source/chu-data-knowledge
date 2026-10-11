@@ -2,7 +2,7 @@
 
 sources/ dit de quel document on parle ; systems/, domains/ et investigations/ rangent ce qu'on apprend.
 
-Deux frontières rangent un claim. Son sujet : systems/ ou domains/. Son réemploi : investigations/<enquête>/claims/ s'il ne sert qu'à une enquête, systems/ ou domains/ s'il sert à plusieurs ; la promotion le fait passer de l'un à l'autre.
+Deux frontières rangent un claim. Son sujet : systems/ ou domains/. Son rôle : la réponse à la question d'une enquête va dans investigations/<enquête>/claims/ ; les faits sur lesquels elle s'appuie (les claims atomiques) vont dans systems/ ou domains/, à côté de leur preuve. La promotion fait passer une réponse dans systems/ ou domains/ quand une autre enquête la réutilise.
 
 | Dossier | Contient | Répond à | Exemple |
 |---|---|---|---|
