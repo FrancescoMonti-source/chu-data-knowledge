@@ -1,6 +1,6 @@
 ---
 name: sediment
-description: Transformer les preuves d'une enquête en claims et les faire entrer dans le dépôt ; aussi pour réutiliser, contester ou remplacer un claim, et pour suspendre ou fermer une enquête.
+description: Transformer les preuves d'une enquête en claims et les faire entrer dans le dépôt. Utiliser quand les preuves suffisent pour répondre ; aussi pour réutiliser, contester ou remplacer un claim, et pour suspendre ou fermer une enquête.
 ---
 
 # sediment

@@ -43,7 +43,7 @@ Un passage lu dans un document, dans le dossier evidence/ du système ou du doma
 id: 20261007-dictionnaire-mvt-rum
 type: reading
 source: dictionnaire-cora-2020
-locator: page 42
+locator: "page 42"
 read_by: Francesco
 read_at: 2026-10-07
 ---
@@ -61,15 +61,15 @@ Sous l'en-tête, une courte citation, en lignes qui commencent par >.
 
 ## Sources
 
-Une fiche par document et par édition, dans sources/. Le document lui-même n'est ajouté que s'il peut être partagé.
+Une fiche par document et par édition, dans sources/. Le document lui-même n'est ajouté que s'il peut être partagé : dans sources/, sous l'id de sa fiche, dans son format d'origine (dictionnaire-cora-2020.pdf).
 
 ```markdown
 ---
 id: dictionnaire-cora-2020
-title: Dictionnaire des données CORA
-publisher: l'éditeur de CORA
+title: "Dictionnaire des données CORA"
+publisher: "l'éditeur de CORA"
 edition: "2020"
-location: où le trouver
+location: "où le trouver"
 authority: vendor-doc
 ---
 ```

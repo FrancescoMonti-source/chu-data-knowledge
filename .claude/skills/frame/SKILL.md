@@ -1,6 +1,6 @@
 ---
 name: frame
-description: Cadrer une question sur les données du CHU avec la personne, avant toute recherche. Utiliser au début de toute question, et quand une session reprend une enquête.
+description: Cadrer avec la personne une question sur les données du CHU, avant toute recherche. Utiliser au début de chacune de ces questions, et quand une session reprend une enquête.
 ---
 
 # frame

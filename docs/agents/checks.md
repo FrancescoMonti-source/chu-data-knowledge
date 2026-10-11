@@ -56,7 +56,7 @@ Ce que rien ne contrôle reste une règle, déclarée comme telle :
 
 ## Pas encore construit
 
-Ces contrôles viendront avec GitHub : « Refs #N » au lieu de « Closes #N » dans une PR, étiquette dormant.
+Le dépôt est sur GitHub, mais ces contrôles restent à écrire : « Refs #N » au lieu de « Closes #N » dans une PR, étiquette dormant.
 
 ## Tests
 

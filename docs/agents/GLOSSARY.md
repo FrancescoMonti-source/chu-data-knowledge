@@ -29,8 +29,14 @@ L'aller-retour à l'hôpital : l'agent prépare la requête, une personne l'exé
 ## prémisse
 Un claim cité dans depends_on : le claim s'appuie dessus.
 
+## claim atomique
+Un claim qu'un seul test peut réfuter, rangé dans systems/ ou domains/. Voir claims.md, « Taille ».
+
+## claim d'enquête
+Un claim rangé dans investigations/<id>/claims/ : la réponse à la question de l'enquête, construite sur des claims atomiques. Voir claims.md, « Claim sans preuve propre ».
+
 ## relecture (review)
-Le contrôle d'un claim par une autre personne, au moment où elle le réutilise. Voir review.md.
+Le contrôle d'un claim au moment où on le réutilise : par une autre personne (reviewed), ou par son auteur dans une nouvelle session (author-reread). Voir review.md.
 
 ## empreinte (fingerprint)
 Un code de 12 caractères calculé à partir d'un claim, de ses preuves et de ses prémisses. Si l'un d'eux change, l'empreinte change et la relecture est périmée.
