@@ -40,8 +40,6 @@ Le message qui accompagne la requête donne deux lignes à la personne : à quel
 
 ## Retour
 
-1. Vérifier l'id, la base et les colonnes attendues. Demander si la requête a été modifiée ; si oui, relire la version exécutée.
-2. Appliquer le filtre de privacy.md avant d'écrire quoi que ce soit.
-3. Écrire la preuve (evidence.md) et la relier au plan de l'enquête.
+Les étapes : .agents/skills/relay/SKILL.md, « Retour ».
 
 **Risque résiduel :** la personne modifie la requête sans le dire. Seuls un en-tête ou des colonnes qui ne correspondent pas le révèlent.
