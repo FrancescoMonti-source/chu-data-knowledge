@@ -51,8 +51,8 @@ SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*
                          r"(?:[\w\"\[\]]+\.)?\*")
 NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
 SELECT = re.compile(r"(?i)\bselect\b")
-SQL_COMMENT = re.compile(r"--[^\n]*|/\*.*?\*/", re.DOTALL)
-FENCE = re.compile(r"^\s*```\s*(\S*)", re.MULTILINE)
+SQL_COMMENT = re.compile(r"'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"|--[^\n]*|/\*.*?\*/", re.DOTALL)
+FENCE = re.compile(r"\s*```\s*(\S*)")
 MASK = re.compile(r"(?<!')<\s*10\b|<=\s*9\b|>=\s*10\b|>\s*9\b")
 AGGREGATE = re.compile(r"(?i)\b(?:count|sum|avg|min|max)\s*\(")
 UNQUOTED_HASH = re.compile(r"\s*([\w-]+):\s+[^\"'\s\[{][^\n]*\s#")
@@ -372,7 +372,8 @@ class Repository:
 
     def check_request(self, request):
         header, path = request["header"], request["path"]
-        sql = SQL_COMMENT.sub(" ", request["body"])  # un commentaire ne compte ni comme masquage ni comme WHERE 1=0
+        # Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste.
+        sql = SQL_COMMENT.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", request["body"])
         if not self.require(request, REQUEST_FIELDS):
             return
         self.allowed(request, "person_data", PERSON_DATA)
@@ -394,12 +395,22 @@ class Repository:
                         "Masquer toute statistique sous 10 dans la requête elle-même (docs/agents/requests.md).")
 
     def check_masked_result(self, evidence):
-        """Le contrôle des effectifs ne lit que les tableaux : le résultat doit en être un."""
-        body, path = evidence["body"], evidence["path"]
-        if not re.search(r"^\s*\|", body, re.MULTILINE):
+        """Le contrôle des effectifs ne lit que les tableaux : hors d'un bloc sql, le résultat n'est qu'un tableau."""
+        path, tags, outside, inside = evidence["path"], [], [], False
+        for line in evidence["body"].split("\n"):
+            fence = FENCE.match(line)
+            if fence:
+                tags += [] if inside else [fence.group(1).lower()]
+                inside = not inside
+            elif not inside and line.strip():
+                outside.append(line)
+        if not outside:
             self.report(RED, path, None, "le résultat n'est pas un tableau Markdown.",
                         "Recopier le résultat en tableau Markdown, avec ses colonnes (docs/agents/evidence.md).")
-        if any(tag.lower() != "sql" for tag in FENCE.findall(body)[::2]):
+        elif any(not line.lstrip().startswith("|") for line in outside):
+            self.report(RED, path, None, "des lignes sont hors du tableau Markdown du résultat.",
+                        "Mettre tout le résultat dans le tableau, et retirer le reste (docs/agents/evidence.md).")
+        if any(tag != "sql" for tag in tags):
             self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée (```sql).",
                         "Mettre le résultat dans le tableau, et retirer le bloc.")
         self.check_small_counts(evidence)

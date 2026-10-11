@@ -9,8 +9,8 @@ Un agent sans contexte a relu AGENTS.md, les skills et docs/agents en suivant un
 ## Décision
 
 - Une enquête se fait sur sa branche `enquete/<id>` ; chaque commit est poussé ; frame retrouve une enquête par ses branches (investigations/README.md, « La branche »).
-- Une colonne d'effectif s'appelle N_… ou NB_… ; le résultat d'une exécution est un tableau Markdown. Pour un résultat masqué, le contrôle refuse un résultat sans tableau ou avec un autre bloc qu'un bloc sql.
-- Le contrôle lit une requête sans ses commentaires ; WHERE 1=0 n'exempte qu'une requête à un seul SELECT.
+- Une colonne d'effectif s'appelle N_… ou NB_… ; le résultat d'une exécution est un tableau Markdown. Pour un résultat masqué, le contrôle refuse tout ce qui est hors du tableau, sauf un bloc sql.
+- Le contrôle lit une requête sans ses commentaires, en gardant le texte entre guillemets ; WHERE 1=0 n'exempte qu'une requête à un seul SELECT.
 - Une personne s'écrit toujours de la même façon : son prénom, plus l'initiale du nom si deux personnes ont le même prénom. read_by suit la même règle qu'author.
 - Une donnée de personne arrivée dans la conversation suit la procédure d'incident, comme dans un fichier.
 - sediment écrit les Conclusions avant le merge, demande l'accord de la personne avant d'écrire une relecture à son nom, et dit comment fermer ou suspendre l'issue.
