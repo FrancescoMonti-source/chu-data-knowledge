@@ -28,7 +28,7 @@ person_data: masked
 |---|---|
 | request | l'id de la requête |
 | run_at, database | recopiés du résultat, où la requête les imprime |
-| executed_by | la personne qui a exécuté |
+| executed_by | la personne qui a exécuté (claims.md, « Les personnes ») |
 | modified | no · yes · unknown. Si yes, la requête réellement exécutée suit le résultat, dans un bloc sql |
 | person_data | recopié de la requête : masked ou no-person-data |
 
@@ -54,7 +54,8 @@ read_at: 2026-10-07
 |---|---|
 | source | l'id de la fiche dans sources/ |
 | locator | l'endroit exact : page, chapitre, section |
-| read_by, read_at | qui a lu, et quand |
+| read_by | la personne pour qui l'agent lit, comme author (claims.md, « Les personnes ») |
+| read_at | la date de la lecture |
 
 Sous l'en-tête, une courte citation, en lignes qui commencent par >.
 
