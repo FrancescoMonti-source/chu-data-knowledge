@@ -13,7 +13,7 @@ Où chercher : docs/agents/layout.md, « Retrouver ce qu'on sait ». Les formats
    Fini quand : chaque terme et chaque table a été cherché, et la personne a reçu ce qui existe, avec l'état de relecture de chaque claim (claims.md, « Citer un claim »), et ce qui manque.
 2. **Si ça suffit,** répondre en citant les claims et leur état de relecture. S'arrêter là : aucune enquête ne s'ouvre.
    Fini quand : la personne a sa réponse, et elle dit qu'elle lui suffit.
-3. **Sinon, ouvrir l'enquête** (investigations/README.md). Ouvrir l'issue avec la question, le cadrage de frame et un plan. Le plan, c'est ce qui manque, en quelques étapes dans l'ordre, chacune avec ce à quoi elle sert : un document à lire, ou une requête à l'hôpital. Puis créer la branche de l'enquête (investigations/README.md, « La branche ») et `investigations/<id>/README.md`, avec la question, le cadrage et le numéro de l'issue. Enregistrer (même section).
+3. **Sinon, ouvrir l'enquête** (investigations/README.md). Ouvrir l'issue avec la question et un plan. Le plan, c'est ce qui manque, en quelques étapes dans l'ordre, chacune avec ce à quoi elle sert : un document à lire, ou une requête à l'hôpital. Puis créer la branche de l'enquête (investigations/README.md, « La branche ») et `investigations/<id>/README.md`, avec la question, le cadrage de frame et le numéro de l'issue. Enregistrer (même section).
    Fini quand : l'issue existe avec le plan, et le README est enregistré.
 
 ## Les documents
