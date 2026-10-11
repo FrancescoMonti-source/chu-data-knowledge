@@ -53,7 +53,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 - **documentary :** ce qu'un document dit. Cite au moins une lecture.
 - **empirical :** ce qu'on observe dans les données. Ajoute refuted_if : l'observation qui le contredirait, c'est-à-dire le test à lancer pour l'éprouver.
-- **decision :** un choix de l'équipe, par exemple une façon de compter. Ajoute responsible (qui a décidé) et reconsider_when (ce qui ferait revoir le choix). Une décision propre à une enquête vit dans l'enquête ; une décision qui vaut pour tous va dans domains/ et cite la lecture du document où elle est écrite (compte rendu, note : une source local).
+- **decision :** un choix de l'équipe qui vaut pour toutes les enquêtes, par exemple une façon de compter adoptée au CHU. Ajoute responsible (qui a décidé) et reconsider_when (ce qui ferait revoir le choix). Il va dans domains/ et cite la lecture du document où il est écrit (compte rendu, note : une source local). Une décision propre à une enquête n'est pas un claim : c'est une ligne de la section Choix de son README (investigations/README.md, « Choix »).
 
 ## Maturité
 
