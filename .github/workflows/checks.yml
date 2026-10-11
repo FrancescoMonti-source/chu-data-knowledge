@@ -2,7 +2,7 @@ name: checks
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, "enquete/**"]
 jobs:
   checks:
     runs-on: ubuntu-latest
