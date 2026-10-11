@@ -39,7 +39,7 @@ Un code de 12 caractères calculé à partir d'un claim, de ses preuves et de se
 Le passage d'un claim d'enquête vers systems/ ou domains/, avec le même id, quand une autre enquête le réutilise.
 
 ## friction
-Tout accroc pendant une session : une correction de la personne, un contrôle qui échoue, une étape refaite, une règle introuvable. La retro en fait une issue GitHub avec l'étiquette friction.
+Tout accroc pendant une session. La retro (.agents/skills/retro/SKILL.md) les relève et en fait des issues GitHub avec l'étiquette friction.
 
 ## ROUGE, ORANGE
 Les deux niveaux des contrôles : ROUGE bloque, ORANGE signale un travail à faire. Voir checks.md.
