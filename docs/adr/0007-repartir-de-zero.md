@@ -1,6 +1,6 @@
 # 0007 — Repartir de zéro
 
-Statut : accepté, 2026-10-10 (Francesco).
+Statut : accepté, 2026-10-10 (Francesco). Les branches codex/* ont été supprimées le 2026-10-11 (Francesco) : elles ne servaient plus de référence.
 
 ## Contexte
 
