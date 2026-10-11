@@ -15,7 +15,7 @@ Les preuves ne vont pas ici : elles vont dans systems/ ou domains/, où d'autres
 Une enquête se fait sur sa branche, `enquete/<id>`, où l'id est le nom de son dossier. La branche principale est main, la branche par défaut du dépôt sur GitHub : le README d'une enquête n'y arrive qu'avec sediment.
 
 - **Ouvrir :** créer la branche depuis la branche principale à jour.
-- **Retrouver :** `git fetch`, puis `git branch -r --list "origin/enquete/*"`. Une enquête est ouverte tant que son issue l'est.
+- **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/enquete/*"` : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
 - **Reprendre :** avant tout travail, se placer sur sa branche, puis y faire entrer la branche principale à jour (`git fetch`, puis `git merge origin/main`). Sinon l'enquête ne voit pas les claims entrés depuis son ouverture.
 - **Enregistrer :** `python checks/check.py` sans ROUGE ; commit sur la branche de l'enquête ; push (`git push -u origin enquete/<id>`) ; puis, pour chaque nouvelle preuve, un commentaire dans l'issue avec son id et l'étape du plan qu'elle couvre. La session suivante retrouve tout, même sur un autre ordinateur.
 
