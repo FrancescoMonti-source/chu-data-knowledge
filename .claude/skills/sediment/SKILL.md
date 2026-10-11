@@ -11,8 +11,8 @@ description: Transformer les preuves d'une enquête en claims et les faire entre
    Fini quand : chaque prémisse est relue ou déjà à jour, sauf pour un claim provisional.
 3. **Contrôler :** `python checks/check.py`.
    Fini quand : aucun ROUGE ; les ORANGE restants sont listés pour la personne.
-4. **Conclure le README.** Dans la section Conclusions du README de l'enquête : les claims, avec leur état de relecture. Commit et push sur la branche de l'enquête.
-   Fini quand : la section liste chaque claim que la branche fait entrer, et le commit est poussé.
+4. **Conclure le README.** Dans la section Conclusions du README de l'enquête : les claims, avec leur état de relecture. Relire Choix avec la personne : chaque décision de méthode de l'enquête y est. Commit et push sur la branche de l'enquête.
+   Fini quand : Conclusions liste chaque claim que la branche fait entrer, la personne a confirmé Choix, et le commit est poussé.
 5. **Faire entrer.** La personne qui mène l'enquête relit et confirme ; l'agent fait le merge de la branche de l'enquête dans la branche principale (investigations/README.md, « La branche »). Sur GitHub, par une PR qui écrit « Refs #N », jamais « Closes #N ». Un résultat partiel peut entrer pendant que l'enquête reste ouverte.
    Fini quand : la personne a confirmé et le merge est fait.
 6. **Suspendre ou fermer**, au choix de la personne, quand l'enquête s'arrête. Fermer : fermer l'issue à la main, avec un commentaire qui cite la PR. Suspendre : laisser l'issue ouverte, avec un commentaire qui dit où en est l'enquête et ce qui la relancerait.

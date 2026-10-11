@@ -25,4 +25,4 @@ Le protocole et ses règles : docs/agents/requests.md. Le filtre : docs/agents/p
 6. **Enregistrer** la preuve d'exécution (docs/agents/evidence.md). Lancer `python checks/check.py`, puis commit et push sur la branche de l'enquête. Puis la citer dans l'issue de l'enquête, avec l'étape du plan qu'elle couvre.
    Fini quand : aucun ROUGE, le commit est poussé, et la preuve est citée dans l'issue.
 
-Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. Si le plan change, un commentaire « Plan revu » dans l'issue (investigations/README.md, « Le plan »). sediment quand les preuves suffisent pour répondre.
+Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ». sediment quand les preuves suffisent pour répondre.
