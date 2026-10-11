@@ -13,7 +13,7 @@ description: Transformer les preuves d'une enquête en claims et les faire entre
    Fini quand : aucun ROUGE ; les ORANGE restants sont listés pour la personne.
 4. **Faire entrer.** La personne qui mène l'enquête relit et confirme ; l'agent fait le merge de la branche de l'enquête dans la branche principale (investigations/README.md, « La branche »). Sur GitHub, par une PR qui écrit « Refs #N », jamais « Closes #N ». Un résultat partiel peut entrer pendant que l'enquête reste ouverte.
    Fini quand : la personne a confirmé et le merge est fait.
-5. **Suspendre ou fermer.** Mettre à jour la section Conclusions du README de l'enquête : les claims, avec leur état de relecture. Rappeler la retro à la personne.
+5. **Suspendre ou fermer.** Mettre à jour la section Conclusions du README de l'enquête : les claims, avec leur état de relecture.
    Fini quand : la section est à jour.
 
 **Contester ou remplacer un claim :** review.md, « Contestation », puis les étapes 3 et 4.
