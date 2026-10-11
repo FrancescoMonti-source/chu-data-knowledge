@@ -19,7 +19,7 @@ description: Transformer les preuves d'une enquête en claims et les faire entre
    Fini quand : Conclusions liste chaque claim que la branche fait entrer, la personne a confirmé Choix, et le README est enregistré.
 5. **Faire entrer.** La personne qui mène l'enquête relit et confirme ; l'agent fait le merge de la branche de l'enquête dans la branche principale (investigations/README.md, « La branche »). Sur GitHub, par une PR qui écrit « Refs #N » : l'issue reste ouverte, et l'étape 6 la ferme ou la suspend. Un résultat partiel peut entrer pendant que l'enquête reste ouverte.
    Fini quand : la personne a confirmé et le merge est fait.
-6. **Suspendre ou fermer**, au choix de la personne, quand l'enquête s'arrête. Fermer : fermer l'issue à la main, avec un commentaire qui cite la PR. Suspendre : laisser l'issue ouverte, avec un commentaire qui dit où en est l'enquête et ce qui la relancerait.
-   Fini quand : l'issue est fermée, ou elle porte le commentaire de suspension.
+6. **Suspendre ou fermer**, au choix de la personne, quand l'enquête s'arrête. Fermer : une fois le dernier merge fait, supprimer la branche de l'enquête (`git push origin --delete enquete/<id>`), puis fermer l'issue à la main, avec un commentaire qui cite la PR. Suspendre : laisser l'issue ouverte, avec un commentaire qui dit où en est l'enquête et ce qui la relancerait.
+   Fini quand : la branche est supprimée et l'issue fermée, ou l'issue porte le commentaire de suspension.
 
 **Contester ou remplacer un claim :** review.md, « Contestation », puis les étapes 3 et 5.
