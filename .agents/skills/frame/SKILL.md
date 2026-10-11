@@ -5,7 +5,7 @@ description: Cadrer une question sur les données du CHU avec la personne, avant
 
 # frame
 
-Cette skill donne les étapes. Les règles sont dans docs/agents/ ; les faits, dans les claims. frame est une conversation : rien ne s'écrit dans le dépôt.
+frame est une conversation : rien ne s'écrit dans le dépôt.
 
 1. **Reprendre.** Si la question appartient à une enquête ouverte (`investigations/<id>/README.md`), lire son README et son issue : le dernier plan et les preuves déjà citées.
    Fini quand : l'état de l'enquête est connu, ou la question est nouvelle.

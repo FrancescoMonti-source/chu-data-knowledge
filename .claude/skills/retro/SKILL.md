@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # retro
 
-La personne la lance quand elle s'arrête, tant que la session est fraîche. La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige. Elle s'inspire de la skill retro de supermatt.
+La personne la lance quand elle s'arrête, tant que la session est fraîche. La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige.
 
 Une friction, c'est tout accroc pendant une session (étape 1). Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois qu'il revient, un commentaire.
 

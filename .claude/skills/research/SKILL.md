@@ -5,7 +5,7 @@ description: Chercher ce qui est déjà écrit sur une question cadrée, d'abord
 
 # research
 
-Cette skill donne les étapes. Où chercher : docs/agents/layout.md, « Retrouver ce qu'on sait ». Les formats : docs/agents/evidence.md. Si l'enquête est déjà ouverte, passer directement aux documents.
+Où chercher : docs/agents/layout.md, « Retrouver ce qu'on sait ». Les formats : docs/agents/evidence.md. Si l'enquête est déjà ouverte, passer directement aux documents.
 
 ## Le dépôt
 
