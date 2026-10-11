@@ -1,6 +1,6 @@
 ---
 name: research
-description: Chercher ce qui est déjà écrit sur une question cadrée, d'abord dans les claims du dépôt, puis dans les documents (textes réglementaires, guides de l'ATIH, documentation d'un éditeur, documents du CHU). Utiliser après frame, et quand une étape du plan demande un document.
+description: Chercher ce qui est déjà écrit sur une question cadrée, d'abord dans les claims du dépôt, puis dans les documents. Utiliser après frame, et quand une étape du plan demande un document.
 ---
 
 # research

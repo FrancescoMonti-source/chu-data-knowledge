@@ -6,9 +6,9 @@ disable-model-invocation: true
 
 # retro
 
-La personne la lance quand elle s'arrête, tant que la session est fraîche. La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige.
+La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige.
 
-Une friction, c'est tout accroc pendant une session (étape 1). Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois qu'il revient, un commentaire.
+Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois qu'il revient, un commentaire.
 
 1. **Relever** les accrocs de la session : corrections de la personne, contrôles qui ont échoué, étapes refaites, outils refusés, règles cherchées ou mal comprises. Les présenter en une ligne chacun, et demander à la personne ce qui manque.
    Fini quand : la personne a confirmé la liste. Une liste vide est un bon résultat : la retro s'arrête là.
