@@ -25,10 +25,3 @@ Une friction, c'est tout accroc pendant une session (étape 1). Chaque problème
    Fini quand : chaque accroc gardé est relié à une issue, ou il est nouveau.
 4. **Écrire.** Accroc déjà connu : un commentaire « Occurrence : <date>, <skill>, <enquête> : <ce qui s'est passé> », et `gh issue reopen` si l'issue était fermée. Accroc nouveau : une issue au format de .github/ISSUE_TEMPLATE/friction.md, avec l'étiquette friction. Sans `gh`, donner le texte à la personne, qui le colle. Décrire l'accroc, jamais les données : aucun extrait de résultat (docs/agents/privacy.md).
    Fini quand : chaque accroc gardé a son issue ou son commentaire, et la personne sait quelles issues ont deux occurrences ou plus.
-
-## Corriger (mainteneur)
-
-Le mainteneur corrige une friction quand elle a au moins deux occurrences, ou tout de suite si elle touche la sécurité des données. Une erreur évidente dans une skill se corrige aussi tout de suite.
-
-- Un commit par changement.
-- Fermer l'issue avec un commentaire qui cite le commit ou l'ADR. Une friction qui revient après sa correction rouvre l'issue : la correction n'a pas suffi.

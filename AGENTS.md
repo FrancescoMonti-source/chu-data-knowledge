@@ -22,7 +22,7 @@ Ce dépôt garde, avec leurs preuves, ce que nous découvrons sur les données d
 | préparer une requête, enregistrer un résultat | docs/agents/requests.md |
 | réutiliser, relire ou contester un claim | docs/agents/review.md |
 | ouvrir, retrouver ou reprendre une enquête | investigations/README.md |
-| corriger une friction | .agents/skills/retro/SKILL.md, « Corriger » |
+| corriger une friction | docs/agents/maintenance.md |
 | comprendre un message ROUGE ou ORANGE | docs/agents/checks.md |
 | comprendre un mot de la méthode | docs/agents/GLOSSARY.md |
 | savoir pourquoi une règle existe | docs/adr/ |
