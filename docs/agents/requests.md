@@ -38,6 +38,8 @@ Les règles 1 à 5 valent pour masked ; les règles 2 et 6, pour toutes les requ
 
 Le message qui accompagne la requête donne deux lignes à la personne : à quelle étape du plan sert la requête et ce qui change selon le résultat ; où et comment l'exécuter. Il lui rappelle de prévenir si elle modifie la requête.
 
+Il donne aussi une ligne par règle qui s'applique à la requête : comment elle la respecte. Par exemple : « Règle 4 : la ligne TOTAL est masquée dès qu'une cellule l'est. » Avec ces lignes, la personne vérifie le masquage avant d'exécuter.
+
 ## Retour
 
 Les étapes : .agents/skills/relay/SKILL.md, « Retour ».
