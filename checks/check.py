@@ -50,6 +50,8 @@ COUNT_COLUMN = re.compile(r"(?i)^(?:n|nb)_")
 SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*\d+\s*\)?\s+(?:percent\s+)?)*|,\s*)"
                          r"(?:[\w\"\[\]]+\.)?\*")
 NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
+SELECT = re.compile(r"(?i)\bselect\b")
+SQL_COMMENT = re.compile(r"--[^\n]*|/\*.*?\*/", re.DOTALL)
 MASK = re.compile(r"(?<!')<\s*10\b|<=\s*9\b|>=\s*10\b|>\s*9\b")
 AGGREGATE = re.compile(r"(?i)\b(?:count|sum|avg|min|max)\s*\(")
 UNQUOTED_HASH = re.compile(r"\s*([\w-]+):\s+[^\"'\s\[{][^\n]*\s#")
@@ -368,11 +370,12 @@ class Repository:
             self.allowed(source, "authority", SOURCE_AUTHORITY)
 
     def check_request(self, request):
-        header, path, sql = request["header"], request["path"], request["body"]
+        header, path = request["header"], request["path"]
+        sql = SQL_COMMENT.sub(" ", request["body"])  # un commentaire ne compte ni comme masquage ni comme WHERE 1=0
         if not self.require(request, REQUEST_FIELDS):
             return
         self.allowed(request, "person_data", PERSON_DATA)
-        if NO_ROWS.search(sql):
+        if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
             return
         if SELECT_STAR.search(sql):
             self.report(RED, path, None, "SELECT * n'est admis qu'avec WHERE 1=0 (noms des colonnes seulement).",

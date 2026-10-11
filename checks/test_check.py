@@ -446,6 +446,23 @@ class RepositoryTest(unittest.TestCase):
         self.write({path: REQUEST.replace("-- purpose:", "-- person_data: no-person-data\n-- purpose:")})
         self.assertProblem(RED, path, "clé répétée")
 
+    def test_comments_do_not_count_in_a_request(self):
+        path = "systems/cora/requests/20261013-patients.sql"
+        header = "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
+        self.write({path: header + "SELECT * FROM TB_PATIENT; -- WHERE 1=0\n"})
+        self.assertProblem(RED, path, "SELECT *")
+        self.write({path: header + "SELECT * FROM TB_PATIENT /* WHERE 1=0 */;\n"})
+        self.assertProblem(RED, path, "SELECT *")
+        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
+        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "GROUP BY ANNEE;", "GROUP BY ANNEE; -- < 10")
+        self.assertProblem(RED, "systems/cora/requests/20261007-mvt-rum.sql", "<10")
+
+    def test_column_names_query_is_a_single_select(self):
+        path = "systems/cora/requests/20261013-patients.sql"
+        self.write({path: "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
+                          "SELECT * FROM TB_PATIENT WHERE 1=0 UNION SELECT * FROM TB_PATIENT;\n"})
+        self.assertProblem(RED, path, "SELECT *")
+
     def test_mask_written_as_at_most_nine(self):
         self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
         self.assertClean()
