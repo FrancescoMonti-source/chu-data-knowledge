@@ -13,8 +13,8 @@ Le protocole et ses règles : docs/agents/requests.md. Le filtre : docs/agents/p
    Fini quand : la valeur est choisie, masked ou no-person-data.
 2. **Écrire la requête** dans `systems/<système>/requests/`, en suivant les claims sur les tables qu'elle touche. Sans claim sur ces tables, demander d'abord à la personne le moteur de la base (SQL Server, Oracle…), et commencer par une requête WHERE 1=0 pour connaître les colonnes (requests.md, règle 2).
    Fini quand : `python checks/check.py` ne donne aucun ROUGE sur la requête, et chaque règle de requests.md qui s'applique a sa ligne pour la personne (requests.md, « Aller »).
-3. **Livrer.** Commit et push de la requête sur la branche de l'enquête, puis la donner à la personne avec son message (requests.md, « Aller »).
-   Fini quand : la requête livrée est poussée, et la personne l'a, avec son message.
+3. **Livrer.** Enregistrer la requête (investigations/README.md, « La branche »), puis la donner à la personne avec son message (requests.md, « Aller »).
+   Fini quand : la requête est enregistrée, et la personne l'a, avec son message.
 
 ## Retour
 
@@ -22,7 +22,7 @@ Le protocole et ses règles : docs/agents/requests.md. Le filtre : docs/agents/p
    Fini quand : ces quatre points sont confirmés.
 5. **Filtrer** le résultat (privacy.md). S'il contient une donnée de personne : ne rien écrire, prévenir la personne, suivre privacy.md, « Incident », puis écrire une nouvelle version de la requête qui masque mieux (étape 2).
    Fini quand : le résultat ne contient que des agrégats, sans effectif de 1 à 9 en clair.
-6. **Enregistrer** la preuve d'exécution (docs/agents/evidence.md). Lancer `python checks/check.py`, puis commit et push sur la branche de l'enquête. Puis la citer dans l'issue de l'enquête, avec l'étape du plan qu'elle couvre.
-   Fini quand : aucun ROUGE, le commit est poussé, et la preuve est citée dans l'issue.
+6. **Écrire et enregistrer** la preuve d'exécution (docs/agents/evidence.md ; investigations/README.md, « La branche »).
+   Fini quand : la preuve est enregistrée.
 
 Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ». sediment quand les preuves suffisent pour répondre.

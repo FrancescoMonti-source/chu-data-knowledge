@@ -13,8 +13,8 @@ Où chercher : docs/agents/layout.md, « Retrouver ce qu'on sait ». Les formats
    Fini quand : chaque terme et chaque table a été cherché, et la personne a reçu ce qui existe, avec l'état de relecture de chaque claim (claims.md, « Citer un claim »), et ce qui manque.
 2. **Si ça suffit,** répondre en citant les claims et leur état de relecture. S'arrêter là : aucune enquête ne s'ouvre.
    Fini quand : la personne a sa réponse, et elle dit qu'elle lui suffit.
-3. **Sinon, ouvrir l'enquête** (investigations/README.md). Ouvrir l'issue avec la question, le cadrage de frame et un plan. Le plan, c'est ce qui manque, en quelques étapes dans l'ordre, chacune avec ce à quoi elle sert : un document à lire, ou une requête à l'hôpital. Puis créer la branche de l'enquête (investigations/README.md, « La branche ») et `investigations/<id>/README.md`, avec la question, le cadrage et le numéro de l'issue. Commit et push.
-   Fini quand : l'issue existe avec le plan, et le README est poussé sur la branche de l'enquête.
+3. **Sinon, ouvrir l'enquête** (investigations/README.md). Ouvrir l'issue avec la question, le cadrage de frame et un plan. Le plan, c'est ce qui manque, en quelques étapes dans l'ordre, chacune avec ce à quoi elle sert : un document à lire, ou une requête à l'hôpital. Puis créer la branche de l'enquête (investigations/README.md, « La branche ») et `investigations/<id>/README.md`, avec la question, le cadrage et le numéro de l'issue. Enregistrer (même section).
+   Fini quand : l'issue existe avec le plan, et le README est enregistré.
 
 ## Les documents
 
@@ -24,9 +24,7 @@ Pour chaque étape du plan qui demande un document :
    Fini quand : la fiche existe, avec l'édition dans l'id et l'autorité.
 5. **Lire les passages utiles.** Pour chaque passage, un fichier de lecture dans le dossier evidence/ du sujet du passage (docs/agents/layout.md), avec l'endroit exact et une courte citation.
    Fini quand : chaque passage dont l'enquête se sert a son fichier, et aucune citation ne contient de donnée de personne (docs/agents/privacy.md).
-6. **Contrôler et enregistrer :** `python checks/check.py`, puis commit et push sur la branche de l'enquête.
-   Fini quand : aucun ROUGE, et le commit est poussé.
-7. **Relier au plan.** Dans l'issue de l'enquête, un commentaire qui donne, pour chaque nouvelle preuve, son id et l'étape qu'elle couvre.
-   Fini quand : chaque nouvelle preuve est citée dans l'issue.
+6. **Enregistrer** (investigations/README.md, « La branche »).
+   Fini quand : chaque nouvelle preuve est enregistrée.
 
 Ensuite : relay pour une étape qui demande des données de l'hôpital ; sediment quand les preuves suffisent pour répondre. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ».
