@@ -21,7 +21,7 @@ Une friction, c'est tout accroc pendant une session (étape 1). Chaque problème
 
    Écarter un accroc ponctuel que rien dans les règles n'aurait évité. Pour chacun des autres, proposer une correction : corriger la règle existante plutôt qu'en ajouter une.
    Fini quand : chaque accroc a une cause et une correction que la personne accepte, ou il est écarté avec sa raison.
-3. **Chercher** parmi les issues friction, ouvertes et fermées, celle qui décrit le même accroc : `gh issue list --label friction --state all`, puis `gh issue view <n>`.
+3. **Chercher** parmi les issues friction, ouvertes et fermées, celle qui décrit le même accroc : `gh issue list --label friction --state all`, puis `gh issue view <n>`. Sans `gh`, demander la liste à la personne.
    Fini quand : chaque accroc gardé est relié à une issue, ou il est nouveau.
 4. **Écrire.** Accroc déjà connu : un commentaire « Occurrence : <date>, <skill>, <enquête> : <ce qui s'est passé> », et `gh issue reopen` si l'issue était fermée. Accroc nouveau : une issue au format de .github/ISSUE_TEMPLATE/friction.md, avec l'étiquette friction. Sans `gh`, donner le texte à la personne, qui le colle. Décrire l'accroc, jamais les données : aucun extrait de résultat (docs/agents/privacy.md).
    Fini quand : chaque accroc gardé a son issue ou son commentaire, et la personne sait quelles issues ont deux occurrences ou plus.

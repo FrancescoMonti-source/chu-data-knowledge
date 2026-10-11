@@ -9,17 +9,17 @@ Statut : accepté, 2026-10-09 (architecture v0.4, annexe). Certaines lignes sont
 | depends_on bloquant, retrait motivé | l'agent ne peut pas effacer la ligne pour faire passer le contrôle | en vigueur ; le retrait motivé est une règle de confiance |
 | Relecture de l'auteur marquée à part | le champ promet une deuxième personne | en vigueur (author-reread) |
 | Preuves dans des fichiers, pas dans l'issue | les contrôles ne lisent que les fichiers ; l'issue finit par être fermée | en vigueur |
-| Copier les preuves depuis cora | les contrôles automatiques n'ouvrent pas un autre dépôt privé | en vigueur |
+| Copier les preuves depuis cora_knowledge, l'ancien dépôt | les contrôles automatiques n'ouvrent pas un autre dépôt privé | en vigueur |
 | Protection des données dans la requête, pas de checklist | la personne qui exécute ne suit pas toujours une checklist | en vigueur, plus un filtre avant tout enregistrement (0001) |
 | Pas de skill par système | dialectes et pièges sont des faits qui évoluent, pas des procédures | en vigueur |
 | Quatre skills au départ | la structure se mérite avec de vraies enquêtes | modifié : cinq skills, retro écrite dès le départ (0006) |
 | Debrief par tous, rétro par les mainteneurs en cas de répétition | évite une nouvelle règle pour chaque anecdote | modifié : retro par tous en fin de session, correction par le mainteneur en cas de répétition (0008) ; sans arrêt après deux échecs (0001) |
-| « Refs #N », jamais « Closes #N » | un résultat partiel ne doit pas fermer l'enquête | en vigueur ; contrôle à venir avec GitHub |
+| « Refs #N », jamais « Closes #N » | un résultat partiel ne doit pas fermer l'enquête | en vigueur ; contrôle à écrire |
 | Étiquette dormant, pas de fermeture automatique | fermer n'est pas résoudre | à faire ; en attendant, une enquête suspendue garde son issue ouverte, avec un commentaire (sediment) |
 | Quatre liens | ce sont ceux qu'utilisent les contrôles ; le reste, ce sont des champs | en vigueur |
 | Pas d'index au départ | la recherche dans les champs des claims suffit ; un index généré met en conflit les PR parallèles | en vigueur |
-| Token sans « Administration » ; pas de compte pour les agents | protège les réglages à faible coût | à appliquer à l'arrivée sur GitHub |
-| Première enquête, puis import, puis archivage de cora | le format des claims se fixe avec la première enquête | modifié : l'usage peut commencer sans nouveau pilote (0001) |
+| Token sans « Administration » ; pas de compte pour les agents | protège les réglages à faible coût | à appliquer : le dépôt est sur GitHub depuis le 2026-10-10 |
+| Première enquête, puis import, puis archivage de cora_knowledge | le format des claims se fixe avec la première enquête | modifié : l'usage peut commencer sans nouveau pilote (0001) |
 | CODEOWNERS seulement avec plusieurs mainteneurs | seul, personne ne peut approuver ses propres PR | en vigueur |
 | Chaque preuve est un fichier, même une lecture | un seul format : les mêmes liens et les mêmes contrôles pour toutes les preuves | en vigueur |
 | Un claim = un test (refuted_if) | si un fait tombe, il tombe seul, et on sait quoi revoir | modifié : refuted_if seulement pour les claims empiriques (0001) ; la taille reste « un test » |

@@ -43,7 +43,7 @@ Points ouverts : non vérifié sur l'instance de production.
 
 Clés et valeurs en anglais ; texte libre en français. Toutes les valeurs sont lues comme du texte : no reste « no ».
 
-Le texte libre de l'en-tête (statement, scope, refuted_if, responsible, reconsider_when, work) s'écrit entre guillemets doubles : sans eux, « : » rend l'en-tête illisible et « # » coupe la valeur. Cette règle vaut pour tous les en-têtes du dépôt.
+Le texte libre de l'en-tête (statement, scope, refuted_if, responsible, reconsider_when, work ; dans les preuves et les sources : locator, title, publisher, location) s'écrit entre guillemets doubles : sans eux, « : » rend l'en-tête illisible et « # » coupe la valeur. Cette règle vaut pour tous les en-têtes du dépôt.
 
 ## Les personnes
 
