@@ -68,4 +68,4 @@ checks/            les contrôles et leurs tests
 
 ## Historique
 
-Cette version repart de zéro depuis l'architecture v0.4 et ses six révisions (docs/adr/0007). Les branches codex/* gardent la première version, pour référence.
+Cette version repart de zéro depuis l'architecture v0.4 et ses six révisions (docs/adr/0007). La première version, faite avec Codex, a été supprimée le 2026-10-11.
