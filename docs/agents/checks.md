@@ -23,7 +23,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | superseded : un autre claim déclare le remplacer |
 | ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes |
 | ROUGE | lecture : une citation |
-| ROUGE | requête : SELECT * seulement avec WHERE 1=0 ; si masked et sans WHERE 1=0, l'id dans le résultat, un agrégat, le seuil < 10 |
+| ROUGE | requête, lue sans ses commentaires : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 |
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
 | ROUGE | depends_on vers le claim d'une autre personne sans relecture à jour (ORANGE si le claim est provisional) |
 | ROUGE | .claude/skills identique à .agents/skills |
