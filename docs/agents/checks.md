@@ -1,6 +1,6 @@
 # Contrôles
 
-Les contrôles vérifient la forme, pas la vérité. On lance `python checks/check.py` avant chaque commit ; sur GitHub, la CI le lancera à chaque PR.
+Les contrôles vérifient la forme, pas la vérité. On lance `python checks/check.py` avant chaque commit ; sur GitHub, la CI le lance à chaque PR.
 
 - **ROUGE :** quelque chose est cassé. À corriger avant le merge. Le script sort avec le code 1.
 - **ORANGE :** du travail reste à faire. Ne bloque pas : un résultat partiel ou une contestation peuvent entrer.
