@@ -60,4 +60,4 @@ Le dépôt est sur GitHub, mais ces contrôles restent à écrire : « Refs #N �
 
 ## Tests
 
-`python -m unittest discover checks`. Un contrôle nouveau arrive avec son test.
+`python -m unittest discover checks`. Un contrôle nouveau arrive avec son test. Les exemples de docs/agents (blocs markdown et sql) passent aussi par le contrôle : un test les recopie dans un dépôt d'essai. Changer une règle, c'est aussi mettre ces exemples à jour.
