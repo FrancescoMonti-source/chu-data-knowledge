@@ -1,5 +1,6 @@
 """Tests des contrôles. Lancer : python -m unittest discover checks"""
 
+import re
 import subprocess
 import sys
 import tempfile
@@ -8,8 +9,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from check import ORANGE, RED, Repository  # noqa: E402
+from check import ORANGE, RED, Repository, front_matter, normalized, request_header  # noqa: E402
 from sync_skills import sync  # noqa: E402
+
+DOCS = Path(__file__).resolve().parent.parent / "docs" / "agents"
 
 REQUEST = """\
 -- id: 20261007-mvt-rum
@@ -522,6 +525,28 @@ class RepositoryTest(unittest.TestCase):
     def test_birth_date_in_a_table_column(self):
         self.write({"investigations/2026-test/notes.md": "| SEXE | DATE_NAISSANCE |\n|---|---|\n| F | 1951-03-12 |\n"})
         self.assertProblem(RED, "investigations/2026-test/notes.md", "tableau")
+
+    # Exemples de docs/agents
+
+    def test_doc_examples_pass_the_check(self):
+        """Les exemples que les agents recopient, mis à la place des fichiers de base (mêmes ids), passent le contrôle."""
+        folders = set()
+        for doc in sorted(DOCS.glob("*.md")):
+            text = normalized(doc.read_text(encoding="utf-8"))
+            for language, example in re.findall(r"^```(markdown|sql)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
+                if language == "sql":
+                    name = f"systems/cora/requests/{request_header(example)[0]['id']}.sql"
+                elif example.startswith("---\n"):
+                    header = front_matter(example)[0]
+                    folder = ("systems/cora/claims" if "kind" in header else
+                              "systems/cora/evidence" if "type" in header else "sources")
+                    name = f"{folder}/{header['id']}.md"
+                else:
+                    continue
+                self.write({name: example})
+                folders.add(name.split("/")[-2])
+        self.assertEqual(folders, {"claims", "evidence", "requests", "sources"})
+        self.assertClean()
 
     # Ligne de commande
 
