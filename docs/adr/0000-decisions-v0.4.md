@@ -24,7 +24,7 @@ Statut : accepté, 2026-10-09 (architecture v0.4, annexe). Certaines lignes sont
 | Chaque preuve est un fichier, même une lecture | un seul format : les mêmes liens et les mêmes contrôles pour toutes les preuves | en vigueur |
 | Un claim = un test (refuted_if) | si un fait tombe, il tombe seul, et on sait quoi revoir | modifié : refuted_if seulement pour les claims empiriques (0001) ; la taille reste « un test » |
 | Ligne de relecture obligatoire, relecteur différent de l'auteur | le contrôle voit l'étiquette, pas le travail : la ligne rend le raccourci visible | modifié : la ligne devient le champ work, l'auteur est déclaré, l'empreinte lie la relecture à une version (0003) |
-| Plan dans l'issue, revu par un nouveau commentaire | échafaudage, pas connaissance | en vigueur ; tant que le dépôt est local, le plan vit dans le README de l'enquête |
+| Plan dans l'issue, revu par un nouveau commentaire | échafaudage, pas connaissance | en vigueur |
 | Faits, conventions et procédures séparés | une règle qui vaut aussi hors d'une skill ne peut pas vivre dans la skill | en vigueur |
 | Debrief : une convention et une étape, pas une skill | une skill de moins ; noter et juger ne cohabitent pas | modifié : plus de debrief, la retro en fin de session (0008) |
 | writing-for-agents réutilisée, pas pour les claims | ses leviers servent aux longs documents, pas à un claim de dix lignes | en vigueur |

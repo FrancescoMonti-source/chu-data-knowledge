@@ -4,7 +4,7 @@ Une enquête répond à une question précise. Un dossier par enquête, nommé p
 
 ```text
 investigations/uf-vs-rum/
-  README.md   la question, le cadrage, le plan, les choix, les conclusions
+  README.md   la question, le cadrage, les choix, les conclusions
   claims/     les claims d'enquête
 ```
 
@@ -16,19 +16,22 @@ Les preuves ne vont pas ici : elles vont dans systems/ ou domains/, où d'autres
 # <la question, en une phrase>
 
 Personne : <qui mène l'enquête>
-Issue : <#N, quand le dépôt sera sur GitHub>
+Issue : #<N>
 
 ## Cadrage
 But, population, période, unité d'analyse, mesure, comparaison.
 
-## Plan
-1. <étape> : <à quoi elle sert>
-
 ## Choix
-Pourquoi une étape a été ajoutée ou sautée ; les décisions de méthode.
+Les décisions de méthode.
 
 ## Conclusions
 Les claims de l'enquête, avec leur état de relecture.
 ```
 
-Le plan est un échafaudage. Sur GitHub, il vit dans l'issue, et un plan revu est un nouveau commentaire « Plan revu ». Tant que le dépôt est local, il vit ici : un plan revu s'ajoute en dessous, avec sa date et sa raison, sans réécrire l'ancien. Le plan valable est le dernier.
+## Le plan
+
+Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .github/ISSUE_TEMPLATE/enquete.md).
+
+- Un plan revu est un nouveau commentaire « Plan revu », avec sa raison. Le plan valable est le dernier.
+- Chaque preuve enregistrée est citée dans un commentaire de l'issue : son id et l'étape qu'elle couvre.
+- Sans `gh`, l'agent donne le texte à la personne, qui le colle dans l'issue.
