@@ -305,7 +305,27 @@ class Repository:
                 for other in self.records.values() if other["role"] == "claim"):
             self.report(RED, path, "lifecycle", "aucun claim ne déclare remplacer celui-ci.",
                         "Ajouter supersedes: [" + header["id"] + "] dans le claim qui le remplace.")
+        if not header["supported_by"]:
+            self.check_derived_maturity(claim)
         self.check_review(claim)
+
+    def check_derived_maturity(self, claim):
+        """Sans preuve propre, la maturité vient des prémisses : seul provisional est plus faible."""
+        header = claim["header"]
+        premises = [self.records[i]["header"]["maturity"] for i in header["depends_on"]
+                    if self.records.get(i, {}).get("valid")]
+        if not premises:
+            return
+        if "provisional" in premises:
+            expected = "provisional"
+        elif header["kind"] == "empirical" and "observed" in premises:
+            expected = "observed"
+        else:
+            expected = "documented"
+        if header["maturity"] not in (expected, "provisional"):
+            self.report(RED, claim["path"], "maturity", f"la maturité ne suit pas celle des prémisses : {expected} attendu.",
+                        f"Écrire maturity: {expected}, ou provisional "
+                        "(docs/agents/claims.md, « Claim sans preuve propre »).")
 
     def check_review(self, claim):
         review, path, author = claim["header"]["review"], claim["path"], claim["header"]["author"]
