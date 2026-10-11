@@ -21,6 +21,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | claim de domains/ sans tables (docs/adr/0005) |
 | ROUGE | s'il cite des preuves : documentary, au moins une lecture ; empirical observed, une exécution sans unknown |
 | ROUGE | superseded : un autre claim déclare le remplacer |
+| ROUGE | claim sans preuve propre : maturité qui suit ses prémisses, ou provisional (claims.md) |
 | ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes ; si masked, rien hors du tableau Markdown du résultat, sauf un bloc ```sql |
 | ROUGE | lecture : une citation |
 | ROUGE | requête, lue sans ses commentaires (le texte entre guillemets reste) : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 |
@@ -51,8 +52,7 @@ Ce que rien ne contrôle reste une règle, déclarée comme telle :
 - on n'approuve qu'après avoir lu ;
 - une prémisse retirée est expliquée ;
 - son propre claim, réutilisé depuis une autre enquête, est relu en author-reread ;
-- une requête exécutée ne change plus ;
-- un claim sans preuve propre n'est pas plus mûr que sa prémisse la moins mûre.
+- une requête exécutée ne change plus.
 
 ## Pas encore construit
 

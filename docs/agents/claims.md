@@ -63,7 +63,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 ## Claim sans preuve propre
 
-Un claim peut ne citer que des prémisses (supported_by: []) : c'est le cas de la réponse à une question. Promu dans systems/ ou domains/ (layout.md), il garde cette forme : ses prémisses y sont déjà, avec leurs preuves. Il prend la sorte de sa conclusion, et une maturité qui ne dépasse pas celle de sa prémisse la moins mûre. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
+Un claim peut ne citer que des prémisses (supported_by: []) : c'est le cas de la réponse à une question. Promu dans systems/ ou domains/ (layout.md), il garde cette forme : ses prémisses y sont déjà, avec leurs preuves. Il prend la sorte de sa conclusion. Sa maturité vient de ses prémisses : provisional si l'une d'elles l'est ; sinon observed s'il est empirical et qu'une prémisse au moins est observed ; sinon documented. documented et observed disent ce qui appuie un claim, pas à quel point il est sûr : seul provisional est plus faible. L'auteur peut toujours choisir provisional, par prudence. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
 
 ## Taille
 

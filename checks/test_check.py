@@ -419,6 +419,20 @@ class RepositoryTest(unittest.TestCase):
         self.edit("domains/pmsi/claims/reponse.md", "depends_on: [rum-definition]", "depends_on: []")
         self.assertProblem(RED, "domains/pmsi/claims/reponse.md", "au moins une preuve ou une prémisse")
 
+    def test_answer_maturity_follows_its_premises(self):
+        path = "investigations/uf-vs-rum/claims/reponse.md"
+        self.edit("domains/pmsi/claims/rum-definition.md", "author: Marie", "author: Francesco")
+        self.write({path: claim("reponse", depends_on="rum-definition, mvt-rum-lien")
+                    .replace("supported_by: [20261008-mvt-rum]", "supported_by: []")})
+        self.assertClean()
+        self.edit(path, "maturity: observed", "maturity: documented")
+        self.assertProblem(RED, path, "maturité")
+        self.edit(path, "maturity: documented", "maturity: provisional")
+        self.assertClean()
+        self.edit(path, "maturity: provisional", "maturity: observed")
+        self.edit("systems/cora/claims/mvt-rum-lien.md", "maturity: observed", "maturity: provisional")
+        self.assertProblem(RED, path, "maturité")
+
     def test_terms_may_have_accents(self):
         self.edit("systems/cora/GLOSSARY.md", "## cora:rum", "## cora:séjour\n\nUn séjour.\n\n## cora:rum")
         self.edit("systems/cora/claims/mvt-rum-lien.md", "cora:rum]", "cora:rum, cora:séjour]")
