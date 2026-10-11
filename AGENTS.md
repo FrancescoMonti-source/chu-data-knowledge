@@ -21,6 +21,7 @@ Ce dépôt garde, avec leurs preuves, ce que nous découvrons sur les données d
 | écrire une preuve ou une fiche de source | docs/agents/evidence.md |
 | préparer une requête, enregistrer un résultat | docs/agents/requests.md |
 | réutiliser, relire ou contester un claim | docs/agents/review.md |
+| ouvrir, retrouver ou reprendre une enquête | investigations/README.md |
 | corriger une friction | .agents/skills/retro/SKILL.md, « Corriger » |
 | comprendre un message ROUGE ou ORANGE | docs/agents/checks.md |
 | comprendre un mot de la méthode | docs/agents/GLOSSARY.md |
