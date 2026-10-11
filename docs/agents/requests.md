@@ -10,7 +10,7 @@ Une requête est un fichier .sql dans `systems/<système>/requests/`, nommé par
 -- id: 20261007-mvt-rum
 -- person_data: masked
 -- purpose: compter les mouvements par année (étape 2 du plan)
--- La base et l'heure s'écrivent selon le dialecte du système : voir ses claims.
+-- La base et l'heure s'écrivent selon le dialecte du système : voir ses claims, ou demander à la personne.
 SELECT '20261007-mvt-rum' AS request_id,
        DB_NAME() AS database_name,
        CURRENT_TIMESTAMP AS run_at,

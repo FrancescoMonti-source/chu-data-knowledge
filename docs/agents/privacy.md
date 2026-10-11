@@ -12,11 +12,11 @@ Décrire une colonne est permis : « NIR : numéro d'inscription au répertoire 
 
 ## Incident
 
-Si une donnée de personne arrive dans un fichier :
+Si une donnée de personne arrive dans la conversation ou dans un fichier :
 
-1. **Arrêter.** Pas de commit ; si le commit est fait, pas de push.
+1. **Arrêter.** Ne rien écrire ; si c'est écrit, pas de commit ; si le commit est fait, pas de push.
 2. **Prévenir le mainteneur** (Francesco), sans recopier la donnée.
-3. **Le mainteneur coordonne l'effacement.** Si la donnée est dans l'historique de git, il le réécrit : c'est le seul cas où on réécrit l'historique.
-4. **Le mainteneur note l'incident :** date, fichier, sorte de donnée, cause. Jamais la valeur.
+3. **Le mainteneur coordonne l'effacement** d'un fichier touché. Si la donnée est dans l'historique de git, il le réécrit : c'est le seul cas où on réécrit l'historique.
+4. **Le mainteneur note l'incident :** date, conversation ou fichier, sorte de donnée, cause. Jamais la valeur.
 
 Les relectures ne dépendent pas de l'historique de git : une réécriture ne les casse pas.
