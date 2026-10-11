@@ -11,7 +11,7 @@ Cette skill donne les étapes. Les formats et les règles sont dans docs/agents/
    Fini quand : chaque conclusion de l'enquête est un claim, et chaque claim cite ses preuves ou ses prémisses.
 2. **Relire ce qu'on réutilise** (review.md). Pour chaque prémisse d'une autre personne sans relecture à jour : la relecture au réemploi. Pour chaque prémisse de la même personne, venue d'une autre enquête : author-reread, dans une nouvelle session. Pour chaque prémisse qui est un claim d'enquête : la promotion (layout.md).
    Fini quand : chaque prémisse est relue ou déjà à jour, sauf pour un claim provisional.
-3. **Contrôler :** `python checks/check.py`. Corriger le contenu, jamais le contrôle.
+3. **Contrôler :** `python checks/check.py`.
    Fini quand : aucun ROUGE ; les ORANGE restants sont listés pour la personne.
 4. **Faire entrer.** La personne qui mène l'enquête relit et confirme ; l'agent fait le merge de la branche de l'enquête dans la branche principale. Sur GitHub, par une PR qui écrit « Refs #N », jamais « Closes #N ». Un résultat partiel peut entrer pendant que l'enquête reste ouverte.
    Fini quand : la personne a confirmé et le merge est fait.

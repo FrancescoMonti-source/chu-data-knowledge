@@ -30,6 +30,5 @@ Une friction, c'est tout accroc pendant une session (étape 1). Chaque problème
 
 Le mainteneur corrige une friction quand elle a au moins deux occurrences, ou tout de suite si elle touche la sécurité des données. Une erreur évidente dans une skill se corrige aussi tout de suite.
 
-- Charger writing-for-agents pour toute modification d'une skill, d'AGENTS.md ou de docs/agents/.
-- Un commit par changement ; un ADR si c'est une décision (docs/adr/).
+- Un commit par changement.
 - Fermer l'issue avec un commentaire qui cite le commit ou l'ADR. Une friction qui revient après sa correction rouvre l'issue : la correction n'a pas suffi.
