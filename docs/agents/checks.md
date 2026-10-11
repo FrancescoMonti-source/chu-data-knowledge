@@ -21,7 +21,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | claim de domains/ sans tables (docs/adr/0005) |
 | ROUGE | s'il cite des preuves : documentary, au moins une lecture ; empirical observed, une exécution sans unknown |
 | ROUGE | superseded : un autre claim déclare le remplacer |
-| ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes |
+| ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes ; si masked, le résultat en tableau Markdown, sans autre bloc que ```sql |
 | ROUGE | lecture : une citation |
 | ROUGE | requête, lue sans ses commentaires : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 |
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
@@ -34,6 +34,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 
 - Le contrôle voit que le masquage est présent, pas qu'il est juste (surtout la suppression secondaire).
 - La recherche de valeurs ne garantit pas l'anonymat : un nom, une adresse ou un IPP ne sont pas reconnus.
+- Les effectifs de 1 à 9 ne sont cherchés que dans les colonnes N_ et NB_ (requests.md, règle 1).
 - L'author et le relecteur sont déclarés, pas prouvés.
 - Aucun contrôle ne sait si un claim est vrai.
 
