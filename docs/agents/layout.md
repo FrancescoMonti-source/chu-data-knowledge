@@ -29,7 +29,7 @@ Une enquête : voir investigations/README.md.
 - **Une fiche, plusieurs preuves.** Un document lu dix fois donne une seule fiche dans sources/ et dix preuves.
 - **PMSI par édition.** Le domaine pmsi suit les textes réglementaires et les guides de l'ATIH, dans leur champ et leur période d'application. Chaque édition remplace la précédente : l'id de la fiche porte l'année.
 - **Réutilisable, dans son scope.** Les claims de systems/ et domains/ servent à plusieurs enquêtes, dans la portée qu'ils déclarent. Une enquête dépend d'eux, jamais l'inverse.
-- **Promotion au réemploi.** Quand une conclusion d'enquête sert ailleurs, on déplace son fichier dans le système ou le domaine concerné, avec le même id, et le README.md de l'enquête la cite. On le fait au moment du réemploi, avec la relecture (review.md).
+- **Promotion au réemploi.** Quand une conclusion d'enquête sert ailleurs, on déplace son fichier dans le système ou le domaine concerné, avec le même id et le même contenu, et le README.md de l'enquête la cite. On le fait au moment du réemploi, avec la relecture (review.md).
 - **Position.** Un claim vit à côté de sa preuve principale. Les liens citent des ids, pas des chemins : déplacer un fichier ne casse aucun lien.
 
 ## Ids et noms de fichiers
