@@ -309,6 +309,12 @@ class RepositoryTest(unittest.TestCase):
         self.assertEqual(self.current("mvt-rum-lien"), before)
         self.assertRegex(before, r"^[0-9a-f]{12}$")
 
+    def test_fingerprint_needs_only_loading(self):
+        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
+        repository = Repository(self.root)
+        repository.load()
+        self.assertEqual(repository.fingerprint("mvt-annuel"), self.current("mvt-annuel"))
+
     # Réutilisation
 
     def test_reuse_of_unreviewed_claim_of_another_author(self):

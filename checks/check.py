@@ -199,14 +199,13 @@ class Repository:
                         "Choisir un id unique dans tout le dépôt.")
             return
         self.records[identifier] = record
+        if role == "claim":
+            record["valid"] = self.claim_shape(record)
 
     # Contrôles
 
     def run(self):
         self.load()
-        for record in self.records.values():
-            if record["role"] == "claim":
-                record["valid"] = self.claim_shape(record)
         for record in self.records.values():
             getattr(self, "check_" + record["role"])(record)
         self.check_reuse()
@@ -245,7 +244,7 @@ class Repository:
                             "Citer un fichier du bon type.")
 
     def claim_shape(self, claim):
-        """Forme du claim : sans elle, les autres contrôles du claim n'ont pas de sens."""
+        """Forme du claim, vue au chargement : sans elle, ses autres contrôles et son empreinte n'ont pas de sens."""
         header, path = claim["header"], claim["path"]
         if list(header)[:1] != ["review"]:
             self.report(RED, path, "review", "review doit être le premier champ.",
