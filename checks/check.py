@@ -52,6 +52,7 @@ SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*
 NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
 SELECT = re.compile(r"(?i)\bselect\b")
 SQL_COMMENT = re.compile(r"--[^\n]*|/\*.*?\*/", re.DOTALL)
+FENCE = re.compile(r"^\s*```\s*(\S*)", re.MULTILINE)
 MASK = re.compile(r"(?<!')<\s*10\b|<=\s*9\b|>=\s*10\b|>\s*9\b")
 AGGREGATE = re.compile(r"(?i)\b(?:count|sum|avg|min|max)\s*\(")
 UNQUOTED_HASH = re.compile(r"\s*([\w-]+):\s+[^\"'\s\[{][^\n]*\s#")
@@ -355,7 +356,7 @@ class Repository:
                 self.report(RED, path, "modified", "la requête a été modifiée mais la version exécutée manque.",
                             "Ajouter la requête réellement exécutée dans un bloc ```sql.")
             if header["person_data"] == "masked":
-                self.check_small_counts(evidence)
+                self.check_masked_result(evidence)
         elif kind == "reading":
             if self.require(evidence, READING_FIELDS):
                 self.linked(evidence, "source", [header["source"]], "source")
@@ -391,6 +392,17 @@ class Repository:
         if not MASK.search(sql):
             self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
                         "Masquer toute statistique sous 10 dans la requête elle-même (docs/agents/requests.md).")
+
+    def check_masked_result(self, evidence):
+        """Le contrôle des effectifs ne lit que les tableaux : le résultat doit en être un."""
+        body, path = evidence["body"], evidence["path"]
+        if not re.search(r"^\s*\|", body, re.MULTILINE):
+            self.report(RED, path, None, "le résultat n'est pas un tableau Markdown.",
+                        "Recopier le résultat en tableau Markdown, avec ses colonnes (docs/agents/evidence.md).")
+        if any(tag.lower() != "sql" for tag in FENCE.findall(body)[::2]):
+            self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée (```sql).",
+                        "Mettre le résultat dans le tableau, et retirer le bloc.")
+        self.check_small_counts(evidence)
 
     def check_small_counts(self, evidence):
         for columns, cells in table_rows(evidence["body"]):

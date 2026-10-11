@@ -25,7 +25,7 @@ GROUP BY ANNEE;
 
 ## Les règles
 
-1. Seulement des colonnes agrégées, nommées une par une. Jamais SELECT *.
+1. Seulement des colonnes agrégées, nommées une par une. Jamais SELECT *. Une colonne d'effectif s'appelle N_… ou NB_… (N_SEJ, NB_PATIENTS) : c'est là que le contrôle cherche les effectifs de 1 à 9 en clair.
 2. Pour connaître les colonnes : un seul SELECT, avec WHERE 1=0. La réponse a les en-têtes et aucune ligne. C'est le seul SELECT * admis, et une telle requête n'a pas besoin des règles 3 à 5.
 3. Toute statistique calculée sur moins de 10 personnes, séjours ou actes sort comme <10, minimum et maximum compris. Le masquage est écrit dans la requête.
 4. On cache aussi les totaux qui permettraient de recalculer une cellule masquée (suppression secondaire) : total 25, cellules visibles 12 et 8, donc la cellule cachée vaut 5.

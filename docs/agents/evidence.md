@@ -6,7 +6,7 @@ Avant d'écrire une preuve : le filtre de privacy.md. L'en-tête suit les règle
 
 ## Exécution
 
-Une exécution d'une requête à l'hôpital, toujours dans `systems/<système>/evidence/`. Le fichier contient le résultat ; la requête reste une seule fois dans requests/.
+Une exécution d'une requête à l'hôpital, toujours dans `systems/<système>/evidence/`. Le fichier contient le résultat, en tableau Markdown, avec les colonnes telles qu'elles sont revenues : le contrôle des effectifs ne lit que les tableaux. La requête reste une seule fois dans requests/.
 
 ```markdown
 ---

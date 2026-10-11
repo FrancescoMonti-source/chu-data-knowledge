@@ -463,6 +463,15 @@ class RepositoryTest(unittest.TestCase):
                           "SELECT * FROM TB_PATIENT WHERE 1=0 UNION SELECT * FROM TB_PATIENT;\n"})
         self.assertProblem(RED, path, "SELECT *")
 
+    def test_masked_result_is_a_markdown_table(self):
+        path = "systems/cora/evidence/20261008-mvt-rum.md"
+        table = "| request_id | ANNEE | N_MVT |\n|---|---|---|\n| 20261007-mvt-rum | 2024 | 1520 |\n" \
+                "| 20261007-mvt-rum | 2025 | <10 |\n"
+        self.edit(path, table, "```text\nrequest_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2025\t4\n```\n")
+        self.assertProblem(RED, path, "tableau")
+        self.edit(path, "```text", table + "\n```text")
+        self.assertProblem(RED, path, "bloc")
+
     def test_mask_written_as_at_most_nine(self):
         self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
         self.assertClean()
