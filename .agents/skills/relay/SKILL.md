@@ -21,7 +21,7 @@ Cette skill donne les étapes. Le protocole et ses règles : docs/agents/request
    Fini quand : ces quatre points sont confirmés.
 5. **Filtrer** le résultat (privacy.md). S'il contient une donnée de personne, ne rien écrire, prévenir la personne et suivre la procédure d'incident.
    Fini quand : le résultat ne contient que des agrégats, sans effectif de 1 à 9 en clair.
-6. **Enregistrer** la preuve d'exécution (docs/agents/evidence.md) et la relier au plan. Lancer `python checks/check.py`, puis commit.
-   Fini quand : aucun ROUGE, et la preuve est citée dans le plan.
+6. **Enregistrer** la preuve d'exécution (docs/agents/evidence.md). Lancer `python checks/check.py`, puis commit. Puis la citer dans l'issue de l'enquête, avec l'étape du plan qu'elle couvre.
+   Fini quand : aucun ROUGE, le commit est fait, et la preuve est citée dans l'issue.
 
 Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. sediment quand les preuves suffisent pour répondre.
