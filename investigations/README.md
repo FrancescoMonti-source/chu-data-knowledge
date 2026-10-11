@@ -10,6 +10,15 @@ investigations/uf-vs-rum/
 
 Les preuves ne vont pas ici : elles vont dans systems/ ou domains/, où d'autres enquêtes les retrouveront.
 
+## La branche
+
+Une enquête se fait sur sa branche, `enquete/<id>`, où l'id est le nom de son dossier. La branche principale est la branche par défaut du dépôt sur GitHub (claude/v2 pour l'instant) : le README d'une enquête n'y arrive qu'avec sediment.
+
+- **Ouvrir :** créer la branche depuis la branche principale à jour.
+- **Retrouver :** `git fetch`, puis `git branch -r --list "origin/enquete/*"`. Une enquête est ouverte tant que son issue l'est.
+- **Reprendre :** se placer sur sa branche avant tout travail.
+- **Enregistrer :** chaque commit de l'enquête va sur sa branche, et il est poussé (`git push -u origin enquete/<id>`) : la session suivante le retrouve, même sur un autre ordinateur.
+
 ## Le README.md d'une enquête
 
 ```markdown
