@@ -279,18 +279,15 @@ class Repository:
             self.linked(claim, field, header.get(field, []), "claim")
         evidence = [self.records[i] for i in header["supported_by"]
                     if i in self.records and self.records[i]["role"] == "evidence"]
+        if not header["supported_by"] and not header["depends_on"]:
+            self.report(RED, path, "supported_by", "un claim s'appuie sur au moins une preuve ou une prémisse.",
+                        "Citer ses preuves dans supported_by ou ses prémisses dans depends_on.")
         if claim["place"] in ("systems", "domains"):
-            if not header["supported_by"]:
-                self.report(RED, path, "supported_by", "un claim de systems/ ou domains/ cite au moins une preuve.",
-                            "Ajouter la preuve dans evidence/ et la citer.")
             for identifier in header["depends_on"]:
                 if self.records.get(identifier, {}).get("place") == "investigations":
                     self.report(RED, path, "depends_on", f"« {identifier} » est un claim d'enquête.",
                                 "Une enquête dépend de systems/ et domains/, jamais l'inverse : "
                                 "promouvoir d'abord le claim (docs/agents/layout.md).")
-        elif not header["supported_by"] and not header["depends_on"]:
-            self.report(RED, path, "supported_by", "un claim s'appuie sur au moins une preuve ou une prémisse.",
-                        "Citer ses preuves dans supported_by ou ses prémisses dans depends_on.")
         if claim["place"] == "domains" and header["tables"]:
             self.report(RED, path, "tables", "un claim qui nomme des tables décrit un système.",
                         "Le déplacer dans systems/<système>/claims/ (docs/agents/layout.md).")

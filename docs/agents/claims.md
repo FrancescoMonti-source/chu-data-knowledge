@@ -37,7 +37,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | lifecycle | active · challenged · superseded · withdrawn |
 | terms | les termes, avec leur contexte, ou [] |
 | tables | les tables nommées, ou [] |
-| supported_by | les ids des preuves, ou [] pour un claim d'enquête |
+| supported_by | les ids des preuves, ou [] pour un claim qui ne s'appuie que sur des prémisses |
 | depends_on | les ids des prémisses, ou [] |
 | challenges, supersedes | facultatifs : les ids contestés ou remplacés (review.md) |
 
@@ -63,7 +63,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 ## Claim sans preuve propre
 
-Un claim d'enquête peut ne citer que des prémisses (supported_by: []) : c'est le cas de la réponse à une question. Il prend la sorte de sa conclusion, et une maturité qui ne dépasse pas celle de sa prémisse la moins mûre. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
+Un claim peut ne citer que des prémisses (supported_by: []) : c'est le cas de la réponse à une question. Promu dans systems/ ou domains/ (layout.md), il garde cette forme : ses prémisses y sont déjà, avec leurs preuves. Il prend la sorte de sa conclusion, et une maturité qui ne dépasse pas celle de sa prémisse la moins mûre. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
 
 ## Taille
 

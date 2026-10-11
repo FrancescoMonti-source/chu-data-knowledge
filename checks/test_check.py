@@ -410,6 +410,15 @@ class RepositoryTest(unittest.TestCase):
         self.edit("investigations/uf-vs-rum/claims/reponse.md", "depends_on: [rum-definition]", "depends_on: []")
         self.assertProblem(RED, "investigations/uf-vs-rum/claims/reponse.md", "au moins une preuve ou une prémisse")
 
+    def test_promoted_answer_keeps_its_premises(self):
+        answer = DOCUMENTARY.replace("id: rum-definition", "id: reponse") \
+            .replace("supported_by: [20261009-guide-rum]", "supported_by: []") \
+            .replace("depends_on: []", "depends_on: [rum-definition]")
+        self.write({"domains/pmsi/claims/reponse.md": answer})
+        self.assertClean()
+        self.edit("domains/pmsi/claims/reponse.md", "depends_on: [rum-definition]", "depends_on: []")
+        self.assertProblem(RED, "domains/pmsi/claims/reponse.md", "au moins une preuve ou une prémisse")
+
     def test_terms_may_have_accents(self):
         self.edit("systems/cora/GLOSSARY.md", "## cora:rum", "## cora:séjour\n\nUn séjour.\n\n## cora:rum")
         self.edit("systems/cora/claims/mvt-rum-lien.md", "cora:rum]", "cora:rum, cora:séjour]")
