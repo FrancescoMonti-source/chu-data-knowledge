@@ -12,7 +12,7 @@ Le protocole et ses règles : docs/agents/requests.md. Le filtre : docs/agents/p
 1. **Décider person_data.** La demande touche-t-elle des personnes, patients ou personnel ? Dans le doute, oui : masked.
 2. **Écrire la requête** dans `systems/<système>/requests/`, en suivant les claims sur les tables qu'elle touche.
    Fini quand : `python checks/check.py` ne donne aucun ROUGE sur la requête, et chaque règle de requests.md a été vérifiée à la main, suppression secondaire comprise.
-3. **Livrer.** Commit et push de la requête sur la branche de l'enquête, puis la donner à la personne, avec les deux lignes pour elle et le rappel de prévenir si elle la modifie (requests.md, « Aller »). Si elle s'arrête là, lui rappeler la retro.
+3. **Livrer.** Commit et push de la requête sur la branche de l'enquête, puis la donner à la personne, avec les deux lignes pour elle et le rappel de prévenir si elle la modifie (requests.md, « Aller »).
    Fini quand : la requête livrée est poussée, et la personne l'a.
 
 ## Retour
