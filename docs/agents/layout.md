@@ -2,6 +2,8 @@
 
 sources/ dit de quel document on parle ; systems/, domains/ et investigations/ rangent ce qu'on apprend.
 
+Deux frontières rangent un claim. Son sujet : systems/ ou domains/. Son réemploi : investigations/<enquête>/claims/ s'il ne sert qu'à une enquête, systems/ ou domains/ s'il sert à plusieurs ; la promotion le fait passer de l'un à l'autre.
+
 | Dossier | Contient | Répond à | Exemple |
 |---|---|---|---|
 | `systems/<système>/` | ce qu'on sait d'un logiciel ou d'une base : tables, objets, comportements | comment ce système représente-t-il les choses ? | dans CORA, TB_MVT_RUM relie mouvements et RUM |
@@ -23,7 +25,7 @@ Une enquête : voir investigations/README.md.
 
 ## Les règles
 
-- **Le sujet décide.** Un claim va dans systems/ s'il décrit un système concret, dans domains/ s'il décrit le modèle d'un domaine. Règle pratique, contrôlée : un claim qui nomme des tables (tables non vide) va dans systems/. (docs/adr/0005)
+- **Le sujet décide.** Un claim va dans systems/ s'il décrit un système concret, dans domains/ s'il décrit le modèle d'un domaine. Pour trancher : serait-il encore vrai si le CHU changeait de logiciel demain ? Oui : domains/. Non : systems/. Règle pratique, contrôlée : un claim qui nomme des tables (tables non vide) va dans systems/. (docs/adr/0005)
 - **Une exécution lit toujours un système.** Sa preuve va dans `systems/<système>/evidence/`.
 - **Une lecture va où va son sujet.** Un passage du dictionnaire CORA sur une règle du PMSI va dans domains/pmsi/evidence/ ; s'il décrit le comportement de CORA, dans systems/cora/evidence/. L'autorité vient de la source, jamais du dossier.
 - **Une fiche, plusieurs preuves.** Un document lu dix fois donne une seule fiche dans sources/ et dix preuves.
