@@ -21,9 +21,9 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | claim de domains/ sans tables (docs/adr/0005) |
 | ROUGE | s'il cite des preuves : documentary, au moins une lecture ; empirical observed, une exécution sans unknown |
 | ROUGE | superseded : un autre claim déclare le remplacer |
-| ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes ; si masked, le résultat en tableau Markdown, sans autre bloc que ```sql |
+| ROUGE | exécution : dans systems/, même person_data que sa requête, version exécutée si modified: yes ; si masked, rien hors du tableau Markdown du résultat, sauf un bloc ```sql |
 | ROUGE | lecture : une citation |
-| ROUGE | requête, lue sans ses commentaires : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 |
+| ROUGE | requête, lue sans ses commentaires (le texte entre guillemets reste) : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 |
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
 | ROUGE | depends_on vers le claim d'une autre personne sans relecture à jour (ORANGE si le claim est provisional) |
 | ROUGE | .claude/skills identique à .agents/skills |

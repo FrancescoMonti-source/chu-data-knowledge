@@ -457,6 +457,10 @@ class RepositoryTest(unittest.TestCase):
         self.edit("systems/cora/requests/20261007-mvt-rum.sql", "GROUP BY ANNEE;", "GROUP BY ANNEE; -- < 10")
         self.assertProblem(RED, "systems/cora/requests/20261007-mvt-rum.sql", "<10")
 
+    def test_comment_marks_inside_a_literal_stay_sql(self):
+        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
+        self.assertProblem(RED, "systems/cora/requests/20261007-mvt-rum.sql", "SELECT *")
+
     def test_column_names_query_is_a_single_select(self):
         path = "systems/cora/requests/20261013-patients.sql"
         self.write({path: "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
@@ -471,6 +475,8 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, path, "tableau")
         self.edit(path, "```text", table + "\n```text")
         self.assertProblem(RED, path, "bloc")
+        self.write({path: EXECUTION + "\nrequest_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2023\t4\n"})
+        self.assertProblem(RED, path, "hors du tableau")
 
     def test_mask_written_as_at_most_nine(self):
         self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
