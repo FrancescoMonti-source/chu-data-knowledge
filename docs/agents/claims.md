@@ -30,7 +30,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | review | toujours le premier champ : unreviewed, ou un bloc de relecture (review.md) |
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
-| author | la personne pour qui l'agent écrit |
+| author | la personne pour qui l'agent écrit (« Les personnes ») |
 | statement | l'affirmation, en une phrase |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
@@ -44,6 +44,10 @@ Points ouverts : non vérifié sur l'instance de production.
 Clés et valeurs en anglais ; texte libre en français. Toutes les valeurs sont lues comme du texte : no reste « no ».
 
 Le texte libre de l'en-tête (statement, scope, refuted_if, responsible, reconsider_when, work) s'écrit entre guillemets doubles : sans eux, « : » rend l'en-tête illisible et « # » coupe la valeur. Cette règle vaut pour tous les en-têtes du dépôt.
+
+## Les personnes
+
+Une personne s'écrit toujours de la même façon, dans author, responsible, executed_by, read_by et le by d'une relecture : son prénom, plus l'initiale du nom si deux personnes ont le même prénom (Marie D.). Avant d'écrire une personne pour la première fois, chercher comment le dépôt l'écrit déjà. Le contrôle compare ces textes : deux écritures d'une même personne comptent pour deux personnes.
 
 ## Trois sortes (kind)
 
