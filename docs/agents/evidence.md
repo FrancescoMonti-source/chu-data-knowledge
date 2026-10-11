@@ -80,4 +80,4 @@ authority: vendor-doc
 | local | document du CHU |
 | unknown | origine inconnue |
 
-L'autorité dit d'où vient le document, pas s'il a raison : une documentation d'éditeur peut se tromper (exemple : JR009 dans cora_knowledge).
+L'autorité dit d'où vient le document, pas s'il a raison : une documentation d'éditeur peut se tromper.
