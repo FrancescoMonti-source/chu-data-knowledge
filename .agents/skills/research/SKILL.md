@@ -28,4 +28,4 @@ Pour chaque étape du plan qui demande un document :
 7. **Relier au plan.** Dans l'issue de l'enquête, un commentaire qui donne, pour chaque nouvelle preuve, son id et l'étape qu'elle couvre.
    Fini quand : chaque nouvelle preuve est citée dans l'issue.
 
-Ensuite : relay pour une étape qui demande des données de l'hôpital ; sediment quand les preuves suffisent pour répondre.
+Ensuite : relay pour une étape qui demande des données de l'hôpital ; sediment quand les preuves suffisent pour répondre. Si le plan change, un commentaire « Plan revu » dans l'issue (investigations/README.md, « Le plan »).
