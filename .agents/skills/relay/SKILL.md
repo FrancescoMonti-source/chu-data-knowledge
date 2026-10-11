@@ -5,7 +5,7 @@ description: Préparer une requête qu'une personne exécutera à l'hôpital, pu
 
 # relay
 
-Cette skill donne les étapes. Le protocole et ses règles : docs/agents/requests.md. Le filtre : docs/agents/privacy.md.
+Le protocole et ses règles : docs/agents/requests.md. Le filtre : docs/agents/privacy.md.
 
 ## Aller
 
