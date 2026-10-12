@@ -1,6 +1,6 @@
 # 0016 — Les skills supermatt : leur méthode, les formats du dépôt
 
-Statut : proposé, 2026-10-12 (question de Francesco : les deux skills supermatt conviennent-elles telles quelles ?).
+Statut : accepté, 2026-10-12 (Francesco, PR #13 fusionnée ; la ligne « À éviter » attendra une enquête qui en a besoin).
 
 ## Contexte
 
