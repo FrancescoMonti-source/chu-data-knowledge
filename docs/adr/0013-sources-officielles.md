@@ -13,6 +13,7 @@ Francesco préfère les liens aux téléchargements : une copie rangée dans le 
 ## Décision
 
 - location donne le lien vers le fichier de cette édition, chez son éditeur officiel.
+- Un document en ligne reste chez son éditeur : sources/ ne reçoit que des fichiers hors ligne qui peuvent être partagés.
 - Un site qui regroupe les liens aide à trouver le document ; la fiche cite le fichier de l'éditeur.
 - Pas de lien d'archive (Wayback Machine) pour l'instant.
 

@@ -61,7 +61,7 @@ Sous l'en-tête, une courte citation, en lignes qui commencent par >.
 
 ## Sources
 
-Une fiche par document et par édition, dans sources/. Le document lui-même n'est ajouté que s'il peut être partagé : dans sources/, sous l'id de sa fiche, dans son format d'origine (dictionnaire-cora-2020.pdf).
+Une fiche par document et par édition, dans sources/. Un document en ligne reste chez son éditeur : la fiche donne son lien (location, plus bas). Un document hors ligne n'est ajouté que s'il peut être partagé : dans sources/, sous l'id de sa fiche, dans son format d'origine (dictionnaire-cora-2020.pdf).
 
 ```markdown
 ---
