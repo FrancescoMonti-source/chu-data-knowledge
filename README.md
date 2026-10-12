@@ -49,9 +49,9 @@ Deux sortes de fichiers : ce qu'on apprend sur l'hôpital, qui vaut par ses preu
 Ce qu'on apprend :
 
 ```text
-systems/           connaissance relative à logiciel ou une base : tables, comportements (CORA, EDSaN…)
-domains/           connaissance appartenente à un domaine précis et qui resterait vraie si le CHU changeait de logiciel : concepts et règles métier (PMSI par ex.)
-investigations/    la réponse à une question, construite sur les claims de systems/ et/ou domains/ et/ou sources/
+systems/           connaissance relative à un logiciel ou à une base : tables, comportements (CORA, EDSaN…)
+domains/           connaissance appartenant à un domaine précis et qui resterait vraie si le CHU changeait de logiciel : concepts et règles métier (PMSI par ex.)
+investigations/    la réponse à une question, construite sur les claims de systems/ et/ou domains/
 sources/           une fiche par document, citée par chacune de ses lectures
 GLOSSARY-MAP.md    les contextes (pmsi, cora, edsan…) et leurs glossaires
 ```
@@ -61,7 +61,7 @@ Comment on travaille :
 ```text
 AGENTS.md          règles pour les agents et pointeurs
 docs/agents/       les conventions : écrire un claim, une preuve, une requête
-docs/adr/          les décisions sur l'architecture et leurs raisons (Architecture Decision Record)
+docs/adr/          les décisions et leurs raisons (ADR : Architecture Decision Record)
 .agents/skills/    les étapes : frame, research, relay, sediment, retro
 checks/            les contrôles et leurs tests
 ```
