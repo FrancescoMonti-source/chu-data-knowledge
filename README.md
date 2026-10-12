@@ -49,9 +49,9 @@ Deux sortes de fichiers : ce qu'on apprend sur l'hôpital, qui vaut par ses preu
 Ce qu'on apprend :
 
 ```text
-systems/           ce que fait un logiciel ou une base : tables, comportements (CORA, EDSaN…)
-domains/           ce qui resterait vrai si le CHU changeait de logiciel : concepts et règles métier (PMSI)
-investigations/    la réponse à une question, construite sur les claims de systems/ et domains/
+systems/           connaissance relative à logiciel ou une base : tables, comportements (CORA, EDSaN…)
+domains/           connaissance appartenente à un domaine précis et qui resterait vraie si le CHU changeait de logiciel : concepts et règles métier (PMSI par ex.)
+investigations/    la réponse à une question, construite sur les claims de systems/ et/ou domains/ et/ou sources/
 sources/           une fiche par document, citée par chacune de ses lectures
 GLOSSARY-MAP.md    les contextes (pmsi, cora, edsan…) et leurs glossaires
 ```
@@ -61,7 +61,7 @@ Comment on travaille :
 ```text
 AGENTS.md          règles pour les agents et pointeurs
 docs/agents/       les conventions : écrire un claim, une preuve, une requête
-docs/adr/          les décisions et leurs raisons
+docs/adr/          les décisions sur l'architecture et leurs raisons (Architecture Decision Record)
 .agents/skills/    les étapes : frame, research, relay, sediment, retro
 checks/            les contrôles et leurs tests
 ```
@@ -74,7 +74,3 @@ checks/            les contrôles et leurs tests
 | `python checks/check.py --fingerprint <id>` | l'empreinte d'un claim, à recopier dans une relecture |
 | `python checks/sync_skills.py` | recopie .agents/skills dans .claude/skills |
 | `python -m unittest discover checks` | les tests des contrôles |
-
-## Historique
-
-Cette version repart de zéro depuis l'architecture v0.4 et ses six révisions (docs/adr/0007). La première version, faite avec Codex, a été supprimée le 2026-10-11.
