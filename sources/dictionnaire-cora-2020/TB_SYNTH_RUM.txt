@@ -1,0 +1,297 @@
+==== TB_SYNTH_RUM ====
+                                                  Clé :
+    1    ID_RUM                  int(10)          N° unique identifiant de la ligne
+                                                  Lien sur TB_MVT_RUM.ID_RUM :
+                                                  Lien sur TB_SEJOUR.ID_SEJOUR :
+    2    ID_SEJOUR               int(10)
+                                                  Identifiant du Séjour. Lien obligatoire
+                                                  Lien sur TB_PATIENT.ID_PATIENT :
+    3    ID_PATIENT              int(10)
+                                                  Identifiant du Patient. Lien non principal (Lien principal = ID_SEJOUR)
+    4    NO_SEJOUR               char(20)         N° de Séjour officiel. (N° déjà existant dans TB_SEJOUR.NO_SEJOUR)
+
+    5    CODE_CMD                char(2)          Données du Groupage : CMD
+                                                  Données du Groupage : GHM (Lien avec PMSI_LIB_GHS avec les 4
+    6    CODE_GHM                char(4)
+                                                  dernières valeurs du champs GHS de cette table)
+    7    CODE_ERR                char(3)          Données du Groupage : Code erreur principal
+
+    8    DUREE                   smallint(5)      Durée du RUM
+
+    9    MONTANT_GHM             decimal(10, 2)   Valorisation du GHM (avec prise en compte de la survalorisation)
+
+    10   MONTANT_DEP             decimal(10, 2)   Montant du dépassement éventuel (cas des séjours hors borne haute)
+
+    11   QUANTITE_J_DEP          smallint(5)      Nb de jour de dépassement de la borne haute
+                                                  Montant de survalorisation (régionnal) a additionner à 'Montant GHS' et
+                                                  'Montant Dépassement'.
+    12   MONTANT_COEF            decimal(10, 2)
+                                                  Coeffcient calculé a partir du montant GHS, du montant de Réanimation et du
+                                                  montant de Dépassement
+    13   MONTANT_REA             decimal(10, 2)   Montant cumulé des jours de Réanimation
+
+    14   QUANTITE_J_REA          smallint(5)      Montant cumulé des jours de Réanimation
+
+    16   DATE_CREAT              datetime         Date de groupage (et de génération de cet enregistrement)
+
+    17   HEURE_CREAT             datetime         Heure de groupage (et de génération de cet enregistrement)
+
+    18   DP_MVT_RETENU           char(1)          Contient X si le Diagnostic de ce RUM a été retenu comme DP du RSS
+
+    19   DATE_DEBUT_RUM          datetime         Date de début du RUM
+
+    20   DATE_FIN_RUM            datetime         Date de fin du RUM
+                                                  Lien sur TB_UNITE_MEDICALE.ID_UNITE_MED :
+    21   ID_UNITE_MEDICALE       int(10)
+                                                  Identifiant de l'unité médicale du RUM
+    22   LIST_ERR                varchar(200)     Liste des erreurs du Groupage
+
+    23   CHRONO                  smallint(5)      Numéro du RUM par ordre chronologique dans le RSS
+                                                  Lien sur TB_SYNTH_RSS.ID_RSS :
+    24   ID_RSS                  int(10)
+                                                  Identifiant du RSS.
+    25   CODE_DESTINATION        char(1)          Code Destination du RUM
+26   CODE_PROVENANCE          char(1)          Code Provenance du RUM
+
+27   MODE_ENTREE              char(1)          Mode d'entrée du RUM
+
+28   MODE_SORTIE              char(1)          Mode de sortie du RUM
+
+29   MONTANT_REDU             decimal(10, 2)   Somme des montants de réduction (borne basse + atténuation du privée + …)
+
+30   NB_24Z05Z                smallint(5)      Nb D'acte de radiothérapie appartenant au groupe GHS 24Z05Z
+
+31   MT_24Z05Z                decimal(10, 2)   Mt radiothérapie appartenant au groupe GHS 24Z05Z
+
+32   NB_24Z06Z                smallint(5)      Nb D'acte de radiothérapie appartenant au groupe GHS 24Z06Z
+
+33   MT_24Z06Z                decimal(10, 2)   Mt acte de radiothérapie appartenant au groupe GHS 24Z06Z
+
+34   NB_24Z07Z                smallint(5)      Nb D'acte de radiothérapie appartenant au groupe GHS 24Z07Z
+
+35   MT_24Z07Z                decimal(10, 2)   Mt acte de radiothérapie appartenant au groupe GHS 24Z07Z
+
+36   NB_DIALYSE               smallint(5)      Nb de dyalise dans le RUM
+
+37   MT_DIALYSE               decimal(10, 2)   Mt de la dialyse dans le RUM
+                                               Précision sur la structure (niveau de précision de l'Unité) utilisé dans la
+38   CODE_SECTEUR             char(2)
+                                               récupération de données pour certains établissement
+39   VERSION                  smallint(5)      Version du groupeur utilisée
+
+40   NB_JOUR_NEO1             smallint(5)      Nb Journée Néonatologie Type 1 Autorisation 4
+                                               Mt Néonatologie Type 1 Autorisation 4 = Supplément Néonat sans soins
+41   MNT_JOUR_NEO1            decimal(10, 2)
+                                               Intensifs
+42   NB_JOUR_NEO2             smallint(5)      Nb Journée Néonatologie Type 2 Autorisation 5 avec Soins intensif
+                                               Mt Néonatologie Type 2 Autorisation 5 avec Soins intensif = Supplément
+43   MNT_JOUR_NEO2            decimal(10, 2)
+                                               Néonat avec soins Intensifs
+44   NB_JOUR_NEO3             smallint(5)      Nb Journée Néonatologie Type 3 Autorisation 6 avec réanimation
+                                               Mt Néonatologie Type 3 Autorisation 6 avec réanimation = Supplément de Réa
+45   MNT_JOUR_NEO3            decimal(10, 2)
+                                               Néonat
+46   NB_JOUR_SOINS_INT        smallint(5)      Nb jour Soisn Intensif
+
+47   MNT_JOUR_SOINS_INT       decimal(10, 2)   Mnt Soins intensifs = Supplément de Soins Intensifs
+
+48   NB_JOUR_SURV_CONT        smallint(5)      Nb de jour surveillance continu
+
+49   MNT_JOUR_SURV_CONT       decimal(10, 2)   Mnt Surveillance continue = Supplément de Surveillance Continue
+
+50   NB_JOUR_SOINS_PALL       smallint(5)      Nb Jurnée soins paliatifs
+
+51   MNT_JOUR_SOINS_PALL      decimal(10, 2)   Mnt soins paliatifs = Supplément de Soins Palliatifs
+
+52   IVG                      char(1)          IVG 1 si Oui (Interuption volotaire de grossesse
+
+53   LIGNE_GRP                varchar(6000)    Ligne groupée du RUM
+
+54   NB_JOUR_SOINS_INT_REA    smallint(5)      Nb Journée en Soins Intensif de Réanimation
+                                               Montant de valorisation en Soins Intensif de Réanimation = Supplément de
+55   MNT_JOUR_SOINS_INT_REA   decimal(10, 2)
+                                               Soins Intensifs issus de Réanimation
+56   BORNE_BASSE              char(1)          ='O' si RSS soumis à règle de borne basse
+                                               Est un montant consolidé
+                                               Montant de valorisation du RUM au prorata temporis calculé à partir du
+                                               montant du GHS
+                                               Calcul
+57   MNT_PRORATA_TPS          decimal(10, 2)
+                                               Cas des mono-rum :
+                                               MONTANT_GHS du RSS
+                                               Cas des multi-rum :
+                                               (MONTANT_GHS du RSS/DUREE RSS) * DUREE RUM
+                                               Est un montant consolidé
+                                               Montant de valorisation du RUM au proporata (méthode dite de Strasbourg /
+                                               de Niort) par rapport à la valorisation du RSS
+                                               Calcul
+58   MNT_PRORATA_STRA         decimal(10, 2)
+                                               Multi-Rum et Mono RUM (dans ce cas équivalent au prorata Temporis du
+                                               GHS…)
+                                               ?TMJ UM ?_RUM * ?DUREE?_RUM * (?MONTANT_GHS?_RSS )/(?¦? ?
+                                               TMJ?_RUM *?Durée?_RUM ?)
+                                             Type des prise en charge du patient. Cette donnée est initialisée par des outils
+59   TYPE_PEC               char(1)
+                                             de consolidation spécifiques.
+                                             Montant de valorisation des prélévements d'organes. Aujourd'hui, seul le type
+60   MNT_PRELEV_ORGANE      decimal(10, 2)
+                                             de prélevement est stocké. (1 pour PO1, 2 pour PO2 et 3 pour PO3)
+                                             Lien sur TB_PMSI_TRANCHE_AGE.ID_TRANCHE_AGE :
+61   ID_TRANCHE_AGE         smallint(5)
+                                             Identifiant de la tranche d'age du patient à la sortie du RSS, à but statistique.
+                                             Lien sur TB_PMSI_CLASSE_DUREE.ID_CLASSE_DUREE :
+62   ID_CLASSE_DUREE        smallint(5)
+                                             Identifiant de la tranche de durée du RSS, à but statistique.
+63   DIAG_P                 char(16)         Code Diagnostic Principal de ce RUM
+                                             Mois d'application de la valorisation du RUM. Cette donnée est initialisée par
+64   MOIS_VALO              varchar(6)
+                                             des outils de consolidation spécifiques.
+                                             Code de l'Unité Fonctionnelle (Unité du Mouvement) d'attribution du RUM.
+                                             Certains établissements  dans les cas 1 RUM = n
+65   UF_ATTRIB              char(10)
+                                             Mouvements d'UF : attribue le RUM a 1 des passages (infos transmises lors
+                                             de l'envoi des Diags)
+                                             Montant de valorisation en Soins Intensif de Réanimation = Supplément de
+66   MNT_SRA                decimal(10, 2)
+                                             Soins Particulièrement Couteux - Privé uniquement
+67   COMMENTAIRE            varchar(250)     Commentaire libre sur le RUM
+                                             Lien sur Util.id_util :
+68   ID_CREAT               int(10)
+                                             Identifiant de l'utilisateur à la source de l'enregistrement
+69   NB_REP                 smallint(5)      Nombre de jours de forfait Réa Péd.
+
+70   MNT_REP                decimal(10, 2)   Somme des montants Forfait Réa Péd.
+
+71   MNT_CAISSON_HB         decimal(10, 2)   Somme Nb Supplément Caisson Hyperbare
+
+72   NB_CAISSON_HB          smallint(5)      Nombre de Supplément Caisson Hyperbare
+
+73   NB_JOUR_EXB            smallint(5)      Nombre de jours de EXB
+
+74   NB_APHERESE            smallint(5)      Nombre de Supplément Aphereses Sanguines
+
+75   MNT_APHERESE           decimal(10, 2)   Somme Nb Supplément Aphereses Sanguines
+
+76   CODE_GHS               char(4)          Code GHS déduit a niveau RUM
+
+77   NB_DIP                 smallint(5)      Nombre de Supplément Dialyse Intra-péritonéale
+
+78   MNT_DIP                decimal(10, 2)   Somme Nb Supplément Dialyse Intra-péritonéale
+
+79   NB_RDTH                smallint(5)      Nombre de suppléments de Radiotherapie
+
+80   MNT_RDTH               decimal(10, 2)   Montant des suppléments de Radiotherapie
+
+81   NB_ANTEPARTUM          smallint(5)      Nombre de suppléments Antepartum
+
+82   MNT_ANTEPARTUM         decimal(10, 2)   Montant des suppléments Antepartum
+
+83   NB_RDTH_PED            smallint(5)      Nombre de suppléments de Radiotherapie pédriatrique
+
+84   MNT_RDTH_PED           decimal(10, 2)   Montant des suppléments de Radiotherapie pédriatrique
+
+85   MNT_TMJ                decimal(10, 2)   Montant du tarif moyen journalier (calculé à partir du montant total)
+
+86   MNT_TMH                decimal(10, 2)   Montant du tarif moyen horaire (calculé à partir du montant total)
+
+87   DATE_ACCOUCHEMENT      datetime         Date Accouchement
+
+88   AGE_ENTREE             smallint(5)      Age à l'entrée
+
+89   ID_UM_HEBERG           int(10)          Identifiant de l'UM d'hebergement
+
+90   ID_UM_RESP_MED         int(10)          Identifiant de l'UM de responsabilite médicale
+
+91   ID_UNITE_HEBERG        int(10)          Identifiant de l'UF d'hebergement
+
+92   ID_UNITE_RESP_MED      int(10)          Identifiant de l'UF de responsabilite médicale
+
+93   MNT_PRORATA_POND_PMS   decimal(10, 2)
+
+94   MNT_PRORATA_POND_PMJ   decimal(10, 2)
+                                                Est un montant consolidé
+                                                Montant de valorisation du RUM au prorata des tarifs calculés à partir du
+                                                montant du GHS.
+                                                Calcul
+95    MNT_PRORATA_TARIF_GHS    decimal(10, 2)   Cas des mono-rum :
+                                                MONTANT_GHS du RUM
+                                                Cas des multi-rum :
+                                                ?MNT_TOTAL?_RUM/(?¦?MONTANT_GHS?_RUM ) * ?MONTANT_GHS?
+                                                _RSS
+                                                Montant total du RSS = Prix du GHS+ borne haute - borne basse +
+96    MNT_TOTAL                decimal(10, 2)
+                                                supplements (hors DIP et PO => FICHCOMP)
+97    NB_TOTAL_SUPPLEMENT      smallint(5)      Nombre total de supplements (hors DIP et PO => FICHCOMP)
+
+98    MNT_TOTAL_SUPPLEMENT     decimal(10, 2)   Montant total des supplements (hors DIP et PO => FICHCOMP)
+
+99    NB_SEANCES               smallint(5)      Nombre de séances du RUM
+
+100 INDIC_GHS_MINORE           char(1)
+                                                Est un montant consolidé
+101 MNT_TMJ_GHS                decimal(10, 2)   Tarif moyen journalier calculé à partir du montant du GHS du RSS. Calcul :
+                                                (MNT_GHS)/(DUREE EN JOUR)
+                                                Est un montant consolidé
+102 MNT_TMJ_PRORATA_TPS        decimal(10, 2)   Montant du Tarif Moyen Journalier pour le RUM calculé à partir du Montant
+                                                Total prorata temporis. Calcul : (MNT_PRORATA_TPS)/(DUREE EN JOUR)
+                                                Est un montant consolidé
+    MNT_TMJ_PRORATA_TPS_GH                      Montant du Tarif Moyen Journalier pour le RUM calculé à partir du Montant
+103                        decimal(10, 2)
+    S                                           GHS prorata temporis. Calcul : MNT_PRORATA_TPS_GHS/ DUREE EN
+                                                JOUR
+                                                Est un montant consolidé
+      MNT_TMJ_PRORATA_TARIF_                    Montant du Tarif Moyen Journalier pour le RUM calculé à partir du Montant
+104                            decimal(10, 2)
+      GHS                                       GHS prorata des tarifs. Calcul : MNT_PRORATA_TARIF_GHS/ DUREE EN
+                                                JOUR
+                                                Est un montant consolidé
+105 MNT_TMJ_PRORATA_TARIF      decimal(10, 2)   Montant du Tarif Moyen Journalier pour le RUM calculé à partir du Montant
+                                                total prorata des tarifs. Calcul : MNT_PRORATA_TARIF / DUREE EN JOUR
+                                                Est un montant consolidé
+                                                Montant de valorisation du RUM au prorata des tarifs calculés à partir du
+                                                montant total.
+                                                Calcul
+106 MNT_PRORATA_TARIF          decimal(10, 2)   Cas des mono-rum :
+                                                MNT_TOTAL du RUM
+                                                Cas des multi-rum :
+                                                ?MNT_TOTAL?_RUM/(?¦?MONTANT_TOTAL?_RUM ) * ?MNT_TOTAL?
+                                                _RSS
+                                                Est un montant consolidé
+                                                Montant de valorisation du RUM au prorata temporis calculé à partir du
+                                                montant total.
+                                                Calcul
+107 MNT_PRORATA_TPS_GHS        decimal(10, 2)
+                                                Cas des mono-rum :
+                                                MNT_TOTAL du RSS
+                                                Cas des multi-rum :
+                                                (MNT_TOTAL du RSS/DUREE RSS) * DUREE RUM
+                                                Est un montant consolidé
+                                                Montant de valorisation du RUM avec la méthode Niort Strasbourg en utilisant
+                                                le TMJ de l’établissement.
+108 MNT_PRORATA_STRA_ETAB      decimal(10, 2)
+                                                Calcul :
+                                                Cas des mono-rum et multi-rum
+                                                TMJ Etablissement * DUREE DU RUM
+                                                Flag indiquant si le GHS du RSS est éligible à la minoration - GHS 9606 et
+                                                9616 au 01/03/2015
+                                                Null : GHS non minorable
+109 CODE_GHS_AVT_INNOV         varchar(4)
+                                                M : GHS Minorable
+                                                O : GHS Minorable et Minoré
+                                                N : GHS Minorable et Non Minoré
+110 INDICATEUR_AVASTIN         char(1)          Indicateur Avastin
+
+111 INDICATEUR_ALIMTA          char(1)          Indicateur Alimta
+                                                Identifiant de l'Unité Fonctionnelle (Unité du Mouvement) d'attribution du RUM.
+                                                Certains établissements  dans les cas 1 RUM = n
+112 ID_UF_ATTRIB               int(10)
+                                                Mouvements d'UF : attribue le RUM a 1 des passages (infos transmises lors
+                                                de l'envoi des Diags)
+113 NB_SDC                     smallint(5)      Nombre de suppléments SDC
+    114 MNT_SDC                    decimal(10, 2)   Montant des suppléments SDC
+
+    115 MNT_MINORE_MON             decimal(10, 2)   Montant de la minoration Molécule Onéreuse
+
+    116 VERSION_COMPL              char(1)          Version Complémentaire (différenciation 11B, 11C)                                'A'
+
+    117 IGS                        char(3)          Indice de gravité simplifié

@@ -1,0 +1,10 @@
+==== MED_BASE_REMB ====
+Permet le stockage et la gestion des bases de remboursement de la sécurité sociale d'un UCD
+                                                          Clé - Identifiant de l'UCD
+       1    ID_MED                       int(10)
+                                                          Lien vers MED_COUTEUX.ID_MED
+       2    DATE_EFFET                   datetime         Clé - Date d'effet de la base de remboursement
+
+       3    MNT_REMB_HT                  decimal(10, 2)   Montant HT remboursé par la sécurité sociale
+
+       4    MNT_REMB_TTC                 decimal(10, 2)   Montant TTC remboursé par la sécurité sociale

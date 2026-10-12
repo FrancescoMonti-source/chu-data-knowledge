@@ -1,0 +1,31 @@
+==== TB_HIST_UNITE_M_UNITE ====
+Historiser les liens UF UM avec les autorisations
+                                                      Identifiant de l'unité. Lien avec TB_UNITE.ID_UNITE (Copie de
+       1   ID_UNITE                     int(10)
+                                                      TB_UNITE_M_UNITE)
+                                                      Identifiant de l'UM. Lien avec TB_UNITE_MEDICAL.ID_UNITE_MED (Copie
+       2   ID_UNITE_MED                 int(10)
+                                                      de TB_UNITE_M_UNITE)
+       3   DATE_DEBUT                   datetime      Début de validité (Copie de TB_UNITE_M_UNITE)
+
+       4   DATE_FIN                     datetime      Fin de validité (Copie de TB_UNITE_M_UNITE)
+
+       5   HIST_TYPE_AUTORISATION       varchar(3)    Copie de TB_UNITE_M_UNITE
+
+       6   HIST_NO_AUTORISATION         varchar(20)   Copie de TB_UNITE_M_UNITE
+           HIST_DATE_EFFET_AUTORIS
+       7                           datetime           Copie de TB_UNITE_M_UNITE
+           ATION
+       8   HIST_NB_LIT_AUTORISATION smallint(5)       Copie de TB_UNITE_M_UNITE
+
+       9   HIST_TYPE_LIT_DEDIE          char(2)       Copie de TB_UNITE_M_UNITE
+
+      10   HIST_NB_LIT_DEDIE            smallint(5)   Copie de TB_UNITE_M_UNITE
+
+      11   ID_INFO                      int(10)       Identifiant de l'utilisateur qui effectue l'action
+
+      12   DATE_INFO                    datetime      Date de l'action
+
+      13   TYPE_INFO                    char(1)       Type de l'info -> S : Suppression - M : Modification
+
+      14   DESCR                        varchar(5)    Description de l'action -> MODUF : mOdif. UF

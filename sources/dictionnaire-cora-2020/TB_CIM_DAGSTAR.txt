@@ -1,0 +1,22 @@
+==== TB_CIM_DAGSTAR ====
+Table liant les diagnostics dans le cas des Dagues et astérisques.
+       1   SID_REF                     int(10)        Lien avec le diag - lien avec CIM_HIERARCHIE.SID_REF
+                                                       Correspond aux différents codes dagues et astérisaques dans la CIM10.
+                                                       Les valeurs possibles sont :
+                                                       - T
+                                                       - H
+                                                       - S
+                                                       - F: Astérisque systématique non pointée : Cette situation résulte de l'absence
+                                                       au niveau du terme systématique du code dague correspondant. Dans ce cas
+       2   DAGET                        char(1)        tous les termes classifiables sous cette rubrique sont soumis à une double
+                                                       classification, mais les revois dagues sont différents et sont énumérés avec
+                                                       chaque inclusion spéficiquement (inclusion ou descripteur) avec un code H.
+                                                       Exemple: K77* avec 6 descripteurs pointant sur 5 termes dagues différents.
+                                                       - U
+                                                       - G : Astérisque systématique : Cette situation signifie que tous les termes
+                                                       classifiables sous cette rubrique sont soumis à double classification et relèvent
+                                                       du même code dague. Exemple : N330* Cystite tuberculeuse (A181 +)
+       3   SID_ASSOC                    int(10)        Correspond au diagnostic lié. Lien avec CIM_HIERARCHIE.SID_REF
+                                                       Indique le caractère Dague (+) ou Astérisque du diagnostique (*).
+       4   AST                          char(1)        (+) Indique que le diagnostic lié doit être codé également.
+                                                       (*) Indique que le diagnostic est optionnellement lié au diagnostic associé.

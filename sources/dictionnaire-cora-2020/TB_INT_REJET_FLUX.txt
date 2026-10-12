@@ -1,0 +1,24 @@
+==== TB_INT_REJET_FLUX ====
+     1   ID_REJET         int(10)
+
+     2   ID_PATIENT       int(10)
+
+     3   IPP_PATIENT      varchar(20)
+
+     4   ID_SEJOUR        int(10)
+
+     5   NO_SEJOUR        varchar(20)
+
+     6   ID_MESSAGE       int(10)
+
+     7   TYPE_TRANSFERT   char(1)
+
+     8   ID_APPLICATION   int(10)
+
+     9   DATE_REJET       datetime
+
+    10   CODE             varchar(50)
+
+    11   DETAIL           varchar(4000)
+
+    12   EVT_HL7          char(3)

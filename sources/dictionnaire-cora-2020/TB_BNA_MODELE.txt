@@ -1,0 +1,9 @@
+==== TB_BNA_MODELE ====
+       1   ID_BNA_MODELE                smallint(5)    Identifiant du modèle d'envoi de la BNA
+
+       2   DATE_DEBUT                   datetime       Date de début de validité du modèle
+     3   DATE_FIN                datetime       Date de fin de validité du modèle
+                                                Identifiant de l'utilisateur ayant créé la ligne
+     4   ID_CREAT                int(10)
+                                                Lien sur CORA_UTIL.Util.id_util
+     5   DATE_CREAT              datetime       Date de création de l'enregistrement

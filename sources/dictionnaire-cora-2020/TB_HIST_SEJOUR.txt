@@ -1,0 +1,134 @@
+==== TB_HIST_SEJOUR ====
+Table d'historique du séjour Idem Séjour:
+Table d'historique du séjour
+                                             Idem Séjour:
+       1   ID_SEJOUR           int(10)
+                                             Identifiant (PrisMédica) du séjour
+                                             Idem Séjour: Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT          int(10)
+                                             Identifiant du Patient concerné par ce Séjour (Lien obligatoire)
+                                             Idem Séjour: N° de Séjour officiel. (Identifiant unique (normalement) du Séjour
+       4   NO_SEJOUR           char(20)
+                                             dans le SIH)
+                                             Idem Séjour: Type du Séjour. Donnée utilisée dans certaines Interface (ex :
+                                             HPRIM).
+       5   TYPE_SEJOUR         char(3)
+                                             Permet, par exemple, de différencier les Séjours d'Externe sur une Unité
+                                             utilisée aussi bien pour de l'Externe que pour de l'Hospit
+       6   DATE_ENTREE         datetime      Idem Séjour: Date d'entrée du Séjour (Donnée obligatoire)
+7    HEURE_ENTREE             datetime      Idem Séjour: Heure d'entrée du Séjour
+                                            Idem Séjour: Lien sur TB_UNITE.CODE_UNITE :
+8    UF_ENTREE                varchar(12)
+                                            Unité (UF) d'entrée dans le Séjour (Unité du 1er Mouvement)
+                                            Idem Séjour: Mode d'entrée du Séjour. Valeur 'officielle' (ex : 6 - Entrée par
+9    MODE_ENTREE              char(2)       Mutation / 8 - Provenance Domicile)
+                                            Valeur possible : 0, 6, 7, 8
+10   DATE_SORTIE              datetime      Idem Séjour : Date de sortie du Séjour
+
+11   HEURE_SORTIE             datetime      Idem Séjour : Heure de sortie du Séjour
+                                            Idem Séjour: Mode de sortie du Séjour. Valeur 'officielle' (ex : 8 - Sortie vers
+12   MODE_SORTIE              char(2)       Domicile / 9 – Décès)
+                                            Valeur possible : 0, 6, 7, 8, 9
+16   CODE_POSTAL              char(5)       Idem Séjour: Code Postal du Patient
+                                            Idem Séjour : Pour des dossiers de néonatalogie : liaison avec le dossier de la
+17   NO_SEJOUR_DOSSIER_MERE varchar(20)     mère (Géré exclusivement dans les Interfaces Patient récupérant cette
+                                            information)
+                                            Idem Séjour: Code Provenance du Séjour. Valeur 'officielle' (ex : 1 - D'une
+19   CODE_PROVENANCE          char(1)       unité de soins de courte durée)
+                                            Valeur possible : 1 à 7
+                                            Idem Séjour : Code Destination du Séjour. Valeur 'officielle' (ex : 1 - Vers unité
+20   CODE_DESTINATION         char(1)       de soins de courte durée)
+                                            Valeur possible : 1 à 7
+                                            Idem Séjour : Mis à T pour indiquer que le sejour est 'bloqué'. Un séjour est
+25   STATUT                   char(1)       bloqué lorsqu'il a été groupé avec l'option 'Blocage Période' C'est alors le reflet
+                                            du champ TB_SYNTH_RSS
+                                            Idem Séjour :
+                                            P = le séjour est en Préadmission: bloqué en saisie
+                                            A = Le séjour est passé en Admission: le séjour est débloqué (et on garde la
+30   STATUT_PROG              char(1)       trace comme quoi il a été en preadmission)
+                                            B = Séjour Bloqué: permission ou passage en MCO pdt un long séjour
+                                            S = Suspendu <=> B
+                                            M = un dossier a été modifié Spé StJoMarseille
+31   NO_SECU                  char(13)      Idem Séjour : N° de Sécu de l'ayant droit pour le Séjour
+
+32   CLE_SECU                 char(2)       Idem Séjour : Clé du n° de sécu
+                                            Idem Séjour : Clé du Séjour dans le Système d'information du logiciel 'maitre'
+33   ID_SEJOUR_EXT            int(10)       du Séjour : logiciel ayant créer le Séjour.
+                                            Utilisé avec la Dll Recueil
+                                            Idem Séjour :
+                                            Lien sur TB_UNITE.CODE_UNITE :
+                                            Unité d'Urgence si le Patient est passé en Urgence avant son Hospitalisation.
+34   UF_URGENCE               char(10)      Avec certains logiciels adminsitratifs (ex : SOL), lors d'une mutation Urgence --
+                                            > Hospit : le passage d'Urgence est supprimé. On garde alors trace de ce
+                                            passage avec ce champ (qui dans ce cas ne sera pas égal à UF_ENTREE qui
+                                            correspondra à la 1ère Unité d'Hospit)
+                                            Idem Séjour : Lien sur Util.id_util :
+35   ID_MEDECIN_RESP_SEJ      int(10)
+                                            Identifiant du médecin responsable du Séjour
+                                            Idem Séjour : Dans le cas d'une consolidation dans une Base Siège
+                                            centralisée :
+36   DATE_ENVOI               datetime      Date d'envoi d'un dossier dans la Base Siège centralisée
+                                            --> à chaque fois que le statut du Séjour (TB_SEJOUR.STATUT) est mis à ‘T’
+                                            (pour terminé) le champs DATE_ENVOI doit être vidé ( = null)
+                                            Idem Séjour : Dans le cas d'une consolidation dans une Base Siège
+37   FLAG_ENVOI               char(1)       centralisée :
+                                            Champ permettant l'envoi et le marquage des dossiers
+                                            Idem Séjour : Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base
+                                            UTIL / CORA_UTIL)
+38   ID_ETABLIS               smallint(5)
+                                            Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                            Siège centralisée
+39   EXIST_SEJ_BB             char(1)       Idem Séjour : Indique s'il existe un séjour Bébé associé au séjour
+
+40   DATE_CREAT               datetime      Idem Séjour : Date de création de cet enregistrement
+                                            Idem Séjour : Lien sur Util.id_util :
+41   ID_CREAT                 int(10)       Identifiant de l'utilisateur (ou l'appli (si valeur négative) ayant crée cet
+                                            enregistrement
+                                            Idem Séjour : Flag interne - interdisant la modif de données Séjour (en cours
+42   LOCK_MODIF               char(1)
+                                            de modif)
+                                                 Idem Séjour : Mode Entrée Saisi Administratif - Cas Cora DPS -- Saisie
+    43   MODE_ENTREE_ADMIN         varchar(10)
+                                                 Sej/Mvt
+    44   MODE_SORTIE_ADMIN         varchar(10)   Idem Séjour : Mode Sortie Saisi Administratif - Cas Cora DPS -- Saisie Sej/Mvt
+                                                 Idem Séjour : Permet de bloquer les données liées à un Séjour a une date
+                                                 donnée (cas des Séjours longs (Psy Traitement de Séances).
+    45   DATE_BLOCAGE              datetime
+                                                 Ex : Dossier de Psy bloqué au 31/12 : les données antérieures recues par les
+                                                 Interfaces sont non traitées (Idem sur les modifications applicatives)
+    46   ID_MEDECIN_DECIDE_HOSPIT int(10)        Idem Séjour : Médecin de la structure ayant décidé de l’hospitalisation
+
+    47   ID_MEDECIN_AVIS           int(10)       Idem Séjour : Médecin 2° avis (compl. Med Responsable)
+                                                 Idem Séjour : 'O' = Oui
+    48   CONFIDENTIALITE           char(1)
+                                                 'N' = Non
+                                                 Idem Séjour : Sauvegarde du numéro de séjour lorsque le séjour est marqué à
+    49   NO_SEJOUR_ATT_SUPPR       varchar(50)
+                                                 supprimer par l'interface Patient (NO_SEJOUR et renommé)
+                                                 Idem Séjour : Etat du dossier :
+    50   ETAT_ADM_DOSSIER          char(1)
+                                                 Valeurs possibles ‘C’ Dossier complet, ‘I’ Dossier incomplet
+                                                 Idem Séjour : Blocage administratif du dossier :
+    51   ETAT_ADM_BLOCAGE          char(1)
+                                                 Valeurs possibles ‘B’ Bloqué, ‘D’ débloqué
+    52   DATE_ADM_BLOCAGE          datetime      Idem Séjour : Date de blocage administratif du dossier
+                                                 Idem Séjour : Etat de facturation du dossier :
+    53   ETAT_FACTURATION          char(1)
+                                                 Valeur possibles ‘O’ Oui, ‘R’ Rejet/Contentieux
+    54   DATE_FACT_REJET           datetime      Idem Séjour : Date de rejet de facturation du dossier
+                                                 Idem Séjour : Lien sur TB_UNITE.ID_UNITE :
+    55   ID_UF_ENTREE              int(10)
+                                                 Unité (UF) d'entrée dans le Séjour (Unité du 1er Mouvement)
+    56   ID_EJ                     smallint(5)   Idem Séjour : Identifiant de l'établissement juridique. Lien avec TB_EJ.ID_EJ.
+                                                 UPDT - Création / Modification
+                                                 MEDAV - Actualisation Medecin Avis
+                                                 STATU - Passage du statut des séjours à l'état bloqué
+    57   DESCR                     char(5)
+                                                 MEDRS - Actualisation médecin responsable
+                                                 MEDDH - Actualisation médecin décide hospit
+                                                 STATP - Actualisation statut prog.
+                                                 Prise en charge réhabilitation améliorée après chirurgie (RAAC)
+                                                 Cette variable doit être renseignée pour tous les séjours comprenant une
+    58   PRISE_EN_CHARGE_RAAC      char(1)       intervention intégrée dans un protocole RAAC :
+                                                 Code 1 : Prise en charge RAAC
+                                                 Code 2: Pas de prise en charge RAAC

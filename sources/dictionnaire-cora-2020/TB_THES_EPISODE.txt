@@ -1,0 +1,18 @@
+==== TB_THES_EPISODE ====
+      1    ID_EPISODE               smallint(5)
+
+      2    CODE_EPISODE             varchar(30)
+
+      3    LIB_EPISODE              varchar(200)
+
+      4    ID_PERE                  smallint(5)
+
+      5    ACTIF                    char(1)                                                                                  'O'
+
+      6    CLOTURE_AUTO             char(1)                                                                                  'O'
+                                                   Lien vers Util.ID_UTIL.
+      7    ID_INFO                  int(10)
+                                                   Identifiant de l'utilisateur ayant effectué la dernière modification
+      8    DATE_INFO                datetime       Date de la dernière modification
+
+      9    TYPE_DISPONIBILITE       char(1)

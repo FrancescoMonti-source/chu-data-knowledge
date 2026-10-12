@@ -1,0 +1,10 @@
+==== TB_ORGANISME ====
+Tables des organismes (caisses et mutuelles)
+                                                      Clé :
+       1   ID_ORGANISME               smallint(5)
+                                                      Identifiant (PrisMédica) de l'organisme
+       2   NOM_ORGANISME              varchar(50)     Nom de l'organisme
+                                                      Type de l'organisme:
+       3   TYPE                       char(1)         - 'M' pour mutuelle
+                                                      -'C' pour caisse
+       4   ACTIF                      char(1)         Organisme actif 'O' ou inactif 'N'

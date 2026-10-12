@@ -1,0 +1,437 @@
+==== TB_CONFIGURATION ====
+Table de configuration et de paramétrage pour les modules Recueil Cora et Cora Activité. /!\ Pour tout nouveau paramétrage, il
+faut utiliser la table TB_CONFIG_LISTE.
+       1    NOM_ETABLIS                 char(50)         Nom de l'établissement
+
+       2    NOM_ETABLIS_CRY             char(255)        Gestion des licences Etablissement
+
+       3    NB_LIC_AUT                  char(255)        Gestion des licences Etablissement
+
+       4    NB_LIC                      char(255)        Gestion des licences Etablissement
+                                                         Oracle - Utilisation d'un Role (pour connexion unique à un seul schéma
+       5    CONNEXION_ROLE              char(20)
+                                                         utilisateur). Ce paramètre contient en fait éventuellement le nom de ce Role
+                                                         Paramétrage Groupage - Type de l'établissement : Dotation Global, DGF (="1")
+       6    TYPE_ETABLIS_FG             char(1)
+                                                         ou Etablissement Privé, OQN (="2")
+       7    NO_FINESS                   char(9)          Paramétrage Groupage - N° Finess de l'établissement
+
+       8    GESTION_SEANCE_FG           char(1)          Paramétrage Groupage - Permet de forcer le nombre de séance à 0 (si ="O")
+                                                         Interface PMSI (spécifique SILLAGE) - Code interne de la nomenclature CIM
+       9    CODE_NOMENCLATURE_CIM char(10)               utilisé dans les fichiers d'export PMSI (Diagnostics) pour l'interface PMSI avec
+                                                         Sillage
+                                                         Paramétrage Cora Recueil - Coefficient de 'survalorisation' des valeurs GHS,
+       10   COEF_VALORISATION           numeric(18, 5)
+                                                         définit en fonction de la zone géographique de l'établissement
+                                            Paramétrage Cora Recueil - Permet dans l'écran RUM de pouvoir modifier les
+11   DROIT_ES_ECRAN_RUM       char(1)       informations 'Mode d'entrée', 'Mode de sortie', 'Code provenance' et 'Code
+                                            destination' (si ="O")
+                                            Paramétrage Cora Recueil - Rend obligatoire la saisie de l'heure de réalisation
+12   OBLIG_ENREG_HEURE_ACTE char(1)         de l'acte. Un acte ne pourra alors pas être enregistré sans information sur
+                                            l'heure (Information importante pour les interfaces éventuelles)
+                                            Paramétrage Cora Recueil - Signature du RUM
+13   SIGN_RUM_DIAG            char(1)
+                                            Rend obligatoire la saisie d'au moins un Diagnostic pour signer un RUM
+                                            Paramétrage Cora Recueil - Signature du RUM
+14   SIGN_RUM_DIAG_DP         char(1)
+                                            Rend obligatoire la saisie du Diagnostic principal pour signer un RUM
+                                            Paramétrage Cora Recueil - Signature du RUM
+15   SIGN_RUM_ACTE            char(1)
+                                            Rend obligatoire la signature de toutes les actes/activités pour signer un RUM
+                                            Paramétrage Cora Recueil - Signature du RUM
+16   SIGN_RUM_ACTE_CLASS      char(1)       Rend obligatoire la signature de toutes les actes/activités uniquement classant
+                                            ou marqueur pour signer un RUM
+                                            Paramétrage Cora Recueil - Spécifique Saisie Activité SSR
+                                            Pour la saisie du CDARR :
+                                            - permet de saisir en détail les actes (si ="O").
+17   TYPE_SAISIE_SSR          char(1)
+                                            - permet de saisir les actes (si = 'N') en de disposant que des en-têtes de
+                                            chapitres
+                                            Sinon saisie des temps globalement par semaine (= 'G')
+                                            Paramétrage Cora Recueil - Spécifique Saisie Activité SSR
+18   SSR_DETAIL_DEPENDANCE    char(1)
+                                            Saisie en détail de la Dépendance
+                                            Définit la licence pour les droits de saisie SSR. Si 'O', les droits de saisie SSR
+19   GESTION_S                char(1)
+                                            sont attribués.
+                                            Paramétrage Cora Recueil - Signature du RUM / Contrôle effectué à la
+                                            signature :
+20   TYPE_CTRL_SIGN_RUM       char(1)       - "R" : pas de contrôle effectué
+                                            - "D" : contrôle 'qualité' actes + contrôle du 'groupage'
+                                            - ''G'' : contrôle uniquement du Groupage
+                                            Paramétrage Cora Recueil - Affichage des actes/diags fréquents :
+                                            Si cette zone est vide, la recherche est réalisée sur les Tables d'actes et
+21   DATE_MAJ_FREQUENT        datetime      diagnostics (directement TB_ACTE et TB_DIAG).
+                                            Sinon la recherche se réalise sur les Tables 'Palmarès' de l'utilisateur : dans ce
+                                            cas ce champ contient la date de dernier chargement de ce Palmarès.
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+22   NB_MAX_RECH              smallint(5)   Permet de limiter le nombre de résultats (de mouvements) de la recherche.
+                                            (par défaut limite à 1000)
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+     RECH_PRESENT_OBLIG_UNIT
+24                           char(1)        Lors d'une recherche sur les Patients présents : rend obligatoire l'utilisation du
+     E
+                                            filtre Unité
+                                            Paramétrage Cora Recueil - Fonction Bloc :
+                                            - 1er caractère : Génération automatique du n° d'intervention (si ="O")
+25   INTERV_GESTION_NO        char(2)
+                                            - 2ème caractère : Permet de rendre impossible la modification du n°
+                                            d'intervention (si ="N")
+                                            Paramétrage Cora Recueil - Gestion (Enregistrement et Affichage) de
+                                            Mouvements de Site (=Mouvements de plateaux techniques).
+26   GESTION_MVT_SITE         char(1)
+                                            Ces mouvements ne sont pas des mouvements 'PMSI' : aucune activité ne
+                                            leur est affectée.
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+                                            Utilisation (affichage) des Types de Filtres unités suivants :
+27   TYPE_FILTRE_UNITE        char(15)
+                                            - 1er caractère : Ambulatoire
+                                            - 2ème caractère : Externe médico-technique
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+28   LEN_NO_IPP               smallint(5)   Longueur du n° IPP si celui-ci est fixe. Permet de saisir uniquement les n°
+                                            déscriminant lors de la saisie (sans saisie des '0' éventuelles)
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+29   LEN_NO_SEJ               smallint(5)   Longueur du n° de Séjour si celui-ci est fixe. Permet de saisir uniquement les
+                                            n° déscriminant lors de la saisie (sans saisie des '0' éventuelles)
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+                                            Force l'affichage chonologique sur l'Id Mvt (après la Date de début de
+30   PARAM_ORDER_MVT          char(1)       mouvement) (si ="O").
+                                            Sinon l'affichage est effectuée sur l'heure de mouvement (après la Date de
+                                            début de mouvement)
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+31   RECH_UNITE_USER          char(1)       Gestion du Filtre 'Unité' : Affichage uniquement des Unités de l'Utilisateur (si
+                                            ="O")
+                                            Paramétrage Cora Recueil - Ecran Recherche Patient :
+     AFFICH_ORDRE_DECR_DEFA                 Par défaut l'affichage se fait dans l'ordre décroissant des séjours et
+32                          char(1)
+     UT                                     mouvements (la case à cocher 'Affichage par ordre décroissant de date' est
+                                            par défaut cochée)
+                                               Gestion des champs Site et Unité (de Production) au niveau de l'activité de
+33   AFFECTE_SITE_PROD        char(1)          l'acte
+                                               Cas de certains établissements
+                                               Création possible de mouvements d'Externe à partir de Recueil Cora (écran
+                                               Recherche).
+34   AUTORISE_CREAT_MVT_EXT char(1)
+                                               Possibilité offerte aux établissements dans les séjours d'Externe ne sont pas
+                                               clos automatiquement tous les jours
+35   NB_LIC_DOC_AUT           varchar(255)     Gestion des licences Etablissement
+
+36   NB_LIC_DOC               varchar(255)     Gestion des licences Etablissement
+                                               Définit la licence pour les droits de CORA Document. Si 'O', les droits sur
+37   GESTION_D                char(1)
+                                               CORA Document sont attribués.
+38   DROIT_SIGN_ACTE_AUTO     char(1)          Active le droit 'Signature Automatique des actes' des paramétrages Utilisateur
+                                               Gestion des mots de passe des Utilisateurs par Authentification Windows (pour
+                                               ceci la table TB_DOMAINE doit être paramétrée avec les noms de domaines
+                                               utilisés par l'établissement)
+                                               'O' : connexion Active Directory (géré en VB6 et .NET)
+                                               '1' : connexion Active Directory (géré en VB6 et .NET)
+39   AUTHENTIFICATION_WIN     char(1)          '2' : connexion Open LDAP (géré uniquement .NET)
+                                               '3' : connexion SSO - Active Directory (géré en VB6 et .NET)
+                                               '4' : connexion SSO - Open LDAP (géré uniquement .NET)
+                                               '5' : connexion Active Directory avec protocole LDAP (géré uniquement .NET)
+                                               '6' : connexion SSO - Active Directory avec protocole LDAP (géré
+                                               uniquement .NET)
+                                               Mise en place d'un contrôle dans l'écran Bloc : la saisie du site (=lieu) de
+40   OBLIG_SITE_BLOC          char(1)          l'intervention est obligatoire pour pouvoir saisir des actes (permet de
+                                               correctement rattaché des Unités et Sites aux actes)
+                                               Coefficient d'atténuation pour les établissement non conventionné à utiliser
+41   COEF_ATTENUATION         decimal(10, 2)   pour la valorisation des Séjour, à appliquer au Montant GHS.
+                                               Un coefficient d'atténuation peut aussi être définit au niveau des Unités.
+                                               Paramétrage Cora Recueil - Contrôle sur les actes inactifs :
+42   CONTROLE_ACTE_INACTIF    char(1)          - B ou D : Blocage a la saisie
+                                               - I ou D : Message d'informations
+                                               Paramétrage de lancement de Cora - Aide au codage :
+     GEST_PARAM_ES_CONNECTI
+43                          char(1)            Permet de lancer la dll Cora, on lui passant les chaines de connexions (gains
+     ON
+                                               de temps)
+                                               Paramétrage PMSI : permet de savoir si l'établissement peut gérer plusieurs
+44   ETABLIS_MULTI_RSS        char(1)          RSS pour un même séjour (ou si il y a des changements systématique de N°
+                                               de séjour dans de tel cas)
+                                               Gestion des licences Etablissement
+45   USE_ECRAN_NGAP           varchar(40)
+                                               valeur '2' cryptée.
+46   NO_FINESS_HAD            char(9)          Paramétrage Groupage HAD - N° Finess de l'établissement
+                                               Paramétrage Cora Recueil - Recherche des mouvements pour les écrans Bloc
+47   RECH_MVT_HOSPI_DEFAUT    char(1)          et Saisie rapide :
+                                               - 'O' --> On recherche en premier lieu les mouvements d'hospit non cloturés.
+                                               Paramétrage Cora Recueil - Saisie rapide activité:
+48   DATE_ACTE_EXT_LIBRE      char(1)          - 'O' --> Possibilité de saisir un acte pour un mouvement d'externe à une date
+                                               différente de la date de début mvt
+                                               Paramétrage Cora Recueil - Heure de début de la plage horaire nuit pour prise
+49   HEURE_DEBUT_NUIT         datetime         en compte de la majoration NGAP. Si ce champ est null, l'automatisme de
+                                               détection dans l'écran Externe n'a pas lieu (idem si Date Fin non saisie)
+                                               Paramétrage Cora Recueil - Heure de fin de la plage horaire nuit pour prise en
+50   HEURE_FIN_NUIT           datetime         compte de la majoration NGAP. Si ce champ est null, l'automatisme de
+                                               détection dans l'écran Externe n'a pas lieu (idem si Date Début non saisie)
+     SAISIE_AUTO_ACTE_COMPL_                   Paramétrage Cora Recueil - paramètre d'établissement pour la saisie
+51                           char(1)
+     BLOC                                      automatique de l'acte complémentaire d'anesthesie du bloc
+     OBLIG_INFO_DEMANDEUR_A                    Paramétrage Cora Recueil - paramètre d'établissement pour rendre la saisie
+52                          char(1)
+     CTE                                       des informations UF et Médecin demandeur obligatoires
+                                               Paramétrage Cora Recueil - si ce paramètre est à "O" et que des cotations CS
+53   INIT_AUTO_COTATION_CS    char(1)          ou C sont apparentes dans le thésaurus des cotations, la CS ou la C est
+                                               cochée par défaut (priorisation de la CS)
+                                               Paramétrage Cora Recueil - paramètre d'établissement pour rendre possible
+                                               l'accès de l'écran F10 aux différents types de mouvement. Mettre U pour
+                                               autoriser les mouvements d'Urgence à accéder à l'écran, H pour les hospit HC,
+54   AUTORISE_ECRAN_EXT       char(4)
+                                               E pour les externes et J pour l'HDJ. Si null, tout est autorisé
+                                               Paramètre du type UHJE
+                                               Les positions ne sont pas figées:
+                                               Pour certains établissements, il est impossible de dissocier le type d'activité
+     GESTION_TYPE_ACTIVITE_SS                  des mouvements SSR (SSR HDJ ou SSR classique) par l'Unité de ces
+55                            char(1)
+     R                                         mouvements : Il faut alors saisir cette information en saisie des données RHS.
+                                               Ce champ permet d'autoriser cette saisie.
+                                               si ='N', pas de contrôle de cohérence des dates et heures de l'intervention par
+56   CTRL_DATE_BLOC            char(1)
+                                               rapport au mouvement
+                                               - Si = '0' : Les 0 à gauche sont tronqués avant le lancement de la recherche
+57   FORMATAGE_IEP             char(1)
+                                               par N° de Séjour
+                                               Date de fin de gestion de la CDAM.
+58   DATE_FIN_CDAM             datetime        Au niveau du groupage, si un RUM se termine après cette date, on ne va pas
+                                               chercher s'il a des actes CDAM.
+                                               Permet de connaître la 'stratégie' de l'établissement par rapport à la signature
+                                               des RUM.
+59   GESTION_SIGN_RUM          char(1)                                                                                                 'O'
+                                               La plupart des établissements signent leur RUM. La valorisation et la
+                                               modification du groupage est réalisée en fonction de cette signature
+                                               Paramétrage Cora Recueil - Ecran Recherche Patient.
+                                               Permet d'orienter le lancement de l'écran de Saisie de l'activité : lancement de
+                                               l'écran externe pour les Mouvements d'Externe et d'Urgence.
+                                               - O : les mouvements d'externe et d'urgence sont ouverts avec l'écran Externe.
+     PARAM_LANCE_ECRAN_SAISI
+60                           char(1)           - E : seuls les mouvements d'externe sont ouverts avec l'écran Externe. Les
+     E
+                                               mouvements d'urgence sont ouverts avec l'écran RUM.
+                                               - U : seuls les mouvements d'urgence sont ouverts avec l'écran Externe. Les
+                                               mouvements d'externe sont ouverts avec l'écran RUM.
+                                               - N : les mouvements d'externe et d'urgence sont ouverts avec l'écran RUM.
+                                               Paramétrage Cora Recueil - Dans l'écran de Saisie rapide, permet de gérer ou
+     COTATION_DEFAUT_SAISIE_R                  non la coche automatique sur la C ou CS paramétrée pour être affichée dans
+61                            char(1)
+     APIDE                                     cet écran.
+                                               Si 'N', on ne précoche par. Si autre, on le fait
+                                               Permet de gérer les options de Saisie (pour NGAP et CCAM) de l'écran F10 -
+                                               Visibilité et Ordre d'apparition de haut en bas: Si vide, on initialise dans Recueil
+                                               à LGTRANF
+                                               - L = Activité Libérale
+                                               - G = Acte à titre Gratuit
+     GESTION_FILTRE_TYPE_INFO                  - T = Polytraumatisé
+62                            char(12)
+     _EXT                                      - R = Remb. Exceptionnel
+                                               - A = Actes hors A.L.D
+                                               - N = Acte de Nuit
+                                               - F = Acte de Jour férié
+                                               - P = Protocole Recherche
+                                               - B = Non Facturable
+                                               Gestion dans les Interfaces d'un Transcodage des lettres clés NGAP :
+                                               - Si vide ou = 0 : Pas de Transcodage, pas de gestion des codes export
+     GESTION_CODE_NGAP_EXPO
+63                          char(1)            - Si > 0 : Gestion des lettres clés d'export avec un nombre de caractères
+     RT
+                                               limités (limite donnée par ce champ GESTION_CODE_NGAP_EXPORT de 1 à
+                                               9)
+                                               Paramétrage Cora Recueil - Heure de début de la plage horaire nuit - Tranche
+64   HEURE_DEBUT_NUIT_T2       datetime
+                                               2
+65   HEURE_FIN_NUIT_T2         datetime        Paramétrage Cora Recueil - Heure de fin de la plage horaire nuit - Tranche 2
+
+66   HEURE_DEBUT_NUIT_T3       datetime        Heure de début de la tranche 3 (Nuit) pour la NGAP
+
+67   HEURE_FIN_NUIT_T3         datetime        Heure de fin de la tranche 3 (Nuit) pour la NGAP
+                                               Formatage du N° de séjour dans les fichiers de groupage (RUM 11, HOSP-
+     GRP_TYPE_FORMATAGE_SEJ                    PMSI et VID-HOSP) :
+68                          char(1)
+     OUR                                       - si vide ou 0 : Calé à gauche
+                                               - si 1 : Calé à droite avec des 0 à gauche
+                                               Gestion du fonctionnement de complément d'Intervention (Externe) :
+                                               - si 'N' : Pas d'affichage du bouton 'Complément' dans les liste des
+     EXT_GEST_COMPLEMENT_IN
+69                          char(1)            Interventions
+     TERV
+                                               - si 'N' : on ne gère que les cas de création (en fonction du paramètre
+                                               EXT_GEST_REGLE_INTERVENTION) et de modification d'une intervention
+                                               Gestion du contrôle d'unicité d'intervention par Patient/Jour/Exécutant :
+     EXT_GEST_REGLE_INTERVEN
+70                           char(1)           - Si =1 : Interdiction de saisir plus d'une intervention par jour par exécutant et
+     TION
+                                               par mouvement
+71   BASE_TEST                 char(1)         'O' si base de Test : affichage d'une alerte à l'ouverture des produits VB6
+
+72   GESTION_INFOS_COMPL       char(1)
+                                               Version de l'aide au codage Cora.
+73   VERSION_CORA              decimal(6, 4)
+                                               Permet de gérer des appels différents de la dll pour la gestion des LPP
+74   DATE_NEW_TARIF_GHS        datetime        Pour les établissements Privés : Date de prise en compte des nouveaux Tarifs.
+                                                Si = 'O' : Il est possible d'entrer dans un Séjour en Pré-Admission et/ou de
+75    PREADMISSION_NON_BLOC      char(1)
+                                                créer une Intervention dans une Pré-Admission
+                                                (En minutes) : Temps utilisé pour réaliser une recherche des actes d'une
+      DELAI_COURT_INTERVENTIO                   même intervention
+76                            smallint(5)
+      N                                         DELAI Court : les actes compris dans ce délai court font obligatoirement partie
+                                                de la même Intervention
+                                                (En minutes) : Temps utilisé pour réaliser une recherche des actes d'une
+                                                même intervention
+77    DELAI_LONG_INTERVENTION smallint(5)
+                                                DELAI Long : les actes compris dans ce délai long sont proposés comme
+                                                faisant partie de la même Intervention
+78    STATUT_JURIDIQUE           char(2)
+
+79    MODE_FIXATION_TARIF        char(2)
+                                                Permet de paramétrer les codes modificateurs qui doivent précochées en
+80    MODIFIC_SELECT_DEFAUT      varchar(20)
+                                                Saisie automatiquement
+                                                Définit la licence pour les droits de CORA Agenda. Si 'O', les droits sur CORA
+81    GESTION_A                  char(1)
+                                                Agenda sont attribués.
+                                                Permet de paramétrer par défaut l'affichage de l'heure de saisie d'une
+82    PARAM_HEURE_DEF_URG        char(1)
+                                                Intervention pour les passages en Urgence
+                                                Permet de paramétrer le droit d'appel de l'écran de saisie des actes CDARR
+                                                pour le MCO.
+83    SAISIE_ACTE_PARA           char(1)
+                                                Si 'O', menu visible dans l'écran RUM pour saisie CDARR (avec N° de
+                                                semaine à -1)
+84    PARAM_SIGN_RUM             char(1)
+                                                Dans l'écran de Saisie par Tableau (actes de réanimation) : si ='O', recopie du
+85    RECOPIE_MED_REA            char(1)
+                                                médecin exécutant sur chaque acte a créer.
+      GESTION_SIGN_ACTE_ECR_E
+86                            char(1)           Permet de gérér la signature dans l'écran Externe
+      XT
+                                                Pour les établissements Privés ne disposant que de Cora Activité : Il est
+                                                nécessaire de pouvoir réaliser du groupage par lot sans gérer les lots et RSF
+87    GESTION_GRP_LOT            char(1)
+                                                (ouverture de l'écran Public possible)
+                                                Cas SHS : ='O'
+                                                =1 (ou vide) : Intégration a partir d'un Fichier de Type B2
+88    TYPE_INTEGR_FICH_RSF       char(1)
+                                                = 2 : Intégration a partir d'un Fichier de Type RSF
+89    DATE_LIMITE_TBX            datetime       Date limite de recherche du tableau de bord de codage utilisateur CORA PMSI
+                                                Permet de libérer le paramètre d'autorisation de Saisie de dépassement avec
+90    AUTORISE_DEPASS_MODIF_K char(1)
+                                                le modificateur K, dans les paramétrages Utilisateurs.
+      INTERFACE_REENVOI_ACTE_
+91                            char(1)
+      SR
+92    NB_LIC_AGD_AUT             varchar(255)   Gestion des licences Etablissement
+
+93    NB_LIC_AGD                 varchar(255)   Gestion des licences Etablissement
+                                                'O' si gestion des associations non prévues dans l'écran de sélection des actes
+                                                complémentaires CCAM
+94    GESTION_ASSOC_NP           char(1)
+                                                Si 'O', on peut ajouter des associations non prévues par la CNAM (Chapitre
+                                                19)
+                                                Gestion des stocks LPP
+95    LPP_GESTION_STOCK          char(1)
+                                                Si 'O' : affichage des numéros de lot et détail des articles fournisseur
+                                                Si 'N', obligation de saisir un code article fournisseur pour les LPP. Et donc
+96    DROIT_SAISIE_LPP_OFFICIEL char(1)
+                                                interdiction de saisir un code LPP officiel
+97    THEME_DS_FREQ              char(1)        'O' si Gestion des themes dans Frequents (Monaco)
+
+98    GESTION_LC_SPECIF          char(1)        'O' si Gestion des lettres clés spécifiques établissement
+
+99    GESTION_ARCH               char(1)        'O' si Gestion CORA Archives
+
+100 GESTION_PSY                  char(1)        'O' si Gestion CORA RimP
+
+101 TYPE_ENV                     varchar(10)    Type d'environnement. Par exemple SHS
+      SAISIE_COMPL_ARE_ECR_EX                   'O' si autorisation de saisie des actes complémentaires d'anesthésie dans
+102                           char(1)
+      T                                         l'écran des externes
+                                                Nom de la bibliothèque de gestion des séquences dans le cas d'une
+103 NOM_BIBLIO_SEQ               varchar(12)
+                                                compatibilité DB2AS
+104 GESTION_EXT_DIAG             char(1)        Autorisation de la saisie des diagnostics dans l'écran des externes ('O')
+
+105 TYPAGE_AUTO_SEA_1J           char(1)        Typage automatique des séances RimP à 1
+                                                'O' si gestion des sous-séquences HAD.
+106 HAD_GEST_SS_SEQ             char(1)
+                                                Deprecated. O forcément maintenant
+107 HAD_TARIF_JOUR              decimal(7, 2)   Tarif d'un séjour HAD par jour
+
+108 DATE_VERS_BASE_INSTALL      datetime
+
+109 VERS_GEST_HAD               char(1)
+                                                Gestion des Mots de passe :
+                                                Si remplit --> l'activation du cryptage MdP est réalisée
+                                                1er car. : nb de caractère minimum du mot de passe (ex : '6A' --> 6 car.)
+110 PASS_USER_CRY               char(2)         2ème car. : Contrôle du MdP
+                                                    - A : Pas de contrainte (a part le nb de car.)
+                                                    - B : Alpha + Numérique (au moins un de chaque)
+                                                    - C : Alphe + Numérique + Car. spécial (ex : '!')
+111 CONF_D                      char(1)
+                                                Axe principal :
+112 AXE_PMSI                    char(1)         M : responsabilité médicale                                                           'M'
+                                                H : hébergement
+113 GEST_ATU                    char(1)
+                                                Nb de jour ou le mot de passe d'un user est actif.
+114 NB_JOUR_CRY                 smallint(5)
+                                                Ex : = 30 si on veut que tous les 30 jours ce MdP soit changé
+                                                0 - Saisie Mnt détaillée seulement
+115 TYPE_SAISIE_ACT_LIB         char(1)         1 - Saisie Mnt détaillée + globale
+                                                2 - Saisie Mnt globale seulement
+                                                'O' si Visualisation des Mnts de dépassement pour un utilisateur différent de
+116 VISU_MNT_DEPASS             char(1)
+                                                l'utilisateur connecté
+                                                'O' si valorisation PMSI de type Facturation / Caisse.
+117 VALO_TYPE_FACTURATION       char(1)
+                                                Sinon, de type ATIH
+                                                Type de lancement de l''écran de simulation des RUM depuis CoRa Recueil et
+                                                CoRa Activité
+                                                - Vide : pas de droit de licence
+      GESTION_ECRAN_SIMUL_RU
+118                          char(1)            - '0' : utilisation de l'ancien écran (avec droit de gestion du nouveau)
+      M
+                                                - '1' : utilisation du nouvel écran (uniquement pour DIM et TIM)
+                                                - '2' : utilisation du nouvel écran (pour tous les utilisateurs ayant le droit de
+                                                simuler le groupage RUM)
+                                                Type de gestion des droits Utilisateurs / Unités
+119 TYPE_DROIT_ACCES            char(1)         - 'S' : gestion des droits Utilisateurs --> Sites --> Unités
+                                                - 'U' : gestion des droits Utilisateurs --> Unités directement
+                                                Type d'affichage de la recherche patient :
+120 PARAM_RECH_AFFICHAGE        char(1)         - 'R' pour ne pas afficher les mouvements et séjours des unités dont on a pas
+                                                le droit d'accès en lecture (visualisation du patient uniquement)
+      GESTION_FILTRE_TYPE_INFO
+121                            char(5)
+      _ACT
+                                                Taille maximale (nombre de caractères) de la ligne de groupage (cas des
+122 LIMIT_TAILLE_LIGNE_GRP      smallint(5)
+                                                champs particuliers)
+                                                Indique si l'on utilise ou non un annuaire externe pour récupérer les utilisateurs
+                                                (imports d'utilisateurs et de profils) :
+123 ANNUAIRE_EXTERNE            char(1)         - null : pas d'annuaire externe
+                                                - 1 : Annuaire AD
+                                                - 2 : AnnuaireLDAP
+                                                Import des users depuis Active Directory ou LDAP
+      RECUP_PASSWORD_EXTERN
+124                         char(1)             Si 'O' : copie du mot de passe LDAP dans nos bases pour pouvoir se
+      E
+                                                connecter dans les produits VB6
+125 ADRESSE1_ETABLIS            varchar(50)     Adresse 1 de l'établissement
+
+126 ADRESSE2_ETABLIS            varchar(50)     Adresse 2 de l'établissement
+
+127 CP_ETABLIS                  varchar(5)      Code postal de l'établisement
+
+128 VILLE_ETABLIS               varchar(50)     Ville de l'établisement
+
+129 TEL1_ETABLIS                varchar(20)     Numéro de téléphone 1 de l'établisement
+
+130 TEL2_ETABLIS                varchar(20)     Numéro de téléphone 2 de l'établisement
+
+131 NO_SIRET                    varchar(14)     Numéro de Siret de l'établisement
+                                                indique si l'environnement a été contrôlé et configuré pour fonctionner avec les
+132 COMPATIBLE_DLC              char(1)
+                                                package CORA Infra
+133 EMAIL_ETABLIS               varchar(100)
+                                                      Numéro de la version CCAM la plus récente qui a été installée sur la BDD. Si
+      134 VERSION_CCAM                varchar(8)      le client exécute par erreur la CCAM 40 alors qu'il a déjà installé la CCAM 41,
+                                                      c'est bien la version 41 qui sera stockée dans ce champ.

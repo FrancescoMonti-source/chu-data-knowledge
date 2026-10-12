@@ -1,0 +1,17 @@
+==== TB_DONNEE_EXTERNE_HIST ====
+Historisation de la table TB_DONNEE_EXTERNE
+       1   ID_DONNEE                   int(10)         Historisation de la table TB_DONNEE_EXTERNE
+
+       2   CODE_TYPE                   varchar(20)     Historisation de la table TB_DONNEE_EXTERNE
+
+       3   LIEN_DOSSIER                varchar(20)     Historisation de la table TB_DONNEE_EXTERNE
+
+       4   ID_LIEN_DOSSIER             int(10)         Historisation de la table TB_DONNEE_EXTERNE
+
+       5   CODE_VALEUR                 varchar(50)     Historisation de la table TB_DONNEE_EXTERNE
+
+       6   VALEUR                      varchar(4000)   Historisation de la table TB_DONNEE_EXTERNE
+
+       7   DATE_CREAT                  datetime        Historisation de la table TB_DONNEE_EXTERNE
+
+       8   DATE_INFO                   datetime        Historisation de la table TB_DONNEE_EXTERNE

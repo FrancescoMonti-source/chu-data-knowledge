@@ -1,0 +1,17 @@
+==== TB_RSS_ERREUR_DESACTIVE ====
+Table des erreurs de groupage non bloquante désactivé
+                                                     Clé primaire : Identifiant de l'erreur de groupage non bloquante du RSS
+      1    ID                        int(10)
+                                                     désactivée.
+                                                     Identifiant du RSS pour lequel une erreur non bloquante de la FG est
+      2    ID_RSS                    int(10)
+                                                     désactivée. Lien avec TB_SYNTH_RSS.ID_RSS.
+       3   CODE_ERREUR              char(3)          Code de l'erreur de groupage renvoyée par la FG.
+                                                     Identifiant de l'utilisateur ayant désactivée l'erreur de groupage non bloquante.
+       4   ID_INFO                  int(10)
+                                                     Lien avec UTIL.ID_UTIL
+       5   DATE_INFO                datetime         Date à laquelle l'erreur de groupage non bloquante a été désactivée.
+                                                     Commentaire associé à la désactivation d'une erreur de groupage non
+       6   COMMENTAIRE              varchar(500)
+                                                     bloquante
+       7   DATE_EXEC                datetime         Date d'exécution du dernier groupage où l'erreur est apparue avant l'extinction

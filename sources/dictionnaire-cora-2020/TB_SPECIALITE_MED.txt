@@ -1,0 +1,24 @@
+==== TB_SPECIALITE_MED ====
+Table des spécialités médicales (thésaurus fermé)
+                                                         Clé :
+       1    ID_SPE_MED                    int(10)
+                                                         Identifiant de la spécialité des Professionnels de Santé
+       2    CODE_SPE_MED                  char(2)        Code de la spécialité des Professionnels de Santé
+
+       3    LIBELLE_SPE_MED               varchar(80)    Libellé de la spécialité des Professionnels de Santé
+
+       4    CODE_OFFICIEL                 varchar(20)    Code officiel de la spécialité des Professionnels de Santé
+
+       5    LIB_OFFICIEL                  varchar(100)   Libellé officiel de la spécialité des Professionnels de Santé
+
+       6    CODE_METIER                   varchar(6)     Code du métier
+
+       7    LIB_METIER                    varchar(100)   Libellé du métier
+
+       8    OID_METIER                    varchar(64)
+
+       9    CODE_OFFICIEL_SR              varchar(10)
+
+       10   OID_SR                        varchar(64)
+
+       11   CODE_EXPORT                   varchar(3)     Pour correspondance lors de l'export vers IDEO

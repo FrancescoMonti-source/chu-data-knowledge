@@ -1,0 +1,7 @@
+==== CIM_CODE_SPE ====
+       1   CODE_SPE                      char(10)
+       2   LIB_SPE                        varchar(50)
+
+       3   TYPE                           char(1)
+
+       4   COULEUR                        varchar(20)

@@ -1,0 +1,13 @@
+==== CSARR_FOLDER_FAVORI ====
+Table des Favoris CSARR Clé :
+Table des Favoris CSARR
+                                                      Clé :
+       1   ID_FOLDER                   int(10)
+                                                      Identifiant du Favori
+       2   NOM_FOLDER                  varchar(50)    Nom du Favori
+                                                      Lien sur CSARR_FOLDER_FAVORI :
+       3   ID_PERE                     int(10)
+                                                      lien de hiérarchie sur les favoris
+       4   ACTIF                       char(1)        ="O' pour un Favori actif                                                'O'
+
+       5   ORDRE_FAV                   int(10)        Ordre des Favoris (dans toute l'arborescence (père et fils compris))

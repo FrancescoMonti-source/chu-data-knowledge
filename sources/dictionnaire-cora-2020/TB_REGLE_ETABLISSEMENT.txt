@@ -1,0 +1,12 @@
+==== TB_REGLE_ETABLISSEMENT ====
+Liens entre les règles gérées par l'Etablissement Siège et l'envoi aux différents Etablissements liés
+                                                         Clé - Lien - TB_ETABLISSEMENT.ID_ETABLISSEMENT :
+       1    ID_ETABLISSEMENT              smallint(5)
+                                                         Identifiant de l'établissement
+                                                         Clé - Lien - TB_REGLE_QUALITE.ID_REGLE_QUALITE :
+       2    ID_REGLE_QUALITE              smallint(5)
+                                                         lien sur la règle
+       3    DATE_ENVOI                    datetime       Date d'envoi de cette règle dans l'établissement
+                                                         Clé - Lien sur Util.id_util :
+       4    ID_USER_ENVOI                 int(10)
+                                                         Identifiant de l'Utilisateur ayant envoyé cette règle

@@ -1,0 +1,13 @@
+==== TB_THES_MACHINE ====
+Permet de stocker les informations de paramétrage des différentes machines (Scanner, IRM, Tomographe)
+       1   ID_MACHINE                   int(10)          Identifiant de l’appareil (CLE)
+
+       2   LIBELLE_MACHINE              varchar(100)     Libellé/Nom donnée à l’appareil
+
+       3   DATE_INSTALLATION            datetime         Date d’installation de l’appareil
+
+       4   NUM_MACHINE                  varchar(14)      Numéro de l’appareil
+
+       5   TYPE_MACHINE                 char(1)          Type de l’appareil S : Scanner ou I : IRM ou T : Tomographe
+
+       6   AMORTI                       char(1)          Flag indiquant si l’appareil est amorti ou non (O ou N)

@@ -1,0 +1,7 @@
+==== TB_INTERVENTION_DET_COMMENT ====
+       1   ID_INTERVENTION_FICHE      int(10)
+
+       2   ID_THES_DET_FICHE_BLOC     smallint(5)
+                                      text
+       3   COMMENTAIRE_RTF
+                                      (2147483647)

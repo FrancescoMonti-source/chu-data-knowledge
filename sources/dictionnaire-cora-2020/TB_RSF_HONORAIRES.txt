@@ -1,0 +1,76 @@
+==== TB_RSF_HONORAIRES ====
+      1    ID_RSF_HONO              int(10)        clé primaire de TB_RSF_HONORAIRES
+
+      2    ID_RSF_FACT              int(10)        identifiant de la facture : clef primaire de TB_RSF_FACT
+                                                Actes d’imagerie médicale :
+                                                (Scanner, IRMN) valeur 19
+                                                Centres thermaux :
+     3   MODE_TRAITEMENT        char(2)
+                                                cf. annexe 13
+                                                Autres cas :
+                                                valeur 0 (zéro)
+                                                Discipline de prestation
+
+                                                Actes d’imagerie médicale :
+                                                (Scanner, IRMN)
+                                                valeurs 035 : Scanner
+                                                753 : IRMN
+     4   CODE_DMT               char(3)         Centres thermaux :
+                                                Service où a séjourné le bénéficiaire
+                                                selon codification communiquée à
+                                                l’établissement par l’Assurance
+                                                Maladie.
+                                                Autres cas :
+                                                valeur 0 (zéro)
+                                                Justification
+                                                d’exonération du
+     5   CODE_EXO               char(1)         Ticket
+                                                Modérateur au
+                                                niveau de l’acte
+                                                Date de l’acte ou de la délivrance
+     6   DATE_SOINS             datetime
+                                                du produit
+     7   CODE_ACTE              char(5)         code de l'acte CCAM
+
+     8   QUANTITE               smallint(5)     quantité d'actes
+                                                Coefficient de l’acte.
+     9   COEF                   decimal(6, 2)
+                                                CCAM : Valeur 1.
+                                                Transports : nombre de transports
+                                                facturés.
+                                                Actes de Radiothérapie (§ 27.58)
+                                                CCAM : Valeur 1.
+                                                Actes de Biologie : si codage affiné,
+    10   DENOMBREMENT           smallint(5)     indiquer le nombre de codes détail.
+                                                Auxiliaires médicaux : voir exemples
+                                                § 27.51.
+                                                LPP : nombre de types 4F.
+                                                Autres cas : valeur égale à la quantité
+                                                sauf pour les IK = 1.
+    11   PRIX_UNIT              decimal(8, 2)   prix unitaire de l'acte
+
+    12   MNT_BASE_REMB          decimal(8, 2)   Montant de base remboursé
+
+    13   TAUX                   smallint(5)     Taux applicable à la prestation
+
+    14   MNT_CAISSE             decimal(8, 2)   Montant remboursable par l’organisme d’Assurance Maladie
+
+    15   MNT_TOT_FACT           decimal(8, 2)   montant total facturé
+
+    16   MNT_COMPL              decimal(8, 2)   montant remboursable par l'orga. complémentaire
+
+    17   CODE_SPEC              char(2)
+
+    18   QUALIFICATIF_DEP       char(2)         Qualificatif de la dépense
+
+    19   MEMO_LIGNE_HONO        varchar(200)    Mémorisation de ligne RSF Honoraire
+                                                O = honoraire CCAM
+    20   ACTE_CCAM              char(1)
+                                                N ou NULL : non
+    21   NAT_OP_NOEMIE          char(3)
+
+    22   MNT_NOEMIE             decimal(8, 2)
+                                                O = honoraire de bio
+    23   ACTE_BIO               char(1)
+                                                N ou NULL : non
+    24   SPECIALITE_EXECUTANT   char(2)

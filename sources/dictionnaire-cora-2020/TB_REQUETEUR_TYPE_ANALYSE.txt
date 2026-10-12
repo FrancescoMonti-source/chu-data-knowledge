@@ -1,0 +1,8 @@
+==== TB_REQUETEUR_TYPE_ANALYSE ====
+     1   CODE_TYPE_ANALYSE      varchar(15)
+
+     2   LIBELLE_TYPE_ANALYSE   varchar(40)
+
+     3   TYPE_HIERARCHIE        varchar(20)
+
+     4   ACTIF                  char(1)                                                                      'O'

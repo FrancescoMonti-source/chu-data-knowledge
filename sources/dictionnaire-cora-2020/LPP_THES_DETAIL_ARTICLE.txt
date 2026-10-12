@@ -1,0 +1,8 @@
+==== LPP_THES_DETAIL_ARTICLE ====
+       1    ID_THES_ARTICLE              int(10)
+            CODE_ARTICLE_FOURNISSEU
+       2                            char(13)
+            R
+       3    ID_ARTICLE_FOURNISSEUR       int(10)
+
+       4    ORDRE                        smallint(5)

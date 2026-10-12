@@ -1,0 +1,7 @@
+==== MED_CIM ====
+Table permettant de faire le lien entre une prescription (médicament, ...) et un diagnostic
+       1    ID_MED                       int(10)          Identifiant du médicament ou autre
+
+       2    CODE_CIM                     char(7)          Code du diagnostic CIM
+
+       3    CODE_UCD                     varchar(13)      Code UCD du médicament ou autre

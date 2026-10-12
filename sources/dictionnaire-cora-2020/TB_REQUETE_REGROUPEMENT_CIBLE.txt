@@ -1,0 +1,4 @@
+==== TB_REQUETE_REGROUPEMENT_CIBLE ====
+       1    ID_ITEM                   int(10)
+
+       2    ID_CIBLE                  varchar(50)

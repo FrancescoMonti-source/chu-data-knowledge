@@ -1,0 +1,19 @@
+==== TB_REQUETE_THES ====
+Thésaurus
+       1    ID_REQUETE_THES                 int(10)         Clé
+
+       2    CODE_REQUETE_THES               varchar(30)     Code du thésaurus - Contrainte d'unicité sur cette colonne
+
+       3    LIBELLE_REQUETE_THES            varchar(100)    Libellé du thésaurus
+
+       4    REFERENCE_THES                  varchar(30)     Champ référence du thésaurus
+
+       5    REQUETE_SQLSERVER               varchar(4000)   Requête version SQL Server
+
+       6    REQUETE_ORACLE                  varchar(4000)   Requête version Oracle
+            REQUETE_SQLSERVER_REST
+       7                           varchar(4000)            Restriction des valeurs (version SQL Server)
+            RICT
+            REQUETE_ORACLE_RESTRIC
+       8                           varchar(4000)            Restriction des valeurs (version Oracle)
+            T

@@ -1,0 +1,6 @@
+==== R_CATEGORIE_MEDIC ====
+Liste des Catégories médicale
+       1   COD_CATMED                 char(2)       Code Catégorie Médicale
+                                                      libellé de la catégorie
+       2   LIBELLE                     char(100)
+                                                      médicale

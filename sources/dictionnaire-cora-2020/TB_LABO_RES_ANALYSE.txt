@@ -1,0 +1,72 @@
+==== TB_LABO_RES_ANALYSE ====
+Table des analyses de biologie
+                                                       Clé :
+       1   ID_LABO_RES_ANALYSE         int(10)
+                                                       Identifiant de la table
+                                                       Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                  int(10)
+                                                       Identifiant du Patient.
+                                                       Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                   int(10)
+                                                       Identifiant du Séjour.
+       4   ID_FLUX_LABO_OBR            int(10)         Identifiant du segment OBR
+
+       5   CHRONO                      smallint(5)     Chrono de l'analyse dans le fichier
+
+       6   DEM_ID_ECHANTILLON          varchar(23)     Identifiant de l'échantillon
+
+       7   DEM_ID_DEMANDE              varchar(23)     Identifiant de la demande
+
+       8   EXEC_ID_ECHANTILLON         varchar(23)     Identifiant de l'exécutant de l'échantillon
+
+       9   EXEC_ID_DEMANDE             varchar(23)     Identifiant de l'exécutant de la demande
+
+      10   NUM_DEMANDE                 varchar(23)     Numéro de la demande
+                                                        Liste des analyses demandées : Le contenu dépend de l'expéditeur :
+                                                        Pour certains : codes analyse séparés par des ^
+      11   LISTE_ANALYSE               varchar(1000)    Exemple : ACMBD~ACNU~ANCA~IGE
+                                                        Pour d'autres : code^libellé^unité
+                                                        Exemple : G^GLYCEMIE^L
+      12   CODE_ANALYSE                varchar(20)      Code de l'analyse
+
+      13   LIB_ANALYSE                 varchar(250)     Libellé de l'analyse
+
+      14   FLAG_PRIORITE               char(1)          Flag de priorisation
+
+      15   DATE_PRELEVEMENT            datetime         Date du prélevement (Date + heure)
+
+      16   DATE_PRESCRIPTION           datetime         Date de prescription (Date + heure)
+
+      17   CODE_ACTION                 char(1)          Code de l'action
+
+      18   DATE_REC_ECHANTILLON        datetime         Date de récepetion du prélevement au laboratoire (Date + heure)
+
+      19   TYPE_ECHANTILLON            varchar(100)     Type d'échantillon. Exemple : Plasma hépariné, sérum, …
+                                                        Lien sur Util.id_util :
+      20   ID_PRESCRIPTEUR             int(10)
+                                                        Identifiant du prescripteur.
+                                                        Lien sur TB_UNITE.ID_UNITE :
+      21   ID_UNITE_DEST               int(10)
+                                                        Identifiant d' l'unité destinataire du résultat (= demandeuse?).
+                                                        Statut Analyse : (A mon avis a ne pas gérer --> Gérer plutôt Statut Résultat)
+                                                        F : résultat Final
+                                                        I : échantillons reçus, analyses non effectuées
+                                                        P : résultats non validés biologiquement
+                                                        M : résultats partiels validés biologiquement
+      22   STATUT_ANALYSE              char(1)
+                                                        R : Résultats non validés techniquement
+                                                        C : Correction de résultats déjà transmis
+                                                        O : demande reçue, échantillons non reçus
+                                                        D : demande annulée par le demandeur
+                                                        X : demande annulée par l'exécutant
+      23   COMMENTAIRE                 varchar(2000)    Commentaire associé à l'analyse
+                                                        Lien sur Util.id_util :
+      24   ID_INFO                     int(10)          Identifiant du dernier utilisateur ayant réalisé une modification = identifiant de
+                                                        l'interface -333
+      25   DATE_INFO                   datetime         Date de dernière modification de l'enregistrement
+
+      26   ID_APPLICATION              int(10)          Lien sur TB_INT_APPLICATION.ID
+                                                        Etat de l'enregistrement : M pour modification, Null sinon
+      27   FLAG_ETAT                   char(1)          Ce sont seulement les analyse ayant le flag_etat à NULL qui seront prises en
+                                                        compte par les contrôles qualité labo.
+      28   ID_LABO_RES_ANALYSE_LIEN int(10)             Identifiant de l'analyse liée

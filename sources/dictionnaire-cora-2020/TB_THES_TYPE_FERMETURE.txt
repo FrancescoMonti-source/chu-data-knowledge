@@ -1,0 +1,12 @@
+==== TB_THES_TYPE_FERMETURE ====
+Thésaurus des types de fermeture
+                                                  Clé de la table
+       1   ID_TYPE_FERMETURE       smallint(5)
+                                                  Identifiant du type de fermeture
+       2   CODE_TYPE_FERMETURE     varchar(10)    Code du type de fermeture
+
+       3   LIB_TYPE_FERMETURE      varchar(100)   Libellé du type de fermeture
+
+       4   COULEUR1                varchar(15)    Couleur prinicpale associée au type de fermeture
+
+       6   ACTIF                   char(1)        Indique si le type de lit est actif (O/N)                                 'O'

@@ -1,0 +1,9 @@
+==== TB_PSY_MOTIF_VENUE ====
+Table des motifs de venue Clé :
+Table des motifs de venue
+                                                       Clé :
+       1   ID_MOTIF_VENUE             smallint(5)
+                                                       Identifiant du motif de venue
+       2   CODE_MOTIF_VENUE           char(10)         Code du motif de venue
+
+       3   LIBELLE_MOTIF_VENUE        varchar(100)     Libellé du motif de venue

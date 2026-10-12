@@ -1,0 +1,10 @@
+==== FG_FACT_SRC ====
+Table contenant les diagnostics et les actes SRC associés à une FG
+       1   VERSION_FG                 char(3)         Version de la fonction de groupage
+
+       2   CODE_DIAG                  char(16)        Code du diagnostic CIM. Lien avec CIM_HIERARCHIE.CODEFILS
+
+       3   CODE_ACTE                  char(7)         Code de l'acte CCAM. Lien avec CCAM_NV.CODE_ACTE.
+                                                      Caractère majeur ou mineur de l'acte ou diagnostic SRC. 'N' = caractère
+       4   FLAG_MIN                   char(1)                                                                                              'N'
+                                                      majeur et 'O' = Caractère mineur.

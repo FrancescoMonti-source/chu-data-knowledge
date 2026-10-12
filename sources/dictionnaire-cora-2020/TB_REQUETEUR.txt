@@ -1,0 +1,55 @@
+==== TB_REQUETEUR ====
+Table enregistrant les requetes fabriquées depuis le requeteur
+                                                Clé :
+    1    ID_REQUETE             int(10)
+                                                Identifiant de la table
+    2    NOM_REQUETE            varchar(150)    Nom de la requête
+
+    3    REQUETE_SQL            varchar(4000)   Requête au format SQL avec les séparateurs permettant sa redécoupe
+
+    4    DATE_INFO              datetime        Date de création de la requête
+
+    5    HEURE_INFO             datetime        Heure de création de la requête
+                                                Lien sur Util.id_util :
+    6    ID_INFO                int(10)
+                                                Identifiant du créateur de la requete
+    7    COMMENTAIRE            varchar(1000)   Commentaire explicatif de la requete
+                                                Type de requête :
+    8    TYPE_REQUETE           char(1)         - P pour une requete de type PMSI
+                                                - R pour une requete de type activité
+                                                Lien sur TB_CATEGORIE_REQUETE.ID_CATEGORIE :
+    9    ID_CATEGORIE_REQUETE   smallint(5)     Identifiant de la catégorie de la requete permettant l'organisation de requete
+                                                crées
+                                                Lien sur TB_UNITE.ID_UNITE :
+    10   ID_UNITE               int(10)         Gestion des droits d'accès - Identifiant de l'unité. A remplir si la requête est
+                                                limitée aux utilisateurs de cette unité
+                                                Lien sur TB_SITE.ID_SITE :
+    11   ID_SITE                int(10)         Gestion des droits d'accès - Identifiant du site. A remplir si la requête est
+                                                limitée aux utilisateurs de ce site
+                                                Lien sur Util.id_util :
+    12   ID_UTIL                int(10)         Gestion des droits d'accès - Identifiant de l'utilisateur. A remplir si la requête est
+                                                limitée à cet utilisateur
+                                                Gestion des droits d'accès - 'O' si la requête est disponible pour tous les
+    13   ETABLISSEMENT          char(1)
+                                                utlisateurs du site. 'N' sinon.
+    14   REGLE                  char(1)         Gestion du moteur de règles - 'O' si la requête est une règle
+
+    15   DATE_EFFET             datetime        Date d'effet du test
+
+    16   DATE_REVOCATION        datetime        Date de révocation du test
+
+    17   COMMENTAIRE_CODEUR     varchar(2000)   Commentaire écrit par le DIM pour expliquer le test lors d'un résultat positif
+
+    18   COMMENTAIRE_DIM        varchar(2000)   Commentaire pour le DIM qui n'est pas diffusé aux codeurs
+
+    19   ID_GROUPE_UTIL         int(10)
+
+    20   MODE_SQL               char(1)         Enregistré version SQL ('O') ou requêteur ('N')
+                                                si ='O' : l'impression, l'export Txt ou Excel sont interdits (cas des requêtes
+    21   BLOCAGE_DIFFUSION      char(1)         faites sur des données médicales ou des données d'activités (Psy, IVG) ne
+                                                devant être divulgées)
+    22   GUID_REQUETE           varchar(36)
+
+    23   CODE_TYPE_ANALYSE      varchar(15)
+
+    24   ID_REQUETE_NET         int(10)         ID de la requête version .NET

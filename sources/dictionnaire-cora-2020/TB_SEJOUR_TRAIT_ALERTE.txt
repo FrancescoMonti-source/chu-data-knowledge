@@ -1,0 +1,10 @@
+==== TB_SEJOUR_TRAIT_ALERTE ====
+       1   ID_SEJOUR                    int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       2   CODE_APPLI                   char(3)
+
+       3   NOM_TABLE                    varchar(30)
+
+       4   DATE_ALERTE                  datetime
+
+       5   ID_ALERTE                    int(10)

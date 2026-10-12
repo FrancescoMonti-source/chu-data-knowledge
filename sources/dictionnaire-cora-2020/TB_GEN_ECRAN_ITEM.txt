@@ -1,0 +1,93 @@
+==== TB_GEN_ECRAN_ITEM ====
+     1   ID_ECRAN_ITEM             int(10)
+
+     2   ID_ECRAN                  smallint(5)
+
+     3   CODE_ITEM                 char(20)
+
+     4   NOM_CHAMP                 char(20)
+
+     5   LIB_ITEM                  varchar(300)
+
+     6   AFFICHE_LIB_ITEM          char(1)                                                      'O'
+
+     7   COMMENTAIRE_INTERNE       varchar(200)
+
+     8   COMMENTAIRE_AFFICHE       varchar(200)
+
+     9   ACTIF                     char(1)                                                      'O'
+
+    10   LIB_ITEM_REQ              char(30)
+    11   ID_ITEM_REQ            smallint(5)
+
+    12   DATE_CREAT             datetime       Date de création
+                                               Lien sur TB_UTIL.ID_UTIL
+    13   ID_CREAT               int(10)
+                                               Identifiant de l'utilisateur de création
+    14   DATE_MODIF             datetime
+
+    15   ID_MODIF               int(10)
+
+    16   POS_TOP                int(10)
+
+    17   POS_LEFT               int(10)
+
+    18   POS_WIDTH              int(10)
+
+    19   POS_HEIGHT             int(10)
+
+    20   TYPE_ITEM              smallint(5)
+                                               Type du champ :
+                                               1 : Chaine
+                                               2 : réel
+                                               3: Date
+    21   TYPE_CHAMP             smallint(5)
+                                               4 : Entier
+                                               5 : Commentaire
+                                               6 : Heure
+                                               7 : Date et heure
+    22   VALEUR_DEFAUT          varchar(50)
+
+    23   TAILLE_CHAMP           smallint(5)
+
+    24   ZONE_OBL               char(1)                                                                                     'N'
+
+    25   ID_ECRAN_THES          int(10)
+
+    26   ID_ECRAN_IMAGE         smallint(5)
+
+    27   COULEUR_F              char(15)
+
+    28   COULEUR_B              char(15)
+
+    29   FLAG_DROIT_RESTREINT   char(1)
+
+    30   FONTBOLD               char(1)
+
+    31   FONTSIZE               smallint(5)
+
+    32   FONTNAME               varchar(30)
+
+    33   FONTITALIC             char(1)
+
+    34   FONTUNDERLINE          char(1)
+
+    35   POSITION_PAGE          smallint(5)
+
+    36   NB_OBJ_LIGNE           smallint(5)                                                                                 3
+
+    37   TYPE_CREAT             char(2)
+
+    38   FORMULE_CALCUL         varchar(500)
+
+    39   FORMULE_AFFICHAGE      varchar(500)
+
+    40   AFFICHAGE_VRAI         varchar(500)
+
+    41   AFFICHAGE_FAUX         varchar(500)
+
+    42   ORDRE                  smallint(5)    Ordre de tabulation des items
+
+    43   ORDRE_FORMULE          smallint(5)
+
+    44   SAISIE_STRICTE_THES    char(1)        Indique si la saisie est limitée aux éléments du thésaurus sélectionné.      'N'

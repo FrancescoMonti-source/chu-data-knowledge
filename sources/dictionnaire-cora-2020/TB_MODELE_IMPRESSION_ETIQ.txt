@@ -1,0 +1,31 @@
+==== TB_MODELE_IMPRESSION_ETIQ ====
+         ID_MODELE_IMPRESSION_ETI
+     1                            smallint(5)       Clé de la table
+         Q
+     2   ID_MODELE_IMPRESSION       smallint(5)     Identifiant du modèle d'impression
+
+     3   NUM_LIGNE                  smallint(5)     Nombre de lignes
+
+     4   NUM_COLONNE                smallint(5)     Nombre de colonnes
+
+     5   VALEUR_TEXTE               varchar(400)    Texte à imprimer
+                                                    O : Gras
+     6   FONTBOLD                   char(1)                                                 'N'
+                                                    N : Pas gras
+                                                    O : Italic
+     7   FONTITALIC                 char(1)                                                 'N'
+                                                    N : Non italic
+                                                    O : Souligné
+     8   FONTUNDERLINE              char(1)                                                 'N'
+                                                    N : Non souligné
+     9   FONTNAME                   varchar(30)
+
+    10   FONTSIZE                   smallint(5)     Taille du texte
+                                                    O : Code-barre
+    11   TYPE_CODE_BARRE            char(1)                                                 'N'
+                                                    N : Texte simple
+                                                    H : Haut
+                                                    B : Bas
+    12   ALIGNEMENT                 char(1)                                                 'G'
+                                                    D : droit
+                                                    G : Gauche

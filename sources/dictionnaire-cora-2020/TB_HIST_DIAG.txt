@@ -1,0 +1,93 @@
+==== TB_HIST_DIAG ====
+Tables Historique de TB_DIAG (contient les suppressions)
+       1   ID_DIAG                    int(10)       Ancien identifiant de TB_DIAG.ID_DIAG (de la ligne supprimée)
+
+       2   ID_PATIENT                 int(10)       Copie de la donnée de TB_DIAG
+
+       3   ID_SEJOUR                  int(10)       Copie de la donnée de TB_DIAG
+
+       4   ID_MVT                     int(10)       Copie de la donnée de TB_DIAG
+
+       5   ID_MEDECIN                 int(10)       Copie de la donnée de TB_DIAG
+
+       6   DATE_DIAG                  datetime      Copie de la donnée de TB_DIAG
+
+       7   NO_RUM                     char(12)      Copie de la donnée de TB_DIAG
+
+       8   CODE_DIAG                  char(16)      Copie de la donnée de TB_DIAG
+
+       9   UNITE_F                    char(12)      Copie de la donnée de TB_DIAG
+
+      10   TYPE_DIAG                  char(1)       Copie de la donnée de TB_DIAG
+
+      11   DATE_INFO                  datetime      Copie de la donnée de TB_DIAG
+
+      12   ID_INFO                    int(10)       Copie de la donnée de TB_DIAG
+
+      13   HEURE_INFO                 datetime      Copie de la donnée de TB_DIAG
+
+      14   FLAG_EMISSION              char(1)       Copie de la donnée de TB_DIAG
+
+      15   DATE_EMISSION              datetime      Copie de la donnée de TB_DIAG
+
+      16   HEURE_EMISSION             datetime      Copie de la donnée de TB_DIAG
+
+      17   NO_SEMAINE                 int(10)       Copie de la donnée de TB_DIAG
+
+      18   ID_COTATION_NGAP           int(10)       Copie de la donnée de TB_DIAG
+                                                    Type d'évènement intervenu sur ce diag :
+                                                    - 'C' : Création
+      19   TYPE_INFO                  char(1)       - 'M' : Modification
+                                                    - 'R' : Suppression
+                                                    - 'N' : traité par l'interface en suppression
+      20   DATE_CREAT                 datetime      Copie de la donnée de TB_DIAG
+
+      21   ID_CREAT                   int(10)       Copie de la donnée de TB_DIAG
+                                                       Code Description de l'évènement intervenu sur ce diagnostic :
+                                                       REMVT : lReEmmettreDiag AdministrationInterface - marquage du diag en ré
+                                                       émission
+                                                       CD : Création Diag (module VB6 Gestion CIM)
+                                                       CDRHS : Création Diag écran RHS (ou SSR)
+                                                       CDCAS : Création Diag écran Copie Avancée Ssr
+                                                       CDSSR : Création Diag SSR (module VB6 Gestion CIM)
+                                                       DELRU : Suppression d'un diag (écran RUM)
+                                                       DELCO : Suppression d'un diag (écran Cotation NGAP)
+                                                       DELSS : Suppression d'un diag (écran SSR)
+                                                       DELBL : Suppression d'un diag (écran Bloc)
+                                                       DELRS : Suppression d'un diag (écran RSS)
+                                                       DELBB : Suppression d'un diag (écran Nouveaux Nés)
+      22   DESCR                        char(5)        DELEX : Suppression d'un diag (écran Externes)
+                                                       DELDI : Suppression d'un diag (écran Diagnostics)
+                                                       DELSR : Suppression d'un diag (écran Simul. RSS)
+                                                       DELCW : Suppression d'un diag (synchro Crossway)
+                                                       DELIT : Suppression d'un diag (integration M-PMSI, ...)
+                                                       MODCW : Modification (synchro Crossway)
+                                                       MORUM : Modification d'un diag (Ecran RUM)
+                                                       MOSSR : Modification d'un diag (Ecran SSR)
+                                                       MOCAS : Création Diag écran Copie Avancée Ssr
+                                                       MSANC : Modification par synchronisation Sancare
+                                                       DSANC : Suppression par synchronisation Sance
+                                                       DELWR : Suppression à partir du CORA Recueil WEB
+                                                       DELIP : Suppression à partir de l'interface patient
+                                                       MODI : Modification à partir de l'écran proposition diagnostics
+      23   ID_SEQUENCE                  int(10)        Copie de la donnée de TB_DIAG
+
+      24   ID_SEQ_HAD                   int(10)        Copie de la donnée de TB_DIAG
+
+      25   TYPE_TRANSFERT               char(1)        Copie de la donnée de TB_DIAG
+
+      26   DATE_TRANSFERT               datetime       Copie de la donnée de TB_DIAG
+
+      27   APPLI_TRANSFERT              char(3)        Copie de la donnée de TB_DIAG
+
+      28   ID_SIGN                      int(10)        Copie de la donnée de TB_DIAG
+
+      29   DATE_SIGN                    datetime       Copie de la donnée de TB_DIAG
+
+      30   ID_APPLICATION_TRANSFERT int(10)            Copie de la donnée de TB_DIAG
+
+      31   ID_GEN_DIAG                  int(10)        Copie de la donnée de TB_DIAG
+
+      32   TYPE_DIAG_HAD                char(1)        Copie de la donnée de TB_DIAG
+
+      33   ID_SS_SEQ_HAD                int(10)        Identifiant de la sous séquence à laquelle le diagnostic est rattaché

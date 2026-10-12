@@ -1,0 +1,4 @@
+==== MED_VOIE_MED ====
+       1   ID_VOIE                    smallint(5)
+
+       2   ID_MED                     int(10)

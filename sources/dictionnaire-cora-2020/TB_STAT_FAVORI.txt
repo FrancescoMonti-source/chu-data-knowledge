@@ -1,0 +1,6 @@
+==== TB_STAT_FAVORI ====
+      1    ID_FAVORI                 int(10)
+
+      2    LIB_FAVORI                varchar(50)
+
+      3    ICONE                     smallint(5)

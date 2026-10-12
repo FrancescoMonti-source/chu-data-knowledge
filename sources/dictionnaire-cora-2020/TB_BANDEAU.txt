@@ -1,0 +1,24 @@
+==== TB_BANDEAU ====
+Table des bandeaux patients Clé :
+Table des bandeaux patients
+                                                        Clé :
+       1    ID_BANDEAU                   int(10)
+                                                        Définit l'identifiant du bandeau patient.
+       2    LIBELLE                      varchar(200)   Définit le libellé du bandeau patient.
+
+       3    DESCRIPTIF                   varchar(500)   Définit le descriptif du bandeau patient.
+                                                        Lien sur Util.id_util :
+       4    ID_CREAT                     int(10)
+                                                        Définit l'identifiant du créateur du bandeau.
+       5    DATE_CREAT                   datetime       Définit la date de création du bandeau patient.
+                                                        Lien sur Util.id_util :
+       6    ID_INFO                      int(10)
+                                                        Définit l'identifiant du modificateur du bandeau.
+       7    DATE_INFO                    datetime       Définit la date de modification du bandeau patient.
+
+       8    ACTIF                        char(1)        Définit un boolean indiquant si le bandeau patient est actif.                      'O'
+
+       9    LIGHT                        char(1)        Définit un boolean indiquant si le bandeau patient est un bandeau patient light.   'N'
+                                         text
+       10   XML                                         Définit le bandeau patient au format Xml.
+                                         (2147483647)

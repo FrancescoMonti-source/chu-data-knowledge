@@ -53,7 +53,7 @@ read_at: 2026-10-07
 | Champ | Valeurs |
 |---|---|
 | source | l'id de la fiche dans sources/ |
-| locator | l'endroit exact : page, chapitre, section |
+| locator | l'endroit exact : page, chapitre, section, ou le fichier dans le dossier de la fiche |
 | read_by | la personne pour qui l'agent lit, comme author (claims.md, « Les personnes ») |
 | read_at | la date de la lecture |
 
@@ -61,7 +61,7 @@ Sous l'en-tête, une courte citation, en lignes qui commencent par >.
 
 ## Sources
 
-Une fiche par document et par édition, dans sources/. Un document en ligne reste chez son éditeur : la fiche donne son lien (location, plus bas). Un document hors ligne qui peut être partagé entre dans sources/, sous l'id de sa fiche. En texte quand la conversion garde tout ce qui compte (dictionnaire-cora-2020.txt) : le contrôle le lit, et un agent y cherche plus facilement. Sinon, par exemple pour garder des schémas, dans son format d'origine. (docs/adr/0014)
+Une fiche par document et par édition, dans sources/. Un document en ligne reste chez son éditeur : la fiche donne son lien (location, plus bas). Un document hors ligne qui peut être partagé entre dans sources/, sous l'id de sa fiche. En texte quand la conversion garde tout ce qui compte : le contrôle le lit, et un agent y cherche plus facilement. Un document fait de parties qui se lisent séparément (les tables d'un dictionnaire, les requêtes d'un catalogue) devient un dossier du nom de sa fiche, avec un fichier par partie, du nom de la partie (dictionnaire-cora-2020/TB_MVT_RUM.txt) : l'agent ouvre la partie qu'il cherche, pas le document entier. Sinon, par exemple pour garder des schémas, dans son format d'origine. (docs/adr/0014, 0015)
 
 ```markdown
 ---
@@ -69,12 +69,12 @@ id: dictionnaire-cora-2020
 title: "Dictionnaire des données CORA"
 publisher: "l'éditeur de CORA"
 edition: "2020"
-location: "sources/dictionnaire-cora-2020.txt, texte tiré du PDF original"
+location: "sources/dictionnaire-cora-2020/, un fichier texte par table, tiré du PDF original"
 authority: vendor-doc
 ---
 ```
 
-location dit où lire le document. Pour un document hors ligne, c'est son fichier dans sources/ ; s'il n'y entre pas, l'endroit où la personne le trouve. Pour un document public, c'est le lien vers le fichier de cette édition, chez son éditeur officiel : pour le PMSI, l'ATIH, le Bulletin officiel, Légifrance ou ameli. Une page « dernière version » change de document à chaque édition ; un fichier garde le sien. Un site qui regroupe les liens, comme lespmsi.com, aide à trouver le document ; la fiche cite le fichier de l'éditeur. (docs/adr/0013)
+location dit où lire le document. Pour un document hors ligne, c'est son fichier ou son dossier dans sources/ ; s'il n'y entre pas, l'endroit où la personne le trouve. Pour un document public, c'est le lien vers le fichier de cette édition, chez son éditeur officiel : pour le PMSI, l'ATIH, le Bulletin officiel, Légifrance ou ameli. Une page « dernière version » change de document à chaque édition ; un fichier garde le sien. Un site qui regroupe les liens, comme lespmsi.com, aide à trouver le document ; la fiche cite le fichier de l'éditeur. (docs/adr/0013)
 
 ```markdown
 ---

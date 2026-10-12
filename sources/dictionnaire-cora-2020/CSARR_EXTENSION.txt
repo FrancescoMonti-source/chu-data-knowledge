@@ -1,0 +1,9 @@
+==== CSARR_EXTENSION ====
+Table contenant les extensions documentaires des codes CSARR
+       1   CODE_EXTENSION              char(2)        Code de l'extension documentaire
+
+       2   LIBELLE                     varchar(500)   Libellé de l'extension documentaire
+
+       3   DATE_DEBUT                  datetime       Date de début de validité de l'extension documentaire
+
+       4   DATE_FIN                    datetime       Date de fin de validité de l'extension documentaire

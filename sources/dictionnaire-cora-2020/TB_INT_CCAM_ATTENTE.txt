@@ -1,0 +1,8 @@
+==== TB_INT_CCAM_ATTENTE ====
+       1   ID_ACTE                      int(10)        Clef étrangère TB_ACTE.ID
+     2    ID_APPLICATION      int(10)        Lien sur TB_INT_APPLICATION.ID
+                                             E émis
+                                             R à émettre suite à modification
+     3    STATUT              char(1)
+                                             N supprimé
+                                             Null à émettre en création

@@ -1,0 +1,16 @@
+==== TB_INTERVENTION_TRACA_STE ====
+Table de la traçabilité des matériels stérilisables
+                                                           Lien sur TB_INTERVENTION.ID_INTERVENTION :
+       1    ID_INTERVENTION               int(10)
+                                                           Identifiant de l'intervention
+                                                       Lien sur TB_MATERIEL_STE_CYCLE.NUM_STE :
+       2   NUM_STE                      varchar(20)
+                                                       Lien sur le code-barre
+       3   ID_MATERIEL_STE              int(10)        Clé de la Table
+
+       4   DATE_PREDESINFECTION         datetime       Date de pré-désinfection du matériel
+
+       5   DATE_CREAT                   datetime       Date de création
+                                                       Lien sur Util.id_util :
+       6   ID_CREAT                     int(10)
+                                                       Lien sur l'utilisateur ayant créé le matériel

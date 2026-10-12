@@ -1,0 +1,33 @@
+==== PRESC_THES_VOIE_ADMIN ====
+Voie d'administration (Buccale, Nasale, Intraveineuse….)
+       1   ID_VOIE_ADMIN               smallint(5)    Clé de la Table
+
+       2   LIB_VOIE_ADMIN              varchar(150)   Voie d'administration (Buccale, Nasale, Intraveineuse….)
+
+       3   CODE_EXTERNE                varchar(7)     Lien sur le Thésaurus de la BDD Médicament
+                                                      Lien sur PRESC_THES_CAT_VOIE_ADMIN.ID_CAT_VOIE_ADMIN : (Base
+       4   ID_CAT_VOIE_ADMIN           smallint(5)    CCAM / CORA)
+                                                      Lien sur la table des Catégiorie (=Groupe) de Voie d'administration
+       5   DROIT_DUREE_ADMIN           char(1)        O si on a le droit de prescrire une durée d'administration pour cette voie        'N'
+
+       6   DROIT_SAP                   char(1)        O si on a le droit de prescrire cette voie en SAP                                 'N'
+
+       7   DROIT_PERF                  char(1)        O si on a le droit de prescrire cette voie en Perfusion                           'N'
+
+       8   DROIT_IV                    char(1)        O si on a le droit de prescrire cette voie en IV                                  'N'
+
+       9   DROIT_IM                    char(1)        O si on a le droit de prescrire cette voie en IM                                  'N'
+
+      10   DROIT_SC                    char(1)        O si on a le droit de prescrire cette voie en SC                                  'N'
+                                                      O si on a le droit de prescrire d'ajouter des médicaments sur cette voie en
+      11   DROIT_PRESC_EN_COURS        char(1)                                                                                          'N'
+                                                      cours
+      12   DATE_INFO                   datetime       Date de dernière modification
+                                                      Lien sur Util.id_util : (Base CORA_UTIL / UTIL)
+      13   ID_INFO                     int(10)
+                                                      Identifiant du dernier utilisateur ayant modifié cet enregistrement
+      14   CIO                         char(1)                                                                                          'N'
+
+      15   CODE_VOIE_ADMIN             varchar(8)
+
+      16   ORDRE                       int(10)

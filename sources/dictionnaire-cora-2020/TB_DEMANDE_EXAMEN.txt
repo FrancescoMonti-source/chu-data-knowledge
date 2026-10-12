@@ -1,0 +1,45 @@
+==== TB_DEMANDE_EXAMEN ====
+    1    ID_DEMANDE_EXAMEN          int(10)        Clé
+
+    2    ID_PATIENT                 int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+    3    ID_SEJOUR                  int(10)        Numéro de séjour
+
+    4    NUM_DEMANDE_EXAMEN         varchar(20)    Numéro de demande
+         CPT_NUM_DEMANDE_EXAME
+    5                          int(10)             Compteur utilisé pour le cal
+         N
+                                                   Type de la demande d'examen :
+    6    TYPE_DEMANDE_EXAMEN        smallint(5)    1 : Radio
+                                                   2 : Biologie
+    7    TYPE_LIEN_DEMANDE          smallint(5)    1 : lié à une Action
+
+    8    DATE_DEMANDE_EXAMEN        datetime       Date de la demande d'examen
+
+    9    ANNULATION_DEMANDE         smallint(5)
+      10   ID_UNITE_DEMANDE          int(10)         Unité demandant l'examen
+
+      11   ID_UTIL_DEMANDE           int(10)         Utilisateur demandant l'examen
+
+      12   NIVEAU_URGENCE            char(1)         S:Très urgent; A:ASAP
+                                                     A la création = null
+      13   TYPE_EMISSION             char(1)         E:
+                                                     R:
+      14   ID_APPLICATION_TRANSFERT int(10)          Lien sur TB_APPLICATION_TRANSFERT.id_appli
+
+      15   ID_DEMANDE_APPLI_DEST     smallint(5)     Lien sur TB_DEMANDE_APPLI_DEST.id_demande_appli_dest
+                                                     Lien sur TB_UTIL.ID_UTIL
+      16   ID_CREAT                  int(10)
+                                                     Identifiant de l'utilisateur de création
+      17   DATE_CREAT                datetime        Date de création
+                                                     Lien vers Util.ID_UTIL.
+      18   ID_INFO                   int(10)
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification
+      19   DATE_INFO                 datetime        Date de la dernière modification
+
+      20   ID_SIGN                   int(10)         Identifiant du signataire; Lien avec UTIL.ID_UTIL
+
+      21   DATE_SIGN                 datetime        Date de signature
+                                                     N : Envoyée
+      22   STATUT_DEMANDE            char(1)         C : Au moins une action de la demande a été réalisée
+                                                     T : Toutes les actions de la demande sont réalisées, prêt a être envoyé

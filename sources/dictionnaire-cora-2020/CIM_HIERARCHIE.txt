@@ -1,0 +1,73 @@
+==== CIM_HIERARCHIE ====
+Table de la Nomenclature CIM (contenant aussi les menus hiérarchiques de la nomenclature)
+                                                          Clé :
+       1   CPT                            int(10)
+                                                          Identifiant interne
+                                                          Donne la hiérarchie (positionnement) du diagnostic dans la hiérachie Chapitre,
+       2   HIERARCHIE                     char(10)        sous chapitre, catégorie, sous catégorie, paragraphe
+                                                          Permet d'ordonner les diags hiérarchiquement
+       3   CHAP                           char(2)         Découpage de la hiérarchie : Chapitre
+
+       4   SSCHAP                         char(2)         Découpage de la hiérarchie : sous Chapitre
+
+       5   CAT                            char(2)         Découpage de la hiérarchie : Catégorie
+
+       6   SSCAT                          char(2)         Découpage de la hiérarchie : sous Catégorie
+      7    PARAGRAPHE               char(2)       Découpage de la hiérarchie : Paragraphe
+
+      8    TYPE                     char(1)       si = 1 ou =0 : éléments de la hiérarchie
+
+      9    CODEPERE                 char(16)      Lien sur le Code père.
+
+      10   CODEFILS                 char(16)      Code CIM
+
+      11   LIB                      char(255)     Libellé complet du diagnostic (non traité)
+                                                  Libellé complet du diagnostic sans accent et en majuscules. Utilisé pour les
+      12   LIBELLE_COMPLET_SS_ACC   char(255)
+                                                  recherches
+      13   DXCAT                    char(4)       Catégorie de Diagnostic (Information du groupeur)
+                                                  Comorbidité associée (si = 1, 2 ou 3 : le diag est une CMA)
+                                                  Les valeurs 1 et 2 correspondent aux CMA, 3 au CMAS.
+                                                  FLE New :
+      14   CMA                      char(1)       1 – CMA
+                                                  2 – CMAS sans autre indication (traumatique)
+                                                  3 – CMAS non traumatique
+                                                  A modifier en V11 (GHM)
+      15   CMD                      char(2)       Catégorie Majeur de Diagnostic
+
+      16   FP                       char(1)       Finalité principale (Gestion SSR)
+
+      17   MP                       char(1)       Moribidité principale (Gestion SSR)
+
+      18   AE                       char(1)       Affection etiologique
+
+      19   SID_REF                  int(10)       Lien avec les données : Commentaires, Notes, Contrôles….
+
+      20   ACTIF                    char(1)       Caractère actif du diagnostic
+
+      21   VERSION                  smallint(5)
+
+      22   DATE_DEBUT               datetime      Date de début de validité
+
+      23   DATE_FIN                 datetime      Date de fin de validité
+
+      24   TYPE_INACTIF             char(1)       Inactivité du diagnostic ou de la catégorie
+
+      25   DATE_INTEGRATION         datetime      Date d'intégration
+                                                  I' si import Admin Recueil
+      26   FLAG_INTEGRATION         char(1)
+                                                  'S' si saisie (ajout ou modification) Admin Recueil
+      27   CHRONICITE               smallint(5)   Indique la chronicite du diagnostic
+
+      28   NIVEAU_SEVERITE          char(1)       Indique le niveau de sévérité du diagnostic
+                                                  Caractère SRC du diag. Attention peut être plus regarder la table
+      29   FACT_SRC                 char(1)
+                                                  FG_FACT_SRC
+      30   DIAG_DAD                 char(1)       Indique si le diagnostic est uniquement valable en DAD.
+                                                  Comorbidité ou Actes Valorisants
+      31   CAV                      char(1)       O : OUI
+                                                  Null ou N : NON
+                                                  Caractère SRC du diagnostic : '' pas de caractère SRC, 'O' caractère SRC
+      32   FACT_SRC_MIN             char(1)
+                                                  Mineur,'N' caractère SRC Majeur
+      33   DAS                      char(1)       SSR : Indique si le diag peut être codé en Dagnostic associé                     '0'

@@ -1,0 +1,4 @@
+==== TB_PROFIL_DPI_UTIL ====
+       1    ID_PROFIL_DPI               smallint(5)    Lien TB_PROFIL_DPI.ID_PROFIL_DPI
+
+       2    ID_UTIL                     int(10)        Lien Util.id_util

@@ -1,0 +1,18 @@
+==== TB_REQUETE_COMMENTAIRE ====
+Table contenant les commentaires des contrôles qualités
+       1   ID_CONTROLE_QUALITE        int(10)
+
+       2   TYPE_CONTROLE_QUALITE      char(1)
+
+       3   ID_INFO                    int(10)
+
+       4   DATE_INFO                  datetime
+                                      text
+       5   COMMENTAIRE_CODEUR
+                                      (2147483647)
+                                      text
+       6   COMMENTAIRE_DIM
+                                      (2147483647)
+                                      text
+       7   COMMENTAIRE_CORA
+                                      (2147483647)

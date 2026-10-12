@@ -1,0 +1,8 @@
+==== MED_UNITE_DOSAGE ====
+       1   ID_UNITE_DOSAGE            smallint(5)
+
+       2   LIB_UNITE_DOSAGE           varchar(20)
+
+       3   CODE_ABREV                 char(4)
+
+       4   ACTIF                      char(1)                                                                                                'O'

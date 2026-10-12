@@ -1,0 +1,21 @@
+==== CCAM_9OXI ====
+Permet de lister les modificateurs 9,O,X et I qui peuvent être saisi pour un acte CCAM (avec activité et phase) et une date de
+validité.Pour info, les modicateurs 9OXI ont été supprimés depuis la version 39 de la CCAM.
+       1   CODE_ACTE                    char(7)        Code de l'acte CCAM
+
+       2   ID_ACTIVITE                  smallint(5)    Identifiant de l'activité
+
+       3   CODE_PHASE                   char(1)        phase de l'acte
+                                                       Premier modificateur pouvant être saisi pour l'acte CCAM, la phase et l'activité
+       4   MODIFICATEUR1                char(1)
+                                                       en question
+                                                       Optionnel : Deuxième modificateur pouvant être saisi pour l'acte CCAM, la
+                                                       phase et l'activité en question.
+       5   MODIFICATEUR2                char(1)
+                                                       Le deuxième modificateur peut être égal au premier. Cela signifie que le
+                                                       modificateur peut être saisi en double
+       6   LISTE_MODIFICATEUR           varchar(2)     regroupe MODIFCATEUR1 & MODIFICATEUR2 sans séparateur
+
+       7   DATE_DEBUT                   datetime       date de début de validité
+
+       8   DATE_FIN                     datetime       date de fin de validité

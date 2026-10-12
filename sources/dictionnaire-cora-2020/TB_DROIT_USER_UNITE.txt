@@ -1,0 +1,20 @@
+==== TB_DROIT_USER_UNITE ====
+Table des droits unités Clé - Lien sur TB_UNITE.ID_UNITE :
+Table des droits unités
+                                                       Clé - Lien sur TB_UNITE.ID_UNITE :
+       1    ID_UNITE                     int(10)
+                                                       Identifiant de l'Unité
+                                                       Clé - Lien sur Util.id_util :
+       2    ID_UTIL                      int(10)
+                                                       Identifiant de l'Utilisateur
+       3    DATE_DEBUT                   datetime      Clé - Date de début de validité du droit
+
+       4    DATE_FIN                     datetime      Date de fin de validité du droit
+                                                       Type de droit de l'utilisateur sur l'unité
+                                                       - L : Lecture
+       5    TYPE_DROIT                   char(1)       - E : Ecriture (dont Lecture)
+                                                       - A : Administration (dont Lecture et Ecriture)
+                                                       - Autre : aucun droit
+       6    DEFAUT                       char(1)                                                                                             'N'
+
+       7    ID_GROUPE_DROIT              smallint(5)

@@ -1,0 +1,10 @@
+==== TB_CAT_SOC_PROF ====
+       1   CODE_CAT_SOC_PROF          varchar(4)       Code catégorie socio-professionelle
+
+       2   CODE_PERE                  varchar(4)       Code Père (arbo)
+
+       3   LIB_CAT_SOC_PROF           varchar(200)     Libellé
+
+       4   LIB_SS_ACC_CAT_SOC_PROF varchar(200)        Libellé sans accent et en majuscule
+
+       5   NIVEAU                     smallint(5)      Niveau du noeud

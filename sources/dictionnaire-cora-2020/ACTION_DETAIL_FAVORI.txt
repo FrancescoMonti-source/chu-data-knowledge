@@ -1,0 +1,68 @@
+==== ACTION_DETAIL_FAVORI ====
+     1   ID_DETAIL_FAVORI          int(10)
+
+     2   ID_FOLDER                 int(10)
+
+     3   ID_THES_ACTION            int(10)
+
+     4   DUREE_REALISATION         int(10)
+
+     5   AUTORISATION_AUTO_ADMIN char(1)
+                                                   'G' Gauche
+                                                   'D' Droit
+     6   SAISIE_COTE               char(1)
+                                                   'B' Bilatéral
+                                                   Null Non renseigné
+     7   TYPE_ACTION               char(1)
+
+     8   TYPE_SAISIE               char(1)
+
+     9   PERIODE_LU                char(1)
+
+    10   PERIODE_MA                char(1)
+
+    11   PERIODE_ME                char(1)
+
+    12   PERIODE_JE                char(1)
+
+    13   PERIODE_VE                char(1)
+
+    14   PERIODE_SA                char(1)
+
+    15   PERIODE_DI                char(1)
+
+    16   TYPE_PERIODE              char(1)
+
+    17   DUREE_PRESC               int(10)
+
+    18   PRESC_JOUR_MATIN          char(1)
+
+    19   PRESC_JOUR_MIDI           char(1)
+
+    20   PRESC_JOUR_SOIR           char(1)
+
+    21   PRESC_JOUR_NUIT           char(1)
+
+    22   PRESC_JOUR_AM             char(1)
+
+    23   PRESC_JOUR_PERIODE        smallint(5)
+
+    24   DUREE_HEURE_PRESC         smallint(5)
+
+    25   PRISE_IMMEDIATE           char(1)
+
+    26   DEMAIN_MATIN              char(1)
+
+    27   JUSQUA_FIN_SEJ            char(1)
+
+    28   TYPE_CONDITION            char(1)
+
+    29   NOM_FAVORI_ACTION         varchar(250)
+         NOM_FAVORI_ACTION_SS_AC
+    30                           varchar(250)
+         C
+    31   HORS_SAISIE_FAVORI        char(1)
+
+    32   STATUT_REALISE            char(1)
+
+    33   NOTE_PRESTATAIRE          varchar(2000)

@@ -1,0 +1,8 @@
+==== NABM_PROTOCOLE ====
+       1   ID_PROTOCOLE                int(10)
+
+       2   CODE_PROTOCOLE              char(15)
+
+       3   LIBELLE_PROTOCOLE           char(50)
+
+       4   ACTIF                       char(1)                                                                             'O'

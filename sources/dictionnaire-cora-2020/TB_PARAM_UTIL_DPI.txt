@@ -1,0 +1,169 @@
+==== TB_PARAM_UTIL_DPI ====
+Table de stockage des paramétres utilisateur. Attention : pas que DPI !!!
+                                                       Clé : Lien sur Util.id_util
+       1   ID_UTIL                      int(10)
+                                                       Clé de l'utilisateur
+                                                       Clé : Code de l'application
+                                                       - REC : CORA Recueil
+       2   CODE_APPLI                   char(3)
+                                                       - ACT : CORA Activité
+                                                       - ADM : CORA AdminRecueil
+                                                       Clé : Code du paramétre
+                                                       - ALERTE : Pour CoRa Recueil : affichage des alertes si
+                                                       VALEUR_PARAMETRE=1
+                                                       - CTRL_RECH : Pour CoRa Recueil : mémorisation des paramètres de
+                                                       recherche de l'utilisateur
+                                                       - RECH_PREA : Pour CoRa Recueil : mémorisation de la recherche sans
+                                                       Préadmissions
+                                                       - ONG_WORKLISTE_MCO : Pour CoRa Recueil : mémorisation de l'onglet par
+                                                       défaut des listes de travail MCO
+                                                       - ONG_RECOPIE_HDJ : Pour CoRa Recueil : mémorisation de l'onglet par
+                                                       défaut de la recopie HDJ
+                                                       - MEMO_AUTEUR : Pour CoRa Document : memorisation auteur si
+                                                       VALEUR_PARAMETE =1 et DONNEE_PARAMETRE = ID_UTIL de l'auteur)
+                                                       - HISTORIQUE_DOC_NIVEAU_DEFAUT : Pour CoRa Document: Niveau de
+                                                       l'historique (VALEUR_PARAMETE = 1 : Niveau Patient, 2 : Niveau séjour, 3 :
+                                                       Niveau Mvt)
+                                                       - HISTORIQUE_DOC_TRI : Pour CoRa Document: Affichage de l'historique
+                                                       (VALEUR_PARAMETE = 0 : Pas de Tri, 1 : Tri par origine, 2 : Tri par Type de
+                                                       modèle, 3 : Tri par Catégorie de modèle)
+                                                       - FICHE_AFFICHAGE_DEFAUT : Pour CoRa Document: Mode d'affichage à
+                                                       l'ouverture de la fiche courrrier (VALEUR_PARAMETE=0: Fiche, 1: Courrier, 2
+                                                       :Fiche et Courrier)
+                                                       - AFFICHER_CORRESP_HAB_AUT: Pour CoRa Document: affichage des
+                                                       correspondants habituels de l'auteur si VALEUR_PARAMETE =1
+                                                       - AUTO_SAVE_INDEXATION: Pour CoRa Document: Affichage de la fenetre
+                                                       d'indexation automatique lors de l'enregistrement de la fiche courrier si
+                                                       VALEUR_PARAMETE =0
+                                                       - THES_INDEX : Pour CoRa Doculment : Droit thesaurus Indexation si
+                                                       VALEUR_PARAMETE = 0 : aucun droit; 1:Droit de création; 2: Droit de
+                                                       création +Droit de validation
+                                                       - VS_PANCARTE_INTERVALLE: Pour DPS/URG: memorisation des
+                                                       paramètres d'affichage pancarte et plan de soin dans les vues services
+                                                       - VS_PANCARTE_AFF_NORMALITE :Pour DPS/URG: memorisation des
+                                                       paramètres d'affichage pancarte et plan de soin dans les vues services
+                                                       - VS_PANCARTE_NB_HEURE :Pour DPS/URG: memorisation des
+                                                       paramètres d'affichage pancarte et plan de soin dans les vues services
+                                                       - VS_PANCARTE_AFF_HEURE_PEC:Pour DPS/URG: memorisation des
+                                                       paramètres d'affichage pancarte et plan de soin dans les vues services
+                                                       - VS_PANCARTE_AFF_LEGENDE:Pour DPS/URG: memorisation des
+                                                       paramètres d'affichage pancarte et plan de soin dans les vues services
+                                                       - CIBLE_TRI_PAR_CIBLE : Pour DPS/URG : memorisation du mode
+                                                       d'affichage des cibles (tri par cible sinon tri par date)
+                                                       - CIBLE_ORDRE_CHRONO: Pour DPS/URG : memorisation de l'ordre
+                                                       d'affichage des cibles
+                                                       - VARIABLE_ORDRE_SERVICE : Pour DPS/URG mémorisation des variables
+                                                       et de leur ordre d'affichage
+                                                       - SYN_PARAM_GRID : Pour DPS/URG mémorisation des paramètres
+                                                       d'affichage du grid de la vue synoptique
+                                                       - SYN_PARAM_REGP : Pour DPS/URG mémorisation de l'affichage ou pas
+                                                       des regroupements de la vue synoptique
+                                                       - ACTION_FREQUENCE : Pour DPS/URG memorisation du nombre
+                                                       d'utilisation d'une action concaténé au signe + ou - selon que l'on veut les n
+                                                       premières actions ou n dernières actions
+                                                       - VS_SELECT_UTIL_PAR_DEFAUT :Pour DPS/URG: memorisation si liste
+                                                       utilisateurs positionnée sur l'utilisateur en cours ou sur aucun utilisateur
+                                                       - PRESC_A_FAIRE_EN_ENCOURS: Pour DPS/URG: mémorisation des
+                                   parametres d'affichage de la liste des prescriptions
+                                   - VS_SELECT_UTIL_REFERENT :Pour DPS/URG: Affichage des patients
+                                   dont l'utilisateur connecté est référent si VALEUR_PARAMETRE=1
+                                   - RECH_ONGLET_PAR_DEFAUT :Pour DPS/URG: contient l'index du dernier
+                                   onglet selectionne par l'utilisateur.
+                                   - AFF_LISTE_ACTION : Pour DPS/URG : mémorisation du mode d'affichage
+                                   de la liste des actions
+                                   - ACTION_PLANIF_UNIQUE : Pour DPS/URG : mémorisation de la gestion de
+                                   planification des actions contenues dans le panier des actions en saisie.
+                                   - ECRAN_DEFAUT_PROP_DIAG: Permet d'enregistrer l'onglet par défaut de
+                                   l'utilisateur dans le module Proposition de diagnostics (à partir de la version
+                                   4.3)
+                                   - FREQ_PAT_PROP_DIAG_PM : Enregistre la valeur du filtre des plus ou
+                                   moins fréquents par défaut de l'onglet Fréquents Patient du module
+                                   Proposition de diagnostics.
+                                   - FREQ_UTIL_PROP_DIAG_PM : Enregistre la valeur du filtre des plus ou
+                                   moins fréquents par défaut de l'onglet Fréquents Utilisateur du module
+                                   Proposition de diagnostics.
+                                   - FREQ_PAT_PROP_DIAG_NB : Enregistre la valeur du filtre du nombre
+                                   d'éléments visibles par défaut de l'onglet Fréquents Patient du module
+3   CODE_PARAMETRE   varchar(30)   Proposition de diagnostics.
+                                   - FREQ_UTIL_PROP_DIAG_NB : Enregistre la valeur du filtre du nombre
+                                   d'éléments visibles par défaut de l'onglet Fréquents Utilisateur du module
+                                   Proposition de diagnostics.
+                                   - AGD_COL_TRIPAT : Mode de tri des agendas collecteur (O = tri patient ; N =
+                                   tri par priorité ; P = tri personnalisé ; Null = tri preso)
+                                   - MODE_RECH_PAT_NOM_PRENOM : Pour CORA DPS, cette option
+                                   correspond à la recherche en mode "CONTIENT" ou "DEBUTE PAR". Si "1", la
+                                   recherche est du type "CONTIENT". Si "0", c'est le mode "DEBUTE PAR".
+                                   - LIT_TRI : Tri des lits
+                                    "A" => tri alphanumerique
+                                    "U" => tri unité
+                                   - DUREE_DATE_MIN_RECH_LST_TRA : Pour CORA Document, cette option
+                                   définit la période de recherche temporelle pour les listes de travail.
+                                   - ID_IPP_TYPE : Définit l'identifiant du type d'IPP correspondant au type d'IPP
+                                   par défaut pour les recherches patient.
+                                   - AFF_COL_DATE_DESACT_HISTO_CQ : Permet d'afficher ou non la colonne
+                                   correspondant à la date de désactivation d'un contrôle qualité dans l'écran
+                                   d'historique des contrôles qualité.
+                                   - FILTR_AFF_POSITIFS_HISTO_CQ : Permet de filtrer par défaut l'affichage
+                                   des contrôle qualité positifs dans l'écran d'historiquedes contrôles qualité.
+                                   - FILTR_AFF_CORRIGES_HISTO_CQ : Permet de filtrer par défaut l'affichage
+                                   des contrôle qualité corrigés dans l'écran d'historiquedes contrôles qualité.
+                                   - FILTR_AFF_DESACT_HISTO_CQ : Permet de filtrer par défaut l'affichage
+                                   des contrôle qualité désactivés dans l'écran d'historiquedes contrôles qualité.
+                                   - FILTR_AFF_NEGATIFS_HISTO_CQ : Permet de filtrer par défaut l'affichage
+                                   des contrôle qualité négatifs et/ou inactifs dans l'écran d'historiquedes
+                                   contrôles qualité.
+                                   - MASQ_ERR_GRP_NB_HISTO_RSS : Permet de masquer les erreurs non
+                                   bloquantes dans l'historique de l'écran RSS
+                                   - ACCES_ECRAN_PSY_AMBU: Permet de savoir si depuis l'écran de fonction
+                                   F11 le rebond en psychiatrie ambulatoire est fait vers la vue calendrier centré
+                                   sur l'acte (VUE_CALENDRIER) ou vers la vue sur l'acte directerment
+                                   (VUE_ACTE).
+                                   - ACCES_TYPE_DOMAINE_PMSI : Permet de savoir sur quel domaine PMSI
+                                   est filtré l'affichage des dossiers de l'écran de la fonction F11 (TOUS, MCO,
+                                   SSR, HAD, PSY, EXT).
+                                   - NAV_INTERSEJ_RSS_AFFICHAGE : Option permettant d'afficher ou de
+                                   masquer le volet de navigation inter-séjours dans l'écran RSS
+                                   - NAV_INTERSEJ_RSS_TYPESEJ : Option permettant de filtrer par défaut les
+                                   types de séjours à afficher dans le volet de navigation inter-séjours dans
+                                   l'écran RSS
+                                   - NAV_INTERSEJ_RSS_TYPEVUE : Option permettant de choisir la vue par
+                                   défaut dans le volet de navigation inter-séjours dans l'écran RSS
+                                   - NAV_INTERSEJ_RSS_DATESEJ : Option permettant de moduler l'affichage
+                                   des séjours en fonction de leur date de début dans le volet de navigation inter-
+                                   séjours dans l'écran RSS
+                                   - NAV_INTERSEJ_RSS_TRI_MVT : Option permettant d'afficher les
+                                   mouvement dans l'ordre croissant (du plus ancien au plus récent) dans le volet
+                                   de navigation inter-séjours dans l'écran RSS
+                                   - NAV_INTERSEJ_DIAGMCO_AFFICHAGE : Option permettant d'afficher ou
+                                   de masquer le volet de navigation inter-séjours dans l'écran d'aide au codage
+                                   des diagnostics
+                                   - NAV_INTERSEJ_DIAGMCO_TYPESEJ : Option permettant de filtrer par
+                                   défaut les types de séjours à afficher dans le volet de navigation inter-séjours
+                                   dans l'écran d'aide au codage des diagnostics
+                                   - NAV_INTERSEJ_DIAGMCO_TYPEVUE : Option permettant de choisir la vue
+                                   par défaut dans le volet de navigation inter-séjours dans l'écran d'aide au
+                                                        codage des diagnostics
+                                                        - NAV_INTERSEJ_DIAGMCO_DATESEJ : Option permettant de moduler
+                                                        l'affichage des séjours en fonction de leur date de début dans le volet de
+                                                        navigation inter-séjours dans l'écran d'aide au codage des diagnostics
+                                                        - NAV_INTERSEJ_DIAGMCO_TRI_MVT:Option permettant d'afficher les
+                                                        mouvement dans l'ordre croissant (du plus ancien au plus récent) dans le volet
+                                                        de navigation inter-séjours dans l'écran d'aide au codage des diagnostics
+                                                        - COM_REC_ONGLET_OUVERTURE : Option permettant de choisir l'onglet
+                                                        de saisie des commentaires qui sera sélectionné par défaut à l'ouverture de
+                                                        l'écran de gestion des commentaires de recueil. Si ce paramètre est décoché,
+                                                        l'ouverture se fera par défaut sur l'onglet de synthèse des commentaires.
+                                                        - COM_REC_OUVERTURE_RUM_F1 : Option permettant de choisir quel
+                                                        ecran de saisie des commentaires sera ouvert lorsque le raccourci clavier F1
+                                                        est pressé dans l'écran RUM (RUM, diagnostics ou actes)
+                                                        - UF_DEFO : Permet de filtrer par défaut sur les unités de la recherche patient
+                                                        (Par défaut considéré à 0)
+                                                        "0" : Filtrer sur "Toutes mes unités par défaut" si elles existent et quelles sont
+                                                        valides "Toutes les unités" sinon
+                                                        "1" : Filtrer sur "Toutes les unités"
+       4    VALEUR_PARAMETRE             smallint(5)    Valeur du paramètre                                                                  0
+                                                        Champ Data.
+                                         text
+       5    DONNEE_PARAMETRE                            Attention : ce champ peut être un CLOB. Ne pas utiliser pour Recueil,
+                                         (2147483647)
+                                                        Activité.

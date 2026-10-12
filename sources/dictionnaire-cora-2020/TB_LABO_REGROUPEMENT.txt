@@ -1,0 +1,11 @@
+==== TB_LABO_REGROUPEMENT ====
+Table utilisé par le DPI pour afficher les analyse labo par regroupement (en remplacement du code secteur envoyé par le flux)
+       1   ID_LABO_REGROUPEMENT        smallint(5)     Identifiant du regroupement labo
+
+       2   LIB_LABO_REGROUPEMENT       varchar(200)    Libellé du regroupement labo
+                                                       Ordre d'affichage (pour avoir toujours tel regroupement en haut de l'écran par
+       3   ORDRE                       smallint(5)
+                                                       exemple)
+                                                       Lien vers TB_LABO_REGROUPEMENT.ID_LABO_REGROUPEMENT.
+       4   ID_LABO_GRP_PERE            smallint(5)
+                                                       Identifiant du groupe père

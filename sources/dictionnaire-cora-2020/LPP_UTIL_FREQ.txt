@@ -1,0 +1,7 @@
+==== LPP_UTIL_FREQ ====
+Table contenant l'utilisation des codes LPP par Utilisateur ('LPP Fréquent' de l'utilisateur)
+       1    CODE_LPP                     char(13)
+                                                          Clé - Lien Util.id_util :
+       2    ID_UTIL                      int(10)
+                                                          Lien sur l'utilisateur.
+       3    NB                           int(10)          Nombre d'utilisation du code concerné

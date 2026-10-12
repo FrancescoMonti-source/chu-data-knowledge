@@ -1,0 +1,20 @@
+==== TB_VIDHOSP_DMT ====
+Donnée variable du VIDHOSP concernant les disciplines de prestations
+       1   ID_VIDHOSP                int(10)         Identifiant du VIDHOSP. Lien avec TB_VIDHOSP.ID_VIDHOSP
+
+       2   CHRONO                    smallint(5)     Chrono de la discipline de prestations.
+
+       3   CODE_DMT                  varchar(3)      Code de la discipline de prestation
+
+       4   MODE_TRAITEMENT           varchar(2)      Mode de traitement
+     5    DATE_DEBUT_SEJ    datetime        Date de début du séjour
+
+     6    DATE_FIN_SEJ      datetime        Date de fin du séjour
+
+     7    PRIX_UNITAIRE     decimal(7, 2)   Prix unitaire de la prestation
+
+     8    BASE_REMBT        decimal(8, 2)   Base de remboursement
+
+     9    TAUX_PRESTA       char(3)         Taux applicable à la prestation
+
+     10   MNT_REMB_CAISSE   decimal(8, 2)   Montant remboursable par la caisse

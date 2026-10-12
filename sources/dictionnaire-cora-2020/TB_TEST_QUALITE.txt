@@ -1,0 +1,48 @@
+==== TB_TEST_QUALITE ====
+Table enregistrant les tests qualités
+                                                        Clé :
+       1    ID_TEST_QUALITE             smallint(5)
+                                                        Identifiant de la table
+       2    CODE_TEST                   char(10)        Code du test (référence CORA)
+
+       3    LIBELLE_TEST                varchar(200)    Libellé du test qualité
+
+       4    CODE_TEST_PERE              char(10)        Code du père pour gérer l'arborescence
+
+       5    ORDRE                       smallint(5)     Ordre d'apparition du test dans l'arborescence
+
+       6    COMMENTAIRE_DIM             varchar(4000)   Commentaire pour le DIM qui n'est pas diffusé aux codeurs
+
+       7    COMMENTAIRE_CODEUR          varchar(4000)   Commentaire écrit par le DIM pour expliquer le test lors d'un résultat positif
+
+       8    COMMENTAIRE_PMC             varchar(4000)   Commentaire fourni par CORA, non modifiable, expliquant les enjeux du test
+
+       9    DATE_EFFET                  datetime        Date d'effet du test
+
+       10   DATE_REVOCATION             datetime        Date de révocation du test
+
+       11   ACTIF                       char(1)         'O' si actif, 'N' sinon
+                                                        Commentaire pour le DIM qui n'est pas diffusé aux codeurs
+       12   COMMENTAIRE_DIM_RTF         varchar(4000)
+                                                        ==> AU FORMAT RTF
+                                                        Commentaire écrit par le DIM pour expliquer le test lors d'un résultat positif
+       13   COMMENTAIRE_CODEUR_RTF varchar(4000)
+                                                        ==> AU FORMAT RTF
+                                                        Commentaire fourni par CORA, non modifiable, expliquant les enjeux du test
+       14   COMMENTAIRE_PMC_RTF         varchar(4000)
+                                                        ==> AU FORMAT RTF
+                                                        Prends les valeurs :
+                                                        1 : test applicable aux RSS
+       15   TYPE_QC                     char(1)
+                                                        2 : test applicable aux RUM
+                                                        3 : test applicable aux RSS et aux RUM
+                                                        Plus utilisé .Net (permettait de donner une valeur pour représenter l'importance
+       16   VALEUR_TEST                 decimal(8, 2)
+                                                        des tests les uns par rapport aux autres)
+                                                        Plus utilisé en .Net (permettait de donner l'ancien code du test après une mise
+       17   CODE_TEST_ANCIEN            char(10)
+                                                        à jour des codes des tests)
+                                                        Plus utilisé en .Net (Permettait de stocker 'O' lors de la mise en place d'un
+       18   EXPERIMENTATION             char(1)
+                                                        nouveau test et de le mettre par la suite à 'N' si ce test n'était pas validé)
+       19   TYPE_PMSI                   char(3)         Non utilisé pour l'instant car cette table ne contient que des tests MCO           'MCO'

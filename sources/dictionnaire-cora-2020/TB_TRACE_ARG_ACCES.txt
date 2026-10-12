@@ -1,0 +1,14 @@
+==== TB_TRACE_ARG_ACCES ====
+       1   ID_TRACE_ARG_ACCES         smallint(5)
+
+       2   LIB_TRACE_ARG_ACCES        varchar(80)
+                                                      Lien sur TB_UTIL.ID_UTIL
+       3   ID_CREAT                   int(10)
+                                                      Identifiant de l'utilisateur de création
+       4   DATE_CREAT                 datetime        Date de création
+                                                      Lien vers Util.ID_UTIL.
+       5   ID_INFO                    int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+       6   DATE_INFO                  datetime        Date de la dernière modification
+
+       7   OBLIG_COMMENTAIRE          char(1)

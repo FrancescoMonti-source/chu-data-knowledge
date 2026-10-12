@@ -1,0 +1,10 @@
+==== TB_ARCH_MOTIF ====
+Définit une table contenant des motifs de demande.
+                                                        Clé :
+       1    ID_MOTIF                     smallint(5)
+                                                        Définit l'identifiant du motif de la demande.
+       2    CODE_MOTIF                   char(10)       Définit le code du motif de la demande.
+
+       3    LIBELLE_MOTIF                varchar(100)   Définit le libellé du motif de la demande.
+
+       4    DEFAUT                       char(1)        Définit un boolean indiquant s'il s'agit du motif par défaut.                               'N'

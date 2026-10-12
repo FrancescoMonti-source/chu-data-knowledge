@@ -1,0 +1,7 @@
+==== R_TB18 ====
+localisations des dents
+       1   LOC_DENT                   char(2)        localisation de la dent
+                                                     date d'effet de la localisation
+       2   DT_DEBUT                   datetime
+                                                     de la dent
+        3   DT_FIN                          datetime       Date de fin

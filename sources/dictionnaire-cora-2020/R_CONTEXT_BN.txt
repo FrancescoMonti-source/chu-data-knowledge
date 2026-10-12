@@ -1,0 +1,6 @@
+==== R_CONTEXT_BN ====
+Code Contexte Bénéficiaire (assuré)
+       1   CONTXTBEN_COD               smallint(5)    Code du Contexte Bénéficaire
+                                                      Libelle du code Contexte du
+       2   LIBELLE                     varchar(200)
+                                                      Bénéficaire

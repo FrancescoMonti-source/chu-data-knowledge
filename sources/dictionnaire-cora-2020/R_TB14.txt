@@ -1,0 +1,11 @@
+==== R_TB14 ====
+DMT regroupées dans les classes
+       1   COD_DMT                    int(10)        code DMT
+                                                     date d'effet de l'associatio
+       2   DT_DEBUT                   datetime
+                                                     DMT/classe de DMT
+       3   CLDMT_COD                  char(2)        Code de la classe DMT
+
+       4   LIBELLE                    char(100)      libellé DMT
+
+       5   DT_FIN                     datetime       Date de fin

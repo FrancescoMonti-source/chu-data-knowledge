@@ -1,0 +1,12 @@
+==== TB_DOCUMENT_CONCLUSION ====
+Définit une table contenant les conclusions des documents patient.
+                                                        Clé :
+       1   ID_DOCUMENT_PATIENT          int(10)         Lien sur TB_DOCUMENT_PATIENT.
+                                                        Définit l'identifiant du document patient.
+       2   DOC_INDICATION               varchar(4000)   Définit l'indication sur le document patient.
+
+       3   DOC_INDICATION_RTF           varchar(4000)   Définit l'indication sur le document patient au format RTF.
+
+       4   DOC_CONCLUSION               varchar(4000)   Définit la conclusion sur le document patient.
+
+       5   DOC_CONCLUSION_RTF           varchar(4000)   Définit la conclusion sur le document patient au format RTF.

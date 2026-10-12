@@ -1,0 +1,24 @@
+==== TB_REQUETE_FILTRE ====
+Filtre créé dans le produit CORA Pilotage
+       1   ID_FILTRE                     int(10)         Identifiant du filtre
+
+       2   LIBELLE_FILTRE                varchar(200)    Libellé du filtre
+
+       3   DESCRIPTION                   varchar(200)    Description du filtre
+                                         text
+       4   FILTRE_DEVEX                                  Filtre au format du composant pmc_filter
+                                         (2147483647)
+                                                         Type de filtre
+       5   TYPE_FILTRE                   varchar(50)
+                                                         RSS/RUM/SEJ/PAT/MVT/BNA
+       6   ID_CREAT                      int(10)         Identifiant de l'utilisateur de création
+
+       7   DATE_CREAT                    datetime        Date de création
+
+       8   ID_MODIF                      int(10)         Identifiant de l'utilisateur de modification
+
+       9   DATE_MODIF                    datetime        Date de modification
+
+      10   ACTIF                         char(1)         Actif Oui/Non                                                                 'O'
+
+      11   GUID_FILTRE                   char(36)        Guid du filtre

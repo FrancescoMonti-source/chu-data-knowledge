@@ -1,0 +1,21 @@
+==== TB_DROIT_SSR ====
+Droits et paramétrage de l'Utilisateur pour les fonctions de Saisie en SSR
+                                                       Clé - Lien sur Util.id_util :
+       1   ID_UTIL                      int(10)
+                                                       Identifiant de l'Utilisateur
+       2   SAISIE_CDARR                 char(1)        Droit de saisie des actes CDARR (si ="O")
+
+       3   LECTURE_CDARR                char(1)        Droit de visualisation des actes CDARR (si ="O")
+
+       4   SAISIE_CCAM                  char(1)        Droit de saisie des actes CCAM (si ="O")
+
+       5   LECTURE_CCAM                 char(1)        Droit de visualisation des actes CCAM (si ="O")
+
+       6   SAISIE_DEPENDANCE            char(1)        Droit de saisie des informations de Dépendance (si ="O")
+
+       7   LECTURE_DEPENDANCE           char(1)        Droit de visualisation des informations de Dépendance (si ="O")
+       8    SAISIE_DIAG                  char(1)       Droit de saisie des diagnostics (si ="O")
+
+       9    LECTURE_DIAG                 char(1)       Droit de visualisation des diagnostics (si ="O")
+
+       10   SAISIE_DET_PRESPERM          char(1)       Droit de gestion détaillée des présences et permissions.

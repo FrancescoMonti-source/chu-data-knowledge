@@ -1,0 +1,6 @@
+==== TB_PMSI_PSY_TYPE_ACTE ====
+Table du thésaurus des types d'actes
+                                                      Clé :
+       1   CODE_TYPE_ACTE              char(1)
+                                                      Code type d'acte
+       2   LIBELLE_TYPE_ACTE           char(150)      Libellé type d'acte

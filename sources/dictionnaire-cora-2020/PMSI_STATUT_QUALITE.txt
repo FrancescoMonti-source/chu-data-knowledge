@@ -1,0 +1,10 @@
+==== PMSI_STATUT_QUALITE ====
+Table des contrôles qualités possibles réalisés sur les RSS
+                                                      Clé :
+       1   ID_STATUT_QUALITE           smallint(5)
+                                                      Identifiant du statut qualité
+       2   LIB_STATUT_QUALITE          varchar(100)   Libellé du statut qualité
+
+       3   TYPE_PMSI                   char(3)        Type de champ PMSI (MCO ou SSR) sur lequel s'applique le statut qualité    'MCO'
+
+       4   ID_ETABLIS                  smallint(5)    Exclusif Client.

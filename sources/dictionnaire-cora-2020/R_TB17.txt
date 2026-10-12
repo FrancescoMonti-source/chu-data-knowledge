@@ -1,0 +1,8 @@
+==== R_TB17 ====
+dates d'obligation du codage CCAM pour les natures deprestations NGAP
+       1   COD_NATURE                 char(3)        code nature prestation
+
+       2   SPECIA_COD                 char(3)        code spécialité
+                                                     date d'obligation du codage
+       3   DT_OBLIGAT                 datetime       CCAM pour les natures de
+                                                     prestations NGAP

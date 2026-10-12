@@ -1,0 +1,11 @@
+==== R_ACTIVITE_MODIFICATEUR ====
+Table des Modificateurs d'une activité d'un acte
+                                                        Clé - Lien avec R_ACTE_IVITE :
+        1   AA_CODE                      char(14)
+                                                        Code acte + Code Activité
+                                                        Clé - Lien avec R_ACTE_IVITE :
+        2   AADT_MODIF                   datetime
+                                                        Date de mise à jour
+                                                        Clé - Lien avec R_TB11 (avec COD_MODIFI):
+        3   MODIFI_COD                   char(1)        Code du Modificateur
+                                                        Dans R_TB11, on retrouve le libellé du modificateur

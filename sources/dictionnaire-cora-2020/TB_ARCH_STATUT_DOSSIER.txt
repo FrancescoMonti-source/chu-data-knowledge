@@ -1,0 +1,12 @@
+==== TB_ARCH_STATUT_DOSSIER ====
+Définit une table contenant pour chaque dossier son statut.
+                                                        Clé :
+       1    ID_ARCH_DOSSIER              int(10)
+                                                        Définit l'identifiant du dossier.
+                                                        Clé :
+       2    CODE_STATUT                  char(2)
+                                                        Définit l'identifiant du statut du dossier.
+       3    DATE_CREAT                   datetime       Définit la date de changement du statut.
+                                                        Lien sur TB_UTIL.ID_UTIL
+       4    ID_CREAT                     int(10)
+                                                        Définit l'identifiant de l'utilisateur ayant changé le statut.

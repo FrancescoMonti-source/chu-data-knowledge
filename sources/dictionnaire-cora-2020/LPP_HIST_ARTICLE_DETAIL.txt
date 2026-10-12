@@ -1,0 +1,53 @@
+==== LPP_HIST_ARTICLE_DETAIL ====
+Table Historique de LPP_ARTICLE_DETAIL
+      1   ID_ARTICLE_DETAIL        int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+      2   ID_FOURNISSEUR           int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+          CODE_ARTICLE_FOURNISSEU
+      3                           char(13)          Copie de la donnée de LPP_ARTICLE_DETAIL
+          R
+      4   NUM_LOT                  varchar(40)      Copie de la donnée de LPP_ARTICLE_DETAIL
+
+      5   DATE_LIVRAISON           datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+      6   DATE_AFFECTATION         datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+      7   ID_LPP                   int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+      8   DATE_CREAT               datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+      9   ID_CREAT                 int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     10   ID_ARTICLE_FOURNISSEUR   int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     11   PRIX_ACHAT               decimal(10, 2)   Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     12   PRIX_VENTE               decimal(10, 2)   Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     13   DATE_PEREMPTION          datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     14   NUM_SERIE_EXT            varchar(10)      Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     15   NO_SEJOUR_DISPENSATION varchar(20)        Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     16   ID_UTIL_LIVRAISON        int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     17   ID_UTIL_DISPENSATION     int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     18   DATE_DISPENSATION        datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     19   IPP_DISPENSATION         varchar(20)      Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     20   CODE_UF_DISPENSATION     varchar(10)      Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     21   ID_INFO                  int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     22   DATE_INFO                datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     23   ID_UTIL_RETOUR           int(10)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     24   DATE_RETOUR              datetime         Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     25   DESCR                    char(5)          Copie de la donnée de LPP_ARTICLE_DETAIL
+
+     26   NUM_COMMANDE             varchar(20)      Code Description de l'évènement intervenu

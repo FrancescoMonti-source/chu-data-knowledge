@@ -1,0 +1,16 @@
+==== TB_CONTXTPS_UTIL ====
+Liste les codes contextes médecins
+       1   ID_UTIL                        int(10)        identifiant utilisateur
+
+       2   CODE_CONTXTPS                  int(10)        code contexte médecin (thésaurus R_CONTEXT_PS de CORA_CNAM)
+
+       3   ACT_LIB                        char(1)        activité libérale
+
+       4   DATE_DEBUT                     datetime       date début de validité
+
+       5   DATE_FIN                       datetime       date fin de validité
+                                                         Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                         CORA_UTIL)
+       6   ID_ETABLIS                     int(10)
+                                                         Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                         Siège centralisée

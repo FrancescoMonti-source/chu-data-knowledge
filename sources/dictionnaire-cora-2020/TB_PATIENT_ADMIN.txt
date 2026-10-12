@@ -1,0 +1,63 @@
+==== TB_PATIENT_ADMIN ====
+Tables de renseignement Prise en Charge des patients
+                                                   Clé :
+      1    ID_PATIENT_ADMIN          int(10)
+                                                   Identifiant (PrisMédica) de la fiche administrative patient
+                                                   Lien sur TB_PATIENT.ID_PATIENT :
+      2    ID_PATIENT                int(10)
+                                                   Identifiant du patient
+                                                   Lien sur TB_ORGANISME.ID_ORGANISME :
+      3    ID_ORGANISME1             smallint(5)
+                                                   Identifiant de l'organisme de type CAISSE --> 'C'
+                                                   Lien sur TB_ORGANISME.ID_ORGANISME :
+      4    ID_ORGANISME2             smallint(5)
+                                                   Identifiant de l'organisme de type MUTUELLE --> 'M'
+      5    DATE_VALIDITE             datetime      Date de fin de validité des droits
+                                                   Lien sur Util.id_util :
+      6    ID_CREAT                  int(10)
+                                                   Identifiant du créateur de la fiche
+      7    DATE_CREAT                datetime      Date de création de la fiche
+
+      8    NO_SECU                   char(13)      Numéro de Sécu du patient
+
+      9    CLE_SECU                  char(2)       Clé finale du numéro de sécu du Patient
+
+      10   COMMENTAIRE_PEC           varchar(50)   Commentaire pour la prise en charge du patient
+
+      11   DATE_DEMANDE_PIR          datetime      Organisme actif 'O' ou inactif 'N'
+      12   DATE_ENVOI_PIR             datetime       Organisme actif 'O' ou inactif 'N'
+
+      13   COMMENTAIRE                varchar(100)
+
+      14   TYPE_DEBITEUR_OBL          char(1)
+
+      15   CODE_REGIME                char(2)
+
+      16   CODE_CAISSE                char(3)
+
+      17   CODE_CENTRE                varchar(4)
+
+      18   DATE_FIN_VALIDITE          datetime
+
+      19   QUALITE_BENEF              char(2)
+
+      20   NATURE_ASSURANCE           char(2)
+
+      21   CODE_GESTION               char(2)
+
+      22   TYPE_DEBITEUR_COMP         char(1)
+
+      23   NUM_ORGA_COMP              varchar(10)
+
+      24   DATE_VALIDITE_COMP         datetime
+
+      25   DATE_FIN_VALIDITE_COMP     datetime
+
+      26   TYPE_CONTRAT_COMP          char(2)
+
+      27   NUM_ADHERENT               varchar(15)
+
+      28   DATE_INFO                  datetime       Date de la dernière modification
+                                                     Lien vers Util.ID_UTIL.
+      29   ID_INFO                    int(10)
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification

@@ -1,0 +1,36 @@
+==== TB_DOCUMENT_ECHEANCIER ====
+Table contenant les échéanciers de document.
+                                                        Clé :
+       1   ID_DOCUMENT_ECHEANCIER int(10)
+                                                        Définit l'identifiant de l'échéancier de document.
+       2   CODE_ECHEANCIER              varchar(10)     Définit le code de l'échéancier.
+
+       3   LIBELLE_ECHEANCIER           varchar(100)    Définit le libellé de l'échéancier.
+
+       4   ACTIF                        char(1)         Définit un boolean indiquant si l'échéancier de document est actif.
+                                                        Définit le type de déclencheur pour l'échéancier.
+                                                        1 - Date d'entrée du séjour
+                                                        2 - Date de début du mouvement
+                                                        3 - Date de sortie du séjour
+                                                        4 - Date de fin du mouvement
+                                                        5 - Date d'intervention
+                                                        6 - Date de Changement de Mode Légal - Admission en soins psychiatriques à
+                                                        la demande d'un tiers (ex HDT).
+                                                        7 - Date de Changement de Mode Légal - Admission en soins psychiatriques
+       5   TYPE_DECLENCHEUR             smallint(5)     sur décision du représentant de l'Etat (ex HO).
+                                                        8 - Date de Changement de Mode Légal (OPP)
+                                                        9 - Date de Changement de Mode Légal - Admission en soins psychiatriques
+                                                        sur décision d'irresponsabilité pénale (ex HO - Article 122.1 Code procédure
+                                                        Pénal et L3213-7 Santé publique.
+                                                        10 - Date de Changement de Mode Légal - Admission en soins psychiatriques
+                                                        des personnes détenues atteintes de troubles mentaux (Article D398 du code
+                                                        de procédure Pénale)
+                                                        11 - Date de Changement de Mode Légal - Admission en soins psychiatriques
+                                                        pour cause de péril imminent
+                                                        Définit le nombre de jour par rapport au déclencheur pour la date de
+       6   NB_JOUR_DECLENCHEUR          smallint(5)
+                                                        déclenchement.
+       7   NB_JOUR_RYTHME               smallint(5)     Définit le nombre de jour pour le rythme de l'écheancier.
+           NB_JOUR_DELTA_RECHERCH                       Definit le nombre de jour de delta toléré par rapport à l'échéance lors de la
+       8                          smallint(5)
+           E                                            recherche des échéances.

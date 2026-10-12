@@ -1,0 +1,37 @@
+==== TB_COMMUNE_CARTO ====
+      1   ID_GEOFLA              int(10)
+
+      2   CODE_COMM              char(3)
+
+      3   INSEE_COMM             varchar(5)
+
+      4   NOM_COMM               varchar(100)
+
+      5   STATUT                 varchar(20)
+
+      6   X_CHF_LIEU             varchar(5)
+
+      7   Y_CHF_LIEU             varchar(5)
+
+      8   X_CENTROID             varchar(5)
+
+      9   Y_CENTROID             varchar(5)
+
+     10   Z_MOYEN                varchar(4)
+
+     11   SUPERFICIE             varchar(5)
+
+     12   POPULATION             varchar(5)
+
+     13   CODE_CANT              char(2)
+
+     14   CODE_ARR               char(1)
+
+     15   CODE_DEPT              char(2)
+
+     16   NOM_DEPT               varchar(50)
+
+     17   CODE_REG               char(2)
+
+     18   NOM_REGION             varchar(50)
+      19   CODE_POSTAL                 varchar(9)

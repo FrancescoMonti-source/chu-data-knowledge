@@ -1,0 +1,18 @@
+==== MED_ARTICLE_FOURNISSEUR ====
+       1    ID_ARTICLE_FOURNISSEUR       int(10)          Identifiant de la MON fournirsseur. Clé de la table.
+
+       2    CODE_UCD                     varchar(13)      Code UCD.
+            CODE_ARTICLE_FOURNISSEU
+       3                            varchar(120)          Code article du fournisseur
+            R
+       4    ID_FOURNISSEUR               int(10)          Identifiant du fournisseur.
+
+       5    LIB_ARTICLE_FOURNISSEUR varchar(80)           Libellé de l'article du fournisseur.
+
+       6    DATE_EFFET                   datetime
+
+       7    DATE_FIN_VALIDITE            datetime         Date de fin de validité.
+
+       8    CODE_ARTICLE_GEF             char(20)
+
+       9    CODE_UCD13                   varchar(13)

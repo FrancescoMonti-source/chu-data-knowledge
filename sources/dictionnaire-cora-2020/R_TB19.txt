@@ -1,0 +1,9 @@
+==== R_TB19 ====
+nombre de modificateurs tarifants
+                                                           date d'effet du nombre de
+        1   DT_DEBUT                        datetime
+                                                           modificateurs tarifants
+                                                           nombre de modificateurs
+        2   NB_MODIFIC                      int(10)
+                                                           tarifants
+        3   DT_FIN                          datetime       Date de fin

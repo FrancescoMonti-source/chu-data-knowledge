@@ -1,0 +1,58 @@
+==== TB_MVT_PSY_ACTE ====
+Table d'enregistrement des actes ambulatoires
+                                                      Clé :
+       1   ID_ACTE_PSY                int(10)
+                                                      Identifiant de l'acte
+                                                      Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                 int(10)
+                                                      Identifiant du patient
+                                                      Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                  int(10)
+                                                      Identifiant du séjour
+                                                      Lien sur TB_MVT.ID_MVT :
+       4   ID_MVT                     int(10)
+                                                      Identifiant du mouvement
+       5   DATE_ACTE                  datetime        Date de l'acte
+
+       6   HEURE_ACTE                 datetime        Heure de l'acte
+                                                      Lien sur TB_PMSI_PSY_NATURE_ACTE.CODE_NATURE_ACTE :
+       7   CODE_NATURE_ACTE           char(1)
+                                                      Nature de l'acte (E, D, G, A, R)
+                                                      Lien sur TB_PMSI_PSY_LIEU.ID_PSY_LIEU :
+       8   ID_PSY_LIEU                smallint(5)
+                                                      Identifiant du type de lieu psy (codes officiels : L01 à L10)
+                                                      Lien sur TB_PSY_ACTE.CODE_ACTE :
+       9   CODE_ACTE                  char(10)
+                                                      Code de l'acte
+      10   DUREE                      smallint(5)     Durée de l'acte
+
+      11   NOTE                       varchar(1000)   Commentaire utilisateur
+                                                      Lien sur TB_PSY_LIEU.ID_LIEU :
+      12   ID_LIEU                    smallint(5)
+                                                      Identifiant du lieu (lieu propre à l'établissement)
+      13   NB_INTERVENANT             smallint(5)     Nombre d'intervenants de l'acte
+                                                      Lien sur TB_PSY_SECTEUR.CODE_SECTEUR :
+      14   CODE_SECTEUR               char(5)
+                                                      Code du secteur psy
+                                                      Lien sur TB_UNITE.ID_UNITE :
+      15   ID_UNITE                   int(10)
+                                                      Identifiant de l'unité exécutrice de l'acte
+      16   ACTIVITE_LIBERALE          char(1)         L'acte a été exécuté en activité libérale (égal à 1 si activité libérale)
+
+      17   ID_ACTE_PSY_COLL           int(10)         Identifiant d'une collection d'actes
+
+      18   DATE_SAISIE                datetime        Date de saisie de l'acte ambulatoire
+
+      19   HEURE_SAISIE               datetime        Heure de saisie de l'acte ambulatoire
+                                                      Identifiant de l'utilisateur qui a saisi l'acte ambulatoire. Lien avec
+      20   ID_UTIL_SAISIE             int(10)
+                                                      UTIL.ID_UTIL.
+      21   DATE_SIGN                  datetime        Date de signature de l'acte ambulatoire
+
+      22   HEURE_SIGN                 datetime        Heure de signature de l'acte ambulatoire.
+                                                      Identifiant de l'utilisateur qui a signé l'acte ambulatoire. Lien avec
+      23   ID_SIGN                    int(10)
+                                                      UTIL.ID_UTIL.
+                                                      Lien sur TB_PMSI_PSY_MODE_LEGAL.CODE_MODE_LEGAL :
+      24   CODE_MODE_LEGAL            char(1)
+                                                      Mode légal du séjour

@@ -1,0 +1,11 @@
+==== UTIL_TYPE_EXECUTANT ====
+Lien entre les Utilisateurs (saisissant dans les dossiers SSR) et le Type 'Spécialité'
+                                                        Clé - Lien sur Util.id_util :
+       1    ID_UTIL                      int(10)
+                                                        Identifiant de l'Utilisateur
+                                                        Clé - Lien sur TB_TYPE_EXECUTANT_SSR.TYPE_EXECUTANT :
+       2    TYPE_EXECUTANT               char(10)
+                                                        Identifiant du Type exécutant
+                                                        Valeur par défaut (="O"). Utile si un utilisateur est référencé dans plusieurs
+       3    DEFAUT                       char(1)
+                                                        spécialités SSR

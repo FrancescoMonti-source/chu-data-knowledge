@@ -1,0 +1,20 @@
+==== PMSI_GHPC ====
+Table des GHPC : Groupe Homogène de Prise en Charge = Combinaison pertinente et autorisée d'un mode de prise en charge
+principal, d'un mode de prise en charge associé et d'une valeur de l'indice de Karnofsky (qui définissent une Séquence de
+soins)Niveau médicale dans le classement des journées en GHT
+                                                         Clé
+       1   CODE_GHPC                    char(4)
+                                                         Numéro du GHPC
+                                                         Lien sur PMSI_PROTO_PRINC.CODE_PROTO :
+       2   PP                           char(2)
+                                                         Mode de prise en charge Principal
+                                                         Lien sur PMSI_PROTO_SECON.CODE_PROTO :
+       3   PA                           char(2)
+                                                         Mode de prise en charge Associé
+       4   IK_BAS                       tinyint(3)       Classe Indice de Karnofsky : Valeur Basse
+
+       5   IK_HAUT                      tinyint(3)       Classe Indice de Karnofsky : Valeur Haute
+                                                        Pondération
+       6   PONDERATION                  decimal(13, 11) IPI : Indice de Pondération Intermédiaire (composé du produit des
+                                                        pondérations individuelles affectées à chacune des trois variables)
+       7   PEU_FREQUENT                 char(1)          Indique si le GHPC est peu fréquent ('O') ou non ('N').

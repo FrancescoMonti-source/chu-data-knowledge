@@ -1,0 +1,12 @@
+==== TB_CIM_NOTE ====
+Table reliant les notes associées à un diagnostic
+                                                       Correspond au diagnostic dont les notes lui sont associées. Lien avec
+       1   SID_REF                      int(10)
+                                                       CIM_HIERARCHIE.SID_REF
+       2   NOTE_SID                     char(600)      Note 1
+
+       3   NOTE_SID2                    char(600)      Note 2
+
+       4   NOTE_SID_SS_ACC              char(600)      Note 1 sans accents et en majuscules
+
+       5   NOTE_SID_SS_ACC2             char(600)      Note 2 sans accents et en majuscules

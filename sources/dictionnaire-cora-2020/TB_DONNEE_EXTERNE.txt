@@ -1,0 +1,17 @@
+==== TB_DONNEE_EXTERNE ====
+Stocke les données externes qui ont été intégrées par le Plugin PMSI
+       1   ID_DONNEE                   int(10)         Identifiant de la donnée saisie
+
+       2   CODE_TYPE                   varchar(20)     Code du type de la donnée
+
+       3   LIEN_DOSSIER                varchar(20)     Type de lien vers le dossier (RSS, SEJOUR ou PATIENT)
+
+       4   ID_LIEN_DOSSIER             int(10)         Identifiant vers le dossier (ID_RSS, ID_SEJOUR ou ID_PATIENT)
+
+       5   CODE_VALEUR                 varchar(50)     Code de la valeur
+
+       6   VALEUR                      varchar(4000)   Valeur de la donnée
+
+       7   DATE_CREAT                  datetime        Date d'enregistrement
+
+       8   DATE_INFO                   datetime        Date de dernière modification

@@ -1,0 +1,29 @@
+==== TB_PATIENT_MED_TRAIT ====
+Tables de renseignement des médecins des patients
+                                                    Clé :
+      1    ID_PATIENT               int(10)         Lien sur TB_PATIENT.ID_PATIENT :
+                                                    Identifiant du patient
+                                                    Clé :
+      2    ID_MEDECIN               int(10)         Lien sur TB_CORRESPONDANT.ID_CORRESPONDANT :
+                                                    Identifiant du médecin
+      3    FLAG_REFERENT            char(1)         Relation de type médecin référent si 'O'. Autre valeur possible 'N'
+                                                    Relation de type médecin traitant si 'O'.
+      4    FLAG_TRAITANT            char(1)         'N' non traitant
+                                                    'R' Traitant remplaçant
+                                                    Lien sur Util.id_util :
+      5    ID_CREAT                 int(10)
+                                                    Identifiant du créateur de la fiche
+      6    DATE_CREAT               datetime        Date de création de la fiche
+
+      7    ACTIF                    char(1)         Relation médecin active 'O' ou inactive 'N'
+                                                      Définit le type du médecin.
+                                                      - "T" => Indique que le médecin est le médecin traitant.
+                                                      - "R" => Indique que le médecin est le médecin référent.
+       8   TYPE_REFERENT               char(1)        - "A" => Indique que le médecin est le médecin adressant.
+                                                      - "S" => Induque que le médecin est le médecin spécialiste.
+                                                      - "F" => médecin de famille.
+                                                      - "C" => médecin correspondant.
+                                                      Lien vers Util.ID_UTIL.
+       9   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+      10   DATE_INFO                   datetime       Date de la dernière modification

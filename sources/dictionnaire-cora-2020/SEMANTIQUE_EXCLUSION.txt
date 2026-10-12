@@ -1,0 +1,3 @@
+==== SEMANTIQUE_EXCLUSION ====
+Table contenant les mots à exclure de l'analyse sémantique
+       1    MOT                          varchar(40)    Mot à exclure de l'analyse sémantique

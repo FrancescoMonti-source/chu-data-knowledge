@@ -1,0 +1,22 @@
+==== PRESC_HIST_CLASSE_ATC_DROIT ====
+Historique des droits sur les classes ATC des médicaments
+       1   ID_CLASSE_ATC_DROIT        int(10)       Clé de la Table
+                                                    Lien sur PRESC_CLASSE_ATC (Base CCAM / CORA)
+       2   ID_CLASSE_ATC              int(10)
+                                                    Identifiant de la classe ATC
+       3   ID_SPE_MED                 int(10)       Identifiant de la spécialité
+                                                    Type de droit sur la classe ATC
+       4   TYPE_DROIT                 char(1)       1 : Avertissement
+                                                    2 : Interdiction
+                                                    Lien sur TB_UTIL.ID_UTIL
+       5   ID_CREAT                   int(10)
+                                                    Identifiant de l'utilisateur de création
+       6   DATE_CREAT                 datetime      Date de création
+                                                    Lien sur TB_UTIL.ID_UTIL
+       7   ID_TRACE                   int(10)
+                                                    Identifiant de l'utilisateur de modification
+       8   DATE_TRACE                 datetime      Date de modification
+
+       9   TYPE_TRACE                 char(1)       Type de droit
+
+      10   DESCR                      char(5)       Description

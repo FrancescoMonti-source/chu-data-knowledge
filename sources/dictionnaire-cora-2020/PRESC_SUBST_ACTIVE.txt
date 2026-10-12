@@ -1,0 +1,14 @@
+==== PRESC_SUBST_ACTIVE ====
+       1   ID_MED                       int(10)
+
+       2   CODE_SUBST_ACTIVE            smallint(5)
+
+       3   DOSE                         varchar(17)
+
+       4   UNITE_DOSE                   varchar(40)
+
+       5   LIB_SUBST_ACTIVE             varchar(40)
+
+       6   ORDRE                        smallint(5)
+
+       7   FLAG_ANHYDRE                 char(1)                                                                                          'A'

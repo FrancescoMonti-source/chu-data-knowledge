@@ -1,0 +1,19 @@
+==== FG_INNOVATION ====
+Table qui permet de gérer les numéros d'innovation.
+       1   NUM_INNOVATION             varchar(15)     Numéro d'innovation
+
+       2   VERSION_FG                 varchar(3)      Version de la fonction de groupage
+
+       3   LIBELLE                    varchar(300)    Libelle correspondant au numéro d'innovation
+
+       4   CODE_CMD                   char(2)         Code CMD
+
+       5   CODE_GHM                   char(6)         Code GHM
+
+       6   CODE_INNOVATION            varchar(20)     Code correspondant au numéro d'innovation
+                                                      Autorisation de l'établissement à facturer un GHS innovation.
+       7   FLAG_AUTORISATION          char(1)         => Ne devrait plus utilisé depuis la création de la table FG_INNOVATION_EJ
+                                                      mais on continue pour enregistrer l'info pour le VB6 (mono EJ).
+                                                      Permet de voir ou non le code innovation dans le combo du recueil PMSI.
+       8   ACTIF                      char(1)         => Ne devrait plus utilisé depuis la création de la table FG_INNOVATION_EJ
+                                                      mais on continue pour enregistrer l'info pour le VB6 (mono EJ).

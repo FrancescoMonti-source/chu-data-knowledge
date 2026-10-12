@@ -1,0 +1,5 @@
+==== R_PHASE ====
+Liste des Codifications des phases d'activité
+       1    COD_PHASE                   int(10)         Code Phase de traitement
+
+       2    LIBELLE                     char(80)        libellé phase de traitement

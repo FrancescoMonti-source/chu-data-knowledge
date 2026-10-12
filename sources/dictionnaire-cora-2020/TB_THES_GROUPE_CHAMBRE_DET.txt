@@ -1,0 +1,8 @@
+==== TB_THES_GROUPE_CHAMBRE_DET ====
+Thésaurus des chambres d'un groupe
+                                                       Lien vers TB_THES_GROUPE_CHAMBRE.ID_GROUPE_CHAMBRE
+       1   ID_GROUPE_CHAMBRE           smallint(5)
+                                                       Identifiant du groupe de chambre
+                                                       Lien vers TB_THES_CHAMBRE.ID_CHAMBRE
+       2   ID_CHAMBRE                  int(10)
+                                                       Identifiant de la chambre

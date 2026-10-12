@@ -1,0 +1,17 @@
+==== TB_INT_MESSAGES_DOCUMENT ====
+     1   ID_DOCUMENT                int(10)         PK
+                                            FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+     2   ID_MESSAGE         int(10)
+                                            DOC...).ID_MESSAGE
+     3   ID_DOCUMENT_BIN    int(10)         FK TB_MESSAGES_BIN.ID_MESSAGE
+
+     4   NOM_FICHIER        varchar(250)    Nom du fichier émis ou reçu
+
+     5   TYPE_EXT_FICHIER   varchar(4)      Extension du document
+
+     6   VERSION_FICHIER    varchar(5)      Version du document
+                                            Identifiant externe du document d'un message.
+                                            En cas de message multi-documents il permet de distinguer les différents
+     7   ID_EXTERNE         varchar(100)
+                                            documents, util pour la gestion des messages archivés dans
+                                            CIM.

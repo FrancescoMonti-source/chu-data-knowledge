@@ -1,0 +1,10 @@
+==== TB_GEN_ECRAN_APPLI ====
+                                                  Clé de la table
+     1   ID_ECRAN                  smallint(5)
+                                                  Identifiant de l'écran du générateur
+     2   CODE_APPLI                char(3)        Code de l'application
+                                                  Type de droit autorisé sur l'application
+                                                  0 : Aucun
+     3   TYPE_DROIT                char(1)
+                                                  1 : Lecture
+                                                  2 : Ecriture

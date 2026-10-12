@@ -1,0 +1,8 @@
+==== FG_DIAG_10CR ====
+       1   VERSION_FG                 char(3)           Version de la fonction de groupage
+                                                        Code du diagnostic associé à la catégorie. Lien avec
+       2   CODE_DIAG                  char(16)
+                                                        CIM_HIERARCHIE.CODEFILS.
+       3   CODE_SEXE                  char(1)
+
+       4   CARACTERISTIQUE            char(10)          Caractéristique de la catégorie et ou de la CMD.

@@ -1,0 +1,6 @@
+==== TB_GROUPE_COTATION ====
+Groupe de Cotation (permet de structurer les Cotations par types, spécialités…)
+                                                        Clé :
+       1   ID_GROUPE_COTATION          smallint(5)
+                                                        Identifiant (PrisMédica) du Groupe de cotation
+       2   LIBELLE_GROUPE_COTATION char(40)             Libellé du groupe

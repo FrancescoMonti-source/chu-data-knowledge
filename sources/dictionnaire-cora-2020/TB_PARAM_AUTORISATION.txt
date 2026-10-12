@@ -1,0 +1,11 @@
+==== TB_PARAM_AUTORISATION ====
+Table contenant l'ensemble des autorisations de l'établissement
+       1   TYPE_AUTORISATION           char(2)          Type de l'autorisation
+
+       2   DATE_DEBUT                  datetime         Date de début de l'autorisation
+
+       3   DATE_FIN                    datetime         Date de fin de l'autorisation
+
+       4   TYPE_PMSI                   char(3)          Type de contexte PMSI : MCO, SSR, HAD ou PSY
+
+       5   ID_EJ                       smallint(5)      Identifiant de l'EJ pour laquelle l'autorisation existe                   1

@@ -1,0 +1,32 @@
+==== BNA_CONSOLIDE ====
+    1    ID_CONSOLIDE       int(10)         compteur
+
+    2    FINESS             char(9)         N° de finess juridique de l'établissement
+
+    3    CODE_CMD           char(2)         Catégorie majeure de diagnostic
+
+    4    CODE_GHM_RACINE    char(3)         GHM racine (sans CMD et sans sévérité)
+
+    5    SEVERITE           char(1)         la sévérité
+
+    6    DUREE_TOTALE       int(10)         moyenne des durées en jour
+
+    7    NB_SEJOUR          int(10)         nombre de RSA (pas vraiment séjour)
+
+    8    ENTREE_7           int(10)         Nb de mode d'entrée à 7
+
+    9    ENTREE_8           int(10)         Nb de mode d'entrée à 8
+
+    10   PROVENANCE_5       int(10)         Nb de provenance 5
+
+    11   SORTIE_8           int(10)         Nb de sortie 8
+
+    12   SORTIE_9           int(10)         Nb de sortie 9
+
+    13   AGE_ANNEE          int(10)         moyenne age patient en années
+
+    14   AGE_JOUR           int(10)         moyenne age patient en jour
+
+    15   NB_EXB             int(10)         Nb de RSA en borne haute
+
+    16   NB_EXH             int(10)         Nb de RSA en borne basse

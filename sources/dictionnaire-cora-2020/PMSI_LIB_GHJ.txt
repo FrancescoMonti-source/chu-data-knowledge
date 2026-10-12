@@ -1,0 +1,5 @@
+==== PMSI_LIB_GHJ ====
+       1   CODE_GHJ                    char(3)        Code GHJ (obsolète depuis la classification en GMD, puis GME)
+
+       2   CODE_CMC                    char(2)        Code de rattachement du GHJ à la catégorie CMC
+       3   LIBELLE_GHJ                varchar(250)    Libellé du GHJ

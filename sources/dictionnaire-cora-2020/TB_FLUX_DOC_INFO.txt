@@ -1,0 +1,21 @@
+==== TB_FLUX_DOC_INFO ====
+      1    ID_FLUX_DOC              int(10)         PK
+
+      2    DATE_FLUX                datetime        Date du flux
+                                                    FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+      3    IPP_PATIENT              varchar(20)
+                                                    de l'établissement
+      4    DETAIL                   varchar(1000)   Description détaillée de l'évènement
+
+      5    TYPE_FICHIER             char(2)         Type de fichier
+
+      6    VERSION_FICHIER          varchar(5)      Version du fichier
+
+      7    TYPE_INFO                char(1)         Type d'information
+
+      8    ID_DOC                   int(10)         FK TB_DOC.ID_DOC
+
+      9    ID_EMETTEUR              smallint(5)     Identitifiant de l'émetteur
+    10   NOM_FICHIER         varchar(50)     Nom du fichier émis ou reçu
+
+    11   TYPE_EXT_FICHIER    varchar(4)      Extension du fichier

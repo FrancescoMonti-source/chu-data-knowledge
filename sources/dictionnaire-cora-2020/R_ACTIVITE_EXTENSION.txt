@@ -1,0 +1,9 @@
+==== R_ACTIVITE_EXTENSION ====
+Extensions documentaires de l'activité
+                                                        CCAM n° 1+2
+        1   AA_COD                       char(14)       Code activité interne = Code
+                                                        Acte + Code Activité
+                                                        CCAM n° 3
+        2   EXTENS_COD                   char(1)        Code de l'extension
+                                                        documentaire
+        3   LIB_EXTENSION_PMC            varchar(100)   Libelle de l'extension

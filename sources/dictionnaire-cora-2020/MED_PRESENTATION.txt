@@ -1,0 +1,8 @@
+==== MED_PRESENTATION ====
+       1   ID_PRESENTATION           int(10)
+
+       2   LIB_PRESENTATION          varchar(40)
+
+       3   CODE_CIP                  char(7)
+
+       4   ACTIF                     char(1)                                                                                  'O'

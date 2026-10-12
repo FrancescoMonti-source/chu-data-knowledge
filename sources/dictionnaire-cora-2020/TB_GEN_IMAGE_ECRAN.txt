@@ -1,0 +1,7 @@
+==== TB_GEN_IMAGE_ECRAN ====
+     1   ID_IMAGE_ECRAN   int(10)
+
+     2   IMAGE_ECRAN      image
+
+     3   LIB_IMAGE        varchar(50)
+                                                    CORA_LOG

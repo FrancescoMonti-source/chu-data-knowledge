@@ -1,0 +1,6 @@
+==== TB_JOUR_FERIE ====
+Thésaurus des Jours Fériés Clé :
+Thésaurus des Jours Fériés
+                                                       Clé :
+       1   DATE_JF                      datetime
+                                                       Journée Férié

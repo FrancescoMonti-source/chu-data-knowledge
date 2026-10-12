@@ -1,0 +1,14 @@
+==== R_TB22 ====
+Affectation de la Grille en fonction des Contextes
+                                                           Code du Contexte du
+        1   COD_CONTXTPS                    smallint(5)
+                                                           Professionnel de Santé
+                                                           Code du Contexte du
+        2   COD_CONTXTBEN                   smallint(5)
+                                                           Bénéficiaire
+                                                           Date de Début, pour
+        3   DT_DEBUT                        datetime
+                                                           historisation
+        4   GRILLE_COD                      smallint(5)    Code de la Grille
+
+        5   DT_FIN                          datetime       date fin

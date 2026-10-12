@@ -1,0 +1,18 @@
+==== NABM ====
+Table contenant la nomenclature NABM (actes de biologie = codes affinés)
+                                                       Clé
+       1   CODE_NABM                   char(4)
+                                                       Code de l'acte de biologie
+       2   CHAP                        char(2)         Code du chapitre dans lequel appartient l'acte de biologie
+
+       3   SS_CHAP                     char(2)         Code du sous-chapitre dans lequel appartient l'acte de biologie
+
+       4   COEF                        decimal(7, 2)   Coefficient de valorisation pour l'acte NGAP 'B' de Biologie
+
+       5   LIB                         varchar(250)    Libellé
+
+       6   ACTIF                       char(1)
+
+       7   DATE_FIN                    datetime
+
+       8   CODE_PREST                  char(5)

@@ -1,0 +1,6 @@
+==== TB_COTATION_GROUPE ====
+Paramétrage des Cotations liées aux Groupes
+                                                      Clé : Lien sur TB_COTATION.ID_COTATION
+       1    ID_COTATION                 int(10)
+                                                      Cotation liée à un Groupe Utilisateur
+       2    ID_GROUPE                   int(10)       Identifiant du groupe (Groupe utilisateur)

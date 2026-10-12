@@ -1,0 +1,25 @@
+==== TB_CONSOLE_INDICATEUR ====
+Table de stockage des éléments d'une console
+                                                      Clé :
+      1    ID_CONSOLE_INDICATEUR     int(10)
+                                                      identifiant de l'item de la console
+                                                      Lien sur Recueil.TB_CONSOLE :
+      2    ID_CONSOLE                int(10)
+                                                      Identifiant de la console contenant l'élément
+      3    ID_REQUETE                int(10)          Identifiant de la requête correspondant à l'indicateur
+
+      4    GUID_REQUETE_REF          char(36)         Identifiant de la requête correspondant à l'indicateur de référence
+                                                      Type de l'indicateur pour l'affichage ENU_TYPE_AFFICHAGE_INDICATEUR
+      5    TYPE_AFF_INDICATEUR       smallint(5)      <cls_libelleAttribute("Indicateur"), cls_bdValueAttribute("1")> INDICATEUR
+                                                      <cls_libelleAttribute("Graph"), cls_bdValueAttribute("2")> GRAPHIQUE
+                                                      Position du titre de l'indicateur ENU_POSITION_TITRE_INDICATEUR
+                                                      <cls_libelleAttribute("En Haut"), cls_bdValueAttribute("1")> TOP
+      6    POSITION_TITRE            smallint(5)      <cls_libelleAttribute("A Droite"), cls_bdValueAttribute("2")> RIGHT
+                                                      <cls_libelleAttribute("A Gauche"), cls_bdValueAttribute("3")> LEFT
+                                                      <cls_libelleAttribute("En Bas"), cls_bdValueAttribute("4")> BOTTOM
+                                     text
+      7    LAYOUT_XML                                 Mise en page de l'indicateur
+                                     (2147483647)
+                                     text
+      8    STYLE_XML                                  Option de l'indicateur
+                                     (2147483647)

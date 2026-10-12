@@ -1,0 +1,6 @@
+==== TB_LPP_STATUT ====
+     1   ID_LPP_STATUT             smallint(5)
+
+     2   LIBELLE_LPP_STATUT        varchar(100)
+
+     3   FLAG_POSE                 char(1)

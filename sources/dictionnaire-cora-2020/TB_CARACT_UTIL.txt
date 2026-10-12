@@ -1,0 +1,44 @@
+==== TB_CARACT_UTIL ====
+Caractéristiques de l'utilisateur
+                                                       Clé - Lien sur Util.id_util :
+       1    ID_UTIL                     int(10)
+                                                       Identifiant de l'Utilisateur
+       2    MEDECIN                     char(1)        ="O" : L'utilisateur est un Médecin
+
+       3    MARE                        char(1)        ="O" : L'utilisateur est un Anesthésiste
+
+       4    OPERATEUR                   char(1)        ="O" : L'utilisateur est un Opérateur (Chirurgien ou autre)
+
+       5    DIM                         char(1)        ="O" : Utilisateur DIM
+
+       6    TIM                         char(1)        ="O" : Utilisateur TIM
+
+       7    SECMED                      char(1)        ="O" : Utilisateur Secrétaire Médicale
+
+       8    SEC                         char(1)        ="O" : Utilisateur Secrétaire
+
+       9    MANIP                       char(1)        ="O" : Utilisateur Manipulateur
+
+       10   INFE                        char(1)        ="O" : Utilisateur Infirmier
+                                                       Paramètre Utilisateur : Permet d'afficher par défaut les actes de l'utilisateur
+       11   FILTRE_ACTE_PERSO           char(1)
+                                                       (écran RUM)
+       12   SAGE_FEMME                  char(1)        ="O" : Utilisateur Sage femme
+                                                       ="O" : Utilisateur Pharmacien (Forcément paramétré aussi comme Non
+       13   PHARMACIEN                  char(1)
+                                                       Médecin)
+       14   ARCHIVISTE                  char(1)        ="O" : Utilisateur Manipulateur
+                                                       ="O" : Utilisateur Brancardier (Aucun autre champ ne peut paramétré dans ce
+       15   BRANCARDIER                 char(1)
+                                                       cas)
+       16   DAF                         char(1)        = 'O' si Utilisateur DAF
+
+       17   AIDE_SOIGNANT               char(1)        = 'O' si Utilisateur Aide Soignant
+                                                       = Identifiant du métier paramédicale
+       18   ID_METIER_PARAMED           smallint(5)
+                                                       Lien sur TB_METIER_PARAMED.ID_METIER_PARAMED
+       19   INTERNE                     char(1)        = 'O' si Interne
+
+       20   ETUDIANT                    char(1)        = 'O' si Etudiant
+
+       21   PREPARATEUR                 char(1)        = 'O' si Préparateur Pharmacie

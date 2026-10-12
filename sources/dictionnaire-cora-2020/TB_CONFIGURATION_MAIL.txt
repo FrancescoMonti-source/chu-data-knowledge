@@ -1,0 +1,48 @@
+==== TB_CONFIGURATION_MAIL ====
+Table de configuration et de paramétrage des envois de mail
+                                                      Clé :
+                                                      Code représentant la fonction qui utilise cet envoi. Les Codes de fonction
+                                                      peuvent être:
+                                                      - DEVIS : pour l'écran Simulation Ghm de l'AHP
+       1   CODE_FONCTION              varchar(20)     - REQUETEUR : pour l'envoi du résultat du requêteur
+                                                      - RSS : pour l'envoi d'un mail depuis l'écran RSS de Cora Activité)
+                                                      - ITF_PAT :pour l'envoi depuis l'interface patient
+                                                      - ITF_ACT :pour l'envoi depuis l'interface acte
+                                                      - DOC pour l'envoi depuis les applications CORA DPI.
+       2   SERVEUR_SMTP               varchar(100)    Définit le serveur SMTP utilisé pour les envois de mails.
+
+       3   PORT_SMTP                  int(10)         Définit le port SMTP utilisé. En général, il s'agit du port 25.
+
+       4   FROM_DEFAUT                varchar(100)    Définit l'adresse d'expédition du mail par défaut.
+
+       5   TO_DEFAUT                  varchar(100)    Définit l'adresse de réception du mail.
+
+       6   CC_DEFAUT                  varchar(100)    Définit l'adresse en copie carbone du mail.
+
+       7   MODELE_CORPS_MAIL          varchar(1000)   Définit le modèle de corps de mail.
+
+       8   MODELE_SUJET_MAIL          varchar(100)    Définit le sujet du mail.
+
+       9   CENTRALISE                 char(1)
+
+      10   PARAM_LOGIN                varchar(100)
+
+      11   PARAM_PASSWORD             varchar(400)
+                                                      FK CORA_RECUEIL..TB_INT_APPLICATION.ID_APPLICATION - Identifiant
+      12   ID_APPLICATION             smallint(5)
+                                                      de l'application réceptrice ou émettrice du message
+      13   SOURCE_UTILISATION         char(1)                                                                                              'A'
+
+      14   ACTIF                      char(1)
+                                                       Définit le mode de connexion STMP utilisé pour l'envoi d'emails.
+                                                       - 0 : Connexion SMTP classique via les méthodes du Framework .NET.
+                                                       - 1 : Connexion avec implémentation de la RFC 2228 avec connexion sur le
+                                                       port 25 en clair puis demande de connexion sécurisée avec la commande
+       15   MODE_CONNEXION_SMTP          smallint(5)
+                                                       STARTTLS.
+                                                       - 2 : Connexion SMTP avec les objets COM CDO.
+                                                       - 3 : Connexion SMTP au travers d'une connexion SSL via les objets COM
+                                                       CDO.
+                                                       Définit le type d'encodage pour le corps de l'email.
+       16   TYPE_ENCODAGE                smallint(5)   - 1 : UTF_8.
+                                                       - 2 : ISO_8859_1.

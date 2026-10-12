@@ -1,0 +1,11 @@
+==== TB_MVT_PSY_DET_ACTE ====
+Table d'enregistrement des détails, concernant les intervenants d'un acte ambulatoire
+                                                       Clé :
+       1   ID_ACTE_PSY                 int(10)
+                                                       Identifiant de l'acte
+                                                       Clé - Lien sur Util.id_util :
+       2   ID_INTERVENANT              int(10)
+                                                       Identifiant de l'intervenant
+       3   ACT_LIB                     char(1)         Intervenant en activité libérale ('O' ou 'N')
+
+       4   ORDRE                       smallint(5)     Ordre de l'intervenant

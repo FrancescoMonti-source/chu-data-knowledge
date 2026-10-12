@@ -1,0 +1,8 @@
+==== TB_APPLI_VERS_CONTROLE ====
+Gestion de licence par version d'un produit
+                                                       Code de l'application.
+       1   CODE_APPLI                   char(3)
+                                                       Par exemple REC, ACT, DOC
+                                                       Numéro de la verison.
+       2   NIV_VERSION                  float(53)
+                                                       Par exemple 3.7

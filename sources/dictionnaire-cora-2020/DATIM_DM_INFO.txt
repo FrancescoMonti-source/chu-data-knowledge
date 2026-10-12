@@ -1,0 +1,8 @@
+==== DATIM_DM_INFO ====
+     1   CODE_LPP              char(13)          Code de la LPP
+
+     2   NB_LPP_ATTENDU        smallint(5)       Nombre de LPP attendu
+
+     3   DATE_DEBUT            datetime          Date de début
+
+     4   DATE_FIN              datetime          Date de fin

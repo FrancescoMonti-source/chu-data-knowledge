@@ -1,0 +1,41 @@
+==== TB_PARAM_REF ====
+       1   CPT_PARAM_REF              smallint(5)
+
+       2   TYPE_OBJET                 char(1)
+
+       3   CODE_TABLE                 char(10)
+
+       4   NOM_TABLE                  char(17)
+
+       5   CPT_PARAM_PERE             smallint(5)
+
+       6   NOM_CHAMP                  char(16)
+                                                      Type du champ :
+                                                      1 : Chaine
+                                                      2 : réel
+                                                      3: Date
+       7   TYPE_CHAMP                 char(1)
+                                                      4 : Entier
+                                                      5 : Commentaire
+                                                      6 : Heure
+                                                      7 : Date et heure
+       8   TAILLE_CHAMP               smallint(5)
+
+       9   CHAMP_NOT_NULL             char(1)
+
+      10   COMMENTAIRE                varchar(1000)
+      11   TYPE_LIENS          char(1)
+
+      12   ID_ITEM_REQ         smallint(5)
+
+      13   LIBELLE_ITEM_REQ    varchar(59)
+
+      14   DATE_CREAT          datetime        Date de création
+                                               Lien sur TB_UTIL.ID_UTIL
+      15   ID_CREAT            int(10)
+                                               Identifiant de l'utilisateur de création
+      16   DATE_MODIF          datetime
+
+      17   ID_MODIF            int(10)
+
+      18   CHAMP_OBL           char(1)

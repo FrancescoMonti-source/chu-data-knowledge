@@ -1,0 +1,134 @@
+==== TB_HIST_LPP ====
+     1    ID_LPP                     int(10)          Copie de TB_LPP : Identifiant
+                                                      Copie de TB_LPP : Lien sur TB_MVT.ID_MVT :
+     2    ID_MVT                     int(10)
+                                                      Identifiant du Mouvement (Lien obligatoire)
+                                                      Copie de TB_LPP : Lien sur TB_SEJOUR.ID_SEJOUR :
+     3    ID_SEJOUR                  int(10)
+                                                      Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+                                                      Copie de TB_LPP : Lien sur TB_PATIENT.ID_PATIENT :
+     4    ID_PATIENT                 int(10)
+                                                      Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                      Copie de TB_LPP : Lien sur LPP.CODE_LPP : (Base CORA)
+     5    CODE_LPP                   char(13)
+                                                      Code référence LPP
+     6    QTE_LPP                    smallint(5)      Copie de TB_LPP : Quantité 'consommée' (Donnée obligatoire)
+
+     7    DATE_CONSOMMATION          datetime         Copie de TB_LPP : Date de 'consommation' (Donnée obligatoire)
+
+     8    HEURE_CONSOMMATION         datetime         Copie de TB_LPP : Précision heure
+                                                      Copie de TB_LPP : Lien sur Util.id_util :
+     9    ID_OPERATEUR               int(10)          Identifiant du médecin ayant utilisé, appliqué le LPP.
+                                                      Obligatoire pour DMI
+     10   DATE_COMMANDE              datetime         Copie de TB_LPP : Date de commande
+
+     11   NUM_COMMANDE               varchar(20)      Copie de TB_LPP : N° de commande
+
+     12   NUM_LOT                    varchar(40)      Copie de TB_LPP : N° de lot
+
+     13   PRIX_ACHAT                 decimal(14, 6)   Copie de TB_LPP : Prix d'achat
+                                                      Copie de TB_LPP : Lien sur Util.id_util :
+     14   ID_INFO                    int(10)
+                                                      Identifiant de l'utilisateur ayant saisi le LPP
+     15   DATE_INFO                  datetime         Copie de TB_LPP : Date de saisie du LPP
+
+     16   HEURE_INFO                 datetime         Copie de TB_LPP : Heure de saisie du LPP
+                                                      Copie de TB_LPP : Lien vers Util.ID_UTIL
+     17   ID_SIGN                    int(10)
+                                                      Idenifiant de l'utilisateur ayant signé la LPP
+     18   DATE_SIGN                  datetime         Copie de TB_LPP : Date de la signature de la LPP
+
+     19   HEURE_SIGN                 datetime         Copie de TB_LPP : Heure de la signature de la LPP
+                                                      Copie de TB_LPP : Lien sur TB_SITE.ID_SITE :
+     20   ID_SITE                    int(10)
+                                                      Identifiant du Site lié à la 'consommation' du LPP
+                                                      Copie de TB_LPP : Lien sur TB_UNITE.ID_UNITE :
+     21   ID_UNITE                   int(10)
+                                                      Identifiant de l'Unité lié à la 'consommation' du LPP
+                                                      Information sur l'action d'historisation :
+     22   TYPE_INFO                  char(1)          E : Effacer (suppression)
+                                                      M : Modification
+                                                Description de l'historisation :
+                                                DELRE : ?
+                                                DELDP : ?
+23   DESCR                     char(5)          DELIF : ?
+                                                S_MVT : Suppression mouvement
+                                                S_SEJ : Suppression séjour
+                                                S_PAT : 'Suppression patient
+24   PRIX_VENTE                decimal(14, 6)   Copie de TB_LPP : Prix de vente
+                                                Copie de TB_LPP : Lien sur TB_MVT.NO_MVT :
+25   NO_MVT                    varchar(20)      N° de Dossier (cas des Plateaux Techniques) dupliqué dans cette table acte
+                                                (permet de réenvoyer cette information à l'Interface)
+                                                Copie de TB_LPP : Lien sur Util.id_util :
+26   ID_PRESCRIPTEUR           int(10)          Identifiant du prescripteur du LPP.
+                                                Obligatoire pour DMI
+                                                Copie de TB_LPP : Date de prescription
+27   DATE_PRESCRIPTION         datetime
+                                                Obligatoire pour DMI
+                                                Copie de TB_LPP : Gestion Interface :
+                                                LPP exporté dans une autre application
+                                                "E" : acte émis
+28   TYPE_EMISSION             char(1)          "R" : en demande de réémission (Cas d'un LPP dévalidé, non envoyé en
+                                                suppression parl'Interface puis resigner)
+                                                "P" : en cours d'envoi (blocage de la dévalidation dans Recueil Cora)
+                                                "S" : dévalidé (en cours de suppression par l'Interface)
+                                                Copie de TB_LPP : Gestion Interface :
+29   DATE_EMISSION             datetime
+                                                Date d'émission
+                                                Copie de TB_LPP : Gestion Interface :
+30   LPP_RECEPTION             char(1)
+                                                LPP importé d'une Autre application (si = "O")
+                                                Copie de TB_LPP : Gestion Interface :
+31   DATE_RECEPTION            datetime
+                                                Date de réception
+                                                Copie de TB_LPP : Lien sur TB_INTERVENTION.ID_INTERVENTION :
+32   NO_INTERVENTION           int(10)
+                                                Identifiant de l'Intervention Bloc (si le code LPP a été saisie dans l'écran Bloc)
+                                                Copie de TB_LPP : Pour une saisie par Code Article :
+     CODE_ARTICLE_FOURNISSEU                    Mémorisation du code article (Lien sur
+33                           varchar(120)
+     R                                          LPP_ARTICLE_FOURNISSEUR.CODE_ARTICLE_FOURNISSEUR de la
+                                                Base CORA)
+                                                Copie de TB_LPP : Pour une saisie par Code Article :
+34   ID_FOURNISSEUR            int(10)          Mémorisation du fournisseur (Lien sur
+                                                LPP_FOURNISSEUR.ID_FOURNISSEUR de la Base CORA)
+35   ID_ARTICLE_DETAIL         int(10)
+
+36   ID_LPP_STATUT             smallint(5)
+                                                Copie de TB_LPP : Identifiant de l'article fournisseur. (Lien sur
+37   ID_ARTICLE_FOURNISSEUR    int(10)          LPP_ARTICLE_FOURNISSEUR.ID_ARTICLE_FOURNISSEUR de la base
+                                                CORA).
+38   FACTURABLE                char(1)
+
+39   GRATUIT                   char(1)
+
+40   FLAG_VALIDE               char(1)
+
+41   FLAG_FACTURE              char(1)
+
+42   ACTIVITE_LIBERALE         char(1)
+
+43   TAUX_TVA                  decimal(5, 2)
+
+44   MNT_ECART                 decimal(14, 6)
+
+45   ENTENTE_PREALABLE         char(1)
+
+46   FLAG_MNC                  varchar(3)
+
+47   CODE_RISQUE               char(2)
+
+48   DATE_ENTENTE_PREALABLE datetime
+
+49   DATE_CREAT                datetime         Copie de TB_LPP : Date de création
+                                                Copie de TB_LPP : Lien sur TB_UTIL.ID_UTIL
+50   ID_CREAT                  int(10)
+                                                Identifiant de l'utilisateur de création
+51   ID_APPLICATION_TRANSFERT int(10)
+    52   NO_INTERVENTION_CCAM      int(10)
+
+    53   ID_NIVEAU_PERTINENCE      smallint(5)
+
+    54   TYPE_EMISSION_TRACA       char(1)
+
+    55   LIB_INDICATION            varchar(500)     Copie de TB_LPP : Libellé de l'indication

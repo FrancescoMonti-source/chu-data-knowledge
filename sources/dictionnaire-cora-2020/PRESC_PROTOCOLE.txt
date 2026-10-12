@@ -1,0 +1,44 @@
+==== PRESC_PROTOCOLE ====
+     1   ID_PRESC_PROTOCOLE       int(10)         Clé de la table
+
+     2   NOM_PRESC_PROTOCOLE      varchar(50)
+
+     3   ID_PERE                  int(10)
+
+     4   DATE_CREAT               datetime        Date de création
+                                                  Lien sur TB_UTIL.ID_UTIL
+     5   ID_CREAT                 int(10)
+                                                  Identifiant de l'utilisateur de création
+     6   DATE_INFO                datetime        Date de la dernière modification
+
+     7   HEURE_INFO               datetime
+                                                  Lien vers Util.ID_UTIL.
+     8   ID_INFO                  int(10)
+                                                  Identifiant de l'utilisateur ayant effectué la dernière modification
+     9   DATE_SIGN                datetime
+
+    10   HEURE_SIGN               datetime
+
+    11   ID_SIGN                  int(10)
+
+    12   DATE_REVOCATION          datetime
+
+    13   COMMENTAIRE              varchar(600)
+
+    14   URL_INFO_EXT             varchar(200)
+
+    15   ID_UNITE                 int(10)
+
+    16   ID_UTIL                  int(10)         Clé - Lien Util.id_util
+
+    17   TYPE_ETABLIS             char(1)
+
+    18   ORDRE                    smallint(5)
+
+    19   ID_PRESCRIPTEUR          int(10)
+
+    20   DATE_EFFET               datetime
+
+    21   CODE_PROTOCOLE           varchar(15)
+
+    22   MODIF_AUTORISE           char(1)

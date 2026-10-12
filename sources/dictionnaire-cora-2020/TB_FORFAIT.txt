@@ -1,0 +1,17 @@
+==== TB_FORFAIT ====
+Table contenant les forfaits
+       1   ID                          smallint(5)    Clé : Identifiant du supplément.
+
+       2   CODE_PREST                  varchar(5)     Code de la prestation.
+
+       3   LIB_PREST                   varchar(150)   Libellé de la prestation.
+
+       4   EXPORTER                    char(1)        O= le forfait est exporté                                                                'N'
+                                                      Lien vers Util.ID_UTIL.
+       5   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+       6   DATE_INFO                   datetime       Date de la dernière modification
+                                                      Lien sur TB_UTIL.ID_UTIL
+       7   ID_CREAT                    int(10)
+                                                      Identifiant de l'utilisateur de création
+       8   DATE_CREAT                  datetime       Date de création

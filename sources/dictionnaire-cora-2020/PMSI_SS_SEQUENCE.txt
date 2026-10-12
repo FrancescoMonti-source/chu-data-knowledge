@@ -1,0 +1,8 @@
+==== PMSI_SS_SEQUENCE ====
+Durée de séjour (de prise en charge)
+                                                       Clé
+       1   CODE_SS_SEQUENCE            char(2)
+                                                       Code
+       2   LIBELLE_SS_SEQUENCE         char(40)        Durée de séjour
+
+       3   PONDERATION                 decimal(5, 4)   Pondération

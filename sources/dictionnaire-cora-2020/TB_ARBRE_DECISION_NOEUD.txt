@@ -1,0 +1,39 @@
+==== TB_ARBRE_DECISION_NOEUD ====
+Table contenant la liste des noeuds des arbres de décision.
+       1   ID_NOEUD                     int(10)         Identifiant du noeud.
+
+       2   ID_NOEUD_PARENT              int(10)         Lien vers ID_NOEUD : Identifiant du noeud parent.
+                                                        Lien vers TB_ARBRE_DECISION.ID_ARBRE : Identifiant de l'arbre de
+       3   ID_ARBRE                     smallint(5)
+                                                        décision.
+                                                        Type de noeud :
+                                                        - NONE : noeud vide
+                                                        - B : Contrôle Qualité Labo
+                                                        - N : Contrôle Qualité Requête.Net
+                                                        - LOU : Lot de Contrôles Qualités dont au moins 1 des Contrôles doit être
+       4   TYPE_NOEUD                   varchar(4)
+                                                        positif pour que le dossier soit considéré comme positif.
+                                                        - LET : Lot de Contrôles Qualités dont tous les Contrôles doivent être positifs
+                                                        pour que le dossier soit considéré comme positif.
+                                                        - P : Population
+                                                        - PR : Population à réinitialiser
+                                                        Identifiant du Contrôle Qualité ou de la Population en fonction de
+                                                        TYPE_NOEUD :
+                                                        - NONE : Non renseigné
+                                                        - B : Identifiant du Contrôle Qualité Labo
+                                                                Lien vers TB_LABO_CONTROLE_QUALITE.ID_CONTROLE_LABO
+                                                           ou Lien vers TB_LABO_GRP_REGLE.ID_LABO_GRP
+       5   ID_TYPE_NOEUD                int(10)         - N : Identifiant du Contrôle Qualité Requête.Net
+                                                                Lien vers TB_REQUETE.ID_REQUETE
+                                                           ou Lien vers TB_REQUETE_CATEGORIE.ID_REQUETE_CATEGORIE
+                                                        - LOU/LET : Identifiant du Lot de Contrôles Qualités.
+                                                                Lien vers TB_REGLE_QUALITE_LOT.ID_REGLE_QUALITE_LOT
+                                                        - P/PR : Identifiant de la Population
+                                                                Lien vers TB_POPULATION.ID_NOEUD
+       6   ID_NOEUD_VRAI                int(10)         Lien vers ID_NOEUD : Identifiant du noeud positif.
+
+       7   ID_NOEUD_FAUX                int(10)         Lien vers ID_NOEUD : Identifiant du noeud négatif.
+
+       8   HISTORISATION_CQ_POS         char(1)         Indique si les contrôles qualité positifs du noeud doivent être historisés           'O'
+
+       9   HISTORISATION_CQ_NEG         char(1)         Indique si les contrôles qualité négatifs du noeud doivent être historisés           'O'

@@ -1,0 +1,6 @@
+==== TB_REQUETE_REGROUPEMENT_ITEM ====
+       1    ID_ITEM_REGROUPEMENT      int(10)
+
+       2    ID_REGROUPEMENT           int(10)
+
+       3    LIBELLE                   varchar(50)

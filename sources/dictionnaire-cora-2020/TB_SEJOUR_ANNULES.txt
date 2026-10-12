@@ -1,0 +1,110 @@
+==== TB_SEJOUR_ANNULES ====
+Tables Historique de TB_SEJOUR (Historisation des suppressions)
+                                                   Clé :
+      1    ID_SEJOUR                 int(10)
+                                                   Ancien identifiant de TB_SEJOUR.ID_SEJOUR (de la ligne supprimée)
+                                                   Copie de la donnée de TB_SEJOUR: Lien sur TB_PATIENT.ID_PATIENT :
+      2    ID_PATIENT                int(10)
+                                                   Identifiant du Patient concerné par ce Séjour (Lien obligatoire)
+                                                   Copie de la donnée de TB_SEJOUR: N° de Séjour officiel. (Identifiant unique
+      4    NO_SEJOUR                 char(20)
+                                                   (normalement) du Séjour dans le SIH)
+                                                   Copie de la donnée de TB_SEJOUR :Type du Séjour. Donnée utilisée dans
+                                                   certaines Interface (ex : HPRIM).
+      5    TYPE_SEJOUR               char(3)
+                                                   Permet, par exemple, de différencier les Séjours d'Externe sur une Unité
+                                                   utilisée aussi bien pour de l'Externe que pour de l'Hospit
+                                                   Copie de la donnée de TB_SEJOUR : Date d'entrée du Séjour (Donnée
+      6    DATE_ENTREE               datetime
+                                                   obligatoire)
+      7    HEURE_ENTREE              datetime      Copie de la donnée de TB_SEJOUR : Heure d'entrée du Séjour
+                                                   Copie de la donnée de TB_SEJOUR : Lien sur TB_UNITE.CODE_UNITE :
+      8    UF_ENTREE                 varchar(12)
+                                                   Unité (UF) d'entrée dans le Séjour (Unité du 1er Mouvement)
+                                                   Copie de la donnée de TB_SEJOUR : Mode d'entrée du Séjour. Valeur
+      9    MODE_ENTREE               char(2)       'officielle' (ex : 6 - Entrée par Mutation / 8 - Provenance Domicile)
+                                                   Valeur possible : 0, 6, 7, 8
+      10   DATE_SORTIE               datetime      Copie de la donnée de TB_SEJOUR : Date de sortie du Séjour
+
+      11   HEURE_SORTIE              datetime      Copie de la donnée de TB_SEJOUR : Heure de sortie du Séjour
+                                                   Copie de la donnée de TB_SEJOUR : Mode de sortie du Séjour. Valeur
+      12   MODE_SORTIE               char(2)       'officielle' (ex : 8 - Sortie vers Domicile / 9 – Décès)
+                                                   Valeur possible : 0, 6, 7, 8, 9
+      16   CODE_POSTAL               char(5)       Copie de la donnée de TB_SEJOUR : Code Postal du Patient
+                                                   Copie de la donnée de TB_SEJOUR : Pour des dossiers de néonatalogie :
+      17   NO_SEJOUR_DOSSIER_MERE varchar(20)      liaison avec le dossier de la mère (Géré exclusivement dans les Interfaces
+                                                   Patient récupérant cette information)
+                                                   Copie de la donnée de TB_SEJOUR : Code Provenance du Séjour. Valeur
+      19   CODE_PROVENANCE           char(1)       'officielle' (ex : 1 - D'une unité de soins de courte durée)
+                                                   Valeur possible : 1 à 7
+                                                   Copie de la donnée de TB_SEJOUR : Code Destination du Séjour. Valeur
+      20   CODE_DESTINATION          char(1)       'officielle' (ex : 1 - Vers unité de soins de courte durée)
+                                                   Valeur possible : 1 à 7
+                                                   Copie de la donnée de TB_SEJOUR : Mis à T pour indiquer que le sejour est
+      25   STATUT                    char(1)       'bloqué'. Un séjour est bloqué lorsqu'il a été groupé avec l'option 'Blocage
+                                                   Période' C'est alors le reflet du champ TB_SYNTH_RSS
+                                                   Copie de la donnée de TB_SEJOUR : Lien sur Util.id_util :
+      27   ID_MEDECIN_RESP_SEJ       int(10)
+                                                   Identifiant du médecin responsable du Séjour
+                                                   Copie de la donnée de TB_SEJOUR : Dans le cas d'une consolidation dans
+      28   FLAG_ENVOI                char(1)       une Base Siège centralisée :
+                                                   Champ permettant l'envoi et le marquage des dossiers
+                                                   Copie de la donnée de TB_SEJOUR : Indique s'il existe un séjour Bébé
+      29   EXIST_SEJ_BB              char(1)
+                                                   associé au séjour
+                                                   Lien vers Util.ID_UTIL.
+      30   ID_INFO                   int(10)
+                                                   Identifiant de l'utilisateur ayant effectué la dernière modification
+      31   DATE_INFO                 datetime      Date de la dernière modification
+
+      32   HEURE_INFO                datetime      Heure de la dernière modification
+
+      33   DATE_CREAT                datetime      Copie de la donnée de TB_SEJOUR : Date de création
+                                                 Copie de la donnée de TB_SEJOUR : Lien sur TB_UTIL.ID_UTIL
+    34   ID_CREAT                  int(10)
+                                                 Identifiant de l'utilisateur de création
+                                                 Copie de la donnée de TB_SEJOUR : Mode Entrée Saisi Administratif - Cas
+    35   MODE_ENTREE_ADMIN         varchar(10)
+                                                 Cora DPS -- Saisie Sej/Mvt
+                                                 Copie de la donnée de TB_SEJOUR : Mode Sortie Saisi Administratif - Cas
+    36   MODE_SORTIE_ADMIN         varchar(10)
+                                                 Cora DPS -- Saisie Sej/Mvt
+                                                 Copie de la donnée de TB_SEJOUR : Permet de bloquer les données liées à
+                                                 un Séjour a une date donnée (cas des Séjours longs (Psy Traitement de
+    37   DATE_BLOCAGE              datetime      Séances).
+                                                 Ex : Dossier de Psy bloqué au 31/12 : les données antérieures recues par les
+                                                 Interfaces sont non traitées (Idem sur les modifications applicatives)
+                                                 Copie de la donnée de TB_SEJOUR : Médecin de la structure ayant décidé de
+    38   ID_MEDECIN_DECIDE_HOSPIT int(10)
+                                                 l’hospitalisation
+                                                 Copie de la donnée de TB_SEJOUR : Médecin 2° avis (compl. Med
+    39   ID_MEDECIN_AVIS           int(10)
+                                                 Responsable)
+                                                 Copie de la donnée de TB_SEJOUR : Sauvegarde du numéro de séjour
+    40   NO_SEJOUR_ATT_SUPPR       varchar(20)   lorsque le séjour est marqué à supprimer par l'interface Patient (NO_SEJOUR
+                                                 et renommé)
+                                                 Copie de la donnée de TB_SEJOUR : 'O' = Oui
+    41   CONFIDENTIALITE           char(1)                                                                                         'N'
+                                                 'N' = Non
+                                                 Copie de la donnée de TB_SEJOUR : Etat du dossier :
+    42   ETAT_ADM_DOSSIER          char(1)
+                                                 Valeurs possibles ‘C’ Dossier complet, ‘I’ Dossier incomplet
+                                                 Copie de la donnée de TB_SEJOUR : Blocage administratif du dossier :
+    43   ETAT_ADM_BLOCAGE          char(1)
+                                                 Valeurs possibles ‘B’ Bloqué, ‘D’ débloqué
+    44   DATE_ADM_BLOCAGE          datetime      Copie de la donnée de TB_SEJOUR : Date de blocage administratif du dossier
+                                                 Copie de la donnée de TB_SEJOUR : Etat de facturation du dossier :
+    45   ETAT_FACTURATION          char(1)
+                                                 Valeur possibles ‘O’ Oui, ‘R’ Rejet/Contentieux
+    46   DATE_FACT_REJET           datetime      Copie de la donnée de TB_SEJOUR : Date de rejet de facturation du dossier
+                                                 Copie de la donnée de TB_SEJOUR : Lien sur TB_UNITE.ID_UNITE :
+    47   ID_UF_ENTREE              int(10)
+                                                 Unité (UF) d'entrée dans le Séjour (Unité du 1er Mouvement)
+                                                 Copie de la donnée de TB_SEJOUR : Identifiant de l'établissement juridique.
+    48   ID_EJ                     smallint(5)                                                                                     1
+                                                 Lien avec TB_EJ.ID_EJ.
+                                                 Prise en charge réhabilitation améliorée après chirurgie (RAAC)
+                                                 Cette variable doit être renseignée pour tous les séjours comprenant une
+    49   PRISE_EN_CHARGE_RAAC      char(1)       intervention intégrée dans un protocole RAAC :
+                                                 Code 1 : Prise en charge RAAC
+                                                 Code 2: Pas de prise en charge RAAC

@@ -1,0 +1,11 @@
+==== TB_MVT_PSY_SEQ_MVT ====
+Table d'enregistrement de la matrice de liens entre les mouvements et les séquences
+                                                    Clé - Lien sur TB_MVT.ID_MVT :
+       1   ID_MVT                     int(10)
+                                                    Identifiant du mouvement
+                                                    Clé - Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE :
+       2   ID_SEQUENCE                int(10)
+                                                    Identifiant de la séquence
+                                                    Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                  int(10)
+                                                    Identifiant du séjour

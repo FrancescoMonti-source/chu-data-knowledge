@@ -1,0 +1,115 @@
+==== TB_MED_PATIENT ====
+Table enregistrant les molécules onéreuses saisies pour le PMSI
+                                                        Clé :
+       1   ID_MED_PAT                   int(10)
+                                                        Identifiant de la table
+                                                        Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                   int(10)
+                                                        Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                        Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                    int(10)
+                                                        Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+                                                Lien sur TB_MVT.ID_MVT :
+4    ID_MVT                    int(10)
+                                                Identifiant du Mouvement (Lien obligatoire)
+                                                Lien sur MED_COUTEUX.ID_MED :
+5    ID_MED                    int(10)
+                                                Identifiant du médicament prescrit.
+                                                Lien sur MED_TARIF.ID_MED_TARIF :
+6    ID_MED_TARIF              int(10)
+                                                Identifiant du tarif du médicament.
+7    QUANTITE                  decimal(10, 2)   Quantité prescrite
+
+8    DATE_DEBUT                datetime         Date de début de la prescription
+
+9    DATE_FIN                  datetime         Date de fin de la prescription
+                                                Lien sur Util.id_util :
+10   ID_SIGN                   int(10)
+                                                Identifiant du signataire du médicament
+11   DATE_SIGN                 datetime         Date de signature du médicament
+
+12   HEURE_SIGN                datetime         Heure de signature du médiament
+                                                Lien sur Util.id_util :
+13   ID_INFO                   int(10)
+                                                Identifiant de l'utilisateur ayant saisi le médicament
+14   DATE_INFO                 datetime         Date de saisie du médicament
+
+15   HEURE_INFO                datetime         Heure de saisie du médicament
+                                                Lien sur Util.id_util :
+16   ID_PRESC                  int(10)
+                                                Identifiant du prescripteur ayant saisi le médicament
+17   DATE_PRESC                datetime         Date de prescription du médicament
+
+18   HEURE_PRESC               datetime         Heure de prescription du médicament
+                                                Code Article fournisseur. Lien avec
+     CODE_ARTICLE_FOURNISSEU
+19                           varchar(120)       MED_ARTICLE_FOURNISSEUR.CODE_ARTICLE_FOURNISSEUR Base
+     R
+                                                CORA
+20   ID_ARTICLE_DETAIL         int(10)
+
+21   ID_ARTICLE_FOURNISSEUR    int(10)
+
+22   NUM_LOT                   varchar(40)      Numéro de lot
+
+23   NO_INTERVENTION_CCAM      int(10)
+
+24   ID_NIVEAU_PERTINENCE      smallint(5)
+
+25   PRIX_ACHAT                decimal(14, 6)   Prix d'achat
+                                                O : Essai thérapeutique
+26   ESSAI_THERAPEUTIQUE       char(1)
+                                                N : Pas essai thérapeutique
+27   MED_RECEPTION             char(1)
+
+28   DATE_RECEPTION            datetime         Date de réception de la MON
+
+29   TYPE_EMISSION             char(1)
+
+30   DATE_EMISSION             datetime
+                                                O : Facturable
+31   FACTURABLE                char(1)
+                                                N : Non facturable
+                                                O : Gratuit
+32   GRATUIT                   char(1)
+                                                N : Non gratuit
+33   FLAG_VALIDE               char(1)
+
+34   FLAG_FACTURE              char(1)
+                                                O : Activité libérale
+35   ACTIVITE_LIBERALE         char(1)
+                                                N : Activité non libérale
+36   FLAG_RETROCESSION         char(1)
+
+37   TAUX_TVA                  decimal(5, 2)    Taux de TVA
+
+38   MNT_ECART                 decimal(14, 6)
+
+39   PRIX_VENTE                decimal(14, 6)   Prix de vente
+
+40   MNT_MARGE_RETRO           decimal(14, 6)
+
+41   ENTENTE_PREALABLE         char(1)
+    42   FLAG_MNC                  varchar(3)
+
+    43   CODE_RISQUE               char(2)
+
+    44   DATE_ENTENTE_PREALABLE datetime
+
+    45   NATURE_PRESTATION         varchar(3)
+
+    46   ID_FOURNISSEUR            int(10)
+
+    47   DATE_CREAT                datetime       Date de création
+                                                  Lien sur TB_UTIL.ID_UTIL
+    48   ID_CREAT                  int(10)
+                                                  Identifiant de l'utilisateur de création
+    49   ID_APPLICATION_TRANSFERT int(10)
+
+    50   ID_PRESC_PLANIF           int(10)
+                                                  Code LES correspondant à l'indication de l'UCD. Lien avec
+    51   CODE_LES                  varchar(7)
+                                                  MED_REF_LES.CODE_LES.
+    52   TYPE_INDICATION           char(1)        Type de l'indication -> M = MON / A = ATU / P= Post ATU
+
+    53   REMBOURSEMENT             char(1)        Info sur le remboursement porté par les dates de validité de l'indication

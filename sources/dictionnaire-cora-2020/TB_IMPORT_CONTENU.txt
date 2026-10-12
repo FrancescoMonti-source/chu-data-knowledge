@@ -1,0 +1,8 @@
+==== TB_IMPORT_CONTENU ====
+       1   DATE_IMPORT                  datetime
+
+       2   NUM_VERSION                  varchar(15)
+                                        text
+       3   ERREURS_IMPORT
+                                        (2147483647)
+       4   ID_UTIL                      int(10)

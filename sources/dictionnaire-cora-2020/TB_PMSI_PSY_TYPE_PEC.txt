@@ -1,0 +1,6 @@
+==== TB_PMSI_PSY_TYPE_PEC ====
+Table du thésaurus des types de prise en charge
+                                                      Clé :
+       1   TYPE_PEC                    char(1)
+                                                      Type de prise en charge (C, P, A)
+       2   LIBELLE                     char(30)       Libellé du type de prise en charge

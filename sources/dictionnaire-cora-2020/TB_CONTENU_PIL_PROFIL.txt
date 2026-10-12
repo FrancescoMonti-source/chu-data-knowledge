@@ -1,0 +1,8 @@
+==== TB_CONTENU_PIL_PROFIL ====
+       1   ID_PROFIL_DPI              int(10)          ID du profil
+
+       3   TYPE_ELEMENT               char(1)          Type d'élément (console, requête, vue...)
+
+       4   DROIT                      char(1)          Droit sur l'élément (oui/non)
+
+       5   ID_ELEMENT                 int(10)

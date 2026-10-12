@@ -1,0 +1,57 @@
+==== TB_ETABLISSEMENT ====
+Pour 1 Gestion de type '1 Etablissement Siège - n Etablissements liés'
+                                                         Clé :
+        1   ID_ETABLISSEMENT             smallint(5)
+                                                         Identifiant de l'établissement
+        2   NOM_ETABLISSEMENT            varchar(100)    Nom de l'établissement
+
+        3   NO_FINESS                    char(9)         N° de Finess
+                                                         Alias (du TNSNAMES) pour la connection au Serveur de Base de
+        4   CONNECT_ALIAS_ORA            varchar(30)
+                                                         l'établissement
+        5   CONNECT_BASE_REC             varchar(30)     Nom du schéma CORA_REC
+
+        6   CONNECT_PASSWORD_REC         varchar(30)     Mot de passe pour ce schéma CORA_REC
+
+        7   CONNECT_BASE_UTIL            varchar(30)     Nom du schéma UTIL
+
+        8   CONNECT_PASSWORD_UTIL        varchar(30)     Mot de passe pour ce schéma UTIL
+
+        9   DATE_DERNIER_EXPORT          datetime        Date de dernier export vers la Base Siège
+
+       10   DATE_PROCHAIN_EXPORT         datetime
+
+       11   JOUR1_MOIS_EXPORT            datetime
+
+       12   JOUR2_MOIS_EXPORT            datetime
+      13   EXPORT_LUNDI                datetime
+
+      14   EXPORT_MARDI                datetime
+
+      15   EXPORT_MERCREDI             datetime
+
+      16   EXPORT_JEUDI                datetime
+
+      17   EXPORT_VENDREDI             datetime
+
+      18   EXPORT_SAMEDI               datetime
+
+      19   EXPORT_DIMANCHE             datetime
+
+      20   FLAG_REENVOI_FACT           char(1)
+
+      21   NOM_SERVEUR_FTP             varchar(30)
+
+      22   LOGIN                       varchar(20)
+
+      23   PASSWORD                    varchar(250)
+
+      24   NOM_REPERTOIRE              varchar(250)
+           DH_DEBUT_DERNIER_EXPOR
+      25                          datetime
+           T
+      26   DH_FIN_DERNIER_EXPORT       datetime
+
+      27   EXPORT_EN_COURS             char(1)
+
+      28   VERSION_EXE_EXPORT          varchar(11)

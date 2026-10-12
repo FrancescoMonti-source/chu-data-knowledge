@@ -1,0 +1,11 @@
+==== PMSI_LIB_SSR_RGME ====
+Table des Racines des groupes médico-économiques
+       1   CODE_RGME                   char(5)        Code de la Racine du Groupe Médico-économique
+
+       2   LIBELLE_RGME                varchar(500)   Libellé de la Racine du Groupe Médico-économique
+
+       3   CODE_GN                     char(4)        Code du Groupe Nosologique correspondant
+
+       4   DATE_DEBUT                  datetime       Date de début de validité de la RGME
+
+       5   DATE_FIN                    datetime       Date de fin de validité de la RGME

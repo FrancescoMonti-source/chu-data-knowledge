@@ -1,0 +1,6 @@
+==== TB_STAT_DROIT ====
+      1    ID_STAT                   int(10)
+
+      2    TYPE_LIEN                 smallint(5)
+
+      3    ID_LIEN                   int(10)

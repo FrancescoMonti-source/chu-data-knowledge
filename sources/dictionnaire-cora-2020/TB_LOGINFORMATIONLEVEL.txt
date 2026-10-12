@@ -1,0 +1,7 @@
+==== TB_LOGINFORMATIONLEVEL ====
+table de log utilisé par les outils de packaging CORA Package Créationindique les niveaux d'information disponible dans les
+logs pour le moment deux valeurs sont possible :       UTILISATEUR = 0 ' visible sur les interfaces graphiques
+DEVELOPPEUR = 1 ' visible en mode DEBUG, ou en base de données (= mode COMPLET)
+       1   LOGLEVEL_ID                 smallint(5)     identifiant unique
+
+       2   LOGLEVEL_NOM                varchar(20)     nom du type de log

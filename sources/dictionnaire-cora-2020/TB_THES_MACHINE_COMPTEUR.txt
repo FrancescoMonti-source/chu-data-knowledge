@@ -1,0 +1,7 @@
+==== TB_THES_MACHINE_COMPTEUR ====
+Permet de stocker la valeur du compteur de chaque machine par année (compte le nombre d'actes réalisé sur une machine).
+       1   ID_MACHINE                   int(10)          Identifiant de l’appareil (CLE)
+
+       2   ANNEE_CIVILE                 smallint(5)      Année (CLE)
+
+       3   COMPTEUR                     int(10)          Compteur de l’appareil

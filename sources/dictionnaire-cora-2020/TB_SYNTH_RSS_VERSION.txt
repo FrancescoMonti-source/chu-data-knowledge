@@ -1,0 +1,300 @@
+==== TB_SYNTH_RSS_VERSION ====
+                                                         Clé :
+       1   ID_RSS                       int(10)
+                                                         N° unique identifiant de la ligne (fait le lien avec les Mouvements)
+       2   CODE_CMD                     char(2)          Données du Groupage : CMD
+                                                         Données du Groupage : GHS (Lien avec PMSI_LIB_GHS avec les 4 dernières
+       3   CODE_GHM                     char(4)
+                                                         valeurs du champs GHS de cette table)
+                                                         Données du Groupage : GHM (Lien avec PMSI_LIB_GHS avec les 4
+       4   CODE_GHS                     char(4)
+                                                         dernières valeurs du champs GHS de cette table)
+       5   CODE_ERR                     char(3)          Données du Groupage : Code erreur principal
+                                                         Clé :
+       6   VERSION                      smallint(5)
+                                                         Version du groupage utilisé pour ce RSS
+       7   DATE_CREAT                   datetime         Date de groupage (et de génération de cet enregistrement)
+                                                         Lien sur TB_SEJOUR.ID_SEJOUR :
+       8   ID_SEJOUR                    int(10)
+                                                         Identifiant du Séjour. Lien obligatoire
+                                                         Lien sur TB_PATIENT.ID_PATIENT :
+       9   ID_PATIENT                   int(10)
+                                                         Identifiant du Patient. Lien non principal (Lien principal = ID_SEJOUR)
+      10   NO_SEJOUR                    char(20)         N° de Séjour officiel. (N° déjà existant dans TB_SEJOUR.NO_SEJOUR)
+
+      11   DUREE_SEJOUR                 smallint(5)      Durée du Séjour (du RSS)
+
+      12   MONTANT_GHS                  decimal(10, 2)   Valorisation du GHS (avec prise en compte de la survalorisation)
+
+      13   MONTANT_DEP                  decimal(10, 2)   Montant du dépassement éventuel (cas des séjours hors borne haute)
+
+      14   QUANTITE_J_DEP               smallint(5)      Nb de jour de dépassement de la borne haute
+                                                         Montant de survalorisation (régionnal) a additionner à 'Montant GHS' et
+                                                         'Montant Dépassement'.
+      15   MONTANT_COEF                 decimal(10, 2)
+                                                         Coeffcient calculé a partir du montant GHS, du montant de Réanimation et du
+                                                         montant de Dépassement
+      16   MONTANT_URG                  decimal(10, 2)   Montant du passage en Urgence
+
+      17   QUANTITE_J_URG               smallint(5)      Nb de jour passé en Urgence
+
+      18   MONTANT_REA                  decimal(10, 2)   Montant cumulé des jours de Réanimation
+
+      19   QUANTITE_J_REA               smallint(5)      Nb de jour cumulé en ré
+                                               Statut du RSS :
+                                               PMSI_STATUT_CTRL
+23   STATUT                   char(1)
+                                               - T : Terminé
+                                               Lien possible sur PMSI_STATUT_CTRL.CODE_STATUT_CTRL :
+24   DP_RETENU                char(16)         Code Diagnostic Principal retenu
+
+25   LIST_ERR                 varchar(200)     Liste des erreurs du Groupage
+
+26   DATE_FIN                 datetime         Date de fin du RSS
+
+27   DATE_DEBUT               datetime         Date du début du RSS
+
+28   NO_RSS                   char(7)          Numéro du RSS
+
+29   MODE_ENTREE              char(1)          Mode d'entrée du RSS (donc forcément différent de 6)
+
+30   CODE_PROVENANCE          char(1)          Code Provenance du RSS
+
+31   MODE_SORTIE              char(1)          Mode de sortie du RSS (donc forcément différent de 6)
+
+32   CODE_DESTINATION         char(1)          Code Destination du RSS
+
+33   NB_RUM                   smallint(5)      Nombre de RUM existant dans de RSS
+
+34   MONTANT_REDU             decimal(10, 2)   MT_REDU
+
+35   NB_24Z05Z                smallint(5)      Nb D'acte de radiothérapie appartenant au groupe GHS 24Z05Z
+
+36   MT_24Z05Z                decimal(10, 2)   Mt radiothérapie appartenant au groupe GHS 24Z05Z
+
+37   NB_24Z06Z                smallint(5)      Nb D'acte de radiothérapie appartenant au groupe GHS 24Z06Z
+
+38   MT_24Z06Z                decimal(10, 2)   Mt acte de radiothérapie appartenant au groupe GHS 24Z06Z
+
+39   NB_24Z07Z                smallint(5)      Nb D'acte de radiothérapie appartenant au groupe GHS 24Z07Z
+
+40   MT_24Z07Z                decimal(10, 2)   Mt acte de radiothérapie appartenant au groupe GHS 24Z07Z
+
+41   NB_DIALYSE               smallint(5)      Nb de dyalise dans le RSS
+
+42   MT_DIALYSE               decimal(10, 2)   Mt de la dialyse dans le RSS
+
+43   NB_JOUR_NEO1             smallint(5)      Nb Journée Néonatologie Type 1 Autorisation 4
+                                               Mt Néonatologie Type 1 Autorisation 4 = Supplément Néonat sans soins
+44   MNT_JOUR_NEO1            decimal(10, 2)
+                                               Intensifs
+45   NB_JOUR_NEO2             smallint(5)      Nb Journée Néonatologie Type 2 Autorisation 5 avec Soins intensif
+                                               Mt Néonatologie Type 2 Autorisation 5 avec Soins intensif = Supplément
+46   MNT_JOUR_NEO2            decimal(10, 2)
+                                               Néonat avec soins Intensifs
+47   NB_JOUR_NEO3             smallint(5)      Nb Journée Néonatologie Type 3 Autorisation 6 avec réanimation
+                                               Mt Néonatologie Type 3 Autorisation 6 avec réanimation = Supplément de Réa
+48   MNT_JOUR_NEO3            decimal(10, 2)
+                                               Néonat
+49   NB_JOUR_SOINS_INT        smallint(5)      Nb jour Soisn Intensif
+
+50   MNT_JOUR_SOINS_INT       decimal(10, 2)   Mnt Soins intensifs = Supplément de Soins Intensifs
+
+51   NB_JOUR_SURV_CONT        smallint(5)      Nb de jour surveillance continu
+
+52   MNT_JOUR_SURV_CONT       decimal(10, 2)   Mnt Surveillance continue = Supplément de Surveillance Continue
+
+53   NB_JOUR_SOINS_PALL       smallint(5)      Nb Journée soins palliatifs
+
+54   MNT_JOUR_SOINS_PALL      decimal(10, 2)   Nb Jurnée soins paliatifs
+
+55   IVG                      char(1)          IVG 1 si Oui (Interuption volotaire de grossesse
+
+56   NB_JOUR_SOINS_INT_REA    smallint(5)      Nb Journée en Soins Intensif de Réanimation
+                                               Montant de valorisation en Soins Intensif de Réanimation = Supplément de
+57   MNT_JOUR_SOINS_INT_REA   decimal(10, 2)
+                                               Soins Intensifs issus de Réanimation
+58   BORNE_BASSE              char(1)          ='O' si RSS soumis à règle de borne basse
+                                               Montant de valorisation des prélévements d'organes. Aujourd'hui, seul le type
+59   MNT_PRELEV_ORGANE        decimal(10, 2)
+                                               de prélevement est stocké. (1 pour PO1, 2 pour PO2 et 3 pour PO3)
+                                               Montant de valorisation en Soins Intensif de Réanimation = Supplément de
+60   MNT_SRA                  decimal(10, 2)
+                                               Soins Particulièrement Couteux - Privé uniquement
+                                             Lien sur Util.id_util :
+61   ID_CREAT               int(10)
+                                             Identifiant de l'utilisateur à la source de l'enregistrement
+62   NB_REP                 smallint(5)      Nombre de jours de forfait Réa Péd.
+
+63   MNT_REP                decimal(10, 2)   Somme des montants Forfait Réa Péd.
+
+64   MNT_CAISSON_HB         decimal(10, 2)   Somme Nb Supplément Caisson Hyperbare
+
+65   NB_CAISSON_HB          smallint(5)      Nombre de Supplément Caisson Hyperbare
+
+66   DR_RETENU              char(16)         Code Diagnostic Relié retenu
+
+67   VERSION_COMPL          char(1)          Version Complémentaire (différenciation 11B, 11C)                              'A'
+
+68   NB_JOUR_SRA            smallint(5)      Nombre de jours de forfait SRA
+
+69   NB_JOUR_EXB            smallint(5)      Nombre de jours de EXB
+
+70   RDTH_TYPE_MACHINE      char(1)          Radiothérapie - Type Machine
+
+71   RDTH_TYPE_DOSIMETRIE   char(1)          Radiothérapie - Type Dosimétrie
+
+72   CONFIRMATION_CODAGE    char(1)          Confirmation de codage (New RUM015)
+
+73   NB_APHERESE            smallint(5)      Nombre de Supplément Aphereses Sanguines
+
+74   MNT_APHERESE           decimal(10, 2)   Somme Nb Supplément Aphereses Sanguines
+
+75   RDTH_NB_FAISCEAUX      smallint(5)      Radiothérapie - Nb de Faisceaux
+                                             Lien sur TB_UNITE_MEDICALE.ID_UNITE_MED
+76   ID_UM_RETENU           int(10)
+                                             Unité Médicale Retenue du RSS
+77   NB_DIP                 smallint(5)      Nombre de Supplément Dialyse Intra-péritonéale
+
+78   MNT_DIP                decimal(10, 2)   Somme Nb Supplément Dialyse Intra-péritonéale
+
+79   NB_RDTH                smallint(5)      Nombre de suppléments de Radiotherapie
+
+80   MNT_RDTH               decimal(10, 2)   Montant des suppléments de Radiotherapie
+
+81   NB_ANTEPARTUM          smallint(5)      Nombre de suppléments Antepartum
+
+82   MNT_ANTEPARTUM         decimal(10, 2)   Montant des suppléments Antepartum
+
+83   NB_RDTH_PED            smallint(5)      Nombre de suppléments de Radiotherapie pédriatrique
+
+84   MNT_RDTH_PED           decimal(10, 2)   Montant des suppléments de Radiotherapie pédriatrique
+
+85   MNT_TMJ                decimal(10, 2)   Montant du tarif moyen journalier (calculé à partir du montant total)
+
+86   MNT_TMH                decimal(10, 2)   Montant du tarif moyen horaire (calculé à partir du montant total)
+
+87   DATE_ACCOUCHEMENT      datetime         Date Accouchement
+
+88   AGE_ENTREE             smallint(5)      Age à l'entrée
+                                             Montant total du RSS = Prix du GHS+ borne haute - borne basse +
+89   MNT_TOTAL              decimal(10, 2)
+                                             supplements (hors DIP et PO => FICHCOMP)
+90   NB_TOTAL_SUPPLEMENT    smallint(5)      Nombre total de supplements (hors DIP et PO => FICHCOMP)
+
+91   MNT_TOTAL_SUPPLEMENT   decimal(10, 2)   Montant total des supplements (hors DIP et PO => FICHCOMP)
+
+92   NB_SEANCES             smallint(5)      Nombre de séances du RSS
+
+93   VALID_DIM              char(1)          N ou O - Savoir si un dossier est validé par le DIM (projet FIDES)
+
+94   ID_VALID_DIM           int(10)          Identifiant de l’utilisateur qui a validé DIM le RSS.
+
+95   DATE_VALID_DIM         datetime         Date de validation/dévalidation du dossier
+
+96   STATUT_CQ              char(1)
+                                             Flag Indiquant si le RSS consolidé par nos outils et alors le STATUT_GRP.
+97   STATUT_GRP             char(1)          - NULL : Pas consolidé
+                                             - C : Groupé OK et Consolidé
+                                             Flag indiquant si le GHS du RSS est éligible à la minoration - GHS 9606 et
+                                             9616 au 01/03/2015
+                                             Null : GHS non minorable
+98   INDIC_GHS_MINORE       char(1)
+                                             M : GHS Minorable
+                                             O : GHS Minorable et Minoré
+                                             N : GHS Minorable et Non Minoré
+                                             Est un montant consolidé
+                                             Montant du Tarif Moyen Journalier pour le RSS ou le RUM calculé à partir du
+                                             montant du GHS.
+99   MNT_TMJ_GHS            decimal(10, 2)   Est un montant consolidé
+                                             Montant du Tarif Moyen Journalier pour le RSS ou le RUM calculé à partir du
+                                             montant du GHS.
+                                             Calcul : (MNT_GHS)/(DUREE EN JOUR)
+                                             Est un montant consolidé
+                                             Montant de valorisation du RUM avec la méthode Niort Strasbourg en utilisant
+                                             le TMJ de l’établissement.
+100 MNT_PRORATA_STRA_ETAB   decimal(10, 2)
+                                             Calcul :
+                                             Cas des mono-rum et multi-rum
+                                             TMJ Etablissement * DUREE DU RUM
+                                             Dans le cas d'un GHS innovation indique le GHS du séjour avant la prise en
+101 CODE_GHS_AVT_INNOV      varchar(4)       compte de l'innovation. Permet de savoir si le GHS est du type innovation (Si
+                                             renseigné alors GHS innovation)
+                                             lignes de valorisation RUM par RUM renvoyé par la FG.
+102 LIGNES_PMC              varchar(4000)    \Ref\FonctionGroupage\MCO\Format fichier PMC.xlsx.
+                                             ATTENTION : si la ligne renvoyée par la FG fait plus de 4000 caractère -->
+                                             NULL
+                                             identifiant unique (lorsque non NULL) d'un dossier RSS depuis l'exterieur.
+                                             Ex : le service de contrôle qualité DimXpert contrôle des données RSS. C'est
+103 GUID_EXTERNE            varchar(36)
+                                             ce GUID qui identifie le RSS au sein de l'univers de DimXpert plutôt que
+                                             l'ID_RSS (confidentialité des données).
+104 INDICATEUR_AVASTIN      char(1)          Indicateur Avastin
+
+105 INDICATEUR_ALIMTA       char(1)          Indicateur Alimta
+
+106 NB_SDC                  smallint(5)      Nombre de suppléments SDC
+
+107 MNT_SDC                 decimal(10, 2)   Montant des suppléments SDC
+
+108 MNT_MINORE_MON          decimal(10, 2)   Montant de la minoration Molécule Onéreuse
+
+109 HEURE_CREAT             datetime         Heure de groupage (et de génération de cet enregistrement)
+
+110 DATE_ENVOI_TUTELLE      datetime         Date de blocage
+
+111 HEURE_ENVOI_TUTELLE     datetime         Heure de blocage
+                                             Chrono du RSS dans un même Séjour (Dans certains cas rares, 1 Séjour peut
+112 CHRONO_RSS              int(10)
+                                             avoir plusieurs RSS)
+                                             Information concernant la prise en compte du RSS pour la facturation :
+                                             - Null : RSS non initialisé ou rejeté par la facturation.
+                                             - 'N' : RSS en cours de réalisation, à ne pas valoriser (cas des RSS multi-
+                                             RUM)
+113 STATUT_VALO             char(1)          - 'O' : RSS Groupé correctement mais non signé (dans le cas de la gestion de
+                                             la signature)
+                                             - 'G' : Groupage complet réalisé (+ signature en cas de gestion de la signature)
+                                             - 'F' : Facturé (prise en compte, envoyé dans les Interfaces de Facturation)
+                                             - 'E' : Emis
+                            text
+114 LIGNES_GRP                               Ligne groupée du RSS
+                            (2147483647)
+115 STATUT_QUALITE          char(1)          ='O' si un contrôle qualité a été réalisé sur ce RSS
+
+116 COMMENTAIRE_RSS         varchar(2000)    Commentaire libre sur le RSS
+                                             Type des prise en charge du patient. Cette donnée est initialisée par des outils
+117 TYPE_PEC                char(1)
+                                             de consolidation spécifiques.
+                                             Code Postal du patient le jour de la clôture du RSS. Cette donnée est
+118 CODE_POSTAL             varchar(5)
+                                             initialisée par des outils de consolidation spécifiques.
+                                             Code GHM (sur 6 caractères) obtenus lors du premier groupage avec
+                                             enregistrement des données (signature RUM ou groupage par lot. Le GHM est
+119 GHM_INITIAL             char(6)          enregistré que si le groupage est bon : hors CMD 90 non valorisée.
+                                             Cette donnée permet de suivre l'effet des modifications des dossiers par les
+                                             DIM.
+                                                  null = etat initial - jamais envoyé
+                                                  X = demande d'envoi
+                                                  E = Envoyé
+    120 STATUT_FACT              char(1)
+                                                  R=Rejeté en facturation
+                                                  F = Facturé
+                                                  B = Bloqué
+                                                  Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                  CORA_UTIL)
+    121 ID_ETABLIS               smallint(5)
+                                                  Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                  Siège centralisée
+    122 NUM_LOT                  int(10)          N° de Lot - Envoi RSF pour les établis. Privés
+
+    123 NO_RSS_EXT               varchar(7)       Utilisé pour certaines récup de données : N° RSS application source
+                                                  Permet de mettre un RSS en Attente dans les procédures/fonctions d'envoi
+    124 STATUT_ATTENTE           char(1)
+                                                  des GHS en Facturation
+                                                  Rescrit tarifaire (donnée liée à la gradation).
+    127 RESCRIT_TARIFAIRE        char(1)
+                                                  Valeurs possibles : 1 (Oui), 2 (Non), blanc (non renseigné)
+                                                  Indique si le RSS est éligible à la gradation
+    128 ELIGIBLE_GRADATION_HDJ   varchar(2)
+                                                  Séjour éligible à la gradation ( = 1 si oui ou -1 si non)
+    129 HDJ_RELEVE_EXT           char(1)          Séjour de HDJ qui devrait relever de l'externe

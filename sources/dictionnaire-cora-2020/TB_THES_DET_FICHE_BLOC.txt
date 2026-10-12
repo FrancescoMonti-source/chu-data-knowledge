@@ -1,0 +1,24 @@
+==== TB_THES_DET_FICHE_BLOC ====
+      1    ID_THES_DET_FICHE_BLOC     smallint(5)
+
+      2    ID_THES_FICHE_BLOC         smallint(5)
+
+      3    CODE_INTERNE               varchar(12)
+
+      4    LIBELLE                    varchar(200)
+
+      5    DETAIL                     varchar(200)
+                                                     "0" : TITRE_REGROUPEMENT
+                                                     "1" : OUI_NON
+                                                     "2" : OUI_NA
+      6    TYPE_DET                   smallint(5)    "3" : OUI_NON_NR
+                                                     "4" : OP_SSPI
+                                                     "5" : OUI
+                                                     "6" : OUI_NON_NA
+      7    AUTORISE_COMMENTAIRE       char(1)                                                                            'O'
+
+      8    ACTIF                      char(1)                                                                            'O'
+
+      9    ID_PERE                    smallint(5)
+
+      10   ORDRE                      smallint(5)

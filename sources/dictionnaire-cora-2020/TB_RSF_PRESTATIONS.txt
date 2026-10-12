@@ -1,0 +1,217 @@
+==== TB_RSF_PRESTATIONS ====
+Contient les prestations liées à une facture
+1   ID_RSF_PREST       int(10)       identifiant de la prestation : clef primaire de TB_RSF_PRESTATIONS
+
+2   ID_RSF_FACT        int(10)       identifiant de la facture : clef primaire de TB_RSF_FACT
+                                     Obligatoire hors séjour GHS et GHT (cf. codification en annexe 13). En cas
+                                     d’échange (< 48h) du patient dans une autre structure de soins, indiquer ici le
+                                     MT de la structure du lieu d’exécution de l’acte (cf. type 3S, pos. 67-80).
+                                     A zéro en cas de séjour GHS ou GHT.
+
+                                     Annexe 13
+                                     03 HOSPITALISATION COMPLETE
+                                     04 HOSPITALISATION DE JOUR
+                                     05 HOSPITALISATION DE NUIT
+                                     06 HOSPITALISATION A DOMICILE
+                                     07 SOINS EXTERNES
+                                     10 URGENCE
+                                     11 HEBERGEMENT COMPLET OU INTERNAT
+                                     12 HEBERGEMENT DE NUIT
+3   MODE_TRAITEMENT    char(2)       13 SEMI INTERNAT
+                                     14 EXTERNAT
+                                     15 PLACEMENT EN FAMILLE D'ACCUEIL
+                                     16 PRESTATIONS A DOMICILE OU EN MILIEU OUVERT
+                                     17 INTERNAT DE SEMAINE
+                                     19 TRAITEMENT ET CURES AMBULATOIRES
+                                     20 HOSPITALISATION DE SEMAINE
+                                     21 ACCUEIL DE JOUR
+                                     22 HOSPITALISATION A TEMPS PARTIEL
+                                     23 CHIRURGIE OU ANESTHESIE AMBULATOIRE
+                                     24 ACCUEIL ET P.E.C. EN SERVICE FAMILIAL THERAPEUTIQUE
+                                     35 CURES THERMALES
+                                     37 ACCUEIL EN APPARTEMENT THERAPEUTIQUE PSYCHIATRIQUE
+                                     38 ACCUEIL EN CENTRE DE POST-CURE PSYCHIATRIQUE
+                                     39 ACCUEIL EN CENTRE DE CRISE PSYCHIATRIQUE
+                                     DMT = discipline de prestation Obligatoire hors séjour GHS et GHT.
+                                     Service où a séjourné le bénéficiaire selon codification communiquée à
+                                     l’établissement par l’Assurance Maladie. En cas d’échange (< 48h), du patient
+4   CODE_DMT           char(3)
+                                     dans une autre structure de soins, indiquer ici la discipline de la
+                                     structure du lieu d’exécution de l’acte (cf. type 3S, pos. 67-80).
+                                     A zéro en cas de séjour GHS ou GHT.
+                                     Date d’entrée du malade dans le service de facturation, date de soins si cette
+                                     ligne concerne un acte isolé, date de pose ou de délivrance pour les articles de
+                                     la LPP et pour la pharmacie. En cas d’actes répétitifs autres que frais de
+5   DATE_DEBUT_PREST   datetime      séjour, constituer autant de lignes que d’actes. Si changement de tarif ou
+                                     d’année civile au cours du séjour : créer autant de lignes que de tarifs en
+                                     indiquant chaque fois une date début et fin de séjour, excepté pour les actes
+                                     GHS et EXH (Cf. p17 et annexe 24).
+                                     Pour les frais de séjour – date de sortie du service ou date du dernier jour de
+                                     facturation de PJ ou date du dernier jour de facturation de GHT. Pour le GHS,
+                                     date réelle de sortie de l’établissement ou date de transfert.
+                                     (Cf. Annexe 24).
+                                     Hors TAA :
+                                     Pour les prestations forfaitaires, facturables une fois par séjour (ENT, …),
+                                     indiquer la même date que celle de
+                                     début de séjour (pos.44-49).
+6   DATE_FIN_PREST     datetime      Pour les frais d’environnement, indiquer la date de réalisation des actes.
+                                     Pour les prestations journalières (ex :PHJ, SRA…), indiquer la date de sortie
+                                     du service ou la date du dernier jour facturé.
+                                     Pour les prestations forfaitaires hebdomadaires ou mensuelles, indiquer la
+                                     date de fin de semaine ou de mois, ou la date réelle de fin en cas
+                                     d’interruption.
+                                     Pour les prestations sanitaires, facturables une ou plusieurs fois par séjour
+                                     indiquer la même date que celle
+                                     de délivrance (pos. 44-49).
+                                     Voir la codification prévue en annexe 10.
+                                     4 caractères sont réservés au code prestation, cadré à gauche.
+                                     EX : P J_ _ _, GHS _ _,…
+7   CODE_PREST         char(5)
+                                     Les frais d’hébergement et de soins ne doivent pas être facturés en dehors de
+                                     la DMT, du GHS ou du GHT pour lesquels ils sont autorisés. Le traitement du
+                                     forfait journalier est décrit en annexe 16.
+                                     Nombre d’actes facturés.
+8   QUANTITE           smallint(5)
+                                     Toujours à 1 pour l’acte GHS, la pharmacie et la LPP codées en sus du GHS.
+                                     Justification d’exonération du Ticket Modérateur au niveau de l’acte
+
+                                     Hors GHS : Obligatoire pour les frais d’environnement.
+                                     Pour la prestation GHS, égal à 1 ou au coefficient réducteur dans les cas
+                                     suivants :
+9    COEF            decimal(5, 2)
+                                     - séjour inférieur au seuil bas
+                                     - retour dans l’établissement de séjour après transfert temporaire (>48h) dans
+                                     un autre établissement.
+                                     Cf. annexe 24.
+                                     Par défaut, zone renseignée à 1.
+                                     Permet de gérer par exception un code exonération appliqué à l’acte seul.
+                                     Tous les codes de l’annexe 9 sont admis.
+10   CODE_EXO        char(1)
+                                     Si la zone est à blanc, c’est le code exonération de la facture (zone 79 du Type
+                                     2) qui prévaut. (voir Annexe 9)
+                                     Code prise en charge du forfait journalier
+
+                                     Obligatoire avec l’acte PJ et les modes de traitements 03, 11, 15, 17, 20, 37,
+                                     38 ou 39.
+                                     Obligatoire avec l’acte GHS, sauf lorsque la date début du GHS est égale à la
+                                     date fin.
+11   CODE_PEC_FJ     char(1)         Cf. annexe 16.
+                                     Valeur :
+                                     A = à la charge du malade
+                                     R = à la charge du régime obligatoire
+                                     L = à la charge du régime Alsace Moselle.
+                                     Dans les autres cas, ou en cas de GHT, ou si MT=11 avec DMT exonérante
+                                     (279 à 301, 559, 590 à 592, 630, 666 à 687, 690), mettre à blanc.
+                                     Coefficient MCO ou HAD pour les établissements privés
+
+                                     Obligatoire en cas de séjour GHS ou GHT : indiquer le coefficient MCO ou
+                                     HAD de l’établissement sur les prestations GHS et suppléments journaliers, ou
+12   COEF_MCO        decimal(5, 4)   GHT. Cf. annexe 24.
+                                     Pour les établissements non conventionnés, le coefficient MCO intègre la
+                                     minoration de remboursement. (A zéro sinon.)
+                                     --> Pour les facturations de FSO et ARE antérieures au démarrage de la TAA,
+                                     cette zone se lit en format 3+2, coefficient de modulation du PU.
+                                     Obligatoire en séjour GHS ou GHT.
+                                     Indiquer le n° de GHS, dans lequel le patient a séjourné, fourni par le PMSI,
+13   GHS             char(4)         sur le GHS et les suppléments
+                                     journaliers. Indiquer le n° de GHT, relatif à la prise en charge HAD, sur le GHT.
+                                     Hors GHS et GHT : à zéro
+                                     Prix unitaire de l’acte.
+                                     Cf. annexes 16 & 24 pour les actes GHT, GHS et les suppléments journaliers .
+                                     Cf. annexe 16 pour l’acte PJ.
+                                     LPP codée en sus du GHS délivrée par un établissement : indiquer la somme
+14   PRIX_UNIT       decimal(8, 2)
+                                     des zones « Montant total facturé » (positions 79-85 des types 3F)
+                                     Pharmacie codée en sus du GHS délivrée par un établissement : indiquer la
+                                     somme des zones « Montant total
+                                     facturé » (positions 91-97 des types 3H)
+                                     Il constitue la base de remboursement pour la Caisse. (quantité x coefficient
+                                     (pos.65-69) x prix unitaire).
+                                     Pour les séjours GHS ou GHT :
+                                     [ (PU du GHS, du GHT ou du supplément journalier) x Qté x Coeff.] x coeff.
+15   MNT_BASE_REMB   decimal(8, 2)   MCO (pos. 71-75). Calcul de
+                                     l’arrondi en annexe 11.
+                                     LPP codée en sus du GHS délivrée par un établissement : idem prix unitaire
+                                     Pharmacie codée en sus du GHS
+                                     délivrée par un établissement : idem prix unitaire
+                                     Taux applicable à la prestation compte tenu de l’exonération éventuelle (cf.
+                                     annexe 9)
+                                     - 100% pour les produits sanguins,
+                                     - ou celui (100%) qui résulte de l’intervention chirurgicale K50, de l’exonération
+                                     CCAM ou de la durée d’hospitalisation > 30 jours,
+                                     - ou celui (100%) qui résulte du passage en maladie de longue durée en cours
+16   TAUX            smallint(5)     d’hospitalisation.
+                                     - 100% pour les prestations relatives à un accident du travail
+                                     - 100% pour les forfaits techniques : examens de scanographie, IRMN, etc...
+                                     Le taux est renseigné de façon standard, indépendamment de la situation au
+                                     regard du parcours de
+                                     soins.
+                                     A zéro dans certains cas, cf. annexe 6.
+                                                     Résultat de l’opération :
+                                                     =Base de remboursement x taux de participation
+                                                     (Cf. annexe 16 pour l’acte PJ)
+                                                     (Cf. annexe 24 pour l’acte GHS et GHT)
+                                                     Participation assuré plafonnée :
+                                                     Pour les actes PJ, GHS et GHT, si le code participation assuré (pos. 117),
+      17   MNT_CAISSE                decimal(8, 2)
+                                                     prend la valeur « A », alors déduire du montant remboursable AMO la valeur
+                                                     du montant de la participation assuré plafonné.
+                                                     Pharmacie ou LPP en sus du GHS délivrée par un établissement, résultat de
+                                                     l’opération :
+                                                     Base de remboursement x taux de participation x taux de financement.
+                                                     Cf. règle d’arrondi en annexe 11, 7°).
+      18   MNT_TOT_FACT              decimal(8, 2)   Montant total de la dépense, dépassement compris (chambre particulière, ...).
+                                                     Montant remboursable par l’organisme complémentaire
+
+                                                     F Obligatoire si un organisme complémentaire est désigné dans le type 2.
+      19   MNT_COMPL                 decimal(8, 2)   LPP ou pharmacie en sus du GHS délivrée par un établissement :
+                                                     A zéro, en cas de prise en charge à 100% par l’AMO, indépendamment de la
+                                                     valeur du taux de financement. Il n’y a pas de reste à charge de l’assuré si
+                                                     l’établissement n’a pas respecté le contrat de bon usage du médicament.
+                                                     Obligatoire en GHS : Cf. annexe 24.
+                                                     ?? Si transfert d’établissement pendant le séjour, indiquer sur l’acte
+                                                     GHS :
+                                                     - pour une durée > 48h : indiquer « T » (Transfert) en relation avec le N°
+                                                     FINESS de l’établissement destinataire (pos. 67-80). Indiquer « R » (Retour) si
+                                                     le patient revient dans l’établissement d’origine, le N°
+                                                     FINESS de l’établissement de transfert figure en (pos. 67-80).
+                                                     - pour une durée < 48h indiquer « E » (Echange plateaux techniques) en
+                                                     relation avec le N° FINESS de l’établissement destinataire en (pos. 67-80).
+      20   NATURE_INTERRUPTION       char(1)         ?? Indiquer « P », pour Présent en cas de changement de discipline au sein
+                                                     d’un même établissement.
+                                                     ?? Indiquer « S », en cas de Sortie définitive ou « D » en cas de Décès.
+                                                     En GHT - Hospitalisation à domicile :
+                                                     ?? Valeur « H » obligatoire s’il y a minoration du prix unitaire du GHT, cas de
+                                                     convention entre l’EHPA(D) et la
+                                                     structure d’HAD.
+                                                     ?? A blanc sinon.
+                                                     Hors TAA : Indiquer sur l’acte PJ, « S », en cas de Sortie définitive, ou « D » en
+                                                     cas de Décès.
+                                                     Etablissement de Transfert ou de retour ou Lieu d’exécution de l’acte
+
+                                                     Obligatoire dès lors que la nature d’interruption est renseignée à E, R ou T.
+                                                     En GHS :
+                                                     Permet de renseigner le lieu dans lequel le patient a été transféré, dès lors que
+                                                     ce lieu est identifié avec un n°
+      21   FINESS_INTERRUPTION       varchar(14)
+                                                     FINESS (ex : Envoi vers un autre plateau technique E, Transfert vers un autre
+                                                     établissement T, Retour d’un
+                                                     autre établissement R)
+                                                     En GHT :
+                                                     Obligatoire dès lors que le patient réside en EHPA(D).
+                                                     A zéro sinon.
+      22   MEMO_LIGNE_PREST          varchar(200)    Contient la ligne RSF B PRESTATIONS HOSPITALIERES
+                                                     Contient la ligne RSF I PRESTATIONS HOSPITALIERES : INTERRUPTION
+      23   MEMO_LIGNE_PREST_INTER varchar(200)
+                                                     DE SEJOUR
+      24   PRIX_TRAIT                decimal(8, 2)
+
+      25   LIEN_PROTH                char(1)
+
+      26   FLAG_PROTH                char(1)
+
+      27   NAT_OP_NOEMIE             char(3)
+
+      28   MNT_NOEMIE                decimal(8, 2)   Montant remboursé NOEMIE retour
+
+      29   TYPE_PRESTA_INTERMED      char(1)

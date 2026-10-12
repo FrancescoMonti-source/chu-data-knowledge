@@ -1,0 +1,10 @@
+==== FG_CCAM_CARA ====
+Stock les caractéristiques de la phase d'un acte CCAM en fonction de la version de la fonction de groupage MCO.
+       1   VERSION_FG                 char(3)           Version de la fonction de groupage
+
+       2   CODE_ACTE                  char(7)           code de l'acte CCAM
+
+       3   CODE_PHASE                 char(1)           phase de l'acte CCAM
+                                                        code de la caractéristique. Exemple :
+       4   CARACTERISTIQUE            char(10)          27.3 = Acte marqueur 1
+                                                        27.4 = Acte marqueur 2

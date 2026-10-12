@@ -1,0 +1,81 @@
+==== TB_CIM_CTRL ====
+Table de la Contrôle des codes CIM
+       1   CODEFILS                   char(16)       Code du diagnostic. Lien avec CIM_HIERARCHIE.CODEFILS
+
+       2   PEU_FREQ                   char(1)        Diagnostic Peu Fréquent (1 si vrai / 0 sinon)
+
+       3   ACT_OPE                    char(1)        Diagnostic lié à un acte opératoire (1 si vrai / 0 sinon)
+
+       4   DIAG_DAG                   char(1)        Diagnostic DAG (1 si vrai / 0 sinon)
+                                                     Diagnostic Imcompatible Sexe Masculin (1 si vrai / 0 sinon) (diag uniquement
+       5   INCOMP_M                   char(1)
+                                                     pour les hommes)
+                                                     Diagnostic Imcompatible Sexe Féminin (1 si vrai / 0 sinon) (diag uniquement
+       6   INCOMP_F                   char(1)
+                                                     pour les femmes)
+       7   IMPR_28J                   char(1)        Diagnostic Improbable si age <= 28j (1 si vrai / 0 sinon)
+
+       8   IMPR_28J_1A                char(1)        Diagnostic Improbable si 28j < age <= 1 an (1 si vrai / 0 sinon)
+       9   IMPR_1A_9A                  char(1)        Diagnostic Improbable si 1 an < age <= 9 ans (1 si vrai / 0 sinon)
+
+      10   IMPR_10A_19A                char(1)        Diagnostic Improbable si 10 ans < age <= 19 ans (1 si vrai / 0 sinon)
+
+      11   IMPR_20A_65A                char(1)        Diagnostic Improbable si 20 ans < age <= 65 ans (1 si vrai / 0 sinon)
+
+      12   IMPR_SUP_65A                char(1)        Diagnostic Improbable si age > 65 ans (1 si vrai / 0 sinon)
+
+      13   Z_UTIL_DP                   char(1)        Diagnostic en Z non utilisable en DP (1 si vrai / 0 sinon)
+
+      14   DP_IMPRECIS                 char(1)        Diagnostic imprécis en DP (2 très imprécis / 1 imprécis / 0 sinon)
+
+      15   DIAG_A_EVITER               char(1)        Diagnostic à éviter (1 si vrai / 0 sinon)
+
+      16   DP_INTERDIT                 char(1)        Diagnostic interdit en DP (1 si vrai / 0 sinon)
+
+      17   DATE_INTEGR                 datetime
+
+      18   TYPE_INTEGR                 char(1)
+
+      19   AFFECTION_LG_DUREE          char(1)        Diagnostic affection longue durée (1 si vrai / 0 sinon)                   '0'
+           DP_SS_RELATION_ACTE_THE
+      20                           char(1)            Diagnostic Ss Relation Acte Ther. (1 si vrai / 0 sinon)                   '0'
+           R
+      21   DIAG_EXTENSION              char(1)        Diagnostic Extension (1 si vrai / 0 sinon)                                '0'
+
+      22   DIAG_SEQUELLE               char(1)        Diagnostic Séquelle (1 si vrai / 0 sinon)                                 '0'
+
+      23   DIAG_T_IMPRECIS             char(1)        Diagnostic T imprécis (1 si vrai / 0 sinon)                               '0'
+
+      24   DIAG_T_INTOX                char(1)        Diagnostic T intoxication (1 si vrai / 0 sinon)                           '0'
+                                                      Correspond au Champ DPACTE du fichier DIAGINFO.
+      25   DP_POURCENT_ACTE_CHIR       smallint(5)    Depuis 2015 : Valeur 0 ou 1 => Mise à jour du test DAT 89                 0
+                                                      Avant 2015 : Valeur entre 0 et 99
+      26   DATE_DEBUT                  datetime       Date de début de validité du controle.
+
+      27   DATE_FIN                    datetime       Date de fin de validité du controle
+
+      28   TYPE                        char(1)
+
+      29   TYPE_INTERDIT               char(1)                                                                                  '0'
+
+      30   IMCOMP_23C02                char(1)
+
+      31   DIAG_AFFAIGUE               char(1)        Correspond au champ AFFAIG du fichier DIAGINFO
+
+      32   DIAG_BRULURE                char(1)
+
+      33   DIAG_ESTHETIQUE             char(1)
+
+      34   DIAG_ZINHAB                 char(1)
+                                                      Correspond au Champ DPCHIR du fichier DIAGINFO.
+      35   DP_CHIR                     smallint(5)    Depuis 2015 : Valeur 0 ou 1 => Mise à jour du test DAT 40
+                                                      Avant 2015 : Valeur entre 0 et 95
+      36   DR_INTERDIT                 char(1)        Diagnostic interdit en DR (1 si vrai / 0 sinon)
+
+      37   DIAG_COMPIMPRECIS           char(1)        Correspond au champ COMPIMPRECIS du fichier DATIM DIAGINFO.xslx
+
+      38   DIAG_AUTRES                 char(1)        Correspond au champ AUTRES du fichier DATIM DIAGINFO.xslx
+
+      39   DIAG_BRULUREBIS             char(1)        Correspond au champ BRULUREBIS du fichier DATIM DIAGINFO.xslx
+
+      40   SEANCE                      char(1)

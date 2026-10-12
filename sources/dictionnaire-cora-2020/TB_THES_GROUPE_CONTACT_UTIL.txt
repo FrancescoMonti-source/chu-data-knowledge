@@ -1,0 +1,4 @@
+==== TB_THES_GROUPE_CONTACT_UTIL ====
+      1    ID_GROUPE_CONTACT         int(10)
+
+      2    ID_UTIL                   int(10)         Clé - Lien Util.id_util

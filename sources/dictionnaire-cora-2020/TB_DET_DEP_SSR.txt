@@ -1,0 +1,50 @@
+==== TB_DET_DEP_SSR ====
+Table des valeurs de dépendances du Patient pour la semaine
+                                                         Lien sur TB_PATIENT.ID_PATIENT :
+       1   ID_PATIENT                   int(10)          Identifiant du Patient. Lien non principal (Lien principal = ID_MVT +
+                                                         NO_SEMAINE)
+                                                         Lien sur TB_SEJOUR.ID_SEJOUR :
+       2   ID_SEJOUR                    int(10)          Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT +
+                                                         NO_SEMAINE)
+                                                         Clé - Lien sur TB_MVT.ID_MVT :
+       3   ID_MVT                       int(10)
+                                                         Identifiant du Mouvement (Lien obligatoire)
+                                                         Clé :
+       4   NO_SEMAINE                   int(10)
+                                                         Chrono semaine dans un même mouvement (Forme la clé avec ID_MVT)
+       5   HAB_1                        char(1)          Habillage : Haut du corps (valeur 1 à 4)
+
+       6   HAB_2                        char(1)          Habillage : Bas du corps (valeur 1 à 4)
+
+       7   DEP_1                        char(1)          Dépendance : Lit / Chaise / Fauteuil roulant (valeur 1 à 4)
+
+       8   DEP_2                        char(1)          Dépendance : Transfert toilettes (valeur 1 à 4)
+
+       9   DEP_3                        char(1)          Dépendance : Baignoire / Douche (valeur 1 à 4)
+
+      10   DEP_4                        char(1)          Dépendance : Locomotion (valeur 1 à 4)
+
+      11   DEP_5                        char(1)          Dépendance : Escalier (valeur 1 à 4)
+
+      12   ALI_1                        char(1)          Alimentation : Utilise ustensiles (valeur 1 à 4)
+
+      13   ALI_2                        char(1)          Alimentation : Déglutition (valeur 1 à 4)
+
+      14   ALI_3                        char(1)          Alimentation : Mastication (valeur 1 à 4)
+
+      15   CONT_1                       char(1)          Continence : Contrôle Miction (valeur 1 à 4)
+
+      16   CONT_2                       char(1)          Continence : Contrôle Défécation (valeur 1 à 4)
+
+      18   RELAT_1                      char(1)          Relation : Compréhension Communication Auditive ou visuelle (valeur 1 à 4)
+
+      19   RELAT_2                      char(1)          Relation : Expression claire du language verbal et non verbal (valeur 1 à 4)
+
+      20   COMPO                        char(1)          Comportement : Interaction Sociale (valeur 1 à 4)
+
+      21   ID_INFO                      int(10)
+      22   DATE_INFO                 datetime
+
+      23   ID_CREAT                  int(10)
+
+      24   DATE_CREAT                datetime

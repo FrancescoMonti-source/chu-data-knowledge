@@ -1,0 +1,19 @@
+==== TB_MODELE_IMPRESSION_FAVORI ====
+     1   ID_MODELE_IMPRESSION      int(10)
+
+     2   TYPE_LIEN                 smallint(5)
+
+     3   ID_LIEN                   int(10)
+
+     4   TYPE                      char(1)                                                                                  'P'
+
+     5   ORDRE                     int(10)
+
+     6   TYPE_ICONE                smallint(5)
+
+     7   LIB_COURT                 varchar(20)
+
+     8   DATE_INFO                 datetime       Date de la dernière modification
+                                                  Lien vers Util.ID_UTIL.
+     9   ID_INFO                   int(10)
+                                                  Identifiant de l'utilisateur ayant effectué la dernière modification

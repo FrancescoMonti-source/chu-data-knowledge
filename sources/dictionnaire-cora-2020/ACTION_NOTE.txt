@@ -1,0 +1,4 @@
+==== ACTION_NOTE ====
+     1   ID_DETAIL_FAVORI        int(10)
+
+     2   NOTE                    varchar(4000)

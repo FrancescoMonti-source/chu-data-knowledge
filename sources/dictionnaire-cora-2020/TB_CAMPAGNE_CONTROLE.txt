@@ -1,0 +1,89 @@
+==== TB_CAMPAGNE_CONTROLE ====
+Permet la gestion des informations relatives à une campagne de contrôle d'un RSS
+       1   ID_CONTROLE                int(10)          Clé - Identitifiant du contrôle du RSS
+
+       2   NO_CONTROLE                int(10)          Numéro de contrôle du RSS
+
+       3   ID_PATIENT                 int(10)          Identitifiant du patient
+
+       4   ID_SEJOUR                  int(10)          Identitifiant du séjour
+
+       5   ID_RSS                     int(10)          Identitifiant du RSS
+                                                       Identitifiant de la campagne de contrôle
+       6   ID_CAMPAGNE                int(10)
+                                                       Lien vers TB_THESAURUS_CAMPAGNE.ID_CAMPAGNE
+       7   ID_CREAT                   int(10)          Identitifiant de l'utilisateur ayant créé la campagne de contrôle du RSS
+
+       8   DATE_CREAT                 datetime         Date de création de la campagne de contrôle du RSS
+                                                       Identitifiant du dernier utilisateur ayant modifié la campagne de contrôle du
+       9   ID_INFO                    int(10)
+                                                       RSS
+      10   DATE_INFO                  datetime         Date de dernière modification de la campagne de contrôle du RSS
+
+      11   ACTIVITE_CONTROLE          varchar(2000)    Activité du contrôle
+
+      12   SANCTIONNABLE              char(1)          Indique si le contrôle est sanctionnable
+                                                       Identitifiant du champ contrôlé
+      13   ID_CHAMP_CONTROLE          int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+                                                       Identitifiant de l'élement paramétrable de justification du codage du RSS
+      14   ID_JUSTIFIE                int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+      15   ID_VERIFICATEUR            int(10)          Identifiant de l'utilisateur (DIM ou TIM) qui vérifie le codage du RSS
+           COMMENTAIRE_VERIFICATIO text
+      16                                               Commentaire de vérification du codage du RSS
+           N                       (2147483647)
+      17   RSS_VERIFIE                char(1)          Indique si le RSS a été vérifié par le DIM
+                                                       Identifiant du premier avis du contrôleur
+      18   ID_AVIS_CONTROLEUR         int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+           COMMENTAIRE_CONTROLEU text
+      19                                               Commentaire du contrôleur
+           R                     (2147483647)
+           PROP_RECODAGE_CONTROL
+      20                         char(1)               Indique si le contrôleur a proposé un recodage. 'O' ou 'N'
+           EUR
+           DETAIL_RECODAGE_CONTRO
+      21                          varchar(2000)        Détail sur le recodage du contrôleur
+           LEUR
+      22   GHM_INITIAL                char(6)          GHM initial du RSS
+
+      23   GHM_CONTROLEUR             char(6)          GHM après recodage du contrôleur
+
+      24   VALO_INITIALE              decimal(10, 2)   Montant de la valorisation initiale du RSS
+
+      25   VALO_CONTROLEUR            decimal(10, 2)   Valorisation après recodage du contrôleur
+                                                       Identifiant du premier avis du DIM
+      26   ID_POSITION_PREMIER_AVIS int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+      27   CONTESTATION               char(1)          Indique si le DIM a contesté la décision du contrôleur (conciliation)
+                                      text
+      28   MOTIF_CONTESTATION                          Motif de contestation du DIM
+                                      (2147483647)
+                                                       Identifiant du résultat de la conciliation
+      29   ID_RESULTAT_CONCILIATION int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+                                      text
+      30   DETAIL_CONTROLE                             Détail du contrôle
+                                      (2147483647)
+      31   REMARQUABLE                char(1)          Flag indiquant que le contrôle du RSS a été marqué
+                                                       Identifiant du motif de marquage du contrôle du RSS
+      32   ID_MOTIF_REMARQUABLE       int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+      33   DETAIL_RECODAGE_FINAL      varchar(2000)    Détail du recodage final du RSS
+
+      34   GHM_FINAL                  char(6)          GHM final du RSS
+
+      35   VALO_FINALE                decimal(10, 2)   Montant de la valorisation finale du RSS
+
+      36   GHS_INITIAL                varchar(4)       GHS initial du RSS
+
+      37   GHS_CONTROLEUR             varchar(4)       GHS après recodage du contrôleur
+
+      38   GHS_FINAL                  varchar(4)       GHS final du RSS
+                                                       Indique s'il y a un suivi de l'Unité de Coordination Régionale (UCR) en cas de
+      39   SUIVI_UCR                  char(1)
+                                                       désaccord final entre le contrôleur et le DIM
+                                      text
+      40   COMMENTAIRE_UCR                             Commentaire de l'Unité de Coordination Régionale (UCR)
+                                      (2147483647)

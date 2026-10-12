@@ -1,0 +1,17 @@
+==== CIM_ALPHA ====
+Vulgarisation de la CIM (par CIMFast): CIM Alphabétique Publié uniquement en format PDF
+       1   ID_CLE                        int(10)        Identifiant de la table
+
+       2   LIBELLE_ALPHA                 varchar(300)   Libellé de la donnée CIM10 Alphabétique
+
+       3   ID_PERE                       int(10)        Identifiant de noeud père pour la hiérarchie
+
+       4   NIVEAU                        smallint(5)    Niveau de la donnée CIM10 pour la hiérarchie
+
+       5   LETTRE                        char(1)        Première lettre du libellé
+
+       6   CODE_CIM                      varchar(250)   Code CIM10
+
+       7   LIBELLE_ALPHA_SS_ACC          varchar(300)   Libellé de la donnée CIM10 Alphabétique sans accent
+
+       8   LIBELLE_MOT                   varchar(600)   Libellé - découpé par les mots significatifs.

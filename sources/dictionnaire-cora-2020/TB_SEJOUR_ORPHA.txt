@@ -1,0 +1,26 @@
+==== TB_SEJOUR_ORPHA ====
+Table des séjours des maladies Oprhanet
+       1   ID_SEJOUR_ORPHA             int(10)          Identifiant du séjour orphanet
+
+       2   ID_PATIENT                  int(10)          FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_SEJOUR                   int(10)          FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       4   NUM_ORPHA                   int(10)          Identifiant de la maladie Orphanet. Lien sur ORPHA.NUM_ORPHA
+
+       5   VALIDATION_MEDICALE         char(1)          'O si la maladie a été validée médicalement, sinon 'N'
+
+       6   DATE_VALIDATION             datetime         Date de la validation médicale de la maladie
+                                                        Identifiant de l'utilisateur ayant effectué la validation médicale. Lien sur
+       7   ID_UTIL_VALIDATION          int(10)
+                                                        TB_UTIL.ID_UTIL.
+                                                        Lien sur TB_UTIL.ID_UTIL
+       8   ID_CREAT                    int(10)
+                                                        Identifiant de l'utilisateur de création
+       9   DATE_CREAT                  datetime         Date de création
+                                                        Lien vers Util.ID_UTIL.
+      10   ID_INFO                     int(10)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification
+      11   DATE_INFO                   datetime         Date de la dernière modification
+
+      12   FLAG_IMPORT                 char(1)          Indique si le séjour orphanet a été importé

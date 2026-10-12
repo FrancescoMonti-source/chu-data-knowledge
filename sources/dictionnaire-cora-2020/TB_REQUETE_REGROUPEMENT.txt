@@ -1,0 +1,26 @@
+==== TB_REQUETE_REGROUPEMENT ====
+       1    ID_REGROUPEMENT           int(10)        Id du regroupement
+
+       2    TITRE                     varchar(50)    Titre du regroupement
+
+       3    TYPE_LIEN                 varchar(15)    Type de lien (acte, diag ou regroupement)
+
+       4    ID_REGROUPEMENT_CIBLE     int(10)        Cible du regroupement (dans le cas d'un regroupement de regroupements)
+
+       5    ID_CREAT                  int(10)        Id du créateur
+
+       6    DATE_CREAT                datetime       Date de création
+
+       7    ID_MODIF                  int(10)        Id du modifieur
+
+       8    DATE_MODIF                datetime       Date de modification
+
+       9    ID_ITEM_REQUETEUR         int(10)        Nature du seuil associé
+
+       10   ID_FILTRE                 smallint(5)    Filtre associé
+
+       11   GUID_REGROUPEMENT         char(36)       Guid du regroupement
+
+       12   ID_ITEM_REQUETEUR_REGPT int(10)          Id item regroupement associé
+
+       13   ID_ITEM_REQUETEUR_SEUIL int(10)          Id item seuil associé

@@ -1,0 +1,11 @@
+==== TB_ARBRE_DECISION ====
+Table contenant les arbres de décision.
+       1   ID_ARBRE                       smallint(5)    Identifiant de l'arbre de décision.
+                                                        Code de l'arbre de décision.
+       2   CODE_ARBRE                   varchar(15)
+                                                        Utilisé au niveau du plugin pour identifier les arbres de décision.
+       3   LIBELLE_ARBRE                varchar(50)     Libellé de l'arbre de décision.
+
+       4   DESCRIPTION_ARBRE            varchar(2000)   Description de l'arbre de décision.
+
+       5   TYPE_ARBRE                   char(3)         Type de l'arbre de décision (MCO, ...).

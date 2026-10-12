@@ -1,0 +1,6 @@
+==== TB_DIAG_MATRICE ====
+       1   ID_DIAG                     int(10)           Identifiant du diagnostic. Lien avec TB_DIAG.ID_DIAG
+
+       2   ID_EXTERNE                  char(17)          Identifiant de l'activité dans le système ayant émis le message
+
+       3   ID_APPLICATION              int(10)           Lien sur TB_INT_APPLICATION.ID

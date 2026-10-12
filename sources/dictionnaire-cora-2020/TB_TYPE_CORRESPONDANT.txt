@@ -1,0 +1,6 @@
+==== TB_TYPE_CORRESPONDANT ====
+Cette table définit les types de correspondant.
+       1    ID_TYPE_CORRESPONDANT       int(10)        Clé :Définit l'identifiant (PrisMédica) du type de correspondant.
+            LIBELLE_TYPE_CORRESPON
+       2                           varchar(50)         Définit le libellé du type de correspondant.
+            DANT

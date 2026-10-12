@@ -1,0 +1,202 @@
+==== TB_GIR ====
+       1    ID_GIR                       int(10)
+
+       2    ID_PATIENT                   int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3    DATE_GIR                     datetime
+
+       4    VAL_GIR                      smallint(5)
+
+       5    DATE_INFO                    datetime        Date de la dernière modification
+
+       6    HEURE_INFO                   datetime
+                                                         Lien vers Util.ID_UTIL.
+       7    ID_INFO                      int(10)
+                                                         Identifiant de l'utilisateur ayant effectué la dernière modification
+       8    COH_COMMUNICATION_S          smallint(5)                                                                                              0
+
+       9    COH_COMMUNICATION_T          smallint(5)                                                                                              0
+
+       10   COH_COMMUNICATION_C          smallint(5)                                                                                              0
+
+       11   COH_COMMUNICATION_H          smallint(5)                                                                                              0
+
+       12   COH_COMPORTEMENT_S           smallint(5)                                                                                              0
+
+       13   COH_COMPORTEMENT_T           smallint(5)                                                                                              0
+
+       14   COH_COMPORTEMENT_C           smallint(5)                                                                                              0
+
+       15   COH_COMPORTEMENT_H           smallint(5)                                                                                              0
+
+       16   ORI_TEMPS_S                  smallint(5)                                                                                              0
+
+       17   ORI_TEMPS_T                  smallint(5)                                                                                              0
+
+       18   ORI_TEMPS_C                  smallint(5)                                                                                              0
+
+       19   ORI_TEMPS_H                  smallint(5)                                                                                              0
+
+       20   ORI_ESPACE_S                 smallint(5)                                                                                              0
+21   ORI_ESPACE_T   smallint(5)      0
+
+22   ORI_ESPACE_C   smallint(5)      0
+
+23   ORI_ESPACE_H   smallint(5)      0
+
+24   HAB_HAUT_S     smallint(5)      0
+
+25   HAB_HAUT_T     smallint(5)      0
+
+26   HAB_HAUT_C     smallint(5)      0
+
+27   HAB_HAUT_H     smallint(5)      0
+
+28   HAB_MOY_S      smallint(5)      0
+
+29   HAB_MOY_T      smallint(5)      0
+
+30   HAB_MOY_C      smallint(5)      0
+
+31   HAB_MOY_H      smallint(5)      0
+
+32   HAB_BAS_S      smallint(5)      0
+
+33   HAB_BAS_T      smallint(5)      0
+
+34   HAB_BAS_C      smallint(5)      0
+
+35   HAB_BAS_H      smallint(5)      0
+
+36   ALI_SERVIR_S   smallint(5)      0
+
+37   ALI_SERVIR_T   smallint(5)      0
+
+38   ALI_SERVIR_C   smallint(5)      0
+
+39   ALI_SERVIR_H   smallint(5)      0
+
+40   ALI_MANGER_S   smallint(5)      0
+
+41   ALI_MANGER_T   smallint(5)      0
+
+42   ALI_MANGER_C   smallint(5)      0
+
+43   ALI_MANGER_H   smallint(5)      0
+
+44   ELI_URINE_S    smallint(5)      0
+
+45   ELI_URINE_T    smallint(5)      0
+
+46   ELI_URINE_C    smallint(5)      0
+
+47   ELI_URINE_H    smallint(5)      0
+
+48   ELI_FECALE_S   smallint(5)      0
+
+49   ELI_FECALE_T   smallint(5)      0
+
+50   ELI_FECALE_C   smallint(5)      0
+
+51   ELI_FECALE_H   smallint(5)      0
+
+52   DEPL_EXT_S     smallint(5)      0
+
+53   DEPL_EXT_T     smallint(5)      0
+
+54   DEPL_EXT_C     smallint(5)      0
+
+55   DEPL_EXT_H     smallint(5)      0
+
+56   DEPL_INT_S     smallint(5)      0
+
+57   DEPL_INT_T     smallint(5)      0
+
+58   DEPL_INT_C     smallint(5)      0
+
+59   DEPL_INT_H     smallint(5)      0
+
+60   ALERTER_S      smallint(5)      0
+
+61   ALERTER_T      smallint(5)      0
+62   ALERTER_C         smallint(5)      0
+
+63   ALERTER_H         smallint(5)      0
+
+64   TRANSFERT_S       smallint(5)      0
+
+65   TRANSFERT_T       smallint(5)      0
+
+66   TRANSFERT_C       smallint(5)      0
+
+67   TRANSFERT_H       smallint(5)      0
+
+68   TOI_S             smallint(5)      0
+
+69   TOI_T             smallint(5)      0
+
+70   TOI_C             smallint(5)      0
+
+71   TOI_H             smallint(5)      0
+
+72   TOI_BAS_S         smallint(5)      0
+
+73   TOI_BAS_T         smallint(5)      0
+
+74   TOI_BAS_C         smallint(5)      0
+
+75   TOI_BAS_H         smallint(5)      0
+
+76   COHERENCE         char(1)
+
+77   ORIENTATION       char(1)
+
+78   TOILETTE          char(1)
+
+79   HABILLAGE         char(1)
+
+80   ALIMENTATION      char(1)
+
+81   ELIMINATION       char(1)
+
+82   TRANSFERT         char(1)
+
+83   DEPLACEMENT_EXT   char(1)
+
+84   DEPLACEMENT_INT   char(1)
+
+85   ALERTER           char(1)
+
+86   VAL_COH_COMM      char(1)
+
+87   VAL_COH_COMP      char(1)
+
+88   VAL_ORI_TPS       char(1)
+
+89   VAL_ORI_ESP       char(1)
+
+90   VAL_TOIL          char(1)
+
+91   VAL_TOIL_BAS      char(1)
+
+92   VAL_HAB_HAUT      char(1)
+
+93   VAL_HAB_MOY       char(1)
+
+94   VAL_HAB_BAS       char(1)
+
+95   VAL_ALI_SERV      char(1)
+
+96   VAL_ALI_MANG      char(1)
+
+97   VAL_ELI_URI       char(1)
+
+98   VAL_ELI_FEC       char(1)
+
+99   VAL_DEP_EXT       char(1)
+
+100 VAL_DEP_INT        char(1)
+
+101 VAL_ALERTER        char(1)
+
+102 VAL_TRANSF         char(1)

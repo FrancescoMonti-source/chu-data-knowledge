@@ -1,0 +1,8 @@
+==== LPP_THES_ARTICLE ====
+       1    ID_THES_ARTICLE              int(10)
+
+       2    CODE_THES_ARTICLE            char(20)
+
+       3    LIBELLE_THES_ARTICLE         varchar(150)
+
+       4    ID_UTIL                      int(10)          Clé - Lien Util.id_util

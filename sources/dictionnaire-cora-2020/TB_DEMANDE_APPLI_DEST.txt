@@ -1,0 +1,35 @@
+==== TB_DEMANDE_APPLI_DEST ====
+       1   ID_DEMANDE_APPLI_DEST       smallint(5)    Clé de la table
+                                                      Type de l'application
+       2   TYPE_APPLI_DEST             smallint(5)    1 : Radio
+                                                      2 : Labo
+    3    NUM_DEMANDE_ENCOURS        int(10)        Numéro de la demande
+
+    4    DATE_DEMANDE_ENCOURS       datetime       Date de la demande
+
+    5    LIB_DEMANDE_APPLI_DEST     varchar(100)   Libellé de l'application destinataire
+                                                   1 : demande ne peut contenir qu'un seul examen
+    6    TYPE_PARAM_DEMANDE         smallint(5)
+                                                   2 : demande peut contenir plusieurs examens
+                                                   En deça du délai court, on demande sur quelle demande on doit l'ajouter et on
+    7    DELAI_COURT                int(10)
+                                                   l'ajoute sinon on créé une nouvelle demande
+                                                   Si toutes les demandes existantes sont au-dela du délai long, on créé
+    8    DELAI_LONG                 int(10)
+                                                   systematiquement une nouvelle demande.
+    9    CODE_FORMAT_DEMANDE        varchar(14)    Format du numéro de demande
+         CODE_FORMAT_ECHANTILLO
+    10                          varchar(14)        Format du numéro d'échantillon
+         N
+         ID_MODELE_IMPRESSION_PL
+    11                           smallint(5)       Modèle planche étiquette
+         ANCHE
+         ID_MODELE_IMPRESSION_ETI
+    12                            smallint(5)      Modèle étiquette Demande
+         Q_DEM
+         ID_MODELE_IMPRESSION_ETI
+    13                            smallint(5)      Modèle étiquette échantillon/tube
+         Q_ECH
+         ID_MODELE_IMPRESSION_BO
+    14                           smallint(5)       Modèle étiquette
+         N

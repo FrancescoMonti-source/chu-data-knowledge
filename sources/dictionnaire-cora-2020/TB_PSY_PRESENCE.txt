@@ -1,0 +1,37 @@
+==== TB_PSY_PRESENCE ====
+Table des présences Clé :
+Table des présences
+                                                    Clé :
+      1    ID_PSY_PRES               int(10)
+                                                    Identifiant de la présence
+      2    DATE_PRES                 datetime       Date de présence
+
+      3    TYPE_PRES                 char(1)        Type de présence ('D' : demi-venue, 'J' : venue jour, 'N' : venue nuit)
+                                                    Lien sur TB_MVT.ID_MVT :
+      4    ID_MVT                    int(10)
+                                                    Identifiant du mouvement
+      5    NOTE_PRES                 varchar(100)   Notes
+                                                    Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE :
+      6    ID_SEQUENCE               int(10)
+                                                    Identifiant de la séquence
+                                                    Lien sur TB_PATIENT.ID_PATIENT :
+      7    ID_PATIENT                int(10)
+                                                    Identifiant du patient
+      8    DATE_RETOUR               datetime       Date de retour
+                                                    Lien sur Util.id_util :
+      9    ID_INFO                   int(10)
+                                                    Identifiant du dernier utilisateur qui a modifié ces données
+      10   DATE_INFO                 datetime       Date de dernière modification de ces données
+
+      11   HEURE_INFO                datetime       Heure de dernière modification de ces données
+                                                    Lien sur TB_PSY_MOTIF_VENUE.ID_MOTIF_VENUE :
+      12   ID_MOTIF_VENUE            smallint(5)
+                                                    Identifiant du motif de venue
+      13   HEURE_ARRIVEE             datetime       Heure d'arrivée
+                                                    Lien sur TB_SEJOUR.ID_SEJOUR :
+      14   ID_SEJOUR                 int(10)                                                                                     -1
+                                                    Identifiant du séjour
+                                                    Identifiant utilisé par la GAM
+      15   ID_EXTERNE                varchar(20)    - Renseigné dans le cas d'une création par l'interface
+                                                    - Vide si créé à partir de CORA Recueil
+      16   PRESTATION                char(1)        Prestation ex rien , PIE, PIA                                                '0'

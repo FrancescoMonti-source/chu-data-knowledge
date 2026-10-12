@@ -1,0 +1,9 @@
+==== PMSI_LIB_ERREUR_SSR ====
+Table des libellés des erreurs SSR
+       1   CODE_ERREUR                 char(3)        Code de l'erreur PMSI SSR
+
+       2   LIBELLE_ERREUR              varchar(250)   Libellé de l'erreur
+
+       3   TYPE                        char(1)        Type de l'erreur (B pour Bloquant ou N pour non bloquant)
+
+       4   VERSION                     smallint(5)    Version de la FG SSR

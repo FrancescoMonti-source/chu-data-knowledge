@@ -1,0 +1,65 @@
+==== TB_RSS_SUIVI ====
+Table des historiques de groupage
+                                                     Clé :
+       1   ID_RSS_SUIVI             int(10)
+                                                     Identifiant de la table
+                                                     Lien sur TB_SEJOUR.ID_SEJOUR :
+       2   ID_SEJOUR                int(10)
+                                                     Identifiant du séjour.
+                                                     Lien sur TB_SYNTH_RSS.ID_RSS :
+       3   ID_RSS                   int(10)
+                                                     Identifiant du RSS.
+       4   CODE_GHM                 char(6)          Code GHM obtenu lors de ce groupage
+
+       5   CODE_GHS                 char(4)          Code GHS obtenu lors de ce groupage
+
+       6   MNT_TOTAL                decimal(10, 2)   Montant Total du groupage RSS
+                                                     Type de groupage
+       7   TYPE_GRP                 char(1)          S : Simulation
+                                                     R : groupage Réel (par lot, manuel ou signature)
+       8   DATE_INFO                datetime         Date et heure du groupage
+                                                     Lien sur Util.id_util :
+       9   ID_INFO                  smallint(5)
+                                                     Identifiant de l'utilisateur ayant fait le groupage
+      10   DIAG_P                   char(16)         Diagnostic Principal retenu du RSS lors de ce groupage
+
+      11   DIAG_R                   char(16)         Diagnostic Relié retenu du RSS lors de ce groupage
+
+      12   IGS                      char(3)          IGS lors de ce groupage
+
+      13   POIDS                    int(10)          Poids lors de ce groupage
+
+      14   NB_DAS                   smallint(5)      Nombre de DAS
+
+      15   NB_DAS_CMA               smallint(5)      Nombre de DAS en CMA
+
+      16   NB_DAS_CMAS              smallint(5)      Nombre de DAS en CMAS
+
+      20   NB_CCAM                  smallint(5)      Nombre d'actes CCAM
+
+      21   NB_CCAM_CLASSANT         smallint(5)      Nombre d'actes CCAM Classants
+
+      22   NB_CCAM_MARQ_1           smallint(5)      Nombre d'actes CCAM Marqueurs 1
+
+      23   NB_CCAM_MARQ_2           smallint(5)      Nombre d'actes CCAM Marqueurs 2
+
+      24   CHRONO_GROUPAGE          smallint(5)      Chrono du groupage pour classer tous les groupages de ce RSS
+
+      25   DELTA_MNT_N1             decimal(10, 2)   Delta du montant par rapport au groupage précédent (N-1)
+
+      26   DELTA_MNT_DEPART         decimal(10, 2)   Delta du montant par rapport au premier groupage groupage précédent (N0)
+                                                     Etat du groupage pour identifier le premier et le dernier.
+                                                     P : Premier Groupage
+      27   ETAT_GROUPAGE            char(1)
+                                                     vide : Groupage intermédiaire
+                                                     D : Dernier Groupage
+      28   NB_DAS_SEV_2             smallint(5)      Nombre de DAS de sévérité 2                                                         0
+      29   NB_DAS_SEV_3                smallint(5)     Nombre de DAS de sévérité 3                                                             0
+
+      30   NB_DAS_SEV_4                smallint(5)     Nombre de DAS de sévérité 4                                                             0
+
+      31   CODE_ERR                    char(3)         Code de l'erreur principale du groupage
+
+      32   LIST_ERR                    char(200)       Liste des erreurs du groupage.
+
+      33   VERSION_PMSI                varchar(30)     Numéro de la version de CORA/ Plugins avec laquelle le dossier a été groupé.

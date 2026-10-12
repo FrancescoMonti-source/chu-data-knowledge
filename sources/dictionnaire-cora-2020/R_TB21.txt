@@ -1,0 +1,13 @@
+==== R_TB21 ====
+Forfait CMUCCCAM n°52Pour connaitre le seuil max(Indice Tarifaire).
+                                                           Clé technique entre la table et
+        1   CLE_FORFAITAIRE                 smallint(5)
+                                                           la Table R_ACTE_CMUC
+        2   COD_CMUC                        varchar(3)     Code Forfaitaire
+                                                           date de début de validité
+        3   DT_D                            datetime
+                                                           forfait/indice tarifaire.
+        4   INDICE_TARIFAIRE                varchar(2)     Valeur de l'Indice Tarifaire
+                                                           date de fin de validité
+        5   DT_F                            datetime
+                                                           forfait/indice tarifaire.

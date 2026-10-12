@@ -1,0 +1,35 @@
+==== TB_DOMAINE ====
+Pour les clients gérant la connexion des utilisateurs par l'authentification Windows (pas de gestion interne des mots de passe) :
+Cette table permet d'enregistrer les noms de domaine NT de l'établissement (obligatoire pour demander l'authentification
+Windows)
+                                                       Clé :
+       1   NOM_DOMAINE                  varchar(100)
+                                                       Nom du domaine
+                                                       Pour un établissement disposant de plusieurs domaines, permet de gérer un
+       2   ORDRE_DOMAINE                smallint(5)
+                                                       ordre de scan des domaines pour tester la connexion des Utilisateurs.
+                                                       1 : active directory
+       3   TYPE_DOMAINE                 char(1)
+                                                       2 : LDAP
+                                                       login à utiliser pour se connecter à l'annuaire distant lors des opérations
+       4   LOGIN_EXPORT                 varchar(512)
+                                                       d'imports d'utilisateurs et de profils.
+                                                       mot de passe du compte LOGIN_EXPORT à utiliser pour se connecter à
+       5   PASSWORD_EXPORT              varchar(255)
+                                                       l'annuaire distant lors des opérations d'imports d'utilisateurs et de profils.
+                                                       Type d'authentification pour la connexion à l'annuaire LDAP / AD :
+                                                       0 : pas d'authentification
+       6   TYPE_AUTHENT                 smallint(5)    1 : authentification avec le compte utilisateur qui a exécuté l'application ou
+                                                       possibilité de faire passer un login/password lors de la connexion (il faut utiliser
+                                                       cette option dans la grande majorité des cas)
+                                                       Filtre LDAP à utiliser lors des requêtes faites sur un annuaire LDAP/AD pour
+                                                       optimiser les recherches
+       7   USERFILTER_EXPORT            varchar(512)
+                                                       le filtre est sous la forme d'une requête LDAP Classique
+                                                       Exemple (objectClass=user)
+                                                       nom de la propriété LDAP qui correspond au login de l'utilisateur (pour AD
+       8   USERLOGIN_ATTRIB             varchar(50)
+                                                       s'est sAMAccountName, pour ldap cela peut être sn)
+                                                       Chemin LDAP de la racine de l'annuaire (les connexions LDAP se feront à
+       9   LDAP_ROOTPATH                varchar(512)
+                                                       partir de ce chemin)

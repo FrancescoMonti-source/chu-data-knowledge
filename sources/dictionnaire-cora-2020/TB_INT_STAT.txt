@@ -1,0 +1,29 @@
+==== TB_INT_STAT ====
+Table de description des statistiques gérée par les interfaces et CORA Interface Manager
+                                                       NbMessage = 1
+                                                       NbRejets = 2
+       1   TYPE_STAT                   smallint(5)     NbErreurs = 4
+                                                       NbFichiersAttente = 8
+                                                       TpsTraitement = 16
+       2   LIBELLE                    varchar(100)     Descriptif affiché de la statistique
+                                                       Minute = 1
+                                                       QuartHeure = 2
+       3   FREQUENCE                  smallint(5)
+                                                       Heure = 3
+                                                       Jour = 4
+                                                       Sum = 1
+                                                       Count = 2
+       4   OPERATION                  smallint(5)      Average = 3
+                                                       Min = 4
+                                                       Max = 5
+       5   DUREE_ARCHIVAGE            smallint(5)      Nb de jour de conservation des messages
+
+       6   COULEUR                    int(10)          Couleur de la statistique dans un graphique représenté par sa valeur ARVB
+                                                       Représentation graphique de la donnée :
+                                                       Bar
+       7   REPRESENTATION             varchar(50)      Spline
+                                                       Ou toute valeur de l’enum DevExpress.XtraCharts.ViewType non 3D et
+                                                       compatible avec un affichage de type diagram X / Y
+                                                       Identifiant de groupe de plusieurs statistiques à afficher dans le même
+       8   GROUPE                     smallint(5)
+                                                       graphique

@@ -1,0 +1,23 @@
+==== TB_INT_MESSAGES_ACTIVITE ====
+Table des messages envoyés par acte et par application (utilisée selon paramétrage)
+                                                        FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+       1   ID_MESSAGE                    int(10)
+                                                        DOC...).ID_MESSAGE
+       2   ID_PATIENT                    int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_SEJOUR                     int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       4   ID_INTERVENTION               int(10)        Identifiant de l'intervention
+                                                        Lien sur TB_ACTE.ID_ACTE ou TB_DET_ACTE.ID_DET_ACTE (selon
+       5   ID_ACTE                       int(10)        fonctionnement en acte ou activité):
+                                                        Lien sur l'identifiant de l'acte ou de l'activité
+                                                        Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       6   ID_COTATION                   int(10)
+                                                        Lien sur l'identifiant de la cotation
+       7   DATE_MESSAGE                  datetime       Date du message
+
+       8   APPLICATION                   char(3)        Nom de l'application destinataire du message
+                                                      I' pour intervention, 'C' pour Création, 'S' pour Suppression, 'M' pour
+       9   TYPE_MESSAGE               char(1)
+                                                      modification
+      10   MESSAGE                    varchar(8000)   Contenu du fichier émis

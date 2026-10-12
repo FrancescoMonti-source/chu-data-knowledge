@@ -1,0 +1,6 @@
+==== PMSI_LIB_CMD ====
+Définition des différentes Catégories Majeur de Diagnostics
+                                                      Clé :
+       1   CODE_CMD                    char(2)
+                                                      Code CMD
+       2   LIB_CMD                     char(150)      Libellé

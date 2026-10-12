@@ -1,0 +1,4 @@
+==== TB_GIR_COMMENTAIRE ====
+       1   ID_GIR                      int(10)
+
+       2   COMMENTAIRE                 varchar(1000)

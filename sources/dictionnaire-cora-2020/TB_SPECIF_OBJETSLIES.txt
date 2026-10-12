@@ -1,0 +1,12 @@
+==== TB_SPECIF_OBJETSLIES ====
+cette table est utilisé pour les package de type CORA Infrastructure lors de l'étape de création des scripts de différences de
+structureelle décrit la liste des spécificités du client au niveau des clés et indexes
+       1    OBJET_ID                    int(10)        identifiant unique de l'objet
+
+       2    SCHEMATABLE_ID              int(10)        identifiant du schéma
+
+       3    OBJET_TYPE                  varchar(5)     type d'objet (index ou pk)
+
+       4    OBJET_NAME                  varchar(200)   nom de l'objet
+
+       5    ALLOWDROP                   char(1)        O / N indique si l'on autorise la suppression de l'objet                               'N'

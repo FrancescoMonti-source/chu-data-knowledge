@@ -1,0 +1,19 @@
+==== TB_COM_API_SOLFEGES ====
+Table contenant les enregistrements de l'appel à l'API Solfèges pour chaque dossier avec : - Si l'appel est OK : Statut à 200, et
+enregistrement de la ligne B2 (ligne de type 3)- Si l'appel n'est pas OK : Valeur du statut, ligne B2 vide, enregistrement des
+erreurs dans la seconde table de l'API contenant les erreurs d'appel et faisant le lien avec cette table grâce à l'identifiant.
+       1    ID                          int(10)        Clé primaire : Identifiant de l'appel à l'API.
+                                                       Identifiant du séjour pour lequel on a envoyé les informations à l'API Solféges.
+       2    ID_SEJOUR                   int(10)
+                                                       Lien avec TB_SEJOUR.ID_SEJOUR
+                                        text
+       3    LIGNE_B2                                   Ligne B2 renvoyée par l'API.
+                                        (2147483647)
+                                                       Statut renvoyé par l'API.
+       4    STATUT                      int(10)        200 = La communication avec l'API est OK, elle a renvoyée les lignes B2
+                                                       <> 200: Il y a une erreur dans la communication.
+       5    LIBELLE_STATUT              varchar(50)    Message associé avec le statut renvoyé par l'API.
+                                                       Identifiant de l'utilisateur ayant lancé la communication avec l'API. Lien avec
+       6    ID_INFO                     int(10)
+                                                       UTIL.ID_UTIL
+       7    DATE_INFO                   datetime       Date à laquelle la communication avec l'API a été lancée.

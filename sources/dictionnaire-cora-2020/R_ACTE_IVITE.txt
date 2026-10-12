@@ -1,0 +1,20 @@
+==== R_ACTE_IVITE ====
+Table de détail des activités d'un acte
+Table de détail des activités d'un acte
+                                                      Clé :
+       1    COD_AA                        char(14)
+                                                      Code acte + Code Activité
+                                                      Clé :
+       2    DT_MODIF                      datetime    Date de mise à jour
+                                                      CLE avec COD_AA
+                                                      Lien avec R_ACTE :
+       3    ACTE_COD                      char(13)    Code semi-structuré de l'acte
+                                                      (Fonctionne avec ACDT_MODIF)
+                                                      Lien avec R_ACTE :
+       4    ACDT_MODIF                    datetime    Date de mise à jour
+                                                      (Fonctionne avec ACTE_COD)
+       5    ACTIV_COD                     char(1)     Code Activité
+                                                      Lien avec R_REGROUPEMENT :
+       6    REGROU_COD                    char(3)
+                                                      Code Regroupement
+       7    CATMED_COD                    char(2)     Code catégorie médicale

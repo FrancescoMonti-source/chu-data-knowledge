@@ -1,0 +1,33 @@
+==== TB_RSF_HONO_CCAM ====
+Regroupe les honoraire CCAM (ligne RSF C)
+      1    ID_RSF_HONO_CCAM         int(10)        clé primaire TB_RSF_HONO_CCAM
+
+      2    ID_RSF_HONO              int(10)        clé primaire de TB_RSF_HONORAIRES
+
+      3    ID_RSF_FACT              int(10)        identifiant de la facture : clef primaire de TB_RSF_FACT
+
+      4    DATE_SEANCE              datetime       Date de l'acte
+
+      5    CODE_CCAM                char(13)       Code CCAM de l'acte (si acte CCAM)
+
+      6    CODE_EXT_DOC             char(1)
+
+      7    CODE_PHASE               char(1)        phase de l'acte
+
+      8    CODE_ACTIVITE            char(1)        Activité de l'acte (ex 4 = anesthésie)
+
+      9    CODE_MODIF               char(4)        Modificateur
+
+      10   CODE_ASSOC               char(1)        code d'association de l'acte
+
+      11   CODE_REMB                char(1)        code du remboursement de l'acte par l'AM
+                                                   Obligatoire pour les soins dentaires
+                                                   Norme NF S91.011 :
+                                                   1er caractère : indication du quadrant :
+                                                   1 à 4 pour les dents définitives
+      12   NUM_DENT                 varchar(32)    5 à 8 pour les dents de lait
+                                                   2ème caractère : localisation de la dent
+                                                   dans un même quadrant :
+                                                   de 1 à 8
+                                                   Valeur zéro si pas de notion de dent
+      13   MEMO_LIGNE_HONO_CCAM     varchar(200)   mémo de la ligne B2

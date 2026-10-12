@@ -1,0 +1,4 @@
+==== R_DENT ====
+Liste des codes des dents
+       1   NUMERO_DEN                  int(10)        numéro de la dent
+       2   LIBELLE                     char(80)       Identification de la dent

@@ -1,0 +1,15 @@
+==== TB_INT_RPU_ATTENTE ====
+     1   ID_APPLICATION       int(10)         Identifiant de l'application ayant créé la ligne
+
+     2   DATE_DEBUT_PERIODE   datetime        Date de début de la période sélectionnée pour la création du fichier RPU
+
+     3   DATE_FIN_PERIODE     datetime        Date de fin de la période sélectionnée pour la création du fichier RPU
+                                              Statut de l'envoi.
+
+                                              Valeurs possibles :
+                                              E : Emis
+     4   STATUT               char(1)
+                                              R : A emettre en modification
+                                              B : Bloqué
+                                              A : Attente de correction
+                                              Null : Non émis

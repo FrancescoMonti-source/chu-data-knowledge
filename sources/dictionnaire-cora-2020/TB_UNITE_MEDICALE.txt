@@ -1,0 +1,21 @@
+==== TB_UNITE_MEDICALE ====
+Thésaurus des Unités Médicales (Utilisée pour les regroupement d'UF (Table TB_UNITE))
+                                                     Clé :
+       1   ID_UNITE_MED                int(10)
+                                                     Identifiant (PrisMédica) de l'Unité médicale
+       2   CODE_UNITE_MED              char(10)      Code de l'unité médicale
+
+       3   LIBELLE_UNITE_MED           char(50)      Libellé de l'Unité médicale
+
+       4   ACTIF                       char(1)       Lien actif (="O")
+                                                     Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                     CORA_UTIL)
+       5   ID_ETABLIS                  smallint(5)
+                                                     Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                     Siège centralisée
+                                                     Mode hospitalisation - > Complète, Partielle ou Mixte (information présente
+       6   MODE_HOSPIT                 char(1)
+                                                     dans le FICUM)
+       7   ID_EJ                       smallint(5)   Identifiant de l'EJ de l'unité médicale                                          1
+
+       8   ID_EXTERNE                  varchar(16)

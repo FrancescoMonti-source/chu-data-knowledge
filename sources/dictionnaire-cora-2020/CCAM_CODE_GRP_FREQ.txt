@@ -1,0 +1,9 @@
+==== CCAM_CODE_GRP_FREQ ====
+Table contenant l'utilisation des actes CCAM par Groupe utilisateur ('Actes Fréquent' d'un groupe utilisateur)
+                                                        Clé - Lien sur CCAM_NV.CODE (ou CLE) :
+       1    CLE                          char(7)
+                                                        Code de l'acte CCAM
+                                                        Clé - Lien Util_lib_groupe.id_groupe :
+       2    ID_GRP                       int(10)
+                                                        Lien sur le groupe utilisateur
+       3    NB                           int(10)        Nombre d'utilisation de l'acte concerné

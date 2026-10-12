@@ -1,0 +1,15 @@
+==== TB_PATHOS ====
+       1   ID_PATHOS           int(10)
+
+       2   ID_PATIENT          int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   DATE_PATHOS         datetime
+
+       4   COMMENTAIRE         varchar(1000)
+
+       5   DATE_INFO           datetime        Date de la dernière modification
+
+       6   HEURE_INFO          datetime
+                                               Lien vers Util.ID_UTIL.
+       7   ID_INFO             int(10)
+                                               Identifiant de l'utilisateur ayant effectué la dernière modification

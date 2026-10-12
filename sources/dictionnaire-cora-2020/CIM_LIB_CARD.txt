@@ -1,0 +1,8 @@
+==== CIM_LIB_CARD ====
+Obsolète
+      1    POINTEUR_1               char(2)
+
+      2    CMD                      char(3)
+       3   POINTEUR_2                     char(2)
+
+       4   LIBELLE                        char(250)

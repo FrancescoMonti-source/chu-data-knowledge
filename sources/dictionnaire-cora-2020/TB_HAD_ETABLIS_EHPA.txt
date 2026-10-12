@@ -1,0 +1,19 @@
+==== TB_HAD_ETABLIS_EHPA ====
+Table contenant les informations permettant de generer le fichier autoehpa.txt utilisé lors du groupage HAD.
+       1   ID_ETABLIS_EHPA             smallint(5)      Identifiant de l'établissment EHPA
+
+       2   NO_FINESS                   char(9)          Numéro de finess de l'établissement
+                                                        Code de situation de l'établissement
+                                                        0 : Sans forfait de soins
+       3   CODE_SITUATION              char(1)
+                                                        1 : Avec forfaits de soins
+                                                        Null : pas défini
+       4   DATE_DEBUT_CONVENTION       datetime         Date de début de validité de l'établissement
+
+       5   DATE_FIN_CONVENTION         datetime         Date de fin de validité de l'établissement
+
+       6   LIB_ETABLIS                 varchar(150)     Nom de l'établissement
+                                                        Code du type d'établissement. PK: PMSI_HAD_TYPE_ETAB_EHPA.CODE.
+       7   TYPE_ETABLISSEMENT          char(2)
+                                                        Ajout pour le format H09 - mars 2015.
+       8   ID_EJ                       smallint(5)      Identifiant de l'EJ. PK: TB_EJ.ID_EJ.                                                1

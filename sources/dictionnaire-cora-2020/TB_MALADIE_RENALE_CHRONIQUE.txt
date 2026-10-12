@@ -1,0 +1,180 @@
+==== TB_MALADIE_RENALE_CHRONIQUE ====
+     1   ID_PATIENT                int(10)        Identifiant du patient. Lien avec TB_PATIENT.ID_PATIENT. Clé de la table
+
+     2   ANNEE                     int(10)        Année d'import des données MRC. Clé de la table
+
+     3   FINESS_GEO                char(9)        Finess géographique
+
+     4   FINESS_JUR                char(9)        Finess juridique
+
+     5   DATE_NAISSANCE            datetime       Date de naissance
+
+     6   SEXE                      char(1)        Sexe du patient (1 : Masculin, 2 : Féminin)
+
+     7   DATE_DEBUT                datetime       Date de début de la prise en charge dans le parcours
+
+     8   DATE_FIN                  datetime       Date de fin de la prise en charge dans le parcours
+                                                  Mode de sortie du patient du parcours :
+                                                  (1) Suppléance - hémodialyse ;
+                                                  (2) Suppléance - dialyse péritonéale ;
+                                                  (3) Suppléance - transplantation
+     9   MODE_SORTIE               char(1)
+                                                  (4) Adressage équipe spécialisée soins palliatifs ;
+                                                  (7) Décès ;
+                                                  (8) Perdu de vue ;
+                                                  (9) Autre.
+                                                  Patient bénéficiant de la CMU-c ou de l'ACS, puis de la "Complémentaire
+                                                  santé solidaire" :
+    10   ASSU_SANTE                char(1)
+                                                  (0) NON
+                                                  (1) OUI
+                                                  Etiologie de la pathologie rénale : Hypertension artérielle :
+    11   PATHO_HTA                 char(1)        (0) NON
+                                                  (1) OUI
+                                                  Etiologie de la pathologie rénale : Néphropathie diabétique :
+    12   PATHO_DIAB                char(1)        (0) NON
+                                                  (1) OUI
+                                                  Etiologie de la pathologie rénale : Glomérulonéphrite primitive :
+    13   PATHO_GLOM                char(1)        (0) NON
+                                                  (1) OUI
+                                                  Etiologie de la pathologie rénale : Polykystose :
+    14   PATHO_KYST                char(1)        (0) NON
+                                                  (1) OUI
+                                                  Etiologie de la pathologie rénale : Pyélonéphrite :
+    15   PATHO_PYELO               char(1)        (0) NON
+                                                  (1) OUI
+                               Etiologie de la pathologie rénale : Vasculaire :
+16   PATHO_VASC     char(1)    (0) NON
+                               (1) OUI
+                               Etiologie de la pathologie rénale : Inconnue :
+17   PATHO_INCO     char(1)    (0) NON
+                               (1) OUI
+                               Stade de la MRC au 1er semestre :
+18   STADE_MRC_S1   char(1)    (4) Stade 4 de la maladie
+                               (5) Stade 5 de la maladie
+                               DFG au 1er semestre :
+                               (0) >30 ml/min;
+                               (1) [25 ; 30[ ml/min ;
+                               (2) [20 ; 25[ ml/min ;
+19   DFG_S1         char(1)
+                               (3) [15 ; 20[ ml/min;
+                               (4) [10 ; 15[ ml/min ;
+                               (5) [ 5 ; 10[ ml/min ;
+                               (6) [ 0 ; 5[ ml/min.
+20   DATE_DFG_S1    datetime   Date DFG au 1er semestre
+                               Test protéinurie des 24h au 1er semestre :
+                               (1) <0,5 g/24h;
+21   PROT_U_S1      char(1)    (2) [0,5; 1[ g/24h;
+                               (3) [1; 3[ g/24h;
+                               (4) > 3 g/24h.
+                               Test spot au 1er semestre :
+                               (1) <20mg /mmol
+22   SPOT_U_S1      char(1)    (2) [20 ; 30[ mg/mmol
+                               (3) [30 ; 3500[ mg/mmol
+                               (4) >3500 mg/mmol
+                               Stade de la MRC au 2e Semestre :
+23   STADE_MRC_S2   char(1)    (4) Stade 4 de la maladie
+                               (5) Stade 5 de la maladie
+                               DFG au 2e semestre :
+                               (0) >30 ml/min;
+                               (1) [25 ; 30[ ml/min ;
+                               (2) [20 ; 25[ ml/min ;
+24   DFG_S2         char(1)
+                               (3) [15 ; 20[ ml/min;
+                               (4) [10 ; 15[ ml/min ;
+                               (5) [ 5 ; 10[ ml/min ;
+                               (6) [ 0 ; 5[ ml/min.
+25   DATE_DFG_S2    datetime   Date DFG au 2e semestre
+                               Test protéinurie des 24h au 2e semestre :
+                               (1) <0,5 g/24h;
+26   PROT_U_S2      char(1)    (2) [0,5; 1[ g/24h;
+                               (3) [1; 3[ g/24h;
+                               (4) > 3 g/24h.
+                               Test spot au 2e semestre :
+                               (1) <20mg /mmol
+27   SPOT_U_S2      char(1)    (2) [20 ; 30[ mg/mmol
+                               (3) [30 ; 3500[ mg/mmol
+                               (4) >3500 mg/mmol
+                               Présence d'au moins une complication ou comorbidité :
+28   COM_PRES       char(1)    (0) NON
+                               (1) OUI
+                               Diabète :
+29   COM_DIAB       char(1)    (0) NON
+                               (1) OUI
+                               Tabac :
+30   COM_TAB        char(1)    (0) NON
+                               (1) OUI
+                               Insuffisance respiratoire chronique ou BPCO (bronchopneumopathie chronique
+                               obstructive) :
+31   COM_RESP       char(1)
+                               (0) NON
+                               (1) OUI
+                               Syndrome d’apnée du sommeil :
+32   COM_SAS        char(1)    (0) NON
+                               (1) OUI
+                               Oxygénothérapie ou assistance ventilatoire à domicile :
+33   COM_O2         char(1)    (0) NON
+                               (1) OUI
+                                                   Insuffisance cardiaque :
+       34   COM_CARD                char(1)        (0) NON
+                                                   (1) OUI
+                                                   Insuffisance coronarienne :
+       35   COM_CORO                char(1)        (0) NON
+                                                   (1) OUI
+                                                   Infarctus du myocarde :
+       36   COM_IDM                 char(1)        (0) NON
+                                                   (1) OUI
+                                                   Troubles du rythme ou de la conduction cardiaque :
+       37   COM_RYTH                char(1)        (0) NON
+                                                   (1) OUI
+                                                   Anévrysme de l’aorte abdominale :
+       38   COM_AA                  char(1)        (0) NON
+                                                   (1) OUI
+                                                   Artérite des membres inférieurs :
+       39   COM_AOMI                char(1)        (0) NON
+                                                   (1) OUI
+                                                   Accident vasculaire cérébral (AVC) :
+       40   COM_AVC                 char(1)        (0) NON
+                                                   (1) OUI
+                                                   Accident ischémique transitoire (AIT) :
+       41   COM_AIT                 char(1)        (0) NON
+                                                   (1) OUI
+                                                   Cancer ou hémopathie évolutif :
+       42   COM_CANC                char(1)        (0) NON
+                                                   (1) OUI
+                                                   AgHBS positif :
+       43   COM_HB                  char(1)        (0) NON
+                                                   (1) OUI
+                                                   PCR VHC positif :
+       44   COM_HC                  char(1)        (0) NON
+                                                   (1) OUI
+                                                   Cirrhose :
+       45   COM_CIRR                char(1)        (0) NON
+                                                   (1) OUI
+                                                   Séropositivité HIV (hors SIDA):
+       46   COM_HIV                 char(1)        (0) NON
+                                                   (1) OUI
+                                                   SIDA :
+       47   COM_SIDA                char(1)        (0) NON
+                                                   (1) OUI
+                                                   Autres :
+       48   COM_AUTRES              varchar(600)   Codes CIM-10 des diagnostics, avec extensions, sans point, séparés par des
+                                                   barres verticales "|"
+                                                   Mobilité selon la classification ABM :
+                                                   (1) Incapacité totale à marcher
+       49   MOB_ABM                 char(1)
+                                                   (2) Aide d'une tierce personne requise pour les déplacements
+                                                   (3) Marche autonome (même assistée d'une canne ou d'un déambulateur)
+       50   NB_CS_NEPHRO            int(10)        Nombre de consultations de néphrologue
+
+       51   NB_CS_DIET              int(10)        Nombre de séances avec un diététicien
+                                                   Nombre de séances avec un IDE pour l'accompagnement du patient à la
+       52   NB_CS_IDE               int(10)
+                                                   gestion de sa pathologie
+       53   NB_CS_SO                int(10)        Nombre d'entretiens avec une assistante sociale
+
+       54   NB_CS_PSY               int(10)        Nombre de séances avec un psychologue
+
+       55   ID_UTIL                 int(10)        Identifiant de l'utilisateur ayant réalisé l'import MRC. Lien avec UTIL.ID_UTIL
+
+       56   DATE_INFO               datetime       Date de dernière modification de l'année

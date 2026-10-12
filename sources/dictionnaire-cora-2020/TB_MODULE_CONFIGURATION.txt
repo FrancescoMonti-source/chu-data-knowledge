@@ -1,0 +1,9 @@
+==== TB_MODULE_CONFIGURATION ====
+       1   ID_MODULE                   int(10)
+
+       2   CODE_CONFIG                 varchar(15)
+       3   VAL_CONFIG                  varchar(100)
+                                                        Lien vers Util.ID_UTIL.
+       4   ID_INFO                     int(10)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification
+       5   DATE_INFO                   datetime         Date de la dernière modification

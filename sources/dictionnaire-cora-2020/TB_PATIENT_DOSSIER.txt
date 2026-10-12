@@ -1,0 +1,20 @@
+==== TB_PATIENT_DOSSIER ====
+Tables de renseignement des Dossiers Patients (dossiers papier)
+                                                      Clé :
+       1   ID_PATIENT_DOSSIER         int(10)
+                                                      Identifiant (PrisMédica) de la fiche dossier patient
+                                                      Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                 int(10)
+                                                      Identifiant du patient
+       3   NO_DOSSIER_PAT             char(16)        Numéro du dossier Patient (numéro unique)
+                                                      Numéro du dossier Unité (numéro attribué par une unité) --> Ce numéro est le
+       4   NO_DOSSIER_UNITE           char(16)
+                                                      dernier utilisé (chronologiquement)
+                                                      Lien sur Util.id_util :
+       5   ID_CREAT                   int(10)
+                                                      Identifiant du créateur de la fiche
+       6   DATE_CREAT                 datetime        Date de création de la fiche
+
+       7   ID_UNITE_MEDICALE          int(10)
+
+       8   CMU                        char(1)         Indique si le patient bénéficie de l'assuranté santé

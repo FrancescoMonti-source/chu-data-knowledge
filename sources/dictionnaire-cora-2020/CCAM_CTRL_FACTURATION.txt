@@ -1,0 +1,30 @@
+==== CCAM_CTRL_FACTURATION ====
+Table de contrôle de règle de Facturation (Information récupérée et traitée des Notes d'actes de type 17) : exemple Acte non
+facturé si présence d'autres actes
+                                                        Lien sur CCAM_NV.CODE :
+       1    CODE_ACTE                    char(7)
+                                                        Code de l'Acte CCAM concerné par la règle de Facturation
+                                                        Code de l'Acte déclenchant la non facturation de l'acte concerné par la règle
+       2   CODE_ACCOMPAGNANT           char(7)
+                                                        ('CODE_ACTE')
+                                                        Permet de connaître la version de la nomenclature CCAM concernée par la
+       3   DT_MODIF                    datetime         règle de Facturation.
+                                                        Historisation des informations dans cette table
+                                                        Permet de gérer la règle : X acte facturé dans les Y jours (exemple : 1 acte
+       4   QTE                         smallint(5)      facturé tous les 5 jours)
+                                                        Paramètre Nb d'acte facturé
+                                                        Permet de gérer la règle : X acte facturé dans les Y jours (exemple : 1 acte
+       5   DUREE                       smallint(5)      facturé tous les 5 jours)
+                                                        Paramètre Période pour la facturation
+                                                        Permet de gérer la règle : X acte facturé dans les Y jours (exemple : 1 acte
+                                                        facturé tous les 5 jours)
+       6   TYPE_DUREE                  char(1)          Paramètre Type de Période :
+                                                        - 'J' : jour ( ex : 1 acte facturé tous les 5 jours)
+                                                        - 'M' : mois (ex : 1 acte facturé tous les 6 Mois)
+                                                        Permet de gérer la règle : Pas de facturation de la consultation suivant les 30
+       7   CONSULTATION                char(1)
+                                                        jours de l'acte CCAM en question
+       8   LIMITE_INTERV               smallint(5)      Facturation de l'acte Y fois au cours de l'intervention - Y = LIMITE_INTERV
+                                                        Non Facturation en cas de présence d'un acte du code de regroupement
+       9   CODE_REGROUPEMENT           char(3)
+                                                        paramétré (ex : ADI, acte de radio)

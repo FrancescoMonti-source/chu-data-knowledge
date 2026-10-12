@@ -1,0 +1,56 @@
+==== TB_LABO_DETAIL_CTRL_QUALITE ====
+Table permettant le stockage des différents tests faits pour un contrôle qualité Labo
+       1   ID_PARAM_CONTROLE_LABO int(10)               Clef unique
+                                                        id du controle qualité dans
+       2   ID_CONTROLE_LABO             int(10)
+                                                        TB_LABO_CONTROLE_QUALITE.ID_CONTROLE_LABO
+                                                        identification du type de la verification à opérer dans le dossier. Les types
+                                                        possibles sont :
+                                                        -Code Test Biologie
+                                                        -Libellé Test Biologie
+                                                        -CMA ou CMAS
+                                                        -Diagnostics
+                                                        -Diagnostic principal
+                                                        -Diagnostic Relié
+                                                        -Diagnostic Associés
+       3   CODE_ITEM                    varchar(50)
+                                                        -Age (Jours)
+                                                        -Age (Mois)
+                                                        -Age (Année)
+                                                        -IGS
+                                                        -Date Sortie
+                                                        -Sexe
+                                                        -GHM
+                                                        -Durée RSS
+                                                        -Sévérité
+       4   VALEUR_1                     varchar(250)    1ère valeur à faire correspondre pour le contrôle qualité
+
+       5   VALEUR_2                     varchar(250)    2ème valeur à faire correspondre pour le contrôle qualité
+
+       6   OPERATEUR                    varchar(50)     opérateur de comparaison des valeur (=, >=...)
+                                                        Non utilisé
+       7   ORDRE                        smallint(5)     Ordre d'exécution de de ce test par rapport aux autres dans le contrôle qualité
+                                                        labo
+       8   LIEN                         char(4)         Non utilisé
+
+       9   NIVEAU                       smallint(5)     Non utilisé : toujours 0
+                                                        Valeur de l'examen dans la norme HPRIM Labo, de type Code~Libellé
+      10   VAL_EXAM                     varchar(100)
+                                                        N'est plus utilisé
+      11   OBLIGATOIRE                  char(1)         Est ce que le contrôle est obligatoire
+                                                       Identifiant du test qualité Labo (lien sur
+                                                       TB_LABO_DETAIL_CTRL_QUALITE.ID_PARAM_CONTROLE_LABO) auquel
+           ID_PARAM_CONTROLE_LABO
+      12                          int(10)              le test est associé dans le cas de liens multiples (ET ou OU) sur un même
+           _LIEN
+                                                       contrôle qualité Labo
+                                                       Vaut 0 ou null si aucun lien
+                                                       Type de lien (ou OU et) entre les différents contrôle labo d'un même contrôle
+      13   TYPE_LIEN                   char(2)
+                                                       qualité de laboratoire
+                                                       Permet de tester uniquement l'indicateur "Anormal" du résultat, sans ajouter de
+      14   ANORMALITE                  char(1)         tests numériques (1 si anormal, 0 sinon)
+                                                       Non exploité
+                                                       code de l'examen (permet de faire le lien avec
+      15   CODE_EXAM                   varchar(22)     TB_LABO_THESAURUS.CODE_LIB_EXAM
+                                                        ou TB_LABO_MATRICE_CODE.CODE_QUALI_LABO)

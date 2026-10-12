@@ -1,0 +1,10 @@
+==== PMSI_AUTORISATION_MCO ====
+                                                      Code de l'autorisation SROS pour le MCO. Sur 3 caractères depuis mars 2013
+       1   CODE_AUTORISATION           varchar(3)
+                                                      (FG11E)
+       2   LIB_AUTORISATION            varchar(200)   Libellé de l'autorisation
+
+       3   DATE_DEBUT                  datetime       Date de début de validité de cette autorisation
+                                                      Date de fin
+       4   DATE_FIN                    datetime
+                                                      de validité de cette autorisation

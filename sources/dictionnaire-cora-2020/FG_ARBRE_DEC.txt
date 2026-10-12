@@ -1,0 +1,15 @@
+==== FG_ARBRE_DEC ====
+Table de l'arbre de décision
+       1   VERSION_FG                 char(3)           Version de la fonction de groupage
+
+       2   NO_ARTICLE                 smallint(5)       Numéro de la ligne a exécuté (identifiant)
+
+       3   NO_TEST                    smallint(5)       Numéro du test de l'arbre
+
+       4   PARAM_1                    char(5)           Paramètre 1 qui sert aux tests
+
+       5   PARAM_2                    char(5)           Paramètre 2 qui sert aux tests
+
+       6   NB_BRANCHES_FILLE          smallint(5)       Nombre de branche filles possible pour le test
+
+       7   NO_BRANCHE_FILLE           smallint(5)       Numéro de la branche fille suivante (avec +1 ou non ) selon la positivité du test

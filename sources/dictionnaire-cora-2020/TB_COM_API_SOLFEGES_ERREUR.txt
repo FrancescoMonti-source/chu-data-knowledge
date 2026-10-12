@@ -1,0 +1,20 @@
+==== TB_COM_API_SOLFEGES_ERREUR ====
+Table contenant le détail des erreurs renvoyées par l'API Solféges quand il y en a.
+                                                       Clé primaire: Identifiant unique de l'erreur de la communication avec l'API
+       1    ID                          int(10)
+                                                       solféges pour un séjour.
+                                                       Identifiant du séjour pour lequel la communication avec l'API Solféges a été
+       2    ID_SEJOUR                   int(10)
+                                                       faite. Lien avec TB_SEJOUR.ID_SEJOUR
+                                                       Identifiant de l'appel de l'API pour faire le lien avec les informations principales.
+       3    ID_API                      int(10)
+                                                       Lient avec TB_COM_API_SOLFEGES
+       4    CODE                        varchar(4)     Code de l'erreur renvoyée par l'API Solféges
+                                                       Définit le type d'erreur renvoyé par l'API. Exemple : Erreur de groupage, Erreur
+       5    TYPE                        varchar(30)
+                                                       de format pour les PO, etc.
+       6    LIBELLE_ERREUR              varchar(150)   Libellé de l'erreur
+
+       7    ID_INFO                     int(10)        Identifiant de l'utilisateur ayant lancé la communication avec l'API
+
+       8    DATE_INFO                   datetime       Date à laquelle la communication avec l'API Solféges a été lancée.

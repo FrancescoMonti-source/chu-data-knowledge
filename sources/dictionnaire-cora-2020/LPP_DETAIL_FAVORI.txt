@@ -1,0 +1,9 @@
+==== LPP_DETAIL_FAVORI ====
+Table contenant les codes LPP d'un Favori
+                                                        Clé - Lien sur LPP_FOLDER_FAVORI.ID_FOLDER :
+       1   ID_FOLDER                     int(10)
+                                                        Identifiant du Favori
+                                                        Clé - Lien sur LPP.CODE_LPP :
+       2   CODE_LPP                      char(13)
+                                                        Code référence LPP
+       3   ORDRE_LPP                     smallint(5)    Ordre d'affichage des codes dans le Favori

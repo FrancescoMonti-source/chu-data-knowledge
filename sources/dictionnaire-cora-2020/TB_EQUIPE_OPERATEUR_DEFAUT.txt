@@ -1,0 +1,12 @@
+==== TB_EQUIPE_OPERATEUR_DEFAUT ====
+Table de Paramétrage des équipes habituelles d'un opérateur
+Table de Paramétrage des équipes habituelles d'un opérateur
+                                                        Clé - Lien sur Util.id_util :
+       1    ID_OPERATEUR                int(10)
+                                                        Lien sur l'opérateur
+                                                        Clé - Lien sur Util.id_util :
+       2    ID_INTERVENANT              int(10)
+                                                        Lien sur l'intervenant
+                                                        Clé :
+       3    NO_EQUIPE                   int(10)         N° de l'équipe (chrono pour un même couple ID_OPERATEUR ,
+                                                        ID_INTERVENANT)

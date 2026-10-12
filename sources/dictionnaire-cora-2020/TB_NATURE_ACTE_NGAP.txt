@@ -1,0 +1,4 @@
+==== TB_NATURE_ACTE_NGAP ====
+       1    CODE_NATURE_ACTE            char(3)
+
+       2    LIB_NATURE_ACTE             varchar(50)

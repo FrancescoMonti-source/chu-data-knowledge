@@ -1,0 +1,9 @@
+==== R_ACTE_CMUC ====
+Forfait CMUC (Couverture Maladie Universelle Complementaire) - un acte peut avoir plusieurs coupleForfait/Indice.
+                                                         CCAM n° 1
+       1    ACTE_COD                      char(13)
+                                                         Code semi-structuré de l'acte
+       2    MODIF_DT                      datetime       date de mise à jour de l'acte
+                                                         Clé technique entre la table et
+       3    CLE_FORFAITAIRE               smallint(5)
+                                                         la Table TB21

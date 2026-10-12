@@ -1,0 +1,30 @@
+==== TB_REQUETE_ENVOI ====
+Stocke les caractéristiques des envois automatiques
+       1   ID_ENVOI                   int(10)         ID de l'envoi
+
+       2   TITRE                      varchar(300)    Titre de l'envoi
+
+       4   DATE_DEBUT                 datetime        Date de début de l'envoi
+
+       5   DATE_FIN                   datetime        Date de fin de l'envoi
+
+       7   ID_CREAT                   int(10)         Id du créateur de l'envoi
+
+       8   DESTINATAIRES              varchar(255)    Liste des destinataires (id utilisateur séparé par des ;)
+
+       9   INFINI                     char(1)         L'envoi n'a pas de date de fin
+
+      10   ACTIF                      char(1)         L'envoi est actif
+
+      11   TYPE_RECURRENCE            char(1)         Type de récurrence (quotidien, hebdo, mensuel, annuel)
+      12   RECURRENCE_JOUR               varchar(150)    Jour de récurrence (si récurrence hebdo, liste de jour séparé par des ;)
+
+      13   DATE_DERNIER_ENVOI            datetime        Date de dernier envoi réussi
+
+      14   STATUT                        char(1)         Statut du dernier envoi
+
+      15   ID_MODELE                     smallint(5)     Id du modèle associé à l'envoi
+
+      16   ID_RAPPORT                    int(10)         Id du rapport associé à l'envoi
+
+      20   ID_CATEGORIE                  int(10)         Catégorie

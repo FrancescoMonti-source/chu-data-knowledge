@@ -1,0 +1,6 @@
+==== TB_CATEGORIE_STAT ====
+       1    ID_CATEGORIE_STAT           smallint(5)
+
+       2    LIB_CATEGORIE_STAT          varchar(100)
+
+       3    ID_PERE                     smallint(5)

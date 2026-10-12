@@ -1,0 +1,21 @@
+==== TB_PROTO_DET_STATUT_DOC ====
+Cette table peremt l'association entre les protocoles de statuts et les statuts.
+                                                          Clé : Lien sur TB_STATUT_DOC.ID_STATUT_DOC
+       1    ID_STATUT_DOC                smallint(5)
+                                                          Définit l'identifiant (PrisMédica) du statut.
+                                                          Clé : Lien sur TB_PROTO_STATUT_DOC.ID_PROTO_STATUT_DOC
+       2    ID_PROTO_STATUT_DOC          smallint(5)
+                                                          Définit l'identifiant (PrisMédica) du protocole de statut.
+       3    FLAG_LIEN_USER               char(1)          Définit un boolean indiquant si le statut est associé à une action utilisateur.
+                                                          Définit une chaine de caractere indiquant quelle est l'action initialisante pour le
+                                                          statut.
+                                                          - "" : Aucune.
+                                                          - C : Création.
+                                                          - F : Fusion.
+       4    FLAG_GENERE_ACTION           char(1)
+                                                          - I : Impression.
+                                                          - V : Verrouillage.
+                                                          - D : Diffusion.
+                                                          - S : Signature
+                                                          - R : Retractation.
+       5    ORDRE                        smallint(5)      Définit l'ordre du statut dans le protocole.

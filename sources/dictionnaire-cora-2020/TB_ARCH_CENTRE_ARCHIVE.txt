@@ -1,0 +1,14 @@
+==== TB_ARCH_CENTRE_ARCHIVE ====
+Définit une table contenant les centres d'archives d'un établissement.
+                                                        Clé :
+       1   ID_CENTRE_ARCHIVE            smallint(5)
+                                                        Définit l'identifiant du centre d'archive.
+       2   LIB_CENTRE_ARCHIVE           varchar(80)     Définit le libellé du centre d'archive.
+
+       3   PREFIX_NO_ARCHIVE            varchar(15)     Définit le préfixe utilisé pour la création du numéro de dossier.
+
+       4   COMPTEUR                     int(10)         Définit le compteur utilisé pour la création du numéro de dossier.
+                                                        Définit un boolean indiquant si le centre d'archive correspond à l'archive
+       5   DEFAUT                       char(1)                                                                                              'N'
+                                                        centrale.
+       6   ACTIF                        char(1)         Définit un boolean indiquant si le centre d'archive est actif.                       'O'

@@ -1,0 +1,5 @@
+==== CFTMEA_CIM ====
+Saisie des diagnostics pour la pedo-psychatrie
+       1   CODE_CFTMEA                   varchar(10)
+
+       2   CODE_CIM                      char(16)

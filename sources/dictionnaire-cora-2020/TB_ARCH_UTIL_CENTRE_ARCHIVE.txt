@@ -1,0 +1,8 @@
+==== TB_ARCH_UTIL_CENTRE_ARCHIVE ====
+Définit une table contenant les archivistes regroupés par centre d'archive.
+                                                       Clé :
+       1   ID_CENTRE_ARCHIVE            smallint(5)
+                                                       Définit l'identifiant du centre d'archive.
+                                                       Clé :
+       2   ID_UTIL                      int(10)
+                                                       Définit l'identifiant de l'utilisateur associé au centre d'archive.

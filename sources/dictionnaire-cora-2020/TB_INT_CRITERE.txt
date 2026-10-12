@@ -1,0 +1,20 @@
+==== TB_INT_CRITERE ====
+     1    ID                  int(10)        Clef
+
+     2    ID_REQUETE          int(10)        FK TB_INT_REQUETE.ID
+
+     3    ORDRE               smallint(5)    Position du critère dans la requête
+
+     4    DESCRIPTIF          varchar(500)   Explications sur la donnée à renseigner pour le critère de sélection
+
+     5    NOM_COLONNE         varchar(50)    Nom du champ en BDD
+
+     6    TYPE_DONNEE         smallint(5)    Entier, chaine de caractère...
+                                             Lien vers Util.ID_UTIL.
+     7    ID_INFO             int(10)
+                                             Identifiant de l'utilisateur ayant effectué la dernière modification
+     8    DATE_INFO           datetime       Date de la dernière modification
+                                             Lien sur TB_UTIL.ID_UTIL
+     9    ID_CREAT            int(10)
+                                             Identifiant de l'utilisateur de création
+     10   DATE_CREAT          datetime       Date de création

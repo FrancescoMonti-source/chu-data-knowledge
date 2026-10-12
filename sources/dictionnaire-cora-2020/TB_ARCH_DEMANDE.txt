@@ -1,0 +1,34 @@
+==== TB_ARCH_DEMANDE ====
+Définit une table contenant des demandes de dossier.
+                                                        Clé :
+       1   ID_ARCH_DEMANDE              int(10)
+                                                        Définit l"identifiant de la demande de dossier.
+                                                        Lien sur TB_ARCH_DOSSIER.ID_ARCH_DOSSIER :
+       2   ID_ARCH_DOSSIER              int(10)
+                                                        Définit l'identifiant du dossier lié à la demande.
+                                                        Lien sur TB_ARCH_LIEU.ID_LIEU :
+       3   ID_LIEU                      smallint(5)
+                                                        Définit l'identifiant du lieu ou l'on veut réceptionner le dossier.
+                                                       Lien surTB_UTIL.ID_UTIL :
+       4    ID_UTIL                     int(10)
+                                                       Définit l'identifiant de l'utilisateur qui fait la demande de dossier.
+                                                       Lien sur TB_ARCH_MOTIF.ID_MOTIF :
+       5    ID_MOTIF                    smallint(5)
+                                                       Définit l'identifiant du motif de la demande.
+       6    DATE_MAD                    datetime       Défiit la date de la mise à disposition du dossier.
+
+       7    DATE_PREVU_FIN_MAD          datetime       Définit la date prévisionnelle de fin de la mise à disposition du dossier.
+
+       8    DATE_CREAT                  datetime       Définit la date de création de la demande.
+                                                       Définit l'état de la demande :
+                                                       - I / Indisponible
+       9    ETAT_DEMANDE                char(1)        - N / Non traité                                                                      'N'
+                                                       - A / Accepté
+                                                       - R / Réceptionné
+       10   URGENCE                     char(1)        Définit un boolean indiquant si la demande de dossier est urgente.                    'N'
+
+       11   COMMENTAIRE                 varchar(250)   Définit le commentaire associé à la demande.
+
+       12   COMMENTAIRE_REFUS           varchar(250)   Définit le commentaire de refus sur la demande.
+
+       13   DATE_RELANCE                datetime       Définit la date de relance sur le dossier.

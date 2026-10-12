@@ -1,0 +1,51 @@
+==== TB_PSY_PERIODE_CONTISOL ====
+Table des périodes de contentions et d'isolement -> contient les données des variables
+       1   ID                          int(10)        Clé - Identifiant de la période
+
+       2   NUMERO                      int(10)        Numéro de la période
+
+       3   ID_SEJOUR                   int(10)        Identifiant du séjour
+
+       4   TYPE                        char(1)        Type de la période (I : Isolement/C:Contention)
+
+       5   DATE_DEBUT                  datetime       Date heure début de la période
+
+       6   DATE_FIN                    datetime       Date heure fin de la période
+
+       7   MOTIF_VIOLENCE              char(1)        Motif : Violence ou Heteoagressivite
+
+       8   MOTIF_SUICIDE               char(1)        Motif : Suicide ou TS
+
+       9   MOTIF_AUTOAGRESSIVITE       char(1)        Motif : Autoagressivité hors suicide
+
+      10   MOTIF_AGITATION             char(1)        Motif : Etat d agitation non dirigée
+
+      11   MOTIF_AUTRES                char(1)        Motif : Autres
+
+      12   PATHO_SCHIZOPHRENIE         char(1)        Pathologie chronique : Schizophrénie
+
+      13   PATHO_MANIAQUE              char(1)        Pathologie chronique : Épisode maniaque
+
+      14   PATHO_BIPOLAIRE             char(1)        Pathologie chronique : Trouble affectif bipolaire
+
+      15   PATHO_DEPRESSIF             char(1)        Pathologie chronique : Épisode dépressif
+
+      16   PATHO_NEURO_DEV             char(1)        Pathologie chronique : Trouble du Neurodéveloppement
+
+      17   PATHO_NEURO_DEGENE          char(1)        Pathologie chronique : Troubles Neuro-dégénératifs
+
+      18   PATHO_DEFICITAIRES          char(1)        Pathologie chronique : Troubles déficitaires
+
+      19   PATHO_AUTRES                char(1)        Pathologie chronique : Autres
+
+      20   TROUBLE_PERSONNALITE        char(1)        Trouble spécifique de la personnalité
+
+      21   INTOXICATION_AIGUE          char(1)        Prise de substance toxique : Intoxication aigue
+
+      22   INTOXICATION_CHRONIQUE      char(1)        Prise de substance toxique : Intoxication chronique
+
+      23   PAT_CONNU                   char(1)        Patient connu
+
+      24   ID_INFO                     int(10)        Identifiant de l'utilisateur. Lien avec UTIL.ID_UTIL
+
+      25   DATE_INFO                   datetime       Date de dernière modif

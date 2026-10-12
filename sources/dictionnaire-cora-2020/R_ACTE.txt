@@ -1,0 +1,94 @@
+==== R_ACTE ====
+Table des actes et/ou groupements d'actes
+                                                       Clé :
+       1   COD_ACTE                   char(13)
+                                                       Code semi-structuré de l'acte
+                                                       Clé :
+       2   DT_MODIF                   datetime         Date de mise à jour
+                                                       CLE avec COD_ACTE
+                                                       Lien avec R_MENU :
+       3   MENU_COD                   float(53)
+                                                       Positionnement dans hiérarchie
+                                                       CCAM n° 41
+       4   FRAIDP_COD                 char(1)
+                                                       Code frais déplacement
+                                                       Code mode de
+       5   REMBOU_COD                 int(10)
+                                                       remboursement
+                                                       - 0 : Acte isolé
+                                                       - 1 : Procédure d'actes
+       6   TYPE_COD                   int(10)
+                                                       - 2 : Actes complémentaires
+                                                       (= CCAM_NV.TYPE_ACTE pour le dernier historique)
+                                                       CCAM n° 5
+       7   COD_STRUCT                 char(13)
+                                                       Code Structuré de l'Acte
+                                                       Libellé raccourci de l'acte.
+       8   NOM_COURT                  char(70)
+                                                       (= CCAM_NV.LIBELLE_COURT pour le dernier historique)
+                                                       Libellé complet de l'acte
+       9   NOM_LONG                   char(2500)
+                                                       (= CCAM_NV.LIBELLE_LONG pour le dernier historique)
+      10   NOM_LONG00                 char(254)        Suite du libelle de l'acte
+
+      11   NOM_LONG0                  char(254)        Suite du libelle de l'acte
+
+      12   NOM_LONG1                  char(254)        Suite du libelle de l'acte
+
+      13   NOM_LONG2                  char(254)        Suite du libelle de l'acte
+
+      14   NOM_LONG3                  char(254)        Suite du libelle de l'acte
+
+      15   NOM_LONG4                  char(254)        Suite du libelle de l'acte
+
+      16   NOM_LONG5                  char(254)        Suite du libelle de l'acte
+
+      17   NOM_LONG6                  char(254)        Suite du libelle de l'acte
+
+      18   NOM_LONG7                  char(254)        Suite du libelle de l'acte
+
+      19   NOM_LONG8                  char(254)        Suite du libelle de l'acte
+
+      20   NOM_LONG9                  char(254)        Suite du libelle de l'acte
+
+      21   NOM_LONGA                  char(254)        Suite du libelle de l'acte
+
+      22   NOM_LONGB                  char(254)        Suite du libelle de l'acte
+
+      23   NOM_LONGC                  char(254)        Suite du libelle de l'acte
+
+      24   NOM_LONGD                  char(254)        Suite du libelle de l'acte
+
+      25   NOM_LONGE                  char(254)        Suite du libelle de l'acte
+                                                       Sexe compatible
+                                                       1 : Homme
+      26   SEXE                       int(10)
+                                                       2 : Femme
+                                                       0 sans incompatibilité
+                                                         CCAM n° 18
+       27   DT_CREATIO                    datetime
+                                                         Date de création de l'acte
+                                                         Date de fin de validité
+       28   DT_FIN                        datetime
+                                                         (= CCAM_NV.DT_FIN pour le dernier historique)
+                                                         CCAM n° 24
+       29   ENTENTE                       char(1)
+                                                         Entente préalable
+       30   DT_EFFET                      datetime       Date de prise en compte
+                                                         CCAM n° 27
+       31   DT_ARRETE                     datetime       Date de l'arrêté ministériel
+                                                         "tarification"
+                                                         Date de publication au JO
+       32   DT_JO                         datetime
+                                                         "tarification"
+                                                         CCAM n° 17
+                                                         Position de l'acte dans le
+       33   MFIC_PLACE                    float(53)
+                                                         dernier niveau de
+                                                         l'Arborescence
+                                                         CCAM n° 49
+       34   PRECEDENT                     char(13)       Code de l'Acte précédent si
+                                                         celui-ci a été recodifié
+                                                         CCAM n° 50
+       35   SUIVANT                       char(13)       Code de l'Acte suivant s'il y a
+                                                         eu recodification

@@ -1,0 +1,16 @@
+==== TB_LANCEMENT ====
+Table de traçage des lancements des interfaces et génération de fichier
+                                                        Clé :
+       1    ID_LANCEMENT                int(10)
+                                                        Identifiant de la table
+                                                        Application tracée :
+                                                        - CORA_SILLAGE.exe
+       2    APPLI_LANCEMENT             char(20)        - INT. RUM DIAG
+                                                        - INT_ACTIVITE: permet de bloquer l'envoi simultané de plusieurs
+                                                        exports/imports, ligne supprimée après chaque traitement
+       3    DATE_LANCEMENT              datetime        Date de lancement
+                                                        Trace spécifique par Interface : peut contenir le nom du fichier généré, la
+                                                        requête utilisée pour sélectionner les éléments à envoyer, le répertoire de
+       4    PARAM_LANCEMENT             varchar(2000)
+                                                        génération du fichier, la liste des options utilisées…
+                                                        Pour INT_ACTIVITE contient: le nom de la machine | la fonction lancée

@@ -1,0 +1,11 @@
+==== MOT_CLE_MOT_INTERNE ====
+Table contenant les synnonymes pour chaque mot- clé
+       1   MOT_CLE                     char(50)        Synonyme du mot clé. Lien avec la table MOT_CLE.MOT_CLE
+
+       2   MOT_INTERNE                 char(50)        Mot-clé auquel on doit associé des synonymes
+                                                       Indique si le synonyme peut correspondre à un diagnostic.
+       3   D                           char(1)         'X' pour si il correspond à un diag
+                                                       NULL sinon.
+                                                       Indique si le synonyme peut correspondre à un acte.
+       4   A                           char(1)         'X' pour si il correspond à un acte
+                                                       NULL sinon.

@@ -1,0 +1,18 @@
+==== R_TB07 ====
+seuil minimum pour exonération TM
+                                                        date d'effet du seuil
+       1   DT_DEBUT                       datetime
+                                                        d'exonération TM
+                                                          valeur du seuil minimum
+       2   METROPOLE                      float(53)       d'exonération du ticket
+                                                          modérateur pour la métropole
+                                                          valeur du seuil minimum
+       3   ANTILLES                       float(53)       d'exonération du ticket
+                                                          modérateur pour les antilles
+                                                          valeur du seuil minimum
+       4   REUNION                        float(53)       d'exonération du ticket
+                                                          modérateur pour la réunion
+                                                          valeur du seuil minimum
+       5   GUYANE                         float(53)       d'exonération du ticket
+                                                          modérateur pour la guyane
+       6   DT_FIN                         datetime        Date de fin

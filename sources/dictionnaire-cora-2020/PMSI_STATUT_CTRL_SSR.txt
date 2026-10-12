@@ -1,0 +1,6 @@
+==== PMSI_STATUT_CTRL_SSR ====
+Table permettant la gestion du thésaurus des statuts personnalisés en SSR afin de typer des RHS
+                                                      Clé :
+       1   CODE_STATUT_CTRL_SSR        char(1)
+                                                      Code du statut personnalisé SSR
+       2   LIBELLE_STATUT_CTRL_SSR varchar(100)       Libellé du statut personnalisé SSR

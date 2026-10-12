@@ -1,0 +1,7 @@
+==== PRESC_THES_CAT_VOIE_ADMIN ====
+Catégorie (=Groupe) de Voie d'administration (Perfusions, injections, per-os, voie inhalee, SAP, Autres)
+       1   ID_CAT_VOIE_ADMIN            smallint(5)    Clé de la Table
+                                                       Catégorie (=Groupe) de Voie d'administration (Perfusions, injections, per-os,
+       2   LIB_CAT_VOIE_ADMIN           varchar(100)
+                                                       voie inhalee, SAP, Autres)
+       3   ORDRE                        smallint(5)

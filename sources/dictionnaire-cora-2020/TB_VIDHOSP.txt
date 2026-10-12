@@ -1,0 +1,185 @@
+==== TB_VIDHOSP ====
+       1   ID_VIDHOSP                  int(10)          Identifiant du VIDHOSP. Clé de la table.
+
+       2   ID_SEJOUR                   int(10)          FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       3   NO_SECU                     char(13)         Numéro de sécu : Numéro d'immatriculation de l'assuré.
+
+       4   CLE_SECU                    char(2)          Clé de sécu : Clé du numéro d'immatriculation de l'assuré.
+
+       5   CODE_REGIME                 char(2)          Code grand régime.
+
+       6   DATE_NAIS                   datetime         Date de naissance du patient.
+
+       7   SEXE                        char(1)          Sexe du patient.
+
+       8   CODE_EXO                    char(1)          Justification d'exonéation ou de modulation du ticket modérateur.
+
+       9   CODE_PEC                    char(1)          Code de prise en charge du forfait journalier
+                                                        Nature d'assurance : 10 - maladie, 13 - maladie régime local Alsace Moselle,
+      10   NATURE_ASSURANCE            char(2)
+                                                        30 - maternité, 41 - accident du travail, 90 : prévention maladie.
+                                                        Type de contrat codification fournie par la caisse.
+                                                        85 - Sortants du dispositif CMUC (géré par un orgasnime obligatoire),
+                                                        87 : Sortants du dispositif CMUC (géré par un organisme complémentaire) ,
+      11   TYPE_CONTRAT_COMPL          char(2)
+                                                        88 - aide à la mutualisation (panier de biens = panier CMUC),
+                                                        89 - bénéficiaire de la CMU complémentatire (en cours), quel que soit le
+                                                        gestionnaire.
+                                                        Indique si le séjour est facturable à l'assurance maladie. 1 = AMO, 2 = En
+      12   FACTURABLE_AM               char(1)          attente de décision sur le taux de PEC, 3 = En attente de décision sur les
+                                                        droits du patient.
+                                                        Participation forfaitaire de 18 € en cas de réalisation d'actes coûteux au cours
+      13   FACTURATION_18_EUR          char(1)
+                                                        de la prise en charge.
+      14   NB_VENUES                   smallint(5)      Nombre de venues de la facture.
+
+      15   MNT_FACT_TIC_MODER          decimal(10, 2)   Montant Ticket Modérateur.
+
+      16   MNT_FACT_FORF_JOUR          decimal(10, 2)   Montant à facturer au titre du forfait journalier.
+17   MNT_TOT_REMBOURSABLE      decimal(10, 2)   Montant total su séjour remboursable pour l'AMO.
+     MNT_TOT_MAJO_PARC_SOIN
+18                          decimal(4, 2)       Montant lié à la majoration au parcours de soins
+     S
+     MNT_TOT_PREST_BASE_REM
+19                          decimal(10, 2)      Montant base remboursement.
+     B
+20   TAUX_REMB                 decimal(5, 2)    Taux de prise en charge
+
+21   DATE_INFO                 datetime         Date de la dernière modification
+                                                Lien vers Util.ID_UTIL.
+22   ID_INFO                   smallint(5)
+                                                Identifiant de l'utilisateur ayant effectué la dernière modification
+                                                Indique le motif de non facturation en AMO. 1 = Patient en AME, 2 = Patient
+23   MOTIF_NON_FACT            char(1)          CVI, 3 = Patient payant, 4 = Patient en soins d'urgence, 5 = Patient en PIE, 6 =
+                                                Actes réalises en Activité libérale, 9 = Autres.
+                                                Patient bénéficiaire de la CMU.
+                                                0 : Non,
+24   COUVERTURE_CMU            char(1)
+                                                1 : Oui,
+                                                Vide : Pas d'informations.
+                                                Numéro administratif de séjour de la mère. A renseigner pour tous les
+25   NO_SEJOUR_MERE            varchar(20)
+                                                nouveaux-nés dont la mère est hospitalisée dans l'établissement.
+                                                Hospitalisation d'un nouveau-né auprès de la mère.
+26   HOSPIT_NN_AVEC_MERE       char(1)          1 : Oui
+                                                Vide: non ou pas d'informations.
+                                                Hospitalisation pour prélèvement d'organe.
+27   HOSPIT_PRELEV_ORGA        char(1)          1 : Oui
+                                                Vide: non ou pas d'informations.
+28   LIGNE_VIDHOSP             varchar(4000)    Ligne VIDHOSP
+
+29   NO_FORMAT                 varchar(4)       Numéro du format du VIDHOSP.
+
+30   DATE_HOSPIT               datetime         Date du début de l'hospitalisation quel que soit l'établissement.
+                                                Montant total du séjour remboursable par l'AMC. Dans le cas d'un séjour
+                                                nomrlan il doit correspondre au montant du reste à charge patient hors
+31   MNT_TOT_REMB_AMC          decimal(10, 2)
+                                                prestations annexes. Il doit être renseigné même si le patient n'a pas
+                                                d'assurance complémentaire.
+32   CODE_PARTICIP_ASSU        char(1)          Code participation assuré.
+
+33   NUM_ENTREE                varchar(9)       Numéro d'entrée : Numéro attribué par l'établissement.
+
+34   RANG_NAISS                char(1)          Rang de naissance.
+                                                Rang du bénéficiaire : Valeur 000 pour le régime général. A prendre sur
+35   RANG_BENEFICIAIRE         char(3)
+                                                l'attestation de droits ou la prise en charge pour autres régimes si présent.
+36   NO_CAISSE_GESTION         char(3)          Numéro de caisse gestionnaire.
+
+37   NO_CENTRE_GESTION         char(4)          Numéro de centre gestionnaire.
+
+38   NAT_PIECE_JUSTIF_DT       char(1)          Nature de la pièce justificative des droits.
+
+39   DATE_PEC_AM               datetime         Date de prise en charge de l'assurance maladie.
+
+40   DATE_VALID_ATT_DT         datetime         Date de validité de l'attestation de droits.
+
+41   CODE_ORGA_DELIV_DT        varchar(3)       Code de l'organiseme ayant délivré l'attestation de droits.
+
+42   REGIME_PRESTA_ASS         varchar(3)       Régime de prestation de l'assuré.
+
+43   NO_DATE_ACC_TRAVAIL       varchar(9)       Numéro accident du travail ou date d'accident de droit commun.
+
+44   FLAG_ECLATE_FLUX_ETAB     char(1)          Top éclatement des flux par l'établissement.
+
+45   DATE_ENTREE_HOSPIT        datetime         Date d'entrée de l'hospitalisé dans l'établissement qui présente la facture.
+
+46   DATE_SORTIE_HOSPIT        datetime         Date de sortie de l'hospitalisé.
+
+47   NO_ORGA_COMPL             varchar(10)      Numéro d'organisme complémentaire.
+
+48   COMPL_NO_TITRE_RECETTE varchar(6)          Complément au numéro de titre de recette.
+                                                Top déclaration de médecin traitant .
+                                                "O" : Si le bénéficiaire a déclaré un médecin traitant,
+49   FLAG_DECLAR_MED_TRAIT     char(1)
+                                                "N": Si le bénéficiaire n'a pas déclaré de médecin traitant
+                                                "" : Autres situations.
+50   NOM_MED_TRAIT             varchar(25)      Nom du médecin traitant.
+      51   PRENOM_MED_TRAIT          varchar(15)     Prénom du médecin traitant.
+
+      52   FLAG_PARCOURS_SOINS       char(1)         Indicateur du parcours de soins.
+                                                     CMUC en gestion unique.
+                                                     0 : Non,
+      53   CMUC_GEST_UNIQUE          char(1)
+                                                     1 : Oui,
+                                                     Vide : pas d'informations ou non applicable.
+      54   FINESS_ETAB_TRANSFERT     varchar(14)     Numéro de finesse de l'établissement de transfert.
+
+      55   FINESS_ETAB_RETOUR        varchar(14)     Numéro de finess de l'établissement de retour.
+
+      56   NB_DMT                    smallint(5)     Nombre de DMT
+
+      57   NO_SEJOUR                 varchar(20)     Numéro de séjour.
+
+      58   FLAG_SIMULE               char(1)         Flag simulé                                                                   'N'
+
+      59   CODE_GESTION              char(2)         Code gestion.
+                                                     Confirmation de la prise en charge dans le cadre du dispositif des soins
+      60   FLAG_PEC_SOINS_URGENTS char(1)            urgents.
+                                                     1 pour oui, laisser à vide sinon.
+      61   FINESS_INSCRIPTION_EPMSI char(9)          Numéro de finess d'inscription E-PMSI.
+
+      62   NO_SECU_INDIVIDUEL        char(13)        Numéro d'immatriculation individuel.
+
+      63   CLE_SECU_INDIVIDUEL       char(2)         Clé du numéro d'immatriculaion individuel.
+
+      64   MNT_TOT_SEJ_FACT_PAT      decimal(8, 2)   Montant total du séjour facturé au patient.
+
+      65   REJET_AMO                 smallint(5)     Rejet AMO : Nombre de fois où FT AMO a été rejetée (0 à 9).
+
+      66   DATE_FACT_AMO             datetime        Date de l'envoi de la facturation AMO.
+
+      67   DATE_FACT_AMC             datetime        Date de l'envoi de la facturation AMC.
+
+      68   DATE_FACT_PATIENT         datetime        Date de l'envoi de la facturation Patient.
+
+      69   DATE_PAIE_AMO             datetime        Date à laquelle la FT AMO est payée en totalité.
+
+      70   DATE_PAIE_AMC             datetime        Date à laquelle la FT AMC est payée en totalité.
+
+      71   DATE_PAIE_PATIENT         datetime        Date à laquelle la FT Patient est payée en totalité.
+                                                     Statut de la facturation AMO.
+                                                     0 : Avant FT validée,
+                                                     1 : FT validée,
+      72   STATUT_FACT_AMO           char(1)
+                                                     2 : FT en NiNi,
+                                                     3 : FT payée,
+                                                     9 : sans objet.
+                                                     Statut de la facturation AMC.
+                                                     0 : Avant FT validée,
+                                                     1 : FT validée,
+      73   STATUT_FACT_AMC           char(1)
+                                                     2 : FT en NiNi,
+                                                     3 : FT payée,
+                                                     9 : sans objet.
+                                                     Statut de la facturation Patient.
+                                                     0 : Avant FT validée,
+                                                     1 : FT validée,
+      74   STATUT_FACT_PATIENT       char(1)
+                                                     2 : FT en NiNi,
+                                                     3 : FT payée,
+                                                     9 : sans objet.
+      75   PAYS_ASSURANCE_SOCIAL     char(3)         Code à 2 lettres du pays d'assurance social du patient.
+
+      76   IPP_PATIENT               varchar(20)     IPP du patient

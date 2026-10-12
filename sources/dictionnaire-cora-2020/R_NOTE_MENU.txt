@@ -1,0 +1,41 @@
+==== R_NOTE_MENU ====
+Notes associées aux niveaux de l'arborescence
+                                                    Clé - Lien avec R_MENU :
+       1   MENU_COD                     float(53)
+                                                    Code de l'arborescence
+       2   ORDRE_NOTE                   int(10)     ordre d'affichage
+
+       3   TYPNOT_COD                   int(10)     Lien avec R_TYPE_NOTE
+
+       4   TEXTE_NOTE                   char(254)   1ère partie de la note
+
+       5   TEXTE_NOT0                   char(254)   2ème partie de la note
+
+       6   TEXTE_NOT1                   char(254)   partie de la note
+
+       7   TEXTE_NOT2                   char(254)   partie de la note
+
+       8   TEXTE_NOT3                   char(254)   partie de la note
+
+       9   TEXTE_NOT4                   char(254)   partie de la note
+
+      10   TEXTE_NOT5                   char(254)   partie de la note
+
+      11   TEXTE_NOT6                   char(254)   partie de la note
+       12   TEXTE_NOT7                  char(254)       partie de la note
+
+       13   TEXTE_NOT8                  char(254)       partie de la note
+
+       14   TEXTE_NOT9                  char(254)       partie de la note
+
+       15   TEXTE_NOTA                  char(254)       partie de la note
+
+       16   TEXTE_NOTB                  char(254)       partie de la note
+
+       17   TEXTE_NOTC                  char(254)       partie de la note
+
+       18   TEXTE_NOTD                  char(254)       partie de la note
+
+       19   TEXTE_NOTF                  char(254)       partie de la note
+
+       20   RENVOI_COD                  char(13)        code semi structuré de l'acte

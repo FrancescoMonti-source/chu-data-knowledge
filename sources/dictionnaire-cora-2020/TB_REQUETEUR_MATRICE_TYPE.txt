@@ -1,0 +1,6 @@
+==== TB_REQUETEUR_MATRICE_TYPE ====
+    1    CODE_TYPE_ANALYSE      varchar(15)
+
+    2    ID_ITEM_REQUETEUR      smallint(5)
+
+    3    ORDRE                  smallint(5)

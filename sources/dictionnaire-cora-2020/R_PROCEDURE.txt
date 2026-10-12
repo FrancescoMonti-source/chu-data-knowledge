@@ -1,0 +1,12 @@
+==== R_PROCEDURE ====
+Codes des procédures intégrant cet acte
+                                                        CCAM n° 1
+       1    ACTE_COD                    char(13)
+                                                        Code semi-structuré de l'acte
+       2    ACDT_MODIF                  datetime        date de mise à jour de l'acte
+                                                        CCAM n° 9.1
+       3    PROC_COD                    char(13)        Code semi structuré de la
+                                                        Procédure
+                                                        date de mise à jour de la
+       4    PRDT_MODIF                  datetime
+                                                        procédure

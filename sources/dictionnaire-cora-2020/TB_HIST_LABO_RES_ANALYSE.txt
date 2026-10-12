@@ -1,0 +1,61 @@
+==== TB_HIST_LABO_RES_ANALYSE ====
+      1    ID_LABO_RES_ANALYSE       int(10)
+
+      2    ID_PATIENT                int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+      3    ID_SEJOUR                 int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+      4    ID_FLUX_LABO_OBR          int(10)
+
+      5    CHRONO                    smallint(5)
+
+      6    DEM_ID_ECHANTILLON        varchar(23)
+
+      7    DEM_ID_DEMANDE            varchar(23)
+
+      8    EXEC_ID_ECHANTILLON       varchar(23)
+
+      9    EXEC_ID_DEMANDE           varchar(23)
+
+      10   NUM_DEMANDE               varchar(23)
+
+      11   LISTE_ANALYSE             varchar(1000)
+
+      12   CODE_ANALYSE              varchar(20)
+
+      13   LIB_ANALYSE               varchar(250)
+
+      14   FLAG_PRIORITE             char(1)
+
+      15   DATE_PRELEVEMENT          datetime
+
+      16   DATE_PRESCRIPTION         datetime
+    17   CODE_ACTION               char(1)
+
+    18   DATE_REC_ECHANTILLON      datetime
+
+    19   TYPE_ECHANTILLON          varchar(100)
+
+    20   ID_PRESCRIPTEUR           int(10)
+
+    21   ID_UNITE_DEST             int(10)
+
+    22   STATUT_ANALYSE            char(1)
+
+    23   COMMENTAIRE               varchar(2000)
+                                                    Lien vers Util.ID_UTIL.
+    24   ID_INFO                   int(10)
+                                                    Identifiant de l'utilisateur ayant effectué la dernière modification
+    25   DATE_INFO                 datetime         Date de la dernière modification
+
+    26   ID_APPLICATION            int(10)          Lien sur TB_INT_APPLICATION.ID
+
+    27   FLAG_ETAT                 char(1)
+
+    28   ID_LABO_RES_ANALYSE_LIEN int(10)
+
+    29   ID_TRACE                  int(10)
+
+    30   DATE_TRACE                datetime
+
+    31   TYPE_TRACE                char(1)

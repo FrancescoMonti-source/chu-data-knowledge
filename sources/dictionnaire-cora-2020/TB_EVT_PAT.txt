@@ -1,0 +1,54 @@
+==== TB_EVT_PAT ====
+Liste des mouvements appliqués à un patient et devant être traduits en messages HL7
+       1   ID_EVT                     int(10)         PK
+
+       2   DATE_CHRONO                datetime        Date d'écriture du message
+
+       3   ID_PATIENT                 int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       4   ID_SEJOUR                  int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       5   ID_MVT                     int(10)         FK.TB_MVT.ID_MVT
+
+       6   ID_MVT_COMPL               int(10)         FK.TB_MVT_COMPL.ID_MVT_COMPL
+
+       7   DATE_DEBUT                 datetime        Date heure début du mouvement
+
+       8   DATE_FIN                   datetime        Date heure fin du mouvement
+
+       9   CODE_UFH                   varchar(10)     FK TB_UNITE.CODE_UNITE pour l'hébergement
+
+      10   CODE_UFM                   varchar(10)     FK TB_UNITE.CODE_UNITE pour la responsabilité médicale
+
+      11   NUM_LIT                    varchar(10)     Numéro de lit du patient
+
+      12   NUM_CHAMBRE                varchar(10)     Numéro de chambre du patient
+
+      13   ID_MED_RESP                int(10)         FK Util.IdUtil Identifiant CORA du médecin responsable
+
+      14   MODE_ENTREE_ADMIN          varchar(10)     Mode entrée administratif (CODE_ES_ADMIN)
+
+      15   MODE_SORTIE_ADMIN          varchar(10)     Mode sortie administratif (CODE_ES_ADMIN)
+                                                      Code HL7 correspondant à l'évènement
+                                                      A02 : Mutation
+                                                      A06 : Bascule Urgences MCO
+      16   TYPE_EVT                   char(3)         A07 : Bascule Urgences Externe
+                                                      A08 ou Z99 : Modification d'un mouvement
+                                                      A03 : Sortie établissement
+                                                      A12 : Suppression de mouvement
+                                                      Code PMC s'approchant d'HL7 permettant de détailler l'action effectuée
+                                                      TYPE_EVT+ H => Sur le mouvement d'hébergement
+      17   TYPE_EVT_PMC               char(4)
+                                                      TYPE_EVT+ M => Sur le mouvement de responsabilité médicale
+                                                      TYPE_EVT => Sur les 2 mouvements
+      18   ID_UTIL                    int(10)         FK Util.IdUtil
+
+      19   FLAG_DISTRIBUE             char(1)         Indique sa distribution aux différents connecteurs
+
+      20   FLAG_ERREUR                char(1)         Une erreur s'est produite pendant le traitement de l'évènement
+
+      21   LIB_ERREUR                 varchar(1000)   Descriptif de l'erreur
+
+      22   ID_PERMISSION              int(10)
+
+      23   ID_PRESENCE                int(10)

@@ -1,0 +1,12 @@
+==== TB_HIST_ACTE_DENT ====
+Table d'historique des dents traitées par un acte
+                                                      Lien sur TB_ACTE.ID_ACTE :
+       1   ID_ACTE                      int(10)
+                                                      Identifiant de l'acte.
+       2   ID_DENT                      smallint(5)   Identifiant de la dent.
+
+       3   DATE_INFO                    datetime      Date et heure du groupage
+                                                      Lien sur Util.id_util :
+       4   ID_INFO                      int(10)
+                                                      Identifiant de l'utilisateur ayant fait le groupage
+       5   TYPE_INFO                    char(1)       Type info : S pour Suppression

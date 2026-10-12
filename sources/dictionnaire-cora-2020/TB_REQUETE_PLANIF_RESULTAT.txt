@@ -1,0 +1,15 @@
+==== TB_REQUETE_PLANIF_RESULTAT ====
+Résultat de la planification
+       1    ID_EXEC                   int(10)        Clé
+
+       2    ID_PLANIFICATION          int(10)        Id de la planification
+
+       4    DATE_CREAT                datetime       Date de l'exécution
+
+       5    DUREE                     int(10)        Durée de l'exécution
+
+       6    ETAT                      char(1)        Etat de l'exécution (OK/KO)
+
+       7    RESULTAT                  float(53)      Résultat de l'exécution
+
+       8    ID_REQUETE                int(10)        Id de la requête exécutée

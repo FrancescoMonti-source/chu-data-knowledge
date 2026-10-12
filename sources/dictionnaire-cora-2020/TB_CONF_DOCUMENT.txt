@@ -1,0 +1,97 @@
+==== TB_CONF_DOCUMENT ====
+Définit une table de configuration de CORA Document.
+       1   CHEMIN_MODELE             varchar(250)   Chemin vers le répertoire contenant les modèles
+
+       2   CHEMIN_COURRIER           varchar(250)   Chemin vers le répertoire contenant les courriers finaux et corps de courrier
+
+       3   REP_CORA_BASE_REF         varchar(250)   Chemin vers le répertoire contenant la référence PrisMédiCa
+
+       4   DOC_CORA_BASE_COU         varchar(250)
+                                                    Chemin vers le répertoire contenant les fichier temporaires (impression, lecture
+       5   CHEMIN_TEMP_COU           varchar(250)
+                                                    seule, fusion, etc.)
+       6   STOCKAGE_DOC              char(1)
+                                                    Si 0, aucune limite, sinon = taille maximale d'un document pouvant être stocké
+       7   LIMITE_TAILLE_DOC         int(10)
+                                                    dans la bibliothèque de documents.
+       8   GESTION_CORPS_COURRIER char(1)           ='O' si l'établissement gère les corps de courrier
+
+       9   GESTION_PHRASIER          varchar(255)   Voir document interne de gestion des licences pour activer ce champ
+                                                    ='O' si l'établissement gère une communication avec le produit Medimage de
+      10   GESTION_LIEN_VEPRO        char(1)
+                                                    Vepro
+                                                    ='O' : Etablissement avec Base CORA_DOC sous Oracle contenant des BLOB
+      11   GESTION_BLOB              char(1)
+                                                    et non des LONG RAW
+                                                    ='O' : Etablissement disposant d'une Base CORA_DOC_ARCH : Base
+      12   GESTION_ARCHIVE           char(1)
+                                                    d'archive
+                                                    Droits par défaut pour la création d'un Document : Droit pour la secrétaire, pour
+      13   DROIT_DOC_DEFAUT          varchar(10)
+                                                    l'auteur, pour la secrétaire de l'Unité ou de l'UM…
+      14   GESTION_ARCHIVE_UM        char(1)        = 'O' si on gère les archives à un niveau UM et pas UF
+
+      15   SHOW_PRINTER              char(1)        = 'O' si on Affiche les imprimantes avant d'imprimer
+                                                    Type d'affichage des modèles dans les historiques (Recueil, Doc, etc…à
+                                                    - Null ou 0 : affichage libellé modal standard
+                                                    - 1 : affichage du libellé court (ou libellé standard si le dernier n'est pas
+      16   TYPE_AFF_MODELE           char(1)
+                                                    renseigné)
+                                                    - 2 : affichage du libellé Type Modèle (ou libellé standard si le dernier n'est pas
+                                                    renseigné)
+      17   GESTION_INS_AUTO_WORD     char(1)        = 'O' si on permet aux utilisateurs la gestion des insertions automatiques Word
+                                                    Définit un boolean pour l'affichage de la fenetre de dialogue d'impression pour
+      18   BOITE_DIALOG_PRINT        char(1)
+                                                    toute impression.
+      19   PONCT_OMED_FIN_DEF        char(2)
+
+      20   GEST_SIGN_DOC             char(1)
+
+      21   TYPE_FIN_DEF              char(1)
+                                                    Définit une valeur allant de 1 à 4 pour le type de verrouillage du Pdf.
+                                                    - 1 : Aucun verrouillage Pdf n'est possible.
+                                                    - 2 : Aucune impression des correspondants du courrier. Ces informations sont
+      22   TYPE_IMPRESSION_PDF       char(2)                                                                                              '1'
+                                                    remplacées par des valeurs vides.
+                                                    - 3 : Impression du correspondant principal seulement.
+                                                    - 4 : Impression de l'ensemble des correspondants.
+           GEST_COURRIER_NIV_PAT_S
+      23                           char(2)          Définit un boolean pour la gestion des courriers niveau Patient et Séjour.
+           EJ
+      24   GEST_IMPORT_COURRIER      char(2)        Définit un boolean pour la gestion des courriers importés.
+                                                    Définit le type de fusion des correspondants lors de l'envoi d'un courrier par
+      25   TYPE_FUSION_MAIL          char(2)
+                                                    email en mode diffusion.
+                                                    Définit une valeur allant de 0 à 4 pour le type d'éditeur.
+                                                    - 0 : Aucun éditeur paramétré.
+                                                    - 1 : Editeur Microsoft Office Word avec extension *.doc.
+      26   TYPE_ENV_EDITEUR          char(1)
+                                                    - 2 : Editeur OpenOffice avec extension *.odt.
+                                                    - 3 : Editeur Microsoft Office Word avec extension *.docx.
+                                                    - 4 : Editeur Microsoft Office Word avec extension *.docm.
+                                                   Définit un boolean pour la gestion des profils locaux pour dechargment des
+    27   GESTION_CHEMIN_LOCAL       char(1)
+                                                   documents.
+                                                   Définit le délai en heure de suppression des documents non encore supprimés
+    28   DELAI_DOC_DELETE           smallint(5)
+                                                   dans les profils locaux.
+                                                   Définit un boolean pour la demande d'un accuse de reception suite à l'envoi
+    29   GESTION_AR                 char(1)
+                                                   d'un mail.
+                                                   Définit un boolean indiquant si le motif de suppression est obligatoire lors de la
+    30   GEST_MOTIF_SUPPR           char(1)
+                                                   suppression d'un courrier.
+                                                   Définit un boolean indiquant si les documents associés à une Uf à laquelle
+         RESTRICTION_VISIBILITE_DO
+    31                             char(1)         l’utilisateur est associé en lecture seule seront visibles (dépendant du "statut"
+         C
+                                                   Visible McKesson).
+         GESTION_STATUT_LOT_EVOL                   Définit un boolean indiquant si l’établissement laisse à ces utilisateurs la
+    32                           char(1)
+         UEE                                       possibilité d’une gestion des statuts par lot évoluée.
+                                                   Définit un boolean indiquant si le filigrane "Provisoire" est apposé sur les
+    33   GEST_FILIGRANE_PROV        char(1)        documents non verrouillés au format PDF et envoyés par email. Si "O", le
+                                                   filigrane est apposé sur les documents. Si NULL, aucun filigrane n'est apposé
+                                                   Définit un boolean indiquant si les modèles fréquents sont affichés dans le
+    34   GEST_MODELES_FREQS         char(1)        thésaurus des modèles. Si "O", les modèles fréquents sont affichés. Si NULL,
+                                                   l'affichage des modèles fréquents est opéré.

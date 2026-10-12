@@ -1,0 +1,16 @@
+==== TB_HIST_INTEGR ====
+Table permettant de gérer l'historique d'intégration des données
+                                                         Code des données intégrée :
+                                                         - LPP
+       1   CODE_INTEGR                    char(5)
+                                                         - LPP_H (Hierarchie des LPP)
+                                                         - ...
+       2   VERSION                        char(10)       Version intégrée
+
+       3   DATE_INTEGR                    datetime       Date d'intégration
+                                          text
+       4   DONNEES_INTEGREES                             Données intégrées au format XML (spécifique à la hiérarchie des LPP)
+                                          (2147483647)
+           VERSION_ACTUELLE_INTEGR                       Indique s'il s'agit de la version actuelle integrée (spécifique à la hiérarchie des
+       5                           char(1)
+           EE                                            LPP)

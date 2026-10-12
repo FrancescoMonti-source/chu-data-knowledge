@@ -1,0 +1,28 @@
+==== TB_RSF_PREST_PROTHESE ====
+Contient l'ensemble des factures de LPP (attention pas obligatoirement prothese) liées à une prestation
+       1    ID_RSF_PREST_PROTHESE        int(10)         identifiant unique de TB_RSF_PREST_PROTHESE
+
+       2    ID_RSF_PREST                 int(10)         identifiant de la prestation : clef primaire de TB_RSF_PRESTATIONS
+
+       3    ID_RSF_FACT                  int(10)         identifiant de la facture : clef primaire de TB_RSF_FACT
+                                                         Code de l’article de la LPP.7 caractères utiles cadrés à gauche,complétés par
+       4    CODE_LPP                     char(13)
+                                                         des blancs.
+                                                         « Fabricant » au sens des articles L665
+       5    NO_SIRET                     char(14)
+                                                         et R665 du code de la santé publique.
+       6    QUANTITE                     smallint(5)     nombre d'articles identiques
+
+       7    TARIF_REF                    decimal(8, 2)   Tarif référence LPP ou Prix Unitaire sur devis
+
+       8    MNT_FACTURE                  decimal(8, 2)   Montant total facturé (prix unitaire x quantite)
+
+       9    PRIX_ACHAT_UNIT              decimal(8, 2)   Prix d’achat unitaire TTC.
+
+       10   MNT_UNITE_ECART              decimal(8, 2)   Montant unitaire de l’écart indemnisable
+
+       11   MNT_TOT_ECART                decimal(8, 2)   Montant total de l’écart indemnisable
+            MEMO_LIGNE_PREST_PROTH
+       12                          varchar(200)          Ligne RSF P correspondant à la presta de LPP
+            ESE
+       13   POSITION_RECUP               smallint(5)

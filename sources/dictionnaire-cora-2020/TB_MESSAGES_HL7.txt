@@ -1,0 +1,6 @@
+==== TB_MESSAGES_HL7 ====
+Stockage des messages HL7 en mode texte
+       1   ID_MESSAGE_HL7              int(10)         Identifiant CORA du message
+                                       text
+       2   MESSAGE_HL7                                 Contenu du message HL7
+                                       (2147483647)

@@ -1,0 +1,44 @@
+==== TB_MVT_COMPL ====
+Table contenant les mouvements sur l'axe unité non PMSI (traitant ou hébergement en fonction de ce qui est intégré dans
+TB_MVT)
+                                                     Clé :
+       1   ID_MVT_COMPL                int(10)
+                                                     Identifiant (PrisMédica) du mouvement
+       2   ID_MVT_EXT                  varchar(20)   Identifiant du mouvement pour l'appli émettrice
+                                                     Lien sur TB_PATIENT.ID_PATIENT :
+       3   ID_PATIENT                  int(10)
+                                                     Identifiant du Patient. Lien non principal (Lien principal = ID_SEJOUR)
+                                                     Lien sur TB_SEJOUR.ID_SEJOUR :
+       4   ID_SEJOUR                   int(10)       Identifiant du Séjour dans lequel se trouve ce Mouvement d'Unité (Lien
+                                                     obligatoire)
+       5   DATE_DEBUT                  datetime      Date de Début du Mouvement (Données obligatoire)
+       6   HEURE_DEBUT                datetime      Heure de Début du Mouvement
+
+       7   DATE_FIN                   datetime      Date de Fin
+
+       8   HEURE_FIN                  datetime      Heure de Fin
+                                                    Axe du mouvement :
+       9   TYPE_MVT                   char(1)       - 'H' : Axe unité d'hébergement
+                                                    - 'R' : Axe responsabilité
+                                                    Lien sur TB_UNITE.CODE_UNITE :
+      10   CODE_UNITE                 char(12)
+                                                    Unité d'hébergement du Mouvement (Données obligatoire)
+      11   DATE_CREAT                 datetime      Date de création de cet enregistrement
+
+      12   HEURE_CREAT                datetime      Heure de création de cet enregistrement
+                                                    Lien sur Util.id_util :
+      13   ID_CREAT                   int(10)
+                                                    Identifiant de l'utilisateur ayant crée l'enregistrement
+                                                    Renseignement sur l'hebergement 'Chambre' si les Mouvements de cette
+      14   CHAMBRE                    varchar(10)
+                                                    Table se font sur l'Unité d'Hebergement
+                                                    Renseignement sur l'hebergement 'Lit' si les Mouvements de cette Table se
+      15   LIT                        varchar(10)
+                                                    font sur l'Unité d'Hebergement
+      16   DATE_INFO                  datetime      Date de dernière modification de l'enregistrement
+                                                    Lien sur Util.id_util :
+      17   ID_INFO                    int(10)
+                                                    Identifiant du dernier utilisateur ayant réalisé une modification
+                                                    Lien sur TB_UNITE.ID_UNITE :
+      18   ID_UNITE_PMSI              int(10)
+                                                    Unité fonctionnelle (UF) du Mouvement

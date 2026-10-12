@@ -1,0 +1,12 @@
+==== TB_THES_REGROUP_EXAMEN ====
+      1    ID_THES_REGROUP_EXAMEN int(10)
+
+      2    CODE_DETAIL              varchar(20)
+
+      3    CODE_REGROUP             varchar(20)
+
+      4    LIB_REGROUP              varchar(50)
+
+      5    COULEUR                  varchar(15)
+
+      6    NB_TUBE                  smallint(5)

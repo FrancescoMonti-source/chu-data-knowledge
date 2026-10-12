@@ -1,0 +1,10 @@
+==== TB_NIVEAU_PERTINENCE ====
+       1    ID_NIVEAU_PERTINENCE        smallint(5)
+
+       2    CODE_NIVEAU_PERTINENCE char(10)
+
+       3    LIB_NIVEAU_PERTINENCE       varchar(30)
+
+       4    TYPE_PERT                   char(3)
+
+       5    CODE_PERTINENCE_EXT         varchar(3)

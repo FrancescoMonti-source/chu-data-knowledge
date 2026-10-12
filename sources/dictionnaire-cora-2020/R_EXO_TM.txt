@@ -1,0 +1,8 @@
+==== R_EXO_TM ====
+Codification exonération ticket modérateur
+                                                      Code Exonération Ticket
+       1   COD_EXOTM                   int(10)
+                                                      Modérateur
+                                                      libellé exonération ticket
+       2   LIBELLE                     char(80)
+                                                      modérateur

@@ -1,0 +1,4 @@
+==== ACTION_COND ====
+     1   ID_DETAIL_FAVORI          int(10)
+
+     2   LIB_PRESC_COND            varchar(100)

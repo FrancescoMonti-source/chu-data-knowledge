@@ -1,0 +1,19 @@
+==== TB_SYNTH_RSS_QUALITE ====
+Liste des contrôles qualités réalisés par le DIM sur certains RSS
+                                                         Clé - Lien sur TB_SYNTH_RSS.ID_RSS :
+       1   ID_RSS                       int(10)
+                                                         N° de RSS concerné
+                                                         Clé - Lien sur PMSI_STATUT_QUALITE :
+       2   ID_STATUT_QUALITE            smallint(5)
+                                                         Contrôle qualité réalisé sur le RSS
+       3   DATE_CREAT                   datetime         Date du contrôle
+
+       4   HEURE_CREAT                  datetime         Heure du contrôle
+                                                         Lien - sur Util.id_util :
+       5   ID_CREAT                     int(10)
+                                                         Lien sur l'utilisateur ayant réalisé le contrôle
+                                                         Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                         CORA_UTIL)
+       6   ID_ETABLIS                   smallint(5)
+                                                         Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                         Siège centralisée

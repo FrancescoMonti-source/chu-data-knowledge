@@ -1,0 +1,21 @@
+==== TB_COMP_MODIF_AGE ====
+Table définissant les compatibilités entre modificateurs et l'âge du patient. Elle contient les données de la table R_TB06 avec un
+modification pour le modificateur N pour correspondre au libellé et un ajout de ligne pour le modificateur A qui n'est pas présent
+dans le NX
+       1   MODIFI_COD                   char(1)        Code modificateur de l'acte
+                                                       Date de début de l'effet de la compatibilité entre le modificateur et l'âge du
+       2   DT_DEBUT                     datetime
+                                                       patient
+                                                       Unité de temps de l'age minimum
+       3   UNI_AGEMIN                   char(1)        J : Jour
+                                                       A : Année
+                                                       Age minimum du bénéficiaire.
+       4   AGE_MIN                      int(10)
+                                                       0 : Pas d'âge minimum.
+                                                       Unité de temps de l'age maximum
+       5   UNI_AGEMAX                   char(1)        J : Jour
+                                                       A : Année
+                                                      Age maximum du bénérificiaire.
+       6   AGE_MAX                     int(10)
+                                                      0 : Pas d'age maximum
+       7   DT_FIN                      datetime       Date de fin de l'effet de la compatibilité entre le modificateur et l'âge du patient

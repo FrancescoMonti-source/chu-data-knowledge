@@ -1,0 +1,9 @@
+==== TB_UNITE_AM ====
+Table des unités d'activités médicales
+       1    ID_UNITE_AM                   smallint(5)    Définit l'identifiant de l'unité d'activité médicale.
+
+       2    CODE_UNITE_AM                 varchar(10)    Définit le code de l'unité d'activité médicale.
+
+       3    LIBELLE_UNITE_AM              varchar(100)   Définit le libellé de l'unité d'activité médicale.
+
+       4    ACTIF                         char(1)        Définit un boolean indiquant si l'unité d'activité médicale est active.           'O'

@@ -1,0 +1,144 @@
+==== TB_RSF_FACT ====
+     1   ID_RSF_FACT            int(10)        identifiant de la facture : clef primaire de TB_RSF_FACT
+                                               Identifiant de l'import de la facture. Lien sur
+     2   ID_RSF_IMPORT          int(10)
+                                               TB_RSF_IMPORT.ID_RSF_IMPORT.
+     3   NO_SEJOUR              char(20)       FK TB_SEJOUR.NO_SEJOUR - Numéro de séjour
+
+     4   ID_SEJOUR              int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+     5   NO_FACTURE             char(9)        Numéro de la facture.
+                                               1 - PAIEMENT NORMAL
+                                               3 - RAPPEL EN VALEUR
+                                               Est utilisé, sous réserve d’un accord local, pour un rappel à la suite d’une
+                                               augmentation de prix
+                                               unitaire.
+                                               Cette nature d’opération est interdite pour le Régime Général et pour la Caisse
+                                               de Retraite et de
+                                               Prévoyance de Clercs et Employés de Notaires.
+                                               4 - RÉGULARISATION POSITIVE
+                                               Est utilisée, sous réserve d’un accord local, après une régularisation négative
+                                               (code 5), pour
+6    NATURE_OP                 char(1)
+                                               régulariser un paiement antérieur (exemple : changement de risque, de
+                                               bénéficiaire, de taux de
+                                               prise en charge).
+                                               Lorsque la régularisation positive est inférieure à la régularisation négative, elle
+                                               génère un indu
+                                               et, dans le cas contraire, un paiement complémentaire.
+                                               5 - RÉGULARISATION NÉGATIVE
+                                               Est utilisée, sous réserve d’accord local, pour annuler un paiement erroné.
+                                               Elle peut exister seule ou être suivie d’une régularisation positive.
+                                               9 - ANNULATION FEUILLES DE SOINS ELECTRONIQUES
+                                               Feuilles de soins électroniques SESAM annulées dans le même lot.
+7    RANG_BENEF                char(3)
+                                               Nature d'assurance : 10 - maladie, 13 - maladie régime local Alsace Moselle,
+8    NATURE_ASSURANCE          char(2)
+                                               30 - maternité, 41 - accident du travail, 90 : prévention maladie.
+9    CODE_EXO                  char(1)         Justification de l'exonération ticket modérateur.
+                                               1=A avec/2=A sans/3=NA avec /4=NA sans /5=NN
+                                               ---------------------------------------------------------------
+                                               Le code de PEC permet de coupler les factures avec les RSS dans tous les
+                                               cas
+                                               Les situations dans lesquelles il n'y a pas de facture individualisée réalisée
+10   CODE_PEC                  char(1)         pour un RSS sont les suivants
+                                               Les assurés non pris en charge : chirurgie esthétique par exemple -> code
+                                               PEC =2
+                                               Les non assurés non pris en charge : étrangers sans PEC -> code PEC=4
+                                               Les nouveaux-nés dont la prise en charge est réalisée sur la facture de la
+                                               mère -> code PEC=5
+11   CODE_REGIME               char(2)         Code grand régime.
+
+12   RANG_NAISS                char(1)         Range de naissance
+
+13   DATE_DEBUT_FACT           datetime        Date de début de la facture
+
+14   DATE_FIN_FACT             datetime        Date de fin de la facture
+
+15   CODE_CIVILITE             char(3)         Code civilité. Recodage : M=1/MME=2:MLE=2/SAN=3
+     MNT_TOT_PREST_BASE_REM
+16                          decimal(8, 2)      Montant Total de la base de remboursement des prestations hospitalières.
+     B
+17   MNT_TOT_PREST_CAISSE      decimal(8, 2)   Montant Total du remboursement AMO des prestations hospitalières.
+
+18   MNT_TOT_HONO_FACT         decimal(8, 2)   Montant Total des honoraires facturé.
+
+19   MNT_TOT_HONO_CAISSE       decimal(8, 2)   Montant Total des honoraires remboursables.
+
+20   MNT_TOT_AUTRE             decimal(8, 2)   Montant Total de la participation assuré avant OC.
+
+21   MNT_TOT_PREST_COMPL       decimal(8, 2)
+
+22   MNT_TOT_HONO_COMPL        decimal(8, 2)
+
+23   MNT_TOT_PREST             decimal(8, 2)   Montant Total des prestations.
+
+24   MEMO_LIGNE_FACT           varchar(200)    Mémorisation de la ligne de la facture
+
+25   MEMO_LIGNE_FACT_BILAN     varchar(200)
+
+26   VERSION_NORME             char(6)
+
+27   CODE_NORME                char(2)
+
+28   NO_SECU                   char(13)        Numéro d'assure social
+
+29   CLE_SECU                  char(2)         Rang du bénéficiaire
+
+30   SEJOUR_EXISTANT           char(1)         O : le séjour existe, N : non
+    31   DATE_INFO             datetime      Date de la dernière modification
+                                             Lien vers Util.ID_UTIL.
+    32   ID_INFO               int(10)
+                                             Identifiant de l'utilisateur ayant effectué la dernière modification
+    33   FICHE_BB_LIE          char(1)       O : présence d'au moins une fiche bébé liée à la facture N : aucune
+
+    34   ID_RSF_FACT_MERE      int(10)       Identifiant de la facture de la mère. Lien vers TB_RSF_FACT.ID_RSF_FACT.
+                                             Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                             CORA_UTIL)
+    35   ID_ETABLIS            smallint(5)
+                                             Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                             Siège centralisée
+    36   FLAG_ENVOI            char(1)
+
+    37   DATE_CONSOL           datetime
+
+    38   NO_RSS                char(7)       Numéro RSS
+                                             P : C'est une facture de chimio que l'on a découpé en n Facture. Les ligne à P
+                                             représentent donc la 1ère facture des n autres. La ligne "P"rincipale
+    39   FLAG_FACT_DECOUP      char(1)       R : représente les n autres factures. les lignes "R"eliées
+                                             N OU NULL : valeurs par défaut. C'est le cas des factures simples non
+                                             découpées.
+    40   ID_RSS                int(10)       Identifiant du RSS
+
+    41   RSF_HORS_HOSPIT       char(1)       O: RSF hors hospit (par exemple: forfait SE1, SE2, ...)
+
+    42   ETAT_LIQUIDATION      char(1)       Etat de liquidation de la facture.
+
+    43   TYPE_CONTRAT_COMPL    char(2)
+
+    44   NUM_LOT               int(10)
+                                             Patient bénéficiaire de la CMU : 0 : Non | 1 : Oui, laisser à vide si pas
+    45   PATIENT_CMU           char(1)
+                                             d'information
+    46   NO_FACTURE_MERE       varchar(9)    N° de facture du séjour de la mère : A prendre sur la facture de la mère
+                                             Numéro accident du travail ou date d’accident de droit commun : Obligatoire
+                                             en cas d’accident. Lorsque la Nature d’Assurance est AT (41) : indiquer le
+                                             numéro de l’AT (pour le RG, AAMMJJ + code CRAM + clé à contrôler, voir
+    47   NO_ACC_TRAVAIL        varchar(9)    annexe 5) ou la date de l’AT (AAMMJJ, cadrée à droite et complétée par 3
+                                             zéros). Lorsque la Nature d'Assurance est AS (10 ou 13): indiquer la date
+                                             d’accident de droit commun (AAMMJJ, cadrée à droite et complétée par 3
+                                             zéros)
+                                             N° d’organisme complémentaire : L’organisme obligatoire peut selon
+                                             conventions régler directement la part de l’organisme complémentaire à
+                                             l’établissement ou à l’assuré ou transmettre l’image de son décompte à
+                                             l’organisme complémentaire. Lorsque l’établissement pratique un tiers payant
+    48   NO_ORGA_COMPL         varchar(10)
+                                             sur la part complémentaire, il doit obligatoirement positionner le n° de
+                                             l’organisme complémentaire, cadré à droite, et complété par des zéros à
+                                             gauche, ou le top mutualiste «M » en position 128, la zone étant complétée par
+                                             des blancs.
+    49   NO_SECU_INDIVIDUEL    char(13)
+
+    50   CLE_SECU_INDIVIDUEL   char(2)
+
+    51   CODE_GESTION          char(2)

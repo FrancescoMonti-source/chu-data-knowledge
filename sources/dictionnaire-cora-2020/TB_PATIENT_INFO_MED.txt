@@ -1,0 +1,42 @@
+==== TB_PATIENT_INFO_MED ====
+Table contenant les données biométriques (morphologie) du patient
+       1   ID_SEJOUR                   int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       2   ID_PATIENT                  int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+      3    POIDS                    decimal(5, 2)   Poids
+
+      4    TAILLE                   decimal(5, 4)   Taille en mètre
+
+      5    BMI                      decimal(5, 2)   BMI. Calcul à partir de la taille
+
+      6    PER_CRANIEN              decimal(5, 2)   Périmètre cranien
+
+      7    SUR_CORPORELLE           decimal(5, 2)   Surface corporelle
+
+      8    DATE_INFO                datetime        Date de la dernière modification
+
+      9    HEURE_INFO               datetime        Heure de la dernière modification
+                                                    Lien vers Util.ID_UTIL.
+      10   ID_INFO                  int(10)
+                                                    Identifiant de l'utilisateur ayant effectué la dernière modification
+      11   INSUF_RENALE             char(1)         Insuffisance rénale (O/N)
+
+      12   INSUF_HEPATIQUE          char(1)         Insuffisance hépatique (O/N)
+
+      13   GROSSESSE_ALLAIT         char(1)
+
+      14   SIGN_OEIL                varchar(50)     Signalement : Yeux
+
+      15   SIGN_TEINT               varchar(50)     Signalement : Teint
+
+      16   SIGN_CHEVEUX             varchar(50)     Signalement : Cheveux
+
+      17   SIGN_PROTHESE            varchar(50)     Signalement : Prothèses
+
+      18   SIGN_AUTRE               varchar(200)    Signalement : Signes particuliers
+
+      19   DATE_INSUF_RENALE        datetime
+
+      20   DATE_INSUF_HEPATIQUE     datetime
+
+      21   ID_PAT_VARIABLE          int(10)

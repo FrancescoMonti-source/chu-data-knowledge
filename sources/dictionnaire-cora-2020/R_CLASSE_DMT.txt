@@ -1,0 +1,6 @@
+==== R_CLASSE_DMT ====
+Liste des Classes de DMT (Discipline Medico Tarifaire)
+                                                      Code Classe de DMT
+       1   COD_CLDMT                   char(2)
+                                                      autorisée
+       2   LIBELLE                     char(100)      libellé de la classe de DMT

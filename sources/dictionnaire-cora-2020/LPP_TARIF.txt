@@ -1,0 +1,25 @@
+==== LPP_TARIF ====
+Table des mises à jour des données tarifaires des LPP
+                                                          Clé :
+       1    ID_LPP_TARIF                 int(10)
+                                                          Identifiant de la table
+                                                          Lien sur LPP.CODE_LPP :
+       2    CODE_LPP                     char(13)
+                                                          Code référence LPP
+       3    DATE_DEBUT                   datetime         Date d'effet pour les données historisées
+
+       4    DATE_FIN                     datetime         Date de fin de validité pour les données historisées.
+
+       5    NATURE_PREST                 char(3)          Code Nature de Prestations
+
+       6    ENTENTE                      char(1)          Entente préalable (='O' si soumis à entente)
+
+       7    TARIF_REF                    decimal(10, 2)   Tarif permettant de vérifier les montants facturés.
+
+       8    QTE_MAX                      smallint(5)      Quantité max utilisé pour les contrôles
+
+       9    MNT_MAX                      decimal(10, 2)   Montant maximal autorisé par code référence
+
+       10   PU_REGL                      decimal(10, 2)   Prix unitaire réglementé. (=0 ou =Tarif de référence)
+
+       11   VERSION_INTEGR               char(4)

@@ -1,0 +1,9 @@
+==== TB_PSY_INTERV_CATEG ====
+Table des catégories d'intervenants thérapeutiques
+                                                        Clé - Lien sur Util.id_util :
+       1   ID_INTERVENANT               int(10)
+                                                        Identifiant de l'intervenant thérapeutique
+                                                        Clé - Lien sur TB_PMSI_PSY_CAT_INTERV.CODE_CATEGORIE_INTERV :
+       2   CATEG_INTERVENANT            char(1)
+                                                        Catégorie de l'intervenant
+       3   ACTIF                        char(1)

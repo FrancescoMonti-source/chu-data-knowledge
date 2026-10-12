@@ -1,0 +1,8 @@
+==== TB_GEN_DIAG ====
+     1   ID_GEN_DIAG      int(10)
+
+     2   ID_CPT           int(10)
+
+     3   ID_DIAG          int(10)
+
+     4   NOM_TABLE_GEN    varchar(30)

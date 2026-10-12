@@ -1,0 +1,5 @@
+==== TB_REQUETEUR_REGROUP_ORDRE ====
+    1    ID_REQUETE             int(10)
+     2   NOM_COLONNE            varchar(50)
+
+     3   ORDRE                  smallint(5)

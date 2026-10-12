@@ -1,0 +1,18 @@
+==== TB_ACTES_NGAP_EMIS ====
+Tables contenant les cotations NGAP émises pour un n° de lot
+                                                       Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       1   ID_COTATION                 int(10)
+                                                       Lien sur la cotation, si l'acte NGAP exporté vient d'une saisie NGAP
+                                                       Lien sur TB_ACTE.ID_ACTE :
+       2   ID_ACTE                     int(10)
+                                                       Lien sur l'acte CCAM, si l'acte NGAP exporté vient d'un transcodage
+                                                       Lien sur TB_EMISSION.NO_LOT :
+       3   NO_LOT                      int(10)
+                                                       Lien sur le n° de lot d'envoi concerné (Lien obligatoire)
+       4   DATE_EMISSION               datetime        Date d'émission de l'acte NGAP
+                                                       Type d'info envoyée pour l'acte :
+                                                       - 'E' : Emis
+       5   STATUT                      char(1)
+                                                       - 'R' : Réémis (cas des modification)
+                                                       - 'S' ou 'D' : Suppression
+       6   COTATION                    varchar(100)    Sauvegarde de la cotation envoyée (cas d'un envoi d'un Transcodage)

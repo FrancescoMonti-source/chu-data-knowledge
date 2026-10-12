@@ -1,0 +1,74 @@
+==== MED_COUTEUX ====
+                                              Clé :
+    1    ID_MED              int(10)          Identifiant de la molécule onéreuses (/!\ Ne correspond pas à l'ID_MED de
+                                              PRESC_MED)
+    2    NOM_COMMERCIAL      varchar(150)     Nom commercial de la molécule
+
+    3    DCI                 varchar(100)     DCI (Dénomination Commune Internationale) de la molécule
+
+    4    UCD                 varchar(13)      Code UCD sur 7 ou 13 caractères
+
+    5    LIB_UCD             varchar(100)     Libellé de l'UCD
+                                              Clé - Lien LPP_FOURNISSEUR.ID_FOURNISSEUR :
+    6    ID_LABO             smallint(5)
+                                              Lien sur le laboratoire
+    7    DOSAGE              decimal(10, 2)   Unité de dosage de la molécule
+                                              Clé - Lien MED_UNITE_DOSAGE.ID_UNITE_DOSAGE :
+    8    ID_UNITE_DOSAGE     smallint(5)
+                                              Lien sur les unités de dosage
+    9    LISTE               char(3)
+                                              Flag indiquant sur le médicament est de type MON
+    10   FLAG_MON            char(1)          O : médicament MON                                                            'O'
+                                              N : médicament non MON
+                                              Clé - Lien Util.id_util :
+                                              Lien sur l'utilisateur ayant crée la ligne
+                                              -6101 : Ajout d'un médicament dans MED_COUTEUX par le plugin de mise à
+                                              jour des médicaments à partir des données de CIO dans CORA Maintenance
+                                              -6102 : Ajout UCD provenant de Thesorimed dans MED_COUTEUX via
+                                              QualiPrescription
+    11   ID_CREAT            int(10)
+                                              -6103 : Ajout UCD provenant de Theriaque dans MED_COUTEUX via
+                                              QualiPrescription
+                                              -6104 : Ajout UCD provenant de BCB dans MED_COUTEUX via
+                                              QualiPrescription
+                                              -6105 : Ajout UCD provenant de Vidal dans MED_COUTEUX via
+                                              QualiPrescription
+    12   DATE_CREAT          datetime         Date de création de la ligne
+
+    13   CODE_UCD13          varchar(13)      Code UCD sur 13 carcatères
+                                              Date de début de validité du médicament en tant que MON (Molécule
+    14   DATE_DEBUT_MON      datetime
+                                              Onéreuse)
+    15   DATE_FIN_MON        datetime         Date de fin de validité du médicament en tant que MON
+                                              Flag indiquant sur le médicament est de type ATU
+    16   FLAG_ATU            char(1)          O : médicament ATU
+                                              N : médicament non ATU
+                                              Date de début de validité du médicament en tant que ATU (Autorisation
+    17   DATE_DEBUT_ATU      datetime
+                                              Temproraire d'Utilisation)
+    18   DATE_FIN_ATU        datetime         Date de fin de validité du médicament en tant que ATU
+                                              Flag indiquant sur le médicament est de type ATH
+    19   FLAG_ATH            char(1)          O : médicament ATH
+                                              N : médicament non MON
+                                              Date de début de validité du médicament en tant que ATH (Anti-
+    20   DATE_DEBUT_ATH      datetime
+                                              Thrombolytique)
+    21   DATE_FIN_ATH        datetime         Date de fin de validité du médicament en tant que ATH
+                                                     Flag indiquant sur le médicament est de type liste fermée SSR
+      22   FLAG_SSR                  char(1)         O : médicament SSR
+                                                     N : médicament non SSR
+      23   DATE_DEBUT_SSR            datetime        Date de début de validité du médicament en tant que liste fermée SSR
+
+      24   DATE_FIN_SSR              datetime        Date de fin de validité du médicament en tant que liste fermée SSR
+                                                     Flag indiquant sur le médicament est de type liste fermée HAD
+      25   FLAG_HAD                  char(1)         O : médicament HAD
+                                                     N : médicament non HAD
+      26   DATE_DEBUT_HAD            datetime        Date de début de validité du médicament en tant que liste fermée HAD
+
+      27   DATE_FIN_HAD              datetime        Date de fin de validité du médicament en tant que liste fermée HAD
+
+      28   FLAG_POST_ATU             char(1)         Flag indiaquant que le médicament est de type POST ATU
+
+      29   DATE_DEBUT_POST_ATU       datetime        Début de validité du médicament en tant que POST ATU
+
+      30   DATE_FIN_POST_ATU         datetime        Fin de validité du médicament en tant que POST ATU

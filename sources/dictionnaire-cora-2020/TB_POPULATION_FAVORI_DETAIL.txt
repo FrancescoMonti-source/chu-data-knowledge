@@ -1,0 +1,108 @@
+==== TB_POPULATION_FAVORI_DETAIL ====
+Table permettant de stocker les éléments de recherche d'un favori de recherche enregistré dans l'écran des population de
+CORA Activité .NET
+                                                      Clé - TB_POPULATION_FAVORI.ID_POPULATION_FAVORI : indique a quel
+       1   ID_POPULATION_FAVORI        int(10)
+                                                      favori l'élément de recherche appartient
+                                                      stock le type du favori. Il y a un type pour chaque élément de recherche de
+                                                      l'écran des population MCO et SSR.
+                                                      Les différents types correspondent à la bdValue de l'enum ci-dessous
+                                                      ''' <summary>
+                                                             ''' énumération des critères de recherche des RSS pour l'écran des
+                                                      populations
+                                                             ''' ATTENTION : les dbValues doivent correspondre à la colonne de
+                                                      TB_POP_FAVORIS pour l'enregistrement en base
+                                                             ''' </summary>
+                                                             ''' <Norme></Norme>
+                                                             ''' <Creation></Creation>
+                                                             ''' <Historique></Historique>
+                                                             Public Enum ENU_CRITERE_RECHERCHE
+                                                                  <cls_libelleAttribute("Nom usuel du patient"), cls_bdValueAttribute
+                                                      ("NOM_USUEL")> NOM_USUEL_PATIENT
+                                                                  <cls_libelleAttribute("Prénom"), cls_bdValueAttribute("PRENOM")>
+                                                      PRENOM
+                                                                  <cls_libelleAttribute("Date de début"), cls_bdValueAttribute
+                                                      ("DATE_DEBUT")> DATE_DEBUT
+                                                                  <cls_libelleAttribute("Date de fin"), cls_bdValueAttribute("DATE_FIN")>
+                                                      DATE_FIN
+                                                                  <cls_libelleAttribute("Durée min du séjour"), cls_bdValueAttribute
+                                                      ("DUREE_MIN")> DUREE_MIN
+                                                                  <cls_libelleAttribute("Durée max du séjour"), cls_bdValueAttribute
+                                                      ("DUREE_MAX")> DUREE_MAX
+                                                                  <cls_libelleAttribute("IPP du patient"), cls_bdValueAttribute("IPP")>
+                                                      IPP_PATIENT
+                                                                  <cls_libelleAttribute("date de naissance"), cls_bdValueAttribute
+                                                      ("DATE_NAIS")> DATE_NAIS
+                                                                  <cls_libelleAttribute("Numéro rss du patient"), cls_bdValueAttribute
+                                                      ("NO_RSS")> NO_RSS
+                                                                  <cls_libelleAttribute("code cmd du rss"), cls_bdValueAttribute
+                                                      ("CODE_CMD")> CODE_CMD
+                                                                  <cls_libelleAttribute("code ghs du rss"), cls_bdValueAttribute
+                                                      ("CODE_GHS")> CODE_GHS
+                                                                  <cls_libelleAttribute("code ghm du rss"), cls_bdValueAttribute
+                                                    ("CODE_GHM")> CODE_GHM
+                                                           <cls_libelleAttribute("numéro de séjour"), cls_bdValueAttribute
+                                                    ("NO_SEJOUR")> NO_SEJOUR
+                                                           <cls_libelleAttribute("code erreur"), cls_bdValueAttribute
+                                                    ("CODE_ERR")> CODE_ERR
+                                                           <cls_libelleAttribute("type recherche ghm"), cls_bdValueAttribute
+                                                    ("COND_GHM")> CONDITION_GHM
+                                                           <cls_libelleAttribute("RSS avec facturation"), cls_bdValueAttribute
+                                                    ("FACT")> RSS_AVEC_FACT
+                                                           <cls_libelleAttribute("Etat du dernier contrôle"), cls_bdValueAttribute
+                                                    ("DERN_CTRL")> ETAT_DERN_CTRL
+                                                           <cls_libelleAttribute("condition"), cls_bdValueAttribute("COND_CQ")>
+                                                    CONDITION_CQ
+       2   TYPE_FAVORI               varchar(10)           <cls_libelleAttribute("date min dernier contrôle"), cls_bdValueAttribute
+                                                    ("MIN_CTRL")> DATE_MIN_DERN_CTRL
+                                                           <cls_libelleAttribute("date max dernier contrôle"), cls_bdValueAttribute
+                                                    ("MAX_CTRL")> DATE_MAX_DERN_CTRL
+                                                           <cls_libelleAttribute("population"), cls_bdValueAttribute("POP")>
+                                                    POPULATION
+                                                           <cls_libelleAttribute("contrôle qualité"), cls_bdValueAttribute
+                                                    ("TEST_Q")> TEST_QUALITE
+                                                           <cls_libelleAttribute("contrôle qualité"), cls_bdValueAttribute
+                                                    ("REQ_PARAM")> REQ_PARAM
+                                                           <cls_libelleAttribute("contrôle qualité"), cls_bdValueAttribute("LABO")>
+                                                    CONTROLE_LABO
+                                                           <cls_libelleAttribute("Etat du rss"), cls_bdValueAttribute("ETAT")>
+                                                    ETAT_DOSSIER
+                                                           <cls_libelleAttribute("type de prise en charge"), cls_bdValueAttribute
+                                                    ("PEC")> PEC
+                                                           <cls_libelleAttribute("statut"), cls_bdValueAttribute("STATUT")>
+                                                    STATUT
+                                                           <cls_libelleAttribute("suivi qualité"), cls_bdValueAttribute("SUIVI_Q")>
+                                                    SUIVI_QUALITE
+                                                           <cls_libelleAttribute("Condition sur actes et diags"),
+                                                    cls_bdValueAttribute("CCAM_DIM")> ACTES_ET_DIAGS
+                                                           <cls_libelleAttribute("Unité médicale"), cls_bdValueAttribute("UM")>
+                                                    UNITE_MEDICALE
+                                                           <cls_libelleAttribute("N°Semaine supérieur à"), cls_bdValueAttribute
+                                                    ("SEM_DEBUT")> SEMAINE_DEBUT
+                                                           <cls_libelleAttribute("N°Semaine inférieur à"), cls_bdValueAttribute
+                                                    ("SEM_FIN")> SEMAINE_FIN
+                                                           <cls_libelleAttribute("N°Séjour SSR"), cls_bdValueAttribute
+                                                    ("NO_SEJ_SSR")> NUM_SEJ_SSR
+                                                           <cls_libelleAttribute("Catégorie Majeur Clinique"), cls_bdValueAttribute
+                                                    ("CODE_CMC")> CODE_CMC
+                                                           <cls_libelleAttribute("Code GME"), cls_bdValueAttribute
+                                                    ("CODE_GME")> CODE_GME
+                                                           <cls_libelleAttribute("Code GMD"), cls_bdValueAttribute
+                                                    ("CODE_GMD")> CODE_GMD
+                                                           <cls_libelleAttribute("Code GHJ"), cls_bdValueAttribute("CODE_GHJ")
+                                                    > CODE_GHJ
+                                                           <cls_libelleAttribute("Critère inclusion GME"), cls_bdValueAttribute
+                                                    ("COND_GME")> CONDITION_GME
+                                                           <cls_libelleAttribute("Critère inclusion GMD"), cls_bdValueAttribute
+                                                    ("COND_GMD")> CONDITION_GMD
+                                                           <cls_libelleAttribute("Dossiers validés DIM"), cls_bdValueAttribute
+                                                    ("VAL_DIM")> VALIDE_DIM
+                                                           <cls_libelleAttribute("Filtre RSS"), cls_bdValueAttribute("FILTRE_RSS")
+                                                    > FILTRE_RSS
+                                                           <cls_libelleAttribute("Filtre RHS"), cls_bdValueAttribute("FILTRE_RHS")
+                                                    > FILTRE_RHS
+                                                           <cls_libelleAttribute("Vide"), cls_bdValueAttribute("VIDE")> VIDE
+                                                         End Enum
+                                     text           Stock la valeur de l'élément de recherche. Ex : pour le type "date_debut" -->
+       3   VALEUR
+                                     (2147483647)   stock la date

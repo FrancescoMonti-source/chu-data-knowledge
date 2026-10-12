@@ -1,0 +1,67 @@
+==== TB_MVT_HAD_SS_SEQ ====
+    1    ID_SS_SEQ_HAD         int(10)           Identifiant de la sous séquence HAD
+
+    2    ID_SEQ_HAD            int(10)           Identifiant de la séquence HAD à laquelle la sous séquence est rattachée
+
+    3    DATE_DEB_SS_SEQ       datetime          Date de début de la sous séquence
+
+    4    DATE_FIN_SS_SEQ       datetime          Date de fin de la sous séquence
+      5    DATE_DEBUT_TARIF1         datetime         Date de début pour le GHT1
+
+      6    DATE_FIN_TARIF1           datetime         Date de fin pour le GHT1
+
+      7    GHT1                      char(2)          GHT 1
+
+      8    MNT_GHT1                  decimal(10, 2)   Montant du GHT 1
+
+      9    NB_JOUR_GHT1              smallint(5)      Nombre de jours du GHT 1
+
+      10   DATE_DEBUT_TARIF2         datetime         Date de début pour le GHT2
+
+      11   DATE_FIN_TARIF2           datetime         Date de fin pour le GHT2
+
+      12   GHT2                      char(2)          GHT 2
+
+      13   MNT_GHT2                  decimal(10, 2)   Montant du GHT2
+
+      14   NB_JOUR_GHT2              smallint(5)      Nombre de jours du GHT2
+
+      15   DATE_DEBUT_TARIF3         datetime         Date de début du GHT3
+
+      16   DATE_FIN_TARIF3           datetime         Date de fin du GHT3
+
+      17   GHT3                      char(2)          GHT 3
+
+      18   MNT_GHT3                  decimal(10, 2)   Montant du GHT3
+
+      19   NB_JOUR_GHT3              smallint(5)      Nombre de jours du GHT3
+
+      20   DATE_DEBUT_TARIF4         datetime         Date de début du GHT4
+
+      21   DATE_FIN_TARIF4           datetime         Date de fin du GHT4
+
+      22   GHT4                      char(2)          GHT 4
+
+      23   MNT_GHT4                  decimal(10, 2)   Montant du GHT4
+
+      24   NB_JOUR_GHT4              smallint(5)      Nombr de jours du GHT4
+
+      25   MNT_TOTAL_SS_SEQ          decimal(10, 2)   Montant total de la sous-séquence
+
+      26   ID_LIEU_DOM               smallint(5)      Identifiant du lieu de domicile.
+
+      27   ID_ETABLIS_EHPA           smallint(5)      Identifiant de l'établissement EHPA
+
+      29   CODE_ERREUR               char(3)          Code erreur de groupage
+                                                      Lien sur TB_UTIL.ID_UTIL
+      32   ID_CREAT                  int(10)
+                                                      Identifiant de l'utilisateur de création
+      33   DATE_CREAT                datetime         Date de création
+                                                      Lien vers Util.ID_UTIL.
+      34   ID_INFO                   int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+      35   DATE_INFO                 datetime         Date de la dernière modification
+
+      36   HEURE_INFO                datetime         Heure de la dernière modification
+
+      37   NO_SS_SEQ                 smallint(5)      Numéro de la sous séquence HAD

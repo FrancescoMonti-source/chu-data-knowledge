@@ -1,0 +1,6 @@
+==== R_REGROUPEMENT ====
+Regroupement de code acte (ex : ADA - Acte d'anesthésie)
+                                                      Clé :
+       1   COD_REGROU                   char(3)
+                                                      Code regroupement
+       2   LIBELLE                      char(100)     Libellé

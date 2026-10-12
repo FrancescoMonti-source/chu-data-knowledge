@@ -1,0 +1,8 @@
+==== R_PAIEMENT ====
+Liste des Codifications des modalités de paiement desséances
+                                                        Code modalité de paiement
+       1    COD_PAIEMT                  char(1)
+                                                        des séances
+                                                        libellé modalité de paiement
+       2    LIBELLE                     char(80)
+                                                        des séances

@@ -1,0 +1,8 @@
+==== TB_PIECE_STATUT ====
+       1   ID_PIECE_STATUT            smallint(5)
+
+       2   LIB_PIECE_STATUT           varchar(50)
+
+       3   STATUT_DEFINITIF           char(1)                                                                                      'N'
+
+       4   ACTIF                      char(1)                                                                                      'O'

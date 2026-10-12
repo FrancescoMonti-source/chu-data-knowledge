@@ -1,0 +1,224 @@
+==== TB_PROFIL ====
+Profil utilisateur : Paramétrage de Droits et Caractéristiques standarts pouvant être réutilisé pour paramétrer les utilisateurs
+                                                        Clé - Lien sur Util.id_profil :
+       1    ID_PROFIL                    int(10)
+                                                        Identifiant du Profil de droits et caractéristiques
+2    LIBELLE_PROFIL         char(100)   Libellé du Profil
+                                        Signature Actes :
+3    DR_SIGN_UNIQUE_UTIL    char(1)
+                                        ="O" : L'Utilisateur peut signer ces actes (actes qu'il a réalisé)
+                                        Signature Actes :
+5    DR_SIGN_TOUT           char(1)
+                                        ="O" : L'Utilisateur peut signer n'importe quel acte (qu'il a réalisé ou non)
+                                        Dévalidation (dé-signature) Actes :
+6    DR_DEVAL_UNIQUE_UTIL   char(1)
+                                        ="O" : L'Utilisateur peut dévalider les actes qu'il a signés
+                                        Dévalidation (dé-signature) Actes :
+8    DR_DEVAL_TOUT          char(1)     ="O" : L'Utilisateur peut dévalider tous les actes (même ceux qu'il na pas
+                                        signés)
+                                        Signature RUM :
+9    DR_SIGN_RUM_UM         char(1)
+                                        ="O" : L'Utilisateur peut signer les RUM de son (ou ses) unité(s)
+                                        Signature RUM :
+10   DR_SIGN_RUM_TOUT       char(1)
+                                        ="O" : L'Utilisateur peut signer tous les RUM
+                                        Groupage :
+11   SIMUL_GRP              char(1)
+                                        ="O" (ou vide) : L'Utilisateur peut utiliser la fonction 'Simulation Groupage'
+                                        Groupage :
+12   SIMUL_ORGANISER        char(1)
+                                        ="O" (ou vide) : L'Utilisateur peut utiliser la fonction 'Organiser' (écran RUM)
+                                        Signature Actes :
+13   DEMANDE_SIGN           char(1)     ="O" (ou vide) : Demande de signature de l'acte à la volée (a chaque saisie
+                                        d'acte)
+15   STAT_PERSO             char(1)     Droit sur les Statistiques : Ecran Listes Générales de Recueil Cora
+
+16   STAT_UNITE             char(1)     Droit sur les Statistiques : Ecran Listes Générales de Recueil Cora
+
+17   STAT_TOUT              char(1)     Droit sur les Statistiques : Ecran Listes Générales de Recueil Cora
+                                        Droit sur la Saisie (Modification + Suppression) des actes CCAM / si ="O" :
+18   ACTION_ACTE            char(1)
+                                        aucune action permise sur les actes
+                                        Droit sur la Saisie (Modification + Suppression) des diagnostics (si ="O") / si
+19   ACTION_DIAG            char(1)
+                                        ="O" : aucune action permise sur les actes
+                                        Groupage :
+20   VUE_EUROS              char(1)
+                                        ="O" (ou vide) : L'Utilisateur peut visualiser la valorisation du GHS
+22   MEDECIN                char(1)     ="O" : L'utilisateur est un Médecin
+
+23   MARE                   char(1)     ="O" : L'utilisateur est un Anesthésiste
+
+24   OPERATEUR              char(1)     ="O" : L'utilisateur est un Opérateur (Chirurgien ou autre)
+
+25   DIM                    char(1)     ="O" : Utilisateur DIM
+
+26   TIM                    char(1)     ="O" : Utilisateur TIM
+
+27   SECMED                 char(1)     ="O" : Utilisateur Secrétaire Médicale
+
+28   SEC                    char(1)     ="O" : Utilisateur Secrétaire
+
+29   MANIP                  char(1)     ="O" : Utilisateur Manipulateur
+
+30   INFE                   char(1)     ="O" : Utilisateur Infirmier
+                                        Paramètre Utilisateur : Permet d'afficher par défaut les actes de l'utilisateur
+31   FILTRE_ACTE_PERSO      char(1)
+                                        (écran RUM)
+32   SAGE_FEMME             char(1)     ="O" : Utilisateur Sage femme
+                                        Droit sur les Ecrans / Fonctions :
+33   ECR_BLOC               char(1)
+                                        Droit sur le lancement de l'écran Bloc (Intervention)
+                                        Droit sur les Ecrans / Fonctions :
+34   ECR_ACT_DIAG           char(1)
+                                        Droit sur le lancement de l'écran RUM
+                                        Droit sur les Ecrans / Fonctions :
+35   ECR_ACT                char(1)
+                                        Droit sur le lancement de l'écran RUM (uniquement acte CCAM)
+                                        Droit sur les Ecrans / Fonctions :
+36   ECR_NGAP               char(1)
+                                        Droit sur le lancement de l'écran Acte NGAP
+                                        Droit sur les Ecrans / Fonctions :
+37   ECR_RSS                char(1)
+                                        Droit sur le lancement de l'écran RSS
+                                        Gestion Cora Document :
+38   DROIT_DOC              char(1)     Droit de Création (="C"), de Modification (="M"), de Lecture (="L") sur les
+                                        documents et modèles (si aucuns droits ="R")
+                                        Gestion Cora Document :
+39   PRINT_DOC              char(1)
+                                        Droit d'impressions des documents
+                                             Gestion Cora Document :
+40   PARAM_DOC                 char(1)       Droit de paramétrages de Cora Document (paramétrage des thésaurus (ex :
+                                             création de correspondants, des modèles…))
+                                             Gestion Cora Document :
+41   ADMINISTRATION_DOC        char(1)       Droit d'administration de Cora Document (paramétrage des répertoires de
+                                             stockage, suppression des documents )
+                                             Droit sur les Ecrans / Fonctions :
+42   ECR_MED_COUTEUX           char(1)
+                                             Droit sur le lancement de l'écran Médicaments couteux
+                                             Signature Médicaments :
+43   DR_SIGN_MED_COUTEUX       char(1)
+                                             ="O" : L'Utilisateur peut signer les Médicaments saisis
+                                             Dévalidation Médicaments :
+44   DR_DEVAL_MED_COUTEUX      char(1)
+                                             ="O" : L'Utilisateur peut dévalider les Médicaments saisis
+45   ECR_LPP                   char(1)
+
+46   DR_SIGN_LPP               char(1)
+
+47   DR_DEVAL_LPP              char(1)
+
+48   DROIT_SIGN_ACTE_AUTO      char(1)
+                                             Droit de visualisation Uniquement de l'historique des patients pour SES UF
+49   DR_VISU_UNIQ_UF           char(1)       (UF liés aux sites, eux-mêmes liés aux utilisateurs)
+                                             ="O" : L'utilisateur ne voit que ses sites
+                                             Droit de saisie d'actes (en Externe) Uniquement pour SES UF (UF liés aux
+50   DR_CREAT_UF_NON_AUT       char(1)       sites, eux-mêmes liés aux utilisateurs)
+                                             ="O" : L'utilisateur ne saisit des actes que sur ses sites
+                                             Gestion Cora Document :
+51   CHAMPS_ACTION_DOC         char(1)       Permet de savoir si les droits sur Cora Document s'applique sur les docs
+                                             Patient ou non
+                                             Signature RUM :
+52   DR_SIGN_RUM_SANS_SIGN     char(1)       ="O" : L'Utilisateur pouvant signer des RUM, l'a pas besoin de taper son mot
+                                             de passe (signature automatique)
+                                             si = 'O' : L'utilisateur a le droit de créer ou modifier une fiche Bébé (Fiche
+53   DR_SAISIE_FICHE_BB        char(1)
+                                             'Séjour spécifique' d'un Bébé dont le dossier n'existe que dans Cora Recueil)
+                                             Gestion Cora Document :
+54   DROIT_DOC_CREAT_CORR      char(1)
+                                             Permet de savoir si l'utilisateur peut créer des Correspondants
+                                             Gestion Cora Document :
+                                             Permet de savoir si l'utilisateur peut valider des fiches des Correspondants (si
+55   DROIT_DOC_VALIDE_CORR     char(1)
+                                             non et DROIT_DOC_CREAT_CORR = 'O' : il peut créer des fichies
+                                             provisoires)
+56   ID_NIVEAU_SECURITE        smallint(5)
+
+57   ECR_PARAMED               char(1)
+
+58   ECR_REFANNEXE             char(1)
+
+59   ECR_DOCPIECE              char(1)
+
+60   PHARMACIEN                char(1)
+
+61   ARCHIVISTE                char(1)
+
+62   BRANCARDIER               char(1)
+
+63   DAF                       char(1)
+
+64   DR_SIGN_EVT_BLOC          char(1)
+
+65   DR_SIGN_MAT_BLOC          char(1)
+
+66   DR_SIGN_FIC_BLOC          char(1)
+
+67   SAISIE_DP_AUTO            char(1)
+
+68   PERMUTE_DP_SIMU           char(1)
+
+69   ECR_PSY                   char(1)
+
+70   DROIT_CREAT_PAT_PSY       char(1)
+
+71   LIMITE_SAISIE_SITE_PROD   char(1)
+                                             Gestion Cora RimP:
+72   DROIT_DIAG_PSY            char(1)       Droit sur les diagnostics
+                                             0 - Aucun Droit / 1 - Lecture Seule / 2 - Lecture et Saisie
+                                                       Gestion Cora RimP:
+       73   DROIT_DEP_PSY               char(1)        Droit sur les dépendances
+                                                       0 - Aucun Droit / 1 - Lecture Seule / 2 - Lecture et Saisie
+                                                       Gestion Cora RimP:
+       74   DROIT_INFO_ADMIN_PSY        char(1)        Droit sur les informations administratives
+                                                       0 - Aucun Droit / 1 - Lecture Seule / 2 - Lecture et Saisie
+       75   ECR_DIAG                    char(1)
+
+       76   DROIT_SIGN_DOC_AUT          char(1)
+
+       77   DROIT_SIGN_DOC_UNITE        char(1)
+
+       78   DROIT_SIGN_DOC_TOUT         char(1)
+
+       79   DROIT_DEVAL_DOC_AUT         char(1)
+
+       80   DROIT_DEVAL_DOC_UNITE       char(1)
+
+       81   DROIT_DEVAL_DOC_TOUT        char(1)
+
+       82   ECR_PERINAT                 char(1)        O' pour Droit Gestion Ecran Perinat
+
+       83   DROIT_PARAM_PERINAT         char(1)        O' pour Droit Gestion Thesaurus Perinat
+
+       84   DROIT_PERINAT               char(1)        O' pour Droit Gestion Saisie Perinat
+
+       85   DROIT_LECTURE_AMBU          char(1)
+
+       86   DROIT_SAISIE_AMBU           char(1)
+
+       87   AIDE_SOIGNANT               char(1)
+
+       88   DR_DEVAL_ACTE_SS_SIGN       char(1)
+
+       89   ADMINISTRATION_AGENDA       char(1)
+
+       90   DROIT_SIGN_PSY_SEQ          smallint(5)
+
+       91   DROIT_SIGN_PSY_ACTE         smallint(5)
+
+       92   DROIT_DOC_CREAT_UNITE       char(1)
+
+       93   INTERNE                     char(1)
+
+       94   ETUDIANT                    char(1)
+
+       95   PREPARATEUR                 char(1)
+
+       96   DROIT_INFO_CONTACT_PSY      char(1)
+                                                       Indique si le blocage de la saisie des actes CCAM et NGAP est activé :
+                                                       0 : Désactivé
+                                                       1 : Message d'information indiquant que le dossier est facturé GAM mais on
+       97   BLOC_ACTES_FACT_GAM         smallint(5)
+                                                       peut le modifier
+                                                       2 : Activé => pas de possibilité de modifier les actes CCAM et NGAP pour les
+                                                       dossiers facturés GAM

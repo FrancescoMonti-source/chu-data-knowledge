@@ -1,0 +1,32 @@
+==== TB_INT_REJET_LABO ====
+     1    ID_REJET            int(10)
+
+     2    ID_PATIENT          int(10)
+
+     3    ID_SEJOUR           int(10)
+
+     4    DATE_REJET          datetime
+
+     5    CODE                varchar(50)
+
+     6    DETAIL              varchar(4000)
+
+     7    NOM_FICHIER         varchar(50)
+
+     8    ID_MESSAGE_LABO     int(10)
+
+     9    NUM_DEMANDE         varchar(12)
+
+     10   LISTE_ANALYSE       varchar(1000)
+
+     11   CODE_EXAMEN         varchar(22)
+
+     12   ZONE_SOUS_ID_TEST   varchar(20)
+
+     13   ID_APPLICATION      int(10)
+
+     14   NO_SEJOUR           varchar(20)
+
+     15   IPP_PATIENT         varchar(20)
+
+     16   REIMPORTABLE        char(1)

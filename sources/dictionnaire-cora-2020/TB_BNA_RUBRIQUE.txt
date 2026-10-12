@@ -1,0 +1,26 @@
+==== TB_BNA_RUBRIQUE ====
+     1   CODE_RUBRIQUE           char(3)        Code de la rubrique
+
+     2   LIBELLE_RUBRIQUE        varchar(50)    Libellé de la rubrique
+
+     3   COMMENTAIRE_RUBRIQUE    varchar(500)   Commentaire
+
+     4   TYPE_RUBRIQUE           char(1)        Type : B (Oui / Non), T (thésaurus), L (libre)
+
+     5   OBLIGATOIRE             char(1)        Valeur obligatoire ou pas (O/N)
+
+     6   NIVEAU                  smallint(5)    Niveau
+
+     7   DATE_EFFET              datetime       Date de début de validité de la rubrique
+
+     8   DATE_FIN                datetime       Date de fin de validité de la rubrique
+
+     9   RUBRIQUE_FICH_MAJ_PAT   char(1)        Rubrique patient
+
+    10   ORDRE_SAISIE            smallint(5)    Ordre de saisie
+
+    11   FORMAT_SAISIE           char(1)        Format de saisie : C (Caractère), E (entier), N (numérique), D (date)
+
+    12   TAILLE_MAX_SAISIE       smallint(5)    Taille max du champ saisi
+
+    13   TAILLE_MAX_EXPORT       smallint(5)    Taille max en export

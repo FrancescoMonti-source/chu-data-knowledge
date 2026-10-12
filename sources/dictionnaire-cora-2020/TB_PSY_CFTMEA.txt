@@ -1,0 +1,26 @@
+==== TB_PSY_CFTMEA ====
+       1   ID_PSY_CFTMEA              int(10)
+
+       2   ID_SEJOUR                  int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       3   ID_PATIENT                 int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       4   ID_SEQUENCE                int(10)
+
+       5   ID_ACTE_PSY                int(10)
+
+       6   CODE_CFTMEA                varchar(10)
+
+       7   DATE_CFTMEA                datetime
+
+       8   TYPE_CFTMEA                char(1)
+
+       9   ID_UNITE                   int(10)
+                                                     Lien sur TB_UTIL.ID_UTIL
+      10   ID_CREAT                   int(10)
+                                                     Identifiant de l'utilisateur de création
+      11   DATE_CREAT                 datetime       Date de création
+                                                     Lien vers Util.ID_UTIL.
+      12   ID_INFO                    int(10)
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification
+      13   DATE_INFO                  datetime       Date de la dernière modification

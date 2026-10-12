@@ -1,0 +1,14 @@
+==== R_INCOMPATIBILITES ====
+Matrice des incompatibilités d'actes
+                                                      Clé - Lien avec R_ACTE :
+       1   ACTE_COD1                   char(13)
+                                                      Code acte
+                                                      Clé - Lien avec R_ACTE :
+       2   DT_MODIF1                   datetime
+                                                      Date de mise à jour
+                                                      Clé - Lien avec R_ACTE :
+       3   ACTE_COD2                   char(13)
+                                                      Code acte
+                                                      Clé - Lien avec R_ACTE :
+       4   DT_MODIF2                   datetime
+                                                      Date de mise à jour

@@ -1,0 +1,23 @@
+==== TB_CONFIG_INTERVENTION ====
+Table de configuration et de paramétrage spécifique aux écrans Interventions/Bloc
+                                                       Permet de désactiver l'affichage et la gestion des certains des champs de la
+       1   CHAMPS_DISPO_CHRONO         varchar(10)
+                                                       chronologie (les 10 champs d'heure sont codifiés par des lettres)
+                                                       Permet d'ordonner de façon spécifique à l'établissement les champs de la
+       2   CHAMPS_ORDRE_CHRONO         varchar(10)
+                                                       chronologie
+                                                       Permet de gérer les options de Saisie pour l'écran Bloc :
+                                                       Pour une zone si la caractère est égale à N : Pas d'affichage et pas de gestion
+       3   GESTION_FILTRE_TYPE_INFO char(10)
+                                                       - 1er caractère : Polytraumatisé
+                                                       - 2ème caractère : Protocole Recherche
+                                                       Permet de gérer l'affichage de l'écran Historique Intervention (et de contrôler
+                                                       l'existence d'intervention à plusieurs niveaux) :
+                                                       - si = 'P' : Affichage des Interventions du Patient et contrôle d'existence au
+       4   GESTION_NIVEAU_HISTO        char(1)
+                                                       niveau du Patient
+                                                       - Sinon : cette affichage est gérée en fonction du Positionnement dans l'écran
+                                                       Recherche (donc au niveau : Patient ou Séjour ou Mouvement)
+                                                       Mise en place d'un contrôle dans l'écran Bloc : Obligation de saisir la salle de
+       5   OBLIG_SALLE_BLOC            char(1)
+                                                       l'intervention (si ='O')

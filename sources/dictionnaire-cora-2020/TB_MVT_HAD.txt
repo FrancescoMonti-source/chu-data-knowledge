@@ -1,0 +1,122 @@
+==== TB_MVT_HAD ====
+Contient les Séquences de Soins.Au sein d'une séquence de soins : 4 périodes (ou tranches de durée) de durée de prise en
+charge peuvent être définies
+                                                    Clé :
+       1   ID_MVT                     int(10)
+                                                    Identifiant (PrisMédica) du mouvement
+                                                    Clé :
+       2   NO_SEQ                     smallint(5)
+                                                    Identifiant (PrisMédica) de la séquence de soins (n° de séquence)
+                                                    Lien sur TB_PATIENT.ID_PATIENT :
+       3   ID_PATIENT                 int(10)
+                                                    Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                    Lien sur TB_SEJOUR.ID_SEJOUR :
+       4   ID_SEJOUR                  int(10)
+                                                    Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+       5   DATE_DEBUT_SEQUENCE        datetime      Début de la Séquence de Soins
+
+       6   DATE_FIN_SEQUENCE          datetime      Fin de la Séquence de Soins
+                                                    Lien sur PMSI_GHPC.CODE_GHPC :
+       7   GHPC                       char(4)
+                                                    Groupe Homogène de Prise en Charge pour la séquence
+                                                    Lien sur PMSI_PROTO_PRINC.CODE_PROTO :
+       8   CODE_PROTO_PRINC           char(2)
+                                                    Modes de prise en charge principal
+                                                    Lien sur PMSI_PROTO_SECON.CODE_PROTO :
+       9   CODE_PROTO_SECON           char(2)
+                                                    Modes de prise en charge associé
+                                                    Lien sur CIM_HIERARCHIE.CODEFILS :
+      10   DIAG_PRINC                 char(16)
+                                                    Diagnostic Principal
+                                                    Lien sur PMSI_KARNO.CODE_KARNO :
+      11   CODE_KARNO                 char(3)
+                                                    Indice de Karnofsky
+      12   HABILLAGE                  smallint(5)   Somme des valeurs de dépendances 'Habillage' pour la séquence de soins
+
+      13   ALIMENTATION               smallint(5)   Somme des valeurs de dépendances 'Alimentation' pour la séquence de soins
+
+      14   DEPENDANCE                 smallint(5)   Somme des valeurs de dépendances 'Dépendance' pour la séquence de soins
+
+      15   CONTINENCE                 smallint(5)   Somme des valeurs de dépendances 'Continence' pour la séquence de soins
+                                                    Somme des valeurs de dépendances 'Comportement' pour la séquence de
+      16   COMPORTEMENT               smallint(5)
+                                                    soins
+      17   RELATION                   smallint(5)   Somme des valeurs de dépendances 'Relation' pour la séquence de soins
+
+      18   DEPLACEMENT                smallint(5)   Somme des valeurs de dépendances 'Déplacement' pour la séquence de soins
+                                                    Date de début de la 1ère période de prise en charge (du 1er au 4ème jour
+      19   DATE_DEBUT_SS_1            datetime
+                                                    compris)
+                                                    Date de fin de la 1ère période de prise en charge (du 1er au 4ème jour
+      20   DATE_FIN_SS_1              datetime
+                                                    compris)
+    21   GHT_1                 char(2)           Groupe Homogène de Tarifs (de la 1ère séquence)
+                                                 Date de début de la 2ème période de prise en charge (du 5ème au 9ème jour
+    22   DATE_DEBUT_SS_2       datetime
+                                                 compris)
+                                                 Date de fin de la 2ème période de prise en charge (du 5ème au 9ème jour
+    23   DATE_FIN_SS_2         datetime
+                                                 compris)
+    24   GHT_2                 char(2)           Groupe Homogène de Tarifs (de la 2ème séquence)
+                                                 Date de début de la 3ème période de prise en charge (du 10ème au 30ème
+    25   DATE_DEBUT_SS_3       datetime
+                                                 jour compris)
+                                                 Date de fin de la 3ème période de prise en charge (du 10ème au 30ème jour
+    26   DATE_FIN_SS_3         datetime
+                                                 compris)
+    27   GHT_3                 char(2)           Groupe Homogène de Tarifs (de la 3ème séquence)
+                                                 Date de début de la 4ème période de prise en charge (à partir du 31ème jour
+    28   DATE_DEBUT_SS_4       datetime
+                                                 compris)
+                                                 Date de fin de la 4ème période de prise en charge (à partir du 31ème jour
+    29   DATE_FIN_SS_4         datetime
+                                                 compris)
+    30   GHT_4                 char(2)           Groupe Homogène de Tarifs (de la 4ème séquence)
+
+    31   DATE_SIGN             datetime          Date de signature de la Séquence de Soins
+                                                 Lien sur Util.id_util :
+    32   ID_SIGN               int(10)
+                                                 Utilisateur ayant signé la Séquence de Soins
+    33   DATE_INFO             datetime          Date de création de la Séquence
+                                                 Lien sur Util.id_util :
+    34   ID_INFO               int(10)
+                                                 Utilisateur ayant crée la Séquence
+    35   MONTANT_GHT_1         decimal(5, 2)     Valorisation journalière de la 1ère sous séquence
+
+    36   MONTANT_GHT_2         decimal(5, 2)     Valorisation journalière de la 2ème sous séquence
+
+    37   MONTANT_GHT_3         decimal(5, 2)     Valorisation journalière de la 3ème sous séquence
+
+    38   MONTANT_GHT_4         decimal(5, 2)     Valorisation journalière de la 4ème sous séquence
+
+    39   NB_J_GHT_1            smallint(5)       Nb de jour de la 1ère sous séquence
+
+    40   NB_J_GHT_2            smallint(5)       Nb de jour de la 2ème sous séquence
+
+    41   NB_J_GHT_3            smallint(5)       Nb de jour de la 3ème sous séquence
+
+    42   NB_J_GHT_4            smallint(5)       Nb de jour de la 4ème sous séquence
+
+    43   CODE_ERREUR           char(3)           Code erreur du groupage de la séquence
+
+    44   TYPE_LIEU_DOM         char(1)           Type de lieu du mouvement (1 : domicile,...)
+                                                 Lien sur PMSI_PROTO_SECON.CODE_PROTO : Lien sur le mode de prise
+    45   CODE_PROTO_1          char(2)
+                                                 en charge documentaire 1
+                                                 Lien sur PMSI_PROTO_SECON.CODE_PROTO : Lien sur le mode de prise
+    46   CODE_PROTO_2          char(2)
+                                                 en charge documentaire 2
+                                                 Lien sur PMSI_PROTO_SECON.CODE_PROTO : Lien sur le mode de prise
+    47   CODE_PROTO_3          char(2)
+                                                 en charge documentaire 3
+                                                 Lien sur PMSI_PROTO_SECON.CODE_PROTO : Lien sur le mode de prise
+    48   CODE_PROTO_4          char(2)
+                                                 en charge documentaire 4
+                                                 Indice de pondération intermédiaire obtenu par le produit des pondérations
+    49   IPI                   decimal(12, 11)
+                                                 associées au MP, MA et IK.
+    50   ID_SEQ_HAD            int(10)           Identifiant de la séquence HAD.                                                  -1
+
+    51   CONFIRMATION_CODAGE   char(1)           Confirmation de codage du MPP.
+
+    52   NATURE_SEJOUR         char(2)           Nature du séjour HAD

@@ -1,0 +1,8 @@
+==== TB_NIVEAU_SECURITE ====
+       1   ID_NIVEAU_SECURITE          smallint(5)
+
+       2   LIBELLE_NIVEAU_SECURITE     varchar(200)
+
+       3   ACTIF                       char(1)
+
+       4   NIVEAU_SECU                 smallint(5)

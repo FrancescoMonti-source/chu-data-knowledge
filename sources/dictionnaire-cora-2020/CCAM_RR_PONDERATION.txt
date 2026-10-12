@@ -1,0 +1,9 @@
+==== CCAM_RR_PONDERATION ====
+Thésaurus de la pondération des actes CCAM intervenant en SSR (Rééducation Réadaptation)
+       1   CODE                         varchar(7)     Code de l'acte CCAM
+
+       2   PONDERATION                  smallint(5)    Poids RR de l'acte CCAM
+
+       3   DATE_DEBUT                   datetime       Date de début de validité
+
+       4   DATE_FIN                     datetime       Date de fin de validité

@@ -1,0 +1,37 @@
+==== TB_PSY_RESSOURCES ====
+Table d'enregistrement des ressources pour la CSD
+      1    ID_CSD                    int(10)        Identifiant du CSD
+                                                  Ressources Principales
+                                                  00 - Sans Informations
+                                                  01 - Ressources Propres
+                                                  02 - Ressources Sociales
+                                                  03 - Ressources Familiales
+                                                  04 - Sans Ressources
+                                                  Ressources Sociales / Disponible si 02 coché
+                                                  0 - Sans information
+                                                  1 - AES Simple
+                                                  2 - AES 1er Complément
+                                                  3 - AES 2nd Complément
+                                                  4 - AES 3ème Complément
+                                                  5 - AAH
+                                                  6 - RMI
+      2    TYPE_RESSOURCES         char(2)
+                                                  7 - Invalidité
+                                                  8 - Autres
+                                                  Ressources Liées à un handicap
+                                                  0 - pour sans information
+                                                  1 - pour oui
+                                                  2 - pour non
+                                                  Ressources Minimum Social
+                                                  0 - pour sans information
+                                                  1 - pour oui
+                                                  2 - pour non
+                                                  Ressources CMU
+                                                  0 - pour sans information
+                                                  1 - pour oui
+                                                  2 - pour non
+                                                  - 'P' pour Principale
+                                                  - 'N' pour Nature Ress. Sociale
+      3    TYPE_PRESTATION         char(1)        - 'C' pour CMU                                                            'S'
+                                                  - 'S' pour Minimum Social
+                                                  - 'H' pour Handicap

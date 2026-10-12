@@ -1,0 +1,6 @@
+==== TB_THES_BLOC_CHRONO ====
+      1    ID_THES_BLOC_CHRONO        smallint(5)
+
+      2    LIB_THES_BLOC_CHRONO       varchar(50)
+
+      3    CODE_CHRONO_INTERNE        char(5)

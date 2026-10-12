@@ -1,0 +1,10 @@
+==== PRESC_COMPOSANT_MED ====
+      1    ID_MED                    int(10)
+
+      2    ID_COMPOSANT              smallint(5)
+
+      3    ID_UNITE_MED              smallint(5)
+
+      4    QUANTITE                  decimal(12, 3)
+
+      5    SOLVANT                   char(1)

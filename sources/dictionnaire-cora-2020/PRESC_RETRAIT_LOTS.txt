@@ -1,0 +1,23 @@
+==== PRESC_RETRAIT_LOTS ====
+     1   ID_MED                   int(10)
+
+     2   DATE_ALERTE              datetime
+
+     3   TYPE_ALERTE              char(2)
+       4   NUM_LOT_MIN                  varchar(16)
+
+       5   NUM_LOT_MAX                  varchar(16)
+
+       6   SOUS_LOT_MIN                 varchar(16)
+
+       7   SOUS_LOT_MAX                 varchar(16)
+
+       8   DATE_PEREMPTION              datetime
+
+       9   DATE_MAJ_ALERTE              datetime
+
+      10   NUM_ALERTE                   varchar(20)
+
+      11   LIB_ALERTE                   varchar(130)
+
+      12   URL_ALERTE                   varchar(130)

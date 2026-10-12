@@ -1,0 +1,4 @@
+==== TB_INTERVENTION_RDV ====
+       1    ID_INTERVENTION               int(10)
+
+       2    ID_RDV                        int(10)          Lien vers TB_RDV.ID_RDV

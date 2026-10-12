@@ -1,0 +1,11 @@
+==== TB_MESSAGES_PATIENT ====
+Table d'historisation contenant les messages recus sur les Informations Patient.
+       1   ID_MESSAGE                  int(10)         Clé interne
+
+       2   DATE_MESSAGE                datetime        Date de réception du message                                                    getdate
+
+       3   FICHIER                     varchar(50)     Nom du fichier dans lequel se trouve le message
+
+       4   MESSAGE                     varchar(2000)   message reçu
+
+       5   DATE_TRANSFERT              datetime

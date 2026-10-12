@@ -1,0 +1,20 @@
+==== UTIL_MAT_INTERVENANT ====
+       1    CODE_UTIL                    char(30)
+
+       2    CODE_INTERVENANT             char(10)
+
+
+Util_Module
+       1    id_module                    int(10)
+
+       2    id_util                      int(10)        Clé - Lien Util.id_util
+
+       3    date_effet                   datetime
+
+       4    actif                        char(1)
+
+       5    date_modif                   datetime
+
+       6    autorise                     char(4)
+
+       7    fin_effet                    datetime

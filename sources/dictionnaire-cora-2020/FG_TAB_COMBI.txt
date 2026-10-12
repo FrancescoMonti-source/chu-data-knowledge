@@ -1,0 +1,14 @@
+==== FG_TAB_COMBI ====
+     1   VERSION_FG           char(3)        Version de la fonction de groupage
+
+     2   TYPE_TEST            char(1)
+
+     3   B1_INF               varchar(4)
+
+     4   B1_SUP               varchar(4)
+
+     5   B2_INF               varchar(4)
+
+     6   B2_SUP               varchar(4)
+
+     7   VALEUR               varchar(2)

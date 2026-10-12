@@ -1,0 +1,4 @@
+==== TB_INT_MOD_DOC_APPLI ====
+       1   ID_MODELE_DOC              int(10)         FK CORA_REC.TB_MODELE_DOCUMENT.ID_MODELE_DOCUMENT
+
+       2   ID_APPLICATION             int(10)         FK TB_INT_APPLICATION.ID

@@ -1,0 +1,8 @@
+==== TB_DROIT_PROFIL_METIER_PARAMED ====
+                                                       Clé - Lien sur TB_METIER_PARAMED.ID_METIER_PARAMED :
+       1   ID_METIER_PARAMED            smallint(5)
+                                                       Identifiant du metier paramédical
+                                                       Clé - Lien sur TB_PROFIL.ID_PROFIL :
+       2   ID_PROFIL_DPI                smallint(5)
+                                                       Identifiant du Profil Utilisateur
+       3   TYPE_DROIT                   smallint(5)    Droits : 0 =Aucun, 1=Lecture, 2=Ecriture

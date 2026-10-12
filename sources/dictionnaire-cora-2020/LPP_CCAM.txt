@@ -1,0 +1,4 @@
+==== LPP_CCAM ====
+       1   CODE_LPP                   char(13)
+
+       2   CODE_CCAM                  char(7)

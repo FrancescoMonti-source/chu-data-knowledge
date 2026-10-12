@@ -1,0 +1,5 @@
+==== TB_ITEM_IMPRESSION_PERSO ====
+       1   VALEUR_ITEM_IMPR             varchar(50)
+           ID_MODELE_IMPRESSION_PE
+       2                           smallint(5)
+           RSO

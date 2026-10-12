@@ -1,0 +1,4 @@
+==== CIM_DP_EXCLU ====
+       1   DP                             char(16)
+
+       2   DAS                            char(16)

@@ -1,0 +1,34 @@
+==== TB_DOC_ACTION_STATUT ====
+Cette table contient l'ensemble des historiques des actions utilisateurs pour chaque document.
+                                                         Clé :
+       1   ID_DOC_ACTION_STATUT        int(10)
+                                                         Définit l'identifiant de l'action utilisateur.
+                                                         Lien vers TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT
+       2   ID_DOCUMENT_PATIENT         int(10)
+                                                         Définit l'identifiant du document patient.
+                                                         Lien vers TB_PROTO_STATUT_DOC.ID_PROTO_STATUT_DOC
+       3   ID_PROTO_STATUT_DOC         smallint(5)
+                                                         Définit l'identifiant du protocole de statut associé au document.
+                                                         Lien vers TB_STATUT_DOC.ID_STATUT_DOC
+       4   ID_STATUT_DOC               smallint(5)
+                                                         Définit l'identifiant du statut associé au document.
+                                                         Lien vers Util.ID_UTIL
+       5   ID_UTIL                     int(10)
+                                                         Définit l'identifiant de l'utilisateur devant réaliser l'action utilisateur.
+       6   FLAG_REALISE                char(1)         Définit un boolean indiquant si l'action utilisateur a été réalisée.                    'N'
+                                                       Lien vers Util.ID_UTIL
+       7   ID_REALISE                  int(10)
+                                                       Définit l'identifiant de l'utilisateur ayant réalisé l'action utilisateur.
+       8   DATE_REALISE                datetime        Définit la date de réalisation de l'action utilisateur.
+
+       9   HEURE_REALISE               datetime        Définit l'heure de réalisation de l'action utilisateur.
+                                                       Lien vers Util.ID_UTIL.
+      10   ID_INFO                     int(10)
+                                                       Définit l'identifiant de l'utilisateur ayant effectué la dernière modification
+      11   DATE_INFO                   datetime        Définit la date de la dernière modification.
+
+      12   HEURE_INFO                  datetime        Définit l'heure de la dernière modification.
+
+      13   REFUS                       char(1)         Définit un boolean indiquant si l'action utilisateur a été refusée.
+
+      14   COMMENTAIRE                 varchar(600)    Définit le commentaire associé à l'action en cas de refus.

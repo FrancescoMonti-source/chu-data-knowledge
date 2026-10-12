@@ -1,0 +1,5 @@
+==== CCAM_DROIT_UTIL ====
+table stockant, par utilisateur les menus de la CCAM qui sont MASQUE.
+       1   ID_UTIL                    int(10)         Clé - Lien Util.id_util
+
+       2   MENU_COD                   int(10)         menu qui sera masqué à l'utilisateur

@@ -1,0 +1,9 @@
+==== LPP_INDICATION ====
+Thésaurus de gestion des indications pour les LPP
+       1    ID_LPP_INDICATION            int(10)          identifiant
+
+       2    CODE_LPP                     char(13)         code LPP
+
+       3    LIB_INDICATION               varchar(500)     Libellé de l'indication
+
+       4    TYPE                         char(1)          Type de l'indication (ex : AMM (Autorisation de Mise sur le Marché))

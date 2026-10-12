@@ -1,0 +1,11 @@
+==== CSARR_ACTIVITE ====
+                                                      Clé - Lien sur CSARR.Code :
+       1   CODE                        varchar(7)
+                                                      Code de l'acte CSARR
+       2   ACTIVITE                    char(2)
+
+       3   PONDERATION                 smallint(5)
+
+       4   DATE_DEBUT                  datetime       Date de début de l'activité
+
+       5   DATE_FIN                    datetime       Date de fin de l'activité

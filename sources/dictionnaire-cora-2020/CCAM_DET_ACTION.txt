@@ -1,0 +1,10 @@
+==== CCAM_DET_ACTION ====
+       1   CODE_PRINC                 char(1)
+
+       2   LIBELLE                    char(80)
+
+       3   REGR_1                     char(1)
+
+       4   REGR_2                     char(2)
+
+       5   MOT_CLE                    char(50)

@@ -1,0 +1,9 @@
+==== R_TB20 ====
+table de transcodage des évolutions des codifications
+        1   CONCEPT                         char(5)        type de codification
+
+        2   CODE                            char(10)       code permanent
+
+        3   DT_DEBUT                        datetime       date d'effet du transcodage
+
+        4   DT_FIN                          datetime       Date de fin

@@ -1,0 +1,28 @@
+==== TB_INTERVENTION_PETIT_MAT ====
+Table du petit matériel utilisé lors d'une 'Intervention
+            CPT_INTERVENTION_PETIT_M                       Clé :
+       1                             int(10)
+            AT                                             Identifiant du matériel pour l'intervention
+                                                           Lien sur TB_INTERVENTION.ID_INTERVENTION :
+       2    ID_INTERVENTION               int(10)
+                                                           Lien sur l'intervention (Lien obligatoire)
+                                                           Lien sur TB_INTERVENTION_LIB_MAT.ID_PETIT_MATERIEL :
+       3    ID_PETIT_MATERIEL             int(10)
+                                                           Lien sur le matériel utilisé (Lien obligatoire)
+       4    QUANTITE_UTILISEE             smallint(5)      Quantité utilisée (Nombre)
+
+       5    COMMENTAIRE                   varchar(1000)    Commentaire sur le matériel
+                                                           Clé - Lien sur Util.id_util :
+       6    ID_INFO                       int(10)
+                                                           Lien sur l'utilisateur ayant saisie l'utilisation de ce matériel
+       7    DATE_INFO                     datetime         Date de saisie de cette info
+
+       8    HEURE_INFO                    datetime         Heure de saisie de cette info
+
+       10   HEURE_UTILISATION             datetime         Heure d'utilisation de ce matériel lors de l'intervention
+
+       11   DATE_SIGN                     datetime         Date de signature
+
+       12   HEURE_SIGN                    datetime         Heure de signature
+
+       13   ID_SIGN                       int(10)          Identifiant de l'utilisateur ayant réalisé la signature. Lien avec UTIL.ID_UTIL

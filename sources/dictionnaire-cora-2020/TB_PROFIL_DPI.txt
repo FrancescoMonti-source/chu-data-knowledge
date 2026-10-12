@@ -1,0 +1,7 @@
+==== TB_PROFIL_DPI ====
+Gestion des profiils DPI, Agenda et Pilotage
+       1    ID_PROFIL_DPI               smallint(5)    Identifiant du profil
+
+       2    LIBELLE_PROFIL_DPI          varchar(50)    Libellé du profil
+
+       3    TYPE_MODULE                 char(3)        DPI; PIL : Pilotage ; AGD: Agenda                                                'DPI'

@@ -1,0 +1,4 @@
+==== PRESC_ACTIONS_COND ====
+       1   ID_DETAIL_FAVORI            int(10)
+
+       2   ID_THES_ACTION              int(10)

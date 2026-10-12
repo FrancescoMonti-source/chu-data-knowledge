@@ -1,0 +1,26 @@
+==== TB_MVT_HAD_SUIVI ====
+Informations complémentaires sur les soins HAD
+                                                      Clé :
+      1    ID_MVT                    int(10)
+                                                      Identifiant (PrisMédica) du mouvement
+                                                      Clé :
+      2    ID_CHRONO                 smallint(5)
+                                                      Identifiant (PrisMédica) de l'évènement 'HAD' pour le mouvement
+                                                      Lien sur TB_PATIENT.ID_PATIENT :
+      3    ID_PATIENT                int(10)
+                                                      Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                      Lien sur TB_SEJOUR.ID_SEJOUR :
+      4    ID_SEJOUR                 int(10)
+                                                      Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+      5    DATE_EVENEMENT            datetime         Début de l'évènement
+
+      6    HEURE_EVENEMENT           datetime         Heure
+
+      7    MOTIF_EVENEMENT           varchar(50)      Motif 'libre' de l'évènement
+       8   COMMENTAIRE                varchar(1000)   Zone commentaire
+                                                      Lien sur Util.id_util :
+       9   ID_AUTEUR                  int(10)
+                                                      Utilisateur ayant saisi cet évènement et commentaire
+      10   DATE_CREAT                 datetime        Date de saisie
+
+      11   NIVEAU_IMPORTANCE          smallint(5)     Permet de classer ces informations en niveau d'importance : Valeur de 1 à 4

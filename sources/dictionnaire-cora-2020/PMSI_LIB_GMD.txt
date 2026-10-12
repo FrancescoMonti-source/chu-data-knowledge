@@ -1,0 +1,45 @@
+==== PMSI_LIB_GMD ====
+       1   CODE_GMD                   char(5)         Code du GMD (classification PMSI SSR)
+
+       2   LIB_GMD                    varchar(200)    Libellé du GMD
+
+       3   LIB_COURT_GMD              varchar(100)    Libellé court du GMD
+
+       4   DATE_DEBUT                 datetime        Date de début de la validité
+
+       5   DATE_FIN                   datetime        Date de fin de la validité
+
+       6   CODE_CMC                   char(3)         Code CMC : catégorie
+
+       7   IVA_GMD                    decimal(7, 2)   Valeur du score IVA lié au GMD
+
+       8   IVA_DEP_PHYS               decimal(7, 2)   Valeur du score IVA lié à la dépendance Physique
+
+       9   IVA_DEP_COGN               decimal(7, 2)   Valeur du score IVA lié à la dépendance cognitive
+
+      10   IVA_AGE_0_5                decimal(7, 2)   Valeur du score IVA lié à l'age (entre 0 et 5 ans)
+      11   IVA_AGE_6_12                decimal(7, 2)   Valeur du score IVA lié à l'age (entre 6 et 12 ans)
+
+      12   IVA_AGE_13_17               decimal(7, 2)   Valeur du score IVA lié à l'age (entre 13 et 17 ans)
+
+      13   IVA_AGE_18_29               decimal(7, 2)   Valeur du score IVA lié à l'age (entre 18 et 29 ans)
+
+      14   IVA_AGE_30_59               decimal(7, 2)   Valeur du score IVA lié à l'age (entre 30 et 59 ans)
+
+      15   IVA_AGE_60_74               decimal(7, 2)   Valeur du score IVA lié à l'age (entre 60 et 74 ans)
+
+      16   IVA_AGE_SUP_75              decimal(7, 2)   Valeur du score IVA lié à l'age (supérieur à 75 ans)
+
+      17   IVA_ARR                     decimal(7, 2)   Valeur du score IVA lié à l'activité ARR
+
+      18   IVA_CAV                     decimal(7, 2)   Valeur du score IVA lié au comorbidités (CAV)
+
+      19   IVA_FP_Z501                 decimal(7, 2)   Valeur du score IVA lié à la finalité Z501
+
+      20   IVA_FP_Z508                 decimal(7, 2)   Valeur du score IVA lié à la finalité Z508
+
+      21   IVA_FP_Z500                 decimal(7, 2)   Valeur du score IVA lié à la finalité Z500
+
+      22   IVA_FP_Z44X                 decimal(7, 2)   Valeur du score IVA lié à la finalité Z44X
+
+      23   IVA_HC                      decimal(7, 2)   Valeur du score IVA si le patient est hospitalisé en HC

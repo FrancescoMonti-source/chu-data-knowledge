@@ -1,0 +1,10 @@
+==== PRESC_TRAIT_FAVORI ====
+     1   ID_FOLDER              int(10)
+
+     2   NOM_FOLDER             varchar(50)
+
+     3   ID_PERE                int(10)
+
+     4   ACTIF                  char(1)                                                                                  'O'
+
+     5   ORDRE_FAV              smallint(5)

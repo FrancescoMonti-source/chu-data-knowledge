@@ -1,0 +1,17 @@
+==== TB_INTERVENTION_TYPE_EVENEMENT ====
+Table des Types d'évènements Clé :
+Table des Types d'évènements
+                                                       Clé :
+       1   ID_TYPE_EVENEMENT            int(10)
+                                                       Identifiant interne.
+       2   LIBELLE_EVENEMENT            char(150)      Libellé du type d'évènement
+
+       3   ACTIF                        char(1)        si ="O" : Type actif
+                                                       Lien sur TB_INTERVENTION_TYPE_EVENEMENT.ID_TYPE_EVENEMENT :
+       4   ID_PERE                      int(10)
+                                                       Permet de réaliser une arborescence dans cette liste
+       5   NIVEAU                       smallint(5)    Niveau dans l'arborescence
+                                                       Couleur d'affichage de ce type d'évènement (fond d'affichage). C'est la valeur
+       6   COULEUR                      char(20)
+                                                       hexadécimale de la couleur qui est enregistrée.
+       7   GRAVITE                      smallint(5)    Niveau de gravité de l'évènement

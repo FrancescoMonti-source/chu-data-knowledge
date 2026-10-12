@@ -1,0 +1,13 @@
+==== R_TB08 ====
+jours fériés spécifiques par caisse
+                                                          code caisse concernée par les
+       1   COD_CAISSE                     int(10)
+                                                          jours fériés
+       2   DT_DEBUT                       datetime        date d'effet du jour férié
+                                                          date du jour férié sous forme
+       3   JOUR_FERIE                     float(53)
+                                                          numérique
+       4   DT_FIN                         datetime        date fin du jour férié
+                                                          type du jour férié (fixe,
+       5   TYPE_JOUR                      char(1)
+                                                          variable)

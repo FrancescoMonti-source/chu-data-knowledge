@@ -1,0 +1,44 @@
+==== TB_COMMENTAIRE ====
+Commentaires saisis sur le RUM (Mouvement)
+                                                       Lien sur TB_MVT.ID_MVT :
+       1    ID_MVT                      int(10)
+                                                       Identifiant du Mouvement (Lien obligatoire)
+       2    COMMENTAIRE_1               varchar(100)   Commentaire 1
+
+       3    COMMENTAIRE_2               varchar(100)   Commentaire 2
+
+       4    COMMENTAIRE_3               varchar(100)   Commentaire 3
+
+       5    COMMENTAIRE_4               varchar(100)   Commentaire 4
+
+       6    COMMENTAIRE_5               varchar(100)   Commentaire 5
+
+       7    DATE_INFO                   datetime       Date de saisie de ces commentaires
+
+       8    HEURE_INFO                  datetime       Heure de saisie de ces commentaires
+                                                       Lien sur Util.id_util :
+       9   ID_INFO                     int(10)
+                                                       Identifiant de l'utilisateur ayant saisi ces commentaires
+                                                       Moyen d'entrée :
+                                                       - Autre Réanimation
+                                                       - Contre Avis médicale
+                                                       - Lit Porte
+                                                       - Maternité
+      10   MOYEN_ENTREE                varchar(50)     - Mco
+                                                       - Médecine 3
+                                                       - Médecine 5
+                                                       - Chirurgie Othopédique
+                                                       - Pédiatrie
+                                                       - Chirugie viscérale
+                                                       Service d'origine :
+                                                       - Ambulance
+                                                       - Autres SMUR + URGENCE
+                                                       - Autres SMUR Direct Réa.
+                                                       - SAMU Secondaire
+      11   SERVICE_ORIGINE             varchar(50)     - SMUR + Urgence
+                                                       - SMUR Direct Réa.
+                                                       - Urgence Ambulance
+                                                       - Urgence PM
+                                                       - Urgence Pompiers
+                                                       - Urgence SP
+      12   SERVICE_DESTINATION         varchar(50)     Idem Service destination

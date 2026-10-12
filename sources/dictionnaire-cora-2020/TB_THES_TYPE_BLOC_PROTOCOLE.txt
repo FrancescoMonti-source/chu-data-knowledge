@@ -1,0 +1,4 @@
+==== TB_THES_TYPE_BLOC_PROTOCOLE ====
+       1   ID_THES_TYPE_BLOC       smallint(5)
+
+       2   ID_PROTOCOLE            int(10)

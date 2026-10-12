@@ -1,0 +1,33 @@
+==== LPP_HIERARCHIE ====
+Table contenant la hiérarchie de la LPP (ex : Titre III pour les DMI)
+                                                        Clé :
+       1   ID_LPP_HIER                   int(10)
+                                                        Identifiant de la hiérarchie
+       2   LIB_LPP_HIER                  varchar(250)   Libellé de la hiérarchie
+
+       3   LIB_LPP_HIER_SS_ACC           varchar(250)   Libellé retraité (sans accents)
+
+       4   NIVEAU_1                      int(10)        Valeur dans la hiérarchie de 1er Niveau (Titre 1, 2, 3 ou 4)
+
+       5   NIVEAU_2                      int(10)        Valeur dans la hiérarchie de 2ème Niveau (Chapitre)
+      6   NIVEAU_3                 int(10)          Valeur dans la hiérarchie de 3ème Niveau (sous chapitre)
+
+      7   NIVEAU_4                 int(10)          Valeur dans la hiérarchie de 4ème Niveau
+
+      8   NIVEAU_5                 int(10)          Valeur dans la hiérarchie de 5ème Niveau
+
+      9   NIVEAU_6                 int(10)          Valeur dans la hiérarchie de 6ème Niveau
+
+     10   NIVEAU_7                 int(10)          Valeur dans la hiérarchie de 7ème Niveau
+
+     11   NIVEAU_8                 int(10)          Valeur dans la hiérarchie de 8ème Niveau
+
+     12   NIVEAU_9                 int(10)          Valeur dans la hiérarchie de 9ème Niveau
+
+     13   NIVEAU_10                int(10)          Valeur dans la hiérarchie de 10ème Niveau
+
+     14   ORDRE                    int(10)          Ordre dans un même niveau de hiérarchie
+
+     15   ID_LPP_HIER_PERE         int(10)          Lien avec la hiérarchie père
+
+     16   INTEGR_AUTO              char(1)

@@ -1,0 +1,10 @@
+==== TB_PARAM_GESTION_ECRAN ====
+     1   CODE_PARAMETRE     varchar(30)
+
+     2   TYPE_PARAMETRE     char(2)
+
+     3   VALEUR_PARAMETRE   varchar(50)
+
+     4   CODE_APPLI         char(3)
+
+     5   CODE_ECRAN         varchar(30)

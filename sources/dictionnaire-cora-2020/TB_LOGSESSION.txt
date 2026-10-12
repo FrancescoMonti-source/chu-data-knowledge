@@ -1,0 +1,17 @@
+==== TB_LOGSESSION ====
+table de log utilisé par les outils de packaging CORA Package Créationcontient les informations sur une session de trace
+       1   SESSION_ID                  char(36)        identifiant unique de trace
+
+       2   LOGIN_WINDOWS               varchar(70)     login de l'utilisateur qui exécute le processus
+
+       3   NOM_POSTE                   varchar(90)     nom du poste sur lequel s'exécute le processus
+
+       4   NOM_LOGICIEL                varchar(200)    nom de l'application
+
+       5   VERSION_LOGICIEL            varchar(40)     version de l'application
+       6   SESSION_MODE                smallint(5)     mode de session (simulation, réel)
+
+       7   HORAIRE_COURANT             datetime        date de création de la session de log
+                                                       Identifiant qui indique quel traitement est concerné par cette trace.
+       8   ID_TRAITEMENT               varchar(250)    Cette colonne est notamment utilisée pour y indiquer le nom du package et la
+                                                       version des packages CORA (Packages applications et CORA Infrastructure

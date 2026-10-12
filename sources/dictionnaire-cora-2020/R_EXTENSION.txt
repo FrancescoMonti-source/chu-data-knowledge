@@ -1,0 +1,8 @@
+==== R_EXTENSION ====
+Liste des extensions documentaires
+                                                      Code de l'extension
+       1   COD_EXTENS                  char(1)
+                                                      documentaire
+                                                      description de l'extension
+       2   LIBELLE                     char(100)
+                                                      documentaire

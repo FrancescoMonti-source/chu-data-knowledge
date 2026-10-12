@@ -1,0 +1,6 @@
+==== PRESC_MED_DOTATION ====
+       1   ID_MED                       int(10)          Lien PRESC_MED.ID_MED
+
+       2   ID_UNITE                     int(10)          Lien TB_UNITE.ID_UNITE
+
+       3   DOTATION                     char(1)          O/N

@@ -1,0 +1,55 @@
+==== TB_HIST_DEMANDE_LIT ====
+Historique des demandes de lit
+                                                   Lien sur TB_DEMANDE_LIT.ID_DEMANDE_LIT
+       1   ID_DEMANDE_LIT            int(10)
+                                                   Identifiant de la demande de lit
+                                                     Lien sur TB_PATIENT.ID_PATIENT
+      2    ID_PATIENT                int(10)
+                                                     Identifiant du patient
+                                                     Lien sur TB_SEJOUR.ID_SEJOUR
+      3    ID_SEJOUR                 int(10)
+                                                     Identifiant du séjour
+                                                     Lien sut TB_UNITE.ID_UNITE
+      4    ID_UNITE_H_DEMANDEE       int(10)
+                                                     Identifiant de l'unité d'hébergement souhaité
+                                                     Lien sut TB_UNITE.ID_UNITE
+      5    ID_UNITE_R_DEMANDEE       int(10)
+                                                     Identifiant de l'unité de responsabilité médicale souhaitée
+      6    DATE_DEBUT                datetime        Date de début souhaitée pour l'occupation
+                                                     Lien sur TB_URG_MOTIF_RECOURS.ID_MOTIF_RECOURS
+      7    ID_MOTIF_RECOURS          smallint(5)
+                                                     Identifiant du motif de recours lié à l'occupation
+      8    DPS                       decimal(9, 3)   Durée prévisionnelle de séjour
+                                                     Lien sur TB_THES_TYPE_CHAMBRE
+      9    ID_TYPE_CHAMBRE           smallint(5)
+                                                     Identifiant du type de chambre
+                                                     Lien sur TB_THES_TYPE_LIT
+      10   ID_TYPE_LIT               smallint(5)
+                                                     Identifiant du type de lit
+                                                     Chambre individuelle souhaitée
+      11   CHAMBRE_INDIVIDUELLE      char(1)         O = Oui
+                                                     N=Non
+      12   COMMENTAIRE               varchar(4000)   Commentaire lié à la demande de lit
+                                                     Indique si la demande est refusée :
+      13   REFUS                     char(1)         O = Oui
+                                                     N= Non
+      14   COMMENTAIRE_REFUS         varchar(100)    Commentaire lié au refus de la demande
+
+      15   ID_OCCUPATION_LIT         int(10)         Lien sur TB_OCCUPATION_LIT.ID_OCCUPATION_LIT
+
+      16   DATE_INFO                 datetime        Date de dernière modification
+                                                     Lien sur TB_UTIL.ID_UTIL
+      17   ID_INFO                   int(10)
+                                                     Identifiant de l'utilisateur ayant fait la dernière modification
+      18   DATE_TRACE                datetime        Date de la modification
+                                                     Lien sur TB_UTIL.ID_UTIL
+      19   ID_TRACE                  int(10)
+                                                     Identifiant de la personne ayant modifié la demande
+                                                     Type de modification
+                                                     M = Modification
+      20   TYPE_TRACE                char(1)
+                                                     C= création
+                                                     S = suppression
+      21   ID_MVT                    int(10)         Lien sur TB_MVT.ID_MVT
+
+      22   ID_MVT_COMPL              int(10)         Lien sur TB_MVT_COMPL.ID_MVT_COMPL

@@ -1,0 +1,13 @@
+==== TB_UTIL_EXTERNE ====
+Table de matrice des utilisateurs CORA et des utilisateurs extérieurs
+       1   ID_UTIL                      int(10)        Identifiant de l'utilisateur CORA. Lien vers Util.id_util.
+
+       2   ID_UTIL_EXTERNE              varchar(255)   Identifiant de l'utilisateur sur l'application externe.
+                                                       Identifiant de l'application externe. N'est pas pour l'instant rattaché à une autre
+                                                       table :
+       3   ID_APPLI_EXTERNE             smallint(5)
+                                                       1 = dNat de directory ou ods
+                                                       2 = uid de l'ods
+                                                       Type de l'identifiant. Permet de gérer les doublons. Valeur par défaut "1" pour
+       4   TYPE_ID                      smallint(5)                                                                                          1
+                                                       Défaut.

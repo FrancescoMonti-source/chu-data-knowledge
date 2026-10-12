@@ -1,0 +1,10 @@
+==== TB_PIECE ====
+       1   ID_PIECE                   smallint(5)
+
+       2   LIBELLE_PIECE              varchar(100)
+
+       3   ACTIF                      char(1)                                                                                      'O'
+
+       4   ID_STATUT_DEFAUT           smallint(5)
+
+       5   TYPE_PIECE                 char(1)                                                                                      'S'

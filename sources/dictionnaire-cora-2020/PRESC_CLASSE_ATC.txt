@@ -1,0 +1,8 @@
+==== PRESC_CLASSE_ATC ====
+       1   ID_CLASSE_ATC               int(10)         Clé de la table
+
+       2   CODE_CLASSE_ATC             varchar(7)      Code de la classe ATC
+
+       3   LIB_CLASSE_ATC              varchar(150)    Libellé de la classe ATC
+
+       4   CODE_PERE                   varchar(7)      Code père de la classe ATC

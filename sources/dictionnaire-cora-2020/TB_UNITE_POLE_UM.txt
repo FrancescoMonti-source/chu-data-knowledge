@@ -1,0 +1,12 @@
+==== TB_UNITE_POLE_UM ====
+Table des Liens UM - Poles Clé - Lien sur TB_UNITE_POLE.ID_POLE :
+Table des Liens UM - Poles
+                                                        Clé - Lien sur TB_UNITE_POLE.ID_POLE :
+       1   ID_POLE                     smallint(5)
+                                                        Identifiant (PrisMédica) du pole
+                                                        Clé - Lien sur TB_UNITE_MEDICALE.ID_UNITE_MED :
+       2   ID_UNITE_MED                int(10)
+                                                        Identifiant (PrisMédica) de l'Unité Médicale
+       3   DATE_DEBUT                  datetime         Date de début de validité du lien UM - Pole
+
+       4   DATE_FIN                    datetime         Date de fin de validité du lien UM - Pole

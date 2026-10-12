@@ -1,0 +1,55 @@
+==== TB_PARAM_GROUPEUR ====
+                                                  Clé :
+    1    VERSION                   char(3)
+                                                  Version de la fonction du groupage (ex : 7, 8, 9..)
+                                                  Clé :
+                                                  - MCO : Groupeur MCO
+    2    TYPE_GROUPEUR             char(3)
+                                                  - SSR : Groupeur SSR
+                                                  - HAD : Groupeur HAD
+    3    DATE_APPLICATION          datetime       Date d'application de la FG
+
+    4    NOM_EXE                   varchar(20)    Nom de l'exécutable du groupeur (ec : fg99.exe)
+
+    5    CHEMIN_GROUPEUR           varchar(100)   Répertoire dans lequel se trouve cet exécutable du groupeur
+
+    6    CHEMIN_TABLES             varchar(100)   Répertoire dans lequel se trouve les tables utilisés par le groupeur
+
+    7    CHEMIN_TEMP               varchar(100)   Répertoire Temporaire utilisé par le groupeur
+
+    8    DEFAUT                    char(1)        Groupeur par défaut utilisé pour les groupages de Recueil Cora
+                                                  Application PrisMédica concernée :
+    9    APPLICATION               char(1)        - 'R' : Recueil Cora
+                                                  - 'A' : Cora Activite
+         LISTE_CCAM_MARQUEUR_LIS
+    10                           varchar(500)     Liste des actes CCAM marqueurs de la liste 1
+         TE1
+         LISTE_CCAM_MARQUEUR_LIS
+    11                           varchar(500)     Liste des actes CCAM marqueurs de la liste 2
+         TE2
+         LISTE_CDAM_MARQUEUR_LIS
+    12                           varchar(500)     Liste des actes CDAM marqueurs de la liste 1
+         TE1
+         LISTE_CDAM_MARQUEUR_LIS
+    13                           varchar(500)     Liste des actes CDAM marqueurs de la liste 2
+         TE2
+    14   LISTE_GHS_EXCLUANT_REA    varchar(500)   Liste des GHS excluant pour la comptabilisation de la Réanimation
+      15   LISTE_CCAM_DIALYSE        varchar(500)    Liste des actes CCAM de dialyse
+
+      16   LISTE_CDAM_DIALYSE        varchar(500)    Liste des actes CDAM de dialyse
+           LISTE_GHS_EXCLUANT_DIAL
+      17                           varchar(500)      Liste des GHS excluant pour la comptabilisation de la dialyse
+           YSE
+      18   LISTE_GHS_EXCLUANT_RDTH varchar(500)      Liste des GHS excluant pour la comptabilisation de la radiothérapie
+
+      19   LISTE_CCAM_24Z05Z         varchar(500)    Liste des actes CCAM de radiothérapie pour le GHS 24Z05Z
+
+      20   LISTE_CCAM_24Z06Z         varchar(500)    Liste des actes CCAM de radiothérapie pour le GHS 24Z06Z
+
+      21   LISTE_CCAM_24Z07Z         varchar(500)    Liste des actes CCAM de radiothérapie pour le GHS 24Z07Z
+
+      22   LISTE_CDAM_24Z05Z         varchar(500)    Liste des actes CDAM de radiothérapie pour le GHS 24Z05Z
+
+      23   LISTE_CDAM_24Z06Z         varchar(500)    Liste des actes CDAM de radiothérapie pour le GHS 24Z06Z
+
+      24   LISTE_CDAM_24Z07Z         varchar(500)    Liste des actes CDAM de radiothérapie pour le GHS 24Z07Z

@@ -1,0 +1,30 @@
+==== TB_REQUETE_VUE ====
+Vue associée à une requête
+       1    ID_VUE                          int(10)         Clé
+
+       2    ID_REQUETE                      int(10)         Id de la requête dont dépend la vue
+
+       3    TITRE                           varchar(300)    Nom de la vue
+                                            text
+       4    COMMENTAIRE                                     Commentaire associé à la vue
+                                            (2147483647)
+                                                            Lien sur TB_UTIL.ID_UTIL
+       5    ID_CREAT                        int(10)
+                                                            Identifiant de l'utilisateur de création
+       6    DATE_CREAT                      datetime        Date de création
+
+       7    ID_MODIF                        int(10)         Id du modificateur
+
+       8    DATE_MODIF                      datetime        Date de dernière modification
+                                            text
+       9    GRAPHIQUE_XML                                   Description de l'organisation de la vue (champ sérialisé)
+                                            (2147483647)
+       10   DEFAUT                          char(1)         Vue par défaut ?
+
+       11   ACTIVE                          char(1)         Vue active ?
+                                            text
+       13   REGROUPEMENT                                    Tranches numériques de la vue
+                                            (2147483647)
+       14   FILTRE                          varchar(2000)   Filtre associé à la vue
+
+       15   GUID_VUE                        char(36)        Guid de la vue

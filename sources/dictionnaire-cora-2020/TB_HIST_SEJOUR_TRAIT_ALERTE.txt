@@ -1,0 +1,15 @@
+==== TB_HIST_SEJOUR_TRAIT_ALERTE ====
+     1   ID_SEJOUR                 int(10)       FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+       2   CODE_APPLI            char(3)
+
+       3   NOM_TABLE             varchar(30)
+
+       4   DATE_ALERTE           datetime
+
+       5   ID_ALERTE             int(10)
+                                                  Lien vers Util.ID_UTIL.
+       6   ID_INFO               int(10)
+                                                  Identifiant de l'utilisateur ayant effectué la dernière modification
+       7   DATE_INFO             datetime         Date de la dernière modification
+
+       8   TYPE_INFO             char(1)

@@ -1,0 +1,25 @@
+==== TB_HIST_NGAP_LC ====
+     1   CPT_NGAP_LC            int(10)          Copie de TB_NGAP_LC
+
+     2   CPT_ID_COTATION_NGAP   int(10)          Copie de TB_NGAP_LC
+
+     3   LETTRE_CLE             char(9)          Copie de TB_NGAP_LC
+
+     4   COEF                   decimal(10, 2)   Copie de TB_NGAP_LC
+
+     5   TYPE_INFO              char(1)          Copie de TB_NGAP_LC
+       6   CODE_NATURE_ACTE             char(3)          Copie de TB_NGAP_LC
+
+       7   MNT_LC                       decimal(10, 2)   Copie de TB_NGAP_LC
+
+       8   COEF_MINORMAJOR              decimal(5, 2)    Copie de TB_NGAP_LC
+
+       9   MNT_DEPASS_LC                decimal(10, 2)   Copie de TB_NGAP_LC
+
+      10   MOTIF_DEPASS_LC              char(1)          Copie de TB_NGAP_LC
+
+      11   NUM_FT                       int(10)          Copie de TB_NGAP_LC
+
+      12   NUM_APPAREIL                 varchar(14)      Copie de TB_NGAP_LC
+
+      13   POSITION_DENTAIRE            smallint(5)      Copie de TB_NGAP_LC

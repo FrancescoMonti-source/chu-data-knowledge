@@ -1,0 +1,15 @@
+==== TB_MESSAGES_ACTE_IMPORT ====
+Stockage des fichiers HPRIM XML Acte reçu
+       1   ID_MESSAGE                  int(10)         Clé interne
+
+       2   NO_LOT                      int(10)
+                                                       Code de l'application (Interface Actes). Idem
+       3   APPLICATION                 varchar(3)
+                                                       TB_APPLICATION_TRANSFERT.CODE_APPLI
+       4   NOM_FICHIER                 varchar(50)     Nom du fichier stocké
+
+       5   LISTE_ACTES                 varchar(500)    Liste des indentifiants reçus (séparés par séparateur |)
+
+       6   FICHIER                     image           Fichier xml
+
+       7   DATE_MESSAGE                datetime        Date de réception du fichier

@@ -1,0 +1,31 @@
+==== TB_INT_REJET_ACTIVITE ====
+Table des rejets de l'Interface Activité (concerne Actes CCAM, NGAP et Diags)
+                                                         Clé :
+       1    ID_REJET                     int(10)
+                                                         Identifiant interne de la table
+                                                         Lien sur TB_ACTE.ID_ACTE :
+       2    ID_ACTE                      int(10)
+                                                         Lien sur l'acte CCAM rejeté
+                                                         Lien sur TB_COTATION_NGAP.ID_COTATION_NGAP :
+       3    ID_COTATION_NGAP             int(10)
+                                                         Lien sur l'acte NGAP rejeté
+                                                         Lien sur TB_DIAG.ID_DIAG :
+       4    ID_DIAG                      int(10)
+                                                         Lien sur le diagnostic rejeté
+                                                         - 'E' pour un rejet en émission
+       5    TYPE_TRANSFERT               char(1)
+                                                         - 'R' pour un rejet en réception
+                                                         Lien sur TB_APPLICATION_TRANSFERT.CODE_APPLI :
+       6    APPLI_TRANSFERT              char(3)
+                                                         Lien sur l'application concernée
+       7    DATE_REJET                   datetime        Date ou l'erreur est intervenue
+
+       8    CODE_ERR                     varchar(50)     Descriptif court de l'erreur
+
+       9    DETAIL_ERR                   varchar(250)    Détail de l'erreur
+                                                         Lien sur TB_MESSAGES_ACTE_IMPORT.ID_MESSAGE :
+       10   ID_MESSAGE_ACTE_IMPORT int(10)               Pour les actes importés rejetés et non insérés (du Type Acte sur Séjour
+                                                         inexistant) : Lien avec la table d’historisation des fichiers Actes importés.
+                                                         Pour un rejet en réception, permet de savoir si le fichier (stocké en Base) peut
+       11   REIMPORTABLE                 char(1)         être remis à disposition de l'Interface pour être réimporter (cas des imports en
+                                                         erreur du type 'séjour inconnu', 'Patient inconnu' ….)

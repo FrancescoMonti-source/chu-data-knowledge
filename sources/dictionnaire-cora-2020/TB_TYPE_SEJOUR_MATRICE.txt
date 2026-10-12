@@ -1,0 +1,6 @@
+==== TB_TYPE_SEJOUR_MATRICE ====
+Table de correspondance entre les Types de Séjours PrisMédica et les Types provenant des applications externe
+                                               Lien sur TB_TYPE_HOSPIT.CODE_HOSPIT :
+      1    TYPE_SEJOUR           char(2)
+                                               Type de Séjour PrisMédica
+      2    TYPE_SEJOUR_EXTERNE   char(2)       Type de Séjour de l'application externe

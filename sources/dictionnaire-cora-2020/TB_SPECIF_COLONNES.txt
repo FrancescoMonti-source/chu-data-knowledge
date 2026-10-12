@@ -1,0 +1,15 @@
+==== TB_SPECIF_COLONNES ====
+cette table est utilisé pour les package de type CORA Infrastructure lors de l'étape de création des scripts de différences de
+structureelle décrit la liste des spécificités du client au niveau des colonnessi une colonne n'est pas listé dans la table (cas
+standard) les règles sont les suivantes :-la suppression est toujours refusée-la modification est refusée-la modification de la
+taille est autorisée si elle ne perd pas de données (on autorise uniquement l'agrandissement des colonnes)
+       1    COLONNE_ID                    int(10)        identifiant unique de la colonne
+       2    SCHEMATABLE_ID              int(10)        identifiant du schéma
+
+       3    COLONNENAME                 varchar(200)   nom de la colonne
+
+       4    ALLOWDROP                   char(1)        O / N indique si l'on autorise la suppression de cette colonne                         'N'
+
+       5    ALLOWCHANGETYPE             char(1)        O / N indique si l'on autorise le changement de type de la colonne                     'N'
+
+       6    ALLOWCHANGESIZE             char(1)        O / N indique si l'on autorise le changement de taille de la colonne                   'N'

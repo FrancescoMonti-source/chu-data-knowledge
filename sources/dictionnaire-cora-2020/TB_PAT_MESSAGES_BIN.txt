@@ -1,0 +1,6 @@
+==== TB_PAT_MESSAGES_BIN ====
+       1   ID_MESSAGE          int(10)
+
+       2   TYPE_MESSAGE        char(1)
+
+       3   FICHIER             image

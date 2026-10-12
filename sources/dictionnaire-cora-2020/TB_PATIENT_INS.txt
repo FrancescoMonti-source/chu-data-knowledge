@@ -1,0 +1,15 @@
+==== TB_PATIENT_INS ====
+      1    ID_PATIENT               int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+      2    INS                      varchar(22)
+
+      3    DATE_DEBUT_VALIDITE      datetime
+
+      4    DATE_FIN_VALIDITE        datetime
+
+      5    TYPE_INS                 char(1)                                                                                   'C'
+
+      6    DATE_CREAT               datetime        Date de création
+                                                    Lien sur TB_UTIL.ID_UTIL
+      7    ID_CREAT                 int(10)
+                                                    Identifiant de l'utilisateur de création

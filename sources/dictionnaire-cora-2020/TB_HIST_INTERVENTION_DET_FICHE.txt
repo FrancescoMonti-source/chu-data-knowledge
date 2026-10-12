@@ -1,0 +1,13 @@
+==== TB_HIST_INTERVENTION_DET_FICHE ====
+     1   ID_INTERVENTION_FICHE     int(10)
+
+     2   ID_THES_DET_FICHE_BLOC    smallint(5)
+
+     3   VALEUR_REPONSE            smallint(5)
+      4    COMPLEMENT_COMMENT        char(1)
+
+      5    DATE_INFO                 datetime        Date de la dernière modification
+                                                     Lien vers Util.ID_UTIL.
+      6    ID_INFO                   int(10)
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification
+      7    TYPE_INFO                 char(1)

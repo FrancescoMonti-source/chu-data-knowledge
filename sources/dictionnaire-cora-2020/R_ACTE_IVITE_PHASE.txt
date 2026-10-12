@@ -1,0 +1,56 @@
+==== R_ACTE_IVITE_PHASE ====
+Table des phases d'une activité d'un acte
+                                                      Clé :
+       1    COD_AAP                       char(16)
+                                                      Code de l'acte + code activité + code phase
+                                                      Clé :
+       2    DT_MODIF                      datetime    Date de mise à jour
+                                                      CLE avec COD_AAP
+                                                      Lien avec R_ACTE_IVITE :
+       3    AA_COD                        char(14)    Code acte + Code Activité
+                                                      (Fonctionne avec AADT_MODIF)
+                                                      Lien avec R_ACTE_IVITE :
+       4    AADT_MODIF                    datetime    Date de mise à jour
+                                                      (Fonctionne avec AA_COD)
+                                                      CCAM n° 29
+       5    UOEUVR_COD                    char(3)
+                                                      Code de l'unité d'oeuvre
+       6    UOEDT_EFFE                    datetime    date d'effet de l'unité d'oeuvre
+                                                      CCAM n° 33
+       7    PAIEM_COD                     char(1)     Code modalité de paiement
+                                                      des séances
+       8    PHASE_COD                     int(10)     Code Phase
+                                                      CCAM n° 23
+       9    NB_SEANCES                    int(10)     Nombre maximum de séances
+                                                      par période
+                                                      CCAM n° 30
+       10   COEFFICIEN                    float(53)
+                                                      Coefficient de l'acte
+                                                      CCAM n° 37
+                                                      Prix Unitaire de base de l'acte.
+                                                      Ce champ n'est plus
+       11   PU_BASE                       float(53)
+                                                      renseigné dans cette table
+                                                      mais dans la table
+                                                      R_PU_BASE.
+                                                      CCAM n° 39
+                                                      Montant monétaire de charges
+       12   SUPPLEMENT                    float(53)
+                                                      supplémentaires liées à
+                                                      l'exécution en cabinet
+       13   NB_DENTS                      char(2)     Nombre de dents à traitées
+                                                      Age minimum requis pour
+       14   AGE_MIN                       int(10)
+                                                      l'acte
+                                                      CCAM n° 46
+       15   AGE_MAX                       int(10)     Age maximum requis pour
+                                                      l'acte
+                                                      CCAM n° 37.1
+       16   SCORE                         float(53)
+                                                      Score de travail médical
+                                                      CCAM n° 37.2
+       17   PRATIQUE                      float(53)
+                                                      Coût de la pratique
+       18   ICR                           int(10)     ICR
+
+       19   CLASSANT                      char(1)     si = 'Y' : acte Classant

@@ -1,0 +1,19 @@
+==== TB_AFFICHAGE_UTIL_DPI ====
+Table de gestion des affichages (préférences utilisateurs pour le DPI)DeprecatedPréférence d'affichage des onglets
+                                                       Identifiant de l'utilisateur
+       1   ID_UTIL                      int(10)
+                                                       Lien sur Util.id_util
+       2   CODE_APPLI                   char(3)        Code de l'application. Exemple : URG, REA
+                                                       Code du module, ou de l'écran (onglet)
+       3   CODE_MODULE                  char(10)
+                                                       Exemple : ECR_ACC, ECR_CONT, ECR_ATCD, ...
+       4   NIVEAU                       int(10)        Non utilisé 1 pour tous
+
+       5   ORDRE                        int(10)        Ordre d'affichage de l'onglet (de gauche à droite)
+
+       6   OUVERTURE_DEFAUT             char(1)        'O' si Ouverture par défaut de cet onglet
+
+       7   CENTRAGE_DEFAUT              char(1)        'O' si centrage par défaut
+                                                       Zone d'affichage ('D' pour droite ou 'G' pour gauche)
+       8   ZONE_AFFICHAGE               char(1)
+                                                       Deprecated : n'est plus utilisable avec les nouveaux écrans

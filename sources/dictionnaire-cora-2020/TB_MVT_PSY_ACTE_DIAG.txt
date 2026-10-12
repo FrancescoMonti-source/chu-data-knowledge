@@ -1,0 +1,14 @@
+==== TB_MVT_PSY_ACTE_DIAG ====
+Table d'enregistrement des diagnostics d'un acte ambulatoire
+                                                      Clé :
+       1   ID_ACTE_PSY                int(10)
+                                                      Identifiant de l'acte
+                                                      Clé :
+       2   CODE_DIAG                  char(16)
+                                                      Code du diagnostic
+       3   TYPE_DIAG                  char(1)         Type du diagnostic
+
+       4   DATE_DIAG                  datetime        Date du diagnostic
+                                                      Lien sur TB_DIAG.ID_DIAG :
+       5   ID_DIAG                    int(10)
+                                                      Identifiant du diagnostic

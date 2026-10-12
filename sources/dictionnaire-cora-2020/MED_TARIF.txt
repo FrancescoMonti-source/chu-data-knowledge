@@ -1,0 +1,12 @@
+==== MED_TARIF ====
+       1   ID_MED_TARIF               int(10)          Compteur du tarif de l'UCD. Clé de la table.
+
+       2   ID_MED                     int(10)          Identifiant de la UCD. Lien avec MED_COUTEUX.ID_MED
+
+       3   CODE_CIP                   char(7)
+
+       4   MNT                        decimal(10, 2)   Prix d'achat
+
+       5   DATE_DEBUT                 datetime         Date de début
+
+       6   DATE_FIN                   datetime         Date de fin

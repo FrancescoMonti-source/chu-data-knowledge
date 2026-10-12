@@ -1,0 +1,75 @@
+==== TB_HIST_LABO_RESULTAT ====
+     1   ID_LABO_RESULTAT          int(10)
+
+     2   ID_LABO_RES_ANALYSE       int(10)
+
+     3   ID_FLUX_LABO_OBX          int(10)
+
+     4   CHRONO                    smallint(5)
+
+     5   CODE_EXAMEN               varchar(22)
+
+     6   CODE_EXAMEN_DET           varchar(22)
+
+     7   LIB_EXAMEN                varchar(250)
+
+     8   TYPE_RESULTAT             char(1)
+
+     9   VALEUR_RESULTAT           varchar(4000)
+
+    10   VALEUR_RESULTAT_NUM       decimal(12, 4)
+
+    11   LIB_RESULTAT              varchar(100)
+
+    12   LIB_UNITE                 varchar(20)
+
+    13   LIB_NORMALES              varchar(60)
+
+    14   NATURE_NORMALES           varchar(5)
+
+    15   VALEUR_NORMALES           varchar(100)
+
+    16   INDICATEUR_ANORMAL        varchar(12)
+
+    17   FLAG_ANORMAL              char(1)
+
+    18   PROBABILITE               decimal(6, 2)
+
+    19   STATUT_RESULTAT           char(2)
+
+    20   DATE_RESULTAT             datetime
+
+    21   SECTEUR_TECHNIQUE         varchar(80)
+
+    22   COMMENTAIRE               varchar(2000)
+                                                    Lien vers Util.ID_UTIL.
+    23   ID_INFO                   int(10)
+                                                    Identifiant de l'utilisateur ayant effectué la dernière modification
+    24   DATE_INFO                 datetime         Date de la dernière modification
+     25   ID_APPLICATION             int(10)          Lien sur TB_INT_APPLICATION.ID
+
+     26   FLAG_ETAT                  char(1)
+
+     27   FLAG_LIEN_AU               char(1)
+
+     28   ID_LABO_RESULTAT_LIEN      int(10)
+
+     29   ID_COULEUR                 smallint(5)
+
+     30   ID_TRACE                   int(10)
+
+     31   DATE_TRACE                 datetime
+
+     32   TYPE_TRACE                 char(1)
+
+     33   SOUS_IDENTIFIANT_TEST      varchar(60)
+          SOUS_IDENTIFIANT_TEST_NU
+     34                            smallint(5)
+          M
+     35   TYPE_INFO                  char(1)
+
+     36   ZONE_SOUS_ID_TEST          varchar(20)
+          ZONE_CODE_SECTEUR_TEC
+     37                         varchar(60)
+          H
+     38   NOM_BIOLOGISTE             varchar(255)

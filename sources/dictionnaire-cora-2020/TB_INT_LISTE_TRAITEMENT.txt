@@ -1,0 +1,7 @@
+==== TB_INT_LISTE_TRAITEMENT ====
+Fait le lien entre une liste et les traitements qui lui sont associés
+     1   ID_LISTE            smallint(5)   FK TB_INT_LISTE.ID identifiant CORA de la liste
+
+     2   ID_TRAITEMENT       smallint(5)   FK TB_INT_TRAITEMENT.ID identifiant CORA du traitement associé à la liste
+
+     3   ORDRE               smallint(5)   Ordre chronologique du traitement

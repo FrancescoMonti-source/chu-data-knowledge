@@ -1,0 +1,38 @@
+==== TB_HIST_IMPRESSION ====
+Table d'historique des impressions
+       1   ID_HIST_IMPR               int(10)        Identifiant de l'historique
+                                      text
+       2   RTF_IMPR                                  champ non utilisé et mis à null depuis le 08/10/2012
+                                      (2147483647)
+       3   DATE_IMPR                  datetime       Date de l'impression
+
+       4   HEURE_IMPR                 datetime       Heure de l'impression
+                                                     Description
+       5   ID_IMPR                    int(10)
+                                                     FK UTIL.ID_UTIL - Identifiant CORA de l'utilisateur
+                                                     FK TB_MODELE_IMPRESSION.ID_MODELE_IMPRESSION - Identifiant
+       6   ID_MODELE_IMPR             smallint(5)
+                                                     CORA du modele
+       7    ID_PATIENT                   int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       8    ID_SEJOUR                    int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       9    ID_MVT                       int(10)        FK TB_MVT.ID_MVT - Identifiant CORA du mouvement
+                                                        Description
+       10   ID_INTERVENTION              int(10)        FK TB_INTERVENTION.ID_INTERVENTION - Identifiant CORA de
+                                                        l'intervention
+       11   RTF_IMPR_BIN                 image          Partie binaire du document imprimé en docx
+                                                        Dans le cas d'une impression d'ordonnance à partir des traitements
+                                                        (sortie,entrée ou domicile)
+                                                        E pour Entrée
+       12   TYPE_TRT                     char(1)
+                                                        S pour Sortie
+                                                        D pour Domicile
+                                                        null dans tous les autres cas (impression à partir d'un modèle)
+       13   FLAG_ARCH                    char(1)        Impression archivée O/N (en base d'archive CORA ARCH)                                   'N'
+                                                        Identifiant de l'utilisateur à l'origine de la génération du document dans CORA
+       14   ID_ENVOI                     int(10)
+                                                        Document, null si le document n'a jamais été généré
+                                                        Date de la génération du document dans CORA Document, null si le
+       15   DATE_ENVOI                   datetime
+                                                        document n'a jamais été généré

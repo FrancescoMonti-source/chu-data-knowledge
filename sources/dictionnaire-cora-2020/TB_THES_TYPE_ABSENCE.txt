@@ -1,0 +1,19 @@
+==== TB_THES_TYPE_ABSENCE ====
+Type d'absence
+      1    ID_TYPE_ABSENCE          smallint(5)    Identifiant du type d'absence
+
+      2    CODE_TYPE_ABSENCE        varchar(15)    Code du type d'absence
+
+      3    LIBELLE_TYPE_ABSENCE     varchar(100)   Libellé du type d'absence
+
+      4    COULEUR                  varchar(15)    Couleur
+                                                   O : lit rendu disponible
+      5    DISPO_LIT                char(1)
+                                                   N : lit non rendu disponible
+      7    CODE_EXPORT              varchar(3)     Codes utilisé pour la transmission par HL7
+
+      8    JOUR                     smallint(5)
+
+      9    HEURE                    smallint(5)
+
+      10   NUITEE                   smallint(5)

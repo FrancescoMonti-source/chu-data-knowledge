@@ -1,0 +1,16 @@
+==== TB_PSY_OFDT_CONSOM ====
+Table des données saisies pour l'OFDT (addictologie)
+       1   ID_PSY_OFDT                int(10)
+
+       2   PRODUIT_CONSOM             char(2)
+
+       3   MODE_CONSOM                char(1)                                                                                    '6'
+
+       4   FREQ_CONSOM                char(1)                                                                                    '5'
+
+       5   DEPENDANCE                 char(1)
+
+       6   AGE_CONSOM                 smallint(5)
+       7   PRODUIT_ORIGINE_PEC         char(1)                                                                  'N'
+
+       8   ORDRE_DOMMAGEABLE           smallint(5)

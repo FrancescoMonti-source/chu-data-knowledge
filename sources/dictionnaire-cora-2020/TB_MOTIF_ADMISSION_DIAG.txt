@@ -1,0 +1,5 @@
+==== TB_MOTIF_ADMISSION_DIAG ====
+     1   ID_MOTIF_ADMISSION        int(10)
+
+     2   CODE_DIAG                 char(16)
+      3    CODE_PRINCIPAL           char(1)                                                                                           'O'

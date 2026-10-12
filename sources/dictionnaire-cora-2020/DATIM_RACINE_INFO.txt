@@ -1,0 +1,31 @@
+==== DATIM_RACINE_INFO ====
+     1   CODE_RACINE           char(5)           Code de la racine
+
+     2   TAUX_DC_NAT           decimal(18, 16)
+
+     3   DEMANDE_CONFIRM       char(1)
+
+     4   EFFET_AGE_2           char(1)
+
+     5   EFFET_AGE_69          char(1)
+       6   TAUX_DC_ETAB               decimal(18, 16)
+
+       7   DATE_DEBUT                 datetime          Date de début
+
+       8   DATE_FIN                   datetime          Date de fin
+
+
+dtproperties
+       1   id                         int(10)
+
+       2   objectid                   int(10)
+
+       3   property                   varchar(64)
+
+       4   value                      varchar(255)
+
+       5   lvalue                     image
+
+       6   version                    int(10)                                                                                                 0
+
+       7   uvalue                     nvarchar(255)

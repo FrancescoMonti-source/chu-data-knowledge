@@ -1,0 +1,20 @@
+==== TB_ALERTE_LIEN ====
+       1   ID_ALERTE                    smallint(5)    FK TB_ALERTE.ID_ALERTE - Identifiant CORA de l'alerte
+                                                       si TYPE_LIEN = 'P' FK TB_PROFIL.ID_PROFIL - Identifiant CORA du profil
+       2   ID_LIEN                      int(10)
+                                                       si TYPE_LIEN='U' FK UTIL.ID_UTIL - Identifiant CORA de l'utilisateur
+       3   TYPE_LIEN                    char(1)        'P' pour Profil , 'U' pour Utilisateur
+
+       4   ID_PERE                      int(10)        FK TB_ALERTE.ID_ALERTE - Identifiant CORA de l'alerte pere
+
+       5   ORDRE                        int(10)        Ordre
+                                                       1: Alerte visible
+       6   STATUT                       smallint(5)
+                                                       2 : Alerte obligatoire
+       7   DATE_CREAT                   datetime       Date de création
+
+       8   ID_CREAT                     int(10)        Utilisateur qui a créé le lien
+
+       9   DATE_MODIF                   datetime       Date de modification
+
+      10   ID_MODIF                     int(10)        Utilisateur qui a effectué la modification

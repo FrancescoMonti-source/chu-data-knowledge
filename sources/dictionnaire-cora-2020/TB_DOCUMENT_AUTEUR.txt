@@ -1,0 +1,11 @@
+==== TB_DOCUMENT_AUTEUR ====
+Définit une table de lien entre les documents patients et les auteurs de documents.
+                                                       Clé :
+       1   ID_DOCUMENT_PATIENT         int(10)         Lien sur TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT. Définit
+                                                       l'identifiant du document patient.
+                                                       Clé :
+       2   ID_AUTEUR                   int(10)         Lien sur UTIL.ID_UTIL.
+                                                       Définit l'identifiant de l'utilisateur auteur du document.
+                                                       Définit l'ordre de l'auteur. Valeur echelonnée de 2 à 6. Si la valeur est NULL, il
+       3   ORDRE                       smallint(5)
+                                                       s'agit de l'auteur principal.

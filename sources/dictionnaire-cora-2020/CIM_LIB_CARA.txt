@@ -1,0 +1,7 @@
+==== CIM_LIB_CARA ====
+Obsolète
+      1    POINTEUR_1               char(2)
+
+      2    POINTEUR_2               char(2)
+
+      3    LIBELLE                  char(250)

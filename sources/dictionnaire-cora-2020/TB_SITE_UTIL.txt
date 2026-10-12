@@ -1,0 +1,11 @@
+==== TB_SITE_UTIL ====
+Table de liens entre les Utilisateurs et leurs Sites
+       1    ID_UTIL                       int(10)        Clé - Lien sur Util.id_util
+                                                         Clé - Lien sur TB_SITE.ID_SITE (Base CORA_RECUEIL / Schéma
+       2    ID_SITE                       int(10)
+                                                         CORA_REC)
+       3    DEFAUT                        char(1)        Lien Site - Utilisateur par défaut (1 site par défaut par utilisateur)
+
+       4    DATE_DEBUT                    datetime       Date de début de validité du rattachement Util - Site
+
+       5    DATE_FIN                      datetime       Date de fin de validité du rattachement Util - Site

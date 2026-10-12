@@ -1,0 +1,14 @@
+==== R_TB15 ====
+Codes modificateurs donnant lieu à information aux OC
+                                                     CCAM n° 6
+       1   MODIFI_COD                 char(1)
+                                                     Code modificateur de l'acte
+                                                     Date début info OC du
+       2   DT_DEBUT                   datetime
+                                                     modificateur
+                                                     date fin info OC du
+       3   DT_FIN                     datetime
+                                                     modificateur
+                                                     Code modificateur transmis au
+       4   COD_MODOC                  char(1)
+                                                     organismes complémentaires

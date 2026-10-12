@@ -1,0 +1,29 @@
+==== TB_POPULATION ====
+       1   ID_POPULATION               int(10)        clef primaire et compteur
+
+       2   LIB_POPULATION              varchar(100)   Libellé de la population
+
+       3   COMMENTAIRE                 varchar(500)   commentaire sur la population
+                                                      flag de l'appartenance :
+       4   FLAG_APPARTENANCE           char(1)        -Null : population DIM/TIM
+                                                      -U : population appartenant à un utilisateur
+                                                      clé - util.id_util. Id de l'utilisateur à laquelle appartient la population (si
+       5   ID_UTIL_APPARTENANCE        int(10)
+                                                      population non DIM/TIM)
+       6   DATE_INFO                   datetime       Date de la dernière modification
+                                                      Lien vers Util.ID_UTIL.
+       7   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+       8   TYPE_POPULATION             char(3)        MCO, SSR ou EXT                                                                       'MCO'
+
+       9   NB_DOSSIER                  int(10)        nombre de dossiers dans la population
+
+      10   TYPE_VALIDITE               char(1)        ?
+                                                      Type d'envoi de la population :
+      11   TYPE_ENVOI                  char(1)
+                                                      - 1 : GAM
+                                                      Représente les valeurs possibles du statut envoi :
+                                                      - O : Oui (la population doit être envoyée)
+      12   FLAG_ENVOI                  char(1)        - E : En cours d'envoi par les interfaces
+                                                      - T : En cours de travail (population en cours d'utilisation)
+                                                      - NULL : pas d'action en cours sur la population

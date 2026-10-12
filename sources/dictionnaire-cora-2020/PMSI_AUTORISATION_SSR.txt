@@ -1,0 +1,6 @@
+==== PMSI_AUTORISATION_SSR ====
+       1   CODE_AUTORISATION           char(3)        Code de l'autorisation UM SSR
+
+       2   LIB_AUTORISATION            varchar(200)   Libellé de l'autorisation SSR
+
+       3   ACTIF                       char(1)        Actif (O / N)                                                                'O'

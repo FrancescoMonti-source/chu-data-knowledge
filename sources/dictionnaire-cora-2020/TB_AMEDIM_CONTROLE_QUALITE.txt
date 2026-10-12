@@ -1,0 +1,25 @@
+==== TB_AMEDIM_CONTROLE_QUALITE ====
+Table stockant le catalogue des contrôles qualité mis à disposition par AMEDIM. Cette table est remplie lors de l'appel d'un WS
+de synchronisation dédié géré par AMEDIM et appelable depuis les couches CORA.Qualite.
+                                                       clef primaire / compteur. Clef étrangère de TB_CTRL_SUIVI.ID_CONTROLE
+       1   ID_CONTROLE                 int(10)
+                                                       correspondant au type "A" au sein de la colonne TYPE_CONTROLE.
+       2   ACTIF                       char(1)         Precise que l'entree est active
+                                                       type du contrôle qualité :
+       3   TYPE_CONTROLE               varchar(100)
+                                                       -DMX : contrôle qualité créé et géré par AMEDIM
+       4   CODE_CONTROLE               varchar(25)     Code unique du contrôle qualité AMEDIM
+
+       5   LIBELLE_CONTROLE            varchar(200)    Libellé du contrôle qualité
+
+       6   COMMENTAIRE                 varchar(4000)   Commentaire du contrôle qualité
+
+       7   ID_INFO                     int(10)         Id de l’utilisateur (ou du plugin) ayant dernièrement mis à jour la ligne
+
+       8   DATE_INFO                   datetime        Date de la dernière maj
+
+       9   TYPE_PMSI                   char(3)         Type de champ PMSI (MCO ou SSR) sur lequel s'applique le controle qualité        'MCO'
+
+      10   INACTIVATION                char(1)         Inactivation de CQ Amedim -> si O alors pas d'historisation du CQ
+
+      11   DATE_INACTIVATION           datetime        Date à laquelle le CQ a été inactivé

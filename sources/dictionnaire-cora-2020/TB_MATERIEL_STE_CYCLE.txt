@@ -1,0 +1,7 @@
+==== TB_MATERIEL_STE_CYCLE ====
+Table des stocks de matériels stérilisables
+       1   ID_MATERIEL_STE              int(10)         Clé de la Table
+
+       2   NUM_STE                      varchar(20)     Code-barre
+
+       3   DATE_PEREMPTION              datetime        Date de péremption du matériel

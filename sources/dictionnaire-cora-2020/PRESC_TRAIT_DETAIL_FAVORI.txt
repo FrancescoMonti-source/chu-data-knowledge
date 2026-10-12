@@ -1,0 +1,66 @@
+==== PRESC_TRAIT_DETAIL_FAVORI ====
+Favoris des traitements
+       1   ID_DETAIL_FAVORI            int(10)
+
+       2   ID_FOLDER                   int(10)
+
+       3   NOM_MED                     varchar(50)    Nom du médicament
+
+       4   POSOLOGIE                   varchar(100)
+     5   COMMENTAIRE            varchar(1000)
+
+     6   TYPE_TRAITEMENT        char(1)
+
+     7   DATE_CREAT             datetime        Date de création
+                                                Lien sur TB_UTIL.ID_UTIL
+     8   ID_CREAT               int(10)
+                                                Identifiant de l'utilisateur de création
+     9   DATE_INFO              datetime        Date de la dernière modification
+
+    10   HEURE_INFO             datetime
+                                                Lien vers Util.ID_UTIL.
+    11   ID_INFO                int(10)
+                                                Identifiant de l'utilisateur ayant effectué la dernière modification
+    12   POSOLOGIE_TRAITEMENT   decimal(9, 3)
+
+    13   ID_UNITE_MED           smallint(5)
+
+    14   UNITE_MED              varchar(100)
+
+    15   ID_VOIE_ADMIN          smallint(5)
+
+    16   VOIE_ADMIN             varchar(100)
+
+    17   PRESC_JOUR_MATIN       char(1)
+
+    18   PRESC_JOUR_MIDI        char(1)
+
+    19   PRESC_JOUR_SOIR        char(1)
+
+    20   DUREE_PRESC            smallint(5)
+
+    21   TYPE_DUREE             char(1)
+
+    22   TEXTE_DUREE            varchar(100)
+
+    23   ID_MED                 int(10)
+
+    24   ORDRE                  smallint(5)
+
+    25   NOM_MED_FAVORI         varchar(80)
+
+    26   DATE_REVOCATION        datetime
+
+    27   PRESC_JOUR_NUIT        char(1)
+
+    28   PRESC_JOUR_AM          char(1)
+
+    29   POSO_JOUR_MATIN        decimal(9, 3)
+
+    30   POSO_JOUR_MIDI         decimal(9, 3)
+
+    31   POSO_JOUR_SOIR         decimal(9, 3)
+
+    32   POSO_JOUR_NUIT         decimal(9, 3)
+
+    33   POSO_JOUR_AM           decimal(9, 3)

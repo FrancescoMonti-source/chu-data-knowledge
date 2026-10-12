@@ -1,0 +1,16 @@
+==== SSR_CDARR ====
+       1   CODE_ACTE                  char(6)        Clé
+
+       2   LIBELLE                    char(250)
+
+       3   RUBRIQUE                   char(200)
+
+       4   TEMPS_MN                   smallint(5)
+
+       5   CODE_RUBRIQUE              char(2)
+
+       6   TYPE_CDARR                 char(1)                                                                                         'A'
+
+       7   POND_ARR                   smallint(5)
+
+       8   ACTIF                      char(1)                                                                                         'O'

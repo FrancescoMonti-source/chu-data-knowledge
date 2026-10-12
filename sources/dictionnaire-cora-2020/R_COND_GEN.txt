@@ -1,0 +1,35 @@
+==== R_COND_GEN ====
+Liste des Conditions générales
+       1   COD_CONDGE                  int(10)        Code Condition Générale
+
+       2   LIBELLE                     char(254)      libellé condition générale
+
+       3   LIBELLE0                    char(254)      Suite du libelle
+
+       4   LIBELLE1                    char(254)      Suite du libelle
+
+       5   LIBELLE2                    char(254)      Suite du libelle
+
+       6   LIBELLE3                    char(254)      Suite du libelle
+
+       7   LIBELLE4                    char(254)      Suite du libelle
+
+       8   LIBELLE5                    char(254)      Suite du libelle
+
+       9   LIBELLE6                    char(254)      Suite du libelle
+
+      10   LIBELLE7                    char(254)      Suite du libelle
+
+      11   LIBELLE8                    char(254)      Suite du libelle
+
+      12   LIBELLE9                    char(254)      Suite du libelle
+
+      13   LIBELLEA                    char(254)      Suite du libelle
+
+      14   LIBELLEB                    char(254)      Suite du libelle
+
+      15   LIBELLEC                    char(254)      Suite du libelle
+
+      16   LIBELLED                    char(254)      Suite du libelle
+
+      17   LIBELLEE                    char(254)      Suite du libelle

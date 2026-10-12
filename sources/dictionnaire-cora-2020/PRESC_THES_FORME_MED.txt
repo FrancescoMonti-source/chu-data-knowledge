@@ -1,0 +1,11 @@
+==== PRESC_THES_FORME_MED ====
+'Forme' des médicaments (Capsule, compresse, liquide, cachet, sirop…)
+       1   ID_FORME_MED                 smallint(5)    Clé de la Table
+
+       2   LIB_FORME_MED                varchar(150)   'Forme' des médicaments (Capsule, compresse, liquide, cachet, sirop…)
+
+       3   CODE_EXTERNE                 varchar(7)     Lien sur le Thésaurus de la BDD Médicament
+
+       4   CIO                          char(1)                                                                                          'N'
+
+       5   CODE_FORME_MED               varchar(16)

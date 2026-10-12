@@ -1,0 +1,5 @@
+==== TB_GEN_ECRAN_ITEM_DROIT ====
+     1   ID_ECRAN_ITEM          int(10)
+
+     2   ID_UTIL                int(10)        Clé - Lien Util.id_util
+       3   TYPE_DROIT                   char(1)

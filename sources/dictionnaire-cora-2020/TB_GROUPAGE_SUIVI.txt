@@ -1,0 +1,39 @@
+==== TB_GROUPAGE_SUIVI ====
+Table de suivi du groupage par lot
+       1   ID_GROUPAGE_SUIVI           int(10)          Identifiant du groupage. Clé de la table.
+
+       2   DATE_CREAT                  datetime         Date de lancement du groupage.
+                                                        Identifiant de l'utilisateur ayant lancé le groupage. Lien avec UTIL.ID_UTIL de
+       3   ID_CREAT                    int(10)
+                                                        CORA_UTIL.
+       4   STATUT_GROUPAGE             char(1)          Statut du groupage par lot: T - Terminé, A - Arreté
+
+       5   DATE_DEBUT_GRP              datetime         Date de début du groupage. Si le groupage par lot a été lancé sur une période.
+
+       6   DATE_FIN_GRP                datetime         Date de fin du groupage. Si le groupage par lot a été lancé sur une période.
+                                                        Identifiant de la population si le groupage par lot a été lancé sur une
+       7   ID_POPULATION_GRP           int(10)
+                                                        population.
+       8   POURCENT_AVANCEMENT         decimal(7, 2)    Pourcentage d'avancement du groupage.
+
+       9   NB_RSS                      int(10)          Nombre de RSS.
+
+      10   NB_RUM                      int(10)          Nombre de RUM.
+
+      11   DUREE_GROUPAGE_MMS          int(10)          Durée totale du groupage en mms.
+
+      12   MNT_TOTAL_VALO              decimal(11, 2)   Montant total de la valorisation des dossiers groupés.
+
+      13   NB_ERR_BLOQ                 int(10)          Nombre d'erreurs bloquantes du groupage.
+
+      14   NB_ERR_NON_BLOQ             int(10)          Nombre d'erreurs non bloquantes du groupage.
+
+      15   NB_RSS_VALORISE             int(10)          Nombre de RSS valorisés.
+
+      16   VERSION_PMSI                varchar(30)      Version du logiciel avec laquelle le groupage a été effectué.
+                                                        Indique si l'option de recalcul des RSS validés a été cochée. 'O' pour l'option a
+      17   IS_RECALCUL_RSS             char(1)
+                                                        été coché; 'N' pour Non, "" pas de données.
+                                                        Identifiant de l'EJ sur laquelle le groupage a été réalisée. Lien avec
+      18   ID_EJ                       smallint(5)
+                                                        TB_EJ.ID_EJ

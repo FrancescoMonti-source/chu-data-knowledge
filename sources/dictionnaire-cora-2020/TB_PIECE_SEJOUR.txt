@@ -1,0 +1,22 @@
+==== TB_PIECE_SEJOUR ====
+       1   ID_PIECE_SEJOUR            int(10)
+
+       2   ID_PATIENT                 int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_SEJOUR                  int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       4   ID_MVT                     int(10)
+
+       5   ID_INTERVENTION            int(10)
+
+       6   ID_PIECE                   smallint(5)
+
+       7   ID_STATUT                  smallint(5)
+
+       8   DATE_CREAT                 datetime       Date de création
+
+       9   DATE_SAISIE                datetime
+
+      10   ID_SAISIE                  int(10)
+
+      11   STATUT_DEFINITIF           char(1)                                                                                      'N'

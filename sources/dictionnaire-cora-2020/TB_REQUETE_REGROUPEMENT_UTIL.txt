@@ -1,0 +1,8 @@
+==== TB_REQUETE_REGROUPEMENT_UTIL ====
+       1    ID_REGROUPEMENT                 int(10)
+
+       2    TYPE_APPARTENANCE               char(1)
+
+       3    ID_IDENTIFIANT                  int(10)
+
+       4    LIBELLE                         varchar(1000)

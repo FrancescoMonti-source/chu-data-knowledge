@@ -1,0 +1,4 @@
+==== TB_CONSOLE_ACCUEIL_PROFIL ====
+      1    ID_PROFIL_DPI             smallint(5)      ID du profil Dpi
+
+      3    ID_CONSOLE                int(10)          Identifiant de la console. Lien avec TB_CONSOLE.ID_CONSOLE

@@ -1,0 +1,8 @@
+==== TB_THES_IDENT_PATIENT ====
+       1   ID_IDENT_PATIENT            smallint(5)
+
+       2   CODE_IDENT_PATIENT          varchar(10)
+
+       3   LIBELLE_IDENT_PATIENT       varchar(200)
+
+       4   ACTIF                       char(1)                                                                           'O'

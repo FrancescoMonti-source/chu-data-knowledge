@@ -1,0 +1,39 @@
+==== TB_PATIENT_HISTORIQUE ====
+Table récupérée des Informations Patient (récup du module Administratif) : utile pour les interfaces ne réenvoyant pas les
+informations Patients lors d'une entrée dans l'établissement (dans ce cas, au démarrage d'un établissement, beaucoup de
+Patient étaient crée sans informations) --> on se sert de cette table pour aller 'puiser' les infos Patients
+                                                       Clé :
+       1   IPP_PATIENT                 char(20)
+                                                       I.P.P Patient.
+                                                       Nom usuel pour un Homme ou Femme non mariée OU Nom marital pour une
+       2   NOM_USUEL_PATIENT           char(50)
+                                                       Femme mariée
+       3   PRENOM_PATIENT              char(50)        Prénom du Patient
+
+       4   NOM_NAISSANCE               char(50)        Nom de naissance d'une Femme mariée.
+                                                       Masculin (="M" ou "1")
+       5   SEXE                        char(1)
+                                                       Féminin (="F" ou "2")
+       6   DATE_NAIS_LUN               char(10)        Date de naissance lunaire
+
+       7   DATE_NAIS                   datetime        Date de nassance
+
+       8   HEURE_NAISSANCE             datetime        Heure de naissance
+
+       9   DATE_CREAT                  datetime        Date de création de cet enregistrement 'Patient'
+
+      10   HEURE_CREAT                 datetime        Heure de création de cet enregistrement 'Patient'
+                                                       Lien sur Util.code_util :
+      11   USER_CREAT                  char(10)
+                                                       Identifiant de l'utilisateur ayant 'crée' le Patient
+      12   CIVILITE                    char(4)         Code civilité du Patient (Spécifique a chaque Interface)
+
+      13   POID_NAISSANCE              int(10)         Poids à la naissance du nouveau-né.
+
+      14   CODE_POSTAL                 char(10)        Code Postal du Patient (Géré maintenante dans TB_SEJOUR)
+
+      15   NATIONALITE                 char(3)         Code Nationalité du Patient
+
+      16   CAT_SOC_PROF                char(3)         Catégorie Socio-Professionnelle
+
+      17   IPP_MERE                    char(16)        Lien sur l'IPP de la mère (pour nouveau né)

@@ -1,0 +1,19 @@
+==== TB_ITEM_IMPRESSION ====
+                                                       Clé :
+       1   ID_ITEM_IMPR                 smallint(5)
+                                                       Définit l'identifiant de l'item d'impression.
+       2   LIBELLE_ITEM_IMPR            varchar(50)    Définit le libellé de l'item d'impression.
+
+       3   ID_ITEM_IMPR_PERE            smallint(5)    Définit l'identifiant de l'item d'impression parent.
+
+       4   ACTIF                        char(1)        Définit si l'item d'impression est actif. 'O' pour Oui.                            'O'
+
+       5   VALEUR_ITEM_IMPR             varchar(50)    Définit le champ de fusion de l'item d'impression.
+                                                       Définit le niveau de disponibilité du champ de fusion.
+                                                       - M : mouvement
+       6   TYPE_IMPR                    char(5)
+                                                       - S : séjour
+                                                       - E : épisode
+                                                       Définit si le champ de fusion est accessible depuis CORA Document. 'O' pour
+       8   VISIBLE_DOC                  char(1)
+                                                       Oui, 'N' pour Non.

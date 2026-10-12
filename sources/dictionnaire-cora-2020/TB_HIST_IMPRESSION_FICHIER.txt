@@ -1,0 +1,18 @@
+==== TB_HIST_IMPRESSION_FICHIER ====
+       1    ID_HIST_IMPR_FICHIER         int(10)
+
+       2    DATE_IMPR                    datetime
+
+       3    ID_PATIENT                   int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       4    ID_SEJOUR                    int(10)
+
+       5    TYPE_IMPR                    smallint(5)
+
+       6    ID_UTIL_IMPR                 int(10)
+
+       7    EXTENSION_FIC                varchar(4)
+
+       8    FLAG_COMPRESSE               char(1)                                                                                                'N'
+
+       9    STATUT_BASE_ARCHIVE          char(1)                                                                                                'N'

@@ -1,0 +1,29 @@
+==== TB_THESAURUS_SPECIALITE ====
+Table utilisé pour sépcifier les types d'écran NGAP
+                                                       Clé
+       1   ID_THES_SPE                  int(10)
+                                                       Identifiant du thésaurus
+                                                       Lien sur TB_TYPE_INTERVENTION.ID_TYPE_INTERVENTION :
+       2   ID_TYPE_INTERVENTION         smallint(5)
+                                                       Lien sur le type d'intervention
+                                                       Lien sur TB_TYPE_INTERVENTION.TYPE_INTERVENTION :
+       3   TYPE_INTERVENTION            varchar(20)
+                                                       Lien sur le type d'intervention
+       4   TYPE_THES                    varchar(30)
+
+       5   ORDRE_THES                   smallint(5)
+
+       6   MULTI_SELECTION              char(1)        Si 'O', multi-sélection possible
+                                                       Type de champs:
+                                                       - si L --> Liste de multi-sélection
+       7   TYPE_FLAG                    char(1)
+                                                       - si C --> Liste déroulante à choix simple
+                                                       - si S --> Boutons à choix simples (NR,Oui,Non)
+       8   VALEUR                       varchar(250)   Valeur du thésaurus
+
+       9   ORDRE_VALEUR                 smallint(5)    Place de cette valeur dans la liste
+
+      10   DEFAUT_VALEUR                char(1)        Si 'O', valeur par défaut afficher à la saisie
+
+      11   TYPE_ENDO                    char(1)
+      12   TYPE_COLO                  char(1)

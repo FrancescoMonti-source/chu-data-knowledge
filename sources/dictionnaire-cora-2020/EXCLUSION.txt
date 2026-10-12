@@ -1,0 +1,2 @@
+==== EXCLUSION ====
+       1   EXCLUSION                  char(30)

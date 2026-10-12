@@ -1,0 +1,5 @@
+==== R_TYPE ====
+Codification du Type d'Acte
+        1   COD_TYPE                        int(10)        Code Type Acte
+
+        2   LIBELLE                         char(80)       libellé type acte

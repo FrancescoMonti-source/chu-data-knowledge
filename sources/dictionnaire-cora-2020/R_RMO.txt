@@ -1,0 +1,40 @@
+==== R_RMO ====
+Liste des références médicales opposables
+       1   COD_INTERN                   int(10)       code interne de la RMO
+
+       2   TITRE                        char(80)      titre de la RMO
+                                                      CCAM n° 21
+       3   TEXTE                        char(254)
+                                                      Texte de la RMO
+       4   TEXTE0                       char(254)     Suite du texte
+
+       5   TEXTE1                       char(254)     Suite du texte
+
+       6   TEXTE2                       char(254)     Suite du texte
+
+       7   TEXTE3                       char(254)     Suite du texte
+
+       8   TEXTE4                       char(254)     Suite du texte
+
+       9   TEXTE5                       char(254)     Suite du texte
+
+      10   TEXTE6                       char(254)     Suite du texte
+
+      11   TEXTE7                       char(254)     Suite du texte
+
+      12   TEXTE8                       char(254)     Suite du texte
+
+      13   TEXTE9                       char(254)     Suite du texte
+
+      14   TEXTEA                       char(254)     Suite du texte
+
+      15   TEXTEB                       char(254)     Suite du texte
+
+      16   TEXTEC                       char(254)     Suite du texte
+
+      17   TEXTED                       char(254)     Suite du texte
+
+      18   TEXTEE                       char(254)     Suite du texte
+                                                      CCAM n° 20
+      19   REF_RMO                      char(5)
+                                                      Réference RMO

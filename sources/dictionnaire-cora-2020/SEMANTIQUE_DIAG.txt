@@ -1,0 +1,6 @@
+==== SEMANTIQUE_DIAG ====
+       1    ID_DIAG                      int(10)        Identifiant du diagnostic QualiCR (relation Diag Sémantique)
+
+       2    LIBELLE_SEMANTIQUE           varchar(600)   Libellé de la phrase QualiCR
+
+       3    CODE_CIM                     char(16)       Code du diagnostic à proposer

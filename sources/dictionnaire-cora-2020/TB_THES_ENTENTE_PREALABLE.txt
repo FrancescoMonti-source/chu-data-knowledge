@@ -1,0 +1,12 @@
+==== TB_THES_ENTENTE_PREALABLE ====
+Thésaurus des Ententes Préalables
+      1    ENTENTE_PREALABLE        char(1)        Code de l'entente préalable
+
+      2    LIBELLE_ENTENTE          varchar(50)    Libellé de l'entente préalable
+
+      3    DEFAUT                   char(1)        Indique si l'entente préalable est l'entente préalable par défaut         'N'
+                                                   Code utilisé au niveau de la norme pour l'entente préalable :
+                                                   - hd : Pas de réponse
+      4    CODE_NORME               varchar(5)     - oui : Réponse favorable
+                                                   - u : Notion d'urgence
+                                                   - non : Non (accord refusé)

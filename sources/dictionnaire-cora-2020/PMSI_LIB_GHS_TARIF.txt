@@ -1,0 +1,53 @@
+==== PMSI_LIB_GHS_TARIF ====
+Définition des différents GHS (Groupe Homogène de Séjour) avec gestion des historiques
+                                                      Clé :
+       1   GHS                        char(6)         Code GHM complet (GHM pour les termes PMSI) - les 2 premiers caractères
+                                                      correpondent à la valeur CMD)
+       2   CODE_GHS                   char(4)         Code GHS - sur 4 caractères
+                                                      Lien sur PMSI_LIB_CMD.CODE_CMD :
+       3   CMD                        char(2)
+                                                      CMD du GHM
+       4   LIBELLE_GHS                char(250)       Libellé du GHS
+
+       5   PRIX                       float(53)       Valorisation du GHS
+
+       6   BAS                        smallint(5)     Borne basse (en jour)
+
+       7   HAUT                       smallint(5)     Borne haute (en jour)
+
+       8   TARIF_BORNE                float(53)       Montant journalier de la borne haute (dans le cas d'un EXH journalier)
+                                                      Clé :
+       9   DATE_DEBUT                 datetime        Date de début de validité du tarif (date officielle des changements de version
+                                                      FG)
+                                                      Clé :
+      10   DATE_FIN                   datetime
+                                                      Date de fin de validité du tarif
+                                                      Code du GHM sur 4 caractères : les 4 derniers du GHM sur 6.
+      11   CODE_GHM                   char(4)         Par exemple C01S pour 01C01S
+                                                      Attention à l'incohérence du nom de ce champ
+      12   TYPE_ACTIVITE              char(1)         Type d'activité : M, C ou O
+
+      13   VERSION                    char(3)         Version de la FG de groupage (exemple : 11E)
+
+      14   DMS_PRIVE                  float(53)       DMS pour les établissements Privé
+
+      15   DMS_PUBLIC                 float(53)       DMS pour les établissements Public
+                                                      Permet de requêter pour avoir le libellé sur une version sans doublons (O à
+                                                      prendre)
+      16   GET_LIBELLE                char(1)
+                                                      Ce champ sert pour les GHM ayant plusieurs GHS. Attention : bien prendre en
+                                                      compte les clauses de date (début / fin)
+      17   MNT_FORFAIT_EXB            float(53)       Montant forfaitaire de la borne basse (dans le cas d'un EXB forfaitaire)
+
+      18   CODE_GHM_RACINE            char(5)         Code de la racine GHM (5 premiers caractères du GHM)
+
+      19   MNT_JOUR_EXB               float(53)       Montant journalier de la borne basse (dans le cas d'un EXB journalier)
+                                                      Code Regroupement DA
+      20   CODE_PMSI_REGROUP_DA       varchar(4)
+                                                      Lien sur PMSI_LIB_REGROUP.TYPE_PMSI_REGROUP = 'DA'
+                                                      Code Regroupement GP
+      21   CODE_PMSI_REGROUP_GP       varchar(4)
+                                                      Lien sur PMSI_LIB_REGROUP.TYPE_PMSI_REGROUP = 'GP'
+                                                      Code Regroupement GA
+      22   CODE_PMSI_REGROUP_GA       varchar(4)
+                                                      Lien sur PMSI_LIB_REGROUP.CODE_PMSI_REGROUP = 'GA'

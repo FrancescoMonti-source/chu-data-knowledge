@@ -1,0 +1,6 @@
+==== PRESC_FAVORI_UTIL ====
+     1   ID_FOLDER               int(10)
+
+     2   ID_UTIL                 int(10)         Clé - Lien Util.id_util
+
+     3   ID_UNITE                int(10)

@@ -1,0 +1,8 @@
+==== R_UNITE_OEUVRE ====
+Table de valeurs des unités d'œuvre
+       1   COD_UOEUVR                 char(3)        Code de l'unité d'oeuvre
+
+       2   DT_EFFET                   datetime       date d'effet de l'unité d'oeuvre
+                                                     valeur associée à l'unité
+       3   VALEUR                     float(53)
+                                                     d'oeuvre

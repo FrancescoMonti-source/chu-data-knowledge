@@ -1,0 +1,13 @@
+==== TB_THES_EXAMEN ====
+      1    ID_THES_EXAMEN           smallint(5)
+
+      2    CODE_THES_EXAMEN         varchar(20)
+
+      3    LIBELLE_THES_EXAMEN      varchar(150)
+       4   ID_MODELE_DOC_DEFAUT        int(10)
+
+       5   ID_DEMANDE_APPLI_DEST       smallint(5)
+
+       6   ID_THES_REGROUP_EXAMEN int(10)
+
+       7   CODE_SERVICE_DEST           varchar(20)

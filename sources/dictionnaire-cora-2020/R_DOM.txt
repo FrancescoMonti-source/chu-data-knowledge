@@ -1,0 +1,5 @@
+==== R_DOM ====
+Liste des départements d'outre-mer
+       1   COD_DOM                     int(10)        code DOM
+
+       2   LIBELLE                     char(50)       libellé DOM

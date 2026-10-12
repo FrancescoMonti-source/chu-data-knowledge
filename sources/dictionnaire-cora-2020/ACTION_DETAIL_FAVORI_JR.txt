@@ -1,0 +1,4 @@
+==== ACTION_DETAIL_FAVORI_JR ====
+     1   ID_DETAIL_FAVORI        int(10)
+
+     2   JOURNEE                 smallint(5)

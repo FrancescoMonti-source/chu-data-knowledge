@@ -1,0 +1,51 @@
+==== TB_EVT_HIST_PAT ====
+     1    ID_EVT                     int(10)       PK
+
+     2    DATE_CHRONO                datetime      Date de chrono de la ligne
+
+     3    ID_PATIENT                 int(10)       FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     4    ID_SEJOUR                  int(10)       FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+      5    ID_MVT                   int(10)         FK TB_MVT.ID_MVT - Identifiant CORA du mouvement
+
+      6    ID_MVT_COMPL             int(10)         FK TB_MVT_COMPL.ID_MVT_COMPL
+
+      7    DATE_DEBUT               datetime        Date de début du MVT
+
+      8    DATE_FIN                 datetime        Date de fin du MVT
+
+      9    CODE_UFH                 varchar(10)     Code de l'UF d'hébergement
+
+      10   CODE_UFM                 varchar(10)     Code de l'UF de l'axe médical
+
+      11   NUM_LIT                  varchar(10)     Numéro de lit
+
+      12   NUM_CHAMBRE              varchar(10)     Numéro de chambre
+
+      13   ID_MED_RESP              int(10)         Identifiant du médecin responble
+
+      14   MODE_ENTREE_ADMIN        varchar(10)     Mode d'entrée administratif
+
+      15   MODE_SORTIE_ADMIN        varchar(10)     Mode de sortie administratif
+
+      16   TYPE_EVT                 char(3)         Type d'évènement HL7
+
+      17   TYPE_EVT_PMC             char(4)         Type d'évènement CORA
+
+      18   ID_UTIL                  int(10)         Identifiant de l'utilisateur
+
+      19   FLAG_DISTRIBUE           char(1)         Flag de distribution
+
+      20   FLAG_ERREUR              char(1)         Flag erreur
+
+      21   LIB_ERREUR               varchar(1000)   Description de l'erreur
+
+      22   DATE_HIST                datetime        Date d'historisation de la ligne
+                                                    Lien vers Util.ID_UTIL.
+      23   ID_INFO                  int(10)
+                                                    Identifiant de l'utilisateur ayant effectué la dernière modification
+      24   DATE_INFO                datetime        Date de la dernière modification
+
+      25   ID_PERMISSION            int(10)
+
+      26   ID_PRESENCE              int(10)

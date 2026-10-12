@@ -1,0 +1,164 @@
+==== TB_PSY_OFDT ====
+Table des données saisies pour l'OFDT (addictologie)
+       1   ID_PSY_OFDT                int(10)
+
+       2   ID_PATIENT                 int(10)          FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_MVT                     int(10)          FK TB_MVT.ID_MVT - Identifiant du mouvement
+
+       4   DATE_DEB_PEC               datetime
+
+       5   NB_ENFANT                  smallint(5)                                                                  0
+
+       6   NB_ENFANT_CHARGE           smallint(5)                                                                  0
+
+       7   CATEG_SP                   char(1)                                                                      '9'
+
+       8   LOGEMENT                   char(1)                                                                      '9'
+
+       9   ENTOURAGE                  char(1)                                                                      '8'
+10   DEP_DOMICILE            char(3)
+
+11   RESSOURCE               char(1)            '8'
+
+12   SITUAT_PROF             char(1)            '7'
+
+13   CVT_SOCIALE             char(1)            '3'
+
+14   CVT_CMU                 char(1)            'N'
+
+15   CVT_ALD                 char(1)            'N'
+
+16   CVT_AME                 char(1)            'N'
+
+17   CVT_COMPL               char(1)            'N'
+
+18   ETUDE                   char(1)            '8'
+
+19   ORIGINE_PEC             char(2)           '16'
+
+20   PEC_ANT                 char(1)            '4'
+
+21   ANNEE_PREM_PEC          smallint(5)
+
+22   TRAIT_SUBSTITUTION      char(1)            '5'
+
+23   DATE_SUBSTITUTION       datetime
+
+24   TRAIT_ACAMPROSATE       char(1)            'N'
+
+25   TRAIT_NALTREXONE        char(1)            'N'
+
+26   TRAIT_ANTABUSE          char(1)            'N'
+
+27   TRAIT_SUBST_NICO        char(1)            'N'
+
+28   TRAIT_BUPROPION         char(1)            'N'
+
+29   TRAIT_ANXIOLYTIQUES     char(1)            'N'
+
+30   TRAIT_HYPNOTIQUES       char(1)            'N'
+
+31   TRAIT_ANTIDEPRESSEURS   char(1)            'N'
+
+32   TRAIT_NEROLEPTIQUES     char(1)            'N'
+
+33   ALCOOL_NB_JOUR          decimal(4, 2)
+
+34   ALCOOL_NB_IVR_MOIS      smallint(5)
+
+35   CIGARETTE_NB_JOUR       smallint(5)
+
+36   JOINT_NB_JOUR           smallint(5)
+
+37   UTIL_VOIE_INTRAV        char(1)            '4'
+
+38   AGE_PREM_INJECTION      smallint(5)
+
+39   PARTAGE_SERINGUE        char(1)
+
+40   SEROLOGIE_VIH           char(1)            '1'
+
+41   DATE_TEST_VIH           datetime
+
+42   SEROLOGIE_VHC           char(1)            '1'
+
+43   DATE_TEST_VHC           datetime
+
+44   VACCIN_VHB              char(1)            '3'
+
+45   ANTECEDENT_PSY          char(1)            '3'
+
+46   ANTECEDENT_NB_HOSPIT    smallint(5)
+
+47   ANTECEDENT_SUICIDE      char(1)            '3'
+
+48   ANTECEDENT_NB_SUICIDE   smallint(5)
+
+49   INCARCERATION           char(1)            '3'
+
+50   NB_INCARCERATION        smallint(5)
+      51   DUREE_INCARCERATION        smallint(5)
+                                                       Lien sur TB_UTIL.ID_UTIL
+      52   ID_CREAT                   int(10)
+                                                       Identifiant de l'utilisateur de création
+      53   DATE_CREAT                 datetime         Date de création
+                                                       Lien vers Util.ID_UTIL.
+      54   ID_INFO                    int(10)
+                                                       Identifiant de l'utilisateur ayant effectué la dernière modification
+      55   DATE_INFO                  datetime         Date de la dernière modification
+
+      56   HEURE_INFO                 datetime
+
+      57   TYPE_ENREG                 char(1)
+
+      58   INCLUS_RAPPORT             char(1)                                                                                    'O'
+
+      59   COMORBIDITES_PSY           char(1)                                                                                    '1'
+
+      60   CONTEXTE                   char(1)
+
+      61   FLAG_FUME                  char(1)                                                                                    '3'
+
+      62   TRAIT_MEDICAMENTEUX        char(1)                                                                                    '3'
+
+      63   TRAIT_AUTRE                char(1)                                                                                    '0'
+
+      64   SEVRAGE                    char(1)
+
+      65   DATE_FICHE                 datetime
+
+      66   AGE_APPROXIMATIF           smallint(5)
+           TRAIT_SUBST_PRESC_CENTR
+      67                           char(1)
+           E
+           TRAIT_SUBST_INITIE_CENTR
+      68                            char(1)
+           E
+      69   TRAIT_SUBST_DISP_PHARMA char(1)
+
+      70   TRAIT_SUBST_MED_VILLE      char(1)
+           TRAIT_SUBST_RELAIS_CENT
+      71                           char(1)
+           RE
+      72   ID_UNITE                   int(10)
+
+      73   MAT_PREV_RISQUE            char(1)
+
+      74   TEST_VIH                   char(1)
+
+      75   TEST_VHC                   char(1)
+
+      76   SUIVI_PENITENTIAIRE        char(1)
+
+      77   PB_POLYCONSO               char(1)
+
+      78   QUEST_FACULT_LISTE1        varchar(2)
+
+      79   QUEST_FACULT_LISTE2        varchar(2)
+
+      80   QUEST_FACULT_LISTE3        varchar(2)
+
+      81   QUEST_FACULT_LISTE4        varchar(2)
+
+      82   QUEST_FACULT_TEXTE         varchar(40)

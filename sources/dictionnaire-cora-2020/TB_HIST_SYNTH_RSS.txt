@@ -1,0 +1,328 @@
+==== TB_HIST_SYNTH_RSS ====
+Table d'historisation du RSS Copie de TB_SYNTH_RSS : FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA
+Table d'historisation du RSS
+                                                  Copie de TB_SYNTH_RSS : FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA
+       1   ID_SEJOUR             int(10)
+                                                  du séjour
+                                                  Copie de TB_SYNTH_RSS : FK TB_PATIENT.ID_PATIENT - Identifiant CORA
+       2   ID_PATIENT            int(10)
+                                                  du patient
+                                                  Copie de TB_SYNTH_RSS : N° de Séjour officiel. (N° déjà existant dans
+       3   NO_SEJOUR             char(20)
+                                                  TB_SEJOUR.NO_SEJOUR)
+       4   CODE_CMD              char(2)          Copie de TB_SYNTH_RSS : Données du Groupage : CMD
+                                                  Copie de TB_SYNTH_RSS : Données du Groupage : GHM (Lien avec
+       5   CODE_GHS              char(4)
+                                                  PMSI_LIB_GHS avec les 4 dernières valeurs du champs GHS de cette table)
+                                                  Copie de TB_SYNTH_RSS : Données du Groupage : GHS (Lien avec
+       6   CODE_GHM              char(4)
+                                                  PMSI_LIB_GHS avec les 4 dernières valeurs du champs GHS de cette table)
+       7   CODE_ERR              char(3)          Copie de TB_SYNTH_RSS : Données du Groupage : Code erreur principal
+
+       8   DUREE_SEJOUR          smallint(5)      Copie de TB_SYNTH_RSS : Durée du Séjour (du RSS)
+                                                  Copie de TB_SYNTH_RSS : Valorisation du GHS (avec prise en compte de la
+       9   MONTANT_GHS           numeric(18, 5)
+                                                  survalorisation)
+                                                  Copie de TB_SYNTH_RSS : Montant du dépassement éventuel (cas des
+      10   MONTANT_DEP           numeric(18, 5)
+                                                  séjours hors borne haute)
+      11   QUANTITE_J_DEP        smallint(5)      Copie de TB_SYNTH_RSS : Nb de jour de dépassement de la borne haute
+                                                  Copie de TB_SYNTH_RSS : Montant de survalorisation (régionnal) a
+                                                  additionner à 'Montant GHS' et 'Montant Dépassement'.
+      12   MONTANT_COEF          numeric(18, 5)
+                                                  Coeffcient calculé a partir du montant GHS, du montant de Réanimation et du
+                                                  montant de Dépassement
+      13   MONTANT_URG           numeric(18, 5)   Copie de TB_SYNTH_RSS : Montant du passage en Urgence
+
+      14   QUANTITE_J_URG        smallint(5)      Copie de TB_SYNTH_RSS : Nb de jour passé en Urgence
+
+      15   MONTANT_REA           numeric(18, 5)   Copie de TB_SYNTH_RSS : Montant cumulé des jours de Réanimation
+
+      16   QUANTITE_J_REA        smallint(5)      Copie de TB_SYNTH_RSS : Nb de jour cumulé en réanimation
+                                                  Copie de TB_SYNTH_RSS : Date de groupage (et de génération de cet
+      18   DATE_FABRICATION      datetime
+                                                  enregistrement)
+                                                  Copie de TB_SYNTH_RSS : Heure de groupage (et de génération de cet
+      19   HEURE_FABRICATION     datetime
+                                                  enregistrement)
+      20   DATE_ENVOI_TUTELLE    datetime         Copie de TB_SYNTH_RSS : Date de blocage
+
+      21   HEURE_ENVOI_TUTELLE   datetime         Copie de TB_SYNTH_RSS : Heure de blocage
+                                                  Copie de TB_SYNTH_RSS : Statut du RSS :
+                                                  PMSI_STATUT_CTRL
+      25   STATUT                char(1)
+                                                  - T : Terminé
+                                                  Lien possible sur PMSI_STATUT_CTRL.CODE_STATUT_CTRL
+      26   DP_RETENU             char(16)         Copie de TB_SYNTH_RSS : Code Diagnostic Principal retenu
+
+      27   LIST_ERR              char(200)        Copie de TB_SYNTH_RSS : Liste des erreurs du Groupage
+
+      28   DATE_FIN              datetime         Copie de TB_SYNTH_RSS : Date de fin du RSS
+
+      29   DATE_DEBUT            datetime         Copie de TB_SYNTH_RSS : Date du début du RSS
+                                                  Copie de TB_SYNTH_RSS : Chrono du RSS dans un même Séjour (Dans
+      31   CHRONO_RSS            int(10)
+                                                  certains cas rares, 1 Séjour peut avoir plusieurs RSS)
+      32   ID_RSS                int(10)          N° unique identifiant de la ligne (fait le lien avec les Mouvements)
+                                               Copie de TB_SYNTH_RSS : Mode d'entrée du RSS (donc forcément différent
+33   MODE_ENTREE              char(1)
+                                               de 6)
+34   CODE_PROVENANCE          char(1)          Copie de TB_SYNTH_RSS : Code Provenance du RSS
+                                               Copie de TB_SYNTH_RSS : Mode de sortie du RSS (donc forcément différent
+35   MODE_SORTIE              char(1)
+                                               de 6)
+36   CODE_DESTINATION         char(1)          Copie de TB_SYNTH_RSS : Code Destination du RSS
+                                               Copie de TB_SYNTH_RSS : Information concernant la prise en compte du
+                                               RSS pour la facturation :
+                                               - Null : RSS non initialisé ou rejeté par la facturation.
+                                               - 'N' : RSS en cours de réalisation, à ne pas valoriser (cas des RSS multi-
+                                               RUM)
+37   STATUT_VALO              char(1)
+                                               - 'O' : RSS Groupé correctement mais non signé (dans le cas de la gestion de
+                                               la signature)
+                                               - 'G' : Groupage complet réalisé (+ signature en cas de gestion de la signature)
+                                               - 'F' : Facturé (prise en compte, envoyé dans les Interfaces de Facturation)
+                                               - 'E' : Emis
+38   NB_RUM                   smallint(5)      Copie de TB_SYNTH_RSS : Nombre de RUM existant dans de RSS
+
+39   MONTANT_REDU             decimal(10, 2)
+                                               Copie de TB_SYNTH_RSS : Nb D'acte de radiothérapie appartenant au
+40   NB_24Z05Z                smallint(5)
+                                               groupe GHS 24Z05Z
+                                               Copie de TB_SYNTH_RSS : Mt radiothérapie appartenant au groupe GHS
+41   MT_24Z05Z                decimal(10, 2)
+                                               24Z05Z
+                                               Copie de TB_SYNTH_RSS : Nb D'acte de radiothérapie appartenant au
+42   NB_24Z06Z                smallint(5)
+                                               groupe GHS 24Z06Z
+                                               Copie de TB_SYNTH_RSS : Mt acte de radiothérapie appartenant au groupe
+43   MT_24Z06Z                decimal(10, 2)
+                                               GHS 24Z06Z
+                                               Copie de TB_SYNTH_RSS : Nb D'acte de radiothérapie appartenant au
+44   NB_24Z07Z                smallint(5)
+                                               groupe GHS 24Z07Z
+                                               Copie de TB_SYNTH_RSS : Mt acte de radiothérapie appartenant au groupe
+45   MT_24Z07Z                decimal(10, 2)
+                                               GHS 24Z07Z
+46   NB_DIALYSE               smallint(5)      Copie de TB_SYNTH_RSS : Nb de dyalise dans le RSS
+
+47   MT_DIALYSE               decimal(10, 2)   Copie de TB_SYNTH_RSS : Mt de la dialyse dans le RSS
+
+48   VERSION                  smallint(5)      Copie de TB_SYNTH_RSS : Version du groupage utilisé pour ce RSS
+
+49   NB_JOUR_NEO1             smallint(5)      Copie de TB_SYNTH_RSS : Nb Journée Néonatologie Type 1 Autorisation 4
+                                               Copie de TB_SYNTH_RSS : Mt Néonatologie Type 1 Autorisation 4 =
+50   MNT_JOUR_NEO1            decimal(10, 2)
+                                               Supplément Néonat sans soins Intensifs
+                                               Copie de TB_SYNTH_RSS : Nb Journée Néonatologie Type 2 Autorisation 5
+51   NB_JOUR_NEO2             smallint(5)
+                                               avec Soins intensif
+                                               Copie de TB_SYNTH_RSS : Mt Néonatologie Type 2 Autorisation 5 avec Soins
+52   MNT_JOUR_NEO2            decimal(10, 2)
+                                               intensif = Supplément Néonat avec soins Intensifs
+                                               Copie de TB_SYNTH_RSS : Nb Journée Néonatologie Type 3 Autorisation 6
+53   NB_JOUR_NEO3             smallint(5)
+                                               avec réanimation
+                                               Copie de TB_SYNTH_RSS : Mt Néonatologie Type 3 Autorisation 6 avec
+54   MNT_JOUR_NEO3            decimal(10, 2)
+                                               réanimation = Supplément de Réa Néonat
+55   NB_JOUR_SOINS_INT        smallint(5)      Copie de TB_SYNTH_RSS : Nb jour Soisn Intensif
+                                               Copie de TB_SYNTH_RSS : Mnt Soins intensifs = Supplément de Soins
+56   MNT_JOUR_SOINS_INT       decimal(10, 2)
+                                               Intensifs
+57   NB_JOUR_SURV_CONT        smallint(5)      Copie de TB_SYNTH_RSS : Nb de jour surveillance continu
+                                               Copie de TB_SYNTH_RSS : Mnt Surveillance continue = Supplément de
+58   MNT_JOUR_SURV_CONT       decimal(10, 2)
+                                               Surveillance Continue
+59   NB_JOUR_SOINS_PALL       smallint(5)      Copie de TB_SYNTH_RSS : Nb Journée soins paliatifs
+                                               Copie de TB_SYNTH_RSS : Mnt soins paliatifs = Supplément de Soins
+60   MNT_JOUR_SOINS_PALL      decimal(10, 2)
+                                               Palliatifs
+61   IVG                      char(1)          Copie de TB_SYNTH_RSS : IVG 1 si Oui (Interuption volotaire de grossesse)
+                              text
+62   LIGNES_GRP                                Copie de TB_SYNTH_RSS : Ligne groupée du RSS
+                              (2147483647)
+63   NB_JOUR_SOINS_INT_REA    smallint(5)      Copie de TB_SYNTH_RSS : Nb Journée en Soins Intensif de Réanimation
+                                               Copie de TB_SYNTH_RSS : Montant de valorisation en Soins Intensif de
+64   MNT_JOUR_SOINS_INT_REA   decimal(10, 2)
+                                               Réanimation = Supplément de Soins Intensifs issus de Réanimation
+65   BORNE_BASSE            char(1)          Copie de TB_SYNTH_RSS : ='O' si RSS soumis à règle de borne basse
+                                             Copie de TB_SYNTH_RSS : ='O' si un contrôle qualité a été réalisé sur ce
+66   STATUT_QUALITE         char(1)
+                                             RSS
+67   COMMENTAIRE_RSS        varchar(500)     Copie de TB_SYNTH_RSS : Commentaire libre sur le RSS
+                                             Copie de TB_SYNTH_RSS : Type des prise en charge du patient. Cette
+68   TYPE_PEC               char(1)
+                                             donnée est initialisée par des outils de consolidation spécifiques.
+                                             Copie de TB_SYNTH_RSS : Montant de valorisation des prélévements
+69   MNT_PRELEV_ORGANE      decimal(10, 2)   d'organes. Aujourd'hui, seul le type de prélevement est stocké. (1 pour PO1, 2
+                                             pour PO2 et 3 pour PO3)
+                                             Copie de TB_SYNTH_RSS : Code Postal du patient le jour de la clôture du
+70   CODE_POSTAL            varchar(5)
+                                             RSS. Cette donnée est initialisée par des outils de consolidation spécifiques.
+                                             Copie de TB_SYNTH_RSS : Montant de valorisation en Soins Intensif de
+71   MNT_SRA                decimal(10, 2)   Réanimation = Supplément de Soins Particulièrement Couteux - Privé
+                                             uniquement
+                                             Copie de TB_SYNTH_RSS : Code GHM (sur 6 caractères) obtenus lors du
+                                             premier groupage avec enregistrement des données (signature RUM ou
+                                             groupage par lot. Le GHM est enregistré que si le groupage est bon : hors
+72   GHM_INITIAL            char(6)
+                                             CMD 90 non valorisée.
+                                             Cette donnée permet de suivre l'effet des modifications des dossiers par les
+                                             DIM.
+                                             Copie de TB_SYNTH_RSS :
+                                             null = etat initial - jamais envoyé
+                                             X = demande d'envoi
+73   STATUT_FACT            char(1)          E = Envoyé
+                                             R=Rejeté en facturation
+                                             F = Facturé
+                                             B = Bloqué
+                                             Copie de TB_SYNTH_RSS : Lien sur Util.id_util :
+74   ID_FABRICATION         int(10)
+                                             Identifiant de l'utilisateur à la source de l'enregistrement
+                                             Copie de TB_SYNTH_RSS : Lien sur
+                                             TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL / CORA_UTIL)
+76   ID_ETABLIS             smallint(5)
+                                             Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                             Siège centralisée
+77   NUM_LOT                int(10)          Copie de TB_SYNTH_RSS : N° de Lot - Envoi RSF pour les établis. Privés
+
+78   NB_REP                 smallint(5)      Copie de TB_SYNTH_RSS : Nombre de jours de forfait Réa Péd.
+
+79   MNT_REP                decimal(10, 2)   Copie de TB_SYNTH_RSS : Somme des montants Forfait Réa Péd.
+                                             Copie de TB_SYNTH_RSS : Utilisé pour certaines récup de données : N° RSS
+80   NO_RSS_EXT             varchar(7)
+                                             application source
+81   TYPE_INFO              char(1)
+
+82   DATE_INFO              datetime         Date de la dernière modification
+                                             Lien vers Util.ID_UTIL.
+83   ID_INFO                int(10)
+                                             Identifiant de l'utilisateur ayant effectué la dernière modification
+84   CODE_APPLI             char(5)
+
+85   MNT_CAISSON_HB         decimal(10, 2)   Copie de TB_SYNTH_RSS : Somme Nb Supplément Caisson Hyperbare
+
+86   NB_CAISSON_HB          smallint(5)      Copie de TB_SYNTH_RSS : Nombre de Supplément Caisson Hyperbare
+
+87   DR_RETENU              char(16)         Copie de TB_SYNTH_RSS : Code Diagnostic Relié retenu
+                                             Copie de TB_SYNTH_RSS : Version Complémentaire (différenciation 11B,
+88   VERSION_COMPL          char(1)
+                                             11C)
+89   DESCR                  varchar(20)
+
+90   NB_JOUR_SRA            smallint(5)      Copie de TB_SYNTH_RSS : Nombre de jours de forfait SRA
+
+91   NB_JOUR_EXB            smallint(5)      Copie de TB_SYNTH_RSS : Nombre de jours de EXB
+
+92   RDTH_TYPE_MACHINE      char(1)          Copie de TB_SYNTH_RSS : Radiothérapie - Type Machine
+
+93   RDTH_TYPE_DOSIMETRIE   char(1)          Copie de TB_SYNTH_RSS : Radiothérapie - Type Dosimétrie
+
+94   CONFIRMATION_CODAGE    char(1)          Copie de TB_SYNTH_RSS : Confirmation de codage (New RUM015)
+
+95   NB_APHERESE            smallint(5)      Copie de TB_SYNTH_RSS : Nombre de Supplément Aphereses Sanguines
+
+96   MNT_APHERESE           decimal(10, 2)   Copie de TB_SYNTH_RSS : Somme Nb Supplément Aphereses Sanguines
+97   RDTH_NB_FAISCEAUX      smallint(5)      Copie de TB_SYNTH_RSS : Radiothérapie - Nb de Faisceaux
+                                             Copie de TB_SYNTH_RSS : Lien sur TB_UNITE_MEDICALE.ID_UNITE_MED
+98   ID_UM_RETENU           int(10)
+                                             Unité Médicale Retenue du RSS
+99   NB_DIP                 smallint(5)      Copie de TB_SYNTH_RSS : Nombre de Supplément Dialyse Intra-péritonéale
+
+100 MNT_DIP                 decimal(10, 2)   Copie de TB_SYNTH_RSS : Somme Nb Supplément Dialyse Intra-péritonéale
+
+101 NB_RDTH                 smallint(5)      Copie de TB_SYNTH_RSS : Nombre de suppléments de Radiotherapie
+
+102 MNT_RDTH                decimal(10, 2)   Copie de TB_SYNTH_RSS : Montant des suppléments de Radiotherapie
+
+103 NB_ANTEPARTUM           smallint(5)      Copie de TB_SYNTH_RSS : Nombre de suppléments Antepartum
+
+104 MNT_ANTEPARTUM          decimal(10, 2)   Copie de TB_SYNTH_RSS : Montant des suppléments Antepartum
+                                             Copie de TB_SYNTH_RSS : Nombre de suppléments de Radiotherapie
+105 NB_RDTH_PED             smallint(5)
+                                             pédriatrique
+                                             Copie de TB_SYNTH_RSS : Montant des suppléments de Radiotherapie
+106 MNT_RDTH_PED            decimal(10, 2)
+                                             pédriatrique
+                                             Copie de TB_SYNTH_RSS : Montant du tarif moyen journalier (calculé à partir
+107 MNT_TMJ                 decimal(10, 2)
+                                             du montant total)
+                                             Copie de TB_SYNTH_RSS : Montant du tarif moyen horaire (calculé à partir
+108 MNT_TMH                 decimal(10, 2)
+                                             du montant total)
+109 DATE_ACCOUCHEMENT       datetime         Copie de TB_SYNTH_RSS : Date Accouchement
+
+110 AGE_ENTREE              smallint(5)      Copie de TB_SYNTH_RSS : Age à l'entrée
+                                             Copie de TB_SYNTH_RSS : Montant total du RSS = Prix du GHS+ borne
+111 MNT_TOTAL               decimal(10, 2)
+                                             haute - borne basse + supplements (hors DIP et PO => FICHCOMP)
+                                             Copie de TB_SYNTH_RSS : Nombre total de supplements (hors DIP et PO =>
+112 NB_TOTAL_SUPPLEMENT     smallint(5)
+                                             FICHCOMP)
+                                             Copie de TB_SYNTH_RSS : Montant total des supplements (hors DIP et PO
+113 MNT_TOTAL_SUPPLEMENT    decimal(10, 2)
+                                             => FICHCOMP)
+                                             Copie de TB_SYNTH_RSS : N ou O - Savoir si un dossier est validé par le
+114 VALID_DIM               char(1)
+                                             DIM (projet FIDES)
+115 ID_VALID_DIM            int(10)          Copie de TB_SYNTH_RSS : Identifiant de l’utilisateur qui a validé DIM le RSS.
+
+116 DATE_VALID_DIM          datetime         Copie de TB_SYNTH_RSS : Date de validation/dévalidation du dossier
+
+117 STATUT_CQ               char(1)          Copie de TB_SYNTH_RSS :
+                                             Copie de TB_SYNTH_RSS : Flag Indiquant si le RSS consolidé par nos outils
+                                             et alors le STATUT_GRP.
+118 STATUT_GRP              char(1)
+                                             - NULL : Pas consolidé
+                                             - C : Groupé OK et Consolidé
+119 NB_SEANCES              smallint(5)      Copie de TB_SYNTH_RSS : Nombre de séances du RSS
+                                             Copie de TB_SYNTH_RSS : Flag indiquant si le GHS du RSS est éligible à la
+                                             minoration - GHS 9606 et 9616 au 01/03/2015
+                                             Null : GHS non minorable
+120 INDIC_GHS_MINORE        char(1)
+                                             M : GHS Minorable
+                                             O : GHS Minorable et Minoré
+                                             N : GHS Minorable et Non Minoré
+                                             Copie de TB_SYNTH_RSS : Est un montant consolidé
+                                             Montant du Tarif Moyen Journalier pour le RSS ou le RUM calculé à partir du
+121 MNT_TMJ_GHS             decimal(10, 2)
+                                             montant du GHS.
+                                             Calcul : (MNT_GHS)/(DUREE EN JOUR)
+                                             Copie de TB_SYNTH_RSS : Est un montant consolidé
+                                             Montant de valorisation du RUM avec la méthode Niort Strasbourg en utilisant
+                                             le TMJ de l’établissement.
+122 MNT_PRORATA_STRA_ETAB   decimal(10, 2)
+                                             Calcul :
+                                             Cas des mono-rum et multi-rum
+                                             TMJ Etablissement * DUREE DU RUM
+                                             Copie de TB_SYNTH_RSS : Dans le cas d'un GHS innovation indique le GHS
+123 CODE_GHS_AVT_INNOV      varchar(4)       du séjour avant la prise en compte de l'innovation. Permet de savoir si le GHS
+                                             est du type innovation (Si renseigné alors GHS innovation)
+                                             Copie de TB_SYNTH_RSS : lignes de valorisation RUM par RUM renvoyé par
+                                             la FG.
+124 LIGNES_PMC              varchar(4000)    \Ref\FonctionGroupage\MCO\Format fichier PMC.xlsx.
+                                             ATTENTION : si la ligne renvoyée par la FG fait plus de 4000 caractère -->
+                                             NULL
+                                                         Copie de TB_SYNTH_RSS : identifiant unique (lorsque non NULL) d'un
+                                                         dossier RSS depuis l'exterieur.
+      125 GUID_EXTERNE                  varchar(36)      Ex : le service de contrôle qualité DimXpert contrôle des données RSS. C'est
+                                                         ce GUID qui identifie le RSS au sein de l'univers de DimXpert plutôt que
+                                                         l'ID_RSS (confidentialité des données).
+      126 INDICATEUR_AVASTIN            char(1)          Copie de TB_SYNTH_RSS : Indicateur avastin
+
+      127 INDICATEUR_ALIMTA             char(1)          Copie de TB_SYNTH_RSS : Indicateur Alimta - Obsolète
+
+      128 NB_SDC                        smallint(5)      Copie de TB_SYNTH_RSS : Nombre de suppléments défibrillateur cardiaque
+                                                         Copie de TB_SYNTH_RSS : Montant des suppléments défribrilalteur
+      129 MNT_SDC                       decimal(10, 2)
+                                                         cardiaque
+                                                         Rescrit tarifaire (donnée liée à la gradation).
+      131 RESCRIT_TARIFAIRE             char(1)
+                                                         Valeurs possibles : 1 (Oui), 2 (Non), blanc (non renseigné)
+                                                         Copie de TB_SYNTH_RSS.ELIGIBLE_GRADATION_HDJ : Indique si le RSS
+      132 ELIGIBLE_GRADATION_HDJ        varchar(2)       est éligible à la gradation
+                                                         Séjour éligible à la gradation ( = 1 si oui ou -1 si non)
+                                                         Copie de TB_SYNTH_RSS.HDJ_RELEVE_EXT : Séjour de HDJ qui devrait
+      133 HDJ_RELEVE_EXT                char(1)
+                                                         relever de l'externe

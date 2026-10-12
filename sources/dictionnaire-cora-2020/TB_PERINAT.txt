@@ -1,0 +1,33 @@
+==== TB_PERINAT ====
+Table de saisie des informations de périnalotogies Ecran soumis à licence. LIC_GEST_PERINAT dans TB_CONFIG_LICEcran
+accessible depuis l'écran bloc dans le menu "Spécialités".
+                                                      Identifiant du mouvement sur lequel les informations sont saisies. Lien avec
+       1   ID_MVT                      int(10)
+                                                      TB_MVT.ID_MVT
+       2   ID_INTERVENTION             int(10)
+
+       3   ID_TERME_GROSSESSE          int(10)
+
+       4   ID_NB_ENFANT                smallint(5)
+
+       5   DECLENCHE_TRAVAIL           char(1)
+
+       6   ID_REF_TRANSFERT            int(10)
+
+       7   ID_REF_ACC_HM               int(10)
+
+       8   SURV_CESARIENNE             char(1)
+
+       9   IMG_22_SEM                  char(1)
+
+      10   MORT_IN_UTERO               char(1)
+
+      11   COMMENTAIRES                varchar(200)
+
+      12   DATE_VALIDATION             datetime
+
+      13   ID_VALIDATION               int(10)
+
+      14   ID_ORIGINE_TRANSFERT        smallint(5)
+
+      15   ID_REF_ACC_DELIVR           smallint(5)

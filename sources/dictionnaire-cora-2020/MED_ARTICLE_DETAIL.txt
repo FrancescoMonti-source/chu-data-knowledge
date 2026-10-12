@@ -1,0 +1,26 @@
+==== MED_ARTICLE_DETAIL ====
+       1    ID_ARTICLE_DETAIL            int(10)
+
+       2    ID_FOURNISSEUR               int(10)
+            CODE_ARTICLE_FOURNISSEU
+       3                            char(13)
+            R
+       4    NUM_LOT                      varchar(40)
+
+       5    DATE_LIVRAISON               datetime
+
+       6    DATE_AFFECTATION             datetime
+
+       7    ID_MED                       int(10)
+
+       8    DATE_CREAT                   datetime         Date de création
+                                                          Lien sur TB_UTIL.ID_UTIL
+       9    ID_CREAT                     int(10)
+                                                          Identifiant de l'utilisateur de création
+       10   ID_ARTICLE_FOURNISSEUR       int(10)
+
+       11   PRIX_ACHAT                   decimal(10, 2)
+
+       12   PRIX_VENTE                   decimal(10, 2)
+
+       13   DATE_PEREMPTION              datetime

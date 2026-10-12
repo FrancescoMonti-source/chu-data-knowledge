@@ -1,0 +1,13 @@
+==== TB_DROIT_UTIL_DPI ====
+                                                         Lien vers Util.ID_UTIL.
+        1   ID_UTIL                      int(10)
+                                                         Identifiant de l'utilisateur
+        2   CODE_APPLI                   char(3)         Code de l'application. Exemple : URG, REA
+
+        3   CODE_MODULE                  varchar(20)     Code de la fonction ou ecran : par exemple ECR_ACC pour l'écran d'accueil
+
+        4   NIVEAU                       smallint(5)     Niveau
+
+        5   TYPE_DROIT                   smallint(5)     Droits : 0 =Aucun, 1=Lecture, 2=Ecriture
+
+        6   LIBELLE                      varchar(100)    Libelle

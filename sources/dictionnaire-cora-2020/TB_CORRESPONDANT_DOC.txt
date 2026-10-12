@@ -1,0 +1,29 @@
+==== TB_CORRESPONDANT_DOC ====
+Table de matrice entre les correspondants et les documents patient
+                                                      Clé :
+       1   ID_DOCUMENT_PATIENT         int(10)        Lien sur TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT :
+                                                      Identifiant (PrisMédica) du document patient ou courrier libre
+                                                      Clé :
+       2   ID_CORRESPONDANT            int(10)        Lien sur TB_CORRESPONDANT.ID_CORRESPONDANT :
+                                                      Identifiant du correspondant
+                                                      Lien sur TB_PATIENT.ID_PATIENT :
+       3   ID_PATIENT                  int(10)
+                                                      Identifiant du patient rattaché au doc
+       4   ENTETE                      varchar(150)   Formule de politesse d'en-tête
+
+       5   FIN                         varchar(150)   Formule de politesse de fin
+
+      10   STATUT_PRINCIPAL            char(1)        Correspondant principal                                                                 'N'
+
+      11   STATUT_OCCASIONNEL          char(1)        Correspondant occasionnel (n'apparaitra pas dans les Fréquents)                         'N'
+
+      12   TYPE_CORRESPONDANT          char(1)        Définit le type de correspondant.
+                                                      Définit le format d'envoi du courrier au correspondant.
+                                                      P - Papier
+      13   TYPE_FORMAT_ENVOI           char(1)
+                                                      M - Mail
+                                                      D - Papier et mail
+                                                      Définit si le correspondant est actif dans la fiche courrier. Valeur possible 'O' ou
+       14   ACTIF                       char(1)                                                                                               'O'
+                                                      'N'.
+       15   ORDRE                       smallint(5)   Définit l'ordre du correspondant dans le document.

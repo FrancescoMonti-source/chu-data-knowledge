@@ -1,0 +1,10 @@
+==== CCAM_CODE_SPE ====
+détail d'une spécialité en fonction de son codeEx : Un acte CCAM est lié à une ou plusieurs spécialités qui sont détaillées dans
+cette table
+       1    CODE_SPE                     char(10)       code spécialité
+
+       2    LIB_SPE                      char(50)       libellé de la spécialité
+                                                        O : spécialité principale
+       3    TYPE                         char(1)
+                                                        N ou NULL : spécialité non principale
+       4    COULEUR                      varchar(20)    couleur au format OLE

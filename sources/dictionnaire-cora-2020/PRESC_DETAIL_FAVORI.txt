@@ -1,0 +1,130 @@
+==== PRESC_DETAIL_FAVORI ====
+      1    ID_DETAIL_FAVORI          int(10)          Clé de la table
+
+      2    ID_FOLDER                 int(10)          identifiant du dossier
+
+      3    ID_MED                    int(10)          identifiant interne du médicament
+                                                      Type de prescription :
+                                                      INJ_ADD : 7
+                                                      INJ_IM : 8
+                                                      INJ_IVD : 5
+                                                      INJ_IVL : 6
+                                                      INJ_PERF : 4
+      4    TYPE_PRESC                varchar(2)
+                                                      INJ_SAP : 3
+                                                      INJ_SC : 9
+                                                      INJ_SIMPLE : 2
+                                                      NON_INJ : 1
+                                                      INJ_POMPE : 10
+                                                      INJ_PCA : 11
+      5    ID_DETAIL_FAVORI_LIE      int(10)
+
+      6    ELEMENT_PRINC             char(1)                                                           'O'
+
+      7    ID_VOIE_ADMIN             smallint(5)
+
+      8    ID_FORME_MED              smallint(5)
+
+      9    ID_UNITE_MED              smallint(5)
+
+      10   POSOLOGIE                 decimal(9, 3)
+                                                      Type de saisie
+                                                      JOURNEE : J
+                                                      LIBRE : L
+      11   TYPE_SAISIE               char(1)
+                                                      PERSONNALISEE : P
+                                                      SEMAINE : S
+                                                      UNIQUE : U
+      12   PERIODE_LU                char(1)
+
+      13   PERIODE_MA                char(1)
+14   PERIODE_ME               char(1)
+
+15   PERIODE_JE               char(1)
+
+16   PERIODE_VE               char(1)
+
+17   PERIODE_SA               char(1)
+
+18   PERIODE_DI               char(1)
+
+19   TYPE_PERIODE             char(1)
+
+20   DUREE_PRESC              smallint(5)
+
+21   PRESC_JOUR_MATIN         char(1)
+
+22   PRESC_JOUR_MIDI          char(1)
+
+23   PRESC_JOUR_SOIR          char(1)
+
+24   PRESC_JOUR_NUIT          char(1)
+
+25   PRESC_JOUR_AM            char(1)
+
+26   PRESC_JOUR_PERIODE       smallint(5)
+
+27   ORDRE                    smallint(5)
+
+28   VOLUME_SAP               int(10)
+
+29   DEBIT_SAP                decimal(9, 3)
+
+30   ADMIN_CONTINUE           char(1)                                                               'N'
+
+31   ID_CAT_VOIE_ADMIN        smallint(5)
+
+32   ID_MED_SOLVANT           int(10)
+
+33   DUREE_HEURE_PRESC        smallint(5)
+
+34   NOM_MED_FAVORI           varchar(80)     nom_med_favori
+
+35   DUREE_ADMIN              int(10)
+
+36   AUTORISATION_AUTO_ADMIN char(1)
+
+37   DATE_REVOCATION          datetime
+
+38   HORS_SAISIE_FAVORI       char(1)
+
+39   COMMENTAIRE              varchar(2000)   Note au prescripteur
+
+40   PRISE_IMMEDIATE          char(1)
+                                              N ou O.
+41   FLAG_A_MODIFIER          char(1)
+                                              Favori à vérifier suite à modification du livret.
+42   COMMENTAIRE_MODIF        varchar(100)
+
+43   DOSE_SAP                 decimal(9, 3)
+
+44   POSOLOGIE_MIN            decimal(9, 3)
+
+45   POSOLOGIE_MAX            decimal(9, 3)
+
+46   JUSQUA_FIN_SEJ           char(1)
+
+47   SAP_DUREE_FIXE           char(1)
+
+48   HEURE_DEBUT_TRAITEMENT datetime
+
+49   TYPE_CONDITION           char(1)
+
+50   ID_BILAN_PRESC           int(10)
+
+51   ID_BILAN_ADM             int(10)
+
+52   UNIQUEMENT_PREM          char(1)
+
+53   CONCENTRATION            decimal(9, 3)
+
+54   DOSE_BOLUS               decimal(9, 3)
+    55   DOSE_MAX                decimal(9, 3)
+
+    56   ID_UNITE_DOSE_MAX       int(10)
+
+    57   PERIODE_REFRACTAIRE     int(10)
+
+    58   VERROUILLER_BOLUS       char(1)
+
+    59   PCA_DEBIT_NULL          char(1)                                                            'N'

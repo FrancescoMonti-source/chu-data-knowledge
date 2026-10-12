@@ -1,0 +1,14 @@
+==== TB_DROIT_PROFIL_DPI ====
+Table contenant les droits associés au profil
+                                                       Clé - Lien sur TB_PROFIL.ID_PROFIL :
+       1   ID_PROFIL_DPI                int(10)
+                                                       Identifiant du Profil Utilisateur
+       2   CODE_APPLI                   char(3)        Code de l'application. Exemple : URG, REA
+
+       3   CODE_MODULE                  varchar(20)    Code de la fonction ou ecran : par exemple ECR_ACC pour l'écran d'accueil
+
+       4   NIVEAU                       smallint(5)    Niveau de l'arborescence
+
+       5   TYPE_DROIT                   smallint(5)    Droits : 0 =Aucun, 1=Lecture, 2=Ecriture
+
+       6   LIBELLE                      varchar(100)   Libelle

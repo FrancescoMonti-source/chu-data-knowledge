@@ -1,0 +1,5 @@
+==== TB_PMSI_PSY_EVT ====
+                                                        Clé :
+       1   ID_TYPE_PSY_EVT               smallint(5)
+                                                        Identifiant du type d'événement
+       2   LIBELLE_PSY_EVT               varchar(100)   Libellé du type d'événement

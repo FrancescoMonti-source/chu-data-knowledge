@@ -1,0 +1,5 @@
+==== TB_UNITE_FAVORI_CSARR ====
+       1    ID_UNITE                      int(10)
+       2   TYPE_EXECUTANT              varchar(10)
+
+       3   ID_FOLDER                   int(10)

@@ -1,0 +1,15 @@
+==== TB_EVT_PAT_APP ====
+       1   ID_EVT_APP                 int(10)         PK
+
+       2   ID_EVT                     int(10)         FK TB_EVT_PAT.ID_EVT
+
+       3   ID_APPLICATION             int(10)         Lien sur TB_INT_APPLICATION.ID
+
+       4   NUM_ORDRE                  smallint(5)     ordre d"exécution si plusieurs messages liés à un code evt                  1
+     5   TYPE_MSG            char(3)
+
+     6   TYPE_EVT_IPG        varchar(4)
+
+     7   FLAG_ERREUR         char(1)          Marquage en erreur
+
+     8   LIB_ERREUR          varchar(1000)    Libellé de l'erreur

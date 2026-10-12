@@ -1,0 +1,5 @@
+==== R_FRAIS_DEP ====
+Liste des Codifications Frais Déplacement
+       1   COD_FRAIDP                  char(1)        Code Frais Déplacement
+
+       2   LIBELLE                     char(80)       libellé frais déplacement

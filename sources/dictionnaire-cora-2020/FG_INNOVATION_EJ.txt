@@ -1,0 +1,11 @@
+==== FG_INNOVATION_EJ ====
+Table qui permet de gérer les numéros d'innovation par EJ.
+       1   NUM_INNOVATION             varchar(15)     Numéro d'innovation
+
+       2   VERSION_FG                 varchar(3)      Version de la fonction de groupage
+
+       3   ID_EJ                      smallint(5)     Identifiant de l'EJ
+                                                      Indique si le code innovation est actif pour l'EJ.
+       4   ACTIF                      char(1)
+                                                      0 => Paramétrage par défaut pour toutes les EJ
+       5   AUTORISATION               char(1)         Indique si l'EJ a l'autorisation de facturer ce GHS innovation

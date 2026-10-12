@@ -1,0 +1,102 @@
+==== TB_MVT_PSY_SEQ ====
+Table d'enregistrement des séquences d'hospitalisation
+                                                    Lien sur TB_PATIENT.ID_PATIENT :
+       1   ID_PATIENT                 int(10)
+                                                    Identifiant du patient
+                                                    !!! Ne pas utiliser !!!
+                                                    Une séquence peut appartenir à 2 mouvements qui ne sont pas forcément sur
+       2   ID_SEJOUR                  int(10)
+                                                    le même séjour, il faut donc utiliser ID_SEJOUR de la table de matrice
+                                                    TB_MVT_PSY_SEQ_MVT.
+                                                    !!! Ne pas utiliser !!!
+       3   ID_MVT                     int(10)       Une séquence peut appartenir à 2 mouvements, il faut donc utiliser ID_MVT de
+                                                    la table de matrice TB_MVT_PSY_SEQ_MVT.
+       4   NO_SEQUENCE                smallint(5)   Numéro de la séquence dans le séjour
+                                                    Clé :
+       5   ID_SEQUENCE                int(10)
+                                                    Identifiant de la séquence
+       6   DATE_DEBUT_SEQ             datetime      Date de début de la séquence
+
+       7   HEURE_DEBUT_SEQ            datetime      Heure de début de la séquence
+
+       8   DATE_FIN_SEQ               datetime      Date de fin de la séquence
+
+       9   HEURE_FIN_SEQ              datetime      Heure de fin de la séquence
+                                                    !!! Ne pas utiliser !!!
+                                                    Une séquence peut appartenir à 2 mouvements, il faut donc passer par la table
+      10   ID_UNITE                   int(10)
+                                                    de matrice TB_MVT_PSY_SEQ_MVT pour obtenir les mouvements de la
+                                                    séquence et ainsi les unités correspondantes.
+                                                    Lien sur TB_PMSI_PSY_MODE_LEGAL.CODE_MODE_LEGAL :
+      11   CODE_MODE_LEGAL            char(1)
+                                                    Mode légal du séjour
+      12   HABILLAGE                  smallint(5)   Score non détaillé de dépendance : HABILLAGE
+
+      13   ALIMENTATION               smallint(5)   Score non détaillé de dépendance : ALIMENTATION
+
+      14   DEPLACEMENT                smallint(5)   Score non détaillé de dépendance : DEPLACEMENT
+
+      15   CONTINENCE                 smallint(5)   Score non détaillé de dépendance : CONTINENCE
+
+      16   COMPORTEMENT               smallint(5)   Score non détaillé de dépendance : COMPORTEMENT
+
+      17   RELATION                   smallint(5)   Score non détaillé de dépendance : RELATION
+
+      18   NB_J_PRES                  smallint(5)   Nombre de jours de présence
+
+      19   IND_SCOL                   char(1)       Indice scolaire
+
+      20   NB_ISOL                    smallint(5)   Nombre de jours d'isolement thérapeutique
+
+      21   NB_J_VENU                  smallint(5)   Nombre de jours de venues
+
+      22   NB_J_D_VENU                smallint(5)   Nombre de jours de demi-venues
+
+      23   SECTEUR_DPT                char(2)       Code secteur - Département
+                                                    Code secteur - Identification du type de secteur ou de dispositif intersectoriel
+                                                    (G, I, P, Z)
+                                                    G : secteur de psychiatrie générale
+      24   SECTEUR_IDT                char(1)
+                                                    I : secteur de psychiatrie infanto-juvénile
+                                                    P : secteur de psychiatrie en milieu pénitentiaire
+                                                    Z : dispositif intersectoriel formalisé
+      25   SECTEUR_NO                 char(2)       Code secteur - Numéro du secteur
+                                                    Indicateur de séquence (E, P, A)
+                                                    A : Activités combinées associées (combinaison de deux prises en charge à
+                                                    temps partiel)
+      26   INDIC_SEQ                  char(10)
+                                                    P : Activités combinées parallèles (combinaison de prises en charge à temps
+                                                    complet et à temps partiel)
+                                                    E : Sortie d'essai
+      27   DATE_SIGN                  datetime      Date de signature
+
+      28   HEURE_SIGN                 datetime      Heure de signature
+                                                    Lien sur Util.id_util :
+      29   ID_SIGN                    int(10)
+                                                    Identifiant du signataire
+      30   NB_PERM                    smallint(5)   Nombre de jours de permission
+      31   SORTIE_ESSAI               char(1)       La séquence correspond à une sortie d'essai ('O', 'N')
+                                                    Lien sur Util.id_util :
+      32   ID_CREAT                   int(10)
+                                                    Identifiant de l'utilisateur qui a créé la séquence
+      33   DATE_CREAT                 datetime      Date de création de la séquence
+                                                    Lien sur Util.id_util :
+      34   ID_INFO                    int(10)
+                                                    Identifiant du dernier utilisateur qui a modifié ces données
+      35   DATE_INFO                  datetime      Date de dernière modification de ces données
+
+      36   HEURE_INFO                 datetime      Heure de dernière modification de ces données
+
+      37   FLAG_TRAITE                char(1)       La séquence est traitée ('O', 'N')
+                                                    M: Changement Mode Légal
+                                                    E : Départ en Sortie d'Essai
+                                                    R : Retour Sortie Essai
+                                                    P : Début mouvement parallèle
+                                                    F : Fin mouvement parallèle
+      38   TYPE_RUPTURE               char(1)
+                                                    U : Sortie Unité Médicale
+                                                    S : Fin de séjour
+                                                    T : Changement Trimestre Civil
+                                                    A : Ouverture d'un mouvement dans le séjour
+                                                    C : Clôture d'un mouvement dans le séjour
+      39   STATUT_SEQ                 char(1)       Statut de la séquence.

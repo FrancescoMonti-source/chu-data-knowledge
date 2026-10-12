@@ -1,0 +1,4 @@
+==== TB_FLUX_DOC_FICH ====
+      1    ID_FLUX_DOC              int(10)
+
+      2    FICHIER                  image

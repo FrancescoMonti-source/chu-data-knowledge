@@ -1,0 +1,46 @@
+==== R_NOTE_ACTE ====
+Notes associées aux actes Clé - Lien avec R_ACTE :
+Notes associées aux actes
+                                                    Clé - Lien avec R_ACTE :
+       1   ACTE_COD                     char(13)
+                                                    Code acte
+                                                    Clé - Lien avec R_ACTE :
+       2   ACDT_MODIF                   datetime
+                                                    Date de mise à jour
+       3   ORDRE_NOTE                   int(10)     ordre d'affichage
+                                                    Lien avec R_TYPE_NOTE :
+       4   TYPNOT_COD                   int(10)
+                                                    code de type de note (ex : 2 Note 'Avec ou sans')
+       5   TEXTE_NOTE                   char(254)   1ère partie de la note
+
+       6   TEXTE_NOT0                   char(254)   2ème partie de la note
+
+       7   TEXTE_NOT1                   char(254)   partie de la note
+
+       8   TEXTE_NOT2                   char(254)   partie de la note
+
+       9   TEXTE_NOT3                   char(254)   partie de la note
+
+      10   TEXTE_NOT4                   char(254)   partie de la note
+
+      11   TEXTE_NOT5                   char(254)   partie de la note
+
+      12   TEXTE_NOT6                   char(254)   partie de la note
+
+      13   TEXTE_NOT7                   char(254)   partie de la note
+
+      14   TEXTE_NOT8                   char(254)   partie de la note
+
+      15   TEXTE_NOT9                   char(254)   partie de la note
+
+      16   TEXTE_NOTA                   char(254)   partie de la note
+
+      17   TEXTE_NOTB                   char(254)   partie de la note
+
+      18   TEXTE_NOTC                   char(254)   partie de la note
+
+      19   TEXTE_NOTD                   char(254)   partie de la note
+
+      20   TEXTE_NOTF                   char(254)   partie de la note
+
+      21   RENVOI_COD                   char(13)    code semi structuré de l'acte

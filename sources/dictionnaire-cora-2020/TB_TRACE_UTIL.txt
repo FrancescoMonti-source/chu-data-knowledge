@@ -1,0 +1,89 @@
+==== TB_TRACE_UTIL ====
+                                                      Clé :
+       1   ID_TRACE_UTIL              int(10)
+                                                      Identifiant de la table
+                                                      Clé :
+       2   ID_UTIL                    int(10)
+                                                      Identifiant de la table
+                                                      P : Visualisation d'un document patient
+       3   TYPE_TRACE                 char(2)         C : Connexion
+                                                      D : Déconnexion
+       4   DATE_TRACE                 datetime        Date de la trace
+5    HEURE_TRACE          datetime       Heure de la trace
+                                         Lien sur TB_PATIENT.ID_PATIENT :
+6    ID_PATIENT           int(10)
+                                         Identifiant du Patient.
+                                         Lien sur TB_SEJOUR.ID_SEJOUR :
+7    ID_SEJOUR            int(10)
+                                         Identifiant du Séjour.
+                                         Lien sur TB_MVT.ID_MVT :
+8    ID_MVT               int(10)
+                                         Identifiant du Mouvement
+                                         Lien sur TB_INTERVENTION.ID_INTERVENTION :
+9    ID_INTERVENTION      int(10)
+                                         Identifiant de la fiche Bloc
+                                         Lien sur TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT :
+10   ID_DOC               int(10)
+                                         Identifiant de la fiche Courrier consulté
+                                         Ecran consulté :
+                                         RUM : Ecran RUM
+                                         BLC : Ecran Bloc
+                                         SRA : Activité Rapide/ externe
+                                         PWD : Connexion
+                                         CON : Connexion / Deconnexion
+                                         RSS : Ecran RSS
+                                         MED : Ecran Medicaments Couteux
+                                         LPP : Ecran LPP
+                                         DOC : Ecran Document Recueil
+                                         FDP : Fiche Document Patient
+                                         VDP : Visualisation Document Patient (ouverture)
+                                         VDA : Visualisation Document Archive
+                                         HAD: HAD
+11   ECRAN                char(3)
+                                         HDP : Historique Document Patient
+                                         HDA : Historique Document Patient Archivés
+                                         PYA : Psychiatire Ambulatoire
+                                         PYH : Psychiatrie Ambulatoire
+                                         SSR: SSR
+                                         SCW : Synthèse CrossWay
+                                         SGM : Synthèse GAM
+                                         LST : Liste de Travail
+                                         RED : Ecran de Recherche des Documents
+                                         EAD : Ecran d'administration des documents
+                                         SC : Synthèse courriers
+                                         VS : Vue synthétique
+                                         IAD : IdéoRecueil Actes et diagnostics
+                                         PLG : Paramétrage PlugIns PMSI
+                                         Module utilisé lors de la trace :
+
+                                         ACT : CoRa Activité
+
+                                         AGD : CoRa Agenda
+
+                                         DOC : CoRa Doc
+
+                                         ADR : Admin. Recueil
+
+                                         REC : CoRa Recueil
+
+12   MODULE_CORA          char(3)        ETW : CoRa Entrepot
+                                         PRT:CORA DPE
+                                         BLC:CORA Bloc
+                                         DIA:CORA Dialyse
+                                         DPS:CORA DPS
+                                         REA:CORA REA
+                                         TRP:CORA Transport
+                                         URG:CORA Urgence
+                                         PHA:CORA Pharmacie
+                                         OBS:CORA Obstetrique
+                                         PSY:CORA RimP
+                                         ADI:Admin. Interface
+                                         IDR:IdeoRecueil (Recueil WEB)
+13   ID_TRACE_ARG_ACCES   smallint(5)
+
+14   COMMENTAIRE          varchar(500)
+                                         Dépend du type de trace:
+                                         Si ECRAN = SSR :Lien sur TB_MVT_SSR_SEM.NO_SEMAINE_CIVILE :
+15   ID_SEM_SEQ           int(10)        Numéro de semaine civile consultée.
+                                         Si ECRAN = HAD: Lien sur TB_MVT_HAD.NO_SEQ : Numéro de la séquence
+                                         HAD Consultée.

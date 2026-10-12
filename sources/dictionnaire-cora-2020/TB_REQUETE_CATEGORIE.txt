@@ -1,0 +1,21 @@
+==== TB_REQUETE_CATEGORIE ====
+Table de stockage des catégories de requêtes
+                                                      Clé :
+       1   ID_REQUETE_CATEGORIE       smallint(5)
+                                                      Identifiant de la catégorie
+           LIBELLE_REQUETE_CATEGO
+       2                              varchar(50)     Libellé de la catégorie
+           RIE
+           ID_REQUETE_CATEGORIE_PE
+       3                           smallint(5)        Identifiant de la catégorie parente
+           RE
+       4   CORA                       char(1)         Indique si la catégorie est une catégorie CoRa                               'N'
+
+       5   ACTIF                      char(1)         Indique si la catégorie est active                                           'O'
+
+       6   VB6                        char(1)         Indique si la catégorie provient d'un import depuis l'ancien requeteur
+                                                      Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                      CORA_UTIL)
+       7   ID_ETABLIS                 int(10)
+                                                      Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                      Siège centralisée

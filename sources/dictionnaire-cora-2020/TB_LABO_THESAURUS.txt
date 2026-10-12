@@ -1,0 +1,27 @@
+==== TB_LABO_THESAURUS ====
+Table de thesaurus des codes laboratoires CORAUtilisé pour le paramétrage des test qualité par exemple
+                                                        Clé unique
+       1    CODE_LIB_EXAM               varchar(22)
+                                                        Code de l'examen de laboratoire
+       2    LIBEXAM                     char(120)       Libellé de l'examen
+
+       3    UNITE                       char(25)        Unité du résultat (mmol/L par exemple)
+
+       4    ACTIF                       char(1)         Actif : O = Oui, Non sinon
+
+       5    ORDRE                       smallint(5)     Ordre interne (pour affichage)
+
+       6    ID_LABO_REGROUPEMENT        smallint(5)     Identifiant du regroupement (catégorie) pour l'affichage des listes
+                                                        Booléen (O / null) permettant de limiter l'affichage côté DPI. Un code n'ayant
+       7    AFFICHAGE                   char(1)                                                                                             'O'
+                                                        pas la valeur O sur ce champ ne sera jamais affiché dans le DPI
+                                                        Booléen permettant de préciser si l'on affiche le libellé de ce code (Champ
+       8    AFF_LIB_RECU                char(1)         LIBEXAM) ou le libellé reçu dans le flux.
+                                                        Utilisé pour les cas où le libellé varie en fonction du résultat
+                                                        Code Identifiant Interne
+       9    CODE_IDENTIFIANT_PMC        varchar(20)
+                                                        Non utilisé
+       10   DATE_INFO                   datetime        Date de dernière modification
+                                                        Lien vers Util.ID_UTIL.
+       11   ID_INFO                     int(10)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification

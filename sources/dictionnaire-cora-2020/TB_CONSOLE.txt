@@ -1,0 +1,51 @@
+==== TB_CONSOLE ====
+     1   ID_CONSOLE                 int(10)        Id de la console
+
+     2   CODE_CONSOLE               varchar(15)    Code de la console
+
+     3   LIBELLE_CONSOLE            varchar(50)    Libellé de la console
+                                    text
+     4   LAYOUT_XML                                Affichage de la console
+                                    (2147483647)
+                                                   Paramètres communs à tous les indicateurs de la console sur ce modèle :
+                                                   5||3,6||3,7||3$Checked@01/01/2013 00:00:00@31/12/2013 00:00:00$. Les [
+                                                   délimitent les différents paramètres, les $ délimitent les éléments paramétrés
+                                                   (avant) et les valeurs affectées (après), les virgules délimitent les différents
+     5   PARAM_COMMUN               varchar(500)   paramètres concernés, les || délimitent l'id de l'indicateur (avant) et l'id courant
+                                                   du paramètre (après), les @ délimitent les valeurs à affecter. Ainsi la chaîne
+                                                   donne pour l'indicateur d'id 5, pour le paramètre d'id 3, on affecte la période
+                                                   01/01/2013 00:00:00@31/12/2013 00:00:00 (la valeur Checked permet de
+                                                   cocher la période).
+     6   DESCRIPTION                varchar(500)   Description de la console
+
+     7   LICENCE                    varchar(250)   Licence
+
+     8   ID_CONSOLE_CATEGORIE       int(10)        Catégorie dans laquelle se trouve la console
+
+     9   ACTIF                      char(1)        La console est-elle active ?
+
+    10   CORA                       char(1)        La console est-elle créée par CORA ?
+                                                   Type de lancement : 1 = au démarage de l'appli sous forme d'onglet
+    11   TYPE_LANCEMENT             int(10)        2 ou null : aucune type de lancement particulier
+                                                   0 : console d'accueil (dans les outils)
+    12   DATE_MODIF                 datetime       Date de modification
+
+    13   ID_MODIF                   int(10)        Identidiant de l'utilisateur de modification
+
+    14   DATE_CREAT                 datetime       Date de création
+                                                   Lien sur TB_UTIL.ID_UTIL
+    15   ID_CREAT                   int(10)
+                                                   Identifiant de l'utilisateur de création
+    16   TYPE_DOMAINE_ACTIVITE      char(3)        Type de domaine (MCO, SSR...)
+
+    17   GUID                       char(36)       Identifiant unique de la console
+
+    18   DATE_DEBUT_VALIDITE        datetime       Date de début de validité
+
+    19   DATE_FIN_VALIDITE          datetime       Date de fin de validité
+
+    20   PERIODE_VALIDITE           char(1)        La période de validité est-elle prise en compte ?
+
+    21   ACCUEIL                    char(1)        Indique s'il s'agit d'une console d'accueil (O/N)                                      'N'
+
+    22   M_PMSI                     char(1)                                                                                               'N'

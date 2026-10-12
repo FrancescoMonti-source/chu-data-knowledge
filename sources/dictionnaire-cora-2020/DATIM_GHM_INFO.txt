@@ -1,0 +1,18 @@
+==== DATIM_GHM_INFO ====
+     1   CODE_GHM              char(6)           Code GHM
+
+     2   SEVERITE_23           char(1)           GHM de niveau de sévérité 2 & 3 => champ CMA du fichier GHMINFO
+
+     3   SEVERITE_4            char(1)           GHM de niveau de sévérité 4 => champ CMAS du fichier GHMINFO
+
+     4   TAUX_DC_NAT           decimal(18, 16) Taux de décès national => champ PCTDC du fichier GHMINFO
+
+     5   TAUX_DC_ETAB          decimal(18, 16)
+
+     6   AGE_MOYEN             decimal(18, 14) Age moyen => champ MAGE du fichier GHMINFO
+                                                 Durée moyenne de séjour atypique (= durée moyenne de séjour nationale / 3)
+     7   DMS_ATYPIQUE          float(53)         => champ DSATYP du fichier GHMINFO
+                                                 Valeur utilisé pour un test DATIM n°10 (obsolète depuis)
+     8   DATE_DEBUT            datetime          Date de début
+
+     9   DATE_FIN              datetime          Date de fin

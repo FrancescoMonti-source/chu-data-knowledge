@@ -1,0 +1,68 @@
+==== TB_PATIENT_ANNULES ====
+Tables Historique de TB_PATIENT (Historisation des suppressions : cas des suppressions et/ou des fusions)
+                                                    Clé :
+       1   ID_PATIENT                 int(10)
+                                                    Ancien identifiant de TB_PATIENT.ID_PATIENT (de la ligne supprimée)
+       2   IPP_PATIENT                char(20)      Copie de la donnée de TB_PATIENT
+
+       3   NOM_USUEL_PATIENT          char(50)      Copie de la donnée de TB_PATIENT
+
+       4   PRENOM_PATIENT             char(50)      Copie de la donnée de TB_PATIENT
+
+       5   NOM_NAISSANCE              char(50)      Copie de la donnée de TB_PATIENT
+
+       6   SEXE                       char(1)       Copie de la donnée de TB_PATIENT
+
+       7   DATE_NAIS_LUN              char(10)      Copie de la donnée de TB_PATIENT
+
+       8   DATE_NAIS                  datetime      Copie de la donnée de TB_PATIENT
+
+       9   HEURE_NAISSANCE            datetime      Copie de la donnée de TB_PATIENT
+
+      10   DATE_CREAT                 datetime      Copie de la donnée de TB_PATIENT
+
+      11   HEURE_CREAT                datetime      Copie de la donnée de TB_PATIENT
+
+      12   USER_CREAT                 char(10)      Copie de la donnée de TB_PATIENT
+
+      13   CIVILITE                   char(4)       Copie de la donnée de TB_PATIENT
+
+      14   POID_NAISSANCE             int(10)       Copie de la donnée de TB_PATIENT
+
+      15   CODE_POSTAL                char(10)      Copie de la donnée de TB_PATIENT
+
+      16   NATIONALITE                char(3)       Copie de la donnée de TB_PATIENT
+
+      17   CAT_SOC_PROF               varchar(4)    Copie de la donnée de TB_PATIENT
+
+      18   IPP_MERE                   char(16)      Copie de la donnée de TB_PATIENT
+
+      19   DATE_INFO                  datetime      Copie de la donnée de TB_PATIENT
+
+      20   HEURE_INFO                 datetime      Copie de la donnée de TB_PATIENT
+
+      21   ID_INFO                    int(10)       Copie de la donnée de TB_PATIENT
+
+      22   RANG_NAISSANCE             char(1)
+
+      23   IPP_FUSION                 varchar(20)
+
+      24   ID_COMMUNE_NAIS            int(10)
+
+      25   ID_ECOLE                   smallint(5)
+
+      26   ETAT_DMP                   char(1)
+
+      27   DATE_ETAT_DMP              datetime
+
+      28   ETAT_AUTORIS_DMP           char(1)
+
+      29   DATE_ETAT_AUTORIS_DMP      datetime
+           DATE_AUTORIS_ACCORD_DM
+      30                          datetime
+           P
+      31   ID_AUTORIS_ACCORD_DMP       int(10)
+
+      32   ID_EJ                       smallint(5)
+
+      33   ID_IPP_TYPE                 smallint(5)

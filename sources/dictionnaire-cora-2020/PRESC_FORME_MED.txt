@@ -1,0 +1,6 @@
+==== PRESC_FORME_MED ====
+     1   ID_FORME_MED            smallint(5)
+
+     2   ID_MED                  int(10)
+
+     3   ORDRE                   smallint(5)

@@ -1,0 +1,13 @@
+==== TB_UTIL_CONSULT_DOSSIER ====
+Table de gestions des connexions utilisateurs
+                                                       Clé : Lien sur Util.id_util
+       1   ID_MVT                       int(10)
+                                                       Clé du mouvement
+                                                       Clé : Lien sur Util.id_util
+       2   ID_UTIL                      int(10)
+                                                       Clé de l'utilisateur ayant ouvert le dossier
+       3   DATE_OUVERTURE               datetime       Date d'ouverture du dossier
+                                                       Lien sur TB_POSTE_CONNECT.CPT_POSTE
+       4   CPT_POSTE                    int(10)
+                                                       Poste depuis lequel l'utilisateur est connecté
+       5   TYPE_SOURCE                  smallint(5)    Source depuis lequel l'utilisateur consulte le dossier

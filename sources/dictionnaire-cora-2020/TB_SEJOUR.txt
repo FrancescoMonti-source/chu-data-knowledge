@@ -1,0 +1,121 @@
+==== TB_SEJOUR ====
+Table des Séjours (Hospitalisation - Consultations Externes).
+                                                       Clé :
+       1   ID_SEJOUR                   int(10)
+                                                       Identifiant (PrisMédica) du séjour
+                                                       Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                  int(10)
+                                                       Identifiant du Patient concerné par ce Séjour (Lien obligatoire)
+       4   NO_SEJOUR                   char(20)        N° de Séjour officiel. (Identifiant unique (normalement) du Séjour dans le SIH)
+                                                       Type du Séjour. Donnée utilisée dans certaines Interface (ex : HPRIM).
+       5   TYPE_SEJOUR                 char(3)         Permet, par exemple, de différencier les Séjours d'Externe sur une Unité
+                                                       utilisée aussi bien pour de l'Externe que pour de l'Hospit
+       6   DATE_ENTREE                 datetime        Date d'entrée du Séjour (Donnée obligatoire)
+
+       7   HEURE_ENTREE                datetime        Heure d'entrée du Séjour
+                                                       Lien sur TB_UNITE.CODE_UNITE :
+       8   UF_ENTREE                   varchar(12)
+                                                       Unité (UF) d'entrée dans le Séjour (Unité du 1er Mouvement)
+                                                       Mode d'entrée du Séjour. Valeur 'officielle' (ex : 6 - Entrée par Mutation / 8 -
+       9   MODE_ENTREE                 char(2)         Provenance Domicile)
+                                                       Valeur possible : 0, 6, 7, 8
+      10   DATE_SORTIE                 datetime        Date de sortie du Séjour
+
+      11   HEURE_SORTIE                datetime        Heure de sortie du Séjour
+                                                       Mode de sortie du Séjour. Valeur 'officielle' (ex : 8 - Sortie vers Domicile / 9 –
+      12   MODE_SORTIE                 char(2)         Décès)
+                                                       Valeur possible : 0, 6, 7, 8, 9
+      16   CODE_POSTAL                 char(5)         Code Postal du Patient
+                                             Pour des dossiers de néonatalogie : liaison avec le dossier de la mère (Géré
+17   NO_SEJOUR_DOSSIER_MERE varchar(20)
+                                             exclusivement dans les Interfaces Patient récupérant cette information)
+                                             Code Provenance du Séjour. Valeur 'officielle' (ex : 1 - D'une unité de soins de
+19   CODE_PROVENANCE           char(1)       courte durée)
+                                             Valeur possible : 1 à 7
+                                             Code Destination du Séjour. Valeur 'officielle' (ex : 1 - Vers unité de soins de
+20   CODE_DESTINATION          char(1)       courte durée)
+                                             Valeur possible : 1 à 7
+                                             Mis à T pour indiquer que le sejour est 'bloqué'. Un séjour est bloqué lorsqu'il a
+25   STATUT                    char(1)       été groupé avec l'option 'Blocage Période' C'est alors le reflet du champ
+                                             TB_SYNTH_RSS
+                                             P = le séjour est en Préadmission: bloqué en saisie
+                                             A = Le séjour est passé en Admission: le séjour est débloqué (et on garde la
+                                             trace comme quoi il a été en preadmission)
+30   STATUT_PROG               char(1)
+                                             B = Séjour Bloqué: permission ou passage en MCO pdt un long séjour
+                                             S = Suspendu <=> B
+                                             M = un dossier a été modifié Spé StJoMarseille
+31   NO_SECU                   char(13)      N° de Sécu de l'ayant droit pour le Séjour
+
+32   CLE_SECU                  char(2)       Clé du n° de sécu
+                                             Clé du Séjour dans le Système d'information du logiciel 'maitre' du Séjour :
+33   ID_SEJOUR_EXT             int(10)       logiciel ayant créer le Séjour.
+                                             Utilisé avec la Dll Recueil
+                                             Lien sur TB_UNITE.CODE_UNITE :
+                                             Unité d'Urgence si le Patient est passé en Urgence avant son Hospitalisation.
+                                             Avec certains logiciels adminsitratifs (ex : SOL), lors d'une mutation Urgence --
+34   UF_URGENCE                char(10)
+                                             > Hospit : le passage d'Urgence est supprimé. On garde alors trace de ce
+                                             passage avec ce champ (qui dans ce cas ne sera pas égal à UF_ENTREE qui
+                                             correspondra à la 1ère Unité d'Hospit)
+                                             Lien sur Util.id_util :
+35   ID_MEDECIN_RESP_SEJ       int(10)
+                                             Identifiant du médecin responsable du Séjour
+                                             Dans le cas d'une consolidation dans une Base Siège centralisée :
+                                             Date d'envoi d'un dossier dans la Base Siège centralisée
+36   DATE_ENVOI                datetime
+                                             --> à chaque fois que le statut du Séjour (TB_SEJOUR.STATUT) est mis à ‘T’
+                                             (pour terminé) le champs DATE_ENVOI doit être vidé ( = null)
+                                             Dans le cas d'une consolidation dans une Base Siège centralisée :
+37   FLAG_ENVOI                char(1)
+                                             Champ permettant l'envoi et le marquage des dossiers
+                                             Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                             CORA_UTIL)
+38   ID_ETABLIS                smallint(5)
+                                             Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                             Siège centralisée
+39   EXIST_SEJ_BB              char(1)       Indique s'il existe un séjour Bébé associé au séjour
+
+40   DATE_CREAT                datetime      Date de création de cet enregistrement
+                                             Lien sur Util.id_util :
+41   ID_CREAT                  int(10)       Identifiant de l'utilisateur (ou l'appli (si valeur négative) ayant crée cet
+                                             enregistrement
+42   LOCK_MODIF                char(1)       Flag interne - interdisant la modif de données Séjour (en cours de modif)
+
+43   MODE_ENTREE_ADMIN         varchar(10)   Mode Entrée Saisi Administratif - Cas Cora DPS -- Saisie Sej/Mvt
+
+44   MODE_SORTIE_ADMIN         varchar(10)   Mode Sortie Saisi Administratif - Cas Cora DPS -- Saisie Sej/Mvt
+                                             Permet de bloquer les données liées à un Séjour a une date donnée (cas des
+                                             Séjours longs (Psy Traitement de Séances).
+45   DATE_BLOCAGE              datetime
+                                             Ex : Dossier de Psy bloqué au 31/12 : les données antérieures recues par les
+                                             Interfaces sont non traitées (Idem sur les modifications applicatives)
+46   ID_MEDECIN_DECIDE_HOSPIT int(10)        Médecin de la structure ayant décidé de l’hospitalisation
+
+47   ID_MEDECIN_AVIS           int(10)       Médecin 2° avis (compl. Med Responsable)
+                                             Sauvegarde du numéro de séjour lorsque le séjour est marqué à supprimer par
+48   NO_SEJOUR_ATT_SUPPR       varchar(20)
+                                             l'interface Patient (NO_SEJOUR et renommé)
+                                             'O' = Oui
+49   CONFIDENTIALITE           char(1)                                                                                             'N'
+                                             'N' = Non
+                                             Etat du dossier :
+50   ETAT_ADM_DOSSIER          char(1)
+                                             Valeurs possibles ‘C’ Dossier complet, ‘I’ Dossier incomplet
+                                             Blocage administratif du dossier :
+51   ETAT_ADM_BLOCAGE          char(1)
+                                             Valeurs possibles ‘B’ Bloqué, ‘D’ débloqué
+52   DATE_ADM_BLOCAGE          datetime      Date de blocage administratif du dossier
+                                                   Etat de facturation du dossier :
+      53   ETAT_FACTURATION          char(1)
+                                                   Valeur possibles ‘O’ Oui, ‘R’ Rejet/Contentieux
+      54   DATE_FACT_REJET           datetime      Date de rejet de facturation du dossier
+                                                   Lien sur TB_UNITE.ID_UNITE :
+      55   ID_UF_ENTREE              int(10)
+                                                   Unité (UF) d'entrée dans le Séjour (Unité du 1er Mouvement)
+      56   ID_EJ                     smallint(5)   Identifiant de l'établissement juridique. Lien avec TB_EJ.ID_EJ.                  1
+                                                   Prise en charge réhabilitation améliorée après chirurgie (RAAC)
+                                                   Cette variable doit être renseignée pour tous les séjours comprenant une
+      57   PRISE_EN_CHARGE_RAAC      char(1)       intervention intégrée dans un protocole RAAC :
+                                                   Code 1 : Prise en charge RAAC
+                                                   Code 2: Pas de prise en charge RAAC

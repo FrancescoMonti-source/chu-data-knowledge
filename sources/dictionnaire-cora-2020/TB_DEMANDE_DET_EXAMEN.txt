@@ -1,0 +1,28 @@
+==== TB_DEMANDE_DET_EXAMEN ====
+    1    ID_DEMANDE_DET_EXAMEN      int(10)        Clé
+                                                   FK TB_DEMANDE_EXAMEN.ID_DEMANDE_EXAMEN - Identifiant CORA de
+    2    ID_DEMANDE_EXAMEN          int(10)
+                                                   la demande d'examen
+    3    CODE_EXAMEN                varchar(20)    Code de l'examen
+
+    4    LIB_EXAMEN                 varchar(150)   Libellé de l'examen
+
+    5    COMMENT_MOTIF              varchar(600)   Commentaire sur l'examen
+
+    6    ID_LIEN_DEMANDE            int(10)        FK TB_PAT_ACTION.ID_PAT_ACTION - Identifiant CORA de l'action liée
+
+    7    DATE_EXAMEN                datetime       Date de la demande d'examen
+
+    8    DATE_PRELEVEMENT           datetime       Date du prélèvement
+
+    9    ID_UTIL_PRELEVEMENT        int(10)        FK UTIL.ID_UTIL - Identifiant CORA de la personne qui a fait le prélèvement
+
+    10   NUM_ECHANTILLON            varchar(20)    Numéro d'échantillon
+
+    11   CPT_NUM_ECHANTILLON        int(10)        Compteur utilisé pour le calcul du numéro d'échantillon
+
+    12   CODE_DETAIL_REGROUP        varchar(20)    Code du tube
+
+    13   NB_TUBE_DEFAUT             smallint(5)    Nombre de tubes
+
+    14   STATUT                     char(1)        A:A prélevé, P: Prélevé, N:Non prélevé,R:Radio

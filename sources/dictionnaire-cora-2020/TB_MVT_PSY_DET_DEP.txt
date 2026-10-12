@@ -1,0 +1,54 @@
+==== TB_MVT_PSY_DET_DEP ====
+Table d'enregistrement du détail des scores de dépendances en hospitalisation temps complet
+                                                       Clé - Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE :
+       1   ID_SEQUENCE                 int(10)
+                                                       Identifiant de la séquence
+                                                       Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                  int(10)
+                                                       Identifiant du patient
+                                                       Lien sur TB_MVT.ID_MVT :
+       3   ID_MVT                      int(10)
+                                                       Identifiant du mouvement
+       4   DATE_DEP                    datetime        Date des dépendances
+
+       5   HAB_1                       char(1)         Score dépendance : HABILLAGE - Haut du corps
+
+       6   HAB_2                       char(1)         Score dépendance : HABILLAGE - Bas du corps
+
+       7   DEP_1                       char(1)         Score dépendance : DEPLACEMENTS - Transferts lit-chaise-fauteuil
+
+       8   DEP_2                       char(1)         Score dépendance : DEPLACEMENTS - Transferts aux toilettes
+                                                       Score dépendance : DEPLACEMENTS - Transferts à la baignoire ou à la
+       9   DEP_3                       char(1)
+                                                       douche
+      10   DEP_4                       char(1)         Score dépendance : DEPLACEMENTS - Locomotion
+
+      11   DEP_5                       char(1)         Score dépendance : DEPLACEMENTS - Utilisation des escaliers
+
+      12   ALI_1                       char(1)         Score dépendance : ALIMENTATION - Utilisation des ustensiles réguliers
+
+      13   ALI_2                       char(1)         Score dépendance : ALIMENTATION - Mastication
+
+      14   ALI_3                       char(1)         Score dépendance : ALIMENTATION - Déglutition
+
+      15   CONT_1                      char(1)         Score dépendance : CONTINENCE - Contrôle de la miction
+
+      16   CONT_2                      char(1)         Score dépendance : CONTINENCE - Contrôle de la défécation
+                                                       Score dépendance : RELATION - Compréhension d'une communication
+      17   RELAT_1                     char(1)
+                                                       visuelle ou auditive
+                                                       Score dépendance : RELATION - Expression claire du langage verbal et non
+      18   RELAT_2                     char(1)
+                                                       verbal
+      19   COMPO                       char(1)         Score dépendance : COMPORTEMENT - Intéraction sociale
+
+      20   NOTE                        varchar(1000)   Notes de l'utilisateur
+                                                       Lien sur Util.id_util :
+      21   ID_INFO                     int(10)
+                                                       Identifiant du dernier utilisateur qui a modifié ces données
+      22   DATE_INFO                   datetime        Date de dernière modification de ces données
+
+      23   HEURE_INFO                  datetime        Heure de dernière modification de ces données
+                                                       Lien sur TB_SEJOUR.ID_SEJOUR :
+      24   ID_SEJOUR                   int(10)                                                                                       -1
+                                                       Identifiant du séjour

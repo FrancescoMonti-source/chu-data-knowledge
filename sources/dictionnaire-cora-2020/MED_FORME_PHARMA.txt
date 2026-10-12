@@ -1,0 +1,8 @@
+==== MED_FORME_PHARMA ====
+       1   ID_FORME_PHARMA           smallint(5)
+
+       2   LIB_FORME_PHARMA          varchar(20)
+
+       3   CODE_ABREV                char(4)
+
+       4   ACTIF                     char(1)                                                                                  'O'

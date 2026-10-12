@@ -1,0 +1,16 @@
+==== TB_INT_REJET_PATIENT ====
+Table de description d'erreur de l'Interface Patient
+                                                         Clé :
+       1    ID_REJET                     int(10)
+                                                         Identifiant de la table
+                                                         Lien sur TB_PATIENT.ID_PATIENT :
+       2    ID_PATIENT                   int(10)
+                                                         Identifiant du Patient.
+       3    DATE_REJET                   datetime        Date ou l'erreur est intervenue
+     4   CODE_ERR             varchar(50)     Descriptif court de l'erreur
+
+     5   DETAIL_ERR           varchar(250)    Détail de l'erreur
+
+     6   NOM_FICHIER          varchar(50)
+
+     7   MESSAGE              varchar(1000)

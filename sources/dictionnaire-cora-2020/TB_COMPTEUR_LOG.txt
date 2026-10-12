@@ -1,0 +1,205 @@
+==== TB_COMPTEUR_LOG ====
+_y_y
+       1    CPT_ID_MESSAGE_PATIENT    int(10)   Identifiant du message reçu par l'interface patient.
+
+       2    CPT_ID_MESSAGE_ACTIVITE int(10)     Identifiant du message reçu par l'interface activité.
+
+       3    CPT_ID_REJET_ACTIVITE     int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+       4    CPT_ID_REJET_PATIENT      int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+       5    CPT_ID_LOG_ALERTE_ACT     int(10)
+
+       6    CPT_ID_LOG_ALERTE_PAT     int(10)
+            CPT_ID_LOG_EXCEPTION_PA
+       7                            int(10)
+            T
+            CPT_ID_LOG_EXCEPTION_AC
+       8                            int(10)
+            T
+       9    CPT_ID_LOG_FLUX_PAT       int(10)
+
+       10   CPT_ID_LOG_FLUX_ACT       int(10)
+
+       11   CPT_ID_LOG_INFO_PAT       int(10)
+
+       12   CPT_ID_LOG_INFO_ACT       int(10)
+
+       13   CPT_ID_LOG_REJET_PAT      int(10)
+
+       14   CPT_ID_LOG_REJET_ACT      int(10)
+
+       15   CPT_ID_LOG_SYSTEME_PAT    int(10)
+
+       16   CPT_ID_LOG_SYSTEME_ACT int(10)
+
+       17   CPT_ID_MESSAGE            int(10)
+
+       18   CPT_ID_FLUX_DOC           int(10)
+
+       19   CPT_ID_LOG_ALERTE_ADM     int(10)
+            CPT_ID_LOG_EXCEPTION_AD
+       20                           int(10)
+            M
+       21   CPT_ID_LOG_FLUX_ADM       int(10)
+
+       22   CPT_ID_LOG_INFO_ADM       int(10)
+
+       23   CPT_ID_LOG_REJET_ADM      int(10)   FK TB_INT_REJET_ADM.ID_REJET
+
+       24   CPT_ID_LOG_SYSTEME_ADM int(10)
+
+       25   CPT_ID_FLUX_LABO_PAT      int(10)
+
+       26   CPT_ID_FLUX_LABO_OBR      int(10)
+
+       27   CPT_ID_FLUX_LABO_OBX      int(10)
+
+       28   CPT_ID_FLUX_LABO_C        int(10)
+
+       29   CPT_ID_LOG_LABO           int(10)
+
+       30   CPT_ID_LOG_ALERTE_DOC     int(10)
+            CPT_ID_LOG_EXCEPTION_DO
+       31                           int(10)
+            C
+       32   CPT_ID_LOG_FLUX_DOC       int(10)
+
+       33   CPT_ID_LOG_INFO_DOC       int(10)
+
+       34   CPT_ID_LOG_REJET_DOC      int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+       35   CPT_ID_LOG_SYSTEME_DOC int(10)
+
+       36   CPT_ID_MESSAGE_DOC        int(10)
+     CPT_ID_MESSAGE_DOCUMEN
+37                          int(10)
+     T
+38   CPT_ID_REJET_DOC          int(10)
+
+39   CPT_ID_LOG_ALERTE_RDV     int(10)
+     CPT_ID_LOG_EXCEPTION_RD
+40                           int(10)
+     V
+41   CPT_ID_LOG_FLUX_RDV       int(10)
+
+42   CPT_ID_LOG_INFO_RDV       int(10)
+
+43   CPT_ID_LOG_REJET_RDV      int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+44   CPT_ID_LOG_SYSTEME_RDV int(10)
+
+45   CPT_ID_MESSAGE_HL7        int(10)
+
+46   CPT_ID_MESSAGE_RDV        int(10)
+
+47   CPT_ID_REJET_RDV          int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+48   CPT_ID_DEPL_BIN           int(10)
+
+49   CPT_ID_LOG_ALERTE_FLUX    int(10)
+     CPT_ID_LOG_EXCEPTION_FL
+50                           int(10)
+     UX
+51   CPT_ID_LOG_FLUX_FLUX      int(10)
+
+52   CPT_ID_LOG_INFO_FLUX      int(10)
+
+53   CPT_ID_LOG_REJET_FLUX     int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+54   CPT_ID_LOG_SYSTEME_FLUX int(10)
+
+55   CPT_ID_INT_MAIL           int(10)
+
+56   CPT_ID_MAIL_EMIS          int(10)
+
+57   CPT_ID_LOG_INFO_MGR       int(10)
+
+58   CPT_ID_LOG_ALERTE_MED     int(10)
+     CPT_ID_LOG_EXCEPTION_ME
+59                           int(10)
+     D
+60   CPT_ID_LOG_FLUX_MED       int(10)
+
+61   CPT_ID_LOG_INFO_MED       int(10)
+
+62   CPT_ID_LOG_REJET_MED      int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+63   CPT_ID_LOG_SYSTEME_MED int(10)
+
+64   CPT_ID_MESSAGE_IDM        int(10)
+
+65   CPT_ID_REJET_IDM          int(10)
+
+66   CPT_ID_LOG_ALERTE_PRE     int(10)
+     CPT_ID_LOG_EXCEPTION_PR
+67                           int(10)
+     E
+68   CPT_ID_LOG_FLUX_PRE       int(10)
+
+69   CPT_ID_LOG_INFO_PRE       int(10)
+
+70   CPT_ID_LOG_REJET_PRE      int(10)   FK TB_INT_REJET_xxx.ID_REJET
+
+71   CPT_ID_LOG_SYSTEME_PRE int(10)
+
+72   CPT_ID_LOG_ALERTE_DIV     int(10)
+
+73   CPT_ID_LOG_EXCEPTION_DIV int(10)
+
+74   CPT_ID_LOG_FLUX_DIV       int(10)
+
+75   CPT_ID_LOG_INFO_DIV       int(10)
+
+76   CPT_ID_LOG_REJET_DIV      int(10)   FK TB_INT_REJET_xxx.ID_REJET
+    77    CPT_ID_LOG_SYSTEME_DIV     int(10)
+
+    78    CPT_ID_MESSAGE_DIV         int(10)
+
+    79    CPT_ID_REJET_DIV           int(10)
+
+    80    CPT_ID_MESSAGE_PRE         int(10)
+
+    81    CPT_ID_REJET_PRE           int(10)
+          CPT_ID_MESSAGE_DEM_EXA
+    82                           int(10)
+          MEN
+          CPT_ID_REJET_DEM_EXAME
+    83                           int(10)
+          N
+    84    CPT_ID_LOG_ALERTE_CIM      int(10)
+          CPT_ID_LOG_EXCEPTION_CI
+    85                            int(10)
+          M
+    86    CPT_ID_LOG_FLUX_CIM        int(10)
+
+    87    CPT_ID_LOG_INFO_CIM        int(10)
+
+    88    CPT_ID_LOG_SYSTEME_CIM     int(10)
+
+    89    CPT_ID_MESSAGE_ADM         int(10)       Identifiant message généré par le serveur administratif
+          CPT_ID_INT_FICHIERS_ATTEN
+    90                              int(10)
+          TE
+    91    CPT_ID_LOG_ALERTE_DEFIS int(10)
+          CPT_ID_LOG_EXCEPTION_DE
+    92                            int(10)
+          FIS
+    93    CPT_ID_LOG_FLUX_DEFIS      int(10)
+
+    94    CPT_ID_LOG_INFO_DEFIS      int(10)
+
+    95    CPT_ID_LOG_REJET_DEFIS     int(10)       FK TB_INT_REJET_xxx.ID_REJET
+          CPT_ID_LOG_SYSTEME_DEFI
+    96                            int(10)
+          S
+    97    CPT_ID_MESSAGE_DEFIS       int(10)
+
+    98    CPT_ID_REJET_DEFIS         int(10)       FK TB_INT_REJET_xxx.ID_REJET
+
+    99    CPT_ID_MESSAGE_LABO        int(10)
+
+    100 CPT_ID_REJET_LABO            int(10)       FK TB_INT_REJET_xxx.ID_REJET
+          CPT_ID_LOG_RECUP_DONNE
+    101                          int(10)
+          ES

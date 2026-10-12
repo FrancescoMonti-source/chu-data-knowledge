@@ -1,0 +1,37 @@
+==== TB_HIST_INSTRUCTION_GRADATION ====
+Table d'historisation de la table contenant les informations de recueil de l'indice de gradation. Les variables sont référencées
+pou les séjours de 0 nuits, mais n'était pas des séances.
+                                                        Copie de la table TB_INSTRUCTION_GRADATION.ID_INDICE_GRADATION:
+       1    ID_INSTRUCTION_GRADATION int(10)
+                                                        Identifiant de la saisie.
+                                                        Copie de la table TB_INSTRUCTION_GRADATION.ID_SEJOUR: Identifiant du
+       2    ID_SEJOUR                    int(10)
+                                                        séjour auquel sont liées les données, lien avec TB_SEJOUR.ID_SEJOUR.
+
+                                                        Copie de la table TB_INSTRUCTION_GRADATION.CTXT_PAT_SURV_PART
+       3    CTXT_PAT_SURV_PART           char(1)        : Contexte patient / Surveillances particulières.
+                                                        Les valeurs possibles sont : 1 (Oui), 2 (Non), blanc (non renseigné)
+
+                                                        Copie de la table TB_INSTRUCTION_GRADATION.ADMIN_PRODUIT_RH :
+       4    ADMIN_PRODUIT_RH             char(1)        Administration d'un produit de la RH
+                                                        Les valeurs possibles sont : 1 (Oui), 2 (Non), blanc (non renseigné)
+                                                        Copie de la table
+                                                        TB_INSTRUCTION_GRADATION.CAT_NB_INTERVENTIONS_TOTALES :
+            CAT_NB_INTERVENTIONS_TO
+       5                            char(1)             Catégories du nombre d'interventions totales.
+            TALES
+                                                        Les valeurs possibles sont : A (inférieure à 3 interventions), B (égale à 3
+                                                        interventions), C (supérieure à 3 interventions), blanc (non renseignée).
+                                                        Description de l'action ayant été faite sur la donnée ayant permis l'historisation
+                                                        :
+                                                        - CRUM : Création depuis l'écran RUM
+       6    DESCR                        char(5)        - CRSS : Création depuis l'écran RSS
+                                                        - MORUM : Modification depuis l'écran RUM
+                                                        - MORSS : Modification depuis l'écran RSS
+                                                        - CMPOP : Création / modification par lot depuis les populations
+       7    ID_HIST                      int(10)        Identifiant de l'utilisateur ayant modifié ou créé la donnée qui a été historisée.
+
+       8    DATE_HIST                    datetime       Date à laquelle la donnée a été historisée (en création ou en modification)
+                                                    Copie de la table TB_INSTRUCTION_GRADATION.ID_SEJOUR : Identifiant
+      9    ID_MVT                   int(10)         du mouvement auquel les données de gradation sont reliées. Lien avec      0
+                                                    TB_MVT.ID_MVT

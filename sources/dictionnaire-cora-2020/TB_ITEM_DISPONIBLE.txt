@@ -1,0 +1,11 @@
+==== TB_ITEM_DISPONIBLE ====
+Définit une table d'items pouvant être insérés dans les modèles puis remplacés par les données CORA. Ces sont les différents
+champs de fusion disponibles.
+                                                       Clé :
+       1   ID_ITEM                      int(10)
+                                                       Définit l'identifiant de l'item.
+       2   LIBELLE_ITEM                 varchar(100)   Définit le libellé de l'item (libellé noté sur les menus MS Word).
+
+       3   ITEM_DOC                     varchar(150)   Définit le tag de l'item (tag noté sur les modèles MS Word).
+
+       4   TYPE_ITEM                    varchar(20)    Définit la classe de l'item (Premier nœud des menus MS Word).

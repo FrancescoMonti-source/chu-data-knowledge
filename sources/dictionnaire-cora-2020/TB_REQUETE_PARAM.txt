@@ -1,0 +1,16 @@
+==== TB_REQUETE_PARAM ====
+      1    ID_REQUETE_PARAM         int(10)
+           ID_PARENT_REQUETE_PARA
+      2                           int(10)
+           M
+      3    ID_LIEN                  int(10)
+
+      4    TYPE_PARAM               char(1)
+
+      5    TYPE_LIEN                char(1)
+
+      6    CODE                     char(36)
+
+      7    VALEUR                   varchar(2000)
+
+      8    ID_REGROUPEMENT          int(10)

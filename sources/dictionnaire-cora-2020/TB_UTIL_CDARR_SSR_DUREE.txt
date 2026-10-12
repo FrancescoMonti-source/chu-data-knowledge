@@ -1,0 +1,9 @@
+==== TB_UTIL_CDARR_SSR_DUREE ====
+Paramétrage (par défaut) d'une durée de réalisation d'un acte CDARR par un Intervenant
+                                                        Clé - Lien sur Util.id_util :
+       1   ID_UTIL                     int(10)
+                                                        Identifiant de l'Intervenant
+                                                        Clé - Lien sur SSR_CDARR.CODE_ACTE :
+       2   CODE_ACTE_CDARR             char(6)
+                                                        Code de l'acte CDARR
+       3   DUREE                       smallint(5)      Durée de réalisation

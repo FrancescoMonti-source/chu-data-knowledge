@@ -1,0 +1,11 @@
+==== PMSI_LIB_SSR_GME ====
+Table des GME SSR
+       1   CODE_GME                    char(6)        Code du Groupe Médico-économique
+
+       2   LIBELLE_GME                 varchar(500)   Libellé du Groupe Médico-économique
+
+       3   CODE_RGME                   char(5)        Code de la Racine du Groupe Médico-économique correspondante
+
+       4   DATE_DEBUT                  datetime       Date de début de validité du GME
+
+       5   DATE_FIN                    datetime       Date de fin de validité du GME

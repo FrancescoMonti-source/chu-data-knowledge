@@ -1,0 +1,45 @@
+==== TB_LOG_ALERTE_ADM ====
+     1   ID               int(10)         Identifiant de la ligne dans la table
+
+     2   DATE_LOG         datetime        Date heure à laquelle à été généré le message d'information
+
+     3   GRAVITE          char(1)         Indice d'importance du message - plus utilisé
+
+     4   CODE             varchar(50)     Code de l'évènement
+
+     5   DETAIL           varchar(1000)   Description détaillée de l'évènement
+
+     6   PROC_INTERNE     varchar(50)     Nom de la procédure ayant tracé l'évènement
+                                          FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+     7   ID_MESSAGE       int(10)
+                                          DOC...).ID_MESSAGE
+     8   ID_APPLICATION   smallint(5)     Lien sur TB_INT_APPLICATION.ID
+
+     9   ID_PATIENT       int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+    10   ID_SEJOUR        int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+    11   ID_MVT           int(10)         FK TB_MVT.ID_MVT - Identifiant CORA du mouvement
+
+    12   ID_ACTE          int(10)         FK TB_ACTE.ID_ACTE - Identifiant CORA d'un acte CCAM
+                                          FK TB_COTATION_NGAP.CPT_ID_COTATION_NGAP - Identifiant CORA d'un
+    13   ID_COTATION      int(10)
+                                          acte NGAP
+    14   ID_DIAG          int(10)         FK TB_DIAG.ID_DIAG - Identifiant CORA d'un diagnostic
+
+    15   ID_RSS           int(10)         FK TB_SYNTH_RSS.ID_RSS - Identifiant CORA du RSS
+                                          FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+    16   NO_SEJOUR        varchar(20)
+                                          l'établissement
+                                          FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+    17   IPP_PATIENT      varchar(20)
+                                          de l'établissement
+    18   ID_EXTERNE       int(10)         Identifiant de l'activité dans le système ayant émis le message
+
+    19   ID_INTERNE       int(10)         Identifiant interne CORA, la nature de l'identfiant dépent du contexte de la ligne
+
+    20   ID_RDV           int(10)         FK Lien sur TB_RDV.ID_RDV
+
+    21   TYPE_FLUX        smallint(5)     Type d'application communicante
+
+    22   ID_REJET         int(10)         FK TB_IN_REJET_ADM.ID_REJET

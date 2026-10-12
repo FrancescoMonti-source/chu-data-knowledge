@@ -1,0 +1,27 @@
+==== TB_NGAP_LC ====
+Table de découpage des lettres clés d'une cotation (Permet de réaliser des statistiques de réalisation de lettre clé)
+                                                         Clé :
+       1    CPT_NGAP_LC                 int(10)
+                                                         Identifiant (PrisMédica) du détail cotation de la lettre clé NGAP
+                                                         Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       2    CPT_ID_COTATION_NGAP        int(10)
+                                                         Identifiant de la cotation (Lien obligatoire)
+       3    LETTRE_CLE                  char(9)          Code NGAP
+
+       4    COEF                        decimal(10, 2)   Coefficient NGAP
+
+       5    CODE_NATURE_ACTE            char(3)          Code de la nature de l'acte
+
+       6    MNT_LC                      decimal(10, 2)   Montant
+
+       7    COEF_MINORMAJOR             decimal(5, 2)    Coefficient de majoration (Si >0) ou de minoration (si <0)
+
+       8    MNT_DEPASS_LC               decimal(10, 2)   Montant de dépassement LC
+
+       9    MOTIF_DEPASS_LC             char(1)          Motif de dépassement LC
+
+       10   NUM_FT                      int(10)          N° d’ordre du forfait technique. (Numérique - 5 maxi)
+                                                         N° d'agrément de l’appareil sur lequel l’acte technique a été réalisé. (14 car
+       11   NUM_APPAREIL                varchar(14)
+                                                         maxi)
+       12   POSITION_DENTAIRE           smallint(5)      Position dentaire

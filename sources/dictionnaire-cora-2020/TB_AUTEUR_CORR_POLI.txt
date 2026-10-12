@@ -1,0 +1,14 @@
+==== TB_AUTEUR_CORR_POLI ====
+Table contenant les correspondants fréquents et formules de politesse pour un auteur
+                                                       Clé :
+       1   ID_AUTEUR                    int(10)        Lien sur Util.id_util :
+                                                       Définit l'identifiant de l'auteur de la formule de politesse pour le correspondant.
+                                                       Clé :
+       2   ID_CORRESPONDANT             int(10)        Lien sur TB_CORRESPONDANT.ID_CORRESPONDANT : Définit l'identifiant
+                                                       du correspondant associé à la formule de politesse.
+       3   FORMULE                      varchar(150)   Définit la formule de politesse stockée.
+                                                       Clé :
+                                                       Définit la formule de politesse d'en-tête ou de fin.
+       4   TYPE_FORMULE                 char(1)
+                                                       - 'E' pour en-tête
+                                                       - 'F' pour fin

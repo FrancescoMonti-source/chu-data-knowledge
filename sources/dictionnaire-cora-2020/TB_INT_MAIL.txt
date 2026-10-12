@@ -1,0 +1,10 @@
+==== TB_INT_MAIL ====
+     1    ID                         int(10)         Identifiant de la ligne dans la table
+
+     2    ID_MAIL_EMIS               int(10)         FK TB_MAIL_EMIS.ID
+
+     3    ID_APPLICATION             smallint(5)     Lien sur TB_INT_APPLICATION.ID
+
+     4    CODE_FONCTION              varchar(20)     Code de la fonction à l'origine du mail
+
+     5    DATE_MAIL                  datetime        Date du mail

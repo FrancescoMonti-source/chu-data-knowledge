@@ -1,0 +1,12 @@
+==== TB_BNA_ENVOI ====
+       1   TYPE_CONTENU                 char(1)        Type de contenu de l'envoi : P pour Patient / A pour Acte
+
+       2   DATE_ENVOI                   datetime       Date de l'envoi
+                                                       Identifiant de la consultation : Lien sur
+       3   ID_BNA_LIE                   int(10)
+                                                       TB_BNA_CONSULT.ID_BNA_CONSULT
+       4   NUM_ENVOI                    int(10)        Numéro de l'envoi
+
+       5   DATE_AR                      datetime       Date de l'Accusé de Réception
+
+       6   LIBELLE_AR                   varchar(200)   Libellé de l'Accusé de Réception

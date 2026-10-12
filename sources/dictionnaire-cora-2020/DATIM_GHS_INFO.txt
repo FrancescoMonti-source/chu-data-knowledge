@@ -1,0 +1,8 @@
+==== DATIM_GHS_INFO ====
+     1   CODE_GHS              char(4)           Code du GHS
+
+     2   VALO_ELEVEE           char(1)
+
+     3   DATE_DEBUT            datetime          Date de début
+
+     4   DATE_FIN              datetime          Date de fin

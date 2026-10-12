@@ -1,0 +1,27 @@
+==== TB_ACTE_CDAM ====
+       1   ID_ACTE_CDAM               int(10)       Clé : Identifiant de l'acte saisi
+
+       2   ID_PATIENT                 int(10)       FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_SEJOUR                  int(10)       FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       4   ID_MVT                     int(10)       Identifiant du Mouvement : lien sur TB_MVT
+
+       5   CODE_ACTE                  char(10)      Code de l'acte : lien sur CDAM
+
+       6   LIBELLE                    char(400)     Libellé de l'acte
+
+       7   DATE_ACTE                  datetime      Date de l'acte
+
+       8   CODE_MEDECIN               char(10)      Code du médecin exécutant de l'acte
+                                                    identifiant de l'utilisateur ayant fait la saisie
+       9   ID_INFO                    int(10)
+                                                    Lien sur Util.id_util
+                                                    Numéro de la semaine SSR, pour lien sur TB_MVT_SSR_SEM.NO_SEMAINE
+      10   NO_SEMAINE                 smallint(5)
+                                                    (en complément du lien ID_MVT)
+      11   REALISE_EXTERIEUR          char(1)       "O" si réalisé à l'extérieur
+
+      12   DATE_INFO                  datetime      Date de dernière modif
+
+      13   HEURE_INFO                 datetime      Heure de dernière modification de l'enregistrement

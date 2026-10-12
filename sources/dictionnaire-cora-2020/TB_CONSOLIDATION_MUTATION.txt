@@ -1,0 +1,19 @@
+==== TB_CONSOLIDATION_MUTATION ====
+Cette table permet de synthétiser toutes les mutations (=changement de mouvement) opérée au cours d'un séjour. Cette table
+permet de réaliser des statistiques de contenu via CORA PMSI Pilotage.
+       1   ID_CONSO_MUTATION          int(10)          Identifiant unique d'une mutation opérée au cours d'un séjour
+                                                       date + heure à laquelle a eu lieu la mutation (ex : mutation d'une unité A vers
+       2   DATE_MUTATION              datetime
+                                                       une unité B le 04/05/2015 à 12:00)
+                                                       ID_SEJOUR : si type mutation =2
+       3   ID_MUTATION                int(10)
+                                                       ID_PATIENT : si type mutation = 1
+                                                       Type de la mutation :
+       4   TYPE_MUTATION              smallint(5)       1 = niveau patient
+                                                        2 = niveau séjour
+                                                       M : axe de responsabilité médicale
+       5   TYPE_AXE                   char(1)
+                                                       H : axe d'hebergement
+       6   ID_UF_ORIGINE              int(10)          identifiant de l'unité d'origine. Peut être null (ex : mouvement d'entrée)
+
+       7   ID_UF_DESTINATION          int(10)          identifiant de l'unité de destination. Peut être null (ex : mouvement de sortie)

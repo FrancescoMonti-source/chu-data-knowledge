@@ -1,0 +1,9 @@
+==== TB_THESAURUS_CAMPAGNE ====
+Permet la gestion du thésaurus des campagnes de contrôle des RSS
+       1   ID_CAMPAGNE                  int(10)        Identifiant de la campagne de contrôle
+
+       2   LIBELLE_CAMPAGNE             varchar(200)   Libellé de la campagne de contrôle
+                                                       Identifiant du type de campagne de contrôle
+       3   ID_TYPE_CAMPAGNE             int(10)
+                                                       Lien vers TB_THESAURUS_CONTROLE.ID_THESAURUS
+       4   ID_EJ                        smallint(5)    Identifiant de l'établissement juridique. Lien avec TB_EJ.ID_EJ.                 1

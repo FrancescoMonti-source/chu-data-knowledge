@@ -1,0 +1,9 @@
+==== CIM_CODE_UTIL_FREQ ====
+Table contenant l'utilisation des diags par Utilisateur ('Diags Fréquent' de l'utilisateur)
+                                                          Clé - Lien sur CIM_HIERARCHIE.CODEFILS :
+       1   CLE                            char(16)
+                                                          Code du diagnostic
+                                                          Clé - Lien Util.id_util :
+       2   ID_UTIL                        int(10)
+                                                          Lien sur l'utilisateur.
+       3   NB                             int(10)         Nombre d'utilisation du diag concerné

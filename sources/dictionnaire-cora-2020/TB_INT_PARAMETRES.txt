@@ -1,0 +1,26 @@
+==== TB_INT_PARAMETRES ====
+       1    ID                           int(10)         PK identifiant du paramètre
+
+       2    SECTION                      varchar(25)     Nom du regroupement de paramètre
+
+       3    INTERFACE                    char(5)         Code de l'interface VB
+
+       4    PARAMETRE                    varchar(100)    Nom du paramètre
+
+       5    VALEUR                       varchar(500)    Donnée associée au paramètre
+
+       6    ID_UTIL_MODIF                int(10)         FK Util.IdUtil
+
+       7    DATE_MODIF                   datetime        Date de modification
+
+       8    DESCRIPTION                  varchar(500)    Descriptif du paramètre pour l'utilisateur affiché dans AdminInterface
+
+       9    TYPE_PARAM                   char(1)         Booleen,Integer, String
+
+       10   ID_APPLICATION               int(10)         Lien sur TB_INT_APPLICATION.ID
+
+       11   VISIBLE                      char(1)         Le paramètre est visible ou non dans CoraIntManager
+
+       12   EXPRESSION_REGULIERE         varchar(100)    Permet de filtrerles valeurs possibles à la saisie
+
+       13   REQUETE_SQL                  varchar(4000)   Lie le chaoix de la valeur du paramètre à un thesaurus consultable par SQL

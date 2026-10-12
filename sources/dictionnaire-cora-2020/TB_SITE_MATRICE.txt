@@ -1,0 +1,6 @@
+==== TB_SITE_MATRICE ====
+Table permettant de lier des Sites de PrisMédica avec des Sites d'une autre application : utilisée dans l'Interface Agenda pour la
+récupération des rendez-vous des médecins sur des sites
+       1   CODE_SITE                    char(12)       Code Site interne
+
+       2   CODE_SITE_EXT                char(12)       Code Site recu par les interfaces Externe

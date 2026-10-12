@@ -1,0 +1,13 @@
+==== TB_LABO_GRP_REGLE ====
+Table permettant de gérer des groupes de contrôle qualité labo
+       1   ID_LABO_GRP                 int(10)         identifiant unique du groupe de contrôles qualité labo
+
+       2   LIBELLE_LABO_GRP            varchar(250)    libellé du groupe
+
+       3   CODE_LABO_GRP               char(20)        code unique du groupe
+
+       4   NIVEAU                      int(10)         niveau du groupe dans la hierarchie (0 = racine)
+                                                       id du groupe contenant ce groupe de contrôles qualité labo (correspond à un
+       5   ID_LABO_GRP_PERE            int(10)
+                                                       ID_LABO_GRP). Si null ou 0 : aucun groupe père
+       6   COMM_LABO_GRP               varchar(2000)   commentaire sur le groupe

@@ -1,0 +1,8 @@
+==== TB_SCRIPTINFOPASSE ====
+table utilisé pour les packages de type CORA Infrastructure.elle contient la liste des scripts exécuté sur chaque schéma de
+l'environnement courant
+       1    SCHEMANAME                    varchar(100)   nom du schéma sur lequel le script a été exécuté
+
+       2    FILENAME                      varchar(200)   nom du fichier de script
+
+       3    HORAIRE_COURANT               datetime       date de fin d'exécution du script

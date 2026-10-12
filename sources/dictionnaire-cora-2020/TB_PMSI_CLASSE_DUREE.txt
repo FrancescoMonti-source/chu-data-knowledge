@@ -1,0 +1,13 @@
+==== TB_PMSI_CLASSE_DUREE ====
+Table de gestion des consolidations par tranche de durées RSS
+       1   ID_CLASSE_DUREE               smallint(5)
+
+       2   BORNE_BASSE                   smallint(5)
+
+       3   BORNE_HAUTE                   smallint(5)
+
+       4   TYPE                          char(1)
+
+       5   LIB_CLASSE_DUREE              varchar(20)
+
+       6   CODE_CLASSE_DUREE             char(2)

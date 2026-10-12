@@ -1,0 +1,8 @@
+==== TB_INTERVENTION_DET_FICHE ====
+       1   ID_INTERVENTION_FICHE      int(10)
+
+       2   ID_THES_DET_FICHE_BLOC     smallint(5)
+
+       3   VALEUR_REPONSE             smallint(5)
+
+       4   COMPLEMENT_COMMENT         char(1)

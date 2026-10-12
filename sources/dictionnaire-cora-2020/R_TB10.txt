@@ -1,0 +1,15 @@
+==== R_TB10 ====
+Table de cohérrence des modificateurs entre les différents codes activité d'un même acte
+                                                          CCAM n° 6
+       1   MODIFI_COD                     char(1)
+                                                          Code modificateur de l'acte
+                                                          Date d'effet de la cohérence
+       2   DT_DEBUT                       datetime
+                                                          des modificateurs
+                                                          Indication déclenchement
+       3   TOP_CTRLE                      char(1)         contrôle cohérence du
+                                                          modificateur
+                                                          Présence multiple du
+       4   TOP_MULTIP                     char(1)         modificateur possible dans
+                                                          une même facture
+       5   DT_FIN                         datetime        Date de fin

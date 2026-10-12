@@ -1,0 +1,10 @@
+==== TB_DROIT_UTIL_EJ ====
+Cette table permet de définir les droits sur les EJ pour les utilisateurs DIM et TIM. Pour les autres utilsateurs, le droit sur une EJ
+est hérité du droit sur au moins une unité de l'EJ.
+        1   ID_UTIL                      int(10)         Lien vers Util.id_util
+
+        2   ID_EJ                        smallint(5)     Lien vers TB_EJ.ID_EJ
+
+        3   DATE_DEBUT                   datetime        Date de début du droit
+
+        4   DATE_FIN                     datetime        Date de fin du droit

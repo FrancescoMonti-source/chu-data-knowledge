@@ -1,0 +1,30 @@
+==== TB_METIER_PARAMED ====
+       1   ID_METIER_PARAMED           smallint(5)    identifiant unique du metier
+
+       2   CODE_METIER_PARAMED         char(3)        code du métier
+
+       3   LIBELLE_METIER_PARAMED      varchar(100)   Libellé du métier
+
+       4   GESTION_BILAN               char(1)        Droit de visualiser l'écran des bilans (O/N)                                         'N'
+
+       5   GESTION_NOTE                char(1)        Droit de visualiser l'écran des notes (O/N)                                          'N'
+
+       6   GESTION_SCORE               char(1)        Droit de visualiser l'écran des scores (O/N)                                         'N'
+
+       7   GESTION_ACTION              char(1)        Droit de visualiser l'écran des actions (O/N)                                        'N'
+
+       8   GESTION_DAR                 char(1)        Droit de visualiser l'écran des Transmissions ciblées (O/N)                          'N'
+
+       9   ACTIF                       char(1)        Actif O/ N                                                                           'O'
+
+      10   TYPE_DISPONIBILITE          char(1)        Disponibilité Etablissement ou Unité                                                 'E'
+
+      11   DATE_INFO                   datetime       Date de la dernière modification
+                                                      Lien vers Util.ID_UTIL.
+      12   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+      13   ID_TYPE_BILAN               smallint(5)    Lien vers tb_thes_type_bilan.id_type_bilan
+
+      14   ID_ACTION_HIER              smallint(5)    Lien vers tb_thes_action_hier.id_action_hier
+
+      15   GESTION_SYNTHESE            char(1)                                                                                             'O'

@@ -1,0 +1,21 @@
+==== PRESC_THES_UNITE_MED ====
+Unité des médicaments (Sachet, mg, poudre…)
+       1   ID_UNITE_MED                smallint(5)    Clé de la Table
+
+       2   LIB_UNITE_MED               varchar(150)   Unité des médicaments (Sachet, mg, poudre…)
+                                                      O si cette unité peut être prescrite (ex : on enlève les mg exprimés en mg de
+       3   SAISISSABLE                 char(1)
+                                                      bibine)
+       4   LIB_UNITE_MED_INTERNE       varchar(150)   Libellé établissement
+
+       5   MODE_SAP                    char(1)        O si on gère différement la SAP : ex gamma/kg/min, mg/h, UI/h                     'N'
+
+       6   CODE_UNITE_EXT              varchar(10)    Lien sur le Thésaurus de la BDD Médicament
+
+       7   CODE_UNITE_MED              varchar(12)
+
+       8   CIO                         char(1)                                                                                          'N'
+                                                      Lien vers Util.ID_UTIL.
+       9   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+      10   DATE_INFO                   datetime       Date de la dernière modification

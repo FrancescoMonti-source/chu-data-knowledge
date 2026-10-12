@@ -1,0 +1,8 @@
+==== TB_FACT_PARAM_PRESTATION ====
+     1   CODE_ACTE_CCAM      char(7)          Code de l'acte CCAM
+
+     2   CODE_PRESTATION     char(5)          Code de la prestation
+
+     3   DATE_DEBUT_EFFET    datetime         Date de début d'effet
+
+     4   DATE_FIN_EFFET      datetime         Date de fin d'effet

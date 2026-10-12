@@ -1,0 +1,8 @@
+==== TB_SPECIALITE ====
+Table des spécialités de correspondant
+                                                       Clé :
+       1   ID_SPECIALITE                 smallint(5)
+                                                       Identifiant (PrisMédica) de la spécialité
+       2   LIBELLE_SPECIALITE            varchar(50)   Libellé de la spécialité (Données obligatoire)
+
+       3   CODE_EXPORT                   varchar(3)    Pour correspondance lors de l'export vers IDEO

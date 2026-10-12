@@ -1,0 +1,9 @@
+==== R_ACTE_EXO_TM ====
+Liste des Code exonération ticket modérateur de l'acte
+                                                         CCAM n° 1
+       1    ACTE_COD                      char(13)
+                                                         Code semi-structuré de l'acte
+       2    ACDT_MODIF                    datetime       Date de mise à jour de l'acte
+                                                         CCAM n° 25
+       3    EXOTM_COD                     int(10)        Code exonération ticket
+                                                         modérateur

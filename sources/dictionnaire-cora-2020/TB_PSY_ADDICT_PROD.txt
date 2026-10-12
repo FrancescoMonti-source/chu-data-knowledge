@@ -1,0 +1,9 @@
+==== TB_PSY_ADDICT_PROD ====
+Table des produits consommés Clé - Lien sur TB_PSY_ADDICT_FICHE.ID_PSY_ADDICT :
+Table des produits consommés
+                                                       Clé - Lien sur TB_PSY_ADDICT_FICHE.ID_PSY_ADDICT :
+       1   ID_PSY_ADDICT                int(10)
+                                                       Identifiant de la fiche d'addictologie
+       2   PRODUIT_CONSO                char(2)        Produit consommé
+
+       3   FLAG_PRINC                   char(1)        Le produit consommé est le produit principal ('O', 'N')                   'O'

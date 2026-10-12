@@ -1,0 +1,49 @@
+==== TB_HIST_PATIENT_INFO_MED ====
+     1   ID_SEJOUR            int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+     2   ID_PATIENT           int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3   POIDS                decimal(5, 2)
+
+     4   TAILLE               decimal(5, 4)
+
+     5   BMI                  decimal(5, 2)
+
+     6   PER_CRANIEN          decimal(5, 2)
+
+     7   SUR_CORPORELLE       decimal(5, 2)
+
+     8   DATE_INFO            datetime        Date de la dernière modification
+       9   HEURE_INFO                   datetime
+                                                       Lien vers Util.ID_UTIL.
+      10   ID_INFO                      int(10)
+                                                       Identifiant de l'utilisateur ayant effectué la dernière modification
+      11   INSUF_RENALE                 char(1)
+
+      12   INSUF_HEPATIQUE              char(1)
+
+      13   GROSSESSE_ALLAIT             char(1)
+
+      14   ID_TRACE                     int(10)
+
+      15   DATE_TRACE                   datetime
+
+      16   TYPE_TRACE                   char(1)
+
+      17   DESCR                        char(5)
+
+      18   SIGN_OEIL                    varchar(50)
+
+      19   SIGN_TEINT                   varchar(50)
+
+      20   SIGN_CHEVEUX                 varchar(50)
+
+      21   SIGN_PROTHESE                varchar(50)
+
+      22   SIGN_AUTRE                   varchar(200)
+
+      23   DATE_INSUF_RENALE            datetime
+
+      24   DATE_INSUF_HEPATIQUE         datetime
+
+      25   ID_PAT_VARIABLE              int(10)

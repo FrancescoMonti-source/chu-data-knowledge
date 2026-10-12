@@ -1,0 +1,17 @@
+==== TB_ERREUR_RUM ====
+       1   ID_ERR                          int(10)
+
+       2   DATE_ERR                        datetime
+
+       3   TYPE                            char(1)
+
+       4   LIBELLE                         varchar(250)
+
+       5   DETAIL                          varchar(1000)
+
+       6   APPLICATION                     char(3)
+
+       7   NO_SEJOUR                       varchar(20)
+                                                           FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+       8   IPP_PATIENT                     varchar(20)
+                                                           de l'établissement

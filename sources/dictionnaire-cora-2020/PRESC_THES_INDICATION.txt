@@ -1,0 +1,12 @@
+==== PRESC_THES_INDICATION ====
+Cette table est mise à jour par l'import médicament
+       1   ID_INDICATION                smallint(5)    Clé de la table (Récupéré de l'import médicament)
+                                        text
+       2   LIB_INDICATION                              Libellé de l'indication
+                                        (2147483647)
+       3   CODE_EXTERNE                 varchar(7)     Code externe de l'indication
+       4   CIO                         char(1)        'O'/'N'
+                                                      Lien sur TB_NIVEAU_PERTINENCE.ID_NIVEAU_PERTINENCE :
+       5   ID_NIVEAU_PERTINENCE        smallint(5)
+                                                      Lien sur le niveau de pertinence
+       6   CODE_NIVEAU_INDICATION      varchar(10)    Code du niveau de pertinence

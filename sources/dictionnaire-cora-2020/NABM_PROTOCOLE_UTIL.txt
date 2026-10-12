@@ -1,0 +1,6 @@
+==== NABM_PROTOCOLE_UTIL ====
+       1   ID_PROTOCOLE                int(10)
+
+       2   ID_UTIL                     int(10)         Clé - Lien Util.id_util
+
+       3   ID_GROUPE                   int(10)

@@ -1,0 +1,34 @@
+==== TB_COMMENTAIRE_RECUEIL ====
+Définit les informations relatives à un commentaire du recueil au niveau des diagnostics, des actes, du RUM ou du RSS.
+       1   ID_COMMENTAIRE              int(10)         Clé - Identifiant du commentaire
+
+       2   ID_PATIENT                  int(10)         Identifiant du patient
+
+       3   ID_SEJOUR                   int(10)         Identifiant du séjour
+
+       4   ID_RSS                      int(10)         Identifiant du RSS
+                                                       Identifiant du mouvement (ou du premier mouvement s'il s'agit d'un
+       5   ID_MVT                      int(10)
+                                                       commentaire RSS)
+                                       text
+       6   COMMENTAIRE                                 Commentaire saisi
+                                       (2147483647)
+                                                       Type de commentaire :
+                                                       - D : Diagnostics
+       7   TYPE_COMMENTAIRE            char(1)         - A : Actes
+                                                       - U : RUM
+                                                       - R : RSS
+       8   ID_INFO                     int(10)         Identifiant de l'utilisateur ayant saisi le commentaire
+
+       9   DATE_INFO                   datetime        Date de saisie du commentaire
+                                                       Type d'historisation du commentaire :
+                                                       - C : Création
+      10   TYPE_HISTORISATION          char(1)
+                                                       - M : Modification
+                                                       - S : Suppression
+                                                 Identifiant du commentaire précédant la modification/suppression (nul en cas
+     11   ID_COMMENTAIRE_AVANT   int(10)
+                                                 de création)
+                                                 Indique s'il s'agit du dernier état de modification du commentaire (le plus
+     12   ACTIF                  char(1)
+                                                 récent)

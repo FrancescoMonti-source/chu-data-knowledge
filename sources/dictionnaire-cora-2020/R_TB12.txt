@@ -1,0 +1,12 @@
+==== R_TB12 ====
+réduction base de remboursement pour non conventionnés
+                                                     date d'effet de la réduction
+       1   DT_DEBUT                   datetime       base de remboursement pour
+                                                     non conventionnés
+                                                     forfait pour la réduction base
+       2   FORFAIT_RN                 float(53)      de remboursement pour non
+                                                     conventionnés
+                                                     taux pour la réduction base de
+       3   COEF_RNC                   float(53)      remboursement pour non
+                                                     conventionnés
+       4   DT_FIN                     datetime       Date de fin

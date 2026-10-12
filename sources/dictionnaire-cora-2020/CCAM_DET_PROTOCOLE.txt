@@ -1,0 +1,16 @@
+==== CCAM_DET_PROTOCOLE ====
+Table contenant les actes CCAM et les diags CIM d'un Protocole
+                                                      Clé - Lien sur CCAM_PROTOCOLE.ID_PROTOCOLE :
+       1   ID_PROTOCOLE               int(10)
+                                                      Identifiant du Protocole
+                                                      Clé - Lien sur CIM_HIERARCHIE.CODEFILS :
+                                                      Code du diagnostic
+       2   CLE                        char(16)        OU
+                                                      Clé - Lien sur CCAM_NV.CODE (ou CLE) :
+                                                      Code de l'acte CCAM
+                                                      - 'A' : pour un acte
+       4   TYPE                       char(1)
+                                                      - 'D' : pour un diagnostic
+       5   TYPE_DIAG                  char(1)         Permet de typer le diag (Principal, Relié, …)
+
+       6   CLEPERE                    char(10)        Pour un acte complémentaire : Lien sur le code acte père                            ''

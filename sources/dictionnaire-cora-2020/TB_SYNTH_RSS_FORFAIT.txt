@@ -1,0 +1,23 @@
+==== TB_SYNTH_RSS_FORFAIT ====
+Liste des forfaits stockées de manière journalière
+                                                         Clé - Lien sur TB_SYNTH_RSS.ID_RSS :
+       1   ID_RSS                       int(10)
+                                                         N° de RSS concerné
+                                                         Code du forfait
+       2   CODE_FORFAIT                 varchar(4)
+                                                         Exemples : REA, SRC, STF, PO1, …
+       3   DATE_FORFAIT                 datetime         Date d’application du forfait (format dd/mm/yyyy)
+                                                         Montant journalier du forfait applicable le jour de sortie du RSS. Ce montant
+       4   MNT_FORFAIT                  decimal(10, 2)
+                                                         contient les sur-valorisations du coefficient MCO ou géographique
+                                                         Type de saisie
+       5   TYPE_SAISIE                  char(1)          - A : automatique, lors du groupage
+                                                         - M : manuel (suppression ou ajout) dans l’écran RSS
+                                                         Identifiant de l’utilisateur ayant fait le groupage ou la modification manuelle du
+       6   ID_INFO                      int(10)          forfait.
+                                                         Lien sur Util.id_util
+       7   DATE_INFO                    datetime         Date et heure de l’enregistrement (format dd/mm/yyyy hh:nn)
+
+       8   NB_FORFAIT                   smallint(5)      Nombre de jours effectifs du forfait.                                                   1
+
+       9   ID_RUM                       int(10)          Identifiant du RUM. Lien avec TB_SYNTH_RUM.

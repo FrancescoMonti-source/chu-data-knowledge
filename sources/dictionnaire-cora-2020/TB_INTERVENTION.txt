@@ -1,0 +1,152 @@
+==== TB_INTERVENTION ====
+Table des Interventions Clé :
+Table des Interventions
+                                               Clé :
+       1   ID_INTERVENTION     int(10)
+                                               Identifiant d'une Intervention (identifiant interne PrisMédica)
+                                               Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT          int(10)
+                                               Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                               Lien sur TB_MVT.ID_MVT :
+       3   ID_MVT              int(10)
+                                               Identifiant du Mouvement (Lien obligatoire)
+       4   DATE_INTERVENTION   datetime        Date de l'Intervention
+
+       6   COMMENTAIRE         varchar(1000)   Commentaire général sur l'Intervention
+7    ENTREE_EN_SALLE          datetime        Chronologie : Heure de d'entrée dans la salle de Bloc
+
+8    DEBUT_ARE                datetime        Chronologie : Heure de début de l'anesthésie
+
+9    DEBUT_INTERVENTION       datetime        Chronologie : Heure de début de l'intervention (incision)
+
+10   FIN_INTERVENTION         datetime        Chronologie : Heure de fin de l'intervention
+
+11   FIN_ARE                  datetime        Chronologie : Heure de fin de l'anesthésie
+
+12   SORTIE_EN_SALLE          datetime        Chronologie : Heure de sortie de la salle de bloc
+                                              N° 'officielle' de l'Intervention (Peut être un chrono automatique - voir
+13   NO_INTERVENTION          int(10)         explications dans TB_CONFIGURATION du schéma UTIL (ou Base
+                                              CORA_UTIL))
+                                              Lien sur TB_UNITE.ID_UNITE :
+14   ID_UF_EXECUTANTE         int(10)
+                                              Unité dans laquelle est réalisée l'intervention
+                                              Lien sur R_EXTENSION.COD_EXTENS :
+16   EXT_DOC_ARE              char(1)
+                                              Extension documentaire de l'acte d'anesthésie principale.
+                                              Lien sur TB_SEJOUR.ID_SEJOUR :
+17   ID_SEJOUR                int(10)
+                                              Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+18   COMMENTAIRE_CHRONO       varchar(1000)   Chronologie : Commentaire sur la chronologie de l'Intervention
+
+19   DATE_INFO_CREAT          datetime        Date de création de l'intervention
+
+20   HEURE_INFO_CREAT         datetime        Heure de création de l'intervention
+                                              Lien sur Util.id_util :
+21   ID_INFO_CREAT            int(10)
+                                              Identifiant de l'utilisateur ayant crée l'intervention
+22   DATE_INFO_MODIF          datetime        Date de dernière modification de l'intervention
+
+23   HEURE_INFO_MODIF         datetime        Heure de dernière modification de l'intervention
+                                              Lien sur Util.id_util :
+24   ID_INFO_MODIF            int(10)
+                                              Identifiant du dernier utilisateur ayant modifié l'intervention
+25   DATE_INFO_BLOCAGE        datetime        Date de blocage
+
+26   HEURE_INFO_BLOCAGE       datetime        Heure de blocage
+                                              Lien sur Util.id_util :
+27   ID_INFO_BLOCAGE          int(10)
+                                              Identifiant de l'utilisateur ayant 'bloqué' l'intervention
+                                              Lien - sur TB_SITE.ID_SITE :
+28   ID_BLOC                  int(10)         Identifiant du Site lié a cette intervention (Ce site doit être un site paramétré
+                                              comme un site de Bloc)
+                                              Lien - sur TB_SALLE_BLOC.ID_SALLE :
+29   ID_SALLE                 int(10)
+                                              Identifiant de la salle d'opération
+     HEURE_SORTIE_SALLE_REVE
+30                           datetime         Chronologie : Heure de sortie de la salle de réveil (du bloc)
+     IL
+31   HEURE_PREPA_SALLE        datetime        Chronologie : Heure de début de préparation de la salle
+                                              Typage de l'intervention :
+                                              - P : Programmée
+32   TYPE_INTERVENTION        char(1)
+                                              - U : Urgence
+                                              - D : Différé
+33   CLASSE_CONTAM            char(1)         Classe de contamination (valeur de 1 à 4)
+
+34   HEURE_ENTREE_BLOC        datetime        Chronologie : Heure d'entrée dans le Bloc
+
+35   HEURE_PREPA_ARE          datetime        Chronologie : Heure de début de préparation de l'anesthésie
+                                              Code CCAM de l'acte d'anesthésie (complémentaire) réalisé (qui s'affecte
+36   CODE_CCAM_ARE            char(7)
+                                              alors aux actes principaux si ces associations sont pévues)
+                                              Lien - sur TB_TYPE_INTERVENTION.ID_TYPE_INTERVENTION :
+                                              Lien sur le type d'intervention (ex : Intervention de Bloc, intervention
+37   ID_TYPE_INTERVENTION     smallint(5)
+                                              d'endoscopie…)
+                                              Si vide = Intervention de Bloc classique
+38   NO_INTERVENTION_CCAM     int(10)
+                                              Lien sur Util.id_util :
+39   ID_ARE_SIGN              int(10)
+                                              Identifiant de l'anesthésiste qui a signé
+40   DATE_ARE_SIGN            datetime        Date de la signature de l'anesthésiste
+
+41   HEURE_ARE_SIGN           datetime        Heure de la signature de l'anesthésiste
+                                                      Classification du Patient avec le score ASA (score développé par l’American
+                                                      Society of Anesthesiologists) de 1 à 5 : indicateur de la probabilité de mortalité
+      42   SCORE_ASA                  char(1)         péri-opératoire globale.
+                                                      Si >= 3 : est considéré comme un facteur de risque pour les infections de
+                                                      plaies postopératoires
+      43   POLYTRAUMATISE             char(1)
+
+      44   ID_SITE_ARE                int(10)         Site de production d'acte de l'anesthésiste
+                                                      Intervention rentrant dans un protocole Recherche : répercution sur tous les
+      45   PROTOCOLE_RECHERCHE        char(1)
+                                                      actes de l'intervention
+                                                      Si ='O' : Il n'y a pas de réattribution possible de cette intervention sur d'autres
+      46   BLOC_REATTRIB              char(1)
+                                                      mouvements (dans les traitements de réattribution (ex : Admin Interface))
+                                                      Lien sur TB_TYPE_RDV de la Base Agenda :
+      47   ID_TYPE_RDV                int(10)
+                                                      Lien sur le Type de RDV lié à l'Intervention
+                                                      Lien sur TB_RDV.ID_RDV :
+      48   ID_RDV                     int(10)
+                                                      Lien sur le RDV ayant 'généré' l'intervention (RDV sur Agenda Bloc)
+      49   ARE_NON_REAL               char(1)         Si ='O' : l'anesthésie n'a pas été réalisée
+
+      50   PRES_PERM_ARE              char(1)
+
+      51   HEURE_APPEL_PATIENT        datetime        Heure de l'appel du patient
+
+      52   HEURE_INSTALL_POSIT_CHIR datetime          Heure de l'installation du patient en position pour la chirurgie
+
+      53   HEURE_FIN_PANSEMENT        datetime        Heure de fin du pansement
+
+      54   HEURE_AUTO_SORTIE_SSPI     datetime
+
+      55   ID_LOCK_MODIF              int(10)
+
+      56   DATE_LOCK_MODIF            datetime
+
+      57   ID_THES_TYPE_BLOC          smallint(5)
+
+      58   NO_INTERV_DOSSIER_BLOC     varchar(20)
+
+      59   NO_INTERVENTION_EXT        varchar(20)
+
+      60   TYPE_TRANSFERT             char(1)         Type de transfert
+
+      61   DATE_TRANSFERT             datetime        Date de transfert
+
+      62   APPLI_TRANSFERT            char(3)
+
+      63   ID_APPLICATION_TRANSFERT int(10)
+
+      64   DATE_PREDESINFECTION       datetime        Chronologie : Date de pré-désinfection du matériel
+                                                      Etat du flag d'envoi des données de stérilisation
+                                                      E : envoyé
+      65   FLAG_ENVOI                 char(1)
+                                                      M : Modifié
+                                                      Null : Rien n'a été fait
+      66   ARE_ACT_LIBERALE           char(1)
+
+      67   RISQUE_ATNC                char(1)         risque ATNC (valeur entre 1 et 4)

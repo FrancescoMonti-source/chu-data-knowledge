@@ -1,0 +1,25 @@
+==== TB_MODELE_IMPRESSION_PERSO ====
+         ID_MODELE_IMPRESSION_PE
+     1                           smallint(5)
+         RSO
+         LIB_MODELE_IMPRESSION_P
+     2                           varchar(50)
+         ERSO
+     3   TYPE_MODELE               varchar(50)
+                                   text
+     4   ENTETE_RTF
+                                   (2147483647)
+                                   text
+     5   CORPS_RTF
+                                   (2147483647)
+                                   text
+     6   PIED_RTF
+                                   (2147483647)
+                                                  Lien vers Util.ID_UTIL.
+     7   ID_INFO                   int(10)
+                                                  Identifiant de l'utilisateur ayant effectué la dernière modification
+     8   DATE_INFO                 datetime       Date de la dernière modification
+                                                  Lien sur TB_UTIL.ID_UTIL
+     9   ID_CREAT                  int(10)
+                                                  Identifiant de l'utilisateur de création
+    10   DATE_CREAT                datetime       Date de création

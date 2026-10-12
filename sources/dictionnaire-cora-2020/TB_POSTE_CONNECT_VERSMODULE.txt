@@ -1,0 +1,13 @@
+==== TB_POSTE_CONNECT_VERSMODULE ====
+       1    CPT_POSTE                    int(10)
+
+       2    ID_MODULE                    int(10)
+
+       3    VERSION_MODULE               varchar(12)
+
+       4    DATE_VERSION_MODULE          datetime
+                                                        Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                        CORA_UTIL)
+       5    ID_ETABLIS                   smallint(5)
+                                                        Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                        Siège centralisée

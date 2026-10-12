@@ -1,0 +1,78 @@
+==== PRESC_MED ====
+Table de référence des médicaments et autres (ex : hors UCD - préparation médicamenteuse, produits nutritionnels)
+       1   ID_MED                     int(10)         Clé de la Table
+                                                      Libellé court du Médicament (Intégration de la BDD Médicament -
+       2   NOM_MED                    varchar(255)
+                                                      Thesorimed…)
+       3   NOM_LONG                   varchar(300)    Nom du Médicament (Intégration de la BDD Médicament - Thesorimed…)
+                                                      Lien sur le Médicament référencé dans la BDD Médicament
+                                                      Pour les produits hors médicaments (Poche de Sang / Produit diétique…) ==>
+       4   ID_EXTERNE                 int(10)
+                                                      ID_EXTERNE = 0
+                                                      ID_EXTERNE=-1 -> Dans le cas des DC
+       5   CODE_UCD                   varchar(13)     Code UCD (Intégration de la BDD Médicament - Thesorimed…)
+
+       6   HORS_LIVRET                char(1)         Médicament hors livret
+
+       7   SOLVANT                    char(1)         Permet de référencer les Solvants                                                'N'
+
+       8   NOM_MED_INTERNE            varchar(150)    Nom du Médicament modifié par le référent utilisateur / pharmacien
+
+       9   COMMENTAIRE                varchar(2000)   Commentaire au prescripteur
+                                                      Lien sur le Médicament référencé dans le logiciel de Stock
+      10   CODE_ARTICLE_EXT           varchar(10)
+                                                      Lien COPILOTE
+      11   PRODUIT_TRACABLE           char(1)         Si ='O' : Médicament devant être tracé
+                                                      Quantité minimale livrable (lié à l'unité - ID_UNITE_MED_LIVRABLE) : permet
+      12   QTE_MIN_LIVRABLE           decimal(9, 3)   de gérer les demandes nominatives en réalisant des demandes/commandes
+                                                      au moins égale a la quantité min livrable
+                                                      Unité en question pour la Quantité minimale livrable : permet de gérer les
+                                                      demandes nominatives en réalisant des demandes/commandes au moins
+      13   ID_UNITE_MED_LIVRABLE      int(10)         égale a la quantité min livrable
+                                                      Lien sur PRESC_THES_UNITE_MED.ID_UNITE_MED : (Base CCAM /
+                                                      CORA)
+                                                      Lien sur PRESC_CLASSE_ATC.ID_CLASSE_ATC : (Base CCAM / CORA)
+      14   ID_CLASSE_ATC              int(10)         Lien sur la table des Classifications des médicaments (selon une répartition
+                                                      anatomique, thérapeutique et chimique)
+      15   NOM_MED_FOURNISSEUR        varchar(150)
+
+      16   DATE_FIN                   datetime
+
+      17   ID_BILAN_TRACA             int(10)
+
+      18   DUREE_MAX                  int(10)
+
+      19   CODE_UCD13                 varchar(13)     Code UCD sur 13 carcatères
+                                                      Si = ‘O’ : géré par dotation
+      20   DOTATION                   char(1)         Si = ‘N’ : pas géré par dotation
+                                                      Si = Null : on prend le paramétrage établissement
+                                                      0 : pas d'arrondi
+      21   TYPE_ARRONDI               smallint(5)     1 : arrondi à la prise
+                                                      2 : arrondi à la quantité livrée
+      22   COMMENTAIRE_SOIGNANT       varchar(2000)   Commentaire au soignant
+
+      23   SAISIE_NUM_LOT             char(1)
+                                                      Permet de forcer la prise en compte lors d'un plan de cueillette même si le
+      24   FORCER_DISP                char(1)
+                                                      médicament est hors livret
+      25   GENERIQUE                  char(1)         O/N : Si O le médicament est un géénrique
+                                                         Définit le prix pour un UCD (hôpital). Cette information est importée de la base
+                                                         médicamenteuse par le biais de la procédure stockée GET_THE_PRE_PRI,
+      26   PRIX_UCD                     decimal(9, 2)    paramètre de sortie A.O pour THESORIMED, ou bien par le biais de la
+                                                         procédure GET_THE_PRIX_UNIT_EST, paramètre de sortie PRIX pour
+                                                         THERIAQUE.
+                                                         Définit la nature de l'UCD. Cette information est importée de la base
+                                                         médicamenteuse par le biais de la procédure stockée
+      27   UNITE_UCD                    varchar(150)
+                                                         GET_THE_PRESENTATION, paramètre de sortie PRE_NAT, que la BDM soit
+                                                         THERIAQUE ou bien THESORIMED.
+      28   CODE_GR_DC                   int(10)          Code de groupe de DC
+                                                         O/N : si O le médicament est un médicament virtuel sinon une spécialité
+      29   FLAG_DC                      char(1)
+                                                         commerciale.
+                                                         Lien vers PRESC_MED.ID_MED.
+      30   ID_MED_LIVRABLE              int(10)          Ce champ permet de définir un médicament livrable pour un médicament
+                                                         virtuel.
+      31   ID_MED_REF                   int(10)
+
+      32   MED_REF_LIBRE                varchar(100)

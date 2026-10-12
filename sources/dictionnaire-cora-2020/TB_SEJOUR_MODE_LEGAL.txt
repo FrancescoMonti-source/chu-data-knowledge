@@ -1,0 +1,16 @@
+==== TB_SEJOUR_MODE_LEGAL ====
+     1   ID_SEJOUR                 int(10)       FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+                                                 Lien sur TB_PMSI_PSY_MODE_LEGAL.CODE_MODE_LEGAL
+     2   CODE_MODE_LEGAL           char(1)
+                                                 Code du mode légal du séjour
+     3   DATE_EFFET                datetime      Date d'application du mode légal sur le séjour.
+
+     4   DATE_REEL                 datetime
+                                                        Lien sur TB_UTIL.ID_UTIL
+       5   ID_CREAT                    int(10)
+                                                        Identifiant de l'utilisateur de création
+       6   ID_PATIENT                  int(10)          FK TB_PATIENT.ID_PATIENT                                                               0
+                                                        Identifiant unique du mode légal chez l'émetteur pour gérer les modifications et
+       7   ID_EXTERNE                  varchar(16)
+                                                        suppressions
+       8   DATE_FIN_EFFET              datetime

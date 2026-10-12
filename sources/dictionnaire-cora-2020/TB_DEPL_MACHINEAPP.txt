@@ -1,0 +1,11 @@
+==== TB_DEPL_MACHINEAPP ====
+       1   ID_MACHINE                     int(10)        Identifiant unique de machine
+                                                         Identifiant unique de l'application. Se base sur les noms des balises xml
+       2   ID_MODULE                      varchar(30)
+                                                         utilisées dans le fichier pmc_installer.xml
+                                                         Identifiant unique de l'environnement (correspond au code de l'environnement
+       3   ID_ENVIRONNEMENT               varchar(30)
+                                                         dans CORA Server application)
+       4   DATE_VERIF                     datetime       Date de dernière vérification de la version de l'application sur le poste client
+
+       5   VERSION                        varchar(20)    Version installée sur le poste client

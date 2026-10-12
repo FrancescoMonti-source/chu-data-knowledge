@@ -1,0 +1,33 @@
+==== TB_MESSAGE ====
+                                                  Clé :
+     1   ID_MESSAGE                int(10)
+                                                  Identifiant de la table
+     2   ID_PERE                   int(10)        Identifiant du père
+
+     3   ID_PATIENT                int(10)        Identifiant du patient
+
+     4   ID_SEJOUR                 int(10)        Identifiant du séjour
+
+     5   ID_LIEN                   int(10)        Identifiant du lien (identifiant du mouvement, identifiant du RSS, …)
+
+     6   DATE_ENVOI                datetime       Date d'envoi du message
+
+     7   IMPORTANCE                smallint(5)    Importance du message (0 : Faible, 1 : Moyenne, 2 : Haute)
+
+     8   ID_AUTEUR                 int(10)        Identifiant de l'auteur
+
+     9   MOTIF                     varchar(200)   Motif du message
+                                   text
+    10   CORPS                                    Corps du message au format RTF
+                                   (2147483647)
+    11   DEM_ACCUSE_RECEPTION      char(1)        Indique si un accusé de réception a été demandé (O : Oui, N : Non)             'N'
+
+    12   ID_ECRAN                  smallint(5)    Identifiant du type d'écran associé
+
+    13   CODE_APPLI                char(3)        Code de l'application
+
+    14   ID_INFO                   int(10)        Identifiant info
+
+    15   DATE_INFO                 datetime       Date info
+
+    16   CODE_ECRAN_GEN            varchar(15)    Code de l'écran dans le cas d'un écran issu du générateur

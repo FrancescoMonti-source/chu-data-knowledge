@@ -1,0 +1,6 @@
+==== TB_SEJOUR_ERR ====
+     1   ID_SEJOUR                 int(10)       Identifiant du séjour
+
+     2   MOTIF                     varchar(6)    Motif d'erreur
+
+     3   DATE_ERR                  datetime      Date du motif de l'erreur

@@ -1,0 +1,46 @@
+==== TB_TYPE_IMPRESSION ====
+Caractéristique des impressions
+                                                     Clé :
+                                                     Code de l'impression.
+       1   CODE_IMPR                  char(10)
+                                                     Valeurs possibles : RUM, RSSPOPVALO, RSSPOPVIDH, RSSPOPFICH,
+                                                     RSSVALO, RSSVIDH, RSSFICH.
+                                                       Code impression : RUM et type impression : 1 -> Impression type RUM Privé -
+                                                       - Montants Actes + actes du médecin (sauf si DIM et secrétaires)
+                                                       .
+                                                       Code impression : RUM et type impression : 2 -> Impression type RUM Privé -
+                                                       - Montants Actes + tous les actes
+                                                       .
+                                                       Code impression : RUM et type impression : 3 -> Impression type RUM Public
+                                                       -- Pas de Montants Actes + actes du médecin (sauf si DIM et secrétaires)
+                                                       .
+                                                       Code impression : RUM et type impression : 4 -> Impression type RUM Public
+                                                       -- Pas de Montants Actes + tous les actes
+                                                       .
+                                                       Code impression : RUM et type impression : 5 -> Impression type Production
+                                                       Public -- Pas de Montants + Site Production.
+                                                       Code impression : RSSPOPVALO et type impression : 1 -> Impression des
+                                                       suppléments pour le ticket de caisse au niveau des populations.
+                                                       Code impression: RSSPOPVALO et type impression : 0 -> Pas d'impression
+                                                       des suppléments pour le ticket de caisse au niveau des populations.
+                                                       Code impression : RSSPOPVIDH et type impression : 1 -> Impression du
+       2   TYPE_IMPR                    char(1)
+                                                       VIDHOSP ou RSF pour le ticket de caisse au niveau des populations.
+                                                       Code impression: RSSPOPVALO et type impression : 0 -> Pas d'impression
+                                                       du VIDHOSP ou RSF pour le ticket de caisse au niveau des populations.
+                                                       Code impression : RSSPOPFICH et type impression : 1 -> Impression des
+                                                       fichComp MON et DMI pour le ticket de caisse au niveau des populations.
+                                                       Code impression: RSSPOPFICH et type impression : 0 -> Pas d'impression
+                                                       des fichComp MON et DMI pour le ticket de caisse au niveau des populations.
+                                                       Code impression : RSSVALO et type impression : 1 -> Impression des
+                                                       suppléments pour le ticket de caisse au niveau du RSS unitaire.
+                                                       Code impression: RSSVALO et type impression : 0 -> Pas d'impression des
+                                                       suppléments pour le ticket de caisse au niveau du RSS unitaire.
+                                                       Code impression : RSSVIDH et type impression : 1 -> Impression du
+                                                       VIDHOSP ou RSF pour le ticket de caisse au niveau du RSS unitaire.
+                                                       Code impression: RSSVIDH et type impression : 0 -> Pas d'impression du
+                                                       VIDHOSP ou RSF pour le ticket de caisse au niveau du RSS unitaire.
+                                                       Code impression : RSSFICH et type impression : 1 -> Impression des
+                                                       fichComp MON et DMI pour le ticket de caisse au niveau du RSS unitaire.
+                                                       Code impression: RSSFICHO et type impression : 0 -> Pas d'impression des
+                                                       fichComp MON et DMI pour le ticket de caisse au niveau du RSS unitaire.

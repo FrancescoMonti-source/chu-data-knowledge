@@ -1,0 +1,24 @@
+==== TRANSCODAGE_NGAP ====
+      1   CODE_CCAM         char(7)
+
+      2   PHASE_CCAM        smallint(5)
+
+      3   ACTIVITE_CCAM     smallint(5)
+
+      4   LC1               char(5)
+
+      5   Q1                char(5)
+
+      6   LC2               char(5)
+
+      7   Q2                char(5)
+
+      8   LC3               char(5)
+
+      9   Q3                char(5)
+
+     10   LC4               char(5)
+
+     11   Q4                char(5)
+
+     12   ARE               char(1)

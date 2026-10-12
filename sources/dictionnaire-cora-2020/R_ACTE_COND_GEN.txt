@@ -1,0 +1,8 @@
+==== R_ACTE_COND_GEN ====
+Conditions générales de l'acte
+                                                         CCAM n° 1
+       1    ACTE_COD                      char(13)
+                                                         Code semi-structuré de l'acte
+                                                         CCAM n° 10
+       2    CONDGE_COD                    int(10)
+                                                         Code condition générale

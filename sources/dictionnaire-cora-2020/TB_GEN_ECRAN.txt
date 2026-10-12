@@ -1,0 +1,45 @@
+==== TB_GEN_ECRAN ====
+     1   ID_ECRAN            smallint(5)
+     2   CODE_ECRAN                char(15)
+
+     3   LIB_ECRAN                 char(30)
+
+     4   COMMENTAIRE               varchar(200)
+
+     5   ACTIF                     char(1)                                                      'O'
+
+     6   NOM_TABLE                 char(22)
+
+     7   LIB_ITEM_REQ              char(30)
+
+     8   ID_ITEM_REQ               smallint(5)
+
+     9   DATE_CREAT                datetime       Date de création
+                                                  Lien sur TB_UTIL.ID_UTIL
+    10   ID_CREAT                  int(10)
+                                                  Identifiant de l'utilisateur de création
+    11   DATE_MODIF                datetime
+
+    12   ID_MODIF                  int(10)
+                                                  TYPE_ECRAN_PATIENT = 1
+                                                       TYPE_ECRAN_SEJOUR = 2
+                                                       TYPE_ECRAN_MVT = 3
+    13   TYPE_LIEN                 smallint(5)         TYPE_ECRAN_INTERVENTION = 4
+                                                       TYPE_ECRAN_RSS = 5
+                                                       TYPE_ECRAN_ACTE = 6
+                                                       TYPE_ECRAN_DIAG = 7
+    14   TYPE_CTRL_LIEN            smallint(5)                                                  1
+
+    15   TAILLE_HAUT               int(10)
+
+    16   TAILLE_LARGE              int(10)
+
+    17   COULEUR                   char(15)
+
+    18   TYPE_CREAT                char(1)
+
+    19   NB_PAGE                   smallint(5)                                                  1
+
+    20   ID_CATEGORIE_IMPRESSION smallint(5)
+
+    21   HISTORIQUE                char(1)                                                      'N'

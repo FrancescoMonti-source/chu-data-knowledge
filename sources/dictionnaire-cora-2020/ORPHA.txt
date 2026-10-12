@@ -1,0 +1,7 @@
+==== ORPHA ====
+Table contenant le thésaurus des maladies orphelines
+       1   NUM_ORPHA                  int(10)          Numéro Orphanet.Clé de la Table.
+
+       2   LIBELLE_ORPHA              varchar(200)     Libellé de la maladie Orphanet
+
+       3   LIBELLE_ORPHA_SS_ACC       varchar(200)     Libellé sans accent de la maladie orpheline

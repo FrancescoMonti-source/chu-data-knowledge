@@ -1,0 +1,20 @@
+==== TB_SAUV_MAIL ====
+Cette table contient l'ensemble des emails envoyés.
+                                                       Clé :
+       1   ID_MAIL                     int(10)
+                                                       Définit l'identifiant de l'email.
+                                                       Lien vers Util.ID_UTIL :
+       2   ID_INFO                     int(10)
+                                                       Définit l'identifiant de l'utilisateur ayant effectué l'envoi de l'email.
+       3   DATE_ENVOI                  datetime        Définit la date d'envoi de l'email.
+
+       4   HEURE_ENVOI                 datetime        Définit l'heure d'envoi de l'email.
+
+       5   MAIL_ENVOI                  varchar(500)    Définit l'adresse email à laquelle le mail est envoyé.
+
+       6   TEXTE_MAIL                  varchar(1000)   Définit le corps du mail.
+
+       7   CODE_FONCTION               char(20)        Définit le code de la fonction. "CORR"
+                                                       Lien vers TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT :
+       8   ID_DOCUMENT_PATIENT         int(10)
+                                                       Définit l'identifiant du document patient.

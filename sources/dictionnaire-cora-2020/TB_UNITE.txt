@@ -1,0 +1,189 @@
+==== TB_UNITE ====
+Thésaurus des Unités (UF) Clé :
+Thésaurus des Unités (UF)
+                                               Clé :
+      1    ID_UNITE              int(10)
+                                               Identifiant (PrisMédica) de l'Unité
+      2    CODE_UNITE            char(12)      Code Unité
+
+      3    LIBELLE_UNITE         varchar(50)   Libellé de l'Unité
+
+      4    UNITE_EXEC            char(1)       Permet de savoir si des actes sont réalisés dans cet Unité (si ="O")
+                                               NE PLUS UTILISER OBSOLETE
+      5    UF                    char(1)
+                                               Permet de savoir si l'Unité est une Unité Fonctionnelle (si ="O")
+                                               NE PLUS UTILISER OBSOLETE
+      6    UM                    char(1)
+                                               Permet de savoir si l'Unité est une Unité Médicale (si ="O")
+                                               Lien sur TB_UNITE.ID_UNITE :
+      7    ID_PERE               int(10)
+                                               Permet de réaliser une arborescence dans cette liste des Unités
+      8    ACTIF                 char(1)       Unité active (si ="O")
+
+      9    HJ                    char(1)       Unité d'Hospitalisation de jour (si ="O")
+                                               ‘M’ ou ‘C’ ou ‘O’ (Médecine / Chirurgie ou Obstétrique)
+
+      10   TYPE_UNITE_PMSI       char(1)       M, 1, 2, 3 et le reste : Médecine
+                                               C : Chirurgie
+                                               O : Obstétrique
+      11   GESTION_PMSI          char(1)       Unité soumise au PMSI (si ="O"). Unité de type MCO.
+
+      12   REA                   char(1)       Unité de Réanimation (si ="O")
+
+      13   EXTERNE               char(1)       Unité de Consultation Externe (si ="O")
+
+      14   URGENCE               char(1)       Unité d'Urgence (si ="O")
+
+      16   LGSEJ                 char(1)       Unité de Long Séjour (si ="O")
+
+      17   PSY                   char(1)       Unité de Psychiatrie (si ="O")
+
+      18   SSR                   char(1)       Unité SSR (si ="O")
+
+      19   HAD                   char(1)       Unité d'Hospitalisation à Domicile (si ="O")
+                                               si = 'O' : seul les utilisateurs de cette Unité peuvent visualier les mouvements
+      20   CONFIDENTIEL          char(1)
+                                               de cette unité
+                                               Utilisé pour les Interfaces (surtout HPRIM) :
+      21   SEANCE                char(1)       Permet de gérer les cas d'hospitalisation de jour ou le jour d'entrée (début de
+                                               séjour) n'est pas une journée de séance (si '="O")
+      22   UHCD                  char(1)       Unité d'Hospitalisation de courte durrée (si ="O")
+
+      23   AMBULATOIRE           char(1)       Unité d'Ambulatoire (si ="O")
+
+      24   EXT_MED_TECH          char(1)       Unité d'Externe Médico-Technique (si ="O")
+                                               Permet de caractériser les séjours réalisés dans des Unités Médicales ayant
+                                               une autorisation (ou reconnaissance) d'activité particulière.
+                                               Autorisations identifiées :
+                                               - '01' : Réanimation
+                                               - '02' : Soins intensifs
+                                               - '03' : Surveillance continue
+      27   TYPE_AUTORISATION     varchar(3)    - '04' : Néonatalogie sans soins intensifs (type 2A)
+                                               - '05' : Néonatalogie avec soins intensifs (type 2B)
+                                               - '06' : Néonatalogie et réanimation péritanale (type 3)
+                                               - '07' : Zone de surveillance de courte durée
+                                               - '08' : Soins palliatifs
+                                               - '11' : Anesthésie ou chirurgie ambulatoire
+                                               - '12' : Hospitalisation à temps partiel de jour ou de nuit
+                                               Utilisé pour les Interfaces (surtout HPRIM) :
+      28   FERMETURE_AUTO        char(1)       Permet de cloturer automatiquement les mouvements de l'Unité : cas des
+                                               mouvements d'un jour (Externe, Hospit de jour dans certains cas)
+                                                Coefficient d'atténuation pour les Unités non conventionnées à utiliser pour la
+                                                valorisation des Séjour, à appliquer au Montant GHS.
+29   COEF_ATTENUATION          decimal(10, 2)   Un coefficient d'atténuation est aussi paramétré au niveau de l'établissement.
+                                                Pour un établissement non conventionné, il est possible de paramétrer les
+                                                Unités conventionnées en mettant 1 à cette valeur dans le Thésaurus Unité
+                                                N° de Finess particulier attribué aux Unités. (Le n° de Finess de
+                                                l'établissement est paramétré dans TB_CONFIGURATION)
+30   NO_FINESS                 char(9)
+                                                Pour un établissement non conventionné, si certaines Unités sont
+                                                conventionnées il est nécessaire de leur paramétrés un n° de finess particulier
+                                                Unité d'un autre Etablissement (utilisé pour saisir l'activité réalisée lors de
+31   EXTERIEUR                 char(1)
+                                                Transfert d'établissement)
+                                                Date d'effet (de début) d'autorisation pour les Unités Médicales ayant une
+32   DATE_EFFET_AUTORISATION datetime
+                                                autorisation d'activité particulière
+                                                Nombre de lits autorisés pour les Unités Médicales ayant une autorisation
+33   NB_LIT_AUTORISATION       smallint(5)
+                                                d'activité particulière
+34   ID_MED_RESP               int(10)          Médecin responsable de l'Unité (=Chef de Service)
+                                                Permet de paramétrer une Unité d'Externe comme Unité demandeuse par
+35   UNITE_DEFAUT_DEM          char(1)
+                                                défaut (utilisation dans la Saisie Externe) --> doit être à 'O'
+     PRINT_FICHE_EXTERNE_AUT                    Permet de paramétrer des Unités où l'impression de la fiche Externe se réalise
+36                           char(1)
+     O                                          automatiquement (si ='O')
+                                                Permet de gérer le fait que pour certaines unités, il n’y a pas de facturation de
+37   NON_FACTURATION           char(1)
+                                                l’activité
+                                                Un utilisateur qui est relié, via son site de connexion, à une unité restreinte, ne
+                                                verra que les patients de cette unité. Ce paramètre force le filtre de recherche
+38   RESTREINTE                char(1)
+                                                des unités sur l’unité de connexion et l’utilisateur ne peut pas la modifier. Il ne
+                                                peut donc pas accéder aux autres dossiers.
+39   NB_LIT_DEDIE              smallint(5)      Nb de lit de soins palliatifs dédiés pour l'Unité
+     NB_JOUR_VISU_DOSSIER_SO                    Gestion de la visualisation restreinte des dossiers d'une Unité : permete de
+40                           smallint(5)
+     RTIE                                       paramétrer le nombre de jour ou le dossier pourra être visualisé
+41   CHIMIO_GC                 char(2)          Unité de Chimio en Gestion Calendaire (1 Mvt et n Séances)
+                                                Unité de Dialyse Ambulatoire en Gestion par Prestations (1 Mvt et n
+42   DIALYSE_GP                char(2)
+                                                Prestations)
+                                                Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                CORA_UTIL)
+43   ID_ETABLIS                smallint(5)
+                                                Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                Siège centralisée
+44   TYPE_LIT_DEDIE            char(2)          Type de lit dédié de l'unité "08"
+
+45   DUREE_VISU_DOSSIER        smallint(5)
+
+46   GESTION_MOD_UN            char(1)          Si ='O' : Gestion Auto. Modificateurs Urgence                                          'O'
+                                                Type de l'unité PSY :
+                                                - Hospit' Complete : C
+47   TYPE_UNITE_PSY            char(1)
+                                                - Hospit' Partielle : P
+                                                - Ambulatoire : A.
+                                                Code de prise en charge. Lié avec la table (TB_) PMSI_PSY_NATURE_PEC
+48   CODE_NATURE_PEC           char(2)
+                                                pour la psy.
+49   CODE_SECTEUR              char(5)          Code Secteur -Paramétrage Psy
+
+50   FINESS_GEO                char(9)          N° de Finess Géographique -Paramétrage Psy
+
+51   CODE_SAE                  char(10)         Code SAE - Paramétrage Psy
+
+52   CODE_FA                   char(10)         Code FA - Paramétrage Psy
+                                                Paramétrage de l'Unité prise en compe pour la génération automatique du
+54   UNITE_DEFAUT_AMBU_PSY     char(1)
+                                                mouvement d'ambu Psy
+55   ID_FAVORI_DEFAUT          int(10)          Lien sur un Favori par défaut de l'Unité
+
+56   UFH                       char(1)          si = 'O' : Uf d'hébergement (uf localisation)                                          'N'
+
+57   UFM                       char(1)          si = 'O' : Uf de responsabilité médicale                                               'N'
+                                                Lien sur PMSI_AUTORISATION_SSR.CODE_AUTORISATION_SSR
+58   CODE_AUTORISATION_SSR     char(3)
+                                                Lien sur les Autorisations SSR
+                                                         1 - Hospitalisation complète ou de semaine en soins de suite médicalisés
+                                                         2 - Hospitalisation de jour en soins de suite médicalisés
+                                                         3 - Hospitalisation de nuit en soins de suite médicalisés
+                                                         4 - Traitements et cures ambulatoires (séances) en soins de suite médicalisés
+       59   TYPE_HOSPIT_SSR               smallint(5)
+                                                         5 - Hospitalisation complète ou de semaine en rééducation fonctionnelle
+                                                         6 - Hospitalisation de jour en rééducation fonctionnelle
+                                                         7 - Hospitalisation de nuit en rééducation fonctionnelle
+                                                         8 - Traitements et cures ambulatoires (séances) en rééducation fonctionnelle
+       60   RADIOTHERAPIE                 char(1)        ='O Si Unité de Radiothérapie
+
+       61   TYPE_DISPENSATION             char(1)        utilisée pour Cora DPS
+
+       62   PERIODICITE_REASSORT          smallint(5)    utilisée pour Cora DPS
+
+       63   HEURE_DEBUT_REASSORT          datetime       utilisée pour Cora DPS
+
+       64   BLOCAGE_ENVOI_DMP             char(1)        utilisée pour Cora DPS                                                            'N'
+
+       65   TYPE_ACTIVITE                 char(2)
+
+       66   CODE_UNITE_DEPENSE            char(12)       utilisée pour Cora DPS
+
+       67   EMAIL_UNITE                   varchar(100)   Mail CORA Document / DPS d'envoi pour l'UF
+
+       68   RADIOTHERAPIE_RSP             char(1)        Préparation radiothérapie
+
+       69   PEDIATRIE                     char(1)        si = 'O' unité flaggué comme type pédiatrie
+                                                         Si unité de type UFH -> Code de l'unité de resp med lié.
+       70   CODE_UF_LIE                   char(12)       Si unité de type UFM -> Code de l'unité d'hébergement lié.
+                                                         Si unité de type UFH et UFM -> Unité elle même
+       71   GESTION_MOD_LIT               char(1)        Indique si l'unité est géré dans CORA LIT
+                                                         Indique que le RSS correspondant à l'unité doit être signé en cas de gestion de
+       72   SIGN_RUM_UF                   char(1)
+                                                         la signature des RUM par UF
+                                                         Numéro de regroupement des unités dans un même fichier lors de la
+       73   ORDRE_RPU                     char(1)                                                                                          '0'
+                                                         génération du RPU
+       74   ID_EJ                         smallint(5)    Identifiant de l'EJ de l'unité fonctionnelle                                      1
+
+       75   ID_EXTERNE                    varchar(16)

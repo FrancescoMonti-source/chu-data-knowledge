@@ -1,0 +1,21 @@
+==== TB_DOC_TYPE ====
+Définit une table contenant un thésaurus des types de documents ASIP.
+                                                       Clé :
+       1   ID_DOC_TYPE                 smallint(5)
+                                                       Définit l'identifiant du type de document ASIP.
+       2   CODE_OFFICIEL               varchar(10)     Définit le code officiel du type de document ASIP.
+
+       3   LIB_DOC_TYPE                varchar(100)    Définit le libellé pour le type de document ASIP.
+
+       4   CODE_REGROUP                char(2)         Définit le code de regroupement des types de documents ASIP.
+
+       5   LIB_REGROUP                 varchar(50)     Definit le libéllé des regroupements des types de documents ASIP.
+
+       6   DEFINITION                  varchar(1000)   Définit la définition pour le type de document ASIP.
+                                                       Définit un boolean indiquant si le conglomerat du type de typologie et
+       7   ACTIF                       char(1)                                                                                                 'O'
+                                                       classification est actif.
+                                                       Définit un boolean indiquant si le conglomerat du type de typologie et
+       8   FLAG_ENVOI_DMP              char(1)
+                                                       classification est envoyable au DMP.
+       9   CLE_OID                     varchar(50)     Définit une clé OID.

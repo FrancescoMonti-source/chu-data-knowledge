@@ -1,0 +1,8 @@
+==== TB_THES_CHAMBRE_TYPE_CH ====
+Thésaurus des types de chambres d'une chambre
+                                                     Lien vers TB_THES_CHAMBRE.ID_CHAMBRE
+      1    ID_CHAMBRE                 int(10)
+                                                     Identifiant de la chambre
+                                                     Lien vers TB_THES_TYPE_CHAMBRE.ID_TYPE_CHAMBRE
+      2    ID_TYPE_CHAMBRE            smallint(5)
+                                                     Identifiant du type de chambre

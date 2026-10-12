@@ -1,0 +1,83 @@
+==== TB_RSF_HIST_FACT ====
+                                             Copie de TB_RSF_FACT : identifiant de la facture : clef primaire de
+     1   ID_RSF_FACT           int(10)
+                                             TB_RSF_FACT
+                                             Copie de TB_RSF_FACT :Identifiant de l'import de la facture. Lien sur
+     2   ID_RSF_IMPORT         int(10)
+                                             TB_RSF_IMPORT.ID_RSF_IMPORT.
+                                             Copie de TB_RSF_FACT :Numéro du séjour. Lien sur
+     3   NO_SEJOUR             char(20)
+                                             TB_SEJOUR.NO_SEJOUR.
+                                                     Copie de TB_RSF_FACT : FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA
+       4   ID_SEJOUR                  int(10)
+                                                     du séjour
+       5   NO_FACTURE                 char(9)        Copie de TB_RSF_FACT : Numéro de la facture.
+                                                     Copie de TB_RSF_FACT :
+                                                     1 - PAIEMENT NORMAL
+                                                     3 - RAPPEL EN VALEUR
+                                                     Est utilisé, sous réserve d’un accord local, pour un rappel à la suite d’une
+                                                     augmentation de prix
+                                                     unitaire.
+                                                     Cette nature d’opération est interdite pour le Régime Général et pour la Caisse
+                                                     de Retraite et de
+                                                     Prévoyance de Clercs et Employés de Notaires.
+                                                     4 - RÉGULARISATION POSITIVE
+                                                     Est utilisée, sous réserve d’un accord local, après une régularisation négative
+       6   NATURE_OP                  char(1)        (code 5), pour
+                                                     régulariser un paiement antérieur (exemple : changement de risque, de
+                                                     bénéficiaire, de taux de
+                                                     prise en charge).
+                                                     Lorsque la régularisation positive est inférieure à la régularisation négative, elle
+                                                     génère un indu
+                                                     et, dans le cas contraire, un paiement complémentaire.
+                                                     5 - RÉGULARISATION NÉGATIVE
+                                                     Est utilisée, sous réserve d’accord local, pour annuler un paiement erroné.
+                                                     Elle peut exister seule ou être suivie d’une régularisation positive.
+                                                     9 - ANNULATION FEUILLES DE SOINS ELECTRONIQUES
+                                                     Feuilles de soins électroniques SESAM annulées dans le même lot.
+       7   MEMO_LIGNE_FACT            varchar(200)   Copie de TB_RSF_FACT : Mémorirsation de la ligne B2
+
+       8   DATE_INFO                  datetime       Copie de TB_RSF_FACT : Date de la dernière modification
+                                                     Copie de TB_RSF_FACT : Lien vers Util.ID_UTIL.
+       9   ID_INFO                    int(10)
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification
+                                                     Copie de TB_RSF_FACT : Identifiant de la facture de la mère. Lien vers
+      10   ID_RSF_FACT_MERE           int(10)
+                                                     TB_RSF_FACT.ID_RSF_FACT.
+      11   FLAG_ENVOI                 char(1)
+
+      12   TYPE_INFO                  char(1)
+
+      13   ID_HIST                    int(10)        Identifiant de l'utilisateur ayant permis l'historisation de ligne
+
+      14   DATE_HIST                  datetime       Date de l'historisation
+
+      15   ID_RSF_IMPORT_HIST         int(10)
+
+      16   FLAG_FACT_DECOUP           char(1)
+
+      17   ID_RSS                     int(10)        Identifiant du RSS.
+
+      18   RSF_HORS_HOSPIT            char(1)
+
+      19   ETAT_LIQUIDATION           char(1)        Etat de liquidation de la facture.
+
+      20   TYPE_CONTRAT_COMPL         char(2)
+
+      21   NUM_LOT                    int(10)
+
+      22   DATE_CONSOL                datetime
+
+      23   PATIENT_CMU                char(1)
+
+      24   NO_FACTURE_MERE            varchar(9)
+
+      25   NO_ACC_TRAVAIL             varchar(9)
+
+      26   NO_ORGA_COMPL              varchar(10)
+
+      27   NO_SECU_INDIVIDUEL         char(13)
+
+      28   CLE_SECU_INDIVIDUEL        char(2)
+
+      29   CODE_GESTION               char(2)

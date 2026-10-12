@@ -1,0 +1,11 @@
+==== R_TB04 ====
+spécialités exécutants et prescripteurs
+       1   COD_SPECIA                     char(3)       code spécialité
+                                                        date d'effet de l'association
+       2   DT_DEBUT                       datetime
+                                                        specialité + catégorie
+       3   CATSPE_COD                     char(2)       code catégorie de spécialité
+
+       4   LIBELLE                        char(100)     libellé de la spécialité
+
+       5   DT_FIN                         datetime      Date de fin

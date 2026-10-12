@@ -1,0 +1,99 @@
+==== TB_DIAG ====
+Tables des diagnostics CIM réalisés (Par Mouvement)
+                                                      Clé :
+      1    ID_DIAG                   int(10)
+                                                      Identifiant (PrisMédica) du diagnostic
+                                                      Lien sur TB_PATIENT.ID_PATIENT :
+      2    ID_PATIENT                int(10)
+                                                      Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                      Lien sur TB_SEJOUR.ID_SEJOUR :
+      3    ID_SEJOUR                 int(10)
+                                                      Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+                                                      Lien sur TB_MVT.ID_MVT :
+      4    ID_MVT                    int(10)
+                                                      Identifiant du Mouvement (Lien obligatoire)
+                                                      Utilisé par l'interface pour stocker provisoirement la date du debut du mvt (ou
+      6    DATE_DIAG                 datetime
+                                                      du début de la semaine en SSR) d'un diag lors de la fusion de deux mvts.
+      8    CODE_DIAG                 char(16)         Code Diagnostic (de la nomenclature CIM)
+                                                      Utilisé pour réaffecter le diag a un autre mvt d'une même unité (int CEGI) cf
+      9    UNITE_F                   char(12)
+                                                      champs REAFFECTER et RANG_MVT
+                                             Type du Diagnostic :
+                                             '------- Général
+                                             'P' : Diag Principal
+                                             'S' : Diag Significatif (DAS)'
+                                             ------- MCO
+                                             'R' : Diag Relié
+                                             'D' : Diag Documentaire
+                                             '------- SSR
+10   TYPE_DIAG                 char(1)       'F' : Finalité principale
+                                             'M' : Morbidité principale
+                                             'E' : Affection Etiologique
+                                             '------- PSY
+                                             'T' : Longitudinal
+                                             'U' : Sommatique
+                                             'V' : Facteur Environnemental I
+                                             'W' : Facteur Environnemental II
+                                             'X' : Cause
+11   DATE_INFO                 datetime      Date de dernière modification de ce diag
+                                             Lien sur Util.id_util :
+12   ID_INFO                   int(10)       Identifiant du dernier utilisateur ayant réalisé une modification de ce diag
+                                             (Typage…)
+13   HEURE_INFO                datetime      Heure de dernière modification de ce diag
+                                             Permet de savoir si le Diagnostic a été émis (Interface Diag-PMSI) : si ='X'
+14   FLAG_EMISSION             char(1)
+                                             Exceptionnellement : si ='R' diags récupérés au démarrage du site
+15   DATE_EMISSION             datetime      Date d'émission du Diagnostic (Interface Diag-PMSI)
+
+16   HEURE_EMISSION            datetime      Heure d'émission du Diagnostic (Interface Diag-PMSI)
+                                             Lien sur TB_MVT_SSR_SEM.NO_SEMAINE :
+17   NO_SEMAINE                int(10)       Pour les actes saisis en SSR : permet de savoir sur quelle semaine cet acte a
+                                             été réalisé
+                                             Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+19   ID_COTATION_NGAP          int(10)       Lors de la saisie d'acte NGAP, il est possible de lier une cotation NGAP a des
+                                             diagnostics
+                                             Spécifique - Récup de données :
+20   VERSION_CIM               char(1)
+                                             Certains diagnostics récupérés sont des diags de la CIM 9 (="9")
+                                             Gestion Interface :
+21   TYPE_TRANSFERT            char(1)
+                                             Diag importé d'une Autre application (si = "R")
+                                             Gestion Interface :
+22   DATE_TRANSFERT            datetime
+                                             Date d'import de ce diagnostic
+                                             Gestion Interface :
+23   APPLI_TRANSFERT           char(3)       Code de l'application qui a émis le diagnostic
+                                             - IRD : (Interface Rum Diagnostic) pour un import sous format RUM
+24   DATE_CREAT                datetime      Date de création du diagnostic
+                                             Lien sur Util.id_util :
+25   ID_CREAT                  int(10)
+                                             Identifiant de l'utilisateur ayant crée le diagnostic
+                                             Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE :
+26   ID_SEQUENCE               int(10)
+                                             Lié sur la séquence Psy d'affectation
+                                             indique sur quel mouvement se l'unité <UNITE_F> est positionné le diag (int
+27   RANG_MVT                  smallint(5)
+                                             pat CEGI)
+                                             Placé à O pour indiquer que le diag est à réaffecter à un autre MVT (int pat
+28   REAFFECTER                char(1)
+                                             CEGI)
+                                             Lien sur TB_INTERVENTION.ID_INTERVENTION :
+29   ID_INTERVENTION           int(10)
+                                             Identifiant de l'Intervention Bloc (si le diag a été saisie dans l'écran Bloc)
+                                             ATTENTION : Lien sur TB_MVT_HAD.NO_SEQ, et pas
+30   ID_SEQ_HAD                int(10)
+                                             TB_MVT_HAD.ID_SEQ_HAD
+                                             Lien sur Util.id_util :
+31   ID_SIGN                   int(10)
+                                             Identifiant de l'utilisateur ayant signé le diag (Utilisation en psy)
+32   DATE_SIGN                 datetime      Date de signature (lié a ID_SIGN)
+                                             Lien sur TB_APPLICATION.ID_APPLICATION :
+33   ID_APPLICATION_TRANSFERT int(10)        Lien sur l'application ayant émis le Diag (complément de APPLI_TRANSFERT
+                                             avec les nouvelles applications .net)
+                                             Lien sur le Générateur d'écran :
+34   ID_GEN_DIAG               int(10)       Lien sur la fiche et l'enregistrement ayant initié la création de ce Diagnostic
+                                             (Cora Générateur)
+35   TYPE_DIAG_HAD             char(1)
+
+36   ID_SS_SEQ_HAD             int(10)       Identifiant de la sous séquence à laquelle le diagnostic est rattaché

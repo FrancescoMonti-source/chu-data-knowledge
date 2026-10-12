@@ -1,0 +1,13 @@
+==== TB_SALLE_BLOC ====
+Thésaurus des Salles d'opérations
+                                                       Clé :
+       1   ID_SALLE                    int(10)
+                                                       Identifiant (PrisMédica) de la Salle d'opérations
+                                                       Lien - sur TB_SITE.ID_SITE :
+       2   ID_BLOC                     int(10)         Identifiant du Site lié a cette Salle (Ce site doit être un site paramétré comme
+                                                       un site de Bloc)
+       3   LIBELLE_SALLE               char(150)       Libellé de la Salle
+
+       4   CODE_SALLE                  char(10)        Code la Salle
+
+       5   ACTIF                       char(1)         Salle active (si ="O")

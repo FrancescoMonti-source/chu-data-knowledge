@@ -1,0 +1,27 @@
+==== TB_ERREUR_NGAP ====
+Table des erreurs pour l'Interface Actes NGAP
+                                                        Clé :
+       1    ID_ERR_NGAP                 int(10)
+                                                        Identifiant interne de la table
+                                                        Lien sur TB_ACTE.ID_ACTE :
+       2    ID_ACTE                     int(10)
+                                                        Lien sur l'acte CCAM, si l'acte NGAP en erreur vient d'un transcodage
+                                                        Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       3    ID_COTATION                 int(10)
+                                                        Lien sur la cotation, si l'acte NGAP en erreur vient d'une saisie NGAP
+       4    LIBELLE_ERR                 varchar(100)    Libellé de l'erreur
+                                                           Lien sur TB_EMISSION.NO_LOT :
+       5   NO_LOT                          int(10)
+                                                           Lien sur le n° de lot d'envoi concerné (Lien obligatoire)
+       6   DATE_ERR                        datetime        Date ou l'erreur est intervenue
+
+       7   TRANSCODAGE                     varchar(40)     Sauvegarde de la cotation envoyée (cas d'un envoi d'un Transcodage)
+                                                           Suite à une erreur de transcodage : quand on réenvoit la cotation, on
+       8   EMIS                            char(1)
+                                                           enregistre cette action (="O")
+                                                           Suite à une erreur de transcodage : quand on réenvoit la cotation, on
+       9   DATE_EMISSION                   datetime
+                                                           enregistre la date de réenvoi
+                                                           Type descriptif de l'erreur :
+      10   TYPE_ERR                        char(1)         - 'L' : Problème de lien (ex : Patient manquant)
+                                                           - 'T' : Problème de Transcodage (transcodage absent)

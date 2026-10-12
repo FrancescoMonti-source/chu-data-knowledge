@@ -1,0 +1,7 @@
+==== TB_INT_TRAITEMENT_REQUETE ====
+                                               Identifiant du traitement associé à la requête de sélection FK
+       1   ID_TRAITEMENT       smallint(5)
+                                               TB_INT_TRAITEMENT
+       2   ID_REQUETE          int(10)         Identifiant de la requête de sélection FK TB_INT_REQUETE
+
+       3   ORDRE               smallint(5)     Ordre dans lequel réaliser les traitements (si plusieurs)

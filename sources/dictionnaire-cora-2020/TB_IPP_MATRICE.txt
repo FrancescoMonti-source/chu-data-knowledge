@@ -1,0 +1,11 @@
+==== TB_IPP_MATRICE ====
+Table contenant l'ensemble des identifiants externes (hors ID CORA) d'un patient: IPP local, régional, fédérateur
+       1   ID_IPP_MAT                   int(10)        PK
+
+       2   IPP                          varchar(20)    Identifiant du patient
+
+       3   ID_EJ                        smallint(5)    FK TB_EJ.ID
+
+       4   ID_PATIENT                   int(10)        FK TB_PATIENT.ID_PATIENT
+
+       5   ID_IPP_TYPE                  smallint(5)    FK TB_IPP_TYPE .ID_IPP_TYPE

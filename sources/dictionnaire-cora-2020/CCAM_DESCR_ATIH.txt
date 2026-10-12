@@ -1,0 +1,13 @@
+==== CCAM_DESCR_ATIH ====
+Table de lien entre le code acte CCAM et l'extension atih de l'acte CCAM. L'extension atih permet une meilleure description de
+l'acte via une meilleure précision du libellé -> CCAM DESCRIPTIVE.L'extension atih est utilisé dans le groupage MCO HAD et
+SSR à partir de mars 2015.
+       1   CODE_ACTE                   char(7)          Code de l’acte
+
+       2   EXTENSION_ATIH              varchar(2)       Extension (ex : 01)
+
+       3   LIBELLE                     varchar(600)     Libellé de l’acte (fonction de l’extension)
+
+       4   DATE_DEBUT                  datetime         Gestion de l’historique : Date de début
+
+       5   DATE_FIN                    datetime         Gestion de l’historique : Date de fin

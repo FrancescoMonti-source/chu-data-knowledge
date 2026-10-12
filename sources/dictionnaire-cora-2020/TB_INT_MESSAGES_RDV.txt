@@ -1,0 +1,24 @@
+==== TB_INT_MESSAGES_RDV ====
+                                          FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+     1   ID_MESSAGE       int(10)
+                                          DOC...).ID_MESSAGE
+     2   ID_MESSAGE_HL7   int(10)         FK TB_MESSAGES_HL7.ID_MESSAGE_HL7
+
+     3   ID_SEJOUR        int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+     4   ID_PATIENT       int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     5   ID_APPLICATION   smallint(5)     Lien sur TB_INT_APPLICATION.ID
+
+     6   DATE_MESSAGE     datetime        Date du message
+
+     7   TYPE_MESSAGE     char(2)         Type de message reçu ou envoyé
+
+     8   ID_PATIENT_RDV   int(10)         FK TB_PATIENT_RDV.ID_PATIENT_RDV
+
+     9   ID_INTERNE       int(10)         Identifiant interne CORA, la nature de l'identfiant dépent du contexte de la ligne
+
+    10   ID_RDV           int(10)         FK Lien sur TB_RDV.ID_RDV
+                                          FK Identifiant du message lié (Lien message envoyé ou reçu avec son
+    11   ID_MESSAGE_LIE   int(10)
+                                          acquittement)

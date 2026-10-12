@@ -1,0 +1,4 @@
+==== BNA_REGION ====
+       1   ID_REGION                    smallint(5)
+
+       2   LIBELLE                      varchar(150)

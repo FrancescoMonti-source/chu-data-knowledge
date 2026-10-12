@@ -1,0 +1,4 @@
+==== TB_MODELE_IMPRESSION_UNITE ====
+     1   ID_MODELE_IMPRESSION      smallint(5)
+
+     2   ID_UNITE                  int(10)

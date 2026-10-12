@@ -1,0 +1,7 @@
+==== PMSI_LIB_REGROUP ====
+Table contant l'ensemble des libellés des regroupements
+       1   CODE_PMSI_REGROUP           varchar(4)      Code du regroupement
+
+       2   LIB_PMSI_REGROUP            varchar(300)    Libellé du regroupement
+
+       3   TYPE_PMSI_REGROUP           char(2)         Type de regroupement DA, GA, GC

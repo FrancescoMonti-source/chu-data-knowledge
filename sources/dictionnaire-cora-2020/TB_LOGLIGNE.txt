@@ -1,0 +1,15 @@
+==== TB_LOGLIGNE ====
+table de log utilisé par les outils de packaging CORA Package Création
+       1   REF_SESSION_ID              char(36)        identifiant unique de session de log (GUID sous forme de string)
+
+       2   ID_PROPRE                   char(36)        identifiant unique de message de log (GUID sous forme de string)
+                                                       niveau de log:
+                                                            UTILISATEUR = 0 ' visible sur les interfaces graphiques
+       3   LOG_LEVEL                   smallint(5)
+                                                            DEVELOPPEUR = 1 ' visible en mode DEBUG, ou en base de données
+                                                       (= mode COMPLET)
+       4   MESSAGE                     varchar(500)    Contenu du message de log
+
+       5   GUID_RATTACH                char(36)        identifiant unique du message de log lié à ce message
+
+       6   HORAIRE_COURANT             datetime        date d'enregistrement du log
