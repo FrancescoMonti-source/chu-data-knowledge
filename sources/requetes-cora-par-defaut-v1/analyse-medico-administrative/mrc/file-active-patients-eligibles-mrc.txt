@@ -1,0 +1,22 @@
+-- catalogue CORA : Analyse médico-administrative / MRC / file active patients eligibles MRC
+SELECT      MRC.ANNEE AS "ANNEE CIVILE" , 
+    CASE WHEN IPPM.IPP IS NULL THEN P.IPP_PATIENT ELSE IPPM.IPP END AS "NUM IPP PATIENT" , 
+    P.NOM_USUEL_PATIENT AS "NOM USUEL" , 
+    P.PRENOM_PATIENT AS "PRENOM" , 
+    P.NOM_NAISSANCE AS "NOM NAISSANCE" , 
+    P.SEXE AS "SEXE" , 
+    MRC.DATE_DEBUT AS "DATE DEBUT PARCOURS MRC" , 
+    MRC.DATE_FIN AS "DATE FIN PARCOURS MRC" , 
+    CASE MRC.STADE_MRC_S1 WHEN '4' THEN '4 - Stade 4 de maladie' WHEN '4A' THEN '4A - Stade 4A de maladie' WHEN '4B' THEN '4B - Stade 4B de maladie' WHEN '5' THEN '5 - Stade 5 de la maladie' END AS "STADE MRC S1" , 
+    CASE MRC.STADE_MRC_S2 WHEN '4' THEN '4 - Stade 4 de maladie' WHEN '4A' THEN '4A - Stade 4A de maladie' WHEN '4B' THEN '4B - Stade 4B de maladie' WHEN '5' THEN '5 - Stade 5 de la maladie' END AS "STADE MRC S2" 
+
+FROM     TB_PATIENT P
+     INNER JOIN TB_MALADIE_RENALE_CHRONIQUE MRC
+      ON  P.ID_PATIENT=MRC.ID_PATIENT
+     LEFT JOIN TB_IPP_MATRICE IPPM
+      ON  P.ID_PATIENT = IPPM.ID_PATIENT AND IPPM.ID_IPP_TYPE = 1
+
+WHERE 
+1=1 
+ AND MRC.ANNEE = '2020'
+

@@ -1,0 +1,21 @@
+-- catalogue CORA : Certification des comptes / certification des comptes - dossiers non controlés
+SELECT      RSS.ID_RSS AS "Id RSS" , 
+    RSS.STATUT AS "STATUT RSS" , 
+    TRIM(EG.CODE_EG) || ' ' || TRIM(EG.LIBELLE_EG) AS "Entité géo" , 
+    TRIM(UM.CODE_UNITE_MED) || ' ' || TRIM(UM.LIBELLE_UNITE_MED) AS "Unité med" , 
+    TRIM(POLE.CODE_POLE) || ' ' || TRIM(POLE.LIBELLE_POLE) AS "Pôle" , 
+    RSS.DP_RETENU AS "DP_RETENU" , 
+    RSS.CODE_GHM AS "GHM" 
+
+FROM     TB_SYNTH_RSS RSS
+     LEFT JOIN TB_UNITE_MEDICALE UM
+      ON  UM.ID_UNITE_MED=RSS.ID_UM_RETENU
+     LEFT JOIN TB_UNITE_POLE POLE
+      ON  EXISTS (SELECT 1             FROM             TB_UNITE_POLE_UM vueMatPole             WHERE                             vueMatPole.ID_UNITE_MED=RSS.ID_UM_RETENU and vueMatPole.ID_POLE=POLE.ID_POLE AND (vueMatPole.DATE_DEBUT IS NULL OR RSS.DATE_FIN>=vueMatPole.DATE_DEBUT) AND (vueMatPole.DATE_FIN IS NULL OR RSS.DATE_FIN<=vueMatPole.DATE_FIN))
+     LEFT JOIN TB_EG EG
+      ON  EXISTS (SELECT 1             FROM             TB_EG_UNITE vueMatEg             WHERE             vueMatEg.ID_EG=EG.ID_EG AND EXISTS (SELECT 1             FROM                             TB_UNITE_M_UNITE vueMatUnite                             WHERE                             vueMatUnite.ID_UNITE_MED=RSS.ID_UM_RETENU AND vueMatEg.ID_UNITE=vueMatUnite.ID_UNITE))
+
+WHERE 
+1=1 
+  AND RSS.DATE_FIN >= '01/01/2026 00:00' AND RSS.DATE_FIN<='31/12/2026 23:59' AND NOT EXISTS (SELECT 1            FROM            TB_CTRL_SUIVI            WHERE            TB_CTRL_SUIVI.ID_RSS=RSS.ID_RSS) AND NOT EXISTS (SELECT 1   FROM   TB_HIST_CTRL_SUIVI   WHERE   TB_HIST_CTRL_SUIVI.ID_RSS=RSS.ID_RSS)
+

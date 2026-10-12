@@ -1,0 +1,22 @@
+-- catalogue CORA : Analyse Financière / Seuils INCas / pathologies mammaires (tumeur du sein)
+SELECT      'Chirurgie Mammaire' AS "Chirurgie Mammaire" , 
+    RSS.ID_RSS AS "NUM RSS" , 
+    RSS.CODE_GHM AS "CODE GHM RSS" , 
+    RSS.DP_RETENU AS "DP RETENU" , 
+    RSS.DATE_FIN AS "DATE FIN RSS" , 
+    RSS.AGE_ENTREE AS "AGE PATIENT ANNEES ENTREE RSS" 
+
+FROM     TB_SYNTH_RSS RSS
+     LEFT JOIN TB_UNITE_MEDICALE UM
+         LEFT JOIN TB_UNITE_M_UNITE UMU
+             LEFT JOIN TB_EG_UNITE EGU
+                 LEFT JOIN TB_EG EG
+                  ON  EGU.ID_EG = EG.ID_EG
+              ON  UMU.ID_UNITE = EGU.ID_UNITE
+          ON  UM.ID_UNITE_MED = UMU.ID_UNITE_MED
+      ON  RSS.ID_UM_RETENU = UM.ID_UNITE_MED
+
+WHERE 
+1=1 
+  AND RSS.DP_RETENU  IN ('C500','C501','C502','C503','C504','C505','C506','C508','C509','C773','D050','D051','D057','D059','D486') AND SUBSTR(RSS.CODE_GHM,1,1)='C' AND RSS.AGE_ENTREE >= '18' AND RSS.DATE_FIN >='01/01/2026 00:00' AND RSS.DATE_FIN<='31/12/2026 23:59'
+

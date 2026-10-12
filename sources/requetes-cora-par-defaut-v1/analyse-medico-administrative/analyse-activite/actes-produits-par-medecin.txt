@@ -1,0 +1,17 @@
+-- catalogue CORA : Analyse médico-administrative / Analyse activité / actes produits par médecin
+SELECT      NVL(A.QUANTITE,1) AS "NB ACTE" , 
+    A.CODE_ACTE AS "CODE ACTE" , 
+    NVL(TRIM(UTIL.PRENOM_UTIL), 'N.R.') AS "PRENOM EXECUTANT" , 
+    NVL(TRIM(UTIL.NOM_UTIL), 'N.R.') AS "NOM EXECUTANT" , 
+    NVL(TRIM(UTIL.CODE_UTIL), 'N.R.') AS "CODE EXECUTANT" , 
+    A.DATE_ACTE AS "DATE ACTE" 
+
+FROM     TB_ACTE A,
+    CORA_UTIL.UTIL UTIL
+     LEFT JOIN TB_DET_ACTE DA
+      ON  UTIL.ID_UTIL = DA.ID_MEDECIN
+
+WHERE 
+1=1 
+  AND A.ID_ACTE=DA.ID_ACTE AND A.DATE_ACTE >='01/01/2026 00:00' AND A.DATE_ACTE  <='31/12/2026 23:59'
+

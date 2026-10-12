@@ -1,0 +1,20 @@
+-- catalogue CORA : Analyse médico-administrative / RUM-RSS / Flux d'entrée, sortie RSS
+SELECT      rss.ID_RSS AS "NB RSS" , 
+    CASE  WHEN NVL(rss.mode_entree,'')='0' THEN '0-PIE' WHEN NVL(rss.mode_entree,'')='6' THEN '6-Mutation' WHEN NVL(rss.mode_entree,'')='7' THEN '7-Transfert' WHEN NVL(rss.mode_entree,'')='8' THEN '8-Domicile' WHEN NVL(rss.mode_entree,'')='9' THEN '9-DC'  ELSE 'Inconnu' END AS "Mode Entrée" , 
+    CASE  WHEN NVL(rss.code_provenance,'') ='1' THEN '1-MCO' WHEN NVL(rss.code_provenance,'') ='2' THEN '2-SSR' WHEN NVL(rss.code_provenance,'') ='3' THEN '3-LS' WHEN NVL(rss.code_provenance,'') ='4' THEN '4-PSY' WHEN NVL(rss.code_provenance,'') ='5' THEN '5-Urgences' WHEN NVL(rss.code_provenance,'') ='7' THEN '7-MR' WHEN NVL(rss.code_provenance,'') ='9' THEN '9-DC' WHEN NVL(rss.code_provenance,'') ='8' THEN '8-Soins Infirmiers' ELSE      CASE WHEN NVL(rss.mode_entree,'')='0' OR NVL(rss.mode_entree,'')='6' OR           NVL(rss.mode_entree,'')='7' THEN  'Inconnu'       ELSE  'NR' END END AS "Code Provenance" , 
+    CASE  WHEN NVL(rss.mode_sortie,'') ='0' THEN '0-PIE' WHEN NVL(rss.mode_sortie,'') ='6' THEN '6-Mutation' WHEN NVL(rss.mode_sortie,'') ='7' THEN '7-Transfert' WHEN NVL(rss.mode_sortie,'') ='8' THEN '8-Domicile' WHEN NVL(rss.mode_sortie,'') ='9' THEN '9-DC' ELSE 'Inconnu' END AS "Mode Sortie" , 
+    CASE  WHEN NVL(rss.code_destination,'')  ='1' THEN '1-MCO' WHEN NVL(rss.code_destination,'')  ='2' THEN '2-SSR' WHEN NVL(rss.code_destination,'')  ='3' THEN '3-LS' WHEN NVL(rss.code_destination,'')   ='4' THEN '4-PSY' WHEN NVL(rss.code_destination,'')  ='5' THEN '5-Urgences' WHEN NVL(rss.code_destination,'')  ='7' THEN '7-MR' WHEN NVL(rss.code_destination,'')   ='9' THEN '9-DC' WHEN NVL(rss.code_destination,'')  ='8' THEN '8-Soins Infirmiers' ELSE      CASE WHEN NVL(rss.mode_sortie,'') ='0' OR NVL(rss.mode_sortie,'') ='6' OR NVL(rss.mode_sortie,'') ='7' THEN  'Inconnu' ELSE 'NR' END END AS "Code Destination" , 
+    RSS.DATE_FIN AS "DATE" , 
+    UM.LIBELLE_UNITE_MED AS "LIBELLE UM RETENU" , 
+    PRUM.LIBELLE_POLE AS "LIBELLE POLE RETENU" 
+
+FROM     TB_SYNTH_RSS RSS
+     LEFT JOIN (SELECT PUM2.ID_UNITE_MED, PUM2.DATE_DEBUT, PUM2.DATE_FIN, PRUMX.ID_POLE, PRUMX.CODE_POLE, PRUMX.LIBELLE_POLE, PRUMX.ACTIF       FROM       TB_UNITE_POLE_UM PUM2, TB_UNITE_POLE PRUMX       WHERE       PUM2.ID_POLE=PRUMX.ID_POLE) PRUM
+      ON  ( PRUM.DATE_DEBUT IS NULL OR PRUM.DATE_DEBUT<=RSS.DATE_FIN )  AND ( PRUM.DATE_FIN IS NULL OR PRUM.DATE_FIN>=RSS.DATE_FIN ) AND  RSS.ID_UM_RETENU=PRUM.ID_UNITE_MED
+     LEFT JOIN TB_UNITE_MEDICALE UM
+      ON  UM.ID_UNITE_MED = RSS.ID_UM_RETENU
+
+WHERE 
+1=1 
+  AND RSS.DATE_FIN>='01/01/2026 00:00' AND RSS.DATE_FIN<='31/12/2026 23:59'
+

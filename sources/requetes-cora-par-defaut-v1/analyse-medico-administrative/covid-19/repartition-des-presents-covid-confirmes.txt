@@ -1,0 +1,40 @@
+-- catalogue CORA : Analyse médico-administrative / COVID-19 / repartition des presents covid confirmés
+SELECT   DISTINCT     sej.ID_SEJOUR AS "ID_SEJOUR" , 
+    sej.NO_SEJOUR AS "NO_SEJOUR" , 
+    sej.DATE_ENTREE AS "DATE_ENTREE" , 
+    TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) AS "Age" , 
+    sej.MODE_ENTREE AS "MODE_ENTREE" , 
+    sej.CODE_PROVENANCE AS "CODE_PROVENANCE" , 
+    pat.NOM_USUEL_PATIENT AS "Nom" , 
+    pat.PRENOM_PATIENT AS "Prénom" , 
+    pat.IPP_PATIENT AS "IPP" , 
+    pat.SEXE AS "Sexe" , 
+    pat.DATE_NAIS AS "Date naissance" , 
+    CASE WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) > 74 THEN 'T5 : > 74'   WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) BETWEEN 18 AND 49 THEN 'T2 : 18-49'    WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) BETWEEN 50 AND 64 THEN 'T3 : 50-64'    WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) BETWEEN 65 AND 74 THEN 'T4 : 65-74'    ELSE 'T1 : < 18'  END AS "Tranche âge entrée" , 
+    um.CODE_UNITE_MED AS "UM" , 
+    um.LIBELLE_UNITE_MED AS "Libellé UM" , 
+    eg.CODE_EG AS "Code EG" , 
+    eg.LIBELLE_EG AS "Libellé EG" 
+
+FROM     TB_SEJOUR sej
+     INNER JOIN TB_PATIENT pat
+      ON  pat.ID_PATIENT = sej.ID_PATIENT
+     INNER JOIN TB_DIAG covid
+      ON  covid.ID_SEJOUR = sej.ID_SEJOUR
+     INNER JOIN TB_MVT mvt
+      ON  mvt.ID_SEJOUR = sej.ID_SEJOUR AND mvt.DATE_FIN_MVT is null
+     INNER JOIN TB_UNITE_M_UNITE umu
+      ON  umu.ID_UNITE = mvt.ID_UNITE_PMSI
+     INNER JOIN TB_UNITE_MEDICALE um
+      ON  um.ID_UNITE_MED = umu.ID_UNITE_MED
+     INNER JOIN TB_UNITE un
+      ON  un.ID_UNITE = mvt.ID_UNITE_PMSI
+     LEFT JOIN TB_EG_UNITE egu
+      ON  egu.ID_UNITE = mvt.ID_UNITE_PMSI
+     LEFT JOIN TB_EG eg
+      ON  eg.ID_EG = egu.ID_EG
+
+WHERE 
+1=1 
+  AND covid.CODE_DIAG IN ('U071','U0710','U0711','U0712','U0714','U0715') AND sej.DATE_SORTIE is null AND un.GESTION_PMSI = 'O'
+

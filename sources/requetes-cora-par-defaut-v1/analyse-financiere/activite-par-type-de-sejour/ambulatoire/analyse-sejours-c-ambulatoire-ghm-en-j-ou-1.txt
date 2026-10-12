@@ -1,0 +1,33 @@
+-- catalogue CORA : Analyse Financière / Activité par Type de Séjour / Ambulatoire / analyse séjours C ambulatoire GHM en J ou 1
+SELECT      RSS.CODE_CMD AS "Code CMD" , 
+    RSS.CODE_CMD ||SUBSTR(RSS.CODE_GHM,1,5) || 'J  / '||  RSS.CODE_CMD || RSS.CODE_GHM || ' - '|| NVL(ghs.LIBELLE_GHS,'ghm inconnu') AS "Libellé" , 
+    UM.LIBELLE_UNITE_MED AS "LIBELLE UM RETENU" , 
+    PRUM.LIBELLE_POLE AS "LIBELLE POLE RETENU" , 
+    rss.ID_RSS AS "Nb RSS" , 
+    DUREE_SEJOUR AS "NB Jours" , 
+    AGE_ENTREE AS "Age" , 
+    coalesce((case when P.SEXE = 'M' then 1 end),0) AS "Masculin" , 
+    coalesce((case when P.SEXE = 'F' then 1 end),0) AS "Féminin" , 
+    coalesce((case when P.SEXE = 'F' then 0 when P.SEXE = 'M' then 0 when P.SEXE = '1'      then 0 when P.SEXE = '2' then 0 else 1 end),0) AS "Sexe NR" , 
+    (case when RTRIM(RTRIM(BORNE_BASSE))='O' then 1 else 0 end) AS "EXB" , 
+    (case when QUANTITE_J_DEP > 0 then 1 else 0 end) AS "EXH" , 
+    RSS.DATE_FIN AS "DATE" , 
+    coalesce((CASE WHEN RSS.DUREE_SEJOUR='0' THEN 1   END),0) AS "DS 0j" , 
+    coalesce((CASE WHEN RSS.DUREE_SEJOUR='1' THEN 1   END),0) AS "DS 1j" , 
+    coalesce((CASE WHEN RSS.DUREE_SEJOUR='2' THEN 1   END),0) AS "DS 2js" , 
+    coalesce((CASE WHEN RSS.DUREE_SEJOUR>'2'  THEN  1   END),0) AS "DS >2 jrs" 
+
+FROM     TB_SYNTH_RSS RSS
+     INNER JOIN TB_PATIENT P
+      ON  RSS.ID_PATIENT=P.ID_PATIENT
+     LEFT JOIN (SELECT PUM2.ID_UNITE_MED, PUM2.DATE_DEBUT, PUM2.DATE_FIN, PRUMX.ID_POLE, PRUMX.CODE_POLE, PRUMX.LIBELLE_POLE, PRUMX.ACTIF             FROM        TB_UNITE_POLE_UM PUM2, TB_UNITE_POLE PRUMX        WHERE        PUM2.ID_POLE=PRUMX.ID_POLE) PRUM
+      ON  ( PRUM.DATE_DEBUT IS NULL OR PRUM.DATE_DEBUT<=RSS.DATE_FIN )           AND ( PRUM.DATE_FIN IS NULL OR PRUM.DATE_FIN>=RSS.DATE_FIN ) AND  RSS.ID_UM_RETENU=PRUM.ID_UNITE_MED
+     LEFT JOIN TB_UNITE_MEDICALE UM
+      ON  UM.ID_UNITE_MED = RSS.ID_UM_RETENU
+     LEFT JOIN PMSI_LIB_GHS_TARIF ghs
+      ON  ghs.GHS = (rss.CODE_CMD || rss.CODE_GHM) AND (rss.DATE_DEBUT >= ghs.DATE_DEBUT AND rss.DATE_FIN <= ghs.DATE_FIN)
+
+WHERE 
+1=1 
+  AND RSS.DATE_FIN >='01/01/2026 00:00' AND RSS.DATE_FIN <='31/12/2026 23:59' AND SUBSTR(RSS.CODE_GHM,-1)='1' AND SUBSTR(RSS.CODE_GHM,1,1)='C' AND EXISTS(SELECT PMSI.GHS        FROM        PMSI_LIB_GHS_TARIF PMSI              WHERE        PMSI.GET_LIBELLE='O' AND pmsi.GHS=code_cmd||SUBSTR(code_ghm,1,3)||'J')
+

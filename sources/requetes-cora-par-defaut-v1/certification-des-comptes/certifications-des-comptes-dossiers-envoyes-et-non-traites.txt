@@ -1,0 +1,38 @@
+-- catalogue CORA : Certification des comptes / certifications des comptes - dossiers envoyés et non traités
+SELECT      TRIM(vueInfoCq.CODE) AS "CODE" , 
+    TRIM(vueInfoCq.LIBELLE) AS "LIBELLE" , 
+    CASE vueInfoCq.NIVEAU WHEN 'MV2' THEN 'Règle liée au mouvement' WHEN 'SEJ' THEN 'Règle liée au séjour' WHEN 'MVT' THEN 'Règle liée au RUM' WHEN 'PAT' THEN 'Règle liée au patient' WHEN 'RHS' THEN 'Règle liée au RHS' WHEN 'RSS' THEN 'Règle liée au RSS' ELSE 'Niveau inconnu' END AS "NIVEAU" , 
+    CASE vueInfoCq.TYPE_CONTROLE WHEN 'B' THEN 'Biologie' WHEN 'A' THEN 'DimXpert' ELSE CASE   WHEN vueInfoCq.CORA='N' THEN 'Perso.'       ELSE CASE WHEN vueInfoCq.CODE LIKE 'OVA_%' THEN 'OVALIDE'         ELSE CASE WHEN vueInfoCq.CODE LIKE 'DAT_%' THEN 'DATIM'     ELSE 'CORA'     END   END      END END AS "TYPE_CONTROLE" , 
+    RSS.ID_RSS AS "Identifiant RSS" , 
+    C.ID_CTRL_SUIVI AS "Id Contrôle" , 
+    RSS.STATUT AS "STATUT RSS" , 
+    TRIM(EG.CODE_EG) || ' ' || TRIM(EG.LIBELLE_EG) AS "Entité géo" , 
+    TRIM(UM.CODE_UNITE_MED) || ' ' || TRIM(UM.LIBELLE_UNITE_MED) AS "Unité med" , 
+    TRIM(POLE.CODE_POLE) || ' ' || TRIM(POLE.LIBELLE_POLE) AS "Pôle" , 
+    RSS.DP_RETENU AS "DP_RETENU" , 
+    RSS.CODE_GHM AS "GHM" , 
+    CASE WHEN UT.ID_UTIL >0 THEN     TRIM(Ut.code_util) || ' ' || TRIM(Ut.nom_util)  ELSE 'Plugin' END AS "Dernier Exécutant" , 
+    C.DATE_INFO AS "Date exécution" , 
+    CASE RQ.TYPE_REGLE WHEN 'D' THEN 'Saisie d''un diagnostic' WHEN 'C' THEN 'Saisie d''un acte CCAM' WHEN 'A' THEN 'Contrôle manuel des actes' WHEN 'B' THEN 'Contrôle manuel des diagnostics' WHEN 'R' THEN 'Signature du RUM' WHEN 'C' THEN 'Validation d''une intervention Externe' WHEN 'I' THEN 'Validation d''une intervention Bloc' WHEN 'Q' THEN 'Contrôle qualité manuel RSS' WHEN 'U' THEN 'Groupage unitaire' ELSE 'Exécution manuelle' END AS "Type de lancement" , 
+    vueInfoCq.CATEGORIE AS "Catégorie" 
+
+FROM     TB_SYNTH_RSS RSS
+     INNER JOIN TB_CTRL_SUIVI C
+      ON  C.ID_RSS=RSS.ID_RSS
+     INNER JOIN (SELECT R.CODE AS CODE, R.LIBELLE AS LIBELLE, 'N' AS TYPE_CONTROLE, R.ID_REQUETE AS ID_CONTROLE, R.TYPE_CTRL_QUALITE AS NIVEAU, R.CORA AS CORA, RCAT.LIBELLE_REQUETE_CATEGORIE AS CATEGORIE                    FROM                        TB_REQUETE R INNER                          JOIN                          TB_REQUETE_CATEGORIE RCAT ON RCAT.ID_REQUETE_CATEGORIE=R.ID_REQUETE_CATEGORIE                    WHERE                        R.TYPE_REQUETE='Q'   UNION   SELECT B.CODE_CONTROLE AS CODE, B.LIBELLE_CONTROLE AS LIBELLE, 'B' AS TYPE_CONTROLE, B.ID_CONTROLE_LABO AS ID_CONTROLE, 'SEJ' AS NIVEAU, 'O' AS CORA,  TRIM(BCAT.CODE_LABO_GRP) || ' ' || TRIM(BCAT.LIBELLE_LABO_GRP) AS CATEGORIE                       FROM                        TB_LABO_CONTROLE_QUALITE B INNER                          JOIN                          TB_LABO_GRP_REGLE BCAT ON BCAT.ID_LABO_GRP=B.ID_LABO_GRP  UNION   SELECT A.CODE_CONTROLE AS CODE, A.LIBELLE_CONTROLE AS LIBELLE, 'A' AS TYPE_CONTROLE, A.ID_CONTROLE AS ID_CONTROLE, 'RSS' AS NIVEAU, 'O' AS CORA, A.TYPE_CONTROLE AS CATEGORIE                        FROM                        TB_AMEDIM_CONTROLE_QUALITE A   ) vueInfoCq
+      ON  vueInfoCq.ID_CONTROLE=C.ID_CONTROLE and C.TYPE_CONTROLE = vueInfoCq.TYPE_CONTROLE
+     LEFT JOIN TB_UNITE_MEDICALE UM
+      ON  UM.ID_UNITE_MED=RSS.ID_UM_RETENU
+     LEFT JOIN TB_UNITE_POLE POLE
+      ON  POLE.ID_POLE IN (SELECT vueMatPole.ID_POLE                        FROM                        TB_UNITE_POLE_UM vueMatPole                        WHERE                        vueMatPole.ID_UNITE_MED=RSS.ID_UM_RETENU AND (vueMatPole.DATE_DEBUT IS NULL OR RSS.DATE_FIN>=vueMatPole.DATE_DEBUT) AND (vueMatPole.DATE_FIN IS NULL OR RSS.DATE_FIN<=vueMatPole.DATE_FIN))
+     LEFT JOIN TB_EG EG
+      ON  EG.ID_EG IN (SELECT vueMatEg.ID_EG                        FROM                        TB_EG_UNITE vueMatEg                        WHERE                        vueMatEg.ID_UNITE IN (SELECT vueMatUnite.ID_UNITE                        FROM                        TB_UNITE_M_UNITE vueMatUnite                        WHERE                        vueMatUnite.ID_UNITE_MED=RSS.ID_UM_RETENU))
+     LEFT JOIN TB_REGLE_QUALITE RQ
+      ON  RQ.ID_REGLE_QUALITE=C.ID_REGLE_QUALITE
+     LEFT JOIN CORA_UTIL.util Ut
+      ON  Ut.ID_UTIL=C.ID_INFO
+
+WHERE 
+1=1 
+  AND RSS.STATUT='T' AND C.ACTIF='O' AND C.RESULTAT='P' AND RSS.DATE_FIN >= '01/01/2026 00:00' AND RSS.DATE_FIN<='31/12/2026 23:59' AND NOT EXISTS (SELECT 1            FROM             TB_CTRL_SUIVI H             WHERE             H.ID_CONTROLE=C.ID_CONTROLE  AND H.TYPE_CONTROLE=C.TYPE_CONTROLE AND C.ID_RSS=H.ID_RSS AND H.RESULTAT='P' AND H.ID_CTRL_SUIVI<>C.ID_CTRL_SUIVI AND 'O'='O')
+

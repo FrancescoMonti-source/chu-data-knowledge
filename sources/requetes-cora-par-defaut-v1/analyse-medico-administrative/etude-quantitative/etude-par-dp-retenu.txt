@@ -1,0 +1,54 @@
+-- catalogue CORA : Analyse médico-administrative / Etude quantitative / etude par DP retenu
+SELECT      RSS.ID_RSS AS "NB RSS" , 
+    case when RSS.duree_sejour=0 then 1 else RSS.duree_sejour end AS "NB JOURS" , 
+    MNT_TOTAL AS "MNT TOTAL" , 
+    RSS.montant_ghs AS "MNT GHS" , 
+    RSS.montant_dep AS "MNT EXH" , 
+    RSS.quantite_j_dep AS "NB EXH" , 
+    RSS.montant_redu AS "MNT EXB" , 
+    RSS.NB_JOUR_EXB AS "NB EXB" , 
+    RSS.quantite_j_rea AS "NB REA" , 
+    RSS.montant_rea AS "MNT REA" , 
+    RSS.nb_jour_soins_int_rea AS "NB SI REA" , 
+    RSS.mnt_jour_soins_int_rea AS "MNT SI REA" , 
+    RSS.nb_jour_soins_int AS "NB SI" , 
+    RSS.mnt_jour_soins_int AS "MNT SI" , 
+    RSS.nb_jour_surv_cont AS "NB SRC" , 
+    RSS.mnt_jour_surv_cont AS "MNT SRC" , 
+    RSS.nb_jour_neo1 AS "NB NN1" , 
+    RSS.mnt_jour_neo1 AS "MNT NN1" , 
+    RSS.nb_jour_neo2 AS "NB NN2" , 
+    RSS.mnt_jour_neo2 AS "MNT NN2" , 
+    RSS.nb_jour_neo3 AS "NB NN3" , 
+    RSS.mnt_jour_neo3 AS "MNT NN3" , 
+    RSS.nb_rep AS "NB REP" , 
+    RSS.mnt_rep AS "MNT REP" , 
+    RSS.nb_caisson_hb AS "NB CHB" , 
+    RSS.mnt_caisson_hb AS "MNT CHB" , 
+    RSS.nb_apherese AS "NB APH" , 
+    RSS.mnt_apherese AS "MNT APH" , 
+    RSS.nb_dip AS "NB DIP" , 
+    RSS.mnt_dip AS "MNT DIP" , 
+    RSS.nb_dialyse AS "NB DIA" , 
+    RSS.mt_dialyse AS "MNT DIA" , 
+    RSS.nb_rdth AS "NB RDTH" , 
+    RSS.mnt_rdth AS "MNT RDTH" , 
+    RSS.nb_antepartum AS "NB ANT" , 
+    RSS.mnt_antepartum AS "MNT ANT" , 
+    RSS.nb_rdth_ped AS "NB RDTH PED" , 
+    RSS.mnt_rdth_ped AS "MNT RDTH PED" , 
+    DP_RETENU AS "DP Retenu" , 
+    UM.LIBELLE_UNITE_MED AS "LIBELLE UM RETENU" , 
+    PRUM.LIBELLE_POLE AS "LIBELLE POLE RETENU" , 
+    RSS.DATE_FIN AS "Date" 
+
+FROM     TB_SYNTH_RSS RSS
+     LEFT JOIN (SELECT PUM2.ID_UNITE_MED, PUM2.DATE_DEBUT, PUM2.DATE_FIN, PRUMX.ID_POLE, PRUMX.CODE_POLE, PRUMX.LIBELLE_POLE, PRUMX.ACTIF    FROM    TB_UNITE_POLE_UM PUM2, TB_UNITE_POLE PRUMX    WHERE    PUM2.ID_POLE=PRUMX.ID_POLE) PRUM
+      ON  ( PRUM.DATE_DEBUT IS NULL OR PRUM.DATE_DEBUT<=RSS.DATE_FIN )    AND ( PRUM.DATE_FIN IS NULL OR PRUM.DATE_FIN>=RSS.DATE_FIN ) AND  RSS.ID_UM_RETENU=PRUM.ID_UNITE_MED
+     LEFT JOIN TB_UNITE_MEDICALE UM
+      ON  UM.ID_UNITE_MED = RSS.ID_UM_RETENU
+
+WHERE 
+1=1 
+  AND RSS.DATE_FIN >= '01/01/2026 00:00' AND RSS.DATE_FIN <= '31/12/2026 23:59'
+
