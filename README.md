@@ -8,10 +8,6 @@ Les preuves comptent ici plus qu'ailleurs : l'infrastructure n'est pas document�
 - **Comment :** les agents écrivent ; les personnes posent les questions et décident. Les agents n'atteignent pas l'hôpital : une personne exécute leurs requêtes à l'intérieur et ne rapporte que des résultats agrégés. Aucune donnée de patient n'entre ici.
 - **Ensuite (vers avril 2027) :** des agents qui travaillent directement dans l'hôpital.
 
-## État
-
-Le squelette est en place ; il n'y a encore aucun claim. La première enquête fixera le format sur le terrain.
-
 ## Commencer
 
 ```text
