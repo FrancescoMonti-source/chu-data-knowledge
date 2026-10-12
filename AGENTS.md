@@ -49,7 +49,7 @@ Les principes, un mot chacun :
 
 Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
 
-- **frame :** cadrer la question avec la personne.
+- **frame :** cadrer avec la personne une question sur les données du CHU.
 - **research :** chercher ce qui est déjà écrit, dans les claims du dépôt puis dans les documents.
 - **relay :** l'aller-retour à l'hôpital.
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
