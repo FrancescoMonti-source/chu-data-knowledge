@@ -1,13 +1,12 @@
 # chu-data-knowledge
 
-Un petit groupe, fatigué d'avancer à l'aveugle dans une infrastructure non documentée, met en commun ce qu'il découvre sur le système de données du CHU, avec les preuves. Des agents IA conservent ce savoir ici : chaque conversation part de là, pas de zéro.
+On travaille de plus en plus avec un agent IA, et ce qu'on apprend ensemble reste dans la conversation, puis se perd. Ce dépôt est un lieu commun : chacun, avec son agent, y sédimente ce qu'il découvre sur les données du CHU, avec les preuves. La conversation suivante, la sienne ou celle d'un collègue, part de là.
 
-- **Systèmes :** CORA, EDSaN, ICCA, OpRoom pour commencer, puis d'autres bases du système hospitalier.
-- **Personnes :** le DIM et l'entrepôt de données. Un projet d'équipe, pas institutionnel.
-- **Phase 1 (maintenant) :** chacun travaille avec son propre agent, over-the-air. Une personne fait le relais : elle exécute les requêtes à l'intérieur de l'hôpital et ne rapporte que des résultats agrégés. Aucune donnée de patient n'entre ici.
-- **Phase 2 (vers avril 2027) :** des agents hands-on dans l'hôpital.
+Les preuves comptent ici plus qu'ailleurs : l'infrastructure n'est pas documentée, et même la documentation de l'éditeur peut se tromper. Sans preuves, une erreur faite dans une conversation passerait dans toutes les suivantes.
 
-Les agents écrivent ; les personnes posent les questions et décident.
+- **Qui :** des personnes du DIM et de l'entrepôt de données. Un projet d'équipe, pas institutionnel.
+- **Comment :** les agents écrivent ; les personnes posent les questions et décident. Les agents n'atteignent pas l'hôpital : une personne exécute leurs requêtes à l'intérieur et ne rapporte que des résultats agrégés. Aucune donnée de patient n'entre ici.
+- **Ensuite (vers avril 2027) :** des agents qui travaillent directement dans l'hôpital.
 
 ## État
 

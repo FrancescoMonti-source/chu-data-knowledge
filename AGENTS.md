@@ -2,11 +2,13 @@
 
 ## Pourquoi ce dépôt
 
-Un petit groupe, fatigué d'avancer à l'aveugle dans une infrastructure non documentée, met en commun ce qu'il découvre sur le système de données du CHU, avec les preuves. Chaque conversation part de là, pas de zéro.
+On travaille de plus en plus avec un agent IA, et ce qu'on apprend ensemble reste dans la conversation, puis se perd. Ce dépôt est un lieu commun : plusieurs personnes et leurs agents y sédimentent ce qu'ils découvrent sur les données du CHU, et chaque conversation, de n'importe qui, part de là. Ce qui entre porte ses preuves : sinon, une erreur faite dans une conversation passerait dans toutes les suivantes.
 
+Ce qu'il faut savoir du CHU :
+
+- **L'infrastructure n'est pas documentée, et la documentation de l'éditeur peut se tromper.** Le dictionnaire CORA inverse deux colonnes (JR009 dans cora_knowledge, l'ancien dépôt). D'où deux champs séparés : l'autorité de la source et la maturité du claim.
 - **L'agent n'atteint jamais l'hôpital (over-the-air).** Une personne exécute ses requêtes à l'intérieur et ne rapporte que des résultats agrégés.
 - **Les personnes viennent du DIM (département d'information médicale) et de l'entrepôt de données.** Un même mot n'y veut pas dire la même chose : « unité médicale » dans le PMSI et dans EDSaN. D'où un contexte pour chaque terme.
-- **Même la source de l'éditeur se trompe.** Le dictionnaire CORA inverse deux colonnes (JR009 dans cora_knowledge, l'ancien dépôt). D'où deux champs séparés : l'autorité de la source et la maturité du claim.
 
 Les principes, un mot chacun :
 
