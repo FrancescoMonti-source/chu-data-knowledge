@@ -1,6 +1,6 @@
 # Où va quoi
 
-sources/ dit de quel document on parle ; systems/, domains/ et investigations/ rangent ce qu'on apprend sur l'hôpital. Le reste du dépôt dit comment on travaille : les règles (AGENTS.md, docs/agents/), leurs raisons (docs/adr/), les étapes (les skills), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision du mainteneur : ce qu'on découvre sur l'hôpital, même un piège de jointure, devient un claim avec ses preuves.
+sources/ dit de quel document on parle ; systems/, domains/ et investigations/ rangent ce qu'on apprend sur l'hôpital, et GLOSSARY-MAP.md liste les contextes et leurs glossaires. Le reste du dépôt dit comment on travaille : les règles (AGENTS.md, docs/agents/), leurs raisons (docs/adr/), les étapes (les skills), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision du mainteneur : ce qu'on découvre sur l'hôpital, même un piège de jointure, devient un claim avec ses preuves.
 
 Deux frontières rangent un claim. Son sujet : systems/ ou domains/. Son rôle : la réponse à la question d'une enquête va dans investigations/<enquête>/claims/ ; les faits sur lesquels elle s'appuie (les claims atomiques) vont dans systems/ ou domains/, à côté de leur preuve. La promotion fait passer une réponse dans systems/ ou domains/ quand une autre enquête la réutilise.
 
