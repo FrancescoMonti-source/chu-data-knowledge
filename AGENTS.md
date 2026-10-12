@@ -1,6 +1,28 @@
 # Règles pour les agents
 
-Ce dépôt garde, avec leurs preuves, ce que nous découvrons sur les données du CHU. Les agents écrivent ; les personnes décident.
+## Pourquoi ce dépôt
+
+Un petit groupe, fatigué d'avancer à l'aveugle dans une infrastructure non documentée, met en commun ce qu'il découvre sur le système de données du CHU, avec les preuves. Chaque conversation part de là, pas de zéro.
+
+- **L'agent n'atteint jamais l'hôpital (over-the-air).** Une personne exécute ses requêtes à l'intérieur et ne rapporte que des résultats agrégés.
+- **Les personnes viennent du DIM (département d'information médicale) et de l'entrepôt de données.** Un même mot n'y veut pas dire la même chose : « unité médicale » dans le PMSI et dans EDSaN. D'où un contexte pour chaque terme.
+- **Même la source de l'éditeur se trompe.** Le dictionnaire CORA inverse deux colonnes (JR009 dans cora_knowledge, l'ancien dépôt). D'où deux champs séparés : l'autorité de la source et la maturité du claim.
+
+Les principes, un mot chacun :
+
+| Principe | En pratique |
+|---|---|
+| agent-first | les agents écrivent, les personnes décident |
+| over-the-air | l'hôpital, on l'atteint par une personne |
+| bounded-context | chaque terme vaut dans son contexte |
+| evidence-based | chaque claim renvoie à ses preuves |
+| falsifiable | chaque claim empirique dit quelle observation le contredirait |
+| review-on-reuse | on relit un claim quand on construit dessus |
+| privacy-by-design | des agrégats seulement, masqués dans la requête |
+| single-source-of-truth | chaque information à un seul endroit |
+| CI-enforced | les contrôles imposent ce qui peut l'être ; le reste est une règle de confiance |
+| human-in-the-loop | aucune règle ne change sans une personne |
+| YAGNI | la structure naît quand une vraie enquête la demande |
 
 ## Règles obligatoires
 
