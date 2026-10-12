@@ -1,8 +1,13 @@
 # chu-data-knowledge
 
-Ce que nous découvrons sur les données du CHU (CORA, EDSaN, ICCA, OpRoom, PMSI), avec les preuves. Chaque conversation avec un agent part de là, pas de zéro.
+Un petit groupe, fatigué d'avancer à l'aveugle dans une infrastructure non documentée, met en commun ce qu'il découvre sur le système de données du CHU, avec les preuves. Des agents IA conservent ce savoir ici : chaque conversation part de là, pas de zéro.
 
-Les agents écrivent les fichiers ; les personnes posent les questions, exécutent les requêtes à l'hôpital et décident. Aucune donnée de patient n'entre ici : seulement des résultats agrégés et masqués.
+- **Systèmes :** CORA, EDSaN, ICCA, OpRoom pour commencer, puis d'autres bases du système hospitalier.
+- **Personnes :** le DIM et l'entrepôt de données. Un projet d'équipe, pas institutionnel.
+- **Phase 1 (maintenant) :** chacun travaille avec son propre agent, over-the-air. Une personne fait le relais : elle exécute les requêtes à l'intérieur de l'hôpital et ne rapporte que des résultats agrégés. Aucune donnée de patient n'entre ici.
+- **Phase 2 (vers avril 2027) :** des agents hands-on dans l'hôpital.
+
+Les agents écrivent ; les personnes posent les questions et décident.
 
 ## État
 
