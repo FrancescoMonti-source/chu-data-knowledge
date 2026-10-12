@@ -52,7 +52,7 @@ Pour les installer, avec Node.js, dans un terminal :
 npx skills add svyatov/supermatt -g -a claude-code -a codex -s writing-for-agents -s domain-modeling
 ```
 
-L'option `-g` les installe dans votre dossier personnel (~/.claude/skills/ et ~/.agents/skills/), pour tous vos projets. Sans elle, la commande les écrirait dans .claude/skills/ et .agents/skills/ du dépôt, à côté de ses propres skills. Pour les mettre à jour : `npx skills update -g`.
+L'option `-g` les installe dans votre dossier personnel (~/.claude/skills/ et ~/.agents/skills/), pour tous vos projets. Sans elle, la commande les écrirait dans .claude/skills/ et .agents/skills/ du dépôt, à côté de ses propres skills. Pour les mettre à jour : `npx skills update -g writing-for-agents domain-modeling`.
 
 Le plugin supermatt complet, pour Claude Code ou Codex, contient aussi ces deux skills. Dans ce dépôt, ne lancez pas sa commande `setup-supermatt-skills` : elle écrit dans AGENTS.md et docs/agents/, qui suivent ici leurs propres règles.
 
