@@ -1,0 +1,32 @@
+==== TB_LABO_CONTROLE_QUALITE ====
+Table regroupement les contrôle qualité de labo
+       1   ID_CONTROLE_LABO             int(10)         identifiant unique du contrôle labo.
+
+       2   CODE_CONTROLE                char(10)        code unique du contrôle labo
+
+       3   LIBELLE_CONTROLE             varchar(150)    libellé du contrôle labo
+                                        text
+       4   COMMENTAIRE                                  commentaire divers
+                                        (2147483647)
+       5   DATE_EFFET                   datetime        date minimale à partir de laquelle le contrôle est effectif
+
+       6   DATE_REVOCATION              datetime        date maximale à partir de laquelle le contrôle qualité n'est plus effectif
+
+       7   ACTIF                        char(1)         O : oui N : non
+
+       8   COMMENTAIRE_RETOUR           varchar(3000)   Commentaire affiché au codeur quand le test est positif
+                                                        id du groupe auquel appartient le contrôle labo (lien avec
+       9   ID_LABO_GRP                  int(10)
+                                                        TB_LABO_GRP_REGLE.ID_LABO_GRP)
+                                                        Niveau hierarchique dans l'arborescence pour faciliter la requête et
+      10   NIVEAU                       char(1)         l'alimentation du treeview VB6.
+                                                        Utilisé par Stephan Jeanneau, mais ne doit pas être utilisé
+                                                        Booléen (O / Null) utilisé pour afficher ou pas le détail du résultat de labo en
+                                                        plus du commentaire retour lors de l'affichage au codeur.
+      11   DETAIL_RETOUR                char(1)
+                                                        Si O : affichage "Code Analyse : xxx = y + Crlf + Commentaire Retour"
+                                                        Si N : affichage "Commentaire Retour"
+      12   DATE_INFO                    datetime        Date de dernière modification
+                                                        Lien vers Util.ID_UTIL.
+      13   ID_INFO                      int(10)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification

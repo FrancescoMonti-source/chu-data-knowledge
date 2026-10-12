@@ -1,0 +1,9 @@
+==== TB_SITE_UNITE ====
+Table des Liens Unités (UF) - Site
+                                                       Clé - Lien sur TB_SITE.ID_SITE :
+       1   ID_SITE                       int(10)
+                                                       Identifiant (PrisMédica) du Site
+                                                       Clé - Lien sur TB_UNITE.ID_UNITE :
+       2   ID_UNITE                      int(10)
+                                                       Identifiant (PrisMédica) de l'Unité
+       3   ACTIF                         char(1)       Lien actif (="O")

@@ -1,0 +1,14 @@
+==== PRESC_HIST_UNITE_MED ====
+       1   ID_UNITE_MED               smallint(5)
+
+       2   ID_MED                     int(10)
+
+       3   USUELLE                    char(1)
+
+       4   ID_TRACE                   int(10)
+
+       5   DATE_TRACE                 datetime
+
+       6   TYPE_TRACE                 char(1)
+
+       7   DESCR                      char(5)

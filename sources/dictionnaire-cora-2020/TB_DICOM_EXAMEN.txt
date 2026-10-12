@@ -1,0 +1,30 @@
+==== TB_DICOM_EXAMEN ====
+       1   ID_EXAMEN                   int(10)
+
+       2   ID_PATIENT                  int(10)           FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_SEJOUR                   int(10)
+
+       4   ID_MVT                      int(10)
+
+       5   ID_INTERVENTION             int(10)
+
+       6   STUDY_UID                   varchar(200)
+
+       7   DATE_EXAMEN                 datetime
+
+       8   HEURE_EXAMEN                datetime
+
+       9   ID_MEDECIN                  int(10)
+
+      10   ID_DOCUMENT_PATIENT         int(10)
+
+      11   ID_THES_EXAMEN              smallint(5)
+                                                         Lien vers Util.ID_UTIL.
+      12   ID_INFO                     int(10)
+                                                         Identifiant de l'utilisateur ayant effectué la dernière modification
+      13   DATE_INFO                   datetime          Date de la dernière modification
+
+      14   HEURE_INFO                  datetime
+
+      15   ID_SALLE                    int(10)

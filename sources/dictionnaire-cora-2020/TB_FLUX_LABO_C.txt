@@ -1,0 +1,10 @@
+==== TB_FLUX_LABO_C ====
+     1   ID_FLUX_LABO_C      int(10)         PK
+
+     2   ID_FLUX_LABO_OBX    int(10)         FK TB_FLUX_LABO_OBX.ID_FLUX_LABO_OBX
+
+     3   ID_FLUX_LABO_OBR    int(10)         FK TB_FLUX_LABO_OBR.ID_FLUX_LABO_OBR
+
+     4   NUM_ORDRE           smallint(5)     Numéro d'ordre de la ligne
+
+     5   MESSAGE             varchar(4000)   Contenu du message reçu ou envoyé

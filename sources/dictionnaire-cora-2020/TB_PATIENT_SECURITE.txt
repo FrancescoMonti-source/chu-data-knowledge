@@ -1,0 +1,13 @@
+==== TB_PATIENT_SECURITE ====
+       1   ID_PATIENT                  int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       2   ID_SEJOUR                   int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       3   ID_MVT                      int(10)        FK TB_MVT.ID_MVT - Identifiant CORA du mouvement
+
+       4   ID_UTIL                     int(10)        Clé - Lien Util.id_util
+                                                      M : Sécurité affectée aux médecins
+                                                      X : Sécurité affectée aux médecins de l'unité
+       5   TYPE_SECURITE               char(1)
+                                                      U : Sécurité affectée au personnel de l'unité
+                                                      P : Sécurité affectée à une liste d'utilisateur

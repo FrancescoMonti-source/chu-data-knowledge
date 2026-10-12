@@ -1,0 +1,18 @@
+==== TB_MOTIF_ADMISSION ====
+     1   ID_MOTIF_ADMISSION        int(10)
+
+     2   CODE_MOTIF_ADMISSION      varchar(10)
+
+     3   LIB_MOTIF_ADMISSION       varchar(150)
+
+     4   LIB_MOTIF_ADMISSION_LONG varchar(400)
+         LIB_MOTIF_ADMISSION_SS_A
+     5                            varchar(150)
+         CC
+     6   ACTIF                     char(1)                                                                                  'O'
+
+     7   ID_MOTIF_ADMISSION_PERE int(10)
+
+     8   ORDRE                     smallint(5)
+
+     9   SAISISSABLE               char(1)                                                                                  'O'

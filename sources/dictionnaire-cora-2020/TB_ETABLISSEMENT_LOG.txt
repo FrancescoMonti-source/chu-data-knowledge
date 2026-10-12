@@ -1,0 +1,10 @@
+==== TB_ETABLISSEMENT_LOG ====
+       1   ID_ETABLISSEMENT_LOG        int(10)
+
+       2   ID_ETABLISSEMENT            smallint(5)
+
+       3   DATE_EVENEMENT              datetime
+
+       4   CODE_EVENEMENT              char(1)
+
+       5   LIBELLE_EVENEMENT           varchar(2000)

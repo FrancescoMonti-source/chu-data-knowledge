@@ -1,0 +1,14 @@
+==== T_CONTEXTE ====
+       1   DATE_ACTE                  char(10)
+
+       2   SEXE                       char(1)
+
+       3   AGE                        char(3)
+
+       4   TYPE_AGE                   char(1)
+
+       5   SPECIALITE                 char(2)
+
+       6   ID_UTIL                    int(10)        Clé - Lien Util.id_util
+
+       7   CPT                        int(10)

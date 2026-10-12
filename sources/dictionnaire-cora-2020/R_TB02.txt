@@ -1,0 +1,13 @@
+==== R_TB02 ====
+Associations non prévuesLe coef asso. non prévu doit etre rattaché a une grilleTarifaire
+       1   COD_ASSONP                   char(2)       code association non prévue
+                                                      date d'effet du coefficient
+       2   DT_DEBUT                     datetime
+                                                      association non prévue
+       3   LIBELLE                      char(100)     libellé association non prévue
+                                                      coefficient association non
+       4   COEF                         float(53)
+                                                      prévue
+       5   DT_FIN                         datetime      Date de fin
+
+       6   GRILLE_COD                     smallint(5)   code grille

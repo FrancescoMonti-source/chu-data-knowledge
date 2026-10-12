@@ -1,0 +1,28 @@
+==== TB_INT_REJET_ADM ====
+     1   ID_REJET         int(10)         PK - Identifiant du rejet
+
+     2   ID_PATIENT       int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3   ID_SEJOUR        int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+     4   ID_MVT           int(10)         FK TB_MVT.ID_MVT - Identifiant CORA du mouvement
+
+     5   ID_MVT_COMPL     int(10)         FK TB_MVT_COMPL.ID_MVT_COMPL
+
+     6   ID_EVT_PAT_APP   int(10)         FK TB_EVT_PAT_APP.ID_EVT_APP
+     7    ID_APPLICATION      int(10)         Lien sur TB_INT_APPLICATION.ID
+
+     8    DATE_REJET          datetime        Date et heure à laquelle s'est produit le rejet lors de l'import ou l'export
+
+     9    CODE                varchar(50)     Code de l'évènement
+
+     10   DETAIL              varchar(250)    Description détaillée de l'évènement
+
+     11   REIMPORTABLE        char(1)         Indique si le rejet est ré-importable
+                                              FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+     12   IPP_PATIENT         varchar(20)
+                                              de l'établissement
+                                              FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+     13   NO_SEJOUR           varchar(20)
+                                              l'établissement
+     14   ID_MESSAGE          int(10)

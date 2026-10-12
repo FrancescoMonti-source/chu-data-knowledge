@@ -1,0 +1,4 @@
+==== TB_PARAM_JOB ====
+      1    ID_JOB                    varchar(100)
+
+      2    CONFIG                    varchar(8000)

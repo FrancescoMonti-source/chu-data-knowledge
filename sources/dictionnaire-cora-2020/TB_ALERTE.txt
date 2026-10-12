@@ -1,0 +1,14 @@
+==== TB_ALERTE ====
+       1   ID_ALERTE                    smallint(5)    Identifiant unique de l'alerte
+                                                       D:Dossier
+       2   TYPE_ALERTE                  char(1)
+                                                       A:Alerte
+       3   CODE                         varchar(50)    Code de l'alerte
+
+       4   LIBELLE                      varchar(150)   Libellé de l'alerte
+
+       5   ACTIF                        char(1)        Actif O/N                                                                             'O'
+                                                       1 : alerte générale
+       6   GROUPE                       smallint(5)
+                                                       0 : alerte patient
+       7   ID_PERE                      smallint(5)    Identifiant du père (dans le cas d'un groupe)

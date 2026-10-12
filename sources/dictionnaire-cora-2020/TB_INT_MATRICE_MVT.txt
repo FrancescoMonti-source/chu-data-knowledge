@@ -1,0 +1,16 @@
+==== TB_INT_MATRICE_MVT ====
+Matrice des mvts faisant le lien avec id_mvt et plusieurs id mvt externes en prov de l'administratif
+                                                        Clef externe sur TB_MVT.ID_MVT
+       1   ID_MVT                        int(10)
+                                                        Identifiant du mouvement de PrisMediCa
+       2   ID_MVT_EXT                    varchar(20)    Identifiant du mouvement dans l'application extérieur
+
+       3   DATE_DEBUT                    datetime       Date et heure de début du mouvement
+
+       4   UNITE                         varchar(12)    Code de l'unité sur laquelle a lieu le mouvement (TB_UNITE.CODE_UNITE)
+                                                        Axe sur lequel a lieu le mouvement:
+       5   AXE                           smallint(5)    1 - Axe PMSI
+                                                        2 - Axe complémentaire
+       6   ID_SEJOUR                     int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour                         -1
+
+       7   ID_UNITE                      int(10)

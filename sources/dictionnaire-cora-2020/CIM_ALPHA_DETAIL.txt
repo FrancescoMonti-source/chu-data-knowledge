@@ -1,0 +1,6 @@
+==== CIM_ALPHA_DETAIL ====
+       1   ID_CLE                        int(10)        Identifiant de la table
+
+       2   CODE_CIM                      char(7)        Code de la donnée CIM10 Alphabétique
+
+       3   TYPE_CODE                     char(1)

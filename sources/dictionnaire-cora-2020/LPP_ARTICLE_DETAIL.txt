@@ -1,0 +1,50 @@
+==== LPP_ARTICLE_DETAIL ====
+Table contenant le détail des articles de la LPP
+       1   ID_ARTICLE_DETAIL            int(10)          Identifiant du détail de l'article LPP
+       2   ID_FOURNISSEUR             int(10)          Identifiant du fournisseur
+           CODE_ARTICLE_FOURNISSEU
+       3                           char(13)            Code de l’article fournisseur
+           R
+       4   NUM_LOT                    varchar(40)      Numéro de lot
+
+       5   DATE_LIVRAISON             datetime         Date de livraison
+
+       6   DATE_AFFECTATION           datetime         Date d’affectation
+
+       7   ID_LPP                     int(10)          Identifiant de l’article de la LPP
+
+       8   DATE_CREAT                 datetime         Date de création de la ligne
+                                                       Lien sur TB_UTIL.ID_UTIL
+       9   ID_CREAT                   int(10)
+                                                       Identifiant de l’utilisateur qui a créé la ligne
+      10   ID_ARTICLE_FOURNISSEUR     int(10)          Identifiant de l’article du fournisseur
+
+      11   PRIX_ACHAT                 decimal(10, 2)   Prix d’achat de l’article
+
+      12   PRIX_VENTE                 decimal(10, 2)   Prix de vente de l’article
+
+      13   DATE_PEREMPTION            datetime         Date de péremption de l’article
+
+      14   NUM_SERIE_EXT              varchar(10)      Numéro de série externe
+
+      15   NO_SEJOUR_DISPENSATION varchar(20)          Numéro du séjour de dispensation
+
+      16   ID_UTIL_LIVRAISON          int(10)          Identifiant de l’utilisateur de livraison
+
+      17   ID_UTIL_DISPENSATION       int(10)          Identifiant de l’utilisateur de livraison
+
+      18   DATE_DISPENSATION          datetime         Date de dispensation
+
+      19   IPP_DISPENSATION           varchar(20)      IPP du patient de dispensation
+
+      20   CODE_UF_DISPENSATION       varchar(10)      Code de l’UF de dispensation
+
+      21   ID_INFO                    int(10)          Identifiant du dernier utilisateur ayant modifié la ligne
+
+      22   DATE_INFO                  datetime         Date de dernière modification la ligne
+
+      23   ID_UTIL_RETOUR             int(10)          Identifiant de l’utilisateur de retour
+
+      24   DATE_RETOUR                datetime         Date de retour
+
+      25   NUM_COMMANDE               varchar(20)      Numéro de la commande

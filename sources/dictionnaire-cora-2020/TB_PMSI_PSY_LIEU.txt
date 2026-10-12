@@ -1,0 +1,16 @@
+==== TB_PMSI_PSY_LIEU ====
+Table du thésaurus des lieux officiels
+                                                        Clé :
+       1   ID_PSY_LIEU                   smallint(5)
+                                                        Identifiant du lieu
+       2   CODE_LIEU                     char(3)        Code du lieu (L01 à L10)
+
+       3   LIBELLE_LIEU                  varchar(100)   Libellé du lieu
+
+       4   FORME_ACTIVITE                char(5)        Forme d'activité
+
+       5   LIBELLE_FICHE_PATIENT         varchar(100)   Libellé fiche patient
+
+       6   CODE_FICHE_PATIENT            char(4)        Code fiche patient
+
+       7   LIBELLE_AUTRE                 char(20)       Autre libellé

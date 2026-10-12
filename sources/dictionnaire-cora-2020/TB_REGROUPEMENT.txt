@@ -1,0 +1,24 @@
+==== TB_REGROUPEMENT ====
+       1    ID_REGROUPEMENT             int(10)
+
+       2    CODE_REGROUPEMENT           varchar(10)
+
+       3    LIB_REGROUPEMENT            varchar(80)
+
+       4    ID_UTIL                     int(10)         Clé - Lien Util.id_util
+
+       5    DEFAUT                      char(1)                                                                                         'N'
+
+       6    COMMENTAIRE                 varchar(500)
+
+       7    TYPE_REGROUPEMENT           smallint(5)     1 = regroupement UM 2 = regroupement UF                                         1
+
+       8    ORDRE                       smallint(5)
+                                                        Lien sur TB_UTIL.ID_UTIL
+       9    ID_CREAT                    int(10)
+                                                        Identifiant de l'utilisateur de création
+       10   DATE_CREAT                  datetime        Date de création
+                                                        Lien vers Util.ID_UTIL.
+       11   ID_INFO                     int(10)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification
+       12   DATE_INFO                   datetime        Date de la dernière modification

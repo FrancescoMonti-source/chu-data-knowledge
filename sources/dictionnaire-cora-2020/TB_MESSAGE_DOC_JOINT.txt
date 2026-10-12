@@ -1,0 +1,6 @@
+==== TB_MESSAGE_DOC_JOINT ====
+     1   ID_MESSAGE                int(10)
+
+     2   ID_DOC_JOINT              int(10)
+
+     3   TYPE_DOC                  char(1)

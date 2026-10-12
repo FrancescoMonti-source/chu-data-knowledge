@@ -1,0 +1,6 @@
+==== ORPHA_REFERENCE_EXT ====
+       1   NUM_ORPHA                  int(10)
+
+       2   CODE_REFERENCE             varchar(10)
+
+       3   CODE_NOMENC                varchar(20)

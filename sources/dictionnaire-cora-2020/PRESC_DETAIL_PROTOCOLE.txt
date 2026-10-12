@@ -1,0 +1,18 @@
+==== PRESC_DETAIL_PROTOCOLE ====
+     1   ID_PRESC_PROTOCOLE      int(10)
+                                                 Lien vers PRESC_DETAIL_FAVORI.ID_DETAIL_FAVORI
+     2   ID_DETAIL_FAVORI        int(10)
+                                                 Identifiant du favori
+     3   ORDRE                   smallint(5)
+
+     4   DELAI                   int(10)
+
+     5   DELAI_HEURE             smallint(5)
+
+     6   DELAI_MINUTE            smallint(5)
+
+     7   ID_DETAIL_FAVORI_PERE   int(10)
+
+     8   ORDRE_PERE              int(10)
+
+     9   COCHE                   char(1)                                                            'O'

@@ -1,0 +1,27 @@
+==== TB_THES_ECOLE ====
+      1    ID_ECOLE                 smallint(5)
+
+      2    LIB_ECOLE                varchar(100)
+
+      3    ADRESSE1                 varchar(50)
+
+      4    ADRESSE2                 varchar(50)
+
+      5    ID_COMMUNE               int(10)
+
+      6    TEL                      varchar(18)
+
+      7    FAX                      varchar(18)
+
+      8    EMAIL                    varchar(100)
+
+      9    TYPE_ECOLE               char(1)
+
+      10   DATE_CREAT               datetime       Date de création
+                                                   Lien sur TB_UTIL.ID_UTIL
+      11   ID_CREAT                 int(10)
+                                                   Identifiant de l'utilisateur de création
+      12   DATE_INFO                datetime       Date de la dernière modification
+                                                   Lien vers Util.ID_UTIL.
+      13   ID_INFO                  int(10)
+                                                   Identifiant de l'utilisateur ayant effectué la dernière modification

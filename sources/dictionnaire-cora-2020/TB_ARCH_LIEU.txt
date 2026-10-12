@@ -1,0 +1,14 @@
+==== TB_ARCH_LIEU ====
+Définit une table contenant les différents lieux de réception des dossiers.
+                                                        Clé :
+       1    ID_LIEU                      smallint(5)
+                                                        Définit l'identifiant du lieu d'archive.
+       2    CODE_LIEU                    char(10)       Définit le code du lieu d'archive.
+
+       3    LIBELLE_LIEU                 varchar(100)   Définit le libellé du lieu d'archive.
+                                                        Lien sur TB_UNITE.ID_UNITE :
+       4    ID_UNITE                     int(10)
+                                                        Définit l'identifiant de l'unité associée au lieu d'archive.
+                                                        Définit un boolean indiquant si le lieu d'archive est le lieu par defaut pour
+       5    DEFAUT                       char(1)                                                                                                    'N'
+                                                        l'unité.

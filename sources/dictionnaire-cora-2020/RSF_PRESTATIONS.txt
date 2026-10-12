@@ -1,0 +1,15 @@
+==== RSF_PRESTATIONS ====
+       1   CODE_PREST                  char(5)         Code de la prestation RSF
+
+       2   LIB_PREST                   varchar(150)    Libellé de la prestation RSF
+
+       3   TYPE_PREST                  char(1)         Type de la prestation RSF : F ?                                                      'F'
+
+       4   GEST_INTEGR                 char(1)                                                                                              'O'
+       5   PREST_PROTH                char(1)                                                                                         'N'
+                                                     Lien vers Util.ID_UTIL.
+       6   ID_INFO                    int(10)
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification
+       7   DATE_INFO                  datetime       Date de la dernière modification
+
+       8   HEURE_INFO                 datetime       Heure de la dernière modification

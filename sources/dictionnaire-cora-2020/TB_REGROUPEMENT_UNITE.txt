@@ -1,0 +1,4 @@
+==== TB_REGROUPEMENT_UNITE ====
+       1    ID_REGROUPEMENT             int(10)
+
+       2    ID_UNITE                    int(10)

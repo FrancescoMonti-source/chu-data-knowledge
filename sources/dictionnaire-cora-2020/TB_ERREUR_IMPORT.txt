@@ -1,0 +1,33 @@
+==== TB_ERREUR_IMPORT ====
+Table des erreurs pour les Interfaces autres que Patient ou Actes (et Diags) en H' XML.Ex : Import RUM Diags
+                                                        Clé :
+       1    ID_ERR_IMPORT               int(10)
+                                                        Identifiant interne de la table
+       2    DATE_ERR                    datetime        Date ou l'erreur est intervenue
+                                                        Type d'erreur :
+                                                        - 'A' : Erreur applicative (Bug application. Ex : requête)
+                                                        - 'F' : Erreur de Flux (ex : Mvt ou séjour inexistant)
+                                                        - 'I' : Message d'information (Traitement effectué, Connexion réalisée, Diag
+       3    TYPE_ERR                    char(1)         crée…)
+                                                        - 'L' : Alerte - Traitement effectué avec Alerte (Création réalisé mais avec
+                                                        modification de données, ou création non réalisée en fonction des paramètres
+                                                        choisis par l'établissement)
+                                                        - 'R' : Rejet (ex : Format d'import invalide)
+       4    TYPE_IMPORT                 char(2)         - 'RD' : Import RUM Diag
+                                                        Codification Interne des erreurs survenues
+       5    CODE_ERR                    char(15)
+                                                        voir Doc : Liste_Code_Erreur_Import_Diag.xls
+       6    DETAIL_ERR                  varchar(500)    Détail de l'erreur
+
+       7    LIGNE_IMPORT                varchar(500)    Ligne importée
+
+       8    NOM_FICHIER                 varchar(50)     Fichier dans lequel l'import a été réalisé
+                                                        Lien sur TB_DIAG.ID_DIAG :
+       9    ID_DIAG                     int(10)         Pour un diag inséré en Base, lien avec son enregistrement dans la Table
+                                                        TB_DIAG
+                                                        N° de Séjour existant dans le fichier d'import (Peut ne pas exister dans
+       10   NO_SEJOUR                   varchar(20)
+                                                        TB_SEJOUR)
+                                                        Lien sur TB_MVT.ID_MVT :
+       11   ID_MVT                      int(10)
+                                                        Quand le Mouvement a été trouvé, lien sur celui-ci

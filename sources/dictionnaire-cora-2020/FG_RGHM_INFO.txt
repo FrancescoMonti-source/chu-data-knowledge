@@ -1,0 +1,27 @@
+==== FG_RGHM_INFO ====
+     1   VERSION_FG           char(3)        numéro de la version de groupage
+
+     2   RACINE_GHM           char(5)        racine du GHM (code CMD + 3 premières lettres du code GHM)
+
+     3   EFFET_AGE_2          smallint(5)    effet de l’âge pour les moins de 2 ans
+
+     4   EFFET_AGE_69_79      smallint(5)    effet de l’âge pour les plus de 69/79 ans
+                                             effet sur les séjours de durée faible (<3 jours)
+                                             0 : non applicable
+                                             1 : si durée séjour = 0 alors niveau = J sinon niveau = 1
+     5   GROUPE_COURT         smallint(5)
+                                             2 : si durée séjour = 0 alors niveau = T sinon niveau = 1
+                                             3 : si durée séjour < 2 alors niveau= T sinon niveau = 1
+                                             4 : si durée séjour < 3 alors niveau = T sinon niveau = 1
+                                             niveaux de sévérité possible
+     6   NIVEAUX_POSSIBLE     smallint(5)    0 : non applicable
+                                             9 : niveau = Z
+     7   EXISTENCE_E          smallint(5)    1 : Gestion de la racine en E dans le cas d'un mode de sortie en décès
+
+     8   CARACT_DP_EXCLUANT   smallint(5)    Caractère d'exclusion du DP
+
+     9   DUREE_CONFIRMATION   smallint(5)
+
+    10   LIBELLE_RACINE       varchar(200)   libellé de la racine du GHM
+
+    11   NUM_MATRICE_COMBI    char(1)

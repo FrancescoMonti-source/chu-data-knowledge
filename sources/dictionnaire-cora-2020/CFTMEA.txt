@@ -1,0 +1,12 @@
+==== CFTMEA ====
+Saisie des diagnostics pour la pedo-psychatrie (secteur PSY en IXX...)
+       1   CODE                         varchar(10)
+
+       2   CODE_PERE                    varchar(10)
+
+       3   ORDRE                        smallint(5)
+
+       4   LIBELLE                      varchar(200)
+
+       5   LIBELLE_SS_ACC               varchar(200)
+       6   SAISISSABLE                   char(1)

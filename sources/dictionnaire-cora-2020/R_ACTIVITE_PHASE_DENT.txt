@@ -1,0 +1,10 @@
+==== R_ACTIVITE_PHASE_DENT ====
+Dents incompatibles avec l'acte/activité/phase
+                                                    CCAM n° 1+2+4
+                                                    Code Phase interne de
+       1   AAP_COD                    char(16)      l'activité de l'acte
+                                                    (Code interne Activité + Code
+                                                    Phase)
+                                                    CCAM n° 44
+       2   DEN_NUMERO                 int(10)       Numéro de la dent
+                                                    incompatible

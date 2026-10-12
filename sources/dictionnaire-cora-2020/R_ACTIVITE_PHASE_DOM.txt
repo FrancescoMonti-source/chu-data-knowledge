@@ -1,0 +1,13 @@
+==== R_ACTIVITE_PHASE_DOM ====
+Majorations DOM pour un acte/activité/phase
+                                                    CCAM n° 1+2+4
+                                                    Code Phase interne de
+       1   AAP_COD                    char(16)      l'activité de l'acte
+                                                    (Code interne Activité + Code
+                                                    Phase)
+       2   APDT_MODIF                 datetime      Date modification de la phase
+
+       3   DOM_COD                    int(10)       Code DOM
+                                                    CCAM n° 47
+       4   MAJORATION                 float(53)
+                                                    Majoration DOM

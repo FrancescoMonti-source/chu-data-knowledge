@@ -1,0 +1,8 @@
+==== TB_TRANSCODAGE_NOMENC ====
+       1    ID_EJ                       smallint(5)    Identifiant de l'établissement juridique. Lien sur TB_EJ.Id_EJ
+                                                       Type de la nomenclature :
+       2    TYPE_NOMENC                 smallint(5)
+                                                       1 - CIM10
+       3    CODE_NOMENC                 varchar(20)    Code officiel de la nomenclature
+
+       4    CODE_TRANSCO                varchar(20)    Code à transcoder

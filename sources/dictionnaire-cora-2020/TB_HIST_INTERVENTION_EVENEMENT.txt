@@ -1,0 +1,37 @@
+==== TB_HIST_INTERVENTION_EVENEMENT ====
+Tables Historique de TB_INTERVENTION (Historisation des suppressions)
+                                                     Ancien identifiant de
+           ID_INTERVENTION_EVENEME
+      1                            int(10)           TB_INTERVENTION_EVENEMENT.ID_INTERVENTION_EVENEMENT (de la
+           NT
+                                                     ligne supprimée)
+      2    ID_INTERVENTION           int(10)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      3    ID_TYPE_EVENEMENT         int(10)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      4    NOTE_EVENEMENT            char(150)       Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      5    ID_AUTEUR                 int(10)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      6    DATE_EVENEMENT            datetime        Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      7    IMPORTANCE                char(1)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      8    ACTIF                     char(1)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      9    HEURE_EVENEMENT           datetime        Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      10   ID_INFO_CREAT             int(10)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      11   HEURE_INFO_CREAT          datetime        Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      12   DATE_INFO_CREAT           datetime        Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      13   ID_INFO_MODIF             int(10)         Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      14   DATE_INFO_MODIF           datetime        Copie de la donnée de TB_INTERVENTION_EVENEMENT
+
+      15   HEURE_INFO_MODIF          datetime        Copie de la donnée de TB_INTERVENTION_EVENEMENT
+                                                     Type d'évènement intervenu sur cet évènement d'intervention :
+      16   TYPE_INFO                 char(1)
+                                                     - 'S' : Suppression

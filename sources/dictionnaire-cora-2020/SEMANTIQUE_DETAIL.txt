@@ -1,0 +1,5 @@
+==== SEMANTIQUE_DETAIL ====
+Table rde la relation liant la sémantique et les diagnostics
+       1    ID_DIAG                      int(10)        Identifiant du diagnostic QualiCR (relation Diag Sémantique)
+
+       2    MOT                          varchar(40)    Mot : découpage de la table SEMANTIQUE_DIAG

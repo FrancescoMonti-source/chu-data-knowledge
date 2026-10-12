@@ -1,0 +1,50 @@
+==== TB_DOCUMENT_TRACE ====
+Définit une table de trace sur les actions réalisées sur les documents.
+                                                           Lien vers TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT
+       1    ID_DOCUMENT_PATIENT          int(10)
+                                                           Définit l'identifiant du document patient.
+                                                           Lien sur Util.id_util :
+       2    ID_UTIL                      int(10)
+                                                           Définit l'identifiant de l'utilisateur à l'origine de la trace.
+       3    DATE_TRACE                   datetime          Définit la date de la trace.
+                                                           Définit le type de la trace.
+                                                           F - Ouverture de fiche
+                                                           D - Visualisation de document
+       4    TYPE_TRACE                   char(2)           I - Impression de document
+                                                           V - Verrouillage de document au format Pdf
+                                                           M - Envoi par mail de document
+                                                           LA - Impression de lettre accompagnante
+                                                       Définit l'écran CORA concerné par la trace.
+                                                       "Ecran RUM" RUM - 1
+                                                       "Ecran Bloc" BLC - 2
+                                                       "Activité Rapide" SRA - 3
+                                                       "Connexion" PWD - 4
+                                                       "Connexion / Deconnexion" CON = 5
+                                                       "Ecran RSS" RSS - 6
+                                                       "Ecran Medicaments Couteux" MED - 7
+                                                       "Ecran LPP" LPP - 8
+                                                       "Ecran Document Recueil" DOC - 9
+       5   ECRAN                       char(3)
+                                                       "Fiche Document Patient" FDP - 10
+                                                       "Visualisation Document Patient (ouverture)" VDP - 11
+                                                       "Visualisation Document Archive" VDA -12
+                                                       "Historique Document Patient" HDP - 13
+                                                       "Historique Document Patient Archivés" HDA - 14
+                                                       "Liste de Travail")> LST - 15
+                                                       "Ecran de Recherche des Documents" RED - 16
+                                                       "Ecran d'administration des documents" EAD - 17
+                                                       "Synthèse courriers" SC - 18
+                                                       "Vue synthétique" VS - 19
+                                                       Définit le module CORA concerné par la trace.
+                                                       "CoRa Recueil" REC - 1
+                                                       "CoRa Activité" ACT - 2
+                                                       "CoRa Document" DOC - 3
+                                                       "CoRa Admin Recueil" ADR - 4
+                                                       "CoRa Admin Interface" ADI - 5
+       6   MODULE_CORA                 char(3)
+                                                       "CoRa Agenda" AGD - 6
+                                                       "CoRa Urgences" URG - 7
+                                                       "CoRa DPE/Portail" DPE - 8
+                                                       "CoRa Réanimation" REA - 9
+                                                       "CoRa DPS" DPS - 10
+                                                       "CoRa Lit" LIT - 11

@@ -1,0 +1,39 @@
+==== TB_CTRL_SUIVI ====
+Permet d'historiser le résultat pour chaque contrôle qualité (CORA, DATIM, requete param ou labo) effectué sur un RSS.
+       1   ID_CTRL_SUIVI               int(10)        id unique du suivi (compteur)
+                                                      lien vers TB_REGLE_QUALITE.ID_REGLE_QUALITE si le contrôle qualité
+       2   ID_REGLE_QUALITE            int(10)        dont on assure le suivi fait parti d'un lot de contrôles qualités.
+                                                      Si -1 : ne fait pas parti d'un lot
+                                                      Q : DATIM ou CORA
+                                                      R : requete paramétrable VB6
+       3   TYPE_CONTROLE               char(1)        N : Requête paramétrable .NET
+                                                      B : labo / biologie
+                                                      A : contrôle DimXpert
+                                                      lien vers :
+                                                      -TB_TEST_QUALITE.ID_TEST_QUALITE si contrôle de type DATIM ou CORA
+                                                      -TB_REQUETE.ID_REQUETE si contrôle de type requête paramétrable
+       4   ID_CONTROLE                 int(10)
+                                                      -TB_LABO_CONTROLE_QUALITE.ID_CONTROLE_LABO si contrôle de type
+                                                      labo
+                                                      -TB_AMEDIM_CONTROLE_QUALITE.ID_CONTROLE si contrôle DimXpert
+                                                      P : Positif au contrôle qualité
+       5   RESULTAT                    char(1)
+                                                      N : Négatif au contrôle qualité
+       6   ACTIF                       char(1)        N : inactif O : actif
+                                                      lien avec TB_SYNTH_RSS.ID_RSS. Identifiant du dossier sur lequel le
+       7   ID_RSS                      int(10)
+                                                      contrôle qualité est effectué.
+       8   DATE_INFO                   datetime       Date de la dernière modification
+                                                      Lien vers Util.ID_UTIL.
+       9   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+                                                      liste des numéros de RUM (base 1) séparée par des virgules « , » pour
+                                                      lesquels le dossier a été contrôlé positif. Cette valeur est NULL dans le cas où
+      10   LISTE_CHRONO_RUM            varchar(100)
+                                                      le dossier est négatif au contrôle ou alors si le dossier est positif à un contrôle
+                                                      DimXpert contrôlant des données RSS (comme les contrôle DATIM/OVALIDE).
+                                                      Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                      CORA_UTIL)
+      11   ID_ETABLIS                  smallint(5)
+                                                      Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                      Siège centralisée

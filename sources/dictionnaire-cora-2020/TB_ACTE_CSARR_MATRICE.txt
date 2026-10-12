@@ -1,0 +1,8 @@
+==== TB_ACTE_CSARR_MATRICE ====
+Gestion des réceptions d'acte CSARR
+                                                     Clé - Lien sur TB_ACTE_CSARR.ID_ACTE_CSARR :
+       1   ID_ACTE                     int(10)
+                                                     Lien sur l'acte CSARR
+       2   ID_EXTERNE                  varchar(17)   Identifiant externe de l'acte recu
+
+       3   ID_APPLICATION              int(10)       Lien sur TB_INT_APPLICATION.ID

@@ -1,0 +1,7 @@
+==== LPP_GRP_FREQ ====
+Table contenant l'utilisation des codes LPP par Groupe Utilisateur ('LPP Fréquent' d'un groupe utilisateur)
+       1   CODE_LPP                      char(13)
+                                                        Clé - Lien Util_lib_groupe.id_groupe :
+       2   ID_GRP                        int(10)
+                                                        Lien sur le groupe utilisateur
+       3   NB                            int(10)        Nombre d'utilisation du code concerné

@@ -1,0 +1,19 @@
+==== TB_LABO_CONTROLE_PROP ====
+Table permettant le stockage des diagnostics proposés si un contrôle qualité Labo est positif--> Utilisé en proposition de codage
+côté CORA Recueil
+                                                       Clé
+       1   ID_LABO_PROP                 int(10)
+                                                       Identifiant de la table
+                                                       Identifiant du contrôle qualité Labo
+       2   ID_CONTROLE_LABO             int(10)
+                                                       Lien sur TB_LABO_CONTROLE_QUALITE.ID_CONTROLE_LABO
+                                                       Code CIM 10
+       3   CODE                         char(16)       Lien sur CIM_HIERARCHIE.CODEFILS. Peut être un code commençant par
+                                                       xxx
+                                                       Commentaire lié à la proposition
+       4   COMMENTAIRE                  varchar(100)
+                                                       Non exploité
+       5   NIVEAU_PRIORITAIRE           smallint(5)    Non utilisé
+                                                       Ordre d'affichage de la proposition (la plus fréquente en 1 pour un affichage en
+       6   ORDRE                        smallint(5)
+                                                       haut de la liste)

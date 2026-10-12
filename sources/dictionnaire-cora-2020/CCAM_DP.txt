@@ -1,0 +1,13 @@
+==== CCAM_DP ====
+Table permettant de présenter le pourcentage de chance d'avoir un acte CCAM pour un code diagnostic donné et
+inversement.Plus le pourcentage est élevé plus le code CCAM et le diagnostic sont compatibles.
+       1   CODE_CCAM                  char(7)         Code CCAM dont on test la compatibilité
+
+       2   CODE_DIAG                  char(16)        Code diagnostic dont on test la compatibilité
+
+       3   POURCENTAGE                decimal(7, 4)   pourcentage de compatibilité entre le code diag et le code CCAM
+                                                      Numéro de position du diagnostic pour chaque acte en fonction de sa
+                                                      probabilité. Pour un acte donné, le diagnostic ayant le pourcentage le plus fort
+       4   POSITION                   smallint(5)
+                                                      aura la position 1 et celui ayant le pourcentage le plus faible aura la dernière
+                                                      position.

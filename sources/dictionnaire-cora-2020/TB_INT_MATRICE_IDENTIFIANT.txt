@@ -1,0 +1,26 @@
+==== TB_INT_MATRICE_IDENTIFIANT ====
+     1   ID_SEJOUR           int(10)       FK TB_SEJOUR.ID_SEJOUR
+
+     2   ID_INTERNE          int(10)       Valeur de l'identifiant côté CORA
+
+     3   ID_EXTERNE          varchar(20)   Valeur de l'identifiant côté connecteur
+
+     4   ID_APPLICATION      int(10)       Identifiant du connecteur
+                                           Type d'identifiant, lié à un enum
+                                               AUCUN = 0
+                                               MOUVEMENT = 1
+                                               PERMISSION_FIN = 2
+                                               SEJOUR_FIN = 3
+                                               ABSENCE_DEBUT=4
+                                               ABSENCE_FIN=5
+     5   TYPE                smallint(5)       PRESENCE_DEBUT=6
+                                               PRESENCE_FIN=7
+                                               PREADMISSION=8
+                                               ABSENCE_DEBUT_PSY=9
+                                               ABSENCE_FIN_PSY=10
+                                               VENUE_DEBUT_PSY=11
+                                               VENUE_FIN_PSY=12
+                                               VENUE=13
+                                           permet de donner une chronologie aux identifiants externes associés à un
+     6   ORDRE               int(10)                                                                                     0
+                                           identifiant

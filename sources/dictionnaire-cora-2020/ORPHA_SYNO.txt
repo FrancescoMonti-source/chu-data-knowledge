@@ -1,0 +1,7 @@
+==== ORPHA_SYNO ====
+       1   NUM_ORPHA                  int(10)
+
+       2   LIBELLE_ORPHA_SYNO         varchar(200)
+           LIBELLE_ORPHA_SYNO_SS_A
+       3                           varchar(200)
+           CC

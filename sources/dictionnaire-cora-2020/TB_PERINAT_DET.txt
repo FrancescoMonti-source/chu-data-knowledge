@@ -1,0 +1,10 @@
+==== TB_PERINAT_DET ====
+       1   ID_MVT                      int(10)
+
+       2   ORDRE                       smallint(5)
+
+       3   ID_ETAT                     int(10)
+
+       4   ID_PRES_SIEGE               int(10)
+
+       5   ID_POIDS                    int(10)

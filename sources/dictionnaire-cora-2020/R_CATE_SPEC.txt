@@ -1,0 +1,6 @@
+==== R_CATE_SPEC ====
+Liste des Catégories de spécialités
+       1   COD_CATSPE                 char(2)       code catégorie de spécialité
+                                                    libellé de la catégorie de
+       2   LIBELLE                    char(100)
+                                                    spécialité

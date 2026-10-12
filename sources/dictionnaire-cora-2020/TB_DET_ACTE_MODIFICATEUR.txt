@@ -1,0 +1,6 @@
+==== TB_DET_ACTE_MODIFICATEUR ====
+       1   ID_DET_ACTE                  int(10)          Identifiant de détail d'acte - Lien avec TB_DET_ACTE.ID_DET_ACTE
+
+       2   MODIFICATEUR                 char(1)          Modificateur du détail de l'acte
+
+       3   FACTURANT                    char(1)          Statut facturant / non facturant du modificateur (O/N)

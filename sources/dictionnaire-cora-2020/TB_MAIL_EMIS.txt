@@ -1,0 +1,12 @@
+==== TB_MAIL_EMIS ====
+       1   ID                          int(10)         Identifiant de la ligne dans la table
+
+       2   SUJET_MAIL                  varchar(100)    sujet du mail
+
+       3   CORPS_MAIL                  varchar(1000)   Contenu du mail
+
+       4   DEST                        varchar(100)    Adresse du destinataire
+
+       5   DEST_CC                     varchar(100)    Adresses des distinataire copie
+
+       6   DATE_MAIL                   datetime        Date du mail

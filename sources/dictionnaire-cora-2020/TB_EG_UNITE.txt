@@ -1,0 +1,5 @@
+==== TB_EG_UNITE ====
+Table des liens en unite et EG
+       1   ID_EG                          smallint(5)    Identifiant de l'entité Géographique
+
+       2   ID_UNITE                       int(10)        Identifiant de l'unité. Lien fvers TB_UNITE.ID_UNITE

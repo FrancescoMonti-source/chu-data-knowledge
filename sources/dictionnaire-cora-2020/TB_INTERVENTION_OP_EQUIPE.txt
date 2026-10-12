@@ -1,0 +1,11 @@
+==== TB_INTERVENTION_OP_EQUIPE ====
+Table des equipes d'intervenants participant à l'intervention avec les différents opérateurs
+                                                         Clé - Lien sur TB_INTERVENTION.ID_INTERVENTION et sur
+       1    ID_INTERVENTION               int(10)        TB_INTERVENTION_OPERATEUR.ID_INTERVENTION :
+                                                         Lien sur l'intervention
+                                                         Clé - Lien sur TB_INTERVENTION_OPERATEUR.ID_OPERATEUR :
+       2    ID_OPERATEUR                  int(10)
+                                                         Lien sur l'opérateur
+                                                         Clé - Lien sur Util.id_util :
+       3    ID_INTERVENANT                int(10)
+                                                         Lien sur l'intervenant

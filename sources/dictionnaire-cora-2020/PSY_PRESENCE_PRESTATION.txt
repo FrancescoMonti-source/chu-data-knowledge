@@ -1,0 +1,22 @@
+==== PSY_PRESENCE_PRESTATION ====
+Thésaurus des prestations Temps partiel PSY
+       1   CODE                        varchar(2)      Code de la prestation
+                                                       Libellé de la prestation
+                                                       0 -> 'Prise en charge habituelle, en présentiel
+                                                       1 -> 'PIE (Cette valeur ne sera pas utilisé en période COVID-19)
+                                                       2 -> 'PIA (Cette valeur ne sera pas utilisée en période COVID-19)'
+                                                       3 -> 'Prise en charge aménagée, en présentiel, incluant un ou plusieurs «
+                                                       Entretien individuel ».'
+                                                       4 -> 'Prise en charge à distance incluant une ou plusieurs activités de type «
+                                                       Groupe » réalisée(s) par vidéo'
+                                                       5 -> 'Prise en charge à distance incluant une ou plusieurs activités de type «
+       2   LIBELLE                     varchar(200)
+                                                       Groupe » réalisée(s) par téléphone'
+                                                       6 -> 'Prise en charge à distance incluant un ou plusieurs « Entretien individuel
+                                                       » réalisé(s) par vidéo'
+                                                       7 -> 'Prise en charge à distance incluant un ou plusieurs « Entretien individuel
+                                                       » réalisé(s) par téléphone'
+                                                       8 -> 'Prise en charge Autres (sans Entretien, ni Groupe) de type
+                                                       Accompagnement'
+                                                       9 -> 'Prise en charge avec un déplacement (Visite à Domicile ou substitut du
+                                                       domicile, EHPAD, ESMS, etc)'

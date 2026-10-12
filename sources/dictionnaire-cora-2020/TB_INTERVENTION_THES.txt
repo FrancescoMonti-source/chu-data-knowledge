@@ -1,0 +1,8 @@
+==== TB_INTERVENTION_THES ====
+Table utilisé pour stocker les valeurs saisies
+                                                           Clé
+       1    ID_INTERVENTION               int(10)          Lien sur TB_INTERVENTION.ID_INTERVENTION :
+                                                           Identifiant de l'intervention
+                                                           Clé
+       2    ID_THES_SPE                   int(10)          Lien sur TB_TYPE_INTERVENTION.ID_TYPE_INTERVENTION :
+                                                           Lien sur la valeur du thésaurus

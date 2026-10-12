@@ -1,0 +1,49 @@
+==== TB_OCCUPATION_LIT ====
+Table représentant une occupation d'un lit par un patient
+                                                        Clé de la table
+       1   ID_OCCUPATION_LIT            int(10)
+                                                        Identifiant de l'occupation de lit
+       2   DATE_DEBUT                   datetime        Date de début de l'occupation
+
+       3   DATE_FIN                     datetime        Date de fin de l'occupation
+                                                      Lien vers TB_URG_MOTIF_RECOURS.ID_MOTIF_RECOURS
+       4   ID_MOTIF_RECOURS           smallint(5)
+                                                      Identifiant du motif de recours lié à l'occupation
+                                                      Lien vers TB_THES_LIT.ID_LIT
+       5   ID_LIT                     int(10)
+                                                      Identifiant du lit lié à l'occupation
+       6   DPS                        decimal(9, 3)   Durée prévisionnelle de séjour
+                                                      Statut de l'occupation
+       7   STATUT                     char(1)
+                                                      P : prévisionelle
+                                                      Lien vers TB_THES_TYPE_LIT.ID_TYPE_LIT
+       8   ID_TYPE_LIT                smallint(5)
+                                                      Identifiant du type de lit
+                                                      Lien sur TB_PATIENT.ID_PATIENT
+       9   ID_PATIENT                 int(10)
+                                                      Identifiant du patient
+                                                      Lien sur TB_SEJOUR.ID_SEJOUR
+      10   ID_SEJOUR                  int(10)
+                                                      Identifiant du séjour
+                                                      Lien sur TB_MVT.ID_MVT
+      11   ID_MVT                     int(10)
+                                                      Identifiant du mouvement
+                                                      Lien sur TB_MVT_COMPL.ID_MVT_COMPL
+      12   ID_MVT_COMPL               int(10)
+                                                      Identifiant du mouvement complémentaire
+                                                      Lien vers TB_UNITE.ID_UNITE
+      13   ID_UNITE_H                 int(10)
+                                                      Identifiant de l'unité l'hébergement de l'occupation
+                                                      Lien vers TB_UNITE.ID_UNITE
+      14   ID_UNITE_R                 int(10)
+                                                      Identifiant de l'unité de responsabilité médicale de l'occupation
+                                                      Lien vers TB_THES_TYPE_FERMETURE.ID_TYPE_FERMETURE
+      15   ID_TYPE_FERMETURE          smallint(5)
+                                                      Identifiant du type de fermeture
+      16   COMMENTAIRE                varchar(4000)   Commentaire lié à l'occupation
+
+      17   DATE_INFO                  datetime        Date de dernière modification de l'occupation
+                                                      Lien vers TB_UTIL.ID_UTIL
+      18   ID_INFO                    int(10)
+                                                      Identifiant de la personne ayant modifié en dernier l'occupation
+      19   DPS_INITIALE               decimal(9, 3)   Durée prévisionnelle de séjour initiale

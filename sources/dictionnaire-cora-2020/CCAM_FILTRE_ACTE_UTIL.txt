@@ -1,0 +1,8 @@
+==== CCAM_FILTRE_ACTE_UTIL ====
+       1   ID_UTIL                     int(10)       Clé - Lien Util.id_util
+
+       2   MENU_COD                    int(10)
+
+       3   CODE_ACTE                   char(7)
+
+       4   ENREG                       char(1)

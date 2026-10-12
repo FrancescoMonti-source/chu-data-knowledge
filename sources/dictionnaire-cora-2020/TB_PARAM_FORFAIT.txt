@@ -1,0 +1,20 @@
+==== TB_PARAM_FORFAIT ====
+Table de Paramétrage de la génération des Lettres clés du Parcours de soins
+                                                        Clé :
+                                                        Valeur utilisée en interne pour repérer les différents forfaits:
+                                                        - SE1 pour le forfait Sécurité Environnement Hospitalier 1
+       1   CODE_INTERNE                char(5)          - SE2 pour le forfait Sécurité Environnement Hospitalier 2
+                                                        - SE3 pour le forfait Sécurité Environnement Hospitalier 3
+                                                        - SE4 pour le forfait Sécurité Environnement Hospitalier 4
+                                                        - SE5 pour le forfait Sécurité Environnement Hospitalier 5
+       2   LIB                         varchar(50)      Libellé (ex : Sécurité Environnement Hospitalier 1)
+                                                        Code Lettre clé correspondante (ex : 'SE1', 'SE2'…) insérée dans
+       3   CODE_PARAM                  char(9)
+                                                        TB_COTATION_NGAP
+       4   COEF                        decimal(10, 2)   Coefficient de la LC NGAP
+
+       6   GESTION_EXT                 char(1)          O' si gestion pour les unités EXT
+
+       7   GESTION_URG                 char(1)          O' si gestion pour les unités URG
+
+       8   GESTION_MCO                 char(1)          O' si gestion pour les unités MCO

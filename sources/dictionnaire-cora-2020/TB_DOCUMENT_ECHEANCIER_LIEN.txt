@@ -1,0 +1,12 @@
+==== TB_DOCUMENT_ECHEANCIER_LIEN ====
+Définit une table contenant les liens entre les échéanciers ainsi que les modèles ou bien les unités.
+       1   ID_DOCUMENT_ECHEANCIER int(10)               Définit l'identifiant du document échéancier lien.
+       2   ID_LIEN                     int(10)        Définit l'identifiant du lien.
+                                                      Définit le type du lien.
+       3   TYPE_LIEN                   char(1)        - 'U' - Uf
+                                                      - 'M' - Modèle
+                                                      Définit l'identifiant de l'échéance. Uniquement renseigné lorsque le type de lien
+                                                      est 'M'.
+       4   ID_ECHEANCE                 smallint(5)
+                                                      1 - Echéances 24h
+                                                      2 - Echéances 48h

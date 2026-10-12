@@ -1,0 +1,39 @@
+==== TB_PATIENT_CONTACT ====
+Tables de renseignement des contacts du patient.
+                                                      Clé :
+       1   ID_PATIENT_CONTACT          int(10)
+                                                      Identifiant du contact du patient.
+                                                      Clé :
+       2   ID_PATIENT                  int(10)        Lien sur TB_PATIENT.ID_PATIENT :
+                                                      Identifiant du patient.
+       3   NOM_CONTACT                 varchar(50)    Définit le nom du contact patient.
+
+       4   PRENOM_CONTACT              varchar(50)    Définit le prénom du contact patient.
+                                                      Définit le type de contact pour le patient.
+                                                      - 1 : Conjoint(e).
+                                                      - 2 : Père.
+                                                      - 3 : Mère.
+                                                      - 4 : Frère.
+                                                      - 5 : Sœur.
+                                                      - 6 : Ami(e).
+       5   TYPE_CONTACT                char(2)        - 7 : Parent proche.
+                                                      - 8 : Autre.
+                                                      - 9 : Epoux(se).
+                                                      - 10 : Enfant.
+                                                      - 11 : Petit-fils (fille).
+                                                      - 12 : Tuteur.
+                                                      - 13 : Contact d'urgence.
+                                                      - "" : X.
+       6   ADRESSE1_CONTACT            varchar(50)    Définit l'adresse principale du contact patient.
+
+       7   ADRESSE2_CONTACT            varchar(50)    Définit l'adresse secondaire du contact patient.
+                                                      Lien sur TB_COMMUNE.ID_COMMUNE :
+       8   ID_COMMUNE                  int(10)
+                                                      Identifiant de la commune de l'adresse du contact patient.
+       9   TEL1_CONTACT                varchar(18)    Définit le téléphone principal du contact patient.
+
+      10   TEL2_CONTACT                varchar(18)    Définit le téléphone secondaire du contact patient.
+                                                      Definit un boolean indiquant si le contact a été mis à jour par le logiciel
+      11   INTEGRE_SIH                 char(1)
+                                                      administratif.
+      12   ID_EXTERNE                  varchar(50)    Identifiant du contact au sein de la GAM

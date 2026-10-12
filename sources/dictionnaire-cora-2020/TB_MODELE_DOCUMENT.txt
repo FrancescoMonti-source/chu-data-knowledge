@@ -1,0 +1,77 @@
+==== TB_MODELE_DOCUMENT ====
+Cette table contient l'ensemble des modèles de document (Courriers Correspondant, Certificats, Courriers Libres, Protocole de
+Doc, Lettre accompagnante).
+                                                Clé :
+     1   ID_MODELE_DOC           int(10)
+                                                Définit l'identifiant (PrisMédica) du modèle.
+                                                Définit le nom du modèle pour affichage lors de l'attribution d'un modèle à un
+     2   LIBELLE_MODELE          varchar(250)
+                                                courrier.
+     3   CHRONO_MODELE           varchar(250)   Définit le nom du fichier word (sans extension).
+                                                Définit un boolean indiquant si le modèle est actif
+     4   ACTIF                   char(1)        - 'O' pour Actif
+                                                - 'N' pour inactif (ou !='O')
+                                                Lien sur TB_DOCUMENT_PATIENT.TYPE_DOC :
+     5   TYPE_DOC                char(2)
+                                                Type de document pouvant être rattachés au modèle.
+                                                Lien sur TB_UNITE.ID_UNITE :
+     6   ID_UNITE                int(10)
+                                                Utilisation possible du modèle par les utilisateurs de cette unité
+                                                Lien sur Util.id_util :
+     7   ID_UTIL                 int(10)
+                                                Utilisation possible du modèle par cet utilisateur
+     8   ETABLISSEMENT           char(1)        Utilisation possible du modèle par tous les utilisateurs de l'établissement si 'O'
+                                                Lien sur TB_SITE.ID_SITE :
+     9   ID_SITE                 int(10)
+                                                Utilisation possible du modèle par les utilisateurs de ce site
+    10   DEFAUT                  char(1)        Modèle par défaut si 'O'
+
+    11   CORPS_COURRIER          char(1)        Modèle avec corps de courrier ('O' possible que pour types 01 et 03)
+
+    12   EXISTE_ACTE             char(1)        Permet de savoir si le Modèle dispose d'informations actes                              'O'
+
+    13   EXISTE_DIAG             char(1)        Permet de savoir si le Modèle dispose d'informations diagnostics                        'O'
+                                                Lien sur TB_MODELE_DOC_CATEGORIE.ID_MODELE_DOC_CAT :
+    14   ID_MODELE_DOC_CAT       smallint(5)
+                                                Lien sur une Catégorie de Modèle
+                                                Type d'impression par défaut pour les documents héritant de ce modèle
+                                                modèle:
+                                                1 - Une impression par correspondant, non modifiable dans le document
+    15   TYPE_IMPRESSION         char(1)        2 - Une impression par correspondant, modifiable dans le document                       '1'
+                                                3 - Une impression avec tous les correspondants, non modifiable dans le
+                                                document
+                                                4 - Une impression avec tous les correspondants, modifiable dans le document
+    16   LIB_COURT_MODELE        varchar(50)    Libellé Court d'un modèle
+                                                Lien sur TB_TYPE_MODELE.ID_TYPE_MODELE :
+    17   ID_TYPE_MODELE          smallint(5)
+                                                Lien sur un Type de Modèle
+    18   TYPE_ERR                char(1)
+
+    19   ID_PROTO_STATUT_DOC     smallint(5)    Définit l'identifiant du protocole de statut associé au modèle de document.
+
+    20   MODELE_IMPORT           char(1)
+                                                Lien sur TB_DOC_TYPE.ID_DOC_TYPE :
+    21   ID_DOC_TYPE             smallint(5)
+                                                Définit l'identifiant du type de document.
+                                                Définit si le document est invisible pour le patient sur la plateforme du DMP.
+    22   DOC_INVISIBLE_PATIENT   char(1)
+                                                ('O' si Oui, 'N' si Non).
+                                                Définit un boolean indiquant si le document est envoyable sur la plateforme du
+    23   FLAG_ENVOI_DMP          char(1)
+                                                DMP. ('O' si Oui, 'N' si Non).
+    24   CODE_MODELE_EXTERNE     varchar(20)
+                                                Lien sur TB_MODELE_DOCUMENT.ID_MODELE_DOC :
+    25   ID_MODELE_LA            int(10)        Définit l'identifiant du modèle de lettre accompagnante associée au modèle de
+                                                document.
+                                                Définit si une lettre accompagnante est associée pour le correspondant
+    26   PRINT_CORR_P            char(1)
+                                                principal. ('O' si Oui, 'N' si Non).
+    27   COPIE_DP                char(1)        Définit si le modèle autorise une impression pour copie dans le dossier patient.
+
+    28   NB_IMPR_DEFAUT          smallint(5)    Définit le nombre de copies à imprimer par défaut.
+                                                Définit le niveau de visibilité d'un document.
+                                                I - Niveau initial du centrage,
+    29   NIVEAU_VISIBILITE       char(1)
+                                                P - Niveau patient,
+                                                S - Niveau séjour.
+    30   DUPLICATA               char(1)

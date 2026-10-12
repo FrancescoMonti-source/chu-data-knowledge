@@ -1,0 +1,10 @@
+==== TB_REGION_DEP ====
+       1    CODE_DEP                    char(3)
+
+       2    CODE_DEP2                   char(2)
+
+       3    LIB_DEP                     varchar(30)
+
+       4    CODE_REGION                 char(2)
+
+       5    LIB_REGION                  varchar(30)

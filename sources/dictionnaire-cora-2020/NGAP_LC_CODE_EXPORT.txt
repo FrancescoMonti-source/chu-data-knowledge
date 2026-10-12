@@ -1,0 +1,8 @@
+==== NGAP_LC_CODE_EXPORT ====
+                                                       Clé
+       1   LC                         varchar(9)
+                                                       Code NGAP de la lettre clé
+                                                       Clé
+       2   ID_EJ                      smallint(5)
+                                                       Identifiant de l'EJ
+       3   CODE_EXPORT                varchar(9)       Lettre clé à envoyer à la place de la lettre clé saisie

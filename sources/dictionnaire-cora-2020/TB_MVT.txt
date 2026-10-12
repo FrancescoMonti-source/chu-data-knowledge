@@ -1,0 +1,166 @@
+==== TB_MVT ====
+Table des Mouvements : Mouvements d'Unité Fonctionnel + Mouvement de Site (de plateau technique - si FLAG_MVT_SITE
+='X')
+                                                  Clé :
+      1    ID_MVT                   int(10)
+                                                  Identifiant (PrisMédica) du mouvement
+                                                  Lien sur TB_PATIENT.ID_PATIENT :
+      2    ID_PATIENT               int(10)
+                                                  Identifiant du Patient. Lien non principal (Lien principal = ID_SEJOUR)
+                                                  Lien sur TB_SEJOUR.ID_SEJOUR :
+      3    ID_SEJOUR                int(10)       Identifiant du Séjour dans lequel se trouve ce Mouvement d'Unité (Lien
+                                                  obligatoire)
+      5    DATE_DEBUT_MVT           datetime      Date de Début du Mouvement (Données obligatoire)
+
+      6    DATE_FIN_MVT             datetime      Date de Fin du Mouvement
+
+      7    HEURE_DEBUT_MVT          datetime      Heure de Début du Mouvement
+
+      8    HEURE_FIN_MVT            datetime      Heure de Fin du Mouvement
+                                                  Lien sur TB_UNITE.CODE_UNITE :
+      10   ID_UNITE_M               char(12)      Unité (UF) du Mouvement (Données obligatoire pour les Mouvements d'Unité
+                                                  Fonctionnel)
+                                                  Mode d'entrée du Mouvement. Valeur 'officielle' (ex : 6 - Entrée par Mutation / 8
+      11   MODE_ENTREE              char(2)       - Provenance Domicile)
+                                                  Valeur possible : 0, 6, 7, 8 + N (né dans l'établissement - réglementaire 2019)
+                                                  Mode de sortie du Mouvement. Valeur 'officielle' (ex : 8 - Sortie vers Domicile /
+      12   MODE_SORTIE              char(2)       9 – Décès)
+                                                  Valeur possible : 0, 6, 7, 8, 9
+                                                  Lien sur Util.id_util :
+      13   ID_MED_RUM               int(10)
+                                                  Identifiant du médecin ayant signé le RUM
+      14   DATE_SIGN_RUM            datetime      Date de signature du RUM
+
+      15   HEURE_SIGN_RUM           datetime      Heure de signature du RUM
+                                                  Code Provenance du Mouvement. Valeur 'officielle' (ex : 1 - D'une unité de
+      21   CODE_PROVENANCE          char(2)       soins de courte durée)
+                                                  Valeur possible : 1 à 7
+                                                  Code Destination du Mouvement. Valeur 'officielle' (ex : 1 - Vers unité de soins
+      22   CODE_DESTINATION         char(2)       de courte durée)
+                                                  Valeur possible : 1 à 7
+      23   POIDS_RUM                int(10)       Poids (des nouveaux-nés) en grammes
+
+      24   IGS2                     char(3)       Indice de Gravité simplifié (utilisé pour la Réanimation)
+                                                  Lien sur Util.id_util :
+      25   ID_MEDECIN_RESPONSABLE int(10)
+                                                  Identifiant du médecin responsable du RUM
+                                                  Score Omega 1 (OMEGA 1 : actes à coder une seule fois, quel que soit le
+      26   OMEGA_1                  smallint(5)
+                                                  nombre de réalisation)
+      27   OMEGA_2                  smallint(5)   Score Omega 2 (OMEGA 2 : coder à chaque réalisation dans le service.)
+
+      28   OMEGA_3                  smallint(5)   Score Omega 3 (OMEGA 3 : cotation pour chaque journée de réalisation.)
+
+      29   ICR                      int(10)       Indice de Cout (Somme des ICR des actes CCAM du mouvement)
+
+      30   DATE_INFO                datetime      Date de dernière modification du mouvement
+                                                  Heure de dernière modification du mouvement
+      31   HEURE_INFO               datetime
+                                                  Non géré actuellement
+                                                  Lien sur Util.id_util :
+                                                  Identifiant du dernier utilisateur ayant réalisé une modification de ce
+      32   ID_INFO                  int(10)
+                                                  mouvement
+                                                  Non géré actuellement
+      35   NB_SEA                   int(10)       Nombre de séances
+                                           Lien sur TB_SITE.ID_SITE :
+36   ID_SITE_MVT             int(10)       Pour les mouvements de Site (= de Plateaux Technique) permet d'enregistrer
+                                           le Site
+37   FLAG_MVT_SITE           char(1)       Mouvement spécifique de Site (=de Plateaux Technique)
+
+38   NO_MVT                  char(20)      N° de Dossier (cas des Plateaux Techniques)
+                                           si = 'O' : Mouvement avec un statut programmé (programmé d'un moins 2
+39   STATUT_PROG             char(1)       jours) --> Information normalement dans TB_SEJOUR, duppliquée dans cette
+                                           table pour gérer les cas de multi RSS dans un même séjour
+                                           Lien sur TB_SYNTH_RSS.ID_RSS :
+42   ID_RSS                  int(10)
+                                           Lien sur le RSS (pour le PMSI et les Mouvements d'Unité soumis au PMSI)
+51   ID_MVT_EXT              varchar(20)   Identifiant du mouvement pour l'application émettrice. Utilisé par les interfaces
+
+53   SEM_AMENORHEE           smallint(5)   Nombre de semaine aménorrhée
+                                           Exclusivement pour SQL Server (utilisé au C.H de Brignoles) :
+54   TRAITEMENT_EXT          bit           Permet à une application extérieur de récupérer et de traiter des lignes de         0
+                                           cette Table
+55   FLAG_VENUE              char(1)       Exclusif Client.
+                                           Nombre de jour de présence dans un lit dédié de soins palliatifs (pour une
+                                           Unité ayant des lits dédiés).
+56   NB_JOUR_LIT_DEDIE       smallint(5)   Actuellement :
+                                           - 0 : Pas de lit dédié soins palliatif
+                                           - 1 : Présence dans un lit dédié au cours du passage dans l'Unité.
+                                           Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                           CORA_UTIL)
+57   ID_ETABLIS              smallint(5)
+                                           Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                           Siège centralisée
+                                           Renseignement sur l'hebergement 'Chambre' si les Mouvements de cette
+58   CHAMBRE                 varchar(10)
+                                           Table se font sur l'Unité d'Hebergement
+                                           Renseignement sur l'hebergement 'Lit' si les Mouvements de cette Table se
+59   LIT                     varchar(10)
+                                           font sur l'Unité d'Hebergement
+60   BLOCAGE_RSS             char(1)       SI = 'O' : dossier a été éligible et facturé en SE
+                                           Marquage du RSP quand celui-ci n'a pas été crée par l'Interface Patient : mais
+61   FLAG_RSP                char(1)
+                                           généré dans Cora (et n'existe donc comme 'Mouvement' que dans Cora)
+                                           Lien entre deux séjours de deux établissements (mutation d'un établissement a
+62   NO_SEJOUR_LIE           varchar(20)
+                                           l'autre dans un même CHU) - Cas d'un seul établissement actuellement
+63   DATE_CREAT              datetime      Date de création de cet enregistrement Mouvement
+                                           Lien sur Util.id_util :
+64   ID_CREAT                int(10)       Identifiant de l'utilisateur (ou l'appli (si valeur négative) ayant crée cet
+                                           enregistrement Mouvement
+                                           FK TB_THES_PARCOURS_SOINS.CODE_PARCOURS_SOINS - Code de
+65   PARCOURS_SOINS          varchar(3)
+                                           l'élément du parcours de soins.
+66   RDTH_TYPE_MACHINE       char(1)       Radiothérapie - Type de Machine
+
+67   RDTH_TYPE_DOSIMETRIE    char(1)       Radiothérapie - Type Dosimétrie
+                                           Lien sur TB_UNITE_AM :
+68   ID_UNITE_AM             smallint(5)
+                                           Lien sur les Unités d'Activité Médicales (Gestion Optionnel dans Cora Recueil)
+                                           Lien sur TB_MOTIF_ADMISSION :
+69   ID_MOTIF_ADMISSION      int(10)
+                                           Lien sur le Motif d'Admission (Gestion Optionnel dans Cora Recueil)
+70   RDTH_NB_FAISCEAUX       smallint(5)   Radiothérapie - Nb de Faisceaux
+                                           Traitement retour ré-hospitalisation:
+71   FLAG_REHOSPIT           char(1)
+                                           ‘V’ pour le mouvement d’avant, ‘P’ pour le mouvement d’après
+72   DATE_DR                 datetime      Date de dernière règle
+
+73   NUM_INNOVATION          varchar(15)   N° Innovation - Ajout RUM016
+
+74   NB_IVG_ANTE             smallint(5)   Nombre d'IVG antérieures - Ajout RUM017
+
+75   NB_NAIS_VIVANTES_ANTE   smallint(5)   Nombre de naissances vivantes antérieures - Ajout RUM017
+
+76   ANNEE_IVG_PREC          varchar(4)    Année IVG précédente - Ajout RUM017
+                                           Description
+77   ID_UNITE_PMSI           int(10)       Lien sur TB_UNITE.ID_UNITE :
+                                           Unité fonctionnelle (UF) du Mouvement
+                                                   Condition de prise en charge du patient
+                                                   AD - ALD applicable, à confirmer sur le dossier
+                                                   AR - ALD en rapport
+                                                   AN - ALD non en rapport
+
+                                                   Différent du parcours de soins:
+                                                   Le parcours de soins est renseigné lors de l'admission et n'est requis que pour
+      78   CONDITION_PEC             varchar(2)
+                                                   les externes et mutation externe/hospit, pas pour les hospit.
+                                                   La condition de prise en charge est transmise par le soignant pour les
+                                                   admissions, mutations et sorties.
+
+                                                   Ref: CP (N°76) validée dans la V2.7 IHE PAM 2.5 FR Janvier 2016.
+                                                   L'info sur les conditions de prise en charge ALD (PV2-18) doublon avec le
+                                                   parcours de soins PV2-7.
+                                                   Définit l'identifiant de l'utilisateur à l'origine du blocage des diagnostics pour le
+      79   ID_UTIL_SIGN_DIAG         int(10)
+                                                   RUM.
+      80   DATE_SIGN_DIAG            datetime      Définit la date du blocage des diagnostics pour le RUM.
+                                                   Identifiant de la maison de naissance lien avec
+      81   ID_MAISON_NAISSANCE       int(10)
+                                                   TB_THES_MAISONS_NAISSANCE.ID_THES_MAIS_NAIS.
+                                                   Conversion Hospitalisation partielle - hospitalisation complète
+                                                   Pas de valeur = Rum non concerné
+      82   CONVERSION_HP_HC          char(1)
+                                                   "1" = Conversion HP HC
+                                                   "2" = Absence de conversion HP HC

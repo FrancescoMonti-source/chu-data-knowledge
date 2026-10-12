@@ -1,0 +1,4 @@
+==== CCAM_MODE_ACCES ====
+       1   CODE_PRINC                  char(2)
+
+       2   LIBELLE                     char(80)

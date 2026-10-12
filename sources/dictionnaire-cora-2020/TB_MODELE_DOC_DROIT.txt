@@ -1,0 +1,13 @@
+==== TB_MODELE_DOC_DROIT ====
+Cette table définit la rgstion des droits sur un modèle.
+                                                           Lien sur TB_MODELE_DOCUMENT.ID_MODELE_DOC :
+       1   ID_MODELE_DOC                 int(10)
+                                                           Définit l'identifiant du modèle de document.
+                                                           Définit le type de droit :
+                                                           - Pour un Utilisateur = UT
+                                                           - Pour un Utilisateur d'une Unité = UF
+       2   TYPE_DROIT                    char(2)
+                                                           - Pour un Utilisateur d'une UM = UM
+                                                           - Pour un Utilisateur d'un Site = SI
+                                                           - Pour tous les Utilisateurs = ET
+       3   ID_LIEN                       int(10)           Lien sur l'Utilisateur, ou sur l'Unité, ou sur l'UM ou sur le Site.

@@ -1,0 +1,19 @@
+==== TB_POPULATION_FAVORI ====
+Table d'enregistrement des informations globale d'un favori dans l'écran des population MCO ou SSR de CORA Activité .NET.
+       1   ID_POPULATION_FAVORI        int(10)        Clef primaire et compteur
+
+       2   ID_UTIL                     int(10)        Clé - Lien Util.id_util
+
+       3   TYPE_PMSI                   char(3)        Type de contexte PMSI : MCO, SSR, HAD ou PSY
+
+       4   TITRE_FAVORI                varchar(200)   Titre du favori
+                                                      O : le favori est une action rapide
+       5   ACTION_RAPIDE               char(1)
+                                                      N ou Null : le favori est de type recherche
+                                                      O : le favori est une recherche qui ne contient que des id_population
+       6   POPULATION_SEULE            char(1)
+                                                      (tb_population.id_population)
+                                                      Lien vers Util.ID_UTIL.
+       7   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+       8   DATE_INFO                   datetime       Date de la dernière modification

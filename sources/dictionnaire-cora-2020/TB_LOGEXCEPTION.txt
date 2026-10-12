@@ -1,0 +1,12 @@
+==== TB_LOGEXCEPTION ====
+table de log utilisé par les outils de packaging CORA Package Créationcontient la liste des exceptions survenue lors d'un
+traitement
+       1   ID_LOGLIGNE                 char(36)        identifiant unique de la ligne de log correspond à cette erreur
+
+       2   ID_PROPRE                   char(36)        identifiant unique de l'exception (GUID sous forme de string)
+
+       3   ID_PARENT                   char(36)        identifiant unique de l'exception parent (GUID sous forme de string)
+
+       4   MESSAGE                     varchar(500)    Contenu de l'erreur
+
+       5   STACKTRACE                  varchar(4000)   détail de la stacktrace

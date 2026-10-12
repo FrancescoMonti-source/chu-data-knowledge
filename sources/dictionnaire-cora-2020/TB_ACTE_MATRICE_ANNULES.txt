@@ -1,0 +1,10 @@
+==== TB_ACTE_MATRICE_ANNULES ====
+Import d'acte : lorsqu'une demande de suppression d'acte est envoyé, l'information de l'acte contenue dans
+TB_ACTE_MATRICE est historisé dans cette table
+       1   ID_ACTE                     int(10)       Copie de la donnée de TB_ACTE_MATRICE
+
+       2   ID_EXTERNE                  varchar(25)   Copie de la donnée de TB_ACTE_MATRICE
+
+       3   APPLICATION                 char(3)       Copie de la donnée de TB_ACTE_MATRICE
+
+       4   TYPE                        char(1)       Copie de la donnée de TB_ACTE_MATRICE

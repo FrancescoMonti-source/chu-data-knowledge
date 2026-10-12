@@ -1,0 +1,13 @@
+==== R_AAP_PMSI ====
+Table des données du PMSI pour l'acte/activité/phase
+                                                       CCAM n° 1+2+4
+                                                       Code phase de l'activité de
+       1   AAP_COD                    char(16)
+                                                       l'acte (code interne activité +
+                                                       code interne phase)
+                                                       CCAM n° 48
+       2   ICR                        smallint(5)
+                                                       Indice de coût relatif
+                                                       CCAM n° 51
+       3   CLASSANT                   char(1)
+                                                       Caractère Classant

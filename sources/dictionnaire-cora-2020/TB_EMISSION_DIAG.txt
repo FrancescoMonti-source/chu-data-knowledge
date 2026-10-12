@@ -1,0 +1,9 @@
+==== TB_EMISSION_DIAG ====
+Table des N° de lot d'envoi (des diagnostics)
+                                                         Clé :
+       1   NO_LOT                         int(10)
+                                                         Identifiant d'envoi
+       2   DATE_ENVOI                     datetime       Date d'envoi du lot
+                                                         Code de l'application recevant les diagnostics ('SIB' pour le logiciel Sillage du
+       3   CODE_APPLI                     char(3)
+                                                         SIB)

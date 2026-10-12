@@ -1,0 +1,16 @@
+==== TB_LOG_DEPL_MACHINE ====
+Log des installation et mise à jour des postes clients par CORA Client installer
+       1    DATE_LOG                     datetime        Date heure à laquelle à été généré le message d'information
+
+       2    ID_MACHINE                   int(10)         identifiant unique de machine
+                                                         identifiant unique du serveur de déploiement à partir duquel l'opération a été
+       3    ID_DEPL_SERVEUR              smallint(5)
+                                                         faite (installation/maj)
+       4    CHEMIN_DEPL                  varchar(500)    emplacement des fichiers sources
+
+       5    MODE_INST                    smallint(5)     opération (installation, mise à jour, désinstallation)
+
+       6    RESULTAT                     smallint(5)     code indiquant de résultat de l'opération
+                                                         identifiant unique pour la table TB_LOG_DEPL_BIN contenant les fichiers de
+       7    ID_DEPL_BIN                  int(10)
+                                                         logs d'installation (stocké uniquement en cas d'erreur)

@@ -1,0 +1,12 @@
+==== TB_ARCH_STATUT ====
+Définit une table pour les statuts de dossiers.
+                                                        Clé :
+       1    CODE_STATUT                  char(2)
+                                                        Définit l'identifiant du statut de dossier.
+       2    LIBELLE_STATUT               varchar(100)   Définit le libellé du statut du dossier.
+                                                        Définit un boolean indiquant si le statut de dossier est actif. Si 'O', le statut est
+       3    ACTIF                        char(1)                                                                                                    'O'
+                                                        actif.
+                                                        Définit un boolean indiquant si le statut est le statut de dossier par défaut. Si
+       4    DEFAUT                       char(1)
+                                                        'O', il s'agit du statut de dossier par défaut.

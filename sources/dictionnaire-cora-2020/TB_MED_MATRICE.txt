@@ -1,0 +1,6 @@
+==== TB_MED_MATRICE ====
+       1   ID_MED_PAT                   int(10)
+
+       2   ID_EXTERNE                   char(17)        Identifiant de l'activité dans le système ayant émis le message
+
+       3   ID_APPLICATION               int(10)         Lien sur TB_INT_APPLICATION.ID

@@ -1,0 +1,6 @@
+==== TB_NGAP_LC_MATRICE ====
+       1    CPT_NGAP_LC                 int(10)
+
+       2    ID_EXTERNE                  varchar(25)      Identifiant de l'activité dans le système ayant émis le message
+
+       3    APPLICATION                 char(3)

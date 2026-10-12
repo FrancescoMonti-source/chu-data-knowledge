@@ -1,0 +1,16 @@
+==== TB_CONFIG_MODULE ====
+Table des paramètres (et licences) pour les modules spécifiques optionnels
+                                                         Clé :
+       1    ID_MODULE                   tinyint(3)
+                                                         Identifiant du module
+       2    NOM_MODULE                  char(40)         Nom du module
+
+       3    VERSION                     char(8)          N° de version
+
+       4    DATE_CREAT                  datetime         Date de mise en place de ce module
+
+       5    CREAT_PATMVT                char(1)          Création automatique des Patients + Mouvements
+
+       6    GEST_ENTETE                 char(1)
+
+       7    GEST_REMPL_MVT_ACTIVITE char(1)

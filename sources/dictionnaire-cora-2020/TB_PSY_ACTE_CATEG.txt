@@ -1,0 +1,8 @@
+==== TB_PSY_ACTE_CATEG ====
+Table des liens entre un acte et une catégorie d'intervenant
+                                                       Clé - Lien sur TB_PSY_ACTE.CODE_ACTE :
+       1   CODE_ACTE                    char(10)
+                                                       Code de l'acte
+                                                       Clé - Lien sur TB_PMSI_PSY_CAT_INTERV.CODE_CATEGORIE_INTERV :
+       2   CODE_CATEGORIE_INTERV        char(1)
+                                                       Code catégorie d'intervenant

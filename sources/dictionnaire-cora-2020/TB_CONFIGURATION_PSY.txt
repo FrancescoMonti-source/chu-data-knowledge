@@ -1,0 +1,44 @@
+==== TB_CONFIGURATION_PSY ====
+                                                       Indique si on saisie seulement les diagnostiques principaux et associés (value
+       1    DIAG_SIMPLE                  char(1)
+                                                       = 'O') ou tous les types de diag (value = null)
+                                                       Heure de saisie obligatoire pour les actes (pas indispensable au groupage,
+       2    HEURE_OBLIG                  char(1)       sert pour les statistiques)
+                                                       O si obligatoire, null sinon
+                                                       Duplication autorisée pour les actes
+       3    DUPLIC_POSSIBLE              char(1)
+                                                       O si autorisé, null sinon
+                                                       Durée des actes obligatoire
+       4    DUREE_OBLIG                  char(1)
+                                                       O si obligatoire, null sinon
+                                                       Proposition de recopie des actes
+       5    PROPOSE_DIAG_ACTE            char(1)
+                                                       O si proposition, null sinon
+       6    GESTION_DEP_DETAIL           char(1)       Saisie détaillée des dépendances
+
+       7    GESTION_ISO_DETAIL           char(1)       Saisie détaillée des jours d'isolement
+
+       8    GESTION_PERM_DETAIL          char(1)       Saisie détaillée des permissions
+                                                       Saisie détaillée des présences (Hospit. Partielle)
+       9    GESTION_VENUES_DETAIL        char(1)
+                                                       O si oui, N si non
+       10   DROIT_CREATION_AMBU          char(1)
+            TRAITEMENT_DOSSIER_PARA                    Gestion des séjours parallèles (AP)
+       11                           char(2)
+            LLELE                                      Gestion des mouvements parallèles (AS)
+       12   SIGN_RUM_DIAG_DP             char(1)
+                                                       Initialisation automatique des dépendances à 1
+       13   GESTION_INITIALISE_DEP       char(1)
+                                                       O = oui, N = non
+                                                       Recopie des informations de la séquence précédente
+       14   GESTION_RECOPIE_SEQ          char(1)
+                                                       O = oui, N = non
+                                                       Gestion de la saisie des diagnostics CFTMEA
+       15   GESTION_CFTMEA               char(1)                                                                                          'N'
+                                                       O = oui, N = non
+                                                       Affichage de la recopie des diagnostics aux actes précédents d'ambulatoire
+       16   GESTION_COPIE_DIAG_AMBU char(1)                                                                                               'O'
+                                                       O si affichage, null sinon
+                                                       Gérer la confirmation de la validité de la fiche CSD
+       17   GESTION_CONFIRM_CSD          char(1)                                                                                          'N'
+                                                       O = oui, N = non

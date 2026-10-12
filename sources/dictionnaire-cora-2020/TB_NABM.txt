@@ -1,0 +1,18 @@
+==== TB_NABM ====
+Pour une cotation de Biologie 'B' : détail des codes NABM (=codes affinés) liés
+                                                         Clé :
+       1    CPT_NABM                    int(10)
+                                                         Identifiant (PrisMédica) du détail NABM de la cotation
+                                                         Lien sur TB_NGAP_LC.CPT_NGAP_LC :
+       2    CPT_NGAP_LC                 int(10)
+                                                         Identifiant de la lettre clé de la cotation (Lien obligatoire)
+                                                         Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       3    CPT_ID_COTATION_NGAP        int(10)
+                                                         Identifiant de la cotation (Lien obligatoire)
+                                                         Lien sur NABM.CODE_NABM (Base CCAM/CORA) :
+       4    CODE_NABM                   char(4)
+                                                         Code NABM
+       5    COEFFICIENT                 smallint(5)      Coefficient du code NABM (à cumuler pour avoir le coef de l'acte de biologie B)
+                                                         Lien sur Util.id_util :
+       6    ID_EXECUTANT                int(10)
+                                                         Médecin exécutant de l'acte de Biologie

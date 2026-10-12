@@ -1,0 +1,42 @@
+==== TB_TRACE_PLUGIN_PMSI ====
+Table regroupant toutes les tâches exécutées via le plugin CORA PMSI.
+       1   ID_TRACE                   int(10)         Identifiant unique de la trace (=compteur)
+
+       2   ID_UTIL                    int(10)         Identifiant de l'utilisateur ayant lancé la tâche
+                                                      Type de la tâche. Correspond à l'énumération :
+                                                      Public Enum TACHE_PLUGIN_CORA_PMSI
+                                                           <ConfigValue("ARBRE_DECISION"), DbValue("ARB_DEC"), Label("Arbre
+                                                      de décision")> ARBRE_DECISION
+                                                           <ConfigValue("MAINTENANCE_RSS_RUM_ORPHELIN"), DbValue
+                                                      ("M_RSS_RUM"), Label("Maintenance RSS/RUM orphelins")>
+                                                      MAINTENANCE_RSS_RUM_ORPHELIN
+                                                           <ConfigValue("GROUPAGE_MCO"), DbValue("GMCO"), Label
+                                                      ("Groupage MCO")> GROUPAGE_MCO
+                                                           <ConfigValue("CONSOLIDATION_MUTATIONS"), DbValue("CMU"), Label
+                                                      ("Consolidation - mutations")> CONSOLIDATION_MUTATIONS
+       3   TYPE_TACHE                 varchar(10)
+                                                           <ConfigValue("CONSOLIDATION_GROUPAGE"), DbValue("CGR"), Label
+                                                      ("Consolidation - données de groupage")> CONSOLIDATION_GROUPAGE
+                                                           <ConfigValue("EXEC_DMX"), DbValue("DMXE"), Label("DimXpert -
+                                                      Exécution des contrôles qualité MCO")> EXEC_CQ_DMX
+                                                           <ConfigValue("INTEG_DMX"), DbValue("DMXI"), Label("DimXpert -
+                                                      Intégration des contrôles qualité")> INTEG_CQ_DMX
+                                                           <ConfigValue("ARCHIVAGE_CQ"), DbValue("ARCHIVCQ"), Label
+                                                      ("Archivage des contrôles qualité")> ARCHIVAGE_CQ
+                                                           <ConfigValue("CLOTURE_SS_SEQ_HAD"), DbValue("CLOTSSSEQH"),
+                                                      Label("Tâches HAD")> CLOTURER_SS_SEQ_HAD
+                                                      End Enum
+       4   DATE_DEBUT_TACHE           datetime        Date de début de la tâche
+
+       5   DATE_FIN_TACHE             datetime        Date de fin de la tâche
+                                                      Statut de la tâche. Correspond à l'énumération :
+                                                      Public Enum STATUT_EXECUTION_PLUGIN_CORA_PMSI
+                                                           <DbValue("ANN"), Label("Annulée")> ANNULE
+       6   STATUT                     char(3)              <DbValue("OK"), Label("Terminée")> REUSSITE
+                                                           <DbValue("ERR"), Label("Erreur")> ERREUR
+                                                           <DbValue("ECS"), Label("En cours")> EN_COURS
+                                                      End Enum
+                                      text            Message d'information divers en sortie de la tâche. Exemple : message
+       7   SORTIE
+                                      (2147483647)    d'erreur complet lorsque la tâche a généré une erreur...
+       8   PARAMETRES                 varchar(4000)   Paramètres de la tâche du plugin

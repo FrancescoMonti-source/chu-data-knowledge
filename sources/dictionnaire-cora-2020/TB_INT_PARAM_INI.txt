@@ -1,0 +1,14 @@
+==== TB_INT_PARAM_INI ====
+       1   ID_PARAM_INI               int(10)
+
+       2   NOM_POSTE                  varchar(50)
+
+       3   INTERFACE                  varchar(50)
+
+       4   CHEMIN_FICHIER             varchar(500)
+
+       5   PARAM_INI                  varchar(4000)
+
+       6   DATE_MODIF                 datetime
+
+       7   HEURE_MODIF                datetime

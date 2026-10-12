@@ -1,0 +1,4 @@
+==== CCAM_SITE ====
+       1   CODE_PRINC                   char(1)
+
+       2   LIBELLE                      char(255)

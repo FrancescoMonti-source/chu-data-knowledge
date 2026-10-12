@@ -1,0 +1,28 @@
+==== TB_LDAP_IMPORT ====
+Table utilisée pour l'import des utilisateurs et des profilselle contient les couples AttributCORA / Attribut LDAP pour faire le
+mapping des propriétés de l'annuaire avec nos données internes.Exemple :notre CODE_UTIL est représenté par
+sAMAccountName dans AD
+                                                         code interne identifiant une propriété gérée par notre module d'import
+                                                         d'utilisateur et de profils
+                                                         Voici la liste des codes possibles :
+                                                         PRENOM
+                                                         PWD
+                                                         NOM
+                                                         LOGIN
+                                                         LOGIN_LDAP
+                                                         NOMPRENOM
+                                                         EMAIL
+                                                         DATE_ENTREE
+       1   CORA_ATTRIB                    varchar(30)    DATE_SORTIE
+                                                         NO_ADELI
+                                                         ID_EXTERNE
+                                                         NO_RPPS
+                                                         ACTIF
+                                                         SPE_MED
+                                                         METIER_PARAMED
+                                                         PROFILDPI
+                                                         PROFILRECUEIL
+                                                         PROFILAGENDA
+                                                         GROUPEUNITE
+                                                         GROUPEAD
+       2   LDAP_ATTRIB                    varchar(100)   nom de la propriété du côté de l'annuaire

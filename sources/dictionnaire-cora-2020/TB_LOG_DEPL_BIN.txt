@@ -1,0 +1,7 @@
+==== TB_LOG_DEPL_BIN ====
+contient la liste des fichiers de log de CORA Client installer. Ne sont logger que les fichiers qui contiennent des erreurs de
+traitements.
+                                                         identifiant unique du fichier de log (liaison avec la table
+       1    ID_DEPL_BIN                  int(10)
+                                                         TB_LOG_DEPL_MACHINE)
+       2    FICHIER                      image           fichier de log d'installation de CORA Client installer

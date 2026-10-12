@@ -1,0 +1,10 @@
+==== TB_COMMUNE_SECTEUR ====
+       1   ID_COMMUNE_SECTEUR          int(10)
+
+       2   CODE_POSTAL                 char(9)
+           LIBELLE_COMMUNE_SECTEU
+       3                          varchar(50)
+           R
+       4   CODE_SECTEUR_ADULTE         char(5)
+
+       5   CODE_SECTEUR_ENFANT         char(5)

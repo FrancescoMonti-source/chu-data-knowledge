@@ -1,0 +1,10 @@
+==== TB_CONFIG_ACTE ====
+Table permettant de stocker des informations sous la forme clée/valeur associées au référentiel des actes CCAM.
+                                                     Clé d'identification de la configuration
+       1   CODE_CONFIG                varchar(15)
+                                                     ex : VERSION_CCAM
+                                                     Valeur de la configuration
+       2   VALEUR_CONFIG              varchar(200)
+                                                     ex : 57.0
+       3   DATE_MODIF                 datetime       Date de la dernière modification de la ligne de configuration
+                                           CORA_GEN

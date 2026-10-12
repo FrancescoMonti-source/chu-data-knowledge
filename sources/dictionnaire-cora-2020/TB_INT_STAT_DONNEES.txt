@@ -1,0 +1,18 @@
+==== TB_INT_STAT_DONNEES ====
+Table de données des statistiques enregistrées par les interfaces et affichées par CORA Interface Manager
+       1   ID_APPLICATION             smallint(5)      PK & FK CORA_RECUEIL..TB_INT_APPLICATION.ID
+                                                       Type application interface 100,200 etc. lié à TYPE_APPLICATION de
+       2   TYPE_APPLICATION           smallint(5)
+                                                       TB_INT_APPLICATION
+                                                       NbMessage = 1
+                                                       NbRejets = 2
+                                                       NbErreurs = 4
+       3   TYPE_STAT                  smallint(5)
+                                                       NbFichiersAttente = 8
+                                                       TpsTraitement = 16
+                                                       Lié à TYPE_STAT de TB_INT_STAT
+       4   VALEUR                     decimal(10, 2)   Valeur calculée
+
+       5   VALEUR_COMPL               decimal(10, 2)   Valeur complémentaire, nombre de valeurs pour une moyenne par exemple
+
+       6   DATE_STAT                  datetime         Date d’enregistrement

@@ -1,0 +1,128 @@
+==== TB_HIST_MED_PATIENT ====
+     1   ID_MED_PAT                int(10)          Copie de TB_MED_PATIENT.ID_MED_PAT : Identifiant de la table
+
+     2   ID_PATIENT                int(10)          FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3   ID_SEJOUR                 int(10)          FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+                                                    Copie de TB_MED_PATIENT.ID_MVT : Lien sur TB_MVT.ID_MVT :
+     4   ID_MVT                    int(10)
+                                                    Identifiant du Mouvement (Lien obligatoire)
+                                                    Copie de TB_MED_PATIENT.ID_MED : Lien sur MED_COUTEUX.ID_MED :
+     5   ID_MED                    int(10)
+                                                    Identifiant du médicament prescrit.
+                                                    Copie de TB_MED_PATIENT.ID_MED_TARIF : Lien sur
+     6   ID_MED_TARIF              int(10)          MED_TARIF.ID_MED_TARIF :
+                                                    Identifiant du tarif du médicament.
+     7   QUANTITE                  decimal(10, 2)   Copie de TB_MED_PATIENT.QUANTITE : Quantité prescrite
+
+     8   DATE_DEBUT                datetime         Copie de TB_MED_PATIENT.DATE_DEBUT : Date de début de la prescription
+
+     9   DATE_FIN                  datetime         Copie de TB_MED_PATIENT.DATE_FIN : Date de fin de la prescription
+                                                    Copie de TB_MED_PATIENT.ID_SIGN : Lien sur Util.id_util :
+    10   ID_SIGN                   int(10)
+                                                    Identifiant du signataire du médicament
+    11   DATE_SIGN                 datetime         Copie de TB_MED_PATIENT.DATE_SIGN : Date de signature du médicament
+                                                    Copie de TB_MED_PATIENT.HEURE_SIGN : Heure de signature du
+    12   HEURE_SIGN                datetime
+                                                    médiament
+                                                    Copie de TB_MED_PATIENT.ID_INFO : Lien vers Util.ID_UTIL.
+    13   ID_INFO                   int(10)
+                                                    Identifiant de l'utilisateur ayant effectué la dernière modification
+    14   DATE_INFO                 datetime         Copie de TB_MED_PATIENT.DATE_INFO : Date de saisie du médicament
+
+    15   HEURE_INFO                datetime         Copie de TB_MED_PATIENT.HEURE_INFO : Heure de saisie du médicament
+                                                    Copie de TB_MED_PATIENT.ID_PRESC: Lien sur Util.id_util :
+    16   ID_PRESC                  int(10)
+                                                    Identifiant du prescripteur ayant saisi le médicament
+                                                    Copie de TB_MED_PATIENT.DATE_PRESC: Date de prescription du
+    17   DATE_PRESC                datetime
+                                                    médicament
+                                                    Copie de TB_MED_PATIENT.HEURE_PRESC : Heure de prescription du
+    18   HEURE_PRESC               datetime
+                                                    médicament
+                                                    Copie de TB_MED_PATIENT.CODE_ARTICLE_FOURNISSEUR: Code Article
+         CODE_ARTICLE_FOURNISSEU                    fournisseur. Lien avec
+    19                           varchar(120)
+         R                                          MED_ARTICLE_FOURNISSEUR.CODE_ARTICLE_FOURNISSEUR Base
+                                                    CORA
+    20   ID_ARTICLE_DETAIL         int(10)
+
+    21   ID_ARTICLE_FOURNISSEUR    int(10)
+
+    22   NUM_LOT                   varchar(40)      Copie de TB_MED_PATIENT.NUM_LOT : Numéro de lot
+
+    23   NO_INTERVENTION_CCAM      int(10)
+
+    24   ID_NIVEAU_PERTINENCE      smallint(5)
+
+    25   PRIX_ACHAT                decimal(14, 6)   Copie de TB_MED_PATIENT.PRIX_ACHAT : Prix d'achat
+                                                    Copie de TB_MED_PATIENT.ESSAI_THERAPEUTIQUE
+    26   ESSAI_THERAPEUTIQUE       char(1)          O : Essai thérapeutique
+                                                    N : Pas essai thérapeutique
+    27   MED_RECEPTION             char(1)
+                                                    Copie de TB_MED_PATIENT.DATE_RECEPTION :Date de réception de la
+    28   DATE_RECEPTION            datetime
+                                                    MON
+    29   TYPE_EMISSION             char(1)
+
+    30   DATE_EMISSION             datetime
+                                                        Copie de TB_MED_PATIENT.FACTURABLE
+      31   FACTURABLE                  char(1)          O : Facturable
+                                                        N : Non facturable
+                                                        Copie de TB_MED_PATIENT.GRATUIT
+      32   GRATUIT                     char(1)          O : Gratuit
+                                                        N : Non gratuit
+      33   FLAG_VALIDE                 char(1)
+
+      34   FLAG_FACTURE                char(1)
+                                                        Copie de TB_MED_PATIENT.ACTIVITE_LIBERALE :
+      35   ACTIVITE_LIBERALE           char(1)          O : Activité libérale
+                                                        N : Activité non libérale
+      36   FLAG_RETROCESSION           char(1)
+
+      37   TAUX_TVA                    decimal(5, 2)    Copie de TB_MED_PATIENT.TAUX_TVA: Taux de TVA
+
+      38   MNT_ECART                   decimal(14, 6)
+
+      39   PRIX_VENTE                  decimal(14, 6)   Copie de TB_MED_PATIENT.PRIX_VENTE : Prix de vente
+
+      40   MNT_MARGE_RETRO             decimal(14, 6)
+
+      41   ENTENTE_PREALABLE           char(1)
+
+      42   FLAG_MNC                    varchar(3)
+
+      43   CODE_RISQUE                 char(2)
+
+      44   DATE_ENTENTE_PREALABLE datetime
+
+      45   NATURE_PRESTATION           varchar(3)
+
+      46   ID_FOURNISSEUR              int(10)
+
+      47   DATE_CREAT                  datetime         Copie de TB_MED_PATIENT.DATE_CREAT: Date de création
+                                                        Copie de TB_MED_PATIENT.ID_CERAT : Lien sur TB_UTIL.ID_UTIL
+      48   ID_CREAT                    int(10)
+                                                        Identifiant de l'utilisateur de création
+                                                        Information sur l'action d'historisation :
+      49   TYPE_INFO                   char(1)          E : Effacer (suppression)
+                                                        M : Modification
+                                                        Description de l'historisation :
+                                                        DELRE : ?
+                                                        DELDP : ?
+      50   DESCR                       char(5)          DELIF : ?
+                                                        S_MVT : Suppression mouvement
+                                                        S_SEJ : Suppression séjour
+                                                        S_PAT : 'Suppression patient
+      51   ID_APPLICATION_TRANSFERT int(10)
+
+      52   ID_PRESC_PLANIF             int(10)
+                                                        Copie de TB_MED_PATIENT.CODE_LES : Code LES correspondant à
+      53   CODE_LES                    varchar(7)
+                                                        l'indication de l'UCD. Lien avec MED_REF_LES.CODE_LES.
+                                                        Copie de TB_MED_PATIENT.TYPE_INDICATION : Type de l'indication -> M =
+      54   TYPE_INDICATION             char(1)
+                                                        MON / A = ATU / P= Post ATU
+                                                        Copie de TB_MED_PATIENT.REMBOURSEMENT : Info sur le remboursement
+      55   REMBOURSEMENT               char(1)
+                                                        porté par les dates de validité de l'indication

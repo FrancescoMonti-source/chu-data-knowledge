@@ -1,0 +1,16 @@
+==== TB_REGLE_QUALITE_LOT ====
+Table permettant de gérer les informations d'un lot de contrôles qualités.
+       1    ID_REGLE_QUALITE_LOT        smallint(5)     Identifiant du lot de CQ
+
+       2    CODE_REGLE_QUALITE_LOT varchar(3)           Code du lot de CQ
+
+       3    LIB_REGLE_QUALITE_LOT       varchar(50)     Libellé du lot de CQ
+
+       4    DATE_INFO                   datetime        Date de la dernière modification
+                                                        Lien vers Util.ID_UTIL.
+       5    ID_INFO                     smallint(5)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification
+                                                        Type de champ PMSI pour savoir gérer des CQ MCO, SSR, ...
+       6    TYPE_PMSI                   char(3)                                                                                       'MCO'
+                                                        Utilisé que pour le MCO à ce jour
+       7    FLAG_NET                    char(1)

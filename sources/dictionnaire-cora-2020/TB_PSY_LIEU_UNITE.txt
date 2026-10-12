@@ -1,0 +1,11 @@
+==== TB_PSY_LIEU_UNITE ====
+Table des liens Lieux - Unités
+                                                       Lien sur TB_PSY_LIEU.ID_LIEU :
+       1   ID_LIEU                    int(10)
+                                                       Identifiant du lieu
+                                                       Lien sur TB_UNITE.ID_UNITE :
+       2   ID_UNITE                   int(10)
+                                                       Identifiant de l'unité
+       3   DATE_DEBUT                 datetime         Date de début du lien
+
+       4   DATE_FIN                   datetime         Date de fin du lien

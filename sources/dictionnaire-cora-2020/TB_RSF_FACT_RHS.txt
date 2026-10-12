@@ -1,0 +1,6 @@
+==== TB_RSF_FACT_RHS ====
+     1   ID_MVT                int(10)       Identifiant du mouvement. Lien avec TB_MVT.ID_MVT.
+                                             Numéro de semaine civile. Lien avec
+     2   NO_SEMAINE_CIVILE     int(10)
+                                             Tb_MVT_SSR_SEM.NO_SEMAINE_CIVILE.
+     3   ID_RSF_FACT           int(10)       identifiant de la facture : clef primaire de TB_RSF_FACT

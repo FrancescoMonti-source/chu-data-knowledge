@@ -1,0 +1,5 @@
+==== TB_LABO_MATRICE_CODE ====
+matrice entre TB_LABO_RESULTAT et TB_LABO_DETAIL_CTRL_QUALITE
+       1   CODE_QUALI_LABO             varchar(22)     code dans TB_LABO_DETAIL_CTRL_QUALITE.CODE_EXAM
+
+       2   CODE_EXTERNE                varchar(22)     code dans TB_LABO_RESULTAT.CODE_EXAMEN_DET

@@ -1,0 +1,12 @@
+==== TB_THES_TYPE_CHAMBRE ====
+Thésaurus des types de chambres
+                                                  Clé de la table
+       1   ID_TYPE_CHAMBRE         smallint(5)
+                                                  Identifiant du type de chambre
+       2   CODE_TYPE_CHAMBRE       varchar(10)    Code du type de chambre
+
+       3   LIBELLE_TYPE_CHAMBRE    varchar(100)   Libellé du type de chambre
+
+       4   COULEUR                 varchar(15)    Couleur du type de chambre
+
+       5   ACTIF                   char(1)        Indique si le type de chambre est actif (O/N)                             'O'

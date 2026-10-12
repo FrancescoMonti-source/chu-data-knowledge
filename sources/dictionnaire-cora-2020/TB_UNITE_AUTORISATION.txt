@@ -1,0 +1,10 @@
+==== TB_UNITE_AUTORISATION ====
+       1    ID_UNITE                      int(10)        Identifiant de l"unité (Lien sur TB_UNITE.ID_UNITE)
+
+       2    CODE_AUTORISATION             char(3)        Code d'autorisation de l'unité
+
+       3    DATE_DEBUT                    datetime       Date de début de validité de l'autorisation pour cette unité
+
+       4    DATE_FIN                      datetime       Date de fin de validité de l'autorisation pour cette unité
+
+       5    NB_LITS                       smallint(5)    Nombre de lits dédiés

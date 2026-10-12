@@ -1,0 +1,6 @@
+==== TB_CATEGORIE_IMPRESSION ====
+       1   ID_CATEGORIE               smallint(5)      identifiant de la catégorie / clé
+
+       2   LIBELLE_CATEGORIE          varchar(50)      Libellé
+
+       3   TYPE_CATEGORIE             char(1)          Type

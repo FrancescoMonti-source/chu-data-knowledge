@@ -1,0 +1,9 @@
+==== TB_UNITE_SPECIFIQUE_SSR ====
+Table matrice entre les UF et les types d'unités spécifiques SSR
+       1   ID_UNITE                    int(10)          Identifiant de l'unité. Lien sur TB_UNITE.ID_UNITE
+
+       2   CODE_TYPE_UNITE_SPE         varchar(2)       Code du type de l'unité SSR (ex 08, 09, 10)
+
+       3   DATE_DEBUT                  datetime         Date de début de validité
+
+       4   DATE_FIN                    datetime         Date de fin de validité

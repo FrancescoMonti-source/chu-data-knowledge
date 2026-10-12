@@ -1,0 +1,150 @@
+==== TB_ACTE ====
+Tables des actes CCAM réalisés (par Mouvement) --> Notion Actes CCAM + Phase
+                                                        Clé :
+       1    ID_ACTE                      int(10)
+                                                        Identifiant (PrisMédica) de l'acte
+                                                        Lien sur TB_PATIENT.ID_PATIENT :
+       2    ID_PATIENT                   int(10)
+                                                        Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                        Lien sur TB_SEJOUR.ID_SEJOUR :
+       3    ID_SEJOUR                    int(10)
+                                                        Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+                                                        Lien sur TB_MVT.ID_MVT :
+       4    ID_MVT                       int(10)
+                                                        Identifiant du Mouvement (Lien obligatoire)
+       5    DATE_ACTE                    datetime       Date de réalisation de l'acte (sans les heures)
+                                                        Date de fin utilisée pour la saisie d'acte CCAM sur une période de Date.
+       6    DATE_ACTE_F                  datetime
+                                                        Fonctionnalité supprimée
+       7    HEURE_ACTE                   datetime       Date et Heure de réalisation de l'acte
+                                                        Lien sur TB_INTERVENTION.ID_INTERVENTION :
+       8    NO_INTERVENTION              int(10)
+                                                        Identifiant de l'Intervention Bloc (si l'acte a été saisie dans l'écran Bloc)
+                                                        Code de l'acte CCAM (sur 7 caractères). Initiallement était prévu d'enregistrer
+       9    CODE_ACTE                    char(16)
+                                                        le code + activité + phase + modificateur … (d’où la taille de 16 du champs)
+       10   PHASE_ACTE                   smallint(5)    Phase de l'acte (0 par défaut)
+                                                        Nb d'acte réalisé (Par défaut = 1).
+       11   QUANTITE                     smallint(5)
+                                                        Dorénavant, toujours = 1
+                                                        Lien sur TB_UNITE.ID_UNITE :
+       12   ID_UNITE_EXEC                int(10)        Identifiant de l'Unité ou l'acte a été réalisé (Information déduite du Site de
+                                                        production de l'acte)
+                                                        Précision sur la réalisation de l'acte : 'Gauche', 'Droite', 'Bilatérale' ou 'Sans
+       13   COTE                         char(20)
+                                                        précision'
+                                          Lien sur TB_SITE.ID_SITE :
+14   ID_SITE                int(10)
+                                          Identifiant du Site où l'acte a été réalisé (Lien obligatoire)
+                                          Acte réalisé en activité libérale (si = "1")
+15   ACTIVITE_LIBERALE      char(1)
+                                          Notion maintenant gérée au niveau du Détail de l'acte (TB_DET_ACTE)
+16   DATE_INFO              datetime      Date de dernière modification de cet acte
+
+17   HEURE_INFO             datetime      Heure de dernière modification de cet acte
+                                          Lien sur Util.id_util :
+18   ID_INFO                int(10)
+                                          Identifiant du dernier utilisateur ayant réalisé une modification de cet acte
+                                          Lien sur TB_ACTE.CODE_ACTE :
+19   CODE_ACTE_PERE         char(7)       Pour les actes complémentaire : Code de l'acte père (Utiliser plutôt
+                                          ID_CODE_ACTE_PERE)
+                                          Lien sur TB_ACTE.ID_ACTE :
+20   ID_CODE_ACTE_PERE      int(10)
+                                          Pour les actes complémentaire : identifiant l'acte père
+                                          Lien sur TB_UNITE.CODE_UNITE :
+                                          Identifiant de l'Unité demandeuse de réalisation de l'acte (Utilisé exclusivement
+21   UNITE_DEM              char(12)
+                                          actuellement dans la récupération d'acte par l'Interface Acte. Ex : recup d'actes
+                                          de radiologie)
+                                          Gestion Interface :
+22   TYPE_TRANSFERT         char(1)
+                                          Acte importé d'une Autre application (si = "R")
+                                          Gestion Interface :
+23   DATE_TRANSFERT         datetime
+                                          Date d'import de cet acte
+26   REALISE_EXTERIEUR      char(1)       Acte réalisé à l'extérieur (si = "1")
+                                          Lien sur TB_MVT_SSR_SEM.NO_SEMAINE :
+27   NO_SEMAINE             int(10)       Pour les actes saisis en SSR : permet de savoir sur quelle semaine cet acte a
+                                          été réalisé
+                                          Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+28   ID_COTATION_NGAP       int(10)       Lors de la saisie d'acte NGAP, il est possible de lier une cotation NGAP a des
+                                          actes CCAM
+                                          Lien sur TB_MVT.NO_MVT :
+29   NO_MVT                 char(20)      N° de Dossier (cas des Plateaux Techniques) dupliqué dans cette table acte
+                                          (permet de réenvoyer cette information à l'Interface Acte)
+30   DATE_CREAT             datetime      Date de création de l'acte
+                                          Lien sur Util.id_util :
+31   ID_CREAT               int(10)
+                                          Identifiant de l'utilisateur ayant crée l'acte
+                                          N° d'intervention globalisant des actes CCAM saisis dans le même temps
+32   NO_INTERVENTION_CCAM   int(10)
+                                          médicalement (géré dans le nouvel écran Externe + Ecran Bloc)
+                                          Lien sur TB_SITE.ID_SITE :
+33   ID_SITE_DEMANDEUR      int(10)       Identifiant du Site demandeur de réalisation de l'acte (géré avec le nouvel
+                                          écran Externe)
+                                          Lien sur Util.id_util :
+34   ID_MEDECIN_DEMANDEUR   int(10)       Identifiant de l'utilisateur demandeur de réalisation de l'acte (géré avec le
+                                          nouvel écran Externe)
+                                          si ='O' : acte réalisé sur un Patient polytraumatisé (géré avec le nouvel écran
+35   POLYTRAUMATISE         char(1)
+                                          Externe)
+                                          FK TB_THES_PARCOURS_SOINS.CODE_PARCOURS_SOINS - Code de
+36   FLAG_MNC               varchar(3)
+                                          l'élément du parcours de soins.
+37   PROTOCOLE_RECHERCHE    char(1)       Acte rentrant dans un protocole Recherche (il est alors non facturable)
+                                          En Préparation.
+38   ECRAN                  char(3)
+                                          Enregistrement de l'écran source de création de l'acte
+                                          Lien sur TB_RDV_ACTE_CCAM.ID_RDV_ACTE_CCAM :
+39   ID_RDV_ACTE_CCAM       int(10)
+                                          Lien sur le précodage saisi dans Cora Agenda
+                                          si = 'O' : Remboursement exceptionnel
+                                          Code utilisé avec une liste finie d'actes dont la réalisation est la conséquence
+40   REMB_EXC               char(1)
+                                          soit d'une indication médicale, soit d'une demande personnelle du Patient
+                                          (sans justification médicale)
+                                          Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                          CORA_UTIL)
+41   ID_ETABLIS             smallint(5)
+                                          Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                          Siège centralisée
+                                          = ‘O’ : si, pour un acte complémentaire, on a modifié la date et heure, qui
+                                          devient donc différente de celle de son père. Uniquement possible dans le
+42   MODIF_HEURE_MANUEL     char(1)       produit pour l’acte complémentaire AFLB010 car la péridurale a lieu avant
+                                          l’accouchement, et le modificateur de nuit peut s’appliquer, même si
+                                          l’accouchement a lieu sur une plage de jour.
+43   PRIORISE               char(1)       Exclusif Client.
+                                                    Lien sur TB_APPLICATION.ID_APPLICATION :
+      44   ID_APPLICATION_TRANSFERT int(10)         Lien sur l'application ayant émis l'Acte (complément de APPLI_TRANSFERT
+                                                    avec les nouvelles applications .net)
+                                                    Lien sur le Générateur d'écran :
+      45   ID_GEN_ACTE                int(10)       Lien sur la fiche et l'enregistrement ayant initié la création de cet acte (Cora
+                                                    Générateur)
+                                                    Pour un acte réalisé post-mortem : (permet un horodatage réel et non pas un
+                                                    horodatage contraint à une date de fin de dossier souhaitée par exemple pour
+                                                    la cohérence de la facturation- En réusmé : permet d'enregistrer un acte avec
+      46   DATE_POST_MORTEM           datetime      une Date > à la Date de Fin de Séjour)
+                                                    DATE_ACTE : contient la Date de Fin de Dossier
+                                                    DATE_POST_MORTEM : contient la date de réalisation exacte (> à
+                                                    DATE_ACTE) de l'acte
+                                                    ATTENTION : Lien sur TB_MVT_HAD.ID_SEQ_HAD. L'incohérence des
+      47   ID_SEQ_HAD                 int(10)       diagnostics n'existe pas pour la CCAM :
+                                                    TB_MVT_HAD.ID_SEQ_HAD=TB_ACTE.ID_SEQ_HAD
+                                                    'A' : acte ALD
+                                                    'H' : acte Hors ALD
+      48   FLAG_ALD                   char(1)
+                                                    'O' : acte Hors ALD (ancienne valeur qui est amenée à disparaître)
+                                                    'N' et NULL : acte ni marqué comme ALD ni comme Hors ALD
+      49   ENTENTE_PREALABLE          char(1)       FLag ENTENTE_PREALABLE :
+
+      50   DATE_ENTENTE_PREALABLE datetime          Date de l'entente préalable
+                                                    Identifiant de la machine sur laquelle l’acte a été réalisé (Lien sur
+      51   ID_MACHINE                 int(10)
+                                                    ID_MACHINE de TB_THES_MACHINE)
+      52   EXTENSION_ATIH             varchar(2)    Information importante pour la valorisation d’un dossier médical (ex : 01, 02 …)
+
+      53   ID_UNITE_DEM               int(10)       Identifiant de l'unité demandeuse de l'acte
+
+      54   ID_SEQ_PSY                 int(10)       Identifiant de la sequence PSY Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE
+
+      55   NO_FACTURE                 varchar(15)

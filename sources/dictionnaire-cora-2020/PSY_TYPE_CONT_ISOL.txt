@@ -1,0 +1,7 @@
+==== PSY_TYPE_CONT_ISOL ====
+Permet la gestion du thésaurus des différents types de contention ou d'isolement effectués en psychiatrie.
+       1   CODE_CONT_ISOL              char(1)         Clé - Code du type de contention ou d'isolement
+
+       2   LIBELLE_CONT_ISOL           varchar(200)    Libellé du type de contention ou d'isolement
+
+       3   TYPE_CONT_ISOL              char(1)         Indique s'il s'agit d'une contention ("C") ou d'un isolement ("I")

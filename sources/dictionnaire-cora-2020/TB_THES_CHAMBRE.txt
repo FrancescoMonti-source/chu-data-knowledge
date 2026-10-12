@@ -1,0 +1,24 @@
+==== TB_THES_CHAMBRE ====
+Thésaurus des chambres Clé de la table
+Thésaurus des chambres
+                                                     Clé de la table
+      1    ID_CHAMBRE                 int(10)
+                                                     Identifiant de la chambre
+      2    CODE_CHAMBRE               varchar(10)    Code de la chambre
+
+      3    LIBELLE_CHAMBRE            varchar(100)   Libellé de la chambre
+                                                     Lien sur TB_UNITE.ID_UNITE
+      4    ID_UNITE                   int(10)
+                                                     Identifiant de l'unité auquelle appartient le lit
+      5    NB_LIT_MAX                 smallint(5)    Nombre max de lit accepté pour cette chambre
+
+      6    ACTIF                      char(1)        Indique si la chambre est active (O/N)
+
+      7    DATE_CREAT                 datetime       Date de création
+                                                     Lien vers TB_UTIL.ID_UTIL
+      8    ID_CREAT                   int(10)
+                                                     Identifiant de la personne ayant créé la chambre
+      9    DATE_INFO                  datetime       Date de dernière modification
+                                                     Lien vers TB_UTIL.ID_UTIL
+      10   ID_INFO                    int(10)
+                                                     Identifiant de la personne ayant fait la dernière modification

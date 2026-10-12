@@ -1,0 +1,5 @@
+==== TB_FLUX_DOC_BIN ====
+Stockage d'un dosument en binaire
+      1    ID_FLUX_DOC              int(10)         Identifiant CORA du document
+
+      2    FICHIER                  image           Document en binaire

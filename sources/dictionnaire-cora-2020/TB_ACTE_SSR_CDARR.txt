@@ -1,0 +1,45 @@
+==== TB_ACTE_SSR_CDARR ====
+Tables des actes CDARR réalisés (par Mouvement) --> GESTION SSR
+                                                     Clé :
+       1   ID_ACTE_SSR                 int(10)
+                                                     Identifiant (PrisMédica) de l'acte CDARR
+                                                     Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                  int(10)
+                                                     Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                     Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                   int(10)
+                                                     Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+                                                     Lien sur TB_MVT.ID_MVT :
+       4   ID_MVT                      int(10)
+                                                     Identifiant du Mouvement (Lien obligatoire)
+                                                     Lien sur TB_MVT_SSR_SEM.NO_SEMAINE :
+       5   NO_SEMAINE                  smallint(5)
+                                                     Permet de savoir sur quelle semaine cet acte a été réalisé (Lien obligatoire)
+                                                     Lien sur Util.id_util :
+       6   ID_EXECUTANT                int(10)
+                                                     Identifiant du médecin opérateur de l'acte (médecin exécutant)
+       7   DATE_ACTE                   datetime      Date de réalisation de l'acte
+
+       8   HEURE_ACTE                  datetime      Heure de réalisation de l'acte
+
+       9   DUREE_ACTE                  smallint(5)   Durée de réalisation de l'acte (en minute)
+                                                     Lien sur SSR_RUBRIQUE.CODE_RUBRIQUE :
+      10   RUBRIQUE_ACTE               char(2)
+                                                     Rubrique de l'acte saisi
+      11   QUANTITE                    int(10)       Nb d'acte réalisé
+
+      12   DATE_INFO                   datetime      Date de création de l'acte
+
+      13   HEURE_INFO                  datetime      Heure de création de l'acte
+                                                     Lien sur Util.id_util :
+      14   ID_INFO                     int(10)
+                                                     Identifiant de l'utilisateur ayant crée cet acte
+                                                     Lien sur SSR_CDARR.CODE_ACTE :
+      15   CODE_ACTE                   char(6)
+                                                     Code de l'acte CDARR réalisé
+                                                     Lien sur UTIL_TYPE_EXECUTANT.TYPE_EXECUTANT :
+      16   TYPE_EXECUTANT              char(10)      Type 'Spécialité' de l'intervenant pour cet acte (Il peut être paramétré dans
+                                                     plusieurs 'Spécialités)
+                                                     Identifant du conncteur d'interface ayant créé l'acte. Lien sur
+      17   ID_APPLICATION              int(10)
+                                                     TB_INT_APPLICATION.ID

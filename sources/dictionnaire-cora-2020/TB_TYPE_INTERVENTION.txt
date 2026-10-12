@@ -1,0 +1,34 @@
+==== TB_TYPE_INTERVENTION ====
+Table utilisé pour sépcifier les types d'écran NGAP
+                                                       Clé
+       1    ID_TYPE_INTERVENTION        smallint(5)
+                                                       Identifiant du type d'écran intervention
+                                                       Libellé du type d'intervention : au 08/06/2005
+                                                       - CHIRURGIE
+       2    TYPE_INTERVENTION           varchar(20)
+                                                       - ENDOSCOPIE
+                                                       - COLOSCOPIE
+                                                       Droit de gestion du type d'écran. Ce champ contient la valeur cryptée de :
+       3    GESTION_TYPE                varchar(255)
+                                                       Voir Document spec_Cryptage_pmc.doc
+       4    DEFAUT                      char(1)        Si 'O', ecran chargé par défaut
+
+       5    CREAT_AUTO                  char(1)
+
+       6    ONGLET_NGAP                 char(1)        Si 'N', Onglet NGAP non visible
+
+       7    ONGLET_DIAG                 char(1)
+
+       8    ONGLET_CR                   char(1)
+
+       9    ONGLET_LPP                  char(1)
+
+       10   ONGLET_EVT                  char(1)
+
+       11   ONGLET_MATERIEL             char(1)
+
+       12   ONGLET_ENDO                 char(1)
+
+       13   ONGLET_COLO                 char(1)
+
+       14   ONGLET_PERI                 char(1)

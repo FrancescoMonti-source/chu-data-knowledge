@@ -1,0 +1,109 @@
+==== CCAM_NV ====
+Table de la Nomenclature CCAM (contenant aussi les menus hiérarchiques de la nomenclature)
+                                                     Lien sur R_ACTE.COD_ACTE :
+       1   CODE                        char(7)
+                                                     Code Acte CCAM
+       2   LIBELLE_COURT               char(70)      Libellé raccourci de l'acte. (copie de R_ACTE.NOM_COURT)
+                                                     Découpage du code acte :
+       3   ORGANE                      char(1)
+                                                     le 1er caractère se référe à l'organe lié à l'acte
+                                                     Découpage du code acte :
+                                                     les 2 premiers caractères se référe au site lié à l'acte. Il inclut donc le code
+       4   SITE                        char(2)
+                                                     ORGANE.
+                                                     La nomenclature des sites est donnée dans CCAM_SITE
+                                                     Découpage du code acte :
+       5   ACTION                      char(1)       le 3ème caractère se référe à l'action lié à l'acte
+                                                     La nomenclature des sites est donnée dans CCAM_ACTION
+                                                     Découpage du code acte :
+       6   ACCES                       char(1)       le 4ème caractère se référe au mode d'accès lié à l'acte
+                                                     La nomenclature des sites est donnée dans CCAM_MODE_ACCES
+       7   DT_FIN                      datetime      Date de fin d'effet de l'acte
+                                                     Code (ou clé) significatif de chaque enregistrement.
+                                                     - Pour 1 acte le code signifiant est CODE (Code de l'acte)
+       8   CLE                         char(7)
+                                                     - Pour 1 menu le code signifiant est le MENU_CODE.
+                                                     Cette zone contient l'une des 2 valeurs
+                                                     - 'A' : Acte
+       9   TYPE                        char(1)
+                                                     - 'M' : Menu
+      10   ACTIF                       char(1)       Acte effectif ou non
+                                           Dernière Date Modif de l'acte. Permet de pointer directement sur 1
+    11   DT_MODIF              datetime    enregistrement de R_ACTE (la clé de cette table est COD_ACTE -
+                                           DT_MODIF)
+    12   LIBELLE_LONG          char(600)   Libellé complet de l'acte (non traité) (copie R_ACTE.NOM_LONG)
+                                           Libellé complet de l'acte traité sans accent et en majuscules. Utilisé pour les
+    13   LIBELLE_SS_ACC        char(600)
+                                           recherches
+                                           Lien sur R_MENU.COD_MENU :
+    14   MENU_COD              int(10)     - Pour un menu de la hiérarchie : Code de cette hiérarchie
+                                           - Pour un acte : Code de la hiérarchie dans laquelle se trouve l'acte
+    15   NB_PHASE              int(10)     Nombre de Phase de l'acte. Par défaut 0 (pas de phase)
+
+    16   NB_ACTIV              int(10)     Nombre d'activité de l'acte (de 1 à 5)
+                                           Clé :
+    17   CPT                   int(10)
+                                           Clé interne de la table
+    18   RANG                  int(10)     Rang des actes dans une même hiérarchie
+
+    19   CLASSANT              char(1)     si = 'Y' : acte Classant
+                                           Donne la hiérarchie (positionnement) de l'acte dans la hiérachie Chapitre, sous
+    20   HIERARCHIE            char(60)    chapitre, paragraphe, sous paragraphe
+                                           Permet d'ordonner les actes hiérarchiquement
+                                           OBSOLETE
+    21   ACTIV_ANESTHESISTE    char(1)
+                                           Permet de savoir si une activité d'anesthésie est liée à l'acte. (si ="O")
+                                           OBSOLETE
+    22   EXONERANT             char(1)
+                                           Si = 'O' : acte exonérant
+                                           1 : Acte marqueur 1
+    23   LISTE_ACTE_MARQUEUR   char(1)
+                                           2 : Acte marqueur 2
+                                           OBSOLETE
+    24   ACTE_SEANCE           char(1)
+                                           Si ='O' : acte de séance
+                                           OBSOLETE
+    25   PCTL                  char(1)
+                                           Pour le SSR : Prise en charge très lourde de l'acte
+                                           OBSOLETE
+    26   PCL                   char(1)
+                                           Pour le SSR : Prise en charge lourde de l'acte
+                                           Contient le n° de version indiqué dans le fichier NX :
+    27   VERSION               char(4)
+                                           - Pour v. 1 : "0301"
+                                           - 0 : Acte isolé
+    28   TYPE_ACTE             char(1)     - 1 : Procédure d'actes
+                                           - 2 : Actes complémentaires
+                                           OBSOLETE
+                                           Permet de connaître les actes de Prélèvement d'organe :
+    29   PRELEV_ORGA           char(1)
+                                           - 1 : Un ou deux reins et / ou foie
+                                           - 2 : Tous les autres cas
+                                           Pour les actes complémentaires : permet de paramétrer les actes crées
+                                           automatiquement après saisie d'un acte principal ayant une association avec
+    30   CREAT_AUTO            char(1)
+                                           cet acte.
+                                           Saisie automatique si 'O'
+    31   LISTE_ANNEXE_9        char(1)     Acte elligible pour les forfaits SE/FSD
+
+    32   ACTE_THERAPEUTIQUE    char(1)     OBSOLETE
+                                           Indique si l'acte est un acte SRC. / ! \ N'a pas l'air d'être renseigné, mieux vaut
+    33   FACT_SRC              char(1)
+                                           vérifier dans FG_FACT_SRC
+                                           l'aphérèse est une technique de prélèvement de certains composants sanguins
+    34   LISTE_APHERESE        char(1)
+                                           par circulation extra-corporelle du sang
+    35   CAV                   char(1)     Activité Valorisante des actes pour les SSR CMA
+                                           Indique si l'acte est un acte SRC Mineur. / ! \ N'a pas l'air d'être renseigné,
+    36   FACT_SRC_MIN          char(1)
+                                           mieux vaut vérifier dans FG_FACT_SRC
+                                           Permet de connaitre les actes dentaires
+                                           1 : Les actes bucco-dentaires associables entre eux
+    37   ACTE_DENTAIRE         char(1)     2 : Les actes bucco-dentaires associables à eux-mêmes
+                                           3 : Les actes bucco dentaires associables à eux-mêmes, uniquement s’ils sont
+                                           réalisés sur les 2 arcades dentaires
+                                           Si EXCLUSIF_ATIH ='O' -> Acte hors nomenclature officiel CNAM mais
+                                           provient de la CCAM DESCRIPTIVE fournit par l'ATIH. Acte exclusif du
+    38   EXCLUSIF_ATIH         char(1)
+                                           référenciel ATIH.
+                                           Permet aux interfaces de ne pas scanner ce type d’acte.

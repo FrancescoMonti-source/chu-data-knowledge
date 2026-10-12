@@ -1,0 +1,48 @@
+==== TB_PEC ====
+       1   ID_PEC                    int(10)        Clé
+
+       2   ID_PATIENT                int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_SEJOUR                 int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       4   DATE_CREAT                datetime       Date de création
+                                                    Lien sur TB_UTIL.ID_UTIL
+       5   ID_CREAT                  int(10)
+                                                    Identifiant de l'utilisateur de création
+       6   DATE_INFO                 datetime       Date de la dernière modification
+                                                    Lien vers Util.ID_UTIL.
+       7   ID_INFO                   int(10)
+                                                    Identifiant de l'utilisateur ayant effectué la dernière modification
+       8   TYPE_DEBITEUR_OBL         char(1)
+
+       9   DATE_PEC                  datetime
+
+      10   CODE_EXO                  char(1)
+
+      11   QUALITE_BENEF             char(2)
+
+      12   TIERS_PAYANT              char(1)
+
+      13   PARCOURS_SOINS            varchar(2)
+
+      14   NATURE_ASSURANCE          char(2)
+
+      15   PIECE_JUSTIF              char(1)
+
+      16   TAUX_PEC_OBL              smallint(5)
+
+      17   TYPE_DEBITEUR_COMP        char(1)
+
+      18   TIERS_PAYANT_COMP         char(1)
+
+      19   TYPE_CONTRAT_COMP         char(2)
+
+      20   PIECE_JUSTIF_COMP         char(1)
+
+      21   PEC_FJ                    char(1)
+
+      22   PEC_CP                    char(1)
+
+      23   TAUX_PEC_COMP             smallint(5)
+
+      24   TAUX_PEC_TM_COMP          smallint(5)

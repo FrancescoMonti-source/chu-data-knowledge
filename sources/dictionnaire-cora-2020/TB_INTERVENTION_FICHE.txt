@@ -1,0 +1,21 @@
+==== TB_INTERVENTION_FICHE ====
+       1   ID_INTERVENTION_FICHE      int(10)
+
+       2   ID_INTERVENTION            int(10)
+
+       3   ID_THES_FICHE_BLOC         smallint(5)
+
+       4   ID_USER                    int(10)
+
+       5   ID_SIGN                    int(10)
+
+       6   DATE_SIGN                  datetime
+
+       7   DATE_CREAT                 datetime       Date de création
+                                                         Lien sur TB_UTIL.ID_UTIL
+       8    ID_CREAT                      int(10)
+                                                         Identifiant de l'utilisateur de création
+       9    DATE_INFO                     datetime       Date de la dernière modification
+                                                         Lien vers Util.ID_UTIL.
+       10   ID_INFO                       int(10)
+                                                         Identifiant de l'utilisateur ayant effectué la dernière modification

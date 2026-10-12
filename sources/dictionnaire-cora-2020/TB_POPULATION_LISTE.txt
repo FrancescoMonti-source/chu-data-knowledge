@@ -1,0 +1,14 @@
+==== TB_POPULATION_LISTE ====
+Table matrice entre une population (MCO, EXT ou SSR) et l'ensemble des dossiers composants cette population
+                                                    Identifiant de la population auquel appartient le dossier. Lien avec
+       1   ID_POPULATION             int(10)
+                                                    TB_POPULATION.ID_POPULATION
+       2   ID_RSS                    int(10)        Identifiant du RSS du dossier. Lien avec TB_SYNTH_RSS.ID_RSS
+
+       3   ID_SEJOUR                 int(10)        FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       4   NO_SEJOUR                 char(20)       Numéro de séjour du dossier. Lien avec TB_SEJOUR.NO_SEJOUR
+       5    ID_MVT                       int(10)          Identifiant du mouvement du dossier. Lien avec TB_MVT.ID_MVT
+                                                          Numéro de semaine civile. Lien avec
+       6    NO_SEMAINE_CIVILE            int(10)
+                                                          TB_MVT_SSR_SEM.NO_SEMAINE_CIVILE

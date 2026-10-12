@@ -1,0 +1,4 @@
+==== TB_THES_TYPE_ACTIVITE ====
+      1    CODE_TYPE_ACTIVITE       char(2)
+
+      2    LIB_TYPE_ACTIVITE        varchar(200)

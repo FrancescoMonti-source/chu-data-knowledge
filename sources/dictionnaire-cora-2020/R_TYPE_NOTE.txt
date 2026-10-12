@@ -1,0 +1,6 @@
+==== R_TYPE_NOTE ====
+Liste des Types de note possibles
+        1   COD_TYPNOT                      int(10)        code de type de note
+                                                     CCAM n° 11
+       2   LIBELLE                    char(100)
+                                                     Libellé de type de note

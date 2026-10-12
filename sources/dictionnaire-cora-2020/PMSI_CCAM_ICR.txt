@@ -1,0 +1,13 @@
+==== PMSI_CCAM_ICR ====
+Table contenant les ICR
+       1   CODE                         char(7)          Code de l'acte
+
+       2   EXTENSION_ATIH               char(2)          Extension ATIH
+
+       3   PHASE                        smallint(5)      Phase de l'acte
+
+       4   ACTIVITE                     smallint(5)      Activité de l'acte
+
+       5   ACTIVITE_LIBERALE            char(1)          Activité libérale ( 0 : Non , 1 : Oui)
+
+       6   ICR                          int(10)          ICR

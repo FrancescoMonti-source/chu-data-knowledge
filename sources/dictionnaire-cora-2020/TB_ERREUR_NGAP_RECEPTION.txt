@@ -1,0 +1,27 @@
+==== TB_ERREUR_NGAP_RECEPTION ====
+Table des erreurs pour l'Interface Actes NGAP (en réception d'actes NGAP)
+                                                           Clé :
+       1   ID_ERREUR                       int(10)
+                                                           Identifiant interne de la table
+       2   LIBELLE_ERREUR                  varchar(100)    Libellé de l'erreur
+
+       3   LIGNE                           varchar(300)    Copie de la ligne en erreur du fichier HPRIM NGAP
+
+       4   NOM_FICHIER                     varchar(50)     Fichier dans lequel l'erreur est survenue
+                                                           Lien sur TB_MVT.ID_MVT :
+       5   ID_MVT                          int(10)         Identifiant du Mouvement si le mouvement a bien été trouvé pour la cotation
+                                                           NGAP a intégrer
+                                                           Lien sur TB_SEJOUR.ID_SEJOUR :
+       6   ID_SEJOUR                       int(10)         Identifiant du Séjour si le séjour a bien été trouvé pour la cotation NGAP a
+                                                           intégrer
+                                                           Lien sur TB_APPLICATION_TRANSFERT.CODE_APPLI :
+       7   APPLI_TRANSFERT                 char(3)
+                                                           Lien sur l'application concernée
+       8   DATE_TRANSFERT                  datetime        Date d'intégration du fichier
+
+       9   CHEMIN_FICHIER                  varchar(500)    Chemin de présence du fichier
+                                                           Type d'erreur :
+                                                           - 'A' : Erreur applicative (Bug application)
+      10   TYPE_ERREUR                     char(1)         - 'F' : Erreur de Flux (ex : Suppression d'un patient inexistant...)
+                                                           - 'I' : Message d'information (Traitement effectué, Connexion réalisée…)
+                                                           - 'R' : Rejet (ex : N° de Séjour non valide…)

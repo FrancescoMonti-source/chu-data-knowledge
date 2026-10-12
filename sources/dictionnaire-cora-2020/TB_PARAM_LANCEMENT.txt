@@ -1,0 +1,5 @@
+==== TB_PARAM_LANCEMENT ====
+Table de paramétrage des lancements d'application CORA
+                                                       Chemin où se trouve l'application CORA Document à lancer depuis CORA
+       1   CHEM_CORA_DOC                char(250)
+                                                       Recueil

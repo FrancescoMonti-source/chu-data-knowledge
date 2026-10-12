@@ -1,0 +1,14 @@
+==== TB_INT_APPLICATION ====
+       1   ID                           int(10)        Identigfiant PK
+
+       2   LIBELLE                      varchar(50)    Descriptif du connecteur ou de l'interface
+
+       3   TYPE_TRANSFERT               char(1)        Emission Reception
+
+       4   TYPE_APPLICATION             int(10)        Numérique définissant l'interface ex: 100 activité 101 connecteur d'activité...
+
+       5   TYPE_ROLE                    char(1)        Facturation, radiologie...
+
+       6   LIBELLE_AFFICHAGE            varchar(50)    Descriptif du connecteur ou de l'interface
+
+       7   DATE_CREAT                   datetime       Date de création du connecteur renseignée à partir V4.3.0.5 de CIM

@@ -1,0 +1,29 @@
+==== TB_INT_MESSAGES_ACTIVITE ====
+                                                     FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+     1    ID_MESSAGE                 int(10)
+                                                     DOC...).ID_MESSAGE
+     2    ID_MESSAGE_BIN             int(10)         FK TB_MESSAGES_BIN.ID_MESSAGE
+
+     3    ID_SEJOUR                  int(10)         FK TB_SEJOUR.ID_SEJOUR
+
+     4    ID_PATIENT                 int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     5    ID_APPLICATION             smallint(5)     FK TB_APPLICATION.ID
+
+     6    DATE_MESSAGE               datetime        Date du message
+
+     7    NOM_FICHIER                varchar(50)     Nom du fichier
+
+     8    NO_LOT                     int(10)         Numér de lot (inutilisé)
+
+     9    TYPE_MESSAGE               char(2)         Type de message
+
+     10   LISTE_ID                   varchar(1000)   Liste d'identifiants CORA liés au message
+
+     11   ID_MESSAGE_LIE             int(10)         FK Identfiiant du message lié
+                                                     FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+     12   IPP_PATIENT                varchar(20)
+                                                     de l'établissement
+                                                     FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+     13   NO_SEJOUR                  varchar(20)
+                                                     l'établissement

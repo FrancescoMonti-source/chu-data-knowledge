@@ -1,0 +1,14 @@
+==== TB_PERINAT_NOMENC ====
+       1   ID_NOMENC                   int(10)
+
+       2   TYPE_NOMENC                 char(4)
+
+       3   LIBELLE_NOMENC              varchar(100)
+
+       4   DEFAUT                      char(1)
+
+       5   DATE_DEBUT                  datetime
+
+       6   DATE_FIN                    datetime
+
+       7   ORDRE                       smallint(5)

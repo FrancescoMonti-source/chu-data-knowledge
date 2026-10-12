@@ -1,0 +1,15 @@
+==== TB_THES_ITEM_BANDEAU ====
+Table contenant l'ensemble des items de bandeau.
+                                                     Clé :
+      1    ID_ITEM                   int(10)
+                                                     Définit l'identifiant de l'item.
+      2    LIBELLE                   varchar(200)    Définit le libellé de l'item.
+
+      3    DESCRIPTIF                varchar(500)    Définit le descriptif de l'item.
+
+      4    ACTIF                     char(1)         Définit si l'item est un item actif du thésaurus.                         'O'
+                                                     Définit le typage pour l’item du thésaurus. Par exemple,
+                                                     « LC » pour LabelControl
+      5    TYPAGE                    varchar(10)
+                                                     « PE » pour PictureEdit.
+                                                     « BE » pour ButtonEdit

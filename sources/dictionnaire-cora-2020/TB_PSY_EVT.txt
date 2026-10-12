@@ -1,0 +1,20 @@
+==== TB_PSY_EVT ====
+Table des événements Clé :
+Table des événements
+                                                        Clé :
+       1   ID_PSY_EVT                   int(10)
+                                                        Identifiant de l'événement
+       2   DATE_PSY_EVT                 datetime        Date de l'événement
+
+       3   HEURE_PSY_EVT                datetime        Heure de l'événement
+
+       4   NOTE_PSY_EVT                 varchar(1000)   Notes
+                                                        Lien sur TB_PMSI_PSY_EVT.ID_TYPE_PSY_EVT :
+       5   ID_TYPE_PSY_EVT              smallint(5)
+                                                        Identifiant du type d'événement
+                                                        Lien sur TB_PATIENT.ID_PATIENT :
+       6   ID_PATIENT                   int(10)
+                                                        Identifiant du patient
+                                                        Lien sur Util.id_util :
+       7   ID_UTIL                      int(10)
+                                                        Identifiant de l'utilisateur

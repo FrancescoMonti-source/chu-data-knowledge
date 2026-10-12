@@ -1,0 +1,13 @@
+==== CIM_SPE_CCAM ====
+Aucune reference dans Cora Activité
+       1   CLE                            char(7)
+
+       2   LIB_CODE_SPE                   varchar(255)
+
+       3   TYPE_SPE                       char(1)
+
+       4   NIV1                           varchar(10)
+
+       5   NIV2                           varchar(10)
+
+       6   NIV3                           varchar(10)

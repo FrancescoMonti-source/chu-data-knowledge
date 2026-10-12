@@ -1,0 +1,26 @@
+==== TB_MESSAGE_UTIL ====
+                                                  Clé :
+     1   ID_MESSAGE_UTIL           int(10)
+                                                  Identifiant de la table
+                                                  Lien sur TB_MESSAGE.ID_MESSAGE :
+     2   ID_MESSAGE                int(10)
+                                                  Identifiant du message
+     3   ID_UTIL                   int(10)        Identifiant de l’utilisateur expéditeur/destinataire du message
+
+     4   TYPE_UTIL                 char(1)        Type d’utilisateur (A : Auteur, D : Destinataire)
+       5   LECTURE                     smallint(5)     Indique si le message a été lu ou non par l’utilisateur (0 : Non Lu, 1 : Lu)
+                                                       Indique si l’utilisateur fait un suivi de ce message (0 : Pas de suivi, 1 :
+       6   TAG_SUIVI                   smallint(5)
+                                                       L'utilisateur fait un suivi de ce message)
+       7   IMPORTANCE                  smallint(5)     Importance du message (0 : Faible, 1 : Moyenne, 2 : Haute)
+                                                       Indique si un accusé de réception a été demandé par l’auteur du message (0 :
+       8   REP_ACCUSE_RECEPTION        char(1)
+                                                       Pas d'accusé de réception à envoyer, 1 : Envoyer un accusé de réception)
+       9   DATE_LECTURE                datetime        Date de première lecture du message par l’utilisateur
+                                                       Etat du message (O : Message actif, I : Conversation clôturée, S : Message
+      10   ACTIF                       char(1)                                                                                           'O'
+                                                       supprimé)
+                                                       Identifiant du message qui correspond à la réponse ou au transfert de ce
+      11   ID_REPONSE                  int(10)
+                                                       message. Dans le cas d’un transfert, l’identifiant est stocké en négatif.
+      12   ID_CONVERSATION             int(10)         Identifiant de la conversation

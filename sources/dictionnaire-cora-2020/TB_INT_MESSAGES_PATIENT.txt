@@ -1,0 +1,37 @@
+==== TB_INT_MESSAGES_PATIENT ====
+Métadonnée d'un message ADT PAM reçu ou émis
+                                                  FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+      1   ID_MESSAGE              int(10)
+                                                  DOC...).ID_MESSAGE
+      2   ID_MESSAGE_BIN          int(10)         FK identifiant CORA du message binaire (non HL7)
+
+      3   ID_SEJOUR               int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+      4   ID_PATIENT              int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+      5   ID_APPLICATION          smallint(5)     Lien sur TB_INT_APPLICATION.ID
+
+      6   DATE_MESSAGE            datetime        Date du message
+
+      7   NOM_FICHIER             varchar(50)     Nom du fichier émis ou reçu
+
+      8   MESSAGE                 varchar(2000)   Contenu du message reçu ou envoyé
+
+      9   TYPE_MESSAGE            char(2)         Type de message reçu ou envoyé
+                                                  FK Identifiant du message lié (Lien message envoyé ou reçu avec son
+     10   ID_MESSAGE_LIE          int(10)
+                                                  acquittement)
+     11   ID_MESSAGE_HL7          int(10)         FK TB_MESSAGES_HL7.ID_MESSAGE_HL7
+
+     12   DATE_TRANSFERT          datetime        Date de transfert du message
+
+     13   ID_EXTERNE              varchar(20)     Identifiant de l'activité dans le système ayant émis le message
+                                                  FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+     14   IPP_PATIENT             varchar(20)
+                                                  de l'établissement
+                                                  FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+     15   NO_SEJOUR               varchar(20)
+                                                  l'établissement
+     16   EVT_HL7                 char(3)         Code HL7 du message archivé
+
+     17   EVT_IPG                 varchar(3)      Code IPG détaillant pour les produits CW le code HL7 - non officiel

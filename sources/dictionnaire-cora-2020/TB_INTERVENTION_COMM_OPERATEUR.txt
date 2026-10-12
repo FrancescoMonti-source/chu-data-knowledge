@@ -1,0 +1,15 @@
+==== TB_INTERVENTION_COMM_OPERATEUR ====
+Table de commentaire des opérateurs
+                                                      Clé - Lien sur TB_INTERVENTION.ID_INTERVENTION :
+      1    ID_INTERVENTION            int(10)
+                                                      Lien sur l'intervention
+                                                      Clé - Lien sur Util.id_util :
+      2    ID_OPERATEUR               int(10)
+                                                      Lien sur l'opérateur
+      3    COMMENTAIRE                varchar(1000)   Commentaire saisi par l'opérateur
+
+      4    DATE_SIGN                  datetime        Date de signature de ce commentaire
+       5   HEURE_SIGN                 datetime       Heure de signature de ce commentaire
+                                                     Lien sur Util.id_util :
+       6   ID_SIGN                    int(10)
+                                                     Identifiant de l'utilisateur ayant signé ce commentaire

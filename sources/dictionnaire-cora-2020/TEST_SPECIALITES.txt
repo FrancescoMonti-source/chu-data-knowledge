@@ -1,0 +1,82 @@
+==== TEST_SPECIALITES ====
+     1    ID_PATIENT        int(10)
+
+     2    LIBELLE           varchar(50)
+                                                             CORA_UTIL
+
+
+module
+Table de gestion des modules disponiblesEst utilisé pour la gestion des versions autorisées sur un poste (production, test, ...) et
+les licences
+       1    id_module                      int(10)     Identifiant du module
+
+       2    Nom_module                     char(50)    Nom du module
+
+       3    actif                          char(1)     'O' si module actif
+
+       4    nom_exe                        char(50)    Nom de l'executable ou de la DLL
+
+
+parametres
+Table de configuration et de paramétrage pour le module Cora
+       1    cpt_parametres                 int(10)     Clé
+                                                       Permet de paramétrer l'intitulé 'Favoris' dans l'application (par exemple pour
+       2    lib_favori                     char(15)
+                                                       remplacer par 'Thésaurus')
+                                                       Dans la fonction 'Mots clés' : ce paramètre permet de gérer l'utilisation unique
+       3    gestion_syno_uniq              char(1)
+                                                       des synonymes (si ="O")
+       4    sep_rech_et                    char(1)     Séparateur de type 'ET' utilisé dans les fonctions de recherche
+
+       5    sep_rech_ou                    char(1)     Séparateur de type 'OU' utilisé dans les fonctions de recherche
+
+       6    gestion_cim                    char(1)     Gestion ou non de la nomenclature CIM (si ="N" : blocage des fonctions
+                                                       Paramètre spécifique de Cora Web :
+                                                       - "HPRIM" : communication entre Cora Web et une autre application sous
+       7    type_fichier_export_xml        char(7)     format HPRIM XML
+                                                       - sinon : communication entre Cora Web et une autre application sous format
+                                                       propriétaire fichier Xml 'simplifié'
+                                                       Paramètre spécifique de Cora Web :
+       8    gestion_fonct_uniq_groupe      char(1)
+                                                       Permet de ne pas gérer les Favoris personnels
+                                                       Paramètre spécifique de Cora Web :
+       9    gestion_fonct_groupe_defaut    char(1)     Permet de positionner par défaut l'affichage des Favoris sur les Favoris
+                                                       Groupes
+                                                       - si ="X" : Aucune Gestion du Code Protocole (pas d'affichage de ce code, pas
+                                                       de proposition d'enregistrement de cette donnée) --> on ne gère que le libellé
+       10   oblig_unicite_code_protocole   char(1)     protocole
+                                                       - si ="N" : Pas de contrôle sur l'unicité du code protocole (on peut créer des
+                                                       protocoles ayant le même code)
+                                                       Paramètre spécifique de Cora Web :
+       11   envoi_transcodage_ngap         char(1)     Lors de l'export des actes CCAM, permet d'envoyé en complément leur
+                                                       transcodage NGAP. (si ="O")
+                                                       si ="O" : la gestion de la hiérarchisation des Favoris est gérée (à partir de la
+       12   favori_ordonner                char(1)
+                                                       version 1.9x de Cora) - gestion des champs 'Ordre' dans les tables Favoris
+                                                       Utilisation de la Dll Cora :
+                                                       - si ="S" : renvoi des actes complémentaires à la suite de leurs actes 'pères'.
+       13   envoi_acte_pere_lie            char(1)
+                                                       - si = "O" : renvoi des actes complémentaires à la suite de tous les actes
+                                                       'pères'.
+                                                       Chemin du répertoire contenant les Images utilisées dans la fonction Image de
+       14   chemin_image                   char(250)
+                                                       Cora
+                                                       Paramètre spécifique de Cora Web :
+                                                       Lors de l'export des actes CCAM et diags, permet de compléter les infos par
+                                                       une valeur '-N' qui est utilisée dans les paramètres d'entrée. (si ="O" ou vide)
+       15   param_export_url               char(1)
+                                                       (Si ="D" : ajoute '-N' que pour les diags / Si = "A" : ajoute '-N' que pour les
+                                                       actes)
+                                                       Ce paramètre n'est pas géré si envoi_transcodage_ngap = 'O'
+       16   affiche_ecran_transcodage      char(1)
+
+       17   controle_acte_inactif_panier   char(1)
+
+       18   controle_acte_inactif_retour   char(1)
+
+       19   derniere_version               char(4)
+
+       20   gestion_unique_chap_lpp        char(4)
+                                                       Si = 'O' : Par défaut au lancement de Cora, la case à cocher 'Filtre sur les
+      21   filtre_acte_actif_defaut     char(1)        actes actifs' sera cochée : les affichages se font donc par défaut sur les actes
+                                                       actifs

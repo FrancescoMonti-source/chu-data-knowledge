@@ -1,0 +1,11 @@
+==== TB_REQUETE_EXECUTION ====
+Historique des exécutions des requêtes
+       1   ID_REQUETE_EXECUTION          int(10)         Clé de la table
+
+       2   ID_UTIL_EXECUTION             int(10)         Id de l'utilisateur qui a exécuté la requête
+
+       3   DATE_EXECUTION                datetime        Date d'exécution
+
+       4   NB_RESULTAT                   int(10)         Nb de lignes retournées
+
+       5   ID_REQUETE                    int(10)         Id de la requête exécutée

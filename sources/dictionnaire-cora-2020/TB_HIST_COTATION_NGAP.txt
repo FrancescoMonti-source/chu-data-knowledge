@@ -1,0 +1,119 @@
+==== TB_HIST_COTATION_NGAP ====
+Tables Historique de TB_COTATION_NGAP (contient les modifications + suppression)
+                                                      Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       1   CPT_ID_COTATION_NGAP         int(10)       Identifiant de la cotation concernée (Lien ou ancien Identifiant (cas des
+                                                      suppressions))
+       2   ID_PATIENT                   int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+       3   ID_SEJOUR                    int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+       4   ID_MVT                       int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+       5   LIBELLE_COTATION             char(100)     Copie de la donnée de TB_COTATION_NGAP
+
+       6   COTATION                     char(100)     Copie de la donnée de TB_COTATION_NGAP
+
+       7   DATE_ACTE                    datetime      Copie de la donnée de TB_COTATION_NGAP
+
+       8   ID_INFO                      int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+       9   DATE_INFO                    datetime      Copie de la donnée de TB_COTATION_NGAP
+
+      10   HEURE_INFO                   datetime      Copie de la donnée de TB_COTATION_NGAP
+
+      11   STATUT                       char(2)       Copie de la donnée de TB_COTATION_NGAP
+
+      12   DATE_ENVOI                   datetime      Copie de la donnée de TB_COTATION_NGAP
+
+      13   ACT_PRIVE                    char(1)       Copie de la donnée de TB_COTATION_NGAP
+
+      14   ID_MEDECIN                   int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+      15   OK_FACT                      char(1)       Copie de la donnée de TB_COTATION_NGAP
+
+      16   ID_ACTE                      int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+      17   ID_DET_ACTE                  int(10)       Copie de la donnée de TB_COTATION_NGAP
+
+      18   CLE1                         char(9)       Copie de la donnée de TB_COTATION_NGAP
+
+      19   CLE2                         char(9)       Copie de la donnée de TB_COTATION_NGAP
+
+      20   CLE3                         char(9)       Copie de la donnée de TB_COTATION_NGAP
+
+      21   CLE4                         char(9)       Copie de la donnée de TB_COTATION_NGAP
+
+      22   CLE5                         char(9)       Copie de la donnée de TB_COTATION_NGAP
+
+      23   COEF1                        char(8)       Copie de la donnée de TB_COTATION_NGAP
+      24   COEF2                      char(8)          Copie de la donnée de TB_COTATION_NGAP
+
+      25   COEF3                      char(8)          Copie de la donnée de TB_COTATION_NGAP
+
+      26   COEF4                      char(8)          Copie de la donnée de TB_COTATION_NGAP
+
+      27   COEF5                      char(8)          Copie de la donnée de TB_COTATION_NGAP
+
+      28   ID_SITE                    smallint(5)      Copie de la donnée de TB_COTATION_NGAP
+
+      29   DATE_SIGN                  datetime         Copie de la donnée de TB_COTATION_NGAP
+
+      30   HEURE_SIGN                 datetime         Copie de la donnée de TB_COTATION_NGAP
+
+      31   ID_SIGN                    int(10)          Copie de la donnée de TB_COTATION_NGAP
+                                                       Type d'évènement :
+                                                       - 'S' : suppression de cotation
+                                                       - 'F' : mis en facturation
+      32   TYPE_INFO                  char(1)
+                                                       - 'D' : défacturation ou désignature
+                                                       - 'N' : suppression traitée par l'interface
+                                                       - 'M' : modification
+      33   FLAG_NUIT                  char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      34   FLAG_FERIE                 char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      35   FLAG_ALD                   char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      36   FLAG_MNC                   varchar(3)       Copie de la donnée de TB_COTATION_NGAP
+
+      37   UNITE_DEM                  char(12)         Copie de la donnée de TB_COTATION_NGAP
+
+      38   ID_UNITE                   int(10)          Copie de la donnée de TB_COTATION_NGAP
+
+      39   TYPE_TRANSFERT             char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      40   DATE_TRANSFERT             datetime         Copie de la donnée de TB_COTATION_NGAP
+
+      41   ID_MEDECIN_DEMANDEUR       int(10)          Copie de la donnée de TB_COTATION_NGAP
+
+      42   NO_INTERVENTION_CCAM       int(10)          Copie de la donnée de TB_COTATION_NGAP
+
+      43   ID_SITE_DEMANDEUR          int(10)          Copie de la donnée de TB_COTATION_NGAP
+
+      44   REALISE_LIT                char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      45   PROTOCOLE_RECHERCHE        char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      46   ID_SITE_PRODUCTION         int(10)          Copie de la donnée de TB_COTATION_NGAP
+
+      47   POUR_MEMOIRE               char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      48   MNT_DEPASS                 decimal(10, 2)   Copie de la donnée de TB_COTATION_NGAP
+
+      49   CODE_EXONERATION           char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      50   MOTIF_DEPASS               char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      51   ID_APPLICATION_TRANSFERT int(10)            FK TB_INT_APPLICATION.ID Id du connecteur ayant importé l'acte
+
+      52   DATE_CREAT                 datetime         Date de création
+                                                       Lien sur TB_UTIL.ID_UTIL
+      53   ID_CREAT                   int(10)
+                                                       Identifiant de l'utilisateur de création
+      54   GRATUIT                    char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      55   ENTENTE_PREALABLE          char(1)          Copie de la donnée de TB_COTATION_NGAP
+
+      56   DATE_ENTENTE_PREALABLE datetime             Copie de la donnée de TB_COTATION_NGAP
+
+      57   ID_UNITE_DEM               int(10)          Copie de la donnée de TB_COTATION_NGAP

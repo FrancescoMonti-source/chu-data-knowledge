@@ -1,0 +1,10 @@
+==== TB_TAUX_REDEVANCE ====
+       1    CODE_TAUX_REDEVANCE         varchar(10)
+
+       2    LIB_TAUX_REDEVANCE          varchar(100)
+
+       3    TAUX_REDEVANCE              decimal(5, 2)
+
+       4    DATE_DEBUT                  datetime
+
+       5    DATE_FIN                    datetime

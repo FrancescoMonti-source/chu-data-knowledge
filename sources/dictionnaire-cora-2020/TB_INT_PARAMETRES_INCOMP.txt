@@ -1,0 +1,10 @@
+==== TB_INT_PARAMETRES_INCOMP ====
+       1    ID                           int(10)
+
+       2    TYPE_APPLICATION             int(10)
+
+       3    TYPE_ECHANGE                 smallint(5)
+
+       4    REGLE                        varchar(2000)
+
+       5    ACTIF                        char(1)

@@ -1,0 +1,95 @@
+==== TB_APPLICATION_TRANSFERT ====
+Table de paramétrage des Applications concernées par l'Interface Actes (avec les paramétrages liés) CCAM et NGAP
+                                                       Clé :
+       1   ID_APPLI                    int(10)
+                                                       Identifiant interne
+       2   CODE_APPLI                  char(3)         Code de l'application (Interface Actes)
+
+       3   NOM_APPLI                   varchar(50)     Nom de l'application
+
+       4   CHEMIN_RECEPTION            varchar(250)    Chemin de lecture ou de génération des fichiers (hpr, xml…)
+
+       5   INTERVALLE_SCAN             int(10)         Pour la réception : paramétrage du Timer de lecture des fichiers (en minutes)
+                                                       - 'E' pour Emission (L'application externe émet des messages) d'actes CCAM
+                                                       et/ou NGAP
+       6   TYPE_TRANSFERT              char(1)         - 'R' pour Réception (pour l'application externe) d'actes CCAM
+                                                       - 'N' pour Réception d'actes NGAP
+                                                       - 'D' pour Réception de diag
+                                                         Etat de l'Interface pour l'application paramétrée :
+       7   STATUT                         char(1)        - 'M' : Marche
+                                                         - 'A' : Arrêt
+       8   DATE_SCAN                      datetime       Date du dernier scan
+                                                         Paramètre d'envoi des actes (Valable pour toutes les Interfaces d'envoi) :
+       9   E_RUM_SIGNE                    char(1)
+                                                         Envoi des actes pour les RUM signés (si ="O")
+                                                         Paramètre d'envoi des actes (Valable pour toutes les Interfaces d'envoi) :
+      10   E_ACTE_SIGNE                   char(1)
+                                                         Envoi des actes lorsque les actes sont signés (si ="O")
+                                                         Paramètre d'envoi des actes (Valable pour toutes les Interfaces d'envoi) :
+      11   E_DELAI_APRES_SIGNATURE char(1)               Délai de sécurité (en minutes) : minutes obligatoirement écoulées entre la
+                                                         signature et l'envoi.
+                                                         Paramètre d'envoi des actes (Valable pour toutes les Interfaces d'envoi) :
+      12   E_ACTES_RECUS                  char(1)
+                                                         Envoi des actes recus d'une autre application (si ="O")
+                                                         Paramètre d'envoi des actes (Valable pour toutes les Interfaces d'envoi) :
+      13   E_ACTIVITE_LIBERALE            char(1)
+                                                         Envoi des actes saisis en activité libérale (si ="O")
+                                                         Paramètre d'envoi des actes :
+      14   TRANSCODAGE_NGAP               char(1)
+                                                         Génération des fichiers Hprim NGAP en transcodant les actes CCAM (si ="O")
+                                                         Nom d'extension des fichiers. Permet de paramétrer l'extension hpr (au lieu de
+      15   EXTENSION_FICHIER              varchar(3)
+                                                         xml) pour certaines interfaces
+                                                         Interface HPRIM NGAP : position du sous champ de l'identification du médecin
+      16   N_POS_ADELI                    smallint(5)
+                                                         exécutant (valeur possible : 1, 2 ou 3)
+                                                         Interface HPRIM NGAP : position du sous champ de l'identification de l'unité
+      17   N_POS_UFEXE                    smallint(5)
+                                                         exécutante (valeur possible : 1, 2 ou 3)
+                                                         Paramètre pour l'interface HPRIM NGAP (en réception) :
+                                                         si ="O" : quand on recoit une (ou des) cotation(s) avec un n° de demande déjà
+      18   GESTION_MODIF                  char(1)
+                                                         traité, on réalise un remplassement de la cotation existante (suppression +
+                                                         création)
+                                                         Paramètre de l'Interface Acte :
+      19   E_GESTION_ACK                  char(1)
+                                                         permet de savoir si l'application réceptrice gère les acquittements
+                                                         Chemin dans lequel l'interface va lire les fichiers d'acquittement des messages
+      20   E_CHEMIN_ACK                   varchar(250)
+                                                         Actes HPRIM XML
+                                                         Contrairement à son nom ce chemin contient les fichiers HPRIM 2,1 des
+      22   E_CHEMIN_TRANSCODAGE           varchar(250)
+                                                         Cotations NGAP (et non pas le transcodages des actes CCAM en NGAP)
+                                                         Paramètre d'envoi des actes NGAP:
+                                                         'N' ou vide ou null: pas d'export NGAP
+      23   EXPORT_NGAP                    char(1)
+                                                         'O' : Export au format XML & HPRIM 2.1
+                                                         'X' : Export Actes NGAP au format XML seul
+                                                         Lien sur TB_INT_PARAM_FTP.ID_PARAM_FTP :
+      24   ID_CONNEXION_FTP               smallint(5)
+                                                         Paramétrage FTP utilisé.
+                                                         Gestion des identifiants Actes dans le fichier XML :
+      25   I_ID_ACTE_DETAIL               smallint(5)    0 = identifiant par code acte
+                                                         1 = identifiant par detail acte
+      26   E_ACK_FTP                      int(10)
+
+      27   I_ENV                          char(1)        A = AS400
+                                                         Paramètre d'import: spécifie si les identifiants externes doivent être pris en
+                                                         compte lors de l'export
+      28   I_ID_PMC_EXPORT                smallint(5)
+                                                         1 - on prend en compte les identifiants actes de PMC
+                                                         0 - on prend en compte les identifiants externes (ex de l'appli radio, labo…)
+                                                         Paramètre d'export: spécifie si les identifiants externes doivent être pris en
+                                                         compte lors de l'export
+      29   E_ID_PMC                       smallint(5)
+                                                         1 - on prend en compte les identifiants actes de PMC
+                                                         0 - on prend en compte les identifiants externes (ex de l'appli radio, labo…)
+      30   DATE_DERNIER_SCAN              datetime
+
+      31   CTRL_IPP                       char(1)
+
+      32   CODE_MEDECIN_ADELI             char(1)
+
+      33   TYPE_APPLICATION               varchar(20)
+
+      34   I_RSP_INTERV                   varchar(10)

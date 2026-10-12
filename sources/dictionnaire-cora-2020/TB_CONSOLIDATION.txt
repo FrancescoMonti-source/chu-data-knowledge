@@ -1,0 +1,49 @@
+==== TB_CONSOLIDATION ====
+                                                      Type de consolidation. Comprend les valeurs de l'énumération
+                                                      TypeConsolidation :
+                                                      ETAB : Consolidation de l'Etablissement
+                                                      POLE : Pole
+                                                      UM :
+                                                      UF
+      1    TYPE_CONSO                varchar(15)
+                                                      GHM
+                                                      CMD
+                                                      RACINE : Racine
+                                                      GA
+                                                      DA
+                                                      GP
+                                                      Valeur du type de consolidation :
+                                                      - pour un pôle, la valeur contient l'ID du pôle
+                                                      - pour une UM, la valeur contient le code de l'UM
+                                                      - pour une UF, la valeur contient le code de l'UF
+                                                      - pour un GHM, la valeur contient le code GHM
+      2    VALEUR_CONSO              varchar(10)
+                                                      - pour un CMD, la valeur contient le code CMD
+                                                      - pour une racine, la valeur contient la racine
+                                                      - pour un GA, la valeur contient le code GA
+                                                      - pour un DA, la valeur contient le code DA
+                                                      - pour un GP, la valeur contient le code GP
+                                                      Le libellé de la valeur du type : cette colonne sert à éviter d'aller rechercher en
+      3    LIBELLE                   varchar(200)     base les libellés à associer aux regroupements pour éviter des requêtes
+                                                      inutiles.
+                                                      Pour les regroupements Pôles, UM et UF, spécifie l'axe PMSI
+                                                      PMSI => P
+      4    AXE_CONSO                 char(1)          HEBERGEMENT => H
+                                                      RESPONSABILITE => R
+                                                      INDEFINI => I (pour les GHM, CMD, racine, GA, DA, GP)
+      5    DATE_DEBUT                datetime         Date de début des séjours consolidés
+
+      6    DATE_FIN                  datetime         Date de fin des séjours consolidés
+
+      7    PMCT                      decimal(10, 2)   PMCT calculé pour le regroupement et sa valeur
+
+      8    PMCT_OBJECTIF             decimal(10, 2)   Objectif PMCT (défini par l'utilisateur)
+
+      9    TMJ                       decimal(10, 2)   TMJ calculé pour le regroupement et sa valeur
+
+      10   TMJ_OBJECTIF              decimal(10, 2)   Objectif TMJ (défini par l'utilisateur)
+
+      11   DMS                       decimal(10, 2)   DMS calculé pour le regroupement et sa valeur
+      12   DMS_OBJECTIF               decimal(10, 2)   Objectif DMS (défini par l'utilisateur)
+
+      13   ID_EJ                      smallint(5)      Identifiant de l'EJ sur lequel la consolidation des données a été effectuée           1

@@ -1,0 +1,9 @@
+==== TB_GEN_ECRAN_UTIL ====
+Droits utilisateurs sur les écrans du générateur
+       1   ID_ECRAN                     smallint(5)   Identifiant de l'écran
+                                                      Lien vers TB_UTIL.ID_UTIL
+       2   ID_UTIL                      int(10)
+                                                      Identifiant de l'utilisateur
+                                                      Type de droit sur l'écran
+       3   TYPE_DROIT                   char(1)       T = Saisie + visualisation        'T'
+                                                      V = Visualisation

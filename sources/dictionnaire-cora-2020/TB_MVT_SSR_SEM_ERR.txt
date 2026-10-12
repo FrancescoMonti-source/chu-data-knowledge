@@ -1,0 +1,10 @@
+==== TB_MVT_SSR_SEM_ERR ====
+Table des erreurs de groupage SSR (découpé en semaine donc par RHS)
+       1    ID_MVT                      int(10)          Identifiant du mouvement
+
+       2    NO_SEMAINE                  int(10)          Numéro de la semaine SSR
+
+       3    CODE_ERREUR                 char(3)          Code Erreur du RHS
+                                                         ‘O’ ou ‘N’ : Flag indiquant si le code erreur est identique au code retour issu du
+       4    CODE_RETOUR                 char(1)
+                                                         résultat du groupage.

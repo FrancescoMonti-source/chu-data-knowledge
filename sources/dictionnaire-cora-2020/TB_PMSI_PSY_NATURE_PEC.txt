@@ -1,0 +1,8 @@
+==== TB_PMSI_PSY_NATURE_PEC ====
+Table du thésaurus des natures de prise en charge
+                                                      Clé :
+       1   CODE_NATURE_PEC             char(2)
+                                                      Code nature de prise en charge (1 à 7, 20 à 22, 30 à 31)
+       2   LIBELLE_NATURE_PEC          varchar(100)   Libellé nature de prise en charge
+
+       3   TYPE_PEC                    char(1)        Type de prise en charge (C, P, A)

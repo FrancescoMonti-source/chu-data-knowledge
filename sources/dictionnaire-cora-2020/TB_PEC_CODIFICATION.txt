@@ -1,0 +1,10 @@
+==== TB_PEC_CODIFICATION ====
+       1   TYPE_CODIFICATION         smallint(5)
+
+       2   VALEUR_CODIFICATION       varchar(2)
+
+       3   LIB_CODIFICATION          varchar(100)
+
+       4   VALEUR_CODIFICATION_EXT varchar(2)
+
+       5   LIB_LONG_CODIFICATION     varchar(400)

@@ -1,0 +1,6 @@
+==== R_GLOSSAIRE ====
+Glossaire des termes indexés dans les champs textes
+       1   LIBELLE                     char(50)       libellé identifié dans la base
+                                                      définition du libellé du
+       2   DEFINITION                  char(254)
+                                                      glossaire

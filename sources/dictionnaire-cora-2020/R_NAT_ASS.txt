@@ -1,0 +1,5 @@
+==== R_NAT_ASS ====
+Liste des Natures d'assurance permise
+       1   COD_NATASS                   char(2)     Code Nature d'Assurance
+
+       2   LIBELLE                      char(100)   libellé nature d'assurance

@@ -1,0 +1,4 @@
+==== TB_THES_MATRICE_SECTEUR_BIO ====
+       1   SECTEUR_TECHNIQUE_SGL       varchar(80)
+
+       2   SECTEUR_TECHNIQUE_CORA varchar(80)

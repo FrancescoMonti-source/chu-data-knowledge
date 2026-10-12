@@ -1,0 +1,47 @@
+==== TB_PATIENT_ADRESSE ====
+Table contenant les adresses des Patients (Données récupérées des Interfaces)
+                                                     Clé :
+       1   ID_PATIENT_ADRESSE         int(10)
+                                                     Identifiant interne
+                                                     Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                 int(10)
+                                                     Identifiant du Patient. (Lien obligatoire)
+       3   ADRESSE1                   varchar(50)    Adresse principale
+
+       4   ADRESSE2                   varchar(50)    complément d'adresse
+                                                     Lien sur TB_COMMUNE.ID_COMMUNE :
+       5   ID_COMMUNE                 int(10)
+                                                     Identifiant de la ville liée. (Lien non obligatoire)
+                                                     Permet une gestion d'adresse multiples celle avec défaut à 'O' est l'adresse
+                                                     "principale"
+       6   DEFAUT                     char(1)
+                                                     AVANT : En cas d'historisation des adresses des Patients : permet de
+                                                     récupérer rapidement la dernière adresse valable du Patient
+       7   DATE_CREAT                 datetime       Date de création (=date de validité) de l'adresse
+                                                     Lien sur Util.id_util :
+       8   ID_CREAT                   int(10)        Identifiant de l'utilisateur ayant saisi l'adresse (si l'adresse n'a pas été
+                                                     récupérée de l'Interface)
+       9   TEL_DOMICILE               char(18)       Téléphone domicile
+
+      10   TEL_PORTABLE               char(18)       Autre téléphone (travail si vient des interfaces)
+
+      11   TEL_AUTRE                  char(18)
+
+      12   ID_SEJOUR                  int(10)        Lien sur TB_SEJOUR.ID_SEJOUR
+
+      13   COMMENTAIRE                varchar(100)   Commentaire.
+                                                    Dans le cadre de la gestion multi adresse, ce champ est utilisé par les
+                                                    interfaces pour enregistrer le type de l'adresse :
+                                                        H - Adresse d'habitation
+                                                        N - Adresse de naissance
+                                                        BDL - Adresse d'accouchement
+                                                        F - Adresse pays d'origine
+                                                        C - Adresse temporaire-actuelle
+      14   TYPE                       varchar(3)        B - Adresse de l'entreprise
+                                                        L - Adresse Légale
+                                                        M - Adresse de correspondance
+                                                        O - Adresse du bureau
+                                                        P - Adresse permanente
+                                                        RH - Adresse d'archivage des informations personnelles
+                                                        BR - Adresse du domicile lors de la naissance
+                                                    "" Type d'adresse non renseigné

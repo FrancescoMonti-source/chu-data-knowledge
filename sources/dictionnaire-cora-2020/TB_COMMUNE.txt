@@ -1,0 +1,19 @@
+==== TB_COMMUNE ====
+Table des communes Clé :
+Table des communes
+                                                 Clé :
+      1   ID_COMMUNE             int(10)
+                                                 Identifiant (PrisMédica) de la commune
+      2   CODE_POSTAL            char(9)         Code Postal
+
+      3   LIBELLE_COMMUNE        varchar(50)     Libellé de la commune (Données obligatoire)
+
+      4   CODE_PAYS              char(5)         Code du pays
+                                                 Commune active:
+      5   ACTIF                  char(1)         - 'O' pour oui
+                                                 - 'N' pour non
+      6   CODE_INSEE             varchar(10)     Code Insee de la commune
+
+      7   ID_COMMUNE_SECTEUR     int(10)         Définit l'identifiant de la commune du secteur.
+
+      8   ID_PAYS                smallint(5)     Définit l'identifiant du pays.

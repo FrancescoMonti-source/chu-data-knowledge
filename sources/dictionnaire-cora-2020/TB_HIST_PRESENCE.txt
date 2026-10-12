@@ -1,0 +1,26 @@
+==== TB_HIST_PRESENCE ====
+Table d'historisation des présences
+       1   ID_PRESENCE                  int(10)        Identifiant
+
+       2   ID_SEJOUR                    int(10)        Identifiant du séjour
+
+       3   ID_EXTERNE                   varchar(20)    Identifiant Externe
+
+       4   DATE_DEBUT                   datetime       Date de début de Présence
+       5   FLAG_MODIF          char(1)       'O' ou 'N' : Flag indiquant si une modification a été faite sur la ligne
+
+       6   DATE_FIN            datetime      Date de fin de Présence
+
+       7   ID_INFO             int(10)       Identifiant du dernier utilisateur ayant modifié la ligne
+
+       8   DATE_INFO           datetime      Date de dernière modification de la ligne
+
+       9   ID_CREAT            int(10)       Identifiant de l'utilisateur ayant crée la ligne
+
+      10   DATE_CREAT          datetime      Date de création de la ligne
+                                             Type d'action
+                                             C : Création
+      11   TYPE_INFO           char(1)
+                                             S : Supprimer
+                                             M: Modifier
+      12   DESCR               varchar(5)    Description de l'ecran ou application ayant réalisé la dernière action

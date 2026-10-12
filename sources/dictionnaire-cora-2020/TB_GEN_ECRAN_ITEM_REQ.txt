@@ -1,0 +1,6 @@
+==== TB_GEN_ECRAN_ITEM_REQ ====
+       1   ID_ECRAN_ITEM                int(10)
+
+       2   ID_ITEM_REQ                  int(10)
+
+       3   TYPE_LIB                     char(10)

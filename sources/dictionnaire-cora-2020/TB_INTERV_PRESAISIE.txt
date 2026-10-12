@@ -1,0 +1,15 @@
+==== TB_INTERV_PRESAISIE ====
+       1   ID_INTERVENTION     int(10)
+
+       2   CODE_OFF            varchar(7)
+
+       3   TYPE_CODE           char(1)
+
+       4   TYPE_INTERV         char(1)
+
+       5   DATE_INFO           datetime        Date de la dernière modification
+
+       6   HEURE_INFO          datetime
+                                               Lien vers Util.ID_UTIL.
+       7   ID_INFO             int(10)
+                                               Identifiant de l'utilisateur ayant effectué la dernière modification

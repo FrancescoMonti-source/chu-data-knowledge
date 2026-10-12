@@ -1,0 +1,12 @@
+==== TB_ACTE_DENT ====
+Table de stockage des dents traitées par un acte
+                                                     Clé :
+       1   ID_ACTE                     int(10)       Lien sur TB_ACTE.ID_ACTE :
+                                                     Identifiant de l'acte.
+                                                     Clé :
+       2   ID_DENT                     smallint(5)
+                                                     Identifiant de la dent.
+       3   DATE_INFO                   datetime      Date et heure du groupage
+                                                     Lien sur Util.id_util :
+       4   ID_INFO                     int(10)
+                                                     Identifiant de l'utilisateur ayant fait le groupage

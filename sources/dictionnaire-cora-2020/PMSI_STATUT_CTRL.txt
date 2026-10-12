@@ -1,0 +1,6 @@
+==== PMSI_STATUT_CTRL ====
+Table permettant la gestion du thésaurus des statuts personnalisés en MCO afin de typer des RSS
+                                                      Clé :
+       1   CODE_STATUT_CTRL            char(1)        Code du statut RSS
+                                                      (Ex : 'T' - Terminé)
+       2   LIBELLE_STATUT_CTRL         varchar(100)   Libellé du statut

@@ -1,0 +1,11 @@
+==== CCAM_PROTOCOLE ====
+Table des Protocoles Clé :
+Table des Protocoles
+                                                       Clé :
+       1   ID_PROTOCOLE                 int(10)
+                                                       Identifiant du Protocole
+       2   CODE_PROTOCOLE               char(15)       Code du Protocole
+
+       3   LIBELLE_PROTOCOLE            char(50)       Libellé du Protocole
+
+       4   ACTIF                        char(1)        ='O' si protocole actif

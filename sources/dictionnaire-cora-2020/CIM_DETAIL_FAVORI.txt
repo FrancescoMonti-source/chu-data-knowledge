@@ -1,0 +1,9 @@
+==== CIM_DETAIL_FAVORI ====
+Table contenant les diagnotics d'un Favori
+                                                          Clé - Lien sur CIM_FOLDER_FAVORI.ID_FOLDER :
+       1   ID_FOLDER                      int(10)
+                                                          Identifiant du Favori
+                                                          Clé - Lien sur CIM_HIERARCHIE.CODEFILS :
+       2   CLE                            char(16)
+                                                          Code du diagnostic
+       3   ORDRE_DIAG                     smallint(5)     Ordre d'affichage du diagnostic dans le Favori

@@ -1,0 +1,14 @@
+==== TB_DOCUMENT_AUDIO ====
+Définit une table de lien entre les documents patients et les documents audios.
+                                                       Clé :
+       1   ID_DOCUMENT_PATIENT         int(10)         Lien sur TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT. Définit
+                                                       l'identifiant du document patient.
+                                                       Clé :
+       2   ID_AUDIO                    int(10)
+                                                       Lien sur TB_AUDIO.ID_AUDIO. Définit l'identifiant du document audio.
+       3   ORDRE                       smallint(5)     Définit l'ordre du fichier.
+
+       4   DATE_CREAT                  datetime        Définit la date de création du lien entre la fiche courrier et le document audio.
+                                                       Lien sur
+       5   ID_CREAT                    int(10)         UTIL.ID_UTIL. Définit l'identifiant du créateur du lien entre la fiche courrier et le
+                                                       document audio.

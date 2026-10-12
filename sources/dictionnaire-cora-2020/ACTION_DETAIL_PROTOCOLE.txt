@@ -1,0 +1,20 @@
+==== ACTION_DETAIL_PROTOCOLE ====
+     1   ID_ACTION_PROTOCOLE     int(10)
+
+     2   ID_DETAIL_FAVORI        int(10)
+
+     3   ORDRE                   smallint(5)
+
+     4   DELAI                   int(10)
+
+     5   DELAI_HEURE             smallint(5)
+
+     6   DELAI_MINUTE            smallint(5)
+
+     7   ID_DETAIL_FAVORI_PERE   int(10)
+
+     8   ORDRE_PERE              int(10)
+
+     9   HEURE_DEBUT             datetime
+
+    10   COCHE                   char(1)                                                     'O'

@@ -1,0 +1,38 @@
+==== ACTION_PROTOCOLE ====
+     1   ID_ACTION_PROTOCOLE     int(10)
+
+     2   NOM_ACTION_PROTOCOLE    varchar(50)
+
+     3   ID_PERE                 int(10)
+
+     4   DATE_CREAT              datetime        Date de création
+                                                 Lien sur TB_UTIL.ID_UTIL
+     5   ID_CREAT                int(10)
+                                                 Identifiant de l'utilisateur de création
+     6   DATE_INFO               datetime        Date de la dernière modification
+                                            Lien vers Util.ID_UTIL.
+    7    ID_INFO            int(10)
+                                            Identifiant de l'utilisateur ayant effectué la dernière modification
+    8    DATE_REVOCATION    datetime
+
+    9    COMMENTAIRE        varchar(600)
+
+    10   URL_INFO_EXT       varchar(200)
+
+    11   ID_UNITE           int(10)
+
+    12   ID_UTIL            int(10)         Clé - Lien Util.id_util
+
+    13   TYPE_ETABLIS       char(1)
+
+    14   ORDRE              smallint(5)
+
+    15   ID_PRESCRIPTEUR    int(10)
+
+    16   DATE_EFFET         datetime
+
+    17   CODE_PROTOCOLE     varchar(15)
+
+    18   MODIF_AUTORISE     char(1)
+
+    19   CODE_METIER        char(3)

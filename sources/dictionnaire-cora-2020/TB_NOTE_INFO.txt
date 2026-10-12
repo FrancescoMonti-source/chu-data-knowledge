@@ -1,0 +1,24 @@
+==== TB_NOTE_INFO ====
+     1   ID_NOTE_INFO              int(10)
+
+     2   ID_TYPE_NOTE              smallint(5)
+
+     3   ID_PATIENT                int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     4   ID_SEJOUR                 int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+     5   COMMENTAIRE               varchar(4000)
+                                   text
+     6   COMMENTAIRE_RTF
+                                   (2147483647)
+     7   DATE_NOTE                 datetime
+                                                   Lien sur TB_UTIL.ID_UTIL
+     8   ID_CREAT                  int(10)
+                                                   Identifiant de l'utilisateur de création
+     9   DATE_CREAT                datetime        Date de création
+                                                   Lien vers Util.ID_UTIL.
+    10   ID_INFO                   int(10)
+                                                   Identifiant de l'utilisateur ayant effectué la dernière modification
+    11   DATE_INFO                 datetime        Date de la dernière modification
+
+    12   CONFIDENTIEL              char(1)         'O' si note confidentielle sinon 'N'                                             'N'

@@ -1,0 +1,131 @@
+==== TB_HIST_INTERVENTION ====
+Tables Historique de TB_INTERVENTION (Historisation des suppressions)
+                                                    Ancien identifiant de TB_INTERVENTION.ID_INTERVENTION (de la ligne
+      1    ID_INTERVENTION          int(10)
+                                                    supprimée)
+      2    ID_PATIENT               int(10)         Copie de la donnée de TB_INTERVENTION
+
+      3    ID_MVT                   int(10)         Copie de la donnée de TB_INTERVENTION
+
+      4    DATE_INTERVENTION        datetime        Copie de la donnée de TB_INTERVENTION
+
+      5    SALLE                    char(10)        Copie de la donnée de TB_INTERVENTION
+
+      6    COMMENTAIRE              varchar(1000)   Copie de la donnée de TB_INTERVENTION
+
+      7    ENTREE_EN_SALLE          datetime        Copie de la donnée de TB_INTERVENTION
+
+      8    DEBUT_ARE                datetime        Copie de la donnée de TB_INTERVENTION
+
+      9    DEBUT_INTERVENTION       datetime        Copie de la donnée de TB_INTERVENTION
+
+      10   FIN_INTERVENTION         datetime        Copie de la donnée de TB_INTERVENTION
+
+      11   FIN_ARE                  datetime        Copie de la donnée de TB_INTERVENTION
+
+      12   SORTIE_EN_SALLE          datetime        Copie de la donnée de TB_INTERVENTION
+
+      13   NO_INTERVENTION          int(10)         Copie de la donnée de TB_INTERVENTION
+
+      14   ID_UF_EXECUTANTE         int(10)         Copie de la donnée de TB_INTERVENTION
+
+      15   BLOC                     char(10)        Copie de la donnée de TB_INTERVENTION
+
+      16   EXT_DOC_ARE              char(1)         Copie de la donnée de TB_INTERVENTION
+
+      17   ID_SEJOUR                int(10)         Copie de la donnée de TB_INTERVENTION
+
+      18   COMMENTAIRE_CHRONO       varchar(1000)   Copie de la donnée de TB_INTERVENTION
+
+      19   DATE_INFO_CREAT          datetime        Copie de la donnée de TB_INTERVENTION
+
+      20   HEURE_INFO_CREAT         datetime        Copie de la donnée de TB_INTERVENTION
+
+      21   ID_INFO_CREAT            int(10)         Copie de la donnée de TB_INTERVENTION
+
+      22   DATE_INFO_MODIF          datetime        Copie de la donnée de TB_INTERVENTION
+
+      23   HEURE_INFO_MODIF         datetime        Copie de la donnée de TB_INTERVENTION
+
+      24   ID_INFO_MODIF            int(10)         Copie de la donnée de TB_INTERVENTION
+                                                    Type d'évènement intervenu sur cette intervention :
+      25   TYPE_INFO                char(1)
+                                                    - 'S' : Suppression
+      26   ID_BLOC                  int(10)         Copie de la donnée de TB_INTERVENTION
+
+      27   ID_SALLE                 int(10)         Copie de la donnée de TB_INTERVENTION
+           HEURE_SORTIE_SALLE_REVE
+      28                           datetime         Copie de la donnée de TB_INTERVENTION
+           IL
+      29   HEURE_PREPA_SALLE        datetime        Copie de la donnée de TB_INTERVENTION
+
+      30   DATE_INFO_BLOCAGE        datetime        Copie de la donnée de TB_INTERVENTION
+
+      31   HEURE_INFO_BLOCAGE       datetime        Copie de la donnée de TB_INTERVENTION
+
+      32   ID_INFO_BLOCAGE          int(10)         Copie de la donnée de TB_INTERVENTION
+
+      33   TYPE_INTERVENTION        char(1)         Copie de la donnée de TB_INTERVENTION
+
+      34   CLASSE_CONTAM            char(1)         Copie de la donnée de TB_INTERVENTION
+
+      35   HEURE_ENTREE_BLOC        datetime        Copie de la donnée de TB_INTERVENTION
+
+      36   HEURE_PREPA_ARE          datetime        Copie de la donnée de TB_INTERVENTION
+    37   ID_ARE_SIGN               int(10)
+
+    38   DATE_ARE_SIGN             datetime
+
+    39   HEURE_ARE_SIGN            datetime
+
+    40   PROTOCOLE_RECHERCHE       char(1)        Copie de la donnée de TB_INTERVENTION
+
+    41   DESCR                     char(5)        Code Description de l'évènement intervenu sur cette Intervention
+
+    42   SCORE_ASA                 char(1)        Copie de la donnée de TB_INTERVENTION
+
+    43   POLYTRAUMATISE            char(1)        Copie de la donnée de TB_INTERVENTION
+
+    44   ID_SITE_ARE               int(10)        Copie de la donnée de TB_INTERVENTION
+
+    45   BLOC_REATTRIB             char(1)        Copie de la donnée de TB_INTERVENTION
+
+    46   ID_THES_TYPE_BLOC         smallint(5)
+
+    47   ID_TYPE_INTERVENTION      smallint(5)
+
+    48   NO_INTERVENTION_CCAM      int(10)
+
+    49   ARE_NON_REAL              char(1)
+
+    50   PRES_PERM_ARE             char(1)
+
+    51   HEURE_APPEL_PATIENT       datetime
+
+    52   HEURE_INSTALL_POSIT_CHIR datetime
+
+    53   HEURE_FIN_PANSEMENT       datetime
+
+    54   HEURE_AUTO_SORTIE_SSPI    datetime
+
+    55   DATE_TRACE                datetime
+
+    56   ID_TRACE                  int(10)
+
+    57   NO_INTERV_DOSSIER_BLOC    varchar(20)
+
+    58   NO_INTERVENTION_EXT       varchar(20)
+
+    59   TYPE_TRANSFERT            char(1)
+
+    60   DATE_TRANSFERT            datetime
+
+    61   APPLI_TRANSFERT           char(3)
+
+    62   ID_APPLICATION_TRANSFERT int(10)
+
+    63   DATE_PREDESINFECTION      datetime
+
+    64   ARE_ACT_LIBERALE          char(1)
+
+    65   RISQUE_ATNC               char(1)        Risque ATNC

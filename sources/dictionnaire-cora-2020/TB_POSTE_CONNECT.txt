@@ -1,0 +1,12 @@
+==== TB_POSTE_CONNECT ====
+       8    USE_AGD                      char(1)
+
+       9    DATE_INSCRIPTION_AGD         datetime
+            DESACTIV_AUTHENTIFICATIO
+       10                            char(1)            indique si l'on désactive le SSO (Windows) pour ce poste ('O' ou 'N')
+            N_AUTO
+                                                        Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                        CORA_UTIL)
+       11   ID_ETABLIS                   smallint(5)
+                                                        Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                        Siège centralisée

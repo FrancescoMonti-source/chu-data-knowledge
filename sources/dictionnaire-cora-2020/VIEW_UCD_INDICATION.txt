@@ -1,0 +1,14 @@
+==== VIEW_UCD_INDICATION ====
+      1   UCD               varchar(13)     Code de l'UCD
+
+      2   CODE_LES          varchar(7)      Code de l'indication
+
+      3   LIBELLE           varchar(2000)   Libellé de l'indication
+
+      4   DATE_DEBUT        datetime        Date début de validité de la valorisation de l'UCD dans le FICHCOMP
+
+      5   DATE_FIN          datetime        Date fin de validité de la valorisation de l'UCD dans le FICHCOMP
+                                            Flag indiquant le type de l'indication:
+      6   FLAG_INDICATION   varchar(1)      'M' : MON
+                                            'A' : ATU ou Post ATU
+                                                          CORA_CNAM

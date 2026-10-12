@@ -1,0 +1,26 @@
+==== TB_INT_LISTE ====
+Listes et traitements disponibles à l'utilisateurs dans les outils de CORA Interface manager
+                                                           PK Identifiant CORA de la liste. Positif pour une liste commune, négatif pour
+       1    ID                             smallint(5)
+                                                           une liste définie par ou pour un utilisateur
+       2    ID_THEME                       smallint(5)     FK TB_INT_LISTE_THEME
+
+       3    LIBELLE                        varchar(500)    Intitulé de la liste
+
+       4    DESCRIPTIF                     varchar(5000)   Description détaillée de la liste t resultat attendu
+
+       5    ID_REQUETE                     int(10)         FK TB_INT_LISTE_REQUETE
+
+       6    ACTIF                          char(1)         Inutilisé
+                                                           Lien vers Util.ID_UTIL.
+       7    ID_INFO                        int(10)
+                                                           Identifiant de l'utilisateur ayant effectué la dernière modification
+       8    DATE_INFO                      datetime        Date de la dernière modification
+                                                           Lien sur TB_UTIL.ID_UTIL
+       9    ID_CREAT                       int(10)
+                                                           Identifiant de l'utilisateur de création
+       10   DATE_CREAT                     datetime        Date de création
+
+       11   REGROUPEMENT                   varchar(400)    inutilisé
+
+       12   ORDRE                          smallint(5)     ordre d'exécution dans un regroupement

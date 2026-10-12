@@ -1,0 +1,14 @@
+==== TB_EJ ====
+Table des établissement Juridiques
+                                                         Clé:
+        1   ID_EJ                        smallint(5)
+                                                         Identifiant de l'EJ
+        2   CODE_EJ                      varchar(12)     Code de l'EJ
+
+        3   NOM_EJ                       varchar(100)    Nom de l'EJ
+
+        4   NO_FINESS                    char(9)         Numéro de finess
+                                                         Flag indiquant l'EJ support: 'O' pour indiqué l'EJ support et 'N' pour indiqué que
+        5   FLAG_SUPPORT                 char(1)
+                                                         l'EJ n'est pas l'EJ support.
+        6   OID                          varchar(64)

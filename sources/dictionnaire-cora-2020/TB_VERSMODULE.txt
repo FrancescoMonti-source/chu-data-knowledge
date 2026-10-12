@@ -1,0 +1,202 @@
+==== TB_VERSMODULE ====
+       1   ID_MODULE                    int(10)
+
+       2   VERSION_1                    varchar(4)
+
+       3   VERSION_2                    varchar(4)
+
+       4   VERSION_3                    varchar(4)
+        5    VERSION_4                     varchar(4)
+
+        6    STATUT_VERSION                char(1)
+
+
+Util
+Table des Utilisateurs
+                                                           Clé :
+        1    id_util                       int(10)
+                                                           Identifiant de l'Utilisateur
+        2    code_util                     varchar(30)     Code Utilisateur (Obligatoire)
+
+        3    nom_util                      varchar(30)     Nom de l'utilisateur (Obligatoire)
+
+        4    prenom_util                   varchar(20)     Prénom de l'utilisateur (Obligatoire)
+
+        5    actif                         char(1)         si = 1 : Utilisateur actif
+
+        6    email_pro                     varchar(100)    Email de l'utilisateur
+
+       15    matricule                     char(12)        N° Adéli. Utilisé principalement dans l'Interface Acte
+                                                           Lien sur TB_PROFIL.ID_PROFIL :
+       16    id_profil                     int(10)
+                                                           Identifiant de Profil Droits Utilisateur
+       17    identifiant_exterieur         varchar(20)     Identifiant extérieur de l'utilisateur
+                                                           Nom de l'utilisateur pour la fusion dans les documents de Cora Doc. Si vide,
+       18    nom_edition                   varchar(60)
+                                                           prise en compte du nom_util et du prenom_util
+                                                           Lien sur TB_SPECIALITE_MED.ID_SPE_MED :
+       19    id_spe_med                    int(10)
+                                                           Identifiant de la spécialité du médecin
+       20    commentaire                   varchar(4000)   Commentaire libre pour annoter l'utilisateur
+                                                           Lors des fonctions d'enregistrement de fichier (type Excel, ou fichier d'export
+       21    repertoire_defaut             varchar(250)    de requêtes) permet de proposer le dernier répertoire d'enregistrement utilisé
+                                                           par l'Utilisateur.
+                                                           Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT :
+       22    id_etablis                    smallint(5)     Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                           Siège centralisée
+       23    param_ecr_act                 char(1)
+
+       24    date_para_ecr_dat             datetime
+                                                           O: médecin utilisé de façon générique par SHS pour envoyer leurs actes. A
+       25    flag_provisoire               char(1)
+                                                           supprimer lors des imports
+       26    type_tri_list_corr            char(2)
+
+       27    no_rpps                       varchar(11)     Numéro RPPS
+
+       28    code_util_exterieur           varchar(255)    code de l'utilisateur à fournir pour l'appel contextuel
+
+       29    blocage_envoi_dmp             char(1)                                                                                              'N'
+
+       30    id_ej                         smallint(5)     Dernier EJ utilisé par l'utilisateur                                                 1
+
+
+Util_droit
+Droits de l'Utilisateur sur l'application et les fonctions Cora
+                                                           Clé - Lien sur Util.id_util :
+        1    id_util                       int(10)
+                                                           Identifiant de l'Utilisateur
+                                                           Droit de création de synonymes de mots clés utilisés pour la recherche dans
+        2    droit_creat_syno              char(1)
+                                                           les libellés CCAM ou CIM (si ="O" ou vide)
+                                                           Droit de suppression de synonymes de mots clés utilisés pour la recherche
+        3    droit_suppr_syno              char(1)
+                                                           dans les libellés CCAM ou CIM (si ="O" ou vide)
+                                                           Droit de création de Spécialités utilisées dans la fonction de recherche par
+        4    droit_creat_spec              char(1)
+                                                           spécialité des actes CCAM (si ="O" ou vide)
+                                                           Droit de suppression de Spécialités utilisées dans la fonction de recherche par
+        5    droit_suppr_spec              char(1)
+                                                           spécialité des actes CCAM (si ="O" ou vide)
+        6    droit_creat_lc                char(1)         Droit de création des lettres clés NGAP (si ="O" ou vide)
+
+        7    droit_suppr_lc                char(1)         Droit de suppression des lettres clés NGAP (si ="O" ou vide)
+                                                           Droit de créer/modifier/supprimer des Favoris (ou des éléments des Favoris)
+        8    droit_fav_gr                  char(1)
+                                                           groupe (si ="O" ou vide)
+                                                       Droit de créer/modifier/supprimer des Protocoles (ou des éléments des
+       9     droit_prot_gr                 char(1)
+                                                       Protocoles) groupe (si ="O" ou vide)
+                                                       Permet de paramétrer à l'ouverture de Cora - Aide au codage, l'option 'Filtre
+       10    param_filtre_actif_defaut     char(1)
+                                                       activé' (Ouverture par défaut avec ce filtre actif si ="O" ou vide)
+                                                       Permet de paramétrer le positionnement sur les Favoris personnel par défaut
+       11    param_favori_pers_defaut      char(1)
+                                                       (sinon affichage des Favoris groupe) (si ="O" ou vide)
+                                                       Permet de paramétrer le positionnement sur les Protocoles personnel par
+       12    param_protocole_pers_defaut   char(1)
+                                                       défaut (sinon affichage des Protocoles groupe) (si ="O" ou vide)
+       13    param_deploy_auto_favori      char(1)     Permet de déployer automatiquement l'arborescence des Favoris (si ="O")
+
+       14    param_image                   char(1)     Permet d'autoriser à l'utilisateur le paramétrage de la fonction Image
+                                                       Permet de paramétrer l'affichage des diverses fonction de recherche sur la
+                                                       CCAM :
+                                                       - Position 1 : Affichage de la fonction Vue Arbre (Fonction obligatoire toujours
+                                                       affichée)
+                                                       - Position 2 : Affichage de la fonction Vue Plan (si ="O" ou vide)
+                                                       - Position 3 : Affichage de la fonction Mots clés (si ="O" ou vide)
+                                                       - Position 4 : Affichage de la fonction Décodage (si ="O" ou vide)
+       15    use_fct_ccam                  char(15)
+                                                       - Position 5 : Affichage de la fonction Favoris (si ="O" ou vide)
+                                                       - Position 6 : Affichage de la fonction Protocoles (si ="O" ou vide)
+                                                       - Position 7 : Affichage de la fonction Palmarès (si ="O" ou vide)
+                                                       - Position 8 : Affichage de la fonction Spécialités (si ="O" ou vide)
+                                                       - Position 9 : Affichage de la fonction Recherche (si ="O" ou vide)
+                                                       - Position 10 : Affichage de la fonction Catégories & CMD (si ="O" ou vide)
+                                                       - Position 11 : Affichage de la fonction Image (si ="O" ou vide)
+                                                       Permet de paramétrer l'affichage des diverses fonction de recherche sur la
+                                                       CIM :
+                                                       - Position 1 : Affichage de la fonction Vue Arbre (si ="O" ou vide)
+                                                       - Position 2 : Affichage de la fonction Mots clés (si ="O" ou vide)
+       16    use_fct_cim                   char(10)
+                                                       - Position 3 : Affichage de la fonction Favoris (si ="O" ou vide)
+                                                       - Position 4 : Affichage de la fonction Palmarès (si ="O" ou vide)
+                                                       - Position 5 : Affichage de la fonction Recherche (si ="O" ou vide)
+                                                       - Position 6 : Affichage de la fonction Catégories & CMD (si ="O" ou vide)
+                                                       Permet d'activer automatiquement la Recherche sur les Notes (CCAM ou CIM)
+       17    option_recherche_note         char(1)
+                                                       dans la fonction de Recherche (si ="O" ou vide)
+                                                       Pour la fonction 'Cat & CMD', permet de visualiser par défaut la liste avec les
+       18    option_visu_cmd               char(1)
+                                                       CMD (si ="O" ou vide)
+                                                       Droit de créer/modifier/supprimer des Cotations de ces groupes (si ="O" ou
+       19    droit_cotation_gr             char(1)
+                                                       vide)
+       20    use_fct_lpp                   char(10)
+
+       21    gestion_unique_chap_lpp       char(4)
+
+       22    option_recherche_lpp_hier     char(1)
+
+
+Util_groupe
+Obsolète ?
+       1     id_groupe                     int(10)     Identifiant du groupe
+
+       2     id_util                       int(10)     Clé - Lien Util.id_util
+
+       3     date_debut                    datetime    Date de début du groupe
+
+       4     date_fin                      datetime    Date de fin du groupe
+
+
+Util_groupe_caract
+       1     id_groupe                     int(10)
+
+       2     code_interne                  char(5)
+
+       3     commentaire                   char(255)
+
+
+util_groupe_util
+Table de liens entre les Utilisateurs et les Groupes
+                                                       Clé - Lien sur Util.id_util :
+       1     id_util                       int(10)
+                                                       Identifiant de l'Utilisateur
+                                                       Clé - Lien sur util_lib_groupe.id_groupe :
+       2     id_groupe                     int(10)
+                                                       Identifiant du groupe Utilisateur
+                                                        si = "O" : Groupe par défaut de l'utilisateur (un utilisateur pouvant être lié à
+       4    defaut                       char(1)
+                                                        plusieurs groupe)
+
+Util_hist
+Table des mots de passe des Utilisateurs
+                                                        Clé - Lien sur Util.id_util :
+       1    id_util                      int(10)
+                                                        Identifiant de l'Utilisateur
+       2    pass_word                    char(200)      Mot de Passe de l'Utilisateur
+                                                        Utilisé lors de la récupération automatique des Utilisateurs (menu Import du
+       7    commentaire                  char(50)       module Admin Recueil) : remplit par 'Chargement automatique du [Date de
+                                                        jour]'
+       8    actif                        char(1)        Mot de passe actif (si ="O")
+
+       9    password_cry                 char(1)        Mot de passe crypté (si ="O")
+
+       10   date_change_pass             datetime       Date ou le mot de passe doit être changé
+
+       11   date_blocage                 datetime       date à laquelle le compte a été locké
+
+       12   date_fin_blocage             datetime       date à laquelle le compte peut être délocké
+
+
+util_lib_groupe
+Table des Groupes Utilisateurs (notion 'Cora')
+                                                        Clé :
+       1    id_groupe                    int(10)
+                                                        Identifiant du groupe Utilisateur
+       2    code_groupe                  char(6)        Code du Groupe Utilisateur
+
+       3    libelle_groupe               char(50)       Libellé
+
+       4    actif                        char(1)        si ='1' : Groupe actif

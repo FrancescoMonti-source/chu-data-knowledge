@@ -1,0 +1,47 @@
+==== LPP ====
+Table des codes LPP Clé : Code référence LPP.
+Table des codes LPP
+                                                         Clé :
+                                                         Code référence LPP.
+       1   CODE_LPP                     char(13)
+                                                         7 caractères dans les données Française. Mais code sur 13 caractères dans le
+                                                         Fichier NX fournit (codification Européenne)
+       2   LIB_LPP                      varchar(100)     Libellé du LPP
+                                                         Lien sur LPP_HIERARCHIE.ID_LPP_HIER :
+       3   ID_LPP_HIER                  int(10)
+                                                         Position dans la hiérarchie
+       4   DATE_FIN_VALIDITE            datetime         Date de fin de validité du code
+
+       5   AGE_MAX                      smallint(5)      Age maximum pour les codes soumis à des conditions d'âge.
+                                                         Code identifiant (pour le Titre III) : identifie le composant essentiel d'une
+       6   CODE_IDENTIFIANT             char(4)
+                                                         prothèse donnée.
+       7   RANG                         decimal(12, 6)   Place dans la hiérarchie
+
+       8   FACTURABLE                   char(1)
+
+       9   HORS_LISTE                   char(1)          si ='O' : LPP 'non officielle' (élément saisi par l'établissement)
+
+      10   VERSION_INTEGR               char(4)
+
+      11   PRODUIT_TRACABLE             char(1)
+
+      12   CODE_CLADIMED                varchar(7)
+
+      13   FLAG_T2A                     char(1)          LPP à mettre dans le FICHCOMP (Public + Privé)
+
+      14   DATE_DEBUT_T2A               datetime         Début de validité des LPP à mettre dans le FICHCOMP
+
+      15   DATE_FIN_T2A                 datetime         Fin de validité des LPP à mettre dans le FICHCOMP
+
+      16   FLAG_T2A_PRIVE               char(1)          LPP à mettre dans FICHCOMP (privé)
+
+      17   DATE_DEBUT_T2A_PRIVE         datetime         Date de début de validité T2A privé
+
+      18   DATE_FIN_T2A_PRIVE           datetime         Date de fin de validité T2A privé
+
+      19   FLAG_INTRA_GHS               char(1)          LPP à mettre dans le DATEXP intra ghs
+
+      20   DATE_DEBUT_INTRAGHS          datetime         Début de validité des LPP à mettre dans le DATEXP intra ghs
+
+      21   DATE_FIN_INTRAGHS            datetime         Fin de validité des LPP à mettre dans le DATEXP intra ghs

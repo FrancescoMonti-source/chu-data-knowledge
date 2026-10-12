@@ -1,0 +1,17 @@
+==== TB_PSY_CONT_ISOL ====
+Permet la gestion des mesures isolements ou contentions thérapeutiques d'un patient en psychiatrie.
+       1   ID_MVT                     int(10)        Clé - Identifiant du mouvement du patient
+
+       2   DATE_DEBUT                 datetime       Clé - Date de début de la contention ou de l'isolement du patient
+                                                     Clé - Type de contention ou d'isolement
+       3   TYPE                       char(1)
+                                                     Lien vers CORA.PSY_TYPE_CONT_ISOL
+       4   DATE_FIN                   datetime       Date de fin de la contention ou de l'isolement du patient
+
+       5   NO_MESURE                  int(10)        Numéro de la mesure de contention ou d'isolement
+
+       6   ID_INFO                    int(10)        Identifiant de l'utilisateur ayant créé ou modifié la contention ou l'isolement
+
+       7   DATE_INFO                  datetime       Date où l'utilisateur a créé ou modifié la contention ou l'isolement.
+
+       8   ID_PERIODE_CONTISOL        int(10)        Identifiant de la période d'isolement/contention associée

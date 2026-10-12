@@ -1,0 +1,15 @@
+==== R_TB11 ====
+Coefficient/forfait des codes modificateurs.Doit être rattaché à une grille tarifaire.
+                                                          CCAM n° 6
+       1   COD_MODIFI                     char(1)
+                                                          Code modificateur de l'acte
+       2   DT_DEBUT                       datetime        Date d' effet du modificateur
+                                                          Libellé explicatif du
+       3   LIBELLE                        char(100)
+                                                          modificateur
+       4   COEF                           float(53)       Taux associé au modificateur
+                                                          Forfait associé au
+       5   FORFAIT                        float(53)
+                                                          modificateur
+       6   DT_FIN                         datetime        Date de fin
+       7   GRILLE_COD                 smallint(5)    Code de la grille tarifaire

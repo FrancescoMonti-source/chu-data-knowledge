@@ -1,0 +1,4 @@
+==== IMAGE_DROIT ====
+     1   NOM_IMAGE            char(50)
+
+     2   ID_UTIL              int(10)        Clé - Lien Util.id_util

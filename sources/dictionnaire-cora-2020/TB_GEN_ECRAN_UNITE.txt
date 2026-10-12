@@ -1,0 +1,9 @@
+==== TB_GEN_ECRAN_UNITE ====
+Droits unité sur les écrans du générateur
+       1   ID_ECRAN                     smallint(5)   Identifiant de l'écran
+                                                      Lien vers TB_UNITE.ID_UNITE
+       2   ID_UNITE                     int(10)
+                                                      Identifiant de l'unité
+                                                      Type de droit sur l'écran
+       3   TYPE_DROIT                   char(1)       T = Saisie + visualisation        'T'
+                                                      V = Visualisation

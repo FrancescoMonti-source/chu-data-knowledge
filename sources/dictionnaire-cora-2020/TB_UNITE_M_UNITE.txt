@@ -1,0 +1,23 @@
+==== TB_UNITE_M_UNITE ====
+Table des Liens Unités (UF) - UM
+                                                     Clé - Lien sur TB_UNITE.ID_UNITE :
+       1   ID_UNITE                    int(10)
+                                                     Identifiant (PrisMédica) de l'Unité UF
+                                                     Clé - Lien sur TB_UNITE_MEDICALE.ID_UNITE_MED :
+       2   ID_UNITE_MED                int(10)
+                                                     Identifiant (PrisMédica) de l'Unité Médicale
+       3   DATE_DEBUT                  datetime      Date de début de validité du lien UF - UM
+
+       4   DATE_FIN                    datetime      Date de fin de validité du lien UF - UM
+                                                     Type d'autorisation historisé
+       5   HIST_TYPE_AUTORISATION      varchar(3)    01=réanimation
+                                                     08= soin paliatif
+       6   HIST_NO_AUTORISATION        varchar(20)   Numéro de l'autorisation
+           HIST_DATE_EFFET_AUTORIS
+       7                           datetime          Date d'effet de l'autorisation
+           ATION
+       8   HIST_NB_LIT_AUTORISATION smallint(5)      Nb de lits sur l'autorisation
+
+       9   HIST_TYPE_LIT_DEDIE         char(2)       Type d'autorisation lit dédié historisé
+
+      10   HIST_NB_LIT_DEDIE           smallint(5)   Nb de lits sur l'autorisation lit dédié

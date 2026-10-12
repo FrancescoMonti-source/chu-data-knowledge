@@ -1,0 +1,9 @@
+==== PRESC_DETAIL_FAVORI_POSO ====
+                                                 Lien vers PRESC_DETAIL_FAVORI.ID_DETAIL_FAVORI
+     1   ID_DETAIL_FAVORI        int(10)
+                                                 Identifiant du favori
+     2   HEURE_JOURNEE           datetime
+
+     3   POSOLOGIE               decimal(9, 3)
+
+     4   TYPE_PERIODE            char(3)

@@ -1,0 +1,4 @@
+==== TB_THES_GROUPE_CONTACT ====
+      1    ID_GROUPE_CONTACT         int(10)
+
+      2    LIB_GROUPE_CONTACT        varchar(100)

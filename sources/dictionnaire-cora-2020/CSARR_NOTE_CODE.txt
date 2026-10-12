@@ -1,0 +1,29 @@
+==== CSARR_NOTE_CODE ====
+Table contenant les notes d'un actes CSARR
+        1   CODE                    varchar(7)     Le code de l'acte CSARR auquel est asscoié la note
+
+        2   IDNOTE                  smallint(5)    L'identifiant de la note
+                                                   Le type de la note :
+                                                   - aut_note
+                                                   - avec_sans
+                                                   - codage
+                                                   - compr_tit
+                                                   - def : précise la définition de certains termes "Par...On entend..."
+        3   TYPENOTE                varchar(20)
+                                                   - exclusion : conditions dans lesquelles la division concernée ne doit pas être
+                                                   employée
+                                                   - inclus : explication sur le contenu technique d'un acte dont la réalisation
+                                                   interdit le codage supplémentaire
+                                                   - codage : précise les circonstances où ce libellé peut être codé
+                                                   exemple : exemple d'emploi des libellés
+        4   NIVEAU                  smallint(5)
+
+        5   LIBELLE                 varchar(800)   Le contenu de la note
+
+        6   ORDRE                   smallint(5)
+
+        7   LIBELLE_SS_ACC          varchar(800)   Le contenu sans accent pour les recherches
+
+        8   DATE_DEBUT              datetime       date de début de validité
+
+        9   DATE_FIN                datetime       date de fin de validité

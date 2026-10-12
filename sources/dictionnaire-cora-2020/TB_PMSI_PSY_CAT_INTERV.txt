@@ -1,0 +1,8 @@
+==== TB_PMSI_PSY_CAT_INTERV ====
+Table du thésaurus des catégories d'intervenants
+                                                        Clé :
+       1   CODE_CATEGORIE_INTERV         char(1)
+                                                        Code catégorie d'intervenant
+           LIBELLE_CATEGORIE_INTERV
+       2                            varchar(100)        Libellé catégorie d'intervenant
+           ENANT

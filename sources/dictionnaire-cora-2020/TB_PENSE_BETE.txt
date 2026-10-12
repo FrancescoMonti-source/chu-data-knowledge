@@ -1,0 +1,17 @@
+==== TB_PENSE_BETE ====
+Table des post-it Clé :
+Table des post-it
+                                                    Clé :
+       1   ID_PENSE_BETE             int(10)
+                                                    Identifiant du pense bete
+                                                    Clé :
+       2   ID_UTIL                   int(10)        Lien sur Util.id_util :
+                                                    Identifiant de l'auteur du pense-bete
+       3   DATE_ALERTE               datetime       Date à laquelle le message doit être rappelé
+       4   HEURE_ALERTE                datetime       Heure à laquelle le message doit être rappelé
+
+       5   MESSAGE                     varchar(250)   Libellé du message
+                                                      Pense-Bete Actif (un pense bete doit être inactif pour être supprimé)
+       6   ACTIF                       char(1)        - 'O' pour Actif
+                                                      - 'N' pour inactif (ou !='O')
+       7   CODE_APPLI                  char(3)        Définit le code de l'application à laquelle le pense bête est rattaché.

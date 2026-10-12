@@ -1,0 +1,10 @@
+==== TB_REFERENT_UTIL ====
+     1   ID_UTIL         int(10)       Clé - Lien Util.id_util
+
+     2   ID_REFERENT     int(10)
+
+     3   DATE_DEBUT      datetime
+
+     4   DATE_FIN        datetime
+
+     5   ACTIF           char(1)                                                                             'O'

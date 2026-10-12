@@ -1,0 +1,4 @@
+==== TB_HAD_LIEU_DOMICILE ====
+       1   ID_LIEU_DOM                smallint(5)
+
+       2   LIB_LIEU_DOM               char(50)

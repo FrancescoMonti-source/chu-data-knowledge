@@ -1,0 +1,4 @@
+==== TB_DROIT_UTIL_APPLI_EXT ====
+     1    ID_UTIL                   int(10)       Clé - Lien Util.id_util
+
+     2    ID_APPLI                  smallint(5)

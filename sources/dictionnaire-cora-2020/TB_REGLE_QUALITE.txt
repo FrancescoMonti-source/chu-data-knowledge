@@ -1,0 +1,66 @@
+==== TB_REGLE_QUALITE ====
+Contient les règles de contrôles (règle de type requête ou contrôle qualité)
+                                                       Clé :
+       1    ID_REGLE_QUALITE            int(10)
+                                                       Identifiant de la table
+                                                       Type de contrôle :
+                                                       B : Contrôle qualité QualiLabo
+                                                       Q : Contrôle qualité DATIM ou CORA
+       2    TYPE_CONTROLE               char(1)
+                                                       R : Contrôle qualité Requete du requêteur VB6
+                                                       N : Contrôle qualité Requete du requêteur VB.NET
+                                                       A : Contrôle qualité AMEDIM
+                                                       Iidentifiant du contrôle.
+                                                       Le lien dépend du champ TYPE_CONTROLE :
+       3    ID_CONTROLE                 int(10)         Lien sur CORA_RECUEIL.TB_LABO_CONTROLE_QUALITE si B
+                                                        Lien sur CORA_RECUEIL.TB_TEST_QUALITE si Q
+                                                        Lien sur CORA_RECUEIL.TB_REQUETEUR si R
+                                                       Type d'appel de cette règle : (peut être appelé de plusieurs écran)
+                                                       A : Contrôle manuel Actes
+                                                        E : Validation d'une intervention Externe
+                                                        B : Contrôle manuel Diags
+                                                        G : Groupage Par Lôt
+                                                        U : Groupage unitaire RSS
+                                                        I : Validation d'une intervention Bloc
+                                                        Lx : contrôle par lot (Lien sur CORA_RECUEIL.TB_REGLE_QUALITE_LOT)
+                                                       où x = ID_REGLE_QUALITE_LOT
+                                                        Q : Contrôle Qualité Manuel RSS
+       4    TYPE_REGLE                  varchar(3)      R : signature du RUM
+                                                       C : saisie acte CCAM
+                                                       D : Saisie diag CIM
+                                                       E : Validation d'une intervention Externe
+
+                                                       Spécifiques au SSR :
+                                                       S1 : Contrôle qualité manuel RHS
+                                                       S2 : Contrôle manuel des actes CSARR/CDARR
+                                                       S3 : Contrôle manuel des dépendances
+                                                       S4 : Groupage unitaire SSR
+                                                       S5 : Signature du RHS
+                                                       Action générée par un résultat positif :
+                                                       B : BLoquant
+       5    TYPE_ACTION                 char(1)
+                                                       I ou Null : Informatif (on propose de continuer l'action)
+                                                       S : Silencieux - déclenche une action non visible pour l'utilisateur
+                                                       1' si création d'un superviseur (exemple Siège Gen Santé), '2' si création par
+       6    NIVEAU_PRIORITE             char(1)
+                                                       l'établissement
+                                                       Gestion des règles avec une Base centrale :
+                                                       Si la règle est une règle envoyée de la Base centrale : contient le lien sur la
+                                                       règle envoyée (identifiant dans la Base centrale)
+       7    ID_ENVOI                    int(10)
+                                                       Si ID_ENVOI n'est pas Null, aucune modification n'est possible (cet ID est mis
+                                                       à jour que par l'envoi d'une requête. Le siège Gen Santé par exemple n'aura
+                                                       pas d'ID_ENVOI sur ses requêtes)
+                                                       Gestion des règles avec une Base centrale :
+       8    DATE_ENVOI                  datetime       Si la règle est une règle envoyée de la Base centrale : enregistrement de
+                                                       l'envoi (aussi bien pour la Base centrale que pour la Base d'utilisation)
+                                                       Lien sur Util.id_util :
+       9    ID_INFO                     int(10)
+                                                       Identifiant du créateur de la règle
+       10   DATE_INFO                   datetime       Date de création
+
+       11   HEURE_INFO                  datetime       Heure de création
+                                                       Type de champ PMSI pour savoir gérer des CQ MCO, SSR ou ALL pour le
+       12   TYPE_PMSI                   char(3)        MCO et le SSR                                                                     'MCO'
+                                                       Utilisé que pour le MCO et le SSR à ce jour
+       13   FLAG_NET                    char(1)

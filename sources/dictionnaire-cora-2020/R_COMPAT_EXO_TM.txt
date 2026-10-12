@@ -1,0 +1,8 @@
+==== R_COMPAT_EXO_TM ====
+compatibilités entre codes exonération TM (Ticket Moderateur)
+                                                      code exonération ticket
+       1   EXOTM_COD1                  int(10)
+                                                      modérateur
+                                                      code exonération ticket
+       2   EXOTM_COD2                  int(10)
+                                                      modérateur

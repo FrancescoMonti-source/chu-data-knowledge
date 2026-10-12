@@ -1,0 +1,18 @@
+==== TB_CONFIG_IMPORT ====
+Table gérant le stockage des positions des différents paramètres pour l'import des structures / utilisateurs dans Admin Recueil
+                                                       Code de l'import spécifiant le type de structure, les utilisateurs ou les liens à
+                                                       importer :
+                                                       - 'UNIT'
+                                                       - 'SITE'
+                                                       - 'UTIL'
+                                                       - 'GRPE'
+       1   CODE_IMPORT                 char(10)        - 'SALL'
+                                                       - 'USIT'
+                                                       - 'UGRP'
+                                                       - 'LIEU'
+                                                       - 'LUNI'
+                                                       - 'UTILUF'
+                                                       - 'UCONTXT' : Utilisateurs - Contextes
+       2   PARAMETRES                  varchar(1000)   Liste des positions des paramètres séparées par des points-virgules
+
+       3   ACTIF                       char(1)

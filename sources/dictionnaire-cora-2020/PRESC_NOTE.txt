@@ -1,0 +1,5 @@
+==== PRESC_NOTE ====
+                                                  Lien vers PRESC_DETAIL_FAVORI.ID_DETAIL_FAVORI
+     1   ID_DETAIL_FAVORI         int(10)
+                                                  Identifiant du favori
+     2   NOTE                     varchar(4000)   Note au soignant saisie sur le favori

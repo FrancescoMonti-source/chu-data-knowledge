@@ -1,0 +1,15 @@
+==== TB_CONFIG_OID ====
+Liste des domaines d'identification our une application ou un établissement
+       1    CLE_OID                     varchar(50)      Code du domaine d'identification
+                                                         Valeur de type x.x.x.x.x.x.x.x ou x est une valeur numérique pouvant être
+                                                         remplacée par une variable.
+       2    VALEUR_OID                  varchar(64)
+                                                         Exemple avec une variable de type [noFiness]:
+                                                         1.2.250.1.247.0.[finess].3
+       3    VALEUR_EXT_CODE             varchar(30)      Nom du dictionnaire
+
+       4    COMMENTAIRE_INTERNE         varchar(80)      Explicatif
+
+       5    ID_EJ                       smallint(5)      FK TB_EJ.ID_EJ
+
+       6    EDITABLE                    varchar(1)       Indique une valeur paramétrable ou non par l'utilisateur O/N                       'N'

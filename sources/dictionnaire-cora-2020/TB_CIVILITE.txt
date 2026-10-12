@@ -1,0 +1,7 @@
+==== TB_CIVILITE ====
+Table des civilités Clé :
+Table des civilités
+                                                       Clé :
+       1    ID_CIVILITE                 smallint(5)
+                                                       Identifiant (PrisMédica) de la civilité
+       2    LIBELLE_CIVILITE            varchar(50)    Libellé de l'intitulé (Données obligatoire)

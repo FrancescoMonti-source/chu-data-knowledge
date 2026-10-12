@@ -1,0 +1,10 @@
+==== TB_ITEM_MAIL_DISPO ====
+       1   ID_ITEM                      smallint(5)
+
+       2   LIBELLE_ITEM                 varchar(100)
+
+       3   ITEM_MAIL                    varchar(150)
+
+       4   TYPE_ITEM                    char(20)
+
+       5   CODE_FONCTION                char(20)

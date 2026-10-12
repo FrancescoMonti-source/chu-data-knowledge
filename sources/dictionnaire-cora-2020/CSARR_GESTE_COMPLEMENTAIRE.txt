@@ -1,0 +1,8 @@
+==== CSARR_GESTE_COMPLEMENTAIRE ====
+        1   CODE                    varchar(7)     Code de l'acte principal
+            CODE_GESTE_COMPLEMENT
+        2                         varchar(7)       Code du geste complémentaire
+            AIRE
+        3   DATE_DEBUT              datetime       date de début de validité
+
+        4   DATE_FIN                datetime       date de fin de validité

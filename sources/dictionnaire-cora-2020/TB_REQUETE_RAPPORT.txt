@@ -1,0 +1,11 @@
+==== TB_REQUETE_RAPPORT ====
+Rapport
+       1    ID_RAPPORT                int(10)        Clé
+
+       2    TITRE                     varchar(300)   Titre du rapport
+
+       5    ID_CREAT                  int(10)        Id du créateur du rapport
+
+       6    ID_MODELE                 smallint(5)    Id du modèle associé
+
+       10   ID_CATEGORIE              int(10)        Catégorie

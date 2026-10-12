@@ -1,0 +1,16 @@
+==== TB_COMP_MODIF_PLAGE_HORAIRE ====
+Table des compatibilités entre les modificateurs et les plages horaires auxquelles ils peuvent être codées. Cette table est
+remplie à partir des couples de données de la table des modificateurs R_TB11 (à partir du code du modificateur, de la date de
+début et de la date de fin) et des plages horaires existantes. Pour une période A, il peut donc y avoir plusieurs lignes pour
+chaque modificateurs pour prendre en compte les éventuels modificateurs valable à une période donnée, puis plus valide
+pendant un certains temps et de nouveau valable pendant une nouvelle période.
+       1   CODE_MODIFICATEUR           char(1)        Code du modificateur. Lien avec R_TB11.COD_MODIFI
+                                                      Début de la plage horaire. Si le modificateur est valable toute la journée, le
+       2   PLAGE_HORAIRE_DEBUT         datetime
+                                                      début de la plage horaire sera minuit soit début de la journée.
+                                                      Fin de la plage horaire. Si le modificateur est valable toute la journée, la fin de
+       3   PLAGE_HORAIRE_FIN           datetime
+                                                      la plage horaire sera 23:59 soit la fin de la journée.
+       4   DATE_DEBUT                  datetime       Date de début de la compatibilité entre le modificateur et la plage horaire
+
+       5   DATE_FIN                    datetime       Date de fin de la compatibilité entre le modificateur et la plage horaire

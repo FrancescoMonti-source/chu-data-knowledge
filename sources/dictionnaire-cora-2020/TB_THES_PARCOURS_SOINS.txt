@@ -1,0 +1,26 @@
+==== TB_THES_PARCOURS_SOINS ====
+Liste les éléments du parcours de soins.
+       1   CODE_PARCOURS_SOINS         varchar(3)     Code interne de l'élément du parcours de soins.
+
+       2   CODE_OFFICIEL               varchar(25)    Code officiel de l'élément du parcours de soins.
+
+       3   LIBELLE_PARCOURS_SOINS      varchar(50)    Libellé de l'élément du parcours de soins.
+      4    ORDRE                    smallint(5)    Ordre d'affichage de l'élément du parcours de soins.
+
+      5    ACTIF                    char(1)        Indique si l'élément du parcours de soins est actif 'O' ou non 'N'.              'O'
+                                                   Indique si l'élément du parcours de soins sert comme élément par défaut dans
+                                                   certains cas. Les types par défaut des éléments du parcours de soins suivants
+                                                   sont possibles et sont listés dans leur ordre d'application :
+                                                    - M16 : utilisé pour déterminer l'élément du parcours de soins à utiliser par
+                                                   défaut pour un patient de moins de 16 ans.
+                                                   - EMT : utilisé pour déterminer l'élément du parcours de soins à utiliser par
+      6    DEFAUT                   char(3)        défaut si le médecin est le médecin traitant.
+                                                   - URG : utilisé pour déterminer l'élément du parcours de soins à utiliser par
+                                                   défaut pour un mouvement d'urgence.
+                                                   - MTD : utilisé pour déterminer l'élément du parcours de soins à utiliser par
+                                                   défaut si le médecin est un spécialiste en Gynécologie et Ophtalmologie.
+                                                   - DEF : utilisé pour déterminer l'élément du parcours de soins à utiliser par
+                                                   défaut si aucun autre élément n'a été sélectionné par les critères précédents.
+      7    TRIGRAMME                char(3)        Trigramme de l'élément du parcours de soins.
+
+      8    CODE_HL7                 varchar(2)     Code HL7 de l'élément du parcours de soins.

@@ -1,0 +1,4 @@
+==== TB_MOTIF_ADMISSION_UNITE ====
+      1    ID_MOTIF_ADMISSION       int(10)
+
+      2    ID_UNITE                 int(10)

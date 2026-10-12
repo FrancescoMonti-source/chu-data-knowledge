@@ -1,0 +1,11 @@
+==== CIM_CARD ====
+Obsolète
+       1   CODEFILS                      char(16)
+
+       2   POINTEUR_1                    char(2)
+
+       3   CMD                           char(3)
+
+       4   POINTEUR_2                    char(2)
+
+       5   TYPE                          smallint(5)

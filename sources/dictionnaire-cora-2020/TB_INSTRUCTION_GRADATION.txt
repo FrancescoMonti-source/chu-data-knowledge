@@ -1,0 +1,21 @@
+==== TB_INSTRUCTION_GRADATION ====
+Table contenant les informations de recueil de l'indice de gradation. Les variables sont référencées pou les séjours de 0 nuits,
+mais n'était pas des séances.
+       1   ID_INSTRUCTION_GRADATION int(10)            Identifiant de la table. Clé primaire.
+                                                       Identifiant du séjour auquel les données de gradation sont reliées. Lien avec
+       2   ID_SEJOUR                    int(10)
+                                                       TB_SEJOUR.ID_SEJOUR
+                                                       Contexte patient / Surveillances particulières.
+       3   CTXT_PAT_SURV_PART           char(1)
+                                                       Les valeurs possibles sont : 1 (Oui), 2 (Non), blanc (non renseigné)
+                                                       Administration d'un produit de la RH
+       4   ADMIN_PRODUIT_RH             char(1)
+                                                       Les valeurs possibles sont : 1 (Oui), 2 (Non), blanc (non renseigné)
+                                                       Catégories du nombre d'interventions totales.
+           CAT_NB_INTERVENTIONS_TO
+       5                           char(1)             Les valeurs possibles sont : A (inférieure à 3 interventions), B (égale à 3
+           TALES
+                                                       interventions), C (supérieure à 3 interventions), blanc (non renseignée).
+                                                       Identifiant du mouvement auquel les données de gradation sont reliées. Lien
+       6   ID_MVT                       int(10)                                                                                             0
+                                                       avec TB_MVT.ID_MVT

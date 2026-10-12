@@ -1,0 +1,14 @@
+==== FG_LIBCARA ====
+Table permettant définir les catégories et CMD de chaque version de groupage dans le cas des actes.
+       1   VERSION_FG                 char(3)         Version de la fonction de groupage
+
+       2   NO_OCTET                   char(2)         Numéro d'octet correspondant à la première partie de la Caractéristique.
+                                                      Description
+       3   NO_BIT                     smallint(5)
+                                                      Numero de bit correspondant à la deuxième partie de la Caractéristique.
+                                                      Description
+       4   LIBELLE                    varchar(300)
+                                                      Libelle de la CMD
+                                                      Description
+       5   CARACTERISTIQUE            varchar(5)      Caractéristique de la CMD et/ou de la catégorie. Caractéristique = NoOctet + '.'
+                                                      + NoBit.

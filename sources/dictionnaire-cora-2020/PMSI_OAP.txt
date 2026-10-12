@@ -1,0 +1,5 @@
+==== PMSI_OAP ====
+Définition des différents GHS (Groupe Homogène de Séjour)
+                                                      Clé :
+       1   GHM                         char(4)
+                                                      Code GHM

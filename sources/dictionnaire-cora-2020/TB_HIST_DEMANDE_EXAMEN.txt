@@ -1,0 +1,67 @@
+==== TB_HIST_DEMANDE_EXAMEN ====
+       1   ID_HIST_DEMANDE_EXAMEN int(10)          Identifiant de la donnée historisée
+
+       2   ID_DEMANDE_EXAMEN         int(10)       Copie de TB_DEMANDE_EXAMEN.ID_DEMANDE_EXAMEN : Clé
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_PATIENT : FK
+       3   ID_PATIENT                int(10)
+                                                   TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+       4   ID_SEJOUR                 int(10)       Copie de TB_DEMANDE_EXAMEN.ID_SEJOUR : Numéro de séjour
+                                                   Copie de TB_DEMANDE_EXAMEN.NUM_DEMANDE_EXAMEN : Numéro de
+       5   NUM_DEMANDE_EXAMEN        varchar(20)
+                                                   demande
+           CPT_NUM_DEMANDE_EXAME                   Copie de TB_DEMANDE_EXAMEN.CPT_NUM_DEMANDE_EXAMEN :
+       6                         int(10)
+           N                                       Compteur utilisé pour le cal
+                                                   Copie de TB_DEMANDE_EXAMEN.TYPE_DEMANDE_EXAMEN : Type de la
+                                                   demande d'examen :
+       7   TYPE_DEMANDE_EXAMEN       smallint(5)
+                                                   1 : Radio
+                                                   2 : Biologie
+                                                   Copie de TB_DEMANDE_EXAMEN.TYPE_LIEN_DEMANDE : 1 : lié à une
+       8   TYPE_LIEN_DEMANDE         smallint(5)
+                                                   Action
+                                                   Copie de TB_DEMANDE_EXAMEN.DATE_DEMANDE_EXAMEN : Date de la
+       9   DATE_DEMANDE_EXAMEN       datetime
+                                                   demande d'examen
+      10   ANNULATION_DEMANDE        smallint(5)   Copie de TB_DEMANDE_EXAMEN.ANNULATION_DEMANDE
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_UNITE_DEMANDE : Unité demandant
+      11   ID_UNITE_DEMANDE          int(10)
+                                                   l'examen
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_UTIL_DEMANDE : Utilisateur
+      12   ID_UTIL_DEMANDE           int(10)
+                                                   demandant l'examen
+                                                   Copie de TB_DEMANDE_EXAMEN.NIVEAU_URGENCE : S:Très urgent;
+      13   NIVEAU_URGENCE            char(1)
+                                                   A:ASAP
+                                                   Copie de TB_DEMANDE_EXAMEN.TYPE_EMISSION : A la création = null
+      14   TYPE_EMISSION             char(1)       E:
+                                                   R:
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_APPLICATION_TRANSFERT : Lien
+      15   ID_APPLICATION_TRANSFERT int(10)
+                                                   sur TB_APPLICATION_TRANSFERT.id_appli
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_DEMANDE_APPLI_DEST : Lien sur
+      16   ID_DEMANDE_APPLI_DEST     smallint(5)
+                                                   TB_DEMANDE_APPLI_DEST.id_demande_appli_dest
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_CREAT : Lien sur TB_UTIL.ID_UTIL
+      17   ID_CREAT                  int(10)
+                                                   Identifiant de l'utilisateur de création
+      18   DATE_CREAT                datetime      Copie de TB_DEMANDE_EXAMEN.DATE_CREAT : Date de création
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_INFO : Lien vers Util.ID_UTIL.
+      19   ID_INFO                   int(10)
+                                                   Identifiant de l'utilisateur ayant effectué la dernière modification
+                                                   Copie de TB_DEMANDE_EXAMEN.DATE_INFO Date de la dernière
+      20   DATE_INFO                 datetime
+                                                   modification
+                                                   Copie de TB_DEMANDE_EXAMEN.ID_SIGN : Identifiant du signataire; Lien
+      21   ID_SIGN                   int(10)
+                                                   avec UTIL.ID_UTIL
+      22   DATE_SIGN                 datetime      Copie de TB_DEMANDE_EXAMEN.DATE_SIGN : Date de signature
+                                                   Copie de TB_DEMANDE_EXAMEN.STATUT_DEMANDE
+                                                   null : Aucune action de la demande n'est réalisée
+      23   STATUT_DEMANDE            char(1)       N : Envoyée
+                                                   C : Au moins une action de la demande a été réalisée
+                                                   T : Toutes les actions de la demande sont réalisées, prêt a être envoyé
+                                                   C : Création
+      24   TYPE_INFO                 char(1)
+                                                   M : Modification
+      25   DESCR                     char(5)       Description de l'action réalisée

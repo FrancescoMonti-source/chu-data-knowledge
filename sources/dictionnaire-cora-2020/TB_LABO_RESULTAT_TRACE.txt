@@ -1,0 +1,9 @@
+==== TB_LABO_RESULTAT_TRACE ====
+Table permettant de tracer la lecture/affichage d'un résultat de labo par un utilisateur (affichage et alertes CORA DPI)
+                                                        Identifiant du résultat
+       1    ID_LABO_RESULTAT            int(10)
+                                                        Lien sur TB_LABO_RESULTAT.ID_LABO_RESULTAT
+                                                        Identifiant de l'utilisateur ayant lu le résultat
+       2    ID_UTIL                     int(10)
+                                                        Lien sur Util.id_util
+       3    DATE_TRACE                  datetime        Date-heure de la lecture

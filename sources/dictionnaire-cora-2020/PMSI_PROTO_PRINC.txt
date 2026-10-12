@@ -1,0 +1,8 @@
+==== PMSI_PROTO_PRINC ====
+Thésaurus des Modes de prise en charge principal
+                                                       Clé:
+       1   CODE_PROTO                  char(2)
+                                                       Code du mode de prise en charge
+       2   LIBELLE_PROTO               char(100)       Libellé
+
+       3   PONDERATION                 decimal(5, 4)   Pondération individuelle du mode de prise en charge principal

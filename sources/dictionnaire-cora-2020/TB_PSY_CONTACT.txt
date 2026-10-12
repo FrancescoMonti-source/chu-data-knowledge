@@ -1,0 +1,9 @@
+==== TB_PSY_CONTACT ====
+Table des contacts Lien sur TB_PATIENT.ID_PATIENT :
+Table des contacts
+                                                     Lien sur TB_PATIENT.ID_PATIENT :
+       1   ID_PATIENT                 int(10)
+                                                     Identifiant du patient
+       2   CONTACT                    varchar(50)    Contact
+
+       3   ACTIF                      char(1)        Le contact est actif ('O', 'N')                                                      'O'

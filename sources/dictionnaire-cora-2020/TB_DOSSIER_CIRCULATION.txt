@@ -1,0 +1,34 @@
+==== TB_DOSSIER_CIRCULATION ====
+Tables de renseignement des prêts de dossier
+                                                       Clé :
+       1   ID_DOSSIER_CIRCULATION      int(10)
+                                                       Identifiant (PrisMédica) de la fiche dossier circulation
+                                                         Lien sur TB_PATIENT_DOSSIER.ID_PATIENT_DOSSIER :
+       2   ID_PATIENT_DOSSIER             int(10)
+                                                         Identifiant du dossier patient
+       3   DATE_PRET                      datetime       Date du prêt
+
+       4   HEURE_PRET                     datetime       Heure du prêt
+                                                         Lien sur Util.id_util :
+       5   ID_INFO_PRET                   int(10)
+                                                         Identifiant de l'utilisateur ayant fait le prêt
+       6   NOM_PERS_PRET                  varchar(60)    Nom de la personne a qui le dossier a été prêté
+                                                         Lien sur TB_UNITE.ID_UNITE:
+       7   ID_UNITE                       int(10)
+                                                         Identifiant de l'unité à qui le prêt a été fait
+       8   OBJET                          varchar(80)    Objet du prêt
+
+       9   COMMENTAIRE                    varchar(250)   Commentaire du prêt
+
+      10   DATE_RETOUR_PREVU              datetime       Date de retour prévu du prêt
+
+      11   RETOUR                         char(1)        Retour effectué 'O' ou en cours 'N'
+
+      12   DATE_RETOUR_REEL               datetime       Date de retour réel du prêt
+                                                         Lien sur TB_PATIENT.ID_PATIENT :
+      13   NO_DOSSIER_UNITE               char(16)       Numéro du dossier Unité --> Lien si l'unité est la dernière à avoir modifié le n°
+                                                         dossier
+                                                         Lien sur Util.id_util :
+      14   ID_CREAT                       int(10)
+                                                         Identifiant du créateur de la fiche
+      15   DATE_CREAT                     datetime       Date de création de la fiche

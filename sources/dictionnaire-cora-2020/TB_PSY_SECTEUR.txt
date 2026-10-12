@@ -1,0 +1,13 @@
+==== TB_PSY_SECTEUR ====
+Table des secteurs
+      1    ID_SECTEUR              smallint(5)    Identifiant du secteur
+
+      2    TYPE_SECTEUR            char(1)        Type de secteur
+
+      3    LIBELLE_SECTEUR         varchar(100)   Libellé du secteur
+
+      4    ACTIF                   char(1)        Le secteur est actif ('O', 'N')                                           'O'
+
+      5    CODE_SECTEUR            char(5)        Code du secteur
+
+      6    CODE_OFF                char(5)        Code officiel

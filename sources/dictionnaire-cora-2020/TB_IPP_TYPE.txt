@@ -1,0 +1,15 @@
+==== TB_IPP_TYPE ====
+       1   ID_IPP_TYPE                  int(10)        PK
+                                                       Code correspondant à la norme HL7 :
+                                                       PI: local
+       2   CODE_IPP_TYPE                varchar(5)
+                                                       PN: fédérateur
+                                                       RRI: identifiant régional
+       3   LIBELLE_IPP_TYPE             varchar(50)    Local, fédérateur...
+
+       4   FEDERATEUR                   char(1)        O/N indique s'il est fédérateur ou pas un seul autorisé dans la table
+
+       5   EJ                           char(1)        O/N indique si l'EJ est une donnée obligatoirement fournie, ou pas.
+                                                       Définit un numéro d’ordre de préférence pour l’affectation de l’IPP dans la table
+       6   ORDRE                        smallint(5)
+                                                       TB_PATIENT par l'interface.

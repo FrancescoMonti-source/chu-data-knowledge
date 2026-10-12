@@ -1,0 +1,13 @@
+==== CSARR_PONDERATION ====
+Donne les pondérations des actes CSARR post IVA. Pondérations qui varient en fonction du codage. Pour un même acte
+CSARR une pondération peut exister si l'acte est isolé ou si l'acte possède un modulateur.Cette table se distingue de la table
+CSARR_ACTIVITE qui rassemble les pondérations IVA.
+       1   CODE                         varchar(7)        CODE de l'acte CSARR
+
+       2   TYPE_PONDERATION             varchar(3)        EX : ISO (isolé) - QM (modulateur QM etc ...)
+
+       3   PONDERATION                  smallint(5)       Poids de l'acte
+
+       4   DATE_DEBUT                   datetime          Date de début de validité
+
+       5   DATE_FIN                     datetime          Date de début de fin de validité

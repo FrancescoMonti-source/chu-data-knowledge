@@ -1,0 +1,16 @@
+==== TB_CONFIG_REMANENCE ====
+Table permettant d'enregistrer des informations persistantes sur le dernier codage d'un utilisateur.
+       1    ID_UTIL                     int(10)          identifiant de l'utilisateur
+                                                         code du paramètre à enregistrer (exemple : CODE_UNITE_DEMANDEUR,
+       2    CODE_REMANENCE              varchar(30)
+                                                         ID_DEMANDEUR, ID_EXECUTANT etc ...)
+                                                         Type de donnée
+                                                         - D : Date et Heure
+       3    TYPE_VAL_REMANENCE          char(1)          - C : Caractères
+                                                         - N : Numérique (avec virgules)
+                                                         - E : Entier
+       4    VAL_REMANENCE               varchar(200)     valeur du paramètre
+
+       5    TYPE_ECRAN_REMANENCE        char(1)          E: Externe
+
+       6    DATE_INFO                   datetime         Date de la dernière modification

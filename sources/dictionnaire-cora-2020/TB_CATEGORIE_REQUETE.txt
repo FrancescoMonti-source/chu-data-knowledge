@@ -1,0 +1,9 @@
+==== TB_CATEGORIE_REQUETE ====
+Table enregistrant les catégories de classement des requetes
+                                                       Clé :
+       1   ID_CATEGORIE_REQUETE       smallint(5)
+                                                       Identifiant de la table
+           LIBELLE_CATEGORIE_REQUE
+       2                           char(30)            Nom de la catégorie
+           TE
+       3   ID_PERE                    smallint(5)      Identifiant du père

@@ -1,0 +1,84 @@
+==== TB_PATIENT ====
+Table des Patients Clé :
+Table des Patients
+                                               Clé :
+       1   ID_PATIENT          int(10)
+                                               Identifiant (PrisMédica) du séjour
+       2   IPP_PATIENT         char(20)        I.P.P Patient.
+                                               Nom usuel pour un Homme ou Femme non mariée OU Nom marital pour une
+       3   NOM_USUEL_PATIENT   char(50)
+                                               Femme mariée
+       4   PRENOM_PATIENT      char(50)        Définit le prénom du patient.
+
+       5   NOM_NAISSANCE       char(50)        Nom de naissance d'une Femme mariée.
+                                               Masculin (="M" ou "H" ou "1")
+                                               Féminin (="F" ou "2")
+       6   SEXE                char(1)
+                                               Indéterminé - 'Other' (=O)
+                                               Inconnu - 'Unknow'(=U)
+       7   DATE_NAIS_LUN       char(10)        Date de naissance lunaire
+
+       8   DATE_NAIS           datetime        Date + heure de naissance
+
+      10   DATE_CREAT          datetime        Date de création de cet enregistrement 'Patient'
+
+      11   HEURE_CREAT         datetime        Heure de création de cet enregistrement 'Patient'
+                                               Lien sur Util.code_util :
+      12   USER_CREAT          char(10)
+                                               Identifiant de l'utilisateur ayant 'crée' le Patient
+      13   CIVILITE            char(4)         Code civilité du Patient (Spécifique a chaque Interface)
+
+      14   POID_NAISSANCE      int(10)         Poids à la naissance du nouveau-né.
+
+      15   CODE_POSTAL         char(10)        Code Postal du Patient (Géré maintenante dans TB_SEJOUR)
+
+      16   NATIONALITE         char(3)         Code Nationalité du Patient
+      17   CAT_SOC_PROF              varchar(4)    Catégorie Socio-Professionnelle
+
+      18   IPP_MERE                  char(16)      Lien sur l'IPP de la mère (pour nouveau né)
+                                                   Clé du Patient dans le Système d'information du logiciel 'maitre' du Patient :
+      22   ID_PATIENT_EXT            int(10)       logiciel ayant créer le Patient.
+                                                   Utilisé avec la Dll Recueil
+      23   DATE_DECES                datetime      Date de décès du patient
+                                                   Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                   CORA_UTIL)
+      24   ID_ETABLIS                smallint(5)
+                                                   Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                   Siège centralisée
+                                                   Cas récup de données : Intégration Ville liée au Patient (si non fourniture info
+      25   LIB_COMMUNE               char(50)
+                                                   Adresse - CP)
+                                                   Date et heure de départ en Permission (permet de gérer et détecter les jours
+      26   DATE_ABSENCE              datetime
+                                                   d'absence pour le SSR)
+      27   RANG_NAISSANCE            char(1)       Rang de naissance
+
+      28   LOCK_MODIF                char(1)       Flag interne - interdisant la modif de données Patient (en cours de modif)
+                                                   Lien sur TB_COMMUNE.ID_COMMUNE :
+      29   ID_COMMUNE_NAIS           int(10)
+                                                   Identifiant de la ville de naissance
+                                                   DPS - PSY
+      30   ID_ECOLE                  smallint(5)   Lien sur TB_THES_ECOLE.ID_ECOLE :
+                                                   école ou se trouve le patient suivi en Psy
+                                                   Définit l'état du DMP pour le patient :
+                                                        - Null : Etat DMP inconnu
+                                                        - O : DMP du Patient existe
+                                                        - N : DMP du Patient n'existe pas
+      31   ETAT_DMP                  char(1)
+                                                        - F : DMP du Patient est fermé
+                                                        - D : Demande d'existence du DMP à Faire
+                                                        - E : Demande d'existence du DMP En Cours
+                                                        - I : Erreur Interface
+      32   DATE_ETAT_DMP             datetime
+                                                   Définit l'état de l'autorisation du DMP pour le patient :
+                                                       - Null : Non Autorisé
+                                                       - O : Etablissement Autorisé
+      33   ETAT_AUTORIS_DMP          char(1)           - D : Demande d'autorisation de l'établissement à Faire
+                                                       - E : Demande d'existence du DMP En Cours
+                                                       - I : Erreur Interface
+                                                       - B Accès bloqué par le Patient
+      34   DATE_ETAT_AUTORIS_DMP     datetime
+           DATE_AUTORIS_ACCORD_DM
+      35                          datetime
+           P
+      36   ID_AUTORIS_ACCORD_DMP     int(10)

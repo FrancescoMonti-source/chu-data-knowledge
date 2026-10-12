@@ -1,0 +1,7 @@
+==== CCAM_ACTION ====
+       1   CODE_PRINC                   char(1)        Code correspondant à l'action réalisable. En lien avec CCAM_NB.ACTION
+       2    LIBELLE                      char(80)       libéllé de l'action
+
+       3    REGR_1                       char(1)        Règle numéro 1 de l'action
+
+       4    REGR_2                       char(2)        Règle numéro 2 de l'action

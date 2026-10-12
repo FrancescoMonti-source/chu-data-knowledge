@@ -1,0 +1,24 @@
+==== PRESC_MED_TRACA ====
+Table contenant les informations sur les produits tracable
+       1   ID_MED_TRACA                 int(10)          Clé de la table
+
+       2   ID_MED                       int(10)          Id du médicamnet
+
+       3   NUM_SERIE                    varchar(10)      Numéro de série
+
+       4   NUM_LOT                      varchar(10)      Numéro de lot
+     5   DATE_DISPENSATION        datetime        Date de dispnsation
+
+     6   DATE_PEREMPTION          datetime        Date de péremption
+
+     7   NO_SEJOUR_DISPENSATION varchar(20)
+                                                  Lien sur TB_UTIL.ID_UTIL
+     8   ID_CREAT                 int(10)
+                                                  Identifiant de l'utilisateur de création
+     9   DATE_CREAT               datetime        Date de création
+                                                  Lien vers Util.ID_UTIL.
+    10   ID_INFO                  int(10)
+                                                  Identifiant de l'utilisateur ayant effectué la dernière modification
+    11   DATE_INFO                datetime        Date de la dernière modification
+
+    12   ID_PRESC_PLANIF_TRACA    int(10)

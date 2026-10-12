@@ -1,0 +1,16 @@
+==== TB_RECH_UTIL_COL ====
+     1   ID_UTIL         int(10)       Clé - Lien Util.id_util
+
+     2   CODE_APPLI      char(3)
+
+     3   ID_RECHERCHE    smallint(5)
+
+     4   ID_COLONNE      smallint(5)
+
+     5   ORDRE           smallint(5)
+
+     6   TAILLE          smallint(5)
+
+     7   COLONNE_TRI     char(1)                                                                             'N'
+
+     8   NOM_COLONNE     varchar(50)

@@ -1,0 +1,8 @@
+==== R_REMBOURSEMENT ====
+Liste des Modes d'admission au remboursement
+                                                      Code mode de
+       1   COD_REMBOU                   int(10)
+                                                      remboursement
+                                                      libellé mode de
+       2   LIBELLE                      char(80)
+                                                      remboursement

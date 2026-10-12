@@ -1,0 +1,14 @@
+==== TB_THES_MESSAGE_MOTIF ====
+       1   ID_MESSAGE_MOTIF            int(10)
+
+       2   LIB_MESSAGE_MOTIF           varchar(200)
+
+       3   ID_PERE                     int(10)
+
+       4   ACTIF                       char(1)                                                                                  'O'
+
+       5   CODE_MESSAGE_MOTIF          varchar(30)
+                                                      Lien vers Util.ID_UTIL.
+       6   ID_INFO                     int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+       7   DATE_INFO                   datetime       Date de la dernière modification

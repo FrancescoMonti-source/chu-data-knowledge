@@ -1,0 +1,46 @@
+==== TB_ARCH_HIST_DOSSIER ====
+Définit une table contenant l'historique des dossiers.
+                                                         Clé :
+       1    ID_ARCH_DOSSIER              int(10)
+                                                         Définit l'identifiant du dossier.
+                                                         FK TB_PATIENT.ID_PATIENT
+       2    ID_PATIENT                   int(10)
+                                                         Définit l'identifiant du patient associé au dossier.
+                                                         FK TB_ARCH_CENTRE_ARCHIVE.ID_CENTRE_ARCHIVE
+       3    ID_CENTRE_ARCHIVE            smallint(5)
+                                                         Définit l'identifiant du centre d'archive auquel le dossier est attaché.
+       4    NO_ARCHIVE                   varchar(20)     Définit le numéro d'archive du dossier.
+                                                         FK TB_ARCH_GROUPE.ID_ARCH_GROUPE
+       5    ID_ARCH_GROUPE               int(10)
+                                                         Définit l'identifiant du rangement d'archive auquel le dossier est attaché.
+       6    DATE_CREAT                   datetime        Définit le date de création du dossier.
+                                                         Lien sur TB_UTIL.ID_UTIL
+       7    ID_CREAT                     int(10)
+                                                         Définit l'identifiant de l'utilisateur ayant créé le dossier.
+       8    COMMENTAIRE                  varchar(250)    Définit le commentaire sur le dossier.
+                                                         FK TB_ARCH_LIEU.ID_LIEU
+       9    ID_LIEU_DERNIER              smallint(5)
+                                                         Définit l'identifiant du lieu ou se trouve le dossier quand il est dans un service.
+       10   ID_UTIL_DERNIER              int(10)        Définit l'identifiant de la personne qui a réceptionné le dossier.
+                                                        FK TB_ARCH_MOTIF.ID_MOTIF - Identifiant du motif de la demande de
+       11   ID_MOTIF_DERNIER             smallint(5)
+                                                        demande du dossier
+            ID_ARCH_DEMANDE_EN_COU                      FK TB_ARCH_DEMANDE.ID_ARCH_DEMANDE
+       12                          int(10)
+            RS                                          Définit l'identifiant CORA de la demande de dossier.
+                                                        Définit l'etat du dossier : I / Indisponible, A / Archive, T / Transfert, S / Service,
+       13   ETAT_DOSSIER                 char(1)
+                                                        R / Retour aux archives, C/ en cours de création
+       14   DATE_ETAT                    datetime       Date lié au changement d'état
+
+       15   DATE_INFO                    datetime       Date de la dernière modification
+
+       16   TYPE_INFO                    char(1)        Type de modification
+                                                        Lien vers Util.ID_UTIL.
+       17   ID_INFO                      int(10)
+                                                        Identifiant de l'utilisateur ayant effectué la dernière modification
+       18   ID_LIEU_PRECEDENT            smallint(5)
+
+       19   ID_UTIL_PRECEDENT            int(10)
+
+       20   ID_MOTIF_PRECEDENT           smallint(5)

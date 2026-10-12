@@ -1,0 +1,25 @@
+==== IMAGE_INDEX ====
+     1   NOM_IMAGE            char(50)
+
+     2   IMAGE_INDEX          int(10)
+
+     3   LIBELLE_INDEX        char(50)
+
+     4   HAUT                 int(10)
+
+     5   BAS                  int(10)
+
+     6   GAUCHE               int(10)
+
+     7   LONGUEUR             int(10)
+
+     8   HAUTEUR              int(10)
+
+     9   LIB_VISIBLE          varchar(255)
+
+    10   TRANSPARENT          char(1)
+
+    11   BORDURE              char(1)
+
+    12   CRITERE_REC          char(50)
+      13   ID_FOLDER                    int(10)

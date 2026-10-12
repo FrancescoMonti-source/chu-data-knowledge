@@ -1,0 +1,8 @@
+==== R_CONTEXT_PS ====
+Contexte Professionnel de Santé
+                                                      Code Contexte du
+       1   CONTXTPS_COD                smallint(5)
+                                                      Professionnel de Santé
+                                                      Libelle du contexte du
+       2   LIBELLE                     varchar(200)
+                                                      Professionnel de Santé

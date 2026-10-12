@@ -1,0 +1,34 @@
+==== TB_INTERVENTION_OPERATEUR ====
+Table des Opérateurs intervenant sur l'Intervention (3 opérateurs possibles + 1 anesthésiste + 1 perfusionniste + 1 équipe
+générale)
+                                                         Clé - Lien sur TB_INTERVENTION.ID_INTERVENTION :
+       1    ID_INTERVENTION               int(10)
+                                                         Lien sur l'intervention
+                                                         Clé - Lien sur Util.id_util :
+       2    ID_OPERATEUR                  int(10)
+                                                         Lien sur l'opérateur
+                                                           Clé :
+                                                           Type de l'opérateur :
+                                                           - 1 : Opérateur n°1
+                                                           - 2 : Opérateur n°2
+       3    ORDRE_OPERATEUR               smallint(5)      - 3 : Opérateur n°3
+                                                           - 4 : Anesthésiste
+                                                           - 5 : Perfusionniste (Pompiste)
+                                                           - 6 : Equipe générale
+                                                           Les opérateurs 1 à 5 correspondent à la notion Activité de la CCAM
+       4    DATE_SIGN                     datetime         Date de signature de signature par l'opérateur
+
+       5    HEURE_SIGN                    datetime         Heure de signature de signature par l'opérateur
+
+       6    MARE                          char(1)          ='O' si Ordre_Operateur = 4
+                                                           Type Intervention:
+                                                           - 1 : Opérateur n°1
+                                                           - 2 : Opérateur n°2
+                                                           - 3 : Opérateur n°3
+                                                           - 4 : Anesthésiste
+       7    TYPE_INTERV                   char(1)          - 5 : Perfusionniste (Pompiste)
+                                                           - 6 : Equipe générale
+                                                           - D : Aide Opératoire
+                                                           - I : Instrumentiste
+                                                           - A : IADE
+                                                           - B : IBODE

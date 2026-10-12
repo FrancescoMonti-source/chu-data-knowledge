@@ -1,0 +1,53 @@
+==== TB_IGS ====
+       1   ID_IGS                       int(10)       Idenfiant de l'IGS : Clé de la table
+                                                      Identifiant du mouvement auquel lIGS est rattaché. Lien avec
+       2   ID_MVT                       int(10)
+                                                      TB_MVT.ID_MVT
+       3   DATE_CALCUL                  datetime      Date à laquelle l'IGS a été calculée
+
+       4   HEURE_CALCUL                 datetime      Date + Heure à laquelle l'IGS a été calculée
+
+       5   SCORE_IGS                    smallint(5)   Score IGS
+                                                      Lien vers Util.ID_UTIL.
+       6   ID_INFO                      int(10)
+                                                      Identifiant de l'utilisateur ayant effectué la dernière modification
+       7   DATE_INFO                    datetime      Date de la dernière modification
+
+       8   HEURE_INFO                   datetime      Date + heure de la dernière modification
+
+       9   IGS_DEFAUT_MVT               char(1)
+
+      10   TYPE_ADMISSION               smallint(5)
+
+      11   MALADIE_CHRONIQUE            smallint(5)
+
+      12   CLASSE_AGE                   smallint(5)
+
+      13   PRESSION_ARTERIELLE          smallint(5)
+      14   FREQUENCE_CARDIAQUE          smallint(5)
+
+      15   TEMPERATURE                  smallint(5)
+
+      16   PAO2_FIO2                    smallint(5)
+
+      17   DEBIT_URINAIRE               smallint(5)
+
+      18   UREE_SANGUINE                smallint(5)
+
+      19   GLOBULE_BLANC                smallint(5)
+
+      20   KALIEMIE                     smallint(5)
+
+      21   NATREMIE                     smallint(5)
+
+      22   BICARBONATEMIE               smallint(5)
+
+      23   BILIRUBINE                   smallint(5)
+
+      24   SCORE_GLASGOW                smallint(5)
+
+      25   GLASGOW_OUVERTURE            smallint(5)
+
+      26   GLASGOW_REP_VERBALE          smallint(5)
+
+      27   GLASGOW_REP_MOTRICE          smallint(5)

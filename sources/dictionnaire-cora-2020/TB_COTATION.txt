@@ -1,0 +1,50 @@
+==== TB_COTATION ====
+Tables des Cotations NGAP (Thésaurus des Cotations) --> Notion Cotations NGAP (une ligne peut contenir plusieurs codes
+NGAP)
+                                                      Clé :
+       1    ID_COTATION                 int(10)
+                                                      Identifiant (PrisMédica) de la cotation
+       2    COTATION                    char(100)     Cotation NGAP : récapitule les données des champs CLE + COEF
+
+       3    LIBELLE_COTATION            char(100)     Libellé (médicale) de la cotation NGAP.
+
+       4    CLE1                        char(9)       Code NGAP (1er code)
+
+       5    CLE2                        char(9)       Code NGAP (2ème code)
+
+       6    CLE3                        char(9)       Code NGAP (3ème code)
+
+       7    CLE4                        char(9)       Code NGAP (4ème code)
+
+       8    CLE5                        char(9)       Code NGAP (5ème code)
+
+       9    COEF1                       char(8)       Coefficient NGAP (lié au 1er code)
+
+       10   COEF2                       char(8)       Coefficient NGAP (lié au 2ème code)
+
+       11   COEF3                       char(8)       Coefficient NGAP (lié au 3ème code)
+
+       12   COEF4                       char(8)       Coefficient NGAP (lié au 4ème code)
+
+       13   COEF5                       char(8)       Coefficient NGAP (lié au 5ème code)
+                                                      Lien sur TB_GROUPE_COTATION.ID_GROUPE_COTATION :
+       14   ID_GROUPE_COTATION          smallint(5)
+                                                      Identifiant du groupe de cotation auquelle appartient cette cotation
+                                                      Cotation disponible dans la fonction 'Saisie Rapide NGAP' dans le menu
+       15   USE_SAISIE_RAPIDE           char(1)
+                                                      contextuel de l'écran Recherche Patient
+                                                      Code défini par l'utilisateur attribué à la cotation permettant la saisie par code
+       16   CODE_COTATION               varchar(14)
+                                                      barre dans l'écran des externes.
+       17   CODE_NATURE_ACTE1           char(3)       Code nature de l'acte
+
+       18   CODE_NATURE_ACTE2           char(3)       Code nature de l'acte
+
+       19   CODE_NATURE_ACTE3           char(3)       Code nature de l'acte
+
+       20   CODE_NATURE_ACTE4           char(3)       Code nature de l'acte
+
+       21   CODE_NATURE_ACTE5           char(3)       Code nature de l'acte
+                                                      Indique si une entente préalable est nécessaire pour la cotation NGAP :
+       22   ENTENTE                     char(1)       - O : entente préalable requise
+                                                      - N : pas d'entente préalable requise

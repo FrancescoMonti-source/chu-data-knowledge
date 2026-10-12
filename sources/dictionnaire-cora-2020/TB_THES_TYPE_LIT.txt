@@ -1,0 +1,13 @@
+==== TB_THES_TYPE_LIT ====
+Thésaurus des types de lit Clé de la table
+Thésaurus des types de lit
+                                                  Clé de la table
+       1   ID_TYPE_LIT             smallint(5)
+                                                  Identifiant du type de lit
+       2   CODE_TYPE_LIT           varchar(10)    Code du type de lit
+
+       3   LIBELLE_TYPE_LIT        varchar(100)   Libellé du type de lit
+
+       4   COULEUR                 varchar(15)    Couleur associée au type de lit
+
+       5   ACTIF                   char(1)        Indique si le type de lit est actif (O/N)                                 'O'

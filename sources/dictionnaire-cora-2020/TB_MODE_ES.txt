@@ -1,0 +1,13 @@
+==== TB_MODE_ES ====
+Table de correspondance entre les Modes d'entrée sorties PrisMédica et les codes recus dans l'Interface Patient
+       1   CODE_INTERNE                  char(10)          Code recu de l'application externe
+
+       2   LIBELLE_INTERNE               char(50)          Libellé du Mode d'entrée ou sortie
+
+       3   CODE_OFFICIEL                 char(2)           Code PMSI, enregistré dans TB_SEJOUR et TB_MVT
+
+       4   ENTREE_SORTIE                 char(1)           'E' pour un mode d'entrée ou 'S' pour un mode de sortie
+
+       5   PROVENANCE_DESTINATION char(1)                  Code provenance ou destination lié au mode d'entrée ou sortie recu
+
+       6   ID_EJ                         smallint(5)                                                                                          1

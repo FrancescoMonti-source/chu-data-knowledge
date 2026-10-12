@@ -1,0 +1,14 @@
+==== TB_TRACE_LANCE_APPLI ====
+       1   ID_APPLI                   smallint(5)
+
+       2   CODE_APPLI_SOURCE          char(3)
+
+       3   ECRAN_SOURCE               varchar(5)
+
+       4   DATE_TRACE                 datetime
+
+       5   ID_TRACE                   int(10)
+                                                     FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+       6   IPP_PATIENT                varchar(20)
+                                                     de l'établissement
+       7   NO_SEJOUR                  varchar(20)

@@ -1,0 +1,11 @@
+==== MED_LES_HORS_REF ====
+Code LES Hors référentiel officiel
+       1   ID                        int(10)         Clé : Identifiant du code LES hors référentiel
+
+       2   CODE                      varchar(7)      Code LES
+
+       3   LIBELLE                   varchar(2000)   Libellé du code LES
+
+       4   DATE_DEBUT                datetime        Date de début de validité du code LES hors référentiel
+
+       5   DATE_FIN                  datetime        Date de fin de validité du code LES hors référentiel

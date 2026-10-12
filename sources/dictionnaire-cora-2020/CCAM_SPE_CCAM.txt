@@ -1,0 +1,7 @@
+==== CCAM_SPE_CCAM ====
+association d'un acte CCAM avec une liste de code spécialitéEx : Code CCAM [AAFA002] associé aux spécialités [CHIR-NEUR
+-ONCO-]
+       1   CLE                          char(7)        Code CCAM dont sont listés les codes spécialité
+                                                       contient la liste des spécialité du CODE CCAM (=CLE) séparé par un "-"
+       2   LIB_CODE_SPE                 char(255)
+                                                       Ex : CHIR-NEUR-ONCO-

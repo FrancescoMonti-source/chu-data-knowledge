@@ -1,0 +1,45 @@
+==== TB_PARAM_LANCE_APPLI ====
+Paramètre de lancement d'application Externe dans Recueil Cora
+      1    CHEMIN_APPLI              varchar(250)    Répertoire de lancement de l'application
+
+      2    NOM_APPLI                 varchar(30)     Nom de l'exécutable a lancer
+
+      3    NOM_APPLI_CRYPT           varchar(1000)   Valeur cryptée du nom de l'exécutable a lancer
+                                                     Ligne de Commande a concaténer au lancement de l'aplication (ex : \Param1=
+                                                     \Param2 = …)
+                                                     Il est possible d'insérer dans cette ligne de commande des données variables
+                                                     avec la gestion de Balise spécifique PrisMédica :
+                                                     - N° Séjour : (Donnée Obligatoire) Balise de référence <PMC_SEJ_OBL>
+                                                     (ex : Ligne de commande "\Param_Ecran=Ecran1 \IEP=<PMC_SEJ_OBL>)
+                                                     - Code Utilisateur : (Données Obligatoire) Balise de référence
+                                                     <PMC_CODEUSER_OBL>
+      4    LIGNE_COMMANDE            varchar(1000)
+                                                     - IPP Patient : (Donnée Obligatoire) Balise de référence <PMC_IPP_OBL>
+                                                     - N° Séjour : (Cas Donnée non Obligatoire) Balise de référence <PMC_SEJ>
+                                                     - Code Utilisateur : (Cas Donnée non Obligatoire) Balise de référence
+                                                     <PMC_CODEUSER>
+                                                     - IPP Patient : (Cas Donnée non Obligatoire) Balise de référence <PMC_IPP>
+                                                     - Date Examen : Date de l'examen (= courrier)
+                                                     A l'appel les Balises référéncées PrisMédica sont remplacées par les valeurs
+                                                     réelles de l'environnement de travail de Recueil Cora
+                                                     Ecran de lancement :
+                                                     - BLOC : Ecran Intervention Bloc
+                                                     - RECH : Ecran Recherche
+      5    ECRAN                     char(5)         - EXT : Ecran Saisie Activité Rapide - Externe
+                                                     - RUM : Ecran Saisie Actes + Actes & Diags
+                                                     - RSS : Ecran RSS (Cora Activité)
+                                                     - PORT : Portail Patient
+                                                     Permet de désactiver rapidement un appel d'une application sans supprimer
+      6    ACTIF                     char(1)                                                                                              'O'
+                                                     toutes les données d'appel de son lancement
+      7    LIBELLE                   varchar(30)     Libellé a afficher dans Cora recueil pour le lancement de l'application externe
+
+      8    IMG_CHARGE                char(1)         O' pour dire qu'il existe une image
+
+      9    IMG_ICONE                 image           Stockage de l'image
+                                                     Identifiant le l'application
+      10   ID_APPLI                  smallint(5)                                                                                          1
+                                                     Clé de la table
+                                                     Identifiant de l'EJ.
+      11   ID_EJ                     smallint(5)     0 par défaut => toutes les EJ qui n'ont pas de paramétrage spécifique utilisent      0
+                                                     cette valeur.

@@ -1,0 +1,14 @@
+==== TB_BNA_RUBRIQUE_VALEUR ====
+                                                Code de la rubrique.
+     1   CODE_RUBRIQUE           char(3)
+                                                Lien sur TB_BNA_RUBRIQUE
+     2   DATE_DEBUT              datetime       Date de début (période validité)
+       3   DATE_FIN                   datetime         Date de fin (période validité)
+
+       4   CODE_VALEUR                varchar(50)      Code de la valeur
+
+       5   LIBELLE_VALEUR             varchar(200)     Libellé de la valeur
+
+       6   ORDRE                      smallint(5)      Ordre d'affichage
+
+       7   DEFAUT                     char(1)          O si valeur par défaut

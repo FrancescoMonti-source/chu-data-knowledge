@@ -1,0 +1,37 @@
+==== CCAM_DENTAIRE ====
+table qui stocke les spécificités dentaires d'un acte CCAM. Les données peuvent être modifiées depuis Admin Recueil :-ajout
+d'association d'acte CCAM/Spec dentaire-modification-suppressionInitialisé via base d'instal
+                                                        Code de l'acte CCAM (CCAM_NV.CODE) dont sont spécifiées les
+       1   CODE_ACTE                   char(7)
+                                                        caractéristiques liées à la saisie dentaire
+       2   LISTE_DENTS                 varchar(100)
+
+       3   LETTRE_CLE1                 char(9)
+
+       4   COEF1                       decimal(10, 2)
+
+       5   LETTRE_CLE2                 char(9)
+
+       6   COEF2                       decimal(10, 2)
+
+       7   LETTRE_CLE3                 char(9)
+
+       8   COEF3                       decimal(10, 2)
+
+       9   LETTRE_CLE4                 char(9)
+
+      10   COEF4                       decimal(10, 2)
+
+      11   LETTRE_CLECMU               char(9)
+
+      12   COEFCMU                     decimal(10, 2)
+
+      13   MNT_DEP                     decimal(10, 2)   Montant de dépassement
+
+      14   DATE_DEBUT                  datetime         Date de début
+
+      15   DATE_FIN                    datetime         Date de fin
+
+      16   NB_DENTS_MAX                smallint(5)
+
+      17   MNT_DEP_MAX_CMU             decimal(7, 2)

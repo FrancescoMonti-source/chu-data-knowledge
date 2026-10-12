@@ -1,0 +1,11 @@
+==== TB_NO_INTERV_MATRICE ====
+       1    NO_INTERV_EXT               varchar(17)      Numéro d'intervention fourni par un logiciel tierce
+
+       2    NO_INTERVENTION_CCAM        int(10)          Correspondance avec le numéro d'intervention CORA
+
+       3    APPLICATION                 char(3)          FK TB_INT_APPLICATION
+
+       4    NO_SEJOUR                   char(20)         FK TB_SEJOUR.NO_SEJOUR                                                              '0'
+
+       5    ID_APPLICATION              int(10)          Lien sur TB_INT_APPLICATION.ID
+     6   ID_EJ                     smallint(5)     FK TB_EJ.ID_EJ permet d'identifier de façon unique le numéro de séjour           1

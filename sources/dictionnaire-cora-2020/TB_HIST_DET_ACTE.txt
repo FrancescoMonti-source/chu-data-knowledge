@@ -1,0 +1,77 @@
+==== TB_HIST_DET_ACTE ====
+Tables Historique de TB_DET_ACTE (contient les modifications + suppression)
+                                                     Lien sur TB_DET_ACTE.ID_ACTE :
+      1    ID_DET_ACTE               int(10)         Identifiant du détail acte concerné (Lien ou ancien Identifiant (cas des
+                                                     suppressions))
+      2    ID_ACTE                   int(10)         Copie de la donnée de TB_DET_ACTE
+
+      3    ID_ACTIVITE               int(10)         Copie de la donnée de TB_DET_ACTE
+
+      4    ID_MEDECIN                int(10)         Copie de la donnée de TB_DET_ACTE
+
+      5    STATUT                    int(10)         Copie de la donnée de TB_DET_ACTE
+
+      6    EXT_DOCUMENT              char(1)         Copie de la donnée de TB_DET_ACTE
+
+      7    MODIFICATEUR              char(50)        Copie de la donnée de TB_DET_ACTE
+
+      8    ETAT                      char(1)         Copie de la donnée de TB_DET_ACTE
+
+      9    ID_MEDECIN_SIGN           int(10)         Copie de la donnée de TB_DET_ACTE
+
+      10   DATE_SIGN                 datetime        Copie de la donnée de TB_DET_ACTE
+
+      11   HEURE_SIGN                datetime        Copie de la donnée de TB_DET_ACTE
+
+      12   DATE_INFO                 datetime        Copie de la donnée de TB_DET_ACTE
+    13   HEURE_INFO              datetime         Copie de la donnée de TB_DET_ACTE
+
+    14   ID_INFO                 int(10)          Copie de la donnée de TB_DET_ACTE
+                                                  Type d'évènement intervenu sur ce détail acte :
+                                                  - 'E' : Suppression
+                                                  - 'M' : Modification (Remplissage extension documentaire…)
+    15   TYPE_INFO               char(1)
+                                                  - 'S' : Signature de l'activité
+                                                  - 'D' : Désignature
+                                                  - 'N' : Suppression traitée par l'interface
+    16   ACTIVITE_LIBERALE       char(1)          Copie de la donnée de TB_DET_ACTE
+
+    17   ID_SITE_ACTIVITE        int(10)          Copie de la donnée de TB_DET_ACTE
+
+    18   ID_UNITE_ACTIVITE       int(10)          Copie de la donnée de TB_DET_ACTE
+
+    19   DESCR                   char(5)          Code Description de l'évènement intervenu sur ce détail acte :
+
+    20   CODE_ASSOCIATION        char(1)          Copie de la donnée de TB_DET_ACTE
+
+    21   CODE_REMBOURSEMENT      char(1)          Copie de la donnée de TB_DET_ACTE
+
+    22   REALISE_LIT             char(1)          si = 'O' : Acte réalisé au lit du patient
+
+    23   ACTE_GRATUIT            char(1)          Copie de la donnée de TB_DET_ACTE
+
+    24   FACTURABLE              char(1)          Copie de la donnée de TB_DET_ACTE
+
+    25   CODE_EXONERATION        char(1)          Copie de la donnée de TB_DET_ACTE
+
+    26   MNT_DEPASS              decimal(10, 2)   Copie de la donnée de TB_DET_ACTE
+         MODIF_CODE_ASSOC_MANU
+    27                         char(1)            Copie de la donnée de TB_DET_ACTE
+         EL
+    28   MOTIF_DEPASS            char(1)          Copie de la donnée de TB_DET_ACTE
+
+    29   MNT_ACTIVITE            decimal(10, 2)   Copie de la donnée de TB_DET_ACTE
+
+    30   MNT_MODIFICATEUR        decimal(10, 2)   Copie de la donnée de TB_DET_ACTE
+
+    31   MNT_TOTAL               decimal(10, 2)   Copie de la donnée de TB_DET_ACTE
+
+    32   ENTENTE_DIRECT          char(1)          Copie de la donnée de TB_DET_ACTE
+
+    33   POUR_MEMOIRE            char(1)          Copie de la donnée de TB_DET_ACTE
+
+    34   CODE_CONTEXTE_BN        smallint(5)      Copie de la donnée de TB_DET_ACTE
+
+    35   CODE_CONTEXTE_PS        smallint(5)      Copie de la donnée de TB_DET_ACTE
+
+    36   CODE_GRILLE_TARIFAIRE   smallint(5)      Copie de la donnée de TB_DET_ACTE

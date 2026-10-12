@@ -1,0 +1,8 @@
+==== PRESC_THES_COMPOSANT ====
+       1   ID_COMPOSANT                 smallint(5)
+
+       2   LIB_COMPOSANT                varchar(150)
+
+       3   CODE_EXTERNE                 varchar(7)
+
+       4   DCI                          char(1)

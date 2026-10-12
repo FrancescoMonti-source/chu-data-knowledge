@@ -1,0 +1,47 @@
+==== TB_HIST_DET_DEP_SSR ====
+     1   ID_PATIENT              int(10)
+
+     2   ID_SEJOUR               int(10)
+
+     3   ID_MVT                  int(10)
+
+     4   NO_SEMAINE              int(10)
+
+     5   HAB_1                   char(1)
+
+     6   HAB_2                   char(1)
+
+     7   DEP_1                   char(1)
+
+     8   DEP_2                   char(1)
+
+     9   DEP_3                   char(1)
+
+    10   DEP_4                   char(1)
+
+    11   DEP_5                   char(1)
+
+    12   ALI_1                   char(1)
+
+    13   ALI_2                   char(1)
+      14   ALI_3                      char(1)
+
+      15   CONT_1                     char(1)
+
+      16   CONT_2                     char(1)
+
+      17   CONT_3                     char(1)
+
+      18   RELAT_1                    char(1)
+
+      19   RELAT_2                    char(1)
+
+      20   COMPO                      char(1)
+
+      21   ID_INFO                    int(10)
+
+      22   DATE_INFO                  datetime
+
+      23   TYPE_INFO                  char(1)
+
+      24   DESCR                      varchar(8)

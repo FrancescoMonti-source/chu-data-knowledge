@@ -1,0 +1,12 @@
+==== TB_INT_DROIT ====
+       1   ID_INT_DROIT                   smallint(5)
+
+       2   CODE_DROIT                     char(10)
+
+       3   LIBELLE_REGROUPEMENT           varchar(50)
+
+       4   LIBELLE_DROIT                  varchar(50)
+                                                         FK CORA_RECUEIL..TB_INT_APPLICATION.ID_APPLICATION - Identifiant
+       5   ID_APPLICATION                 int(10)
+                                                         de l'application réceptrice ou émettrice du message
+       6   TYPE_DROIT                     char(1)

@@ -1,0 +1,6 @@
+==== TB_PARAM_REP_FICHIER ====
+       1   CODE_PARAM                   char(5)
+
+       2   PARAM_REPERT                 varchar(250)
+
+       3   PARAM_FICHIER                varchar(30)

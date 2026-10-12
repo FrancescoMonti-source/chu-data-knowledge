@@ -1,0 +1,8 @@
+==== CSARR_HIER ====
+        1   CODEHIER                varchar(20)    Code CSARR
+
+        2   LIBELLE                 varchar(500)   Libellé correspondant au code CSARR
+
+        3   DATE_DEBUT              datetime       Date de début de validité du code CSARR
+
+        4   DATE_FIN                datetime       Date de fin de validité du code CSARR

@@ -1,0 +1,304 @@
+==== TB_MVT_SSR_SEM ====
+Table des découpages des Mouvements (des Unités SSR) en semaine
+                                                    Lien sur TB_SEJOUR.ID_SEJOUR :
+       2   ID_SEJOUR                  int(10)       Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT +
+                                                    NO_SEMAINE)
+                                                    Clé - Lien sur TB_MVT.ID_MVT :
+       3   ID_MVT                     int(10)
+                                                    Identifiant du Mouvement (Lien obligatoire)
+                                                    Clé :
+       4   NO_SEMAINE                 int(10)
+                                                    Chrono semaine dans un même mouvement (Forme la clé avec ID_MVT)
+       5   LU                         char(1)       Présence du Patient le Lundi (pour le mouvement - semaine) (si = "O")
+
+       6   MA                         char(1)       Présence du Patient le Mardi (pour le mouvement - semaine) (si = "O")
+
+       7   ME                         char(1)       Présence du Patient le Mercredi (pour le mouvement - semaine) (si = "O")
+
+       8   JE                         char(1)       Présence du Patient le Jeudi (pour le mouvement - semaine) (si = "O")
+
+       9   VE                         char(1)       Présence du Patient le Vendredi (pour le mouvement - semaine) (si = "O")
+
+      10   SA                         char(1)       Présence du Patient le Samedi (pour le mouvement - semaine) (si = "O")
+
+      11   DI                         char(1)       Présence du Patient le Dimanche (pour le mouvement - semaine) (si = "O")
+                                                    Max des valeurs de dépendances 'Habillage' pour la semaine (voir
+      12   HABILLAGE                  smallint(5)
+                                                    TB_DET_DEP_SSR)
+                                                    Max des valeurs de dépendances 'Dépendance' pour la semaine (voir
+      13   DEPLACEMENT                smallint(5)
+                                                    TB_DET_DEP_SSR)
+                                            Max des valeurs de dépendances 'Alimentation' pour la semaine (voir
+14   ALIMENTATION           smallint(5)
+                                            TB_DET_DEP_SSR)
+                                            Max des valeurs de dépendances 'Continence' pour la semaine (voir
+15   CONTINENCE             smallint(5)
+                                            TB_DET_DEP_SSR)
+                                            Max des valeurs de dépendances 'Comportement' pour la semaine (voir
+16   COMPORTEMENT           smallint(5)
+                                            TB_DET_DEP_SSR)
+                                            Max des valeurs de dépendances 'Relation' pour la semaine (voir
+17   RELATION               smallint(5)
+                                            TB_DET_DEP_SSR)
+18   MC                     int(10)         Temps hebdomadaire de Rééducation mécanique
+
+19   CM                     int(10)         Temps hebdomadaire de Rééducation Sensori-motrice
+
+20   NP                     int(10)         Temps hebdomadaire de Rééducation neuro-psycho
+
+21   CR                     int(10)         Temps hebdomadaire de Rééducation cardio respiratoire
+
+22   NU                     int(10)         Temps hebdomadaire de Rééducation nutritionnelle
+
+23   RU                     int(10)         Temps hebdomadaire de Rééducation Uro-sphinctérienne
+
+24   RI                     int(10)         Temps hebdomadaire de Réadaptation et Réinsertion
+
+25   AP                     int(10)         Temps hebdomadaire d'Adaptation appareillage
+
+26   CO                     int(10)         Temps hebdomadaire de Rééducation Collective
+
+27   BI                     int(10)         Temps hebdomadaire de Bilans
+
+28   PH                     int(10)         Temps hebdomadaire de Physiothérapie
+
+29   BA                     int(10)         Temps hebdomadaire de Balnéothérapie
+
+30   FAUTEUIL               smallint(5)     Utilisation d'un Fauteuil roulant durant la semaine
+                                            Lien sur Util.id_util :
+31   ID_UTIL_SIGN           int(10)
+                                            Prévu : signataire de la semaine
+32   DATE_SIGN              datetime        Date de signature
+
+33   HEURE_SIGN             datetime        Heure de signature
+                                            Statut prévu du RHS :
+34   STATUT                 char(1)         - "T" : Terminé si le séjour SSR est bloqué
+                                            - Code du statut personnalisé dans PMSI_STATUT_CTRL
+35   LIBELLE_INTERVENTION   char(50)        Libellé de l'intervention éventuellement réalisée dans la semaine
+
+36   DATE_INTERVENTION      datetime        Date de l'intervention qui a justifié la mise en SSR
+
+40   CMC                    char(4)         Catégorie Majeur Clinique
+
+41   GHJ                    char(4)         Groupe Homogène de journée
+                                            N° de Semaine civile concaténée à l'année (ex : 1ère semaine de 2004 =
+42   NO_SEMAINE_CIVILE      int(10)
+                                            200401)
+                                            Date du début de la semaine lié à l'enregistrement (= Date du lundi même si le
+43   DATE_DEBUT_SEM         datetime
+                                            mvt est débuté après)
+                                            Date de fin de la semaine lié à l'enregistrement (= date du dimanche même si
+44   DATE_FIN_SEM           datetime
+                                            le mvt est fini avant)
+                                            - 'SEM' : Type classique semaine
+45   TYPE_ACTIVITE          char(3)
+                                            - 'HDJ' : Type passage quelques journées
+46   CODE_GMD               char(5)         Code GMD du RHS. Remplacé par les GME depuis 2013.
+
+47   CODE_ERR               char(3)         Code Erreur de Retour du Groupage
+                                            Statut du Groupage du séjour. 'G' si le dossier est groupé, Null s'il n'est pas
+48   STATUT_GROUPAGE        char(1)
+                                            groupé ou s'il y a une erreur de groupage
+49   STATUT_FACT            char(1)         Statut de la facturation de la semaine
+
+50   LIGNE_GRP              varchar(4000)   Ligne de groupage du RHS
+
+51   IVA_LU                 int(10)         Score de l'indice de valorisation de l'activité du Lundi. Utilisé avant la T2A.
+
+52   IVA_MA                 int(10)         Score de l'indice de valorisation de l'activité du Mardi. Utilisé avant la T2A.
+
+53   IVA_ME                 int(10)         Score de l'indice de valorisation de l'activité du Mercredi. Utilisé avant la T2A.
+
+54   IVA_JE                 int(10)         Score de l'indice de valorisation de l'activité du Jeudi. Utilisé avant la T2A.
+55   IVA_VE            int(10)          Score de l'indice de valorisation de l'activité du Vendredi. Utilisé avant la T2A.
+
+56   IVA_SA            int(10)          Score de l'indice de valorisation de l'activité du Samedi. Utilisé avant la T2A.
+
+57   IVA_DI            int(10)          Score de l'indice de valorisation de l'activité du Dimanche. Utilisé avant la T2A.
+
+58   IVA_RHS           decimal(10, 2)   Score total de l'indice de valorisation de l'activité. Utilisé avant la T2A.
+                                        1 - Hospitalisation complète ou de semaine en soins de suite médicalisés
+                                        2 - Hospitalisation de jour en soins de suite médicalisés
+                                        3 - Hospitalisation de nuit en soins de suite médicalisés
+                                        4 - Traitements et cures ambulatoires (séances) en soins de suite médicalisés
+59   TYPE_HOSPIT_SSR   smallint(5)
+                                        5 - Hospitalisation complète ou de semaine en rééducation fonctionnelle
+                                        6 - Hospitalisation de jour en rééducation fonctionnelle
+                                        7 - Hospitalisation de nuit en rééducation fonctionnelle
+                                        8 - Traitements et cures ambulatoires (séances) en rééducation fonctionnelle
+                                        Le groupe de morbidités dominantes (GMD) :
+                                        Les informations du PMSI SSR fournies par l’établissement sont groupées. Le
+60   IVA_GMD           decimal(10, 2)   groupage est effectué pour
+                                        chaque résumé hebdomadaire. L’algorithme de groupage en GMD se
+                                        décompose selon les deux étapes 'suivantes:
+                                        L’âge :
+                                        La variable « Âge » est prise en compte dans l’IVA sous forme de classes
+                                        d’âge :
+61   IVA_AGE           decimal(10, 2)   - pour les sous-CMC pédiatriques (moins de 18 ans) trois classes d’âge ont été
+                                        constituées : 0-5 ans, 6-12 ans et 13-17 ans ;
+                                        - pour les sous-CMC adultes (18 ans et plus) quatre classes d’âge : 18-29 ans,
+                                        30-59 ans, 60-74 et les plus de 74 ans.
+                                        Le score de dépendance physique (Dep Phys) :
+                                        Le score de dépendance physique est calculé en additionnant la cotation des 4
+                                        variables de dépendance physiques du RHS : « Habillage », « Alimentation »,
+                                        « Déplacement » et « Continence ».
+                                        Le score de dépendance physique est utilisé de façon quantitative et linéaire
+                                        dans la méthode IVA, c'est-à-dire que plus il augmente plus le nombre de
+                                        points augmente. Le score minimal est de quatre et le score maximal de seize,
+62   IVA_DEP_PHYS      decimal(10, 2)   toute valeur hors de ces bornes est erronée. Le coefficient de valorisation n’est
+                                        appliqué que si le score est supérieur au score minimal. Le score minimal étant
+                                        de 4, c'est à partir d’un score de cinq que le coefficient de valorisation
+                                        s’applique pour cette variable. Le nombre de points lié à la dépendance
+                                        physique est alors égal au coefficient de valorisation de la dépendance
+                                        physique multiplié par le score de dépendance physique du RHS moins le
+                                        score minimal.
+                                        Ex : pour un score de 6, le coefficient de valorisation est multiplié par 2.
+                                        Le score de dépendance cognitive (Dep Cogn) :
+                                        Le score de dépendance cognitive est calculé en additionnant la cotation des 2
+                                        variables de dépendance cognitives du RHS : « Relation-communication » et «
+                                        Comportement ».
+                                        Le score de dépendance cognitive est utilisé de façon quantitative et linéaire
+                                        dans la méthode IVA, c'est-à-dire que plus il augmente plus le nombre de
+                                        points augmente. Le score minimal est de deux et le score maximal de huit ;
+63   IVA_DEP_COGN      decimal(10, 2)
+                                        toute valeur hors de ces bornes est 'erronée. Le coefficient de valorisation
+                                        n’est appliqué que si le score est supérieur au score minimal. Le score minimal
+                                        étant de 2, c'est à partir d’un score de 3 que le coefficient de valorisation
+                                        s’applique pour la dépendance cognitive. Le nombre de points est alors égal
+                                        au coefficient de valorisation de la dépendance cognitive multiplié par le score
+                                        de dépendance cognitive du RHS moins le score minimal. Ex : pour un score
+                                        de 4, le coefficient de valorisation est multiplié par 2.
+                                        Les comorbidités et actes valorisants (CAV) :
+                                        La variable CAV est une variable dichotomique dans la pondération IVA et elle
+                                        ne peut prendre que deux valeurs : oui / non. Pour être classée « oui » il faut
+                                        que le RHS contienne :
+                                        - soit un des codes CIM-10 appartenant à une liste fermée de diagnostics CAV,
+                                        renseigné en diagnostic associé significatif. Ce code doit être non semblable
+                                        aux informations des champs « Finalité principale de prise en charge », «
+64   IVA_CAV           decimal(10, 2)
+                                        Manifestation morbide principale » et « Affection étiologique ». Ce caractère
+                                        non semblable est vérifié à l’aide de listes d’exclusions propres à chaque code
+                                        CIM-10 considéré comme CAV ;
+                                        - soit un des codes CCAM appartenant à la liste fermée d’actes CAV et codé
+                                        dans la zone « Actes médicaux » du RHS.
+                                         Les listes de codes CIM-10 et CCAM retenus comme CAV seront détaillées
+                                        dans le Manuel de groupage du PMSI SSR et de valorisation IVA.
+                                              Le score d’activités de rééducation-réadaptation CdARR (ARR) :
+                                              Pour chaque RHS, un score d’activité de rééducation-réadaptation (ARR) est
+                                              calculé. C’est ce score qui est multiplié par le coefficient de valorisation ARR
+                                              pour obtenir le nombre de points IVA lié aux ARR.
+                                               Le score ARR résulte de l’addition du nombre d’activités de rééducation-
+                                              réadaptation distinctes (parmi les 12 activités possibles du CdARR). Une
+65   IVA_ARR                 decimal(10, 2)   activité de rééducation-réadaptation donnée est prise en compte dans ce score
+                                              lorsque la somme des pondérations relatives à chacun de ses actes décrits
+                                              dans le RHS atteint un seuil moyen par jour de présence2. Quatre activités
+                                              parmi les 12 ont un coefficient de 0,5 : « Bilan», « Physiothérapie », «
+                                              Balnéothérapie » et « Rééducation collective », les autres ont un coefficient
+                                              égal à 1. Un score D 'activités de rééducation-réadaptation est établi, et se
+                                              trouve donc compris entre 0 et 10.
+                                              Le type de finalité principale de prise en charge (FP) :
+                                              Cette variable représente un marqueur d’une prise en charge de rééducation
+                                              fonctionnelle. Elle est basée sur la description de la « Finalité principale » du
+                                              RHS de façon qualitative, et dans certains cas également sur la CMC dans
+                                              laquelle est classé le RHS. Elle est déclinée en 5 classes (de codes CIM10) :
+                                              - « Z50.1-Autres thérapies physiques » en FP ;
+66   IVA_FP                  decimal(10, 2)   - « Z50.8-Soins impliquant d’autres moyens de rééducation » en FP ;
+                                              - « Z50.0-Rééducation cardiaque » en FP et regroupement du RHS dans la
+                                              CMC11 ;
+                                              - « Z44.0-Mise en place et ajustement d’un bras artificiel » ou « Z44.1-Mise en
+                                              place et ajustement d’une jambe artificielle » en FP et le regroupement du
+                                              RHS dans la CMC18 ;
+                                              - autres finalités de prise en charge (ou combinaison CMC).
+                                              Le type d’hospitalisation (HC) :
+                                              La variable « Type d’hospitalisation » est dichotomique et ne peut prendre que
+67   IVA_HC                  decimal(10, 2)
+                                              deux modalités : hospitalisation complète (ou de semaine) ou hospitalisation
+                                              partielle (hôpital de jour, de nuit ou séances).
+                                              IVA Journalier = IvaGmd + IvaAge + IvaDepPhys + IvaDepCogn + IvaCav +
+68   IVA_JOURNALIE           decimal(10, 2)
+                                              IvaArr + IvaFp + IvaHc
+69   NUM_LOT                 int(10)          Numéro de Lot - Privé
+                                              Montant IVA du RHS = Montant du point IVA déterminé à partir de la date de
+70   MNT_IVA_RHS             decimal(10, 2)
+                                              début de semaine multiplié par les IVA du RHS
+                                              Montant IVA journalier = Montant du point IVA déterminé à partir de la date de
+71   MNT_IVA_JOUR            decimal(10, 2)
+                                              début de semaine multiplié par les IVA journalier
+72   CODE_AUTORISATION       char(3)          Code Autorisation de l'UF du RHS
+
+73   CODE_GME                char(6)          Groupe médico économique du RHS
+
+74   INDIC_ERR               char(1)          Indicateur d’erreur du groupeur GME : X ? erreur, NULL ? pas d’erreur
+                                              Poursuite d'un même Projet Thérapeutique : indique si le RHS est une
+                                              poursuite du même projet thérapeutique.
+                                              - 1 : Oui
+     POURSUITE_PROJET_THERA                   - 2 : Non
+75                          char(1)
+     P                                        - NULL : non renseigné.
+                                              Cette valeur est saisie sur le 1er RHS du séjour correspondant à la poursuite
+                                              du projet thérapeutique (séjour qui doit intervenir entre le 2e et le 5e jour
+                                              suivant la fin du séjour concerné par le projet thérapeutique).
+                                              Pondération RR de la semaine (Somme des pondérations RR des actes
+76   PONDERATION_RR_RHS      int(10)
+                                              CSARR et CCAM)
+77   PONDERATION_RR_TOTAL    int(10)          Pondération RR du séjour (HC) ou de la semaine (HP)
+                                              Pondération RR du séjour (HC) ou de la semaine (HP)/Nombre de jours de
+78   SCORE_RR                int(10)
+                                              pésence du séjour (HC) ou de la semaine (HP)
+                                              Indique si le patient se trouve dans un lit identifié soins palliatifs (08), null
+79   LIT_SOINS_PALLIATIFS    char(2)
+                                              sinon.
+                                              Code du groupage médico-économique de la semaine. Seulement en
+80   CODE_GME_SEM            char(6)
+                                              hospitalisation complète.
+                                              Indicateur d'erreur du groupeur GME de la semaine: X ? erreur, NULL ? pas
+81   INDIC_ERR_SEM           char(1)
+                                              d'erreur. Seulement en hospitalisation complète.
+                                              Code Erreur de Retour du Groupage de la semaine. Seulement en
+82   CODE_ERR_SEM            char(3)
+                                              hospitalisation complète.
+                                              Statut du Groupage de la semainer. 'G' si la semaine est groupée, Null si elle
+83   STATUT_GROUPAGE_SEM     char(1)          n'est pas groupée ou s'il y a une erreur de groupage. Seulement en
+                                              hospitalisation complète.
+                                              Pondération RR de la semaine / Nombre de jours de présence de la semaine.
+84   SCORE_RR_SEM            int(10)
+                                              Seulement en hospitalisation complète.
+                                              Identifiant unique du séjour SSR utilisé pour la reconnaissance de tous les
+85   GUID_EXTERNE            char(36)
+                                              RHS d'un séjour du côté de DimXpert
+                                                         Identifiant unique du RHS utilisé pour la reconnaissance du RHS du côté de
+       86   GUID_EXTERNE_RHS            char(36)
+                                                         DimXpert
+       87   NBJ_SZB                     int(10)          Nb jours supplément zone basse
+
+       88   NBJ_SZH                     int(10)          Nb jours supplément zone haute
+
+       90   NBJ_PRES                    int(10)          Nb jours de présences
+
+       91   NBJ_PRESHW                  int(10)          Nb jours de présences hors week end
+
+       92   VERSION                     int(10)          version FGSSR
+
+       93   CODE_GMT                    varchar(4)       Code GMT
+
+       94   BORNE_BASSE                 char(1)          Flag borne basse
+
+       95   TYPE_GME                    char(1)          voir si le gme est valorisable ou pas
+
+       96   MNT_SZB                     decimal(10, 2)   Montant calculé supplément zone basse
+
+       97   MNT_SZH                     decimal(10, 2)   Montant calculé supplément zone haute
+
+       98   MNT_EXH                     decimal(10, 2)   OBSOLETE
+
+       99   MNT_GMT                     decimal(10, 2)   Montant GMT suivant les cas tarif zone forfaitaire ou tarif zone basse
+
+      100 MNT_TOTAL                     decimal(10, 2)   Montant Total
+
+      101 LIGNE_VALO                    varchar(150)     Ligne du fichier RDSSSR
+
+      102 DATE_BLOCAGE                  datetime         Date de blocage du RHS
+
+      103 ID_CREAT                      int(10)          Identifiant de l'utilisateur ayant créé la semaine. Lien avec UTIL.ID_UTIL
+
+      104 DATE_CREAT                    datetime         Date de création de la semaine SSR

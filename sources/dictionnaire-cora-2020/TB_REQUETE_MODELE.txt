@@ -1,0 +1,48 @@
+==== TB_REQUETE_MODELE ====
+Modèle associé à un rapport ou à un evoi automatique pour la mise en forme des fichiers générés
+       1   ID_MODELE                     smallint(5)     Id du modèle
+
+       2   LIBELLE                       varchar(255)    Titre du modèle
+                                         text
+       3   EN_TETE_GAUCHE                                Contenu de l'en-tête gauche
+                                         (2147483647)
+                                         text
+       4   EN_TETE_CENTRE                                Contenu de l'en-tête centre
+                                         (2147483647)
+                                    text
+      5    EN_TETE_DROIT                            Contenu de l'en-tête droit
+                                    (2147483647)
+                                    text
+      6    PIED_PAGE_GAUCHE                         Contenu du pied de page gauche
+                                    (2147483647)
+                                    text
+      7    PIED_PAGE_CENTRE                         Contenu du pied de page centre
+                                    (2147483647)
+                                    text
+      8    PIED_PAGE_DROIT                          Contenu du pied de page droit
+                                    (2147483647)
+      9    POLICE                   varchar(255)    Police
+
+      10   TAILLE_POLICE            smallint(5)     Taille de la police
+
+      11   IMAGE1                   image           Image associée
+
+      12   IMAGE1_TYPE              char(5)         Type d'image
+
+      13   IMAGE2                   image           Image associée
+
+      14   IMAGE2_TYPE              char(5)         Type d'image
+
+      15   IMAGE3                   image           Image associée
+
+      16   IMAGE3_TYPE              char(5)         Type d'image
+
+      17   IMAGE4                   image           Image associée
+
+      18   IMAGE4_TYPE              char(5)         Type d'image
+
+      19   IMAGE5                   image           Image associée
+
+      20   IMAGE5_TYPE              char(5)         Type d'image
+
+      21   CORPS_MSG                varchar(2000)   Corps du message

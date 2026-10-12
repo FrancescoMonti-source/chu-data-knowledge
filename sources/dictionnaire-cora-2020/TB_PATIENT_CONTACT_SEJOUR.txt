@@ -1,0 +1,21 @@
+==== TB_PATIENT_CONTACT_SEJOUR ====
+Définit quel est le rôle d'un contact pour un séjour donné.Principalement personne de confiance et personne à contacter.
+       1   ID_CONTACT                  int(10)        Clé de la table
+
+       2   ID_SEJOUR                   int(10)        Identifiant du séjout
+                                                      C              Personne à contacter en cas d'urgence
+                                                      K              Personne de confiance
+                                                      E              Employeur
+                                                      F              Agence fédérale
+       3   TYPE_CONTACT                char(1)        I              Compagnie d'assurances
+                                                      N              Parent proche
+                                                      O              Autre
+                                                      S              Agence d'État
+                                                      U              Inconnu
+       4   DATE_DEBUT                  datetime       début de période de validité du type de contact
+
+       5   DATE_FIN                    datetime       fin de période de validité du type de contact
+
+       6   ID_CREAT                    int(10)        FK User.Id
+
+       7   DATE_CREAT                  datetime       Date d'enregistrement

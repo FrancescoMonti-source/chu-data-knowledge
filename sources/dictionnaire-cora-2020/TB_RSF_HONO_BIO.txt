@@ -1,0 +1,38 @@
+==== TB_RSF_HONO_BIO ====
+Regroupe les honoraire de biologie (ligne RSF C)
+       1   ID_RSF_HONO_BIO            int(10)        clé primaire de TB_RSF_HONO_BIO
+      2    ID_RSF_HONO              int(10)        clé primaire de TB_RSF_HONORAIRES
+
+      3    ID_RSF_FACT              int(10)        identifiant de la facture : clef primaire de TB_RSF_FACT
+
+      4    NO_SEQUENCE              char(2)        de 01 à 10
+
+      5    DATE_ACTE1               datetime       date de l'acte 1
+
+      6    QTE_ACTE1                smallint(5)    nombre d'acte 1
+
+      7    CODE_ACTE1               varchar(8)     code de l'acte 1
+
+      8    DATE_ACTE2               datetime       date de l'acte 2
+
+      9    QTE_ACTE2                smallint(5)    nombre d'acte 2
+
+      10   CODE_ACTE2               varchar(8)     code de l'acte 2
+
+      11   DATE_ACTE3               datetime       date de l'acte 3
+
+      12   QTE_ACTE3                smallint(5)    nombre d'acte 3
+
+      13   CODE_ACTE3               varchar(8)     code de l'acte 3
+
+      14   DATE_ACTE4               datetime       date de l'acte 4
+
+      15   QTE_ACTE4                smallint(5)    nombre d'acte 4
+
+      16   CODE_ACTE4               varchar(8)     code de l'acte 4
+
+      17   DATE_ACTE5               datetime       date de l'acte 5
+
+      18   QTE_ACTE5                smallint(5)    nombre d'acte 5
+
+      19   CODE_ACTE5               varchar(8)     code de l'acte 5

@@ -1,0 +1,9 @@
+==== TB_PMSI_PSY_NATURE_ACTE ====
+Table du thésaurus des natures d'actes
+                                                        Clé :
+       1   CODE_NATURE_ACTE              char(1)
+                                                        Code nature de l'acte (E, D, G, A, R)
+       2   LIBELLE_NATURE_ACTE           varchar(100)   Libellé nature de l'acte
+
+       3   COMMENTAIRE                   varchar(400)   Commentaire
+       4   ORDRE                       smallint(5)    Ordre

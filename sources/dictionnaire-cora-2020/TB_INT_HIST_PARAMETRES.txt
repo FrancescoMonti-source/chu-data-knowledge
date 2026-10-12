@@ -1,0 +1,27 @@
+==== TB_INT_HIST_PARAMETRES ====
+       1    ID                             int(10)         Copie - Identifiant du parametre
+
+       2    SECTION                        varchar(25)     Copie - Permet le regroupement des paramètres par fonctionalité
+
+       3    INTERFACE                      char(5)         Copie - Lien avec TB_INT_APPLICATION
+
+       4    PARAMETRE                      varchar(100)    Copie - Nom du paramètre
+
+       5    VALEUR                         varchar(500)    Copie -
+                                                           Copie - Lien avec UTIL.id_util Identifie l'utilisateur ayant effectué la dernière
+       6    ID_UTIL_MODIF                  int(10)
+                                                           modification
+       7    DATE_MODIF                     datetime        Copie - Date et heure de la dernière modification
+
+       8    DESCRIPTION                    varchar(500)    Copie - Description du rôle du paramètre
+                                                           Copie - type informatique du paramètre: E - entier; C-caractère; P-chemin; F-
+       9    TYPE_PARAM                     char(1)
+                                                           FTP…
+       10   ID_APPLICATION                 int(10)         Lien sur TB_INT_APPLICATION.ID
+                                                           O- Le paramètre aparaît dans CoraIntMngr / N-Le paramètre n'est modifiable
+       11   VISIBLE                        char(1)
+                                                           que par script
+                                                           Permet de filtrer la saisie de la valeur du paramètre par une expression
+       12   EXPRESSION_REGULIERE           varchar(100)
+                                                           régulière
+       13   REQUETE_SQL                    varchar(4000)   Permet de dresser une liste de choix de valeurs par une requête en base

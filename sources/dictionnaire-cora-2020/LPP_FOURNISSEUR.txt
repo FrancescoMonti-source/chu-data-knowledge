@@ -1,0 +1,17 @@
+==== LPP_FOURNISSEUR ====
+Table contenant la liste des fournisseurs des MON, ATU, ATH et LPP.
+       1   ID_FOURNISSEUR                int(10)        Identifiant du fournisseur (côté CORA)
+
+       2   CODE_FOURNISSEUR              varchar(10)    Code du fournisseur
+
+       3   LIB_FOURNISSEUR               varchar(50)    Libellé du fournisseur
+
+       4   CODE_COMPTABLE                varchar(12)
+
+       5   SIRET                         varchar(14)    Numéro de SIRET du fournisseur
+                                                        Lien sur TB_UTIL.ID_UTIL
+       6   ID_CREAT                      int(10)
+                                                        Identifiant de l'utilisateur de création
+       7   DATE_CREAT                    datetime       Date de création
+
+       8   ID_EXTERNE                    varchar(17)    Identifiant externe du fournisseur (par exemple, identifiant utilisé par CIO).

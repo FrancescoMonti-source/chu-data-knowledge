@@ -1,0 +1,11 @@
+==== CCAM_FOLDER_UTIL ====
+Table Lien entre 1 Favori et son propriétaire (Un Utilisateur ou un Groupe) pour les actes CCAM
+                                                     Clé - Lien sur CCAM_FOLDER_FAVORI.ID_FOLDER :
+       1   ID_FOLDER                   int(10)
+                                                     Identifiant du Favori
+                                                     Clé - Lien Util.id_util :
+       2   ID_UTIL                     int(10)
+                                                     Lien sur l'utilisateur propriétaire du Favori (pour un Favori groupe ID_UTIL = 0)
+                                                     Clé - Lien Util_lib_groupe.id_groupe :
+       3   ID_GROUPE                   int(10)       Lien sur le groupe propriétaire du Favori (pour un Favori utilisateur
+                                                     ID_GROUPE = 0)

@@ -1,0 +1,30 @@
+==== TB_DET_PATHOS ====
+      1    ID_DET_PATHOS             int(10)
+
+      2    ID_PATHOS                 int(10)
+
+      3    CODE_PATHOS               char(2)
+
+      4    T1                        smallint(5)                                                                                           0
+
+      5    T2                        smallint(5)                                                                                           0
+
+      6    P1                        smallint(5)                                                                                           0
+
+      7    P2                        smallint(5)                                                                                           0
+
+      8    R1                        smallint(5)                                                                                           0
+
+      9    R2                        smallint(5)                                                                                           0
+
+      10   CH                        smallint(5)                                                                                           0
+
+      11   DG                        smallint(5)                                                                                           0
+
+      12   M1                        smallint(5)                                                                                           0
+
+      13   M2                        smallint(5)                                                                                           0
+
+      14   S1                        smallint(5)                                                                                           0
+
+      15   S0                        smallint(5)                                                                                           0

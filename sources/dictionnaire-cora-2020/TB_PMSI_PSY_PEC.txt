@@ -1,0 +1,13 @@
+==== TB_PMSI_PSY_PEC ====
+Table du thésaurus des formes d'activités
+                                                      Clé :
+       1   FORME_ACTIVITE              char(5)
+                                                      Forme d'activité
+       2   LIBELLE                     varchar(100)   Libellé de la forme d'activité
+
+       3   CODE_SAE                    char(30)       Code SAE
+
+       4   TYPE_PEC                    char(1)        Type de prise en charge
+                                                      Lien sur TB_PMSI_PSY_MODALITE.CODE_MODALITE :
+       5   MODALITE_ACTIVITE           char(2)
+                                                      Modalité d'activité

@@ -1,0 +1,40 @@
+==== CSARR ====
+Table contenant la liste des actes CSARR.
+       1   CODE                           varchar(7)     Code CSARR
+
+       2   CODEHIER                       varchar(20)    Code de la hierarchie
+
+       3   LIBELLE                        varchar(500)   Libellé
+
+       4   LIBCOURT                       varchar(500)   Version courte du libellé
+
+       5   ORDRE                          smallint(5)    Ordre de l'acte dans la hiérarchie.
+
+       6   LIBELLE_SS_ACC                 varchar(500)   Libellé sans accent (pour les recherches)
+
+       7   TYPE_CODE                      char(1)        Type de Code. C = Complémentaire, M = Modulateur, NULL sinon
+       8   TYPE_ORTHESE                char(1)        O ou N. O s'il s'agit d'un acte de type orhèse
+
+       9   DATE_DEBUT                  datetime       Date de début de validité du code CSARR
+
+      10   DATE_FIN                    datetime       Date de fin de validité du code CSARR
+
+      11   TYPE_MODULATEUR             char(1)        P : Patient, L : Lieu
+
+      12   PLURIPROFESSIONNEL          char(1)        O ou N. O si il s'agit d'un acte pluriprofessionnel
+                                                      Indique si l'acte est dédié :
+                                                      O : Oui
+      13   DEDIE                       char(1)
+                                                      N : Non
+                                                      Vide
+                                                      Indique si l'acte est non dédié :
+                                                      P : Possible
+      14   NON_DEDIE                   char(1)
+                                                      N : Non
+                                                      Vide
+                                                      Indique si l'acte est un acte collectif :
+                                                      O : Oui
+      15   COLLECTIF                   char(1)
+                                                      N : Non
+                                                      Vide
+      16   DUREE_DEFAUT                smallint(5)    Durée par défaut de l'acte CSARR en minutes.

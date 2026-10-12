@@ -1,0 +1,25 @@
+==== TB_PATIENT_TRAITS ====
+Traits forts du patient associé au NIR réupérés auprès du téléservice de la CNAM. données non modifiables par l'utilisateur
+       1   NIR                         varchar(15)    INS_NIR ou INS_NIA
+
+       2   NOM                         varchar(200)   Nom de naissance
+
+       3   PRENOMS_USAGE               varchar(200)   liste des prenoms séparés par un espace
+
+       4   PRENOMS                     varchar(200)   liste des prenoms séparés par un espace
+
+       5   SEXE                        char(1)        M ou F
+
+       6   DATE_NAISSANCE              varchar(10)    Pas au format date car peut etre une date lunaire
+
+       7   LIEU_NAISSANCE              varchar(5)     Code Officiel Géographique (COG) de l’INSEE. Il ne s’agit pas du code postal.
+                                                      Date à laquelle ont été certifiées les données auprès du téléservice de la
+       8   DATE_QUALIF                 datetime
+                                                      CNAM
+       9   DATE_CREAT                  datetime
+
+      10   DATE_INFO                   datetime
+
+      11   ID_CREAT                    int(10)
+
+      12   ID_INFO                     int(10)

@@ -1,0 +1,12 @@
+==== TB_GEST_LOCK ====
+Cette table définit les éléments bloqués par un autre utilisateur comme la consultation d'une fiche courrier patient.
+                                                         Lien sur TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT
+       1    ID_ELEMENT_LOCK              int(10)
+                                                         Définit l'identifiant du document patient bloqué.
+                                                         Définit le type d'élément locké.
+       2    TYPE_ELEMENT_LOCK            char(5)
+                                                         - DOCPA => Document patient (fiche courrier).
+                                                         Lien sur util.ID_UTIL
+       3    ID_UTIL_LOCK                 int(10)
+                                                         Définit l'identifiant de l'utilisateur à l'origine du blocage de la fiche courrier.
+       4    DATE_LOCK                    datetime        Définit la date de blocage de la fiche courrier.

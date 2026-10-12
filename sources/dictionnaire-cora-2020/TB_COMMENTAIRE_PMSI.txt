@@ -1,0 +1,18 @@
+==== TB_COMMENTAIRE_PMSI ====
+Table des commentaires sur le RSS
+                                                       Lien sur TB_SYNTH_RSS.ID_RSS :
+       1   ID_RSS                      int(10)
+                                                       N° de RSS concerné
+       2   COMMENTAIRE                 varchar(2000)   Commentaire saisi
+                                                       1 – Dim
+       3   TYPE_COMMENT                smallint(5)     2 – Tim
+                                                       3 – Autres
+       4   DATE_INFO                   datetime        Date de saisie du Commentaire
+                                                       Lien - sur Util.id_util :
+       5   ID_INFO                     int(10)
+                                                       Lien sur l'utilisateur ayant saisi le commentaire
+                                                       Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                       CORA_UTIL)
+       6   ID_ETABLIS                  smallint(5)
+                                                       Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                       Siège centralisée

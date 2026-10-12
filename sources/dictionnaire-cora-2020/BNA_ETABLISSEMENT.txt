@@ -1,0 +1,22 @@
+==== BNA_ETABLISSEMENT ====
+    1    ID_ETABLISSEMENT   int(10)
+
+    2    FINESS             char(9)
+
+    3    LIBELLE            varchar(1000)
+
+    4    REGION             varchar(100)
+
+    5    TYPE_VALO          char(3)
+
+    6    NB_RSA             int(10)
+                                                       CH de moins de 5500 RSA = A
+                                                       CH de 5501 RSA à 10 000 RSA = B
+                                                       CH de 10 001 RSA à 16 000 RSA = C
+       7   TAILLE                       char(1)        CH de 16 001 RSA à 30 000 RSA = D
+                                                       CH de 30 001 RSA à 50 000 RSA = E
+                                                       CH de plus de 50 000 RSA = F
+                                                       CHU / CHR = G
+       8   ID_REGION                    smallint(5)
+
+       9   TYPE_ETAB                    varchar(10)

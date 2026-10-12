@@ -1,0 +1,14 @@
+==== FG_LIBCARD ====
+Table permettant définir les catégories et CMD de chaque version de groupage dans le cas des diagnsotics.
+       1   VERSION_FG                 char(3)         Version de la fonction de groupage
+
+       2   NO_OCTET                   char(2)         Numéro d'octet correspondant à la première partie de la Caractéristique.
+
+       3   CODE_CMD                   char(2)         Code de la CMD
+
+       4   NO_BIT                     smallint(5)     Numero de bit correspondant à la deuxième partie de la Caractéristique.
+
+       5   LIBELLE                    varchar(300)    Libelle de la CMD
+                                                      Caractéristique de la CMD et/ou de la catégorie. Caractéristique = NoOctet + '.'
+       6   CARACTERISTIQUE            varchar(5)
+                                                      + NoBit.

@@ -1,0 +1,5 @@
+==== R_ACTIVITE ====
+liste des activités de l'acte
+        1   COD_ACTIV                    char(1)        Code Activité
+
+        2   LIBELLE                      char(100)      libellé de l'activité

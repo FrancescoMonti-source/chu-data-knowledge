@@ -1,0 +1,5 @@
+==== TB_UNITE_AM_UNITE ====
+Table de lien entre les identifiants des unités d'activités médicales et les unites.
+       1    ID_UNITE                      int(10)        Définit l'identifiant de l'unité. Lien avec TB_UNITE.
+
+       2    ID_UNITE_AM                   smallint(5)    Définit l'identifiant de l'unité d'activité médicale. Lien avec TB_UNITE_AM.

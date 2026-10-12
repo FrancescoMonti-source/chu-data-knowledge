@@ -1,0 +1,9 @@
+==== CIM_CARA ====
+Obsolète
+       1   CLE                           char(7)
+
+       2   POINTEUR_1                    char(2)
+
+       3   POINTEUR_2                    char(2)
+
+       4   PHASE                         char(1)

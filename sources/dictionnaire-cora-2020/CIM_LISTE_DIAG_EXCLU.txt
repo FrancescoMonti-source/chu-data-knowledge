@@ -1,0 +1,11 @@
+==== CIM_LISTE_DIAG_EXCLU ====
+Table des diagnostics exclus. Le fonctionnement est que le code diag inscrit dans CODE_DIAG est le code d'un DAS et il est
+exclu si un des diagnostics présent dans CIM_LISTE_DIAG_EXCLU est un des DP du dossier.
+       1   CODE_DIAG                      char(16)       Code du diagnostic
+                                          text
+       2   CIM_LISTE_DIAG_EXCLU                          Liste des codes diagnostics qui exclu le code diag
+                                          (2147483647)
+                                                         Compteur si il y a plusieurs listes de diagnostics exclus pour le même diag et
+       3   CHRONO                         smallint(5)
+                                                         la même FG
+       4   VERSION_FG                     char(3)        Version de la fonction de groupage

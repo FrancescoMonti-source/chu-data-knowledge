@@ -1,0 +1,13 @@
+==== TB_ITEM_IMPRESSION_DETAIL ====
+       1   ID_ITEM_IMPRESSION_DETAIL smallint(5)
+           LIBELLE_ITEM_IMPRESSION_
+       2                            varchar(50)
+           DETAIL
+       3   TYPE_MODELE                  varchar(50)
+
+       4   LIBELLE_TYPE_MODELE          varchar(50)
+
+       5   TYPE_AFFICHAGE               char(1)
+           VALEUR_ITEM_IMPRESSION_
+       6                           varchar(50)
+           DETAIL

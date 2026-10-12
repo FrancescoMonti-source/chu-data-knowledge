@@ -1,0 +1,44 @@
+==== TB_STATUT_DOC ====
+Définit la table des statuts de document.
+       1   ID_STATUT_DOC                 smallint(5)   Définit l'identifiant du statut.
+
+       2   LIBELLE_STATUT_DOC            varchar(75)   Définit le libellé du statut du document.
+                                                       Droit en modification et suppresion du document
+       3   DROIT                         char(1)       - 'X' pour un statut PrisMédiCa non modificable par l'utilisateur
+                                                       - '' pour une statut créé par les utilisateurs et donc modifiable ou supprimable
+                                                       Définit une chaine de caractere indiquant quelle est l'action initialisante pour le
+                                                       statut.
+                                                       - "" : Aucune.
+                                                       - C : Création.
+                                                       - F : Fusion.
+       4   ACTION_STATUT                 char(1)
+                                                       - I : Impression.
+                                                       - V : Verrouillage.
+                                                       - D : Diffusion.
+                                                       - S : Signature
+                                                       - R : Retractation.
+       5   ORDRE                         smallint(5)   Ordre du statut dans la chronologie des étapes de rédaction d'un document
+                                                       Définit un boolean indiquant si les documents au statut indiqué sont visibles
+       6   VISIBILITE_RECUEIL            char(1)       sur les autres applications des gammes CORA et M. I.e CORA Activité, M-
+                                                       Entrepot.
+                                                       Définit un boolean indiquant si les documents associés à ce statut sont
+       7   DIFFUSABLE                    char(1)                                                                                             'N'
+                                                       diffusables.
+                                                       Définit un boolean indiquant si le changement de statut doit être historisé en
+       8   HISTORISATION                 char(1)                                                                                             'O'
+                                                       base de données dans la table TB_DOCUMENT_PATIENT_STATUT.
+                                                       Définit un boolean indiquant si les documents associés à ce sujet sont éligibles
+       9   IMPRESSION_LOT                char(1)                                                                                             'N'
+                                                       à l'impression par lot.
+                                                       Définit un boolean indiquant si les documents associés à ce sujet sont éligibles
+      10   VERROUILLAGE_LOT              char(1)                                                                                             'N'
+                                                       au verrouillage par lot.
+      11   ACTIF                         char(1)       Définit si le statut est un statut actif.                                             'O'
+
+      12   STATUT_EDITION                char(1)       Définit un boolean indiquant si le statut est reserve pour flagger l'impression.      'N'
+
+      13   ENVOYABLE_DMP                 char(1)       Definit un boolean indiquant si le document est envoyable au DMP.                     'N'
+                                                       Définit un boolean indiquant si les documents associés à ce statut sont
+      14   STATUT_LOT                    char(1)                                                                                             'N'
+                                                       éligibles pour une opération de changement de statut par lot.
+      15   CODE_EXTERNE                  varchar(20)                                                                                         'N'

@@ -1,0 +1,12 @@
+==== TB_UNITE_POLE ====
+Table des poles PMSI Clé :
+Table des poles PMSI
+                                                     Clé :
+       1   ID_POLE                     smallint(5)
+                                                     Identifiant (PrisMédica) du pole
+       2   CODE_POLE                   char(10)      Code du pole
+
+       3   LIBELLE_POLE                varchar(50)   Libellé du pole
+       4   ACTIF                       char(1)          Actif (Oui / Non)
+
+       5   ID_EXTERNE                  varchar(16)

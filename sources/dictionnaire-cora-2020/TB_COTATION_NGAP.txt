@@ -1,0 +1,150 @@
+==== TB_COTATION_NGAP ====
+Tables des actes NGAP réalisés (par Mouvement) --> Notion Cotations NGAP (une ligne peut contenir plusieurs codes NGAP)
+                                                   Clé :
+      1    CPT_ID_COTATION_NGAP      int(10)
+                                                   Identifiant (PrisMédica) de la cotation NGAP
+                                                   Lien sur TB_PATIENT.ID_PATIENT :
+      2    ID_PATIENT                int(10)
+                                                   Identifiant du Patient. Lien non principal (Lien principal = ID_MVT)
+                                                   Lien sur TB_SEJOUR.ID_SEJOUR :
+      3    ID_SEJOUR                 int(10)
+                                                   Identifiant du Séjour. Lien non principal (Lien principal = ID_MVT)
+                                                   Lien sur TB_MVT.ID_MVT :
+      4    ID_MVT                    int(10)
+                                                   Identifiant du Mouvement (Lien obligatoire)
+                                                   Libellé (médicale) de la cotation NGAP.
+      5    LIBELLE_COTATION          char(100)     Peut être saisie librement ou récupérée de
+                                                   TB_COTATION.LIBELLE_COTATION (si saisie par Thésaurus)
+                                                   Cotation NGAP : récapitule les données des champs CLE + COEF
+      6    COTATION                  char(100)     Peut être saisie librement ou récupérée de TB_COTATION.COTATION (si
+                                                   saisie par Thésaurus)
+      7    DATE_ACTE                 datetime      Date de réalisation de la cotation NGAP
+                                                   Lien sur Util.id_util :
+      8    ID_INFO                   int(10)       Identifiant du dernier utilisateur ayant réalisé une modification de la Cotation
+                                                   NGAP
+      9    DATE_INFO                 datetime      Date de dernière modification de la Cotation NGAP
+
+      10   HEURE_INFO                datetime      Heure de dernière modification de la Cotation NGAP
+                                                   Gestion Interface :
+      11   STATUT                    char(2)       Acte exporté dans une autre application
+                                                   "E" : acte émis
+                                                   Gestion Interface :
+      12   DATE_ENVOI                datetime
+                                                   Si Acte exporté : Date d'émission
+      13   ACT_PRIVE                 char(1)       Cotation a valoriser en Activité Privée (si = "O")
+                                                   Lien sur Util.id_util :
+      14   ID_MEDECIN                int(10)
+                                                   Identifiant du médecin opérateur de l'acte (médecin exécutant)
+                                                   Acte à facturer.
+      15   OK_FACT                   char(1)       Si ='N' --> Non Facturable. Si 'O' --> Facturable
+                                                   Si Null --> 'N'
+      16   ID_ACTE                   int(10)       Lien avec l'acte
+                                                   Code NGAP (1er code)
+      18   CLE1                      char(9)       Peut être saisie librement ou récupérée de TB_COTATION.CLE1 (si saisie par
+                                                   Thésaurus)
+                                                   Code NGAP (2ème code)
+      19   CLE2                      char(9)       Peut être saisie librement ou récupérée de TB_COTATION.CLE2 (si saisie par
+                                                   Thésaurus)
+                                                   Code NGAP (3ème code)
+      20   CLE3                      char(9)       Peut être saisie librement ou récupérée de TB_COTATION.CLE3 (si saisie par
+                                                   Thésaurus)
+                                                   Code NGAP (4ème code)
+      21   CLE4                      char(9)       Peut être saisie librement ou récupérée de TB_COTATION.CLE4 (si saisie par
+                                                   Thésaurus)
+                                                   Code NGAP (5ème code)
+      22   CLE5                      char(9)       Peut être saisie librement ou récupérée de TB_COTATION.CLE5 (si saisie par
+                                                   Thésaurus)
+                                                   Coefficient NGAP (lié au 1er code)
+      23   COEF1                     char(8)       Peut être saisie librement ou récupérée de TB_COTATION.COEF1 (si saisie
+                                                   par Thésaurus)
+                                                   Coefficient NGAP (lié au 2ème code)
+      24   COEF2                     char(8)       Peut être saisie librement ou récupérée de TB_COTATION.COEF2 (si saisie
+                                                   par Thésaurus)
+                                                Coefficient NGAP (lié au 3ème code)
+25   COEF3                     char(8)          Peut être saisie librement ou récupérée de TB_COTATION.COEF3 (si saisie
+                                                par Thésaurus)
+                                                Coefficient NGAP (lié au 4ème code)
+26   COEF4                     char(8)          Peut être saisie librement ou récupérée de TB_COTATION.COEF4 (si saisie
+                                                par Thésaurus)
+                                                Coefficient NGAP (lié au 5ème code)
+27   COEF5                     char(8)          Peut être saisie librement ou récupérée de TB_COTATION.COEF5 (si saisie
+                                                par Thésaurus)
+                                                Lien sur TB_SITE.ID_SITE :
+28   ID_SITE                   smallint(5)
+                                                Identifiant du Site où l'acte a été réalisé (Lien obligatoire)
+29   DATE_SIGN                 datetime         Date de signature de la cotation NGAP
+
+30   HEURE_SIGN                datetime         Heure de signature de la cotation NGAP
+                                                Lien sur Util.id_util :
+31   ID_SIGN                   int(10)
+                                                Identifiant de l'utilisateur ayant signé la cotation
+                                                Lien sur TB_UNITE.ID_UNITE :
+32   ID_UNITE                  int(10)          Identifiant de l'Unité ou l'acte a été réalisé (Information déduite du Site de
+                                                production de l'acte)
+                                                Gestion Interface :
+33   TYPE_TRANSFERT            char(1)
+                                                Acte importé d'une Autre application (si = "R")
+                                                Gestion Interface :
+34   DATE_TRANSFERT            datetime
+                                                Date d'import de cet acte
+                                                Gestion Interface :
+35   APPLI_TRANSFERT           char(3)
+                                                Code de l'application qui a émis l'acte
+36   DATE_CREAT                datetime         Date de création de la Cotation NGAP
+                                                Lien sur Util.id_util :
+                                                Identifiant de l'utilisateur ayant crée la Cotation NGAP
+37   ID_CREAT                  int(10)          ATTENTION : =-80 si cotation saisie automatiquement pour le parcours de
+                                                soins, -81 si elle est saisie automatiquement dans le cadre des forfaits SE et
+                                                FSD
+                                                Lien sur Util.id_util :
+38   ID_MEDECIN_DEMANDEUR      int(10)
+                                                Identifiant du médecin demandeur de l'acte
+                                                N° d'intervention globalisant des actes CCAM saisis dans le même temps
+39   NO_INTERVENTION_CCAM      int(10)
+                                                médicalement (géré dans le nouvel écran Externe + Ecran Bloc)
+                                                Lien sur TB_SITE.ID_SITE :
+40   ID_SITE_DEMANDEUR         int(10)          Identifiant du Site demandeur de réalisation de l'acte (géré avec le nouvel
+                                                écran Externe)
+                                                N si acte réalisé de jour
+41   FLAG_NUIT                 char(1)          1 Si actes réalisé premiére tranche de nuit
+                                                2 si actes réalisé déuxiem tranche de nuit
+42   FLAG_FERIE                char(1)          si ='O' : acte réalisé un jour férié
+                                                'A' : acte ALD
+                                                'H' : acte Hors ALD
+43   FLAG_ALD                  char(1)
+                                                'O' : acte Hors ALD (ancienne valeur qui est amenée à disparaître)
+                                                'N' et NULL : acte ni marqué comme ALD ni comme Hors ALD
+                                                FK TB_THES_PARCOURS_SOINS.CODE_PARCOURS_SOINS - Code de
+44   FLAG_MNC                  varchar(3)
+                                                l'élément du parcours de soins.
+                                                Lien sur TB_UNITE.CODE_UNITE :
+45   UNITE_DEM                 char(12)
+                                                Identifiant de l'Unité demandeuse de réalisation de l'acte
+46   REALISE_LIT               char(1)          = 'O' si acte réalisé au lit du patient
+
+47   PROTOCOLE_RECHERCHE       char(1)          Acte rentrant dans un protocole Recherche (il est alors non facturable)
+                                                Lien sur TB_SITE.ID_SITE :
+48   ID_SITE_PRODUCTION        int(10)
+                                                Identifiant du site de production lié au médecin
+49   CREAT_AUTO                char(1)          Création automatique de la Lettre clé (Cas du Parcours de Soins)
+
+50   MNT_DEPASS                decimal(10, 2)   Montant de dépassement (Etablis & Activité Privée)
+                                                Lien sur TB_RDV_ACTE_COTTAION.ID_RDV_ACTE_COTATION :
+51   ID_RDV_ACTE_COTATION      int(10)
+                                                Lien sur le précodage saisi dans Cora Agenda
+52   POUR_MEMOIRE              char(1)          Acte codé pour Mémoire : si 'O'
+
+53   CODE_EXONERATION          char(1)          Code Exonération de l'acte
+
+54   MOTIF_DEPASS              char(1)          Motif du dépassement
+
+55   ID_APPLICATION_TRANSFERT int(10)           FK TB_INT_APPLICATION.ID Id du connecteur ayant importé l'acte
+                                                      Acte Gratuit : si 'O' : Gratuit (en donc non facturable)
+      56   GRATUIT                     char(1)
+                                                      Si Null --> 'N'
+      57   ENTENTE_PREALABLE           char(1)        FLag ENTENTE_PREALABLE :
+
+      58   DATE_ENTENTE_PREALABLE datetime            Date de l'entente préalable
+                                                      Lien sur TB_UNITE.ID_UNITE :
+      59   ID_UNITE_DEM                int(10)
+                                                      Identifiant de l'unité demandeuse

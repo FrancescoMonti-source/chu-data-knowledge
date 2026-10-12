@@ -1,0 +1,26 @@
+==== RSS ====
+       1   ID_THESAURUS                 int(10)        Clé - Identifiant du thésaurus
+
+       2   LIBELLE_THESAURUS            varchar(200)   Libellé du thésaurus
+                                                       Type de thésaurus utilisé dans le suivi d'une campagne de contrôles
+                                                       <LabelAttribute("Type de campagne"), DbValueAttribute("T")>
+                                                       TYPE_CAMPAGNE
+                                                       <LabelAttribute("Champ contrôlé"), DbValueAttribute("C")>
+                                                       CHAMP_CONTROLE
+                                                       <LabelAttribute("Justifié"), DbValueAttribute("J")> JUSTIFIE
+                                                       <LabelAttribute("Avis du contrôleur"), DbValueAttribute("A")>
+       3   TYPE_THESAURUS               char(1)
+                                                       AVIS_CONTROLEUR
+                                                       <LabelAttribute("Position du DIM sur 1er avis"), DbValueAttribute("P")>
+                                                       POSITION_PREMIER_AVIS
+                                                       <LabelAttribute("Résultat suite à la conciliation"), DbValueAttribute("R")>
+                                                       RESULTAT_CONCILIATION
+                                                       <LabelAttribute("Motif de marquage du contrôle"), DbValueAttribute("M")>
+                                                       MOTIF_REMARQUABLE
+       4   ID_EJ                        smallint(5)    Identifiant de l'établissement juridique. Lien avec TB_EJ.ID_EJ.                 1
+
+       5   ID_LIEN_THES                 int(10)        Identifiant du type de campagne.
+
+       6   ACTIF                        char(1)        Caractère actif de l'élément                                                     'O'
+
+       7   DATE_INACTIVATION            datetime       Date d'inactivation de l'élément

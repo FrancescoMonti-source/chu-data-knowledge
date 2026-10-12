@@ -1,0 +1,26 @@
+==== TB_REQUETE_PLANIF ====
+Excéution automatique de requête
+      1    ID_PLANIFICATION         int(10)         Clé
+
+      3    DATE_DEBUT               datetime        Date de début de planification
+
+      4    DATE_FIN                 datetime        Date de fin de planification
+
+      6    ID_CREAT                 int(10)         Id du créateur de la planification
+                                    text
+      7    RECURRENCE                               Obsolète
+                                    (2147483647)
+      8    TOUTE_JOURNEE            char(1)         Obsolète
+
+      9    TYPE                     smallint(5)     Obsolète
+
+      10   DATE_CREAT               datetime        Date de création
+
+      11   INFINI                   char(1)         Pas de fin
+
+      12   ACTIF                    char(1)         Actif
+
+      13   TYPE_RECURRENCE          char(1)         Type de récurrence (quotidien, hebdo, mensuel, annuel)
+       14   RECURRENCE_JOUR           varchar(150)   Jour de récurrence dans le cas d'une récurrence hebdo
+
+       15   ID_REQUETE                int(10)        ID de la requête planifiée

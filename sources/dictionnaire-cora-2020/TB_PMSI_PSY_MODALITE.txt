@@ -1,0 +1,7 @@
+==== TB_PMSI_PSY_MODALITE ====
+Table des modalités Clé :
+Table des modalités
+                                                        Clé :
+       1   CODE_MODALITE                 char(2)
+                                                        Code modalité
+       2   LIBELLE                       char(50)       Libellé modalité

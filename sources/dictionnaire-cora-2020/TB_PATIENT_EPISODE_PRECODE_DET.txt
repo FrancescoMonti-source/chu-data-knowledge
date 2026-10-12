@@ -1,0 +1,30 @@
+==== TB_PATIENT_EPISODE_PRECODE_DET ====
+           ID_PATIENT_EPISODE_PREC
+       1                              int(10)
+           ODE_DET
+           ID_PATIENT_EPISODE_PREC
+       2                              int(10)
+           ODE
+     3    ID_LIEN                 int(10)
+
+     4    TYPE_LIEN               smallint(5)
+                                                Lien sur TB_UTIL.ID_UTIL
+     5    ID_CREAT                int(10)
+                                                Identifiant de l'utilisateur de création
+     6    DATE_CREAT              datetime      Date de création
+
+     7    DELAI                   int(10)
+
+     8    DELAI_HEURE             int(10)
+
+     9    DELAI_MINUTE            int(10)
+
+     10   STATUT                  char(1)
+                                                Lien vers Util.ID_UTIL.
+     11   ID_INFO                 int(10)
+                                                Identifiant de l'utilisateur ayant effectué la dernière modification
+     12   DATE_INFO               datetime      Date de la dernière modification
+
+     13   ORDRE                   int(10)
+
+     14   ID_PERE                 int(10)

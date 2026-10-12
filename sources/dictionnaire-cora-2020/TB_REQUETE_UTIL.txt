@@ -1,0 +1,9 @@
+==== TB_REQUETE_UTIL ====
+Favori : élément associé à un utilisateur
+       1    ID_UTIL                         int(10)         Utilisateur
+
+       3    TYPE_ELEMENT                    char(1)         Type d'élement (requête, console, vue...)
+
+       4    LIBELLE                         varchar(500)    Valeur d'affichage
+
+       5    ID_ELEMENT                      int(10)         Element favori (id)

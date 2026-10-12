@@ -1,0 +1,22 @@
+==== TB_THES_FILTRE ====
+Contient les filtres disponibles dans le produit CORA PILOTAGE.Cette table est alimenté via des scripts de contenu.
+       1   ID_THES_FILTRE              int(10)         Identifiant du filtre
+
+       2   CODE_FILTRE                 varchar(25)     Code du filtre
+
+       3   LIBELLE_FILTRE              varchar(50)     Libellé du filtre
+                                                       Type du filtre
+       4   TYPE_FILTRE                 varchar(10)
+                                                       PAT/SEJ/RSS/RUM/MVT
+       5   PORTION_SQL_SERVER          varchar(4000)   Portion Sql à injecter dans le cas de SQL Server
+
+       6   PORTION_ORACLE              varchar(4000)   Portion Sql à injecter dans le cas d'Oracle
+                                                       Type de thésaurus lié
+       7   TYPE_THESAURUS              char(50)        LIEN :
+                                                       TB_REQUETE_THES.CODE_REQUETE_THES=TYPE_THESAURUS
+       8   DESCRIPTION                 varchar(200)    Description du filtre
+
+       9   ACTIF                       char(1)         Actif Oui / Non                                                   'O'
+                                                       E -> Entier
+      10   FORMAT_CHAMP                char(1)         C -> Thesaurus
+                                                       D -> DateTime

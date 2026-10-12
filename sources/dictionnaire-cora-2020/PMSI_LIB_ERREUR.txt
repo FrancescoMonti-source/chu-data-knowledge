@@ -1,0 +1,10 @@
+==== PMSI_LIB_ERREUR ====
+Liste des erreurs retournées par le Groupeur
+                                                      Clé :
+       1   CODE                        char(4)
+                                                      Code de l'erreur
+       2   LIB_ERR                     char(150)      Libellé de l'erreur de la FG
+
+       3   CODE_ERREUR                 char(3)        Code de l'erreur (code numérique retourné par le groupeur)
+
+       4   BLOQUANT                    char(1)        Colonne indiquant si l'erreur est bloquante ou pas pour la FG (O / N)

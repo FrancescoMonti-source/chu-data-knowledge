@@ -1,0 +1,15 @@
+==== TB_DEPL_SERVEUR ====
+Cette table contient la liste de tous les serveurs d'applications installés sur le réseau
+       1   ID_DEPL_SERVEUR                smallint(5)    Identifiant unique d'un serveur d'application
+                                                         indique l'emplacement des fichiers de déploiement sur le serveur d'application.
+       2   CHEMIN_DEPL                    varchar(500)
+                                                         il s'agit d'un chemin UNC
+                                                         indique l'emplacement local des fichiers des environnements CORA installés
+       3   CHEMIN_ENVS                    varchar(500)
+                                                         sur le serveur d'application
+                                                         indique l'emplacement au format UNC des fichiers des environnements CORA
+       4   CHEMIN_ADMIN_ENVS              varchar(500)   installés. Ce chemin est utilisé pour l'administration à distance du serveur
+                                                         d'applications
+                                                         indique si le serveur est actif ou non, c'est à dire, indique si les postes clients
+       5   ACTIF                          char(1)
+                                                         peuvent se servir de ce serveur pour ce mettre à jour

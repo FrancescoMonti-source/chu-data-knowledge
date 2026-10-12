@@ -1,0 +1,13 @@
+==== R_MENU ====
+Arborescence de la CCAM Clé :
+Arborescence de la CCAM
+                                                      Clé :
+       1   COD_MENU                    float(53)
+                                                      Code du menu de la hiérarchie CCAM
+                                                      rang dans la liste des
+       2   RANG                        float(53)
+                                                      éléments du même niveau
+       3   LIBELLE                     char(254)      Libellé
+                                                      Lien avec R_MENU :
+       4   COD_PERE                    float(53)
+                                                      Lien sur l'élément père

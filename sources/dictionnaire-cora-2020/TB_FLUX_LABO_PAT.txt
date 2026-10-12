@@ -1,0 +1,15 @@
+==== TB_FLUX_LABO_PAT ====
+     1   ID_FLUX_LABO_PAT    int(10)         PK
+
+     2   MESSAGE             varchar(4000)   Contenu du message reçu ou envoyé
+
+     3   IPP                 varchar(20)     IPP Patient
+                                             FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+     4   NO_SEJOUR           varchar(20)
+                                             l'établissement
+     5   DATE_MESSAGE        datetime        Date du message
+
+     6   NOM_FICHIER         varchar(50)     Nom du fichier émis ou reçu
+     7    ID_APPLICATION             int(10)         Lien sur TB_INT_APPLICATION.ID
+
+     8    DEFINITION_SEP             char(5)         ?

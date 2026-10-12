@@ -1,0 +1,18 @@
+==== TB_LOG_RECUP_DONNEES ====
+     1   ID               int(10)
+
+     2   ID_UTIL          int(10)
+
+     3   DATE_LOG         datetime
+
+     4   TYPE             smallint(5)
+
+     5   NOM_FICHIER      varchar(50)
+
+     6   NORME            smallint(5)
+
+     7   VERSION          varchar(10)
+
+     8   DETAIL           varchar(4000)
+
+     9   NO_SEJOUR        varchar(20)

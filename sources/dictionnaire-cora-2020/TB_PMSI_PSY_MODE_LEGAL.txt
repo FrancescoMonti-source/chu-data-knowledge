@@ -1,0 +1,12 @@
+==== TB_PMSI_PSY_MODE_LEGAL ====
+Table du thésaurus des modes légaux
+                                                        Clé :
+       1   CODE_MODE_LEGAL               char(1)
+                                                        Code du mode légal (1 à 6)
+       2   LIBELLE_MODE_LEGAL            varchar(200)   Libellé du mode légal
+
+       3   DATE_DEBUT                    datetime       Date de début de validité du mode légal
+
+       4   DATE_FIN                      datetime       Date de fin de validité du mode légal
+
+       5   CODE_MODE_LEGAL_EXT           varchar(10)

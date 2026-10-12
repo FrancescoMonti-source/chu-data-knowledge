@@ -1,0 +1,11 @@
+==== TB_MATRICE_UF ====
+Table de matrice permettant de retrouver le code d'une UF côté CrossWay depuis le code de l'UF côté CORA (et inversement)
+pour les UF qui ont un code différent côté CORA et côté CrossWay.Cette table a été créée initialement pour gérer les UF qui
+avaient pluseiurs UM à Bourges et pour lesquelles il a fallu créer, côté CORA, des UF liées au CAC de CrossWay pour retrouver
+un fonctionnement 1 UF = 1 UM (fontionnement de CORA).
+                                                        Lien sur [CORA_UTIL].TB_EJ.ID_EJ
+       1   ID_EJ                        smallint(5)
+                                                        Identifiant de l'EJ.
+       2   CODE_UF_CORA                 varchar(12)     Code de l'UF côté CORA.
+
+       3   CODE_UF_EXT                  varchar(12)     Code de l'UF du côté de l'application externe (ex. côté CrossWay).

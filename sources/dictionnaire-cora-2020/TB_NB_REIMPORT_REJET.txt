@@ -1,0 +1,9 @@
+==== TB_NB_REIMPORT_REJET ====
+       1   ID_APPLICATION              int(10)
+
+       2   ID_MESSAGE_EXTERNE          varchar(50)
+
+       3   NB_REIMPORT                 int(10)
+
+       4   DATE_REIMPORT               datetime
+                                                       CORA_RECUEIL

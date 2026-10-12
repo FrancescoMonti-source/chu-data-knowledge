@@ -1,0 +1,16 @@
+==== TB_INTERVENTION_LIB_MAT ====
+Thésaurus du 'petit matériel' utilisé lors des interventions
+                                                         Clé :
+       1    ID_PETIT_MATERIEL             int(10)
+                                                         Identifiant interne de ce matériel
+       2    LIBELLE_PETIT_MATERIEL        char(150)      Libellé de ce matériel
+
+       3    ACTIF                         char(1)        si ="O", matériel actif
+                                                         Lien sur TB_INTERVENTION_LIB_MAT.ID_PETIT_MATERIEL :
+       4    ID_PERE                       int(10)
+                                                         Permet de réaliser une arborescence dans cette liste
+       5    DESCRIPTIF                    char(150)      Commentaire sur le matériel
+
+       6    CODE_PETIT_MAT                char(20)       Code de ce matériel
+
+       7    NIVEAU                        smallint(5)    Niveau dans l'arborescence

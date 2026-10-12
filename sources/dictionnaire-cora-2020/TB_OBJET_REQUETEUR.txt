@@ -1,0 +1,116 @@
+==== TB_OBJET_REQUETEUR ====
+                                                   PK de l'item requêteur. Attention, cet ID est rmodifié à chaque insertion d'un
+                                                   nouvel item requêteur, il ne peut pas être réellement considéré comme
+                                                   identifiant. Dans l'état actuel des choses, ce sont les champs
+     1   ID_ITEM_REQUETEUR         smallint(5)     CHAMP_ORACLE et CHAMP_SQL_SERVER qui sont utilisé comme
+                                                   identifiant.
+                                                   Les items requêteur avec un ID supérieur à 10.000 sont les items requêteur du
+                                                   générateur d'écran.
+     2   LIBELLE_ITEM              varchar(70)     Libellé de l'item requêteur.
+
+     3   ID_ITEM_PERE_SQL          smallint(5)     Indique l'ID de la catégorie d'items à laquelle l'item appartient.
+
+     4   ID_ITEM_PERE_TV           smallint(5)     Indique l'ID de l'item requêteur parent (notion de hiérarchie).
+
+     5   POS_ACTIV                 smallint(5)     VB6 uniquement - Position de l'item pour le type d'analyse Activité.
+
+     6   POS_PMSI                  smallint(5)     VB6 uniquement - Position de l'item pour le type d'analyse PMSI.
+
+     7   POS_INTERNE               smallint(5)     Ordre d'affichage des items au sein d'une catégorie d'items requêteur.
+                                                   Type d'item :
+                                                   M : Menu
+                                                   D : Date
+     8   TYPE_ITEM                 char(1)
+                                                   H : Heure
+                                                   T : Classique …
+                                                   I : Indicateur
+                                                   Actuel identifiant de l'item requêteur => Ne pas modifier.
+     9   CHAMP_ORACLE              varchar(4000)
+                                                   Champ SELECT de l'item requêteur pour Oracle.
+                                                   Actuel identifiant de l'item requêteur => Ne pas modifier.
+    10   CHAMP_SQL_SERVER          varchar(4000)
+                                                   Champ SELECT de l'item requêteur pour SQL Server.
+    11   CHAMP_MYSQL               varchar(1000)   Obsolète.
+
+    12   ALIAS_CHAMP               varchar(50)     Alias de l'item requêteur utilisé au niveau du SELECT.
+                                                   Format du champ :
+                                                   E : Entier
+    13   FORMAT_CHAMP              char(1)         D : Date
+                                                   H : Heure
+                                                   C : Chaine de caractères
+    14   FROM_ORACLE               varchar(1000)   VB6 uniquement - Section FROM de l'item requêteur pour Orcale.
+
+    15   FROM_SQL_SERVER           varchar(1000)   VB6 uniquement - Section FROM de l'item requêteur pour SQL Server.
+
+    16   FROM_MYSQL                varchar(1000)   Obsolète.
+                                                   VB6 uniquement - Section WHERE de l'item requêteur pour Orcale indiquant
+    17   LIENS_TABLE_PIVOT_ORACLE varchar(700)
+                                                   notemment les conditions jointure.
+           LIENS_TABLE_PIVOT_SQL_SE                     VB6 uniquement - Section WHERE de l'item requêteur pour SQL Server
+      18                            varchar(700)
+           RVER                                         indiquant notemment les conditions jointure.
+      19   LIENS_TABLE_PIVOT_MYSQL varchar(700)         Obsolète.
+                                                        Requête Oracle permettant d'acéder aux valeurs possibles de l'item requêteur
+      20   SQL_THES_ORACLE              varchar(4000)
+                                                        lorsqu'il est utilisé en condition.
+                                                        Requête SQL Server permettant d'acéder aux valeurs possibles de l'item
+      21   SQL_THES_SQL                 varchar(4000)
+                                                        requêteur lorsqu'il est utilisé en condition.
+      22   SQL_THES_MYSQL               varchar(400)    Obsolète.
+           SQL_THES_RESTRICT_ORACL                      Requête Oracle restreinte par l'utilisateur connecté permettant d'acéder aux
+      23                           varchar(4000)
+           E                                            valeurs possibles de l'item requêteur lorsqu'il est utilisé en condition.
+                                                        Requête SQL Server restreinte par l'utilisateur connecté permettant d'acéder
+      24   SQL_THES_RESTRICT_SQL        varchar(4000)
+                                                        aux valeurs possibles de l'item requêteur lorsqu'il est utilisé en condition.
+           SQL_THES_RESTRICT_MYSQ
+      25                          varchar(400)          Obsolète.
+           L
+      26   ACTIF                        char(1)         Indique si l'item est actif 'O' ou non 'N'.
+
+      27   COMMENTAIRE                  varchar(1000)   Commentaires sur l'item requêteur.
+                                                        Requête permettant l'affichage conditionnel d'un item requêteur lors de la
+      28   SQL_CRIT_AFFICHAGE           varchar(200)
+                                                        création d'une requête (droit, configuration, ...).
+                                                        Résultat attendu lors de l'exécution de la requête du champ
+      29   VAL_CRIT_AFFICHAGE           varchar(200)
+                                                        SQL_CRIT_AFFICHAGE pour que l'item requêteur soit visible.
+      30   DROIT_UTIL                   char(10)        Droits nécessaires pour limiter l'accès à une catégorie d'items requêteur.
+
+      31   CHAMP_DB2                    varchar(700)    Obsolète.
+
+      32   FROM_DB2                     varchar(1000)   Obsolète.
+
+      33   LIENS_TABLE_PIVOT_DB2        varchar(700)    Obsolète.
+
+      34   SQL_THES_DB2                 varchar(400)    Obsolète.
+
+      35   SQL_THES_RESTRICT_DB2        varchar(400)    Obsolète.
+
+      36   JOINTURE_PARENT              varchar(200)    .NET uniquement - Condition de jointure avec la table parente.
+                                                        .NET uniquement - Complément de condition à la condition de jointure avec la
+      37   JOINTURE_COMPLEMENT          varchar(700)
+                                                        table parente.
+                                                        .NET uniquement - Type de jointure avec la table parente :
+      38   TYPE_JOINTURE_PARENT         char(1)         I : Inner Join
+                                                        L : Left Join
+                                                        .NET uniquement - Indique si la jointure avec la table parente est obligatoire
+                                                        'O' ou non 'N'.
+      39   JOINTURE_OBLIGATOIRE         char(1)         La jointure est obligatoire si l'item requêteur ne peut pas fonctionner tout seul
+                                                        dans une requête sans que sa table parente ne soit présente (i.e. calcul avec
+                                                        un champ de la table parente).
+      40   TABLE_ORACLE                 varchar(1000)   .NET uniquement - Table ou vue Oracle sur laquelle porte l'item requêteur.
+                                                        .NET uniquement - Table ou vue SQL Server sur laquelle porte l'item
+      41   TABLE_SQL_SERVER             varchar(1000)
+                                                        requêteur.
+                                                        .NET uniquement - Table parente de la table (ou vue) avec laquelle la jointure
+                                                        doit être faite.
+                                                        Il peut arriver que la jointure implique plusieurs tables. Dans ce cas, il faut
+      42   TABLE_PARENT                 varchar(100)
+                                                        mettre les tables séparées par un point virgule en mettant la table la plus
+                                                        basse dans la hiérarchie en dernière position.
+                                                        i.e. "TB_ACTE;TB_DET_ACTE"
+      43   CODE_REQUETE_THES            varchar(30)     Obsolète.
+                                                        .NET uniquement - Licence qui permet d'afficher l'item requêteur.
+      44   LICENCE                      varchar(250)    Une licence est générée pour chacun des items requêteur en fonction de la
+                                                        licence nécessaire pour l'utiliser.

@@ -1,0 +1,22 @@
+==== TB_BNA_CONSULT ====
+       1   ID_BNA_CONSULT               int(10)        Identifiant de l'enregistrement de la consultation
+
+       2   ID_PATIENT                   int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   DATE_CONSULT                 datetime       Date de la consultation
+
+       4   DATE_ENVOI                   datetime       Date d'envoi de la consultation
+
+       5   STATUT_ENVOI                 char(1)        Statut de l'envoi : C = En attente, X = En cours d'envoi, E = Emis, R = Rejeté
+                                                       Identifiant du médecin consultant
+       6   ID_MEDECIN                   int(10)
+                                                       Lien sur CORA_UTIL.Util.id_util
+       7   DATE_CREAT                   datetime       Date de création de l'enregistrement
+                                                       Identifiant de l'utilisateur ayant créé la ligne
+       8   ID_CREAT                     int(10)
+                                                       Lien sur CORA_UTIL.Util.id_util
+       9   DATE_INFO                    datetime       Date de dernière modification (date + heure)
+                                                       Identifiant de l'utilisateur ayant fait la dernière modification de la ligne
+      10   ID_INFO                      int(10)
+                                                       Lien sur CORA_UTIL.Util.id_util
+      11   NB_ANOMALIE_INTERNE          smallint(5)    Nombre d'anomalie constatée (erreurs / manque)

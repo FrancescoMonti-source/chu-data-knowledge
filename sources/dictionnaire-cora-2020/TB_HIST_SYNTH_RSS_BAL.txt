@@ -1,0 +1,17 @@
+==== TB_HIST_SYNTH_RSS_BAL ====
+Historisation des données de la BAL intermédiaire de communication entre Cora Activité et les interfaces. Insertion de lignes
+après traitement de la BAL (TB_SYNTH_RSS_BAL) par l'interface.
+       1    ID_RSS                      int(10)          Copie de TB_SYNTH_RSS_BAL.ID_RSS: Identifiant du RSS
+
+       2    TYPE_BAL                    smallint(5)      Copie de TB_SYNTH_RSS_BAL.TYPE_BAL: Type de BAL (1 : Validé DIM)
+
+       3    VALEUR_BAL                  char(1)          Copie de TB_SYNTH_RSS_BAL.VALEUR_BAL : V ou D - Validé ou Dévalité
+                                                         Copie de TB_SYNTH_RSS_BAL.ID_CREAT : Identifiant de l’utilisateur ayant
+       4    ID_CREAT                    int(10)
+                                                         modifié le statut
+                                                         Copie de TB_SYNTH_RSS_BAL.DATE_CREAT : Date-Heure de la
+       5    DATE_CREAT                  datetime
+                                                         modification du statut- précision à la milliseconde - Insertion auto
+       6    ID_SEJOUR                   int(10)          Copie de TB_SYNTH_RSS_BAL.ID_SEJOUR : Identifiant du séjour
+
+       7    DATE_ENVOI                  datetime

@@ -1,0 +1,9 @@
+==== TB_CORRESPONDANT_MAIL ====
+Cette table définit les correspondants d'emails.
+       1    ID_MAIL                     int(10)       Définit l'identifiant de l'email.
+
+       2    ID_CORRESPONDANT            int(10)       Définit l'identifiant du correspondant associé à l'email.
+
+       3    ID_UTIL                     int(10)       Définit l'identifiant de l'utilisateur à l'origine de l'email.
+
+       4    ID_PATIENT_CONTACT          int(10)       Définit l'identifiant du contact du patient auquel l'email est destiné.

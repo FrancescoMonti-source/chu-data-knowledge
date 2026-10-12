@@ -1,0 +1,8 @@
+==== DATIM_MED_INFO ====
+     1   CODE_UCD              varchar(13)       Code de l'UCD
+
+     2   NB_UCD_ATTENDU        smallint(5)       Nombre d'UCD attendu
+
+     3   DATE_DEBUT            datetime          Date de début
+
+     4   DATE_FIN              datetime          Date de fin

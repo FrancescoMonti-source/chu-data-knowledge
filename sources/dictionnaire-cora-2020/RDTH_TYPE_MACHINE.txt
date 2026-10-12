@@ -1,0 +1,4 @@
+==== RDTH_TYPE_MACHINE ====
+       1   CODE                        char(1)
+
+       2   LIBELLE                     varchar(200)

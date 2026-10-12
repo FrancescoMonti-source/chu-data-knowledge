@@ -1,0 +1,13 @@
+==== TB_COMP_MODIF_SPECIALITE ====
+Table contenant les compatibilités entre un modificateur et une spécialité d'un opérateur (médecin, IDE, etc.)Cette table est
+remplie à partir des couples de données de la table des modificateurs R_TB11 (à partir du code du modificateur, de la date de
+début et de la date de fin) et des spécialités présentes dans TB_SPECIALITE_MED. Pour une période A, il peut donc y avoir
+plusieurs lignes pour chaque modificateurs pour prendre en compte les éventuels modificateurs valable à une période donnée,
+puis plus valide pendant un certains temps et de nouveau valable pendant une nouvelle période.
+       1   CODE_MODIFICATEUR           char(1)        Code du modificateur. Lien avec R_TB11.COD_MODIFI
+
+       2   SPECIALITE_MED              char(2)        Date de début de la compatibilité entre l'opérateur et le modificateur
+
+       3   DATE_DEBUT                  datetime       Date de fin de la compatibilité entre l'opérateur et le modificateur
+
+       4   DATE_FIN                    datetime       Spécialité de l'opérateur. Lien avec TB_SPECIALITE_MED.CODE_SPE_MED

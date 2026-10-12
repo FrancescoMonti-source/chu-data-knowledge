@@ -1,0 +1,51 @@
+==== TB_MODELE_IMPRESSION ====
+     1   ID_MODELE_IMPRESSION    smallint(5)    Clé de la table
+     2   LIBELLE_IMPRESSION         varchar(50)     Libellé de l'impression
+                                    text
+     3   RTF_IMPRESSION                             Valeur de l'impression en rtf
+                                    (2147483647)
+     4   DEFAUT                     char(1)                                                 'N'
+
+     5   ID_CATEGORIE               smallint(5)
+
+     6   SAUV_COPIE                 char(1)
+
+     7   TYPE_IMPR                  char(5)
+
+     8   TYPE_DOC                   char(2)
+
+     9   ID_FILTRE_SURLIGNAGE       smallint(5)
+
+    10   MARGE_G                    int(10)         Marge gauche
+
+    11   TEXTE_HG                   varchar(2000)   Entête haut gauche
+
+    12   TEXTE_HM                   varchar(2000)   Entête haut milieu
+
+    13   TEXTE_HD                   varchar(2000)   Entête haut droit
+
+    14   TEXTE_BG                   varchar(2000)   Entête bas gauche
+
+    15   TEXTE_BM                   varchar(2000)   Entête bas milieu
+
+    16   TEXTE_BD                   varchar(2000)   Entête bas droit
+
+    17   MARGE_D                    int(10)         Marge droite
+
+    18   MARGE_H                    int(10)         Marge haut
+
+    19   MARGE_B                    int(10)         Marge bas
+                                                    O : Portrait
+    20   PORTRAIT                   char(1)                                                 'O'
+                                                    N : Paysage
+    21   TYPE_DISPONIBILITE         char(1)
+
+    22   MODIF_AVANT_IMP            char(1)
+
+    23   NB_COLONNE                 smallint(5)     Nombre de colonnes
+
+    24   NB_IMPRESSION              smallint(5)     Nombre d'impressions
+
+    25   NB_IMPR_DEFAUT             smallint(5)
+
+    26   DUPLICATA                  char(1)

@@ -1,0 +1,9 @@
+==== TB_TYPE_HOSPIT ====
+Thésaurus des Types de Séjour Clé :
+Thésaurus des Types de Séjour
+                                                       Clé :
+       1    ID_HOSPIT                   int(10)
+                                                       Indentifiant interne
+       2    CODE_HOSPIT                 char(3)        Code Type de Séjour (PrisMédica)
+
+       3    LIBELLE_HOSPIT              char(50)       Libellé du Type de Séjour (ex : 'Hospitalisation')

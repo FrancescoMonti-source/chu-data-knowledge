@@ -1,0 +1,16 @@
+==== R_TB03 ====
+Règles TarifairesLe coef asso. prévu doit être rattaché à une grille Tarifaire.
+                                                        CCAM n° 36
+       1   COD_REGLE                      char(1)
+                                                        Code Règle Tarifaire
+       2   DT_DEBUT                       datetime      date d'effet de la règle
+
+       3   LIBELLE                        char(254)     règle tarifaire
+
+       4   LIBELLE0                       char(254)     Suite du libelle
+
+       5   COEF                           float(53)     coefficient associé à la règle
+
+       6   DT_FIN                         datetime      Date de fin
+
+       7   GRILLE_COD                     smallint(5)   code grille

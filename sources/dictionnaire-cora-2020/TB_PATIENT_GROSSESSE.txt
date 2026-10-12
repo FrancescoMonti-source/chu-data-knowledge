@@ -1,0 +1,42 @@
+==== TB_PATIENT_GROSSESSE ====
+     1    ID_PATIENT_GROSSESSE    int(10)       Identifiant de la grossesse du patient - clé de la table
+
+     2    ID_PATIENT              int(10)       FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3    ORDRE                   smallint(5)
+
+     4    GROSSESSE               char(1)                                                                                 'N'
+
+     5    ALLAITEMENT             char(1)       Si la mère allaite 'O' sinon 'N'                                          'N'
+
+     6    DATE_DERNIERES_REGLES   datetime      Date des dernières règles du patient
+           DATE_ACCOUCHEMENT_PRE
+       7                         datetime              Date prévue de l'accouchement
+           VU
+           DATE_ACCOUCHEMENT_REE
+       8                         datetime              Date réelle de l'accouchement
+           LLE
+       9   NB_ENFANT_PREVU             smallint(5)     Nombre d'enfants prévus
+
+      10   NB_ENFANT_NAIS              smallint(5)     Nombre d'enfants à la naissance
+
+      11   NB_ENFANT                   smallint(5)     Nombre d'enfant de la grossesse
+
+      12   TYPE_ACCOUCHEMENT           char(1)
+           TECHNIQUE_ACCOUCHEMEN
+      13                         char(1)
+           T
+      14   EN_AGE_DE_PROCREER          char(1)         En age de procréer. 'O' pour oui                                          'N'
+
+      15   COMMENTAIRE                 varchar(2000)   Commentaire
+
+      16   DATE_INFO                   datetime        Date de la dernière modification
+
+      17   HEURE_INFO                  datetime        Heure de la derniere modification
+                                                       Lien vers Util.ID_UTIL.
+      18   ID_INFO                     int(10)
+                                                       Identifiant de l'utilisateur ayant effectué la dernière modification
+      19   DATE_CREAT                  datetime        Date de création
+                                                       Lien sur TB_UTIL.ID_UTIL
+      20   ID_CREAT                    int(10)
+                                                       Identifiant de l'utilisateur de création

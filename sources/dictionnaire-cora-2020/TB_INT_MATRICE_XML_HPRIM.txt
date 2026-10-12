@@ -1,0 +1,16 @@
+==== TB_INT_MATRICE_XML_HPRIM ====
+Matrice permettant de spliter un fichier XML en fichier texte en indiquant pour chaque chemin XML une position dans le fichier
+texte à plat et sa longueur.
+       1   ID                            smallint(5)    Clef
+
+       2   LIBELLE                       varchar(50)    Descriptif
+
+       3   CHEMIN                        varchar(250)   Chemin XPath => position de la donnée dans le fichier XML
+
+       4   POSITION                      smallint(5)    Index de position dans le fichier texte
+
+       5   LONGUEUR                      smallint(5)    Longueur maximale de la donnée
+
+       6   TYPE                          char(3)        Entier, chaine, date...
+
+       7   GROUPE                        char(2)        Type de donnée CCAM NGAP...

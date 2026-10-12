@@ -1,0 +1,20 @@
+==== TB_PSY_LIEU ====
+Table des lieux Clé :
+Table des lieux
+                                                       Clé :
+       1   ID_LIEU                    smallint(5)
+                                                       Identifiant du lieu
+       2   CODE_LIEU                  char(10)         Code du lieu
+
+       3   LIBELLE_LIEU               varchar(200)     Libellé du lieu
+                                                       Lien sur TB_PMSI_PSY_LIEU.ID_PSY_LIEU :
+       4   ID_LIEU_REF                smallint(5)
+                                                       Identifiant du lieu de référence
+       5   CODE_FICHE                 char(10)         Code fiche
+
+       6   CODE_SAE                   char(10)         Code SAE
+
+       7   FINESS_GEO                 char(10)         Finess géographique
+                                                       Lien sur TB_PSY_SECTEUR.CODE_SECTEUR :
+       8   CODE_SECTEUR               char(5)
+                                                       Code du secteur

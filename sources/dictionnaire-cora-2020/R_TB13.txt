@@ -1,0 +1,12 @@
+==== R_TB13 ====
+natures de prestation caractérisant le codage CCAM
+       1   COD_NATURE                 char(3)        code nature prestation
+                                                     date début de la nature de
+       2   DT_DEBUT                   datetime
+                                                     prestation
+                                                     date fin de la nature de
+       3   DT_FIN                     datetime
+                                                     prestation
+                                                     top équivalent lettre clé de la
+       4   TOP_LC                     char(1)
+                                                     nature de prestation

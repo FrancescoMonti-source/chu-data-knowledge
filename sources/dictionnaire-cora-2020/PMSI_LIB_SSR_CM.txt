@@ -1,0 +1,9 @@
+==== PMSI_LIB_SSR_CM ====
+Tale des Catégories Majeures en SSR
+       1   CODE_CM                     char(2)         Code de la Catégorie Majeure
+
+       2   LIBELLE_CM                  varchar(500)    Libellé de la Catégorie Majeure
+
+       3   DATE_DEBUT                  datetime        Date de début de validité de la CM
+
+       4   DATE_FIN                    datetime        Date de fin de validité de la CM

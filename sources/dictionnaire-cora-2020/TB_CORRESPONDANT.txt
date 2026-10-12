@@ -1,0 +1,61 @@
+==== TB_CORRESPONDANT ====
+Table des correspondants (carnet d'adresses)
+                                                       Clé :
+       1   ID_CORRESPONDANT           int(10)
+                                                       Identifiant (PrisMédica) du correspondant
+                                                       Lien sur TB_TYPE_CORRESPONDANT.ID_TYPE_CORRESPONDANT :
+       2   ID_TYPE_CORRESPONDANT      int(10)
+                                                       Identifiant du Type de correspondant. Lien non principal (Lien obligatoire)
+                                                      Lien sur TB_CIVILITE.ID_CIVILITE :
+       3   ID_CIVILITE                 smallint(5)
+                                                      Identifiant de la civilité du correspondant. Lien non principal (Lien obligatoire)
+       4   NOM_CORRESPONDANT           varchar(50)    Nom du correspondant (Données obligatoire)
+
+       5   PRENOM_CORRESPONDANT varchar(50)           Prenom du correspondant
+
+       6   ADRESSE_1                   varchar(100)   Adresse du Correspondant
+
+       7   ADRESSE_2                   varchar(100)   Adresse du Correspondant (suite)
+                                                      Lien sur TB_COMMUNE.ID_COMMUNE :
+       8   ID_COMMUNE                  int(10)
+                                                      Identifiant de la commune de l'adresse du correspondant. Lien non principal
+       9   TELEPHONE_1                 varchar(25)    Numéro de téléphone du correspondant
+
+      10   TELEPHONE_2                 varchar(25)    Numéro de téléphone du correspondant
+
+      11   TELEPHONE_3                 varchar(25)    Numéro de téléphone du correspondant
+
+      12   EMAIL_1                     varchar(100)   E-mail du correspondant
+
+      13   EMAIL_2                     varchar(100)   E-mail du correspondant
+
+      14   EMAIL_3                     varchar(100)   E-mail du correspondant
+
+      15   COMMENTAIRE                 varchar(200)   Commentaire sur le correspondant
+                                                      Correspondant actif:
+                                                      - 'O' pour oui
+      16   ACTIF                       char(1)
+                                                      - 'N' pour non
+                                                      - 'P' pour provisoire
+                                                      Lien sur TB_SPECIALITE.ID_SPECIALITE :
+      17   ID_SPECIA_1                 smallint(5)
+                                                      Identifiant de la première spécialité du correspondant. Lien non principal
+                                                      Lien sur TB_SPECIALITE.ID_SPECIALITE :
+      18   ID_SPECIA_2                 smallint(5)
+                                                      Identifiant de la deuxième spécialité du correspondant. Lien non principal
+      19   SEXE                        char(1)        Définit le sexe du correspondant.
+
+      20   ID_EXTERNE                  int(10)        Définit l'identifiant externe du correspondant.
+                                                      Définit un boolean indiquant si le correspondant souhaite recevoir le courrier
+      21   ENVOI_PJ                    char(1)
+                                                      en pièce jointe des emails.
+                                                      Définit le type de format de réception d'un document.
+                                                      P - Papier
+      22   TYPE_FORMAT_RECEPTION       char(1)                                                                                                'P'
+                                                      M - Mail
+                                                      D - Papier et mail
+      23   NO_RPPS                     varchar(11)    Définit le numéro RPPS du correspondant.
+
+      24   NO_ADELI                    varchar(9)     Définit le numéro Adéli du correspondant.
+
+      25   ID_EXTERNE_HL7              varchar(50)

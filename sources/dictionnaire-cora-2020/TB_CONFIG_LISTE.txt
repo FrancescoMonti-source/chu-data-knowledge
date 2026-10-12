@@ -1,0 +1,247 @@
+==== TB_CONFIG_LISTE ====
+Table de stockage des paramétres établissement
+                                                       Clé : Code du paramètre
+                                                       Code Utilisé :
+
+                                                       - MODIF_UNITE : date de dernière modification du thesaurus unité
+                                                       - ACT_REA_ALIGN_D : Paramètre indiquant si la vue Tableau réa doit être
+                                                       centrée sur le dernier jour du mouvement (Valeur = 'O')
+                                                       - INIT_UF_DEM_EXT : Paramètre d'initialisation de l'unité demandeuse dans
+                                                       l'écran des externes
+                                                                             Valeur 'H' pour 'Unité d'hospit.', (idem que paramètre non
+                                                       renseigné)
+                                                                             Valeur 'V' pour 'Vide',
+                                                                             Valeur 'E' pour initialisation par rapport à l'unité
+                                                       d'exécution de l'acte,
+                                                       - INIT_UF_DEM_HOS : Paramètre d'initialisation de l'unité demandeuse en
+                                                       hospit.
+                                                                             Valeur 'H' pour 'Unité d'hospit. hebergement'
+                       Valeur 'R' pour 'Unité d'hospit. responsabilité'
+                       Valeur 'V' pour 'Vide',
+                       Si vide, UF Mouvement PMSI
+- CQ_REC_CIM : contrôle qualité activé pour le contrôle qualité Recueil
+- CIM
+- CQ_REC_CCAM : contrôle qualité activé pour le contrôle qualité Recueil
+- CCAM
+- CCAM_OPE_OBL : 'O' si saisie obligatoire de l'exécutant des actes pour
+toutes les unités, 'N' si saisie non obligatoire, 'C' : uniquement pour l'activité 1
+- CCAM_DEM_OBL : 'O' si saisie obligatoire de l'unité demandeuse
+- CCAM_SITE_OBL : 'O' si saisie obligatoire du site d'exécution des actes
+- CCAM_SPROD_OBL : 'O' si saisie obligatoire du site de production des actes
+- CCAM_SITE_VID : 'O' si pas d'initialisation par défaut (cas plusieurs choix
+possibles)
+- CCAM_SPROD_VID : 'O' si pas d'initialisation par défaut (cas plusieurs choix
+possibles)
+- DROIT_FUS_PAT : 'O' si gestion du droit de fusion des patients provisoires
+- MOD_MON_FRS : Date de dernière modification des thésaurus des
+fournisseurs Monitoring
+- MOD_MON_MACHINE : Date de dernière modification des thésaurus des
+machines Monitoring
+- MOD_MON_VARIA : Date de dernière modification des thésaurus des
+variables Monitoring
+- MOD_MON_UNITE : Date de dernière modification des thésaurus des unites
+Monitoring
+- GESTION_RSP : Gestion des mouvements de RSP dans CoRa (création)
+- PSY_BLOC_ADMIN : Blocage des données administratives saisies en Psy
+(Mode Légal, Sorties Essai, Perm, Venues, ...)
+- PATH_CROSSWAY : chemin où se trouve le crosspath Crossway
+- APPEL_MBLOC : O si on souhaite appeler le WS MBloc en plus de la licence
+- APPEL_MQP : O si on souhaite lire les UCD Crossway en plus de la licence
+- USER_PK_XWAY : nom du propriétaire des PK (ICSF, CW_PROD, ...)
+- AUTO_ETAB_30 : autorisation PMSI PMCO 30
+- AUTO_ETAB_60 : autorisation PMSI PMCO 60
+- CONCAT_SEJ_SEA : Concatenation du No Sejour et de la Date de Séance
+pour les séances
+- RECU_CROSSWAY : mode de Recueil (O pour Crossway. CORA sino)
+- VERS_CROSSWAY : version de Crossway
+- SYNC_DIAG_XWAY : Syncho des diags avec Crossway : M pour Manuel, A
+pour Auto,N pour rien)
+- PSY_AMB_CENSITE : Centrage de l'UF d'execution de l'acte sur le site de
+connexion de l'utilisateur pour les actes ambulatoires
+- PSY_AMB_CTMVTUF : Contrôle de cohérence entre l'UF d'exécution de
+l'acte et l'UF du mouvement
+- PSY_AMB_INILIEU : préinitialisation du premier lieu ambu
+- PSY_AMB_MODLEG1 : initialisation mode légal à 1
+- PSY_AMB_CENSITE :
+- PSY_AMB_CTMVTUF : contrôle du site / UF mouvement lors de la validation
+ambu
+- SAISIE_CSARR : Gestion de la date de saisie des actes CSARR
+- NEW_ECR_EXT : Gestion du nouvel écran des externes (CORA PMSI
+3.7.810)
+- GEST_CCAM_TM : Gestion ou non de l'info ticket modérateur lors de la
+saisie des actes CCAM (Ecran Externes + Validation Actes CCAM)
+- CCAM_TM_7_DEF : Gestion du code 7 (dispositif de prévention) par défaut
+pour le ticket modérateur
+- CCAM_EXDOC4_OBL : Gestion de l'extension documentaire obligatoire pour
+l'activité 4
+- GEST_AUTO_FT : Vrai si on gère les forfaits tecniques scanner et irm ->
+modification du paramètre dans Admin Recueil
+- INTEG_PDR : Vrai si on gère les PDR CW -> modification du paramètre dans
+Admin Recueil (thésaurus -> intégration gamme M)
+- DET_NBINT_CSARR : Vrai si on la saisie détaillée du nombre d'intervenant
+Csarr (SSR) -> modification du paramètre dans Admin Recueil -> configuration
+de l'établissement
+- COPY_CSARRMULTI : Paramètre de recopie des actes csarr multi - 0 :
+recopie actes multi interdit - 1 : recopie des actes multi autorisée avec
+confirmation - 2 : recopie des actes multi autorisée sans confirmation
+- SIGNAUTO_VALDIM : Vrai si on signe automatiquement le statut validé dim -
+> modification du paramètre dans Admin Recueil -> configuration de
+l'établissement
+- VALIDE_DIM_BAL : Si vrai on insère les actions (validation/dévalidation)
+dans la table TB_SYNTH_RSS_BAL -> modification du paramètre dans Admin
+Recueil -> Thésaurus -> Intégration Gamme Mc Kesson -> par défaut pas
+d'ecriture dans la BAL
+- INTEG_MEVA :Flag indiquant si CORA doit gérer l'intégration à M-EVA
+- PORT_BUSMEVA : Numero du port pour le bus de message M-EVA
+- PATH_GAM : chemin où se trouve les executables GAM pour le lancement
+                                de la synthèse GAM
+                                - M-ENTREPOT : Flag indique si CORA doit intégrer M-ENTREPOT pour la
+                                proposition de codage des diags
+                                - URL_WSMENTREPOT : URL d'accès au Web Service remontant les
+                                documents M-ENTREPOT
+                                - AUTOR_VALID_LOT : O si la validation par lot est autorisée
+                                - MONO_CORA : O si on utilise la monographie CORA
+                                - MONO_SRV : Adresse du serveur de l'intranet Thériaque
+                                - UNITE_SORTI_URG : Code de l'unité d'externe a utiliser pour la sortie
+                                depuis les urgences
+                                - AD_PROFILREC : préfixe qui permet d'associer un groupe AD (MemberOf) à
+                                un profil CORA RECUEIL
+                                - AD_PROFILAGD : préfixe qui permet d'associer un groupe AD (MemberOf) à
+                                un profil CORA AGENDA
+                                - AD_PROFILDPI : préfixe qui permet d'associer un groupe AD (MemberOf) à
+                                un profil CORA DPI
+                                - AD_GRPUNITE : préfixe qui permet d'associer un groupe AD (MemberOf) à
+                                un groupe d'unité
+                                - DUREE_CSARR : Vrai si on gère la saisie de la durée des actes CSARR
+                                - GEST_DIP_JOUR : vrai si on souhaite gérer les forfaits DIP de manière
+                                journalière et non par acte.
+                                - CONTXT_PS_ETAB : Contexte Praticien par défaut SANS activite liberale ->
+1   CODE_CONFIG   varchar(15)
+                                Etablissement public
+                                - CONTXT_PS_LIBE : Contexte Praticien par défaut AVEC activite liberale ->
+                                Etablissement privée + public
+                                - CONTXT_BS : Contexte Beneficiaire par défaut
+                                - CCAM_POSDEN_OBL : Vrai si la saisie des positions dentaires est
+                                obligatoire dans le cas de saisie d'actes CCAM dentaires
+                                - HPRIMXML_1.07 : Date de passage au fomat H'XML en version 1.07 ou
+                                supérieure (Dans le cadre de l'arrêt de la gestion de la notion ALD dans le
+                                parcours de soins)
+                                - GEST_PROC_VBNET : utilisation des procédures contrôle qualité et
+                                groupage VB.Net en passant par CORA Pass
+                                    --> Renommé en GEST_PROC_V4
+                                - PEC_PSY_TP : Gestion de la liste des prises en charge pour lesquelles la
+                                saisie détaillée est activée en PSY. Les valeurs sont séparées par des ";" (i.e.
+                                30;31;32).
+                                - PSY_SAISIE_HV : En PSY, indique en cas de saisie détaillée si la saisie hors
+                                venue est possible (valeurs possibles : "O" ou "N").
+                                - MAIL_DEFAUT_PAT : Définit pour CORA Document, l'adresse mail par
+                                défaut pour l'envoi de mail.
+                                - SITE_REA_CSARR : En SSR, indique si la saisie du site de réalisation des
+                                actes CSARR doit être effectuée (valeurs possibles : "O" ou "N").
+                                - GRP_FINESS_GEOD : date d'activation du groupage par finess
+                                géographique (une date)
+                                - GRP_FINESS_GEOE : active ou non l'exclusion des RSS généré avant la
+                                date d'activationdu groupage par finess géographique (O/N)
+                                - FERMETURE_CONN : Délai de fermeture des connexions inactives en
+                                minutes
+                                - GESTION_NOTE : affichage du menu note dans l'écran RUM pour les
+                                versions V4
+                                - USE_EXE_CP : active l'utilisation de l'exe CrossPass au lieu de la dll (valeurs
+                                possibles : "O" ou "N").
+                                - GRP_SEM_SSR: En SSR, indique si le groupage semaine doit être réalisé
+                                dans le cas des hospitalisations complètes (valeurs possibles: "O" ou "N")
+                                - VERR_DIAG : Indique si le verrouillage des diagnostics au niveau
+                                établissement est autorisé (valeurs possibles : "O" ou "N).
+                                - UF_MULTI_UM : Indique si la gestion des UF multi UM est activée (valeurs
+                                possibles : "O" ou "N).
+                                - PARAM_DE_POPMCO : Paramètres personnalisés d'intégration des
+                                données externes dans l'écran des populations MCO
+                                - PARAM_DE_POPSSR : Paramètres personnalisés d'intégration des données
+                                externes dans l'écran des populations SSR
+                                - SAISIE_RAP_EVT : Paramètre pour activer la saisie rapide des évènements
+                                (formulaires du générateur d'écrans)
+                                - HIST_GRP_CMD_90 : Historisation des groupages en CMD90 (valeurs
+                                possibles : "O" ou "N")
+                                - CONT_OFFICIEL : liste des éléments du contenu officiel stockés en XML
+                                dans le champ FICHIER_CONFIG.
+                                - GEST_COM_REC : Gestion des commentaires de recueil et des campagnes
+                                de contrôles (valeurs possibles : "O" ou "N)
+                                - PARAM_PREDICE : Paramétrage de fusion des modèles de documents pour
+                                l'envoi predice
+                                - PARAM_IDEOLINK : Parametrage de lancement de l'appel Idéolink
+                                - PARAM_UNIQUE_CC : Paramétrage unique ou par établissement des
+                                champs personnalisables des campagnes de contrôles dans le cas des GHT
+                                (valeurs possibles "O" ou "N")
+                                - NEW_NO_SEMAINE : Indique si la gestion des nouveaux numéros de
+                                                      semaine est activée (valeurs possibles : "O" ou "N)
+                                                      - PARAM_RU : Active la possibilité de paramétrer le paramètre
+                                                      READ_UNCOMMIT depuis CORA Admin Recueil (valeurs possibles : "O" ou
+                                                      "N).
+                                                      - READ_UNCOMMIT : Active les transactions Read Uncommitted (valeurs
+                                                      possibles : "O" ou "N).
+                                                      - FICUM_EN_ENTIER: Génération du FICUM avec l'ensemble de la structure
+                                                      pour chaque groupage (valeurs possibles : "O" ou "N")
+                                                      - DT_CONT_AFFINES : Droits DIM/TIM affinés sur le contenu (statistiques et
+                                                      consoles)
+                                                      - DT_GES_PRES_SSR : Date d'application détaillée des jours de présence et
+                                                      permission
+                                                      - RESTR-CHP-HC: Indique si l'affichage de la conversion hospitalisation
+                                                      partielle hospitalisation complète est restreint au UM d'hospitalisation complète
+                                                      ou mixte.(valeurs possibles : "O" ou "N")
+                                                      - OPT_CONVERSION : Indique la valeur par défaut de la conversion
+                                                      Hospitalisation partielle hospitalisation complète. Valable seulement si l'option
+                                                      de restriction n'est pas cochée (valeurs possibles : " " ou "2")
+                                                      - PLAN_EXEC_NBLOC : Paramètre caché. Indique si la restriction sur le plan
+                                                      exécution est bloquante au niveau du requêteur ("N" ou vide) ou non ("O").
+                                                      (valeurs possibles : "O" ou "N")
+                                                      - RAAC_RUM : Indique si la prise en charge RAAC peut être
+                                                      visualiser/modifier au niveau du RUM (valeurs possibles :"O" ou "N")
+                                                      - RAAC_CONFIRM: Option permettant de modifier le RAAC avec confirmation
+                                                      ou non (valeurs possibles :"O" ou "N")
+                                                      - SANCARE_AC_RUM : Indique que l'appel contextuel de Sancare est
+                                                      possible depuis l'écran RUM (valeurs possibles : "O" ou "N")
+                                                      - SANCARE_AC_RSS : Indique que l'appel contextuel de Sancare est possible
+                                                      depuis l'écran RSS (valeurs possibles : "O" ou "N")
+                                                      - SANCARE_PATH : Paramétrage du chemin d'accès à Sancare.
+                                                      - SOLFEGES_PATH : Paramétrage du chemin d'accès à l'API Solféges.
+                                                      - SOLFEGES_PORT : Paramétrage du port d'accès à l'API Solféges.
+                                                      - CONST_SOLFEGES : Contient la constante du chemin d'accès solféges.
+                                                      Non modifiable depuis le code, seulement par script si l'ATIH décide de la
+                                                      changer il suffira de modifier cette donnée.
+                                                      - CSARR_MODUL : Gestion de la saisie tableau CSARR par couple acte +
+                                                      modulateurs (valeurs possibles : "O" ou "N")
+                                                      - VALID_CIM_SSR               : Gestion de la validité des diags en SSR HC par
+                                                      rapport à la date de sortie du séjour
+                                                      - VERSION_NX_UCD : infos sur l'import NX des UCD
+                                                      - VERS_XLS_MONSSR : infos sur l'import de la liste des UCD SSR
+                                                      - VERS_XLS_MONHAD : infos sur l'import de la liste des UCD HAD
+                                                      - VERSION_XLS_ATU : infos sur l'import de la liste des UCD ATU
+                                                      - VERSXLS_POSTATU : infos sur l'import de la liste des UCD POST ATU
+                                                      - VERSION_XLS_ATH : infos sur l'import de la liste des UCD ATH
+                                                      - VERSION_XLS_LES : infos sur l'import de la liste des Code LES
+                                                      - VERS_XLS_UCDLES : infos sur l'import de la matrice UCD LES
+                                                      - XLS_ATU_INDIC : infos sur l'import de la matrice ATU Indication
+                                                      - PARAM_DATEXPMRC : Paramétrage personnalisés des formats
+                                                      d'intégration des données MRC
+                                                      - DATEXPMRC_SEP : Paramétrage du séparateur personnalisé des formats
+                                                      d'intégration des données MRC
+                                                      - FORMATOFFDATEXP: Pamétrage indiquant si on utilise les formats officiels
+                                                      pour l'import du datexp ou si on utilise les formats personnalisés (valeurs
+                                                      possibles : "O" ou "N")
+                                                      - AJ_MAN_MRC : Ajout manuel de données MRC (maladie rénale chronique)
+                                                      (valeurs possibles : "O" ou "N")
+                                                      -ANP_EXCEPT_DENT : Renseigne une exception dentaire pour le calcul des
+                                                      ANP
+                                                      -PRE_M_CCAM : Liste de présélection des modificateurs CCAM
+                                                      Type de donnée
+                                                      - D : Date et Heure
+       2   TYPE_CONFIG                 char(1)        - C : Caractères
+                                                      - N : Numérique (avec virgules)
+                                                      - E : Entier
+       3   VAL_CONFIG                  varchar(200)   Valeur du paramètre
+
+       4   DATE_MODIF                  datetime       Date de dernière modification du paramètre
+                                       text           Fichier de configuration (PJ)
+       5   FICHIER_CONFIG
+                                       (2147483647)   Par exemple, fichier XML de configuration
+       6   ID_EJ                       int(10)        FK TB_EJ 0 par défaut                                                               0

@@ -1,0 +1,44 @@
+==== TB_PARAM_GESTION_UNITE ====
+Code du paramètre unité : OBSERV_OUV_DEF_SEJ CONSULT_OUV_DEF RECH_MED_EQUIVALENCES RECH_MED_SUBSTITUTIONS PANCARTE_NB_HEURES PANCARTE_INTERVALLE PANCARTE_RATIO LISTE_ACTIONS DELAI_ALERTE_FIN_SEJ LISTE_VARIABLES_NB_JOURS LISTE_BILANS_NB_JOURS LISTE_TC_NB_JOURS ID_BILAN_ACCUEIL ACTES_TECHNIQUES ID_MODELE_AUTO_DIFF_INFO PLANIF_DEPASSEE_NB_JOURS PRESC_ARRET_NB_HEURES
+                                                  Code du paramètre unité :
+                                                  OBSERV_OUV_DEF_SEJ
+                                                  CONSULT_OUV_DEF
+                                                  RECH_MED_EQUIVALENCES
+                                                  RECH_MED_SUBSTITUTIONS
+                                                  PANCARTE_NB_HEURES
+                                                  PANCARTE_INTERVALLE
+                                                  PANCARTE_RATIO
+                                                  LISTE_ACTIONS
+                                                  DELAI_ALERTE_FIN_SEJ
+                                                  LISTE_VARIABLES_NB_JOURS
+                                                  LISTE_BILANS_NB_JOURS
+                                                  LISTE_TC_NB_JOURS
+                                                  ID_BILAN_ACCUEIL
+                                                  ACTES_TECHNIQUES
+                                                  ID_MODELE_AUTO_DIFF_INFO
+                                                  PLANIF_DEPASSEE_NB_JOURS
+                                                  PRESC_ARRET_NB_HEURES
+    1    CODE_PARAMETRE            varchar(30)    OUVERTURE_EPISODES
+                                                  POSITION_ECR_SYNTH
+                                                  RECH_MED_COMMENCE_PAR
+                                                  RECH_MED_CLASSE_ATC
+                                                  RECH_MED_SPEC_ORDRE
+                                                  RECH_MED_FAV_ORDRE
+                                                  RECH_MED_PROTO_ORDRE
+                                                  RECH_MED_ASSO_ORDRE
+                                                  RECH_MED_INAC_ATC
+                                                  RECH_MED_ATC_UN
+                                                  MAJ_ONGLET
+                                                  MAJ_ONGLET_NB_MIN
+                                                  EXPORT_ORDO
+                                                  EXPORT_PRESC
+                                                  UNITE_SORTI_URG
+                                                  RECH_MED_DC
+                                                  TRT_SPE_UNITE
+                                                  ORDRE_RPU : Ordre du RPU de l'unité pour le format de la remontée de
+                                                  données des urgences
+    2    TYPE_PARAMETRE            char(2)        Non utilisé
+
+    3    VALEUR_PARAMETRE          varchar(200)   Valeur du paramètre
+
+    4    ID_UNITE                  int(10)        Identifiant de l'unité

@@ -1,0 +1,10 @@
+==== TB_THES_GROUPE_CHAMBRE ====
+Thésaurus des groupes de chambres
+                                                       Clé de la table
+       1   ID_GROUPE_CHAMBRE           smallint(5)
+                                                       Identifiant du groupe de chambre
+       2   CODE_GROUPE_CHAMBRE         varchar(10)     Code du groupe de chambre
+
+       3   LIB_GROUPE_CHAMBRE          varchar(100)    Libellé du groupe de chambre
+
+       4   ACTIF                       char(1)         Indique si le groupe de chambre est actif (O/N)                   'O'

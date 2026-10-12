@@ -1,0 +1,6 @@
+==== TB_THES_EPISODE_UNITE ====
+      1    ID_EPISODE               smallint(5)
+
+      2    ID_UNITE                 int(10)
+
+      3    DEFAUT                   char(1)                                                                                  'N'

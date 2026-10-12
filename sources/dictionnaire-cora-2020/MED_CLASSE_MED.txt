@@ -1,0 +1,4 @@
+==== MED_CLASSE_MED ====
+    1    ID_CLASSE_PHARMA    smallint(5)
+
+    2    ID_MED              int(10)

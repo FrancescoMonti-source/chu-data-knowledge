@@ -1,0 +1,6 @@
+==== FG_DP_EXCLUANT ====
+       1   VERSION_FG                 char(3)           Version de la fonction de groupage
+
+       2   CODE_DP                    char(16)
+
+       3   CODE_DAS                   char(16)

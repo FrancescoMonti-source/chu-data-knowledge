@@ -1,0 +1,5 @@
+==== PMSI_LIB_CMC ====
+Table contenant les catégories majeures des RHS avant les GME (obsolète)
+       1   CODE_CMC                    char(3)        Code de la catégorie CMC (obsolète depuis la classification en GME)
+
+       2   LIBELLE_CMC                 varchar(250)   Libellé de la CMC

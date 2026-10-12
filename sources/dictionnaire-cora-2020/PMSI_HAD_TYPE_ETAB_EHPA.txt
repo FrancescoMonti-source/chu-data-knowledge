@@ -1,0 +1,7 @@
+==== PMSI_HAD_TYPE_ETAB_EHPA ====
+Table contenant les données des types d'établissements en HAD
+       1   CODE                        char(2)         Clé: Identifiant du type d'établissement.
+
+       2   LIBELLE                     varchar(200)    Libellé du type d'établissement.
+
+       3   ORDRE                       int(10)         Numéro d'ordre du type d'établissement

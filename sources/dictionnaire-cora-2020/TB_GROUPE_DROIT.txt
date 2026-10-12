@@ -1,0 +1,5 @@
+==== TB_GROUPE_DROIT ====
+gestion des groupes d'unité
+       1   ID_GROUPE_DROIT             smallint(5)
+
+       2   LIB_GROUPE_DROIT            varchar(100)

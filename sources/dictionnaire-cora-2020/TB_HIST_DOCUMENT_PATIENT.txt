@@ -1,0 +1,166 @@
+==== TB_HIST_DOCUMENT_PATIENT ====
+Cette table contient l'ensemble des documents patients historiés (Courriers Correspondant, Certificats, Courriers libres,
+Protocole de document).
+                                                       Clé :
+       1   ID_DOCUMENT_PATIENT          int(10)
+                                                       Définit l'identifiant du document patient ou courrier libre.
+                                                       Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                   int(10)
+                                                       Définit l'identifiant du patient rattaché au document (0 si courrier libre).
+                                                       Lien sur TB_PATIENT.ID_SEJOUR :
+       3   ID_SEJOUR                    int(10)
+                                                       Définit l'identifiant du séjour rattaché au document (0 si courrier libre).
+                                                       Lien sur TB_PATIENT.ID_MVT :
+       4   ID_MVT                       int(10)
+                                                       Définit l'identifiant du mouvement rattaché au document (0 si courrier libre).
+                                                       Lien sur TB_INTERVENTION.ID_INTERVENTION :
+       5   ID_INTERVENTION              int(10)
+                                                       Définit l'identifiant de l'intervention rattachée au document (0 si courrier libre).
+       6   DATE_COURRIER                datetime       Définit la date du courrier (création de la fiche Courrier-Modifiable).
+                                                       Lien sur Util.id_util :
+       7   ID_AUTEUR                    int(10)
+                                                       Définit l'identifiant de l'auteur du document.
+                                                       Lien sur Util.id_util :
+       8   ID_SECRETAIRE                int(10)
+                                                       Définit l'identifiant de la secrétaire du document.
+       9   CHRONO_DOC                   varchar(20)    Définit le nom du fichier word (sans extension).
+                                          Définit le type du document :
+                                          - 01 pour un Courrier Correspondant rattaché au niveau Mouvement
+                                          - 02 pour un Certificat (rattaché à un patient)
+                                          - 03 pour un Courrier Libre (non rattaché à un patient)
+                                          - 04 pour un Protocole de Document (non existant au 29/03/05)
+10   TYPE_DOC              char(2)
+                                          - 05 pour un Courrier Correspondant Importé rattaché au niveau Mouvement
+                                          - 06 pour un Courrier Correspondant rattaché au niveau Patient
+                                          - 07 pour un Courrier Correspondant rattaché au niveau Séjour
+                                          - 08 pour un Courrier Correspondant Importé rattaché au niveau Patient
+                                          - 09 pour un Courrier Correspondant Importé rattaché au niveau Séjour
+                                          Lien sur TB_STATUT_DOC.ID_STATUT_DOC :
+11   ID_STATUT             smallint(5)
+                                          Définit l'identifiant du statut du document.
+14   COMMENTAIRE           varchar(150)   Définit les commentaires généraux sur le document.
+                                          Définit un boolean indiquant si le courrier est actif (un courrier avec document
+                                          stocké ne sera pas supprimé mais inactivé).
+15   ACTIF                 char(1)
+                                          - 'O' pour Actif
+                                          - 'N' pour inactif (ou !='O')
+16   HEURE_INACTIF         datetime       Définit l'heure de l'inactivation.
+
+17   DATE_INACTIF          datetime       Définit la date de l'inactivation.
+                                          Lien sur Util.id_util :
+18   ID_INACTIF            int(10)
+                                          Définit l'identifiant de l'utilisateur qui inactive le document.
+                                          Lien sur TB_UNITE.ID_UNITE :
+19   ID_UNITE              int(10)
+                                          Définit l'identifiant de l'unité rédactrice du courrier.
+20   HEURE_CREAT           datetime       Définit l'heure de création du courrier.
+
+21   DATE_CREAT            datetime       Définit la date de création du courrier.
+                                          Lien sur Util.id_util :
+22   ID_CREAT              int(10)
+                                          Définit l'identifiant de l'utilisateur qui crée le courrier.
+                                          Lien sur TB_MODELE_DOCUMENT.ID_MODELE_DOCUMENT :
+23   ID_MODELE             int(10)
+                                          Définit l'identifiant du modèle dont hérite le courrier.
+                                          Définit un boolean indiquant si la secrétaire du document a les droits de
+24   DROIT_SEC             char(1)        Création, Modification, Suppression.
+                                          - 'O' pour avoir les droits
+                                          Définit un boolean indiquant si l'auteur du document a les droits de Création,
+25   DROIT_AUT             char(1)        Modification, Suppression.
+                                          - 'O' pour avoir les droits
+                                          Définit un boolean indiquant si les secrétaires de l'unité ont les droits de
+26   DROIT_SEC_UNI         char(1)        Création, Modification, Suppression.
+                                          - 'O' pour avoir les droits
+                                          Définit un boolean indiquant si les médecins de l'unité ont les droits de
+27   DROIT_AUT_UNI         char(1)        Création, Modification, Suppression.
+                                          - 'O' pour avoir les droits
+                                          Définit un boolean indiquant si l'ensemble des utilisateurs ont les droits de
+28   DROIT_TOUS            char(1)        Création, Modification, Suppression.
+                                          - 'O' pour avoir les droits
+                                          Lien sur TB_UNITE_MEDICALE.ID_UNITE_MED :
+29   ID_UNITE_MED          int(10)
+                                          Définit l'identifiant de l'unité médicale rédactrice du courrier.
+                                          Définit un boolean indiquant si les secrétaires de l'UM ont les droits de
+30   DROIT_SEC_UM          char(1)        Création, Modification, Suppression.
+                                          - 'O' pour avoir les droits
+                                          Définit un boolean indiquant si les médecins de l'UM ont les droits de Création,
+31   DROIT_AUT_UM          char(1)        Modification, Suppression.
+                                          - 'O' pour avoir les droits
+32   STATUT_DOC_SS_CORR    char(1)        Définit un boolean indiquant si le document est sans correspondant.
+
+33   COPIE_PATIENT         char(1)        Définit un boolean indiquant si une copie au patient a été réalisée.
+                                          Définit un boolean indiquant si le document est présent dans le schéma
+34   STATUT_BASE_ARCHIVE   char(1)
+                                          d'archive.
+                                          Définit le lien sur l'identifiant externe du document pour une récupération de
+35   ID_EXTERNE            int(10)
+                                          données.
+                                          Définit le type d'impression par défaut pour les documents héritant de ce
+                                          modèle modèle :
+                                          1 - Une impression par correspondant, non modifiable dans le document
+36   TYPE_IMPRESSION       char(1)        2 - Une impression par correspondant, modifiable dans le document
+                                          3 - Une impression avec tous les correspondants, non modifiable dans le
+                                          document
+                                          4 - Une impression avec tous les correspondants, modifiable dans le document
+      37   NOM_DOC_EDIT               varchar(250)   Définit le titre du document.
+
+      38   TYPE_ERR                   char(1)        Type d'erreur
+
+      39   ID_SIGN                    int(10)        Identifiant du signataire lien avec CORA_UTIL..UTIL
+
+      40   DATE_SIGN                  datetime       Date de signature
+
+      41   HEURE_SIGN                 datetime       Heure de signature
+
+      42   DIFFUSABLE                 char(1)        Document diffusable
+                                                     Lien sur TB_PROTO_STATUT_DOC.ID_PROTO_STATUT_DOC :
+      43   ID_PROTO_STATUT_DOC        smallint(5)
+                                                     Définit l'identifiant du protocole de statut du document.
+      44   NUM_EXAMEN                 varchar(50)    Définit le numéro d'examen associé à la fiche courrier.
+                                                     Définit le motif d'insertion /
+      45   TYPE_INFO                  char(1)
+                                                     - "S" pour suppression du document.
+      46   ID_TRACE                   int(10)
+
+      47   DATE_TRACE                 datetime
+
+      48   HEURE_TRACE                datetime
+
+      49   ID_RDV                     int(10)        Identifiant du RDV lié. Lien avec CORA_AGENDA..TB_RDV
+
+      50   ID_APPLICATION_TRANSFERT smallint(5)      Identifiant de l'application de transfert. Lien avec TB_INT_APPLICATION.ID
+
+      51   DATE_EXAMEN                datetime       Date de l'examen
+
+      52   FLAG_INDEXATION            char(1)
+
+      53   ID_DOC_TYPE                smallint(5)    Identifiant du type de document. Lien avec TB_DOC_TYPE
+
+      54   DOC_INVISIBLE_PATIENT      char(1)        Document invisible pour le patient
+
+      55   FLAG_ENVOI_DMP             char(1)        Flag d'envoi au DMP
+
+      56   ID_UTIL_ENVOI_DMP          int(10)        Identifiant utilisateur responsable de l'envoi au DMP
+
+      57   ETAT_DMP                   smallint(5)    Etat du document au DMP
+
+      58   DATE_ETAT_DMP              datetime       Date de mise à jour de l'état du document au DMP
+
+      59   TYPE_ERR_DMP               smallint(5)    Type d'erreur d'alimentation au DMP
+
+      60   LIB_ERR_DMP                varchar(200)   Libellé de l'erreur d'alimentation au DMP
+
+      61   TYPE_ACTIVITE              char(2)        Code du type d'activité (Hospit,…)
+
+      62   ID_PRESC                   int(10)        Identifiant du préscripteur du document. Lien avec CORA_UTIL..UTIL
+
+      63   ID_UNITE_PRESC             int(10)        Identifiant de l'unité de prescription. Lien avec TB_UNITE..ID_UNITE
+                                                     Lien sur TB_THES_MOTIF_SUPPR.ID_MOTIF_SUPPR :
+      64   ID_MOTIF_SUPPR             smallint(5)
+                                                     Définit l'identifiant du motif de suppression.
+           COMMENTAIRE_MOTIF_SUPP
+      65                          varchar(500)       Définit le commentaire renseigné lors de la suppression.
+           R
+                                                     Définit un boolean pour le marquage du document à supprimer pour qu'il le soit
+      66   FLAG_TRAIT_SUPPR           char(1)        une fois la depublication faite TB_DOCUMENT_PATIENT. Passage du champ
+                                                     FLAG_TRAIT_SUPPR=’O’.

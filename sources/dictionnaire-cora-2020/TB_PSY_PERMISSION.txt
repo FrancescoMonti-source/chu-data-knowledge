@@ -1,0 +1,39 @@
+==== TB_PSY_PERMISSION ====
+Table des permissions
+       1   ID_PSY_PERM                 int(10)        Identifiant de la permission
+                                                      Lien sur TB_MVT.ID_MVT :
+       2   ID_MVT                      int(10)
+                                                      Identifiant du mouvement
+       3   DATE_DEBUT_PERM             datetime       Date de début de la permission
+
+       4   DATE_FIN_PERM               datetime       Date de fin de la permission
+
+       5   NOTE_PERM                   varchar(100)   Notes
+                                                      Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE :
+       6   ID_SEQUENCE                 int(10)
+                                                      Identifiant de la séquence
+       7   DUREE                       int(10)        Durée de la permission
+                                                      Lien sur TB_PATIENT.ID_PATIENT :
+       8   ID_PATIENT                  int(10)
+                                                      Identifiant du patient
+       9   SORTIE_ESSAI                char(1)        La permission est une sortie d'essai ('O', 'N')
+                                                    Lien sur Util.id_util :
+      10   ID_INFO                   int(10)
+                                                    Identifiant du dernier utilisateur qui a modifié ces données
+      11   DATE_INFO                 datetime       Date de dernière modification de ces données
+
+      12   HEURE_INFO                datetime       Heure de dernière modification de ces données
+
+      13   TYPE_PERM                 char(1)        Type de permission                                                           'X'
+                                                    Lien sur TB_SEJOUR.ID_SEJOUR :
+      14   ID_SEJOUR                 int(10)                                                                                     -1
+                                                    Identifiant du séjour
+                                                    Lien sur TB_THES_TYPE_ABSENCE.ID_TYPE_ABSENCE
+      15   ID_TYPE_ABSENCE           smallint(5)
+                                                    Identifiant du type d'absence
+                                                    O : lit rendu disponible
+      16   DISPO_LIT                 char(1)
+                                                    N : lit rendu non disponible
+                                                    Identifiant utilisé par la GAM
+      17   ID_EXTERNE                varchar(20)    - Renseigné dans le cas d'une création par l'interface
+                                                    - Vide si créé à partir de CORA Recueil

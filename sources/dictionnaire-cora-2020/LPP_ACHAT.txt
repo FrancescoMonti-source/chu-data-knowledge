@@ -1,0 +1,12 @@
+==== LPP_ACHAT ====
+       1   CODE_LPP                     char(13)         Code de la LPP
+           CODE_ARTICLE_FOURNISSEU
+       2                           char(13)              Code Article fournisseur
+           R
+       3   ID_ARTICLE_FOURNISSEUR       int(10)          Identifiant de l'article fournisseur
+
+       4   PRIX_ACHAT                   decimal(10, 2)   Prix d'achat
+
+       5   DATE_DEBUT                   datetime         Date de début
+
+       6   DATE_FIN                     datetime         Date de fin

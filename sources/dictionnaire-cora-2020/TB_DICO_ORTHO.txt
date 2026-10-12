@@ -1,0 +1,14 @@
+==== TB_DICO_ORTHO ====
+Définit une table contenant l'ensemble des lemmes orthographiques pour un établissement.
+                                                      Clé :
+       1   ID_LEMME                    int(10)
+                                                      Définit l'identifiant du lemme orthographique.
+       2   LIBELLE                     varchar(100)   Définit le libellé du mot.
+                                                      Définit l'identifiant de l’utilisateur ayant réalisé l’ajout du lemme dans le
+       3   ID_CREAT                    int(10)
+                                                      dictionnaire.
+       4   DATE_CREAT                  datetime       Définit la date d’ajout du lemme dans le dictionnaire.
+
+       5   ID_INFO                     int(10)        Définit l'identifiant de l’utilisateur ayant modifié le lemme dans le dictionnaire.
+
+       6   DATE_INFO                   datetime       Définit la date de modification de lemme dans le dictionnaire.

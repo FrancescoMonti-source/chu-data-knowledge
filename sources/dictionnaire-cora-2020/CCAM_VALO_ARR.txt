@@ -1,0 +1,6 @@
+==== CCAM_VALO_ARR ====
+       1   CODE_ACTE                    char(7)
+
+       2   CODE_ARR                     char(6)
+
+       3   VERSION_FG                   char(3)        Version de la fonction de groupage

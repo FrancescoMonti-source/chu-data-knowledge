@@ -1,0 +1,18 @@
+==== LPP_ARTICLE_FOURNISSEUR ====
+       1   CODE_LPP                   char(13)
+           CODE_ARTICLE_FOURNISSEU
+       2                           varchar(120)
+           R
+       3   ID_FOURNISSEUR             int(10)
+
+       4   LIB_ARTICLE_FOURNISSEUR varchar(60)
+
+       5   DATE_EFFET                 datetime         Date d'effet
+
+       6   DATE_FIN_VALIDITE          datetime         Date de fin de validité
+
+       7   CODE_ARTICLE_GEF           varchar(25)
+
+       8   ID_ARTICLE_FOURNISSEUR     int(10)
+
+       9   LIB_ARTICLE_INTERNE        varchar(60)

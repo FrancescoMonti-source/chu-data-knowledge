@@ -1,0 +1,12 @@
+==== TB_MVT_SSR_SEM_QUALITE ====
+Indique les suivis qualité réalisés sur certains RHS
+       1    ID_MVT                      int(10)          Clé - Identifiant du mouvement SSR
+
+       2    NO_SEMAINE_CIVILE           int(10)          Clé - Numéro de semaine civile du RHS
+                                                         Clé - Lien sur PMSI_STATUT_QUALITE :
+       3    ID_STATUT_QUALITE           int(10)
+                                                         Suivi qualité réalisé sur le RHS
+       4    DATE_CREAT                  datetime         Date d'association du suivi qualité au RHS
+                                                         Lien vers Util.ID_UTIL
+       5    ID_CREAT                    int(10)
+                                                         Identifiant de l'utilisateur ayant associé le suivi qualité au RHS

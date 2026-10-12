@@ -1,0 +1,19 @@
+==== TB_PSY_ADDICT_FICHE ====
+Table des fiches d'addictologie
+                                                       Clé :
+       1   ID_PSY_ADDICT                int(10)
+                                                       Identifiant de la fiche d'addictologie
+                                                       Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                   int(10)
+                                                       Identifiant du patient auquel est rattaché la fiche
+       3   DATE_DEBUT                   datetime       Date de début de validité de la fiche
+
+       4   DATE_FIN                     datetime       Date de fin de validité de la fiche
+
+       5   CATEG_AGE                    char(2)        Catégorie d'âge du patient
+
+       6   MOTIF_VENUE                  char(2)        Motif de la venue du patient
+
+       7   ORIGINE_PEC                  char(2)        Origine de la prise en charge
+
+       8   PRODUIT_PRINC                char(2)        Produit principal consommé

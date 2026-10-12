@@ -1,0 +1,17 @@
+==== TB_MATERIEL_STE ====
+Table des matériels stérilisables
+       1    ID_MATERIEL_STE         int(10)        Clé de la Table
+
+       2    CODE_MATERIEL_STE       varchar(20)    Ecosoft-ID
+
+       3    LIB_MATERIEL_STE        varchar(100)   libellé du matériel stérilisable
+       4   ID_APPLICATION               int(10)         Lien sur TB_INT_APPLICATION.ID
+
+       5   DATE_CREAT                   datetime        Date de création
+                                                        Lien sur Util.id_util :
+       6   ID_CREAT                     int(10)
+                                                        Lien sur l'utilisateur ayant créé le matériel
+       7   DATE_INFO                    datetime        Date de modification
+                                                        Lien sur Util.id_util :
+       8   ID_INFO                      int(10)
+                                                        Lien sur l'utilisateur ayant modifié le matériel

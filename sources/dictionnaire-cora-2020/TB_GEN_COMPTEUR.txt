@@ -1,0 +1,4 @@
+==== TB_GEN_COMPTEUR ====
+     1   NOM_TABLE        char(30)      Nom de la table
+
+     2   ID_CPT           int(10)       Identifiant du compteur

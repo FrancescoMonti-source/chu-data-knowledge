@@ -1,0 +1,16 @@
+==== PRESC_HIST_VOIE_ADMIN ====
+       1   ID_VOIE_ADMIN              smallint(5)
+
+       2   ID_MED                     int(10)
+
+       3   ORDRE                      smallint(5)
+
+       4   ID_CAT_VOIE_ADMIN          smallint(5)
+
+       5   ID_TRACE                   int(10)
+
+       6   DATE_TRACE                 datetime
+
+       7   TYPE_TRACE                 char(1)
+
+       8   DESCR                      char(5)

@@ -1,0 +1,8 @@
+==== TB_DET_ACTE_MATRICE_BIDIRECT ====
+Table de matrice permettant de sauvegarder les identifiants des détails d'actes d'origine lorsque la réception d'un acte par une
+application externe entraine la suppression / recréation de l'acte (Exemple réception d'une suppression d'une seule activité)
+       1   ID_DET_ACTE_DEST             int(10)          Identifiant de détail d'acte d'origine
+
+       2   ID_DET_ACTE_ORIGINE          int(10)          Identifiant de détail d'acte recréé
+
+       3   ID_APPLICATION               int(10)          Identifiant de l'applciation à l'origine de l'opération

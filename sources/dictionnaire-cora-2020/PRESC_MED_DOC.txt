@@ -1,0 +1,8 @@
+==== PRESC_MED_DOC ====
+Document lié à la monographie du médicament
+                                                         Clé de la Table
+       1   ID_MED                       int(10)
+                                                         Lien sur PRESC_MED.ID_MED
+       2   NOM_DOC                      varchar(100)     Nom du document
+
+       3   DOC                          image            Document lié à la monographie du médicament

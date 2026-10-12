@@ -1,0 +1,11 @@
+==== TB_MVT_RUM ====
+Table permettant de relier les mouvements aux RUM et aux RSS
+                                                    Clé - Lien sur TB_SYNTH_RUM.ID_RUM :
+       1   ID_RUM                     int(10)
+                                                    Identifiant du RUM
+                                                    Clé - Lien sur TB_MVT.ID_MVT :
+       2   ID_MVT                     int(10)
+                                                    Identifiant du mouvement
+                                                    Clé - Lien sur TB_SYNTH_RSS.ID_RSS :
+       3   ID_RSS                     int(10)
+                                                    Identifiant du RSS

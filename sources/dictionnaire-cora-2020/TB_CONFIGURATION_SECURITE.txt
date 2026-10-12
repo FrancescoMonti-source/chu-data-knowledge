@@ -1,0 +1,21 @@
+==== TB_CONFIGURATION_SECURITE ====
+Table de définition de la stratégie de sécurité
+       1    NB_CAR_MIN                   smallint(5)   taille minimum du mot de passe
+                                                       0 : pas de gestion avancée des mots de passes (les autres informations de la
+                                                       table sont donc ignorées) = 0
+                                                       1 : les mots de passe sont cryptés = 1
+                                                       2 : les mots de passe sont cryptés et doivent contenir au moins une lettre et un
+                                                       chiffre
+       2    PROC_CONTROLE                smallint(5)   3 : les mots de passe sont cryptés et doivent contenir au moins une lettre et un
+                                                       caractère spécial
+                                                       4 : les mots de passe sont cryptés et doivent contenir au moins un chiffre et un
+                                                       caractère spécial
+                                                       6 : les mots de passe sont cryptés et doivent contenir au moins un chiffre, un
+                                                       caractère spécial et une lettre
+       3    NB_JOUR_MDP_ACTIF            smallint(5)   durée de vie en jour des mots de passes
+
+       4    NB_MDP_OLD_INTERDIT          smallint(5)   nombre d'ancien mot de passe non réutilisable
+
+       5    NB_TENTATIVE_CONNECT         smallint(5)   nombre de tentative de connexion autorisée avec verrouillage du compte
+
+       6    DELAI_BLOCAGE                smallint(5)   durée de verrouillage des comptes suite un n échec de connexion

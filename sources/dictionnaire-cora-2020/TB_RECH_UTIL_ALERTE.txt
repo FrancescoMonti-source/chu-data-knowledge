@@ -1,0 +1,42 @@
+==== TB_RECH_UTIL_ALERTE ====
+     1   ID_UTIL         int(10)       Clé - Lien Util.id_util
+
+     2   CODE_APPLI      char(3)
+
+     3   ID_RECHERCHE    smallint(5)
+                                       PRELEVEMENTS_ATTENTE = 1
+                                       RESULTATS_ATTENTE = 2
+                                       ACTIONS_SERVICE_ATTENTE = 3
+                                            ACTIONS_HORS_SERV_ATTENTE = 4
+                                            ACTIONS_INF_ATTENTE = 5
+                                            PRESCRIPTIONS_ATTENTE = 6
+                                            PRESCRIPTIONS_DEPASSEES = 7
+                                            PRESCRIPTIONS_LEVEES = 8
+                                            PRESCRIPTIONS_EN_COURS = 9
+                                            RDV_ATTENTE = 10
+                                            RDV_CONFIRMES = 11
+                                            RDV_REFUSES = 12
+                                            INTERV_PROGRAMMEES = 13
+                                            INTERV_ENCOURS = 14
+                                            INTERV_TERMINES = 15
+                                            INTERV_PATIENT_TRANSFERE = 16
+                                            RECUEIL_CCAM = 17
+     4   ID_ALERTE       smallint(5)        RECUEIL_CIM = 18
+                                            RECUEIL_CIM_DP = 19
+                                            RECUEIL_NGAP = 20
+                                            RECUEIL_NGAP_C = 21
+                                            DOCUMENTS_TRAITES = 22
+                                            DOCUMENTS_NON_TRAITES = 23
+                                            ENREG_AUDIO_ATTENTE = 24
+                                            RESULTATS_LABO_NON_LUS_TOTAL = 25
+                                            RESULTATS_LABO_NON_LUS_ANORMAUX = 26
+                                            NB_EDGAR = 27
+                                            NB_DAR = 28
+                                            NB_PRESC_MODIF = 29
+                                            NB_ACTION_MODIF = 30
+                                            NB_PRESC_NOUV = 31
+                                            NB_ACTION_NOUV = 32
+                                            RESULTATS_LABO_NON_LUS_TOTAL_PROFIL = 33
+                                            RESULTATS_LABO_NON_LUS_ANORMAUX_PROFIL = 34
+                                            NB_DOCS_JOINTS = 35
+     5   ORDRE           smallint(5)   Un trou dans l'ordre génère une erreur dans la recherche patient

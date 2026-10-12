@@ -1,0 +1,14 @@
+==== PMSI_HAD_NATURE_SEJOUR ====
+La nature du séjour représente le projet médical principal (qui mobilise l’essentiel de l’effort de soins) déterminé sous la
+responsabilité du médecin coordonnateur à l’entrée du patient en HAD. Dans le cas où le projet médical comporte à
+l’admission plusieurs prises en charge de natures différentes mobilisant des efforts d'importance comparable, le choix de la
+nature du séjour est laissé à l’appréciation du codeur.
+       1   CODE                         char(2)          code de nature du séjour (ex : 01, 02 etc ...)
+
+       2   LIBELLE                      varchar(1000)    Libellé de la nature du séjour
+
+       3   DESCRIPTION                  varchar(2000)    Description de la nature du séjour
+
+       4   DATE_DEBUT                   datetime         Début de validité
+
+       5   DATE_FIN                     datetime         Fin de validité

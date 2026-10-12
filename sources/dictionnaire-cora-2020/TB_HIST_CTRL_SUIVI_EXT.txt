@@ -1,0 +1,38 @@
+==== TB_HIST_CTRL_SUIVI_EXT ====
+Table d'archivage des contrôles qualité historisés (TB_CTRL_SUIVI_EXT) contenant le résultat de chaque contrôle qualité
+(CORA, DATIM, requête param ou labo) effectué sur un dossier externe.
+                                                     Ancient identifiant du suivi (compteur) qui était présent dans
+       1   ID_CTRL_SUIVI_EXT          int(10)
+                                                     TB_CTRL_SUIVI_EXT
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.ID_REGLE_QUALITE :
+       2   ID_REGLE_QUALITE           int(10)        Lien vers TB_REGLE_QUALITE.ID_REGLE_QUALITE si le contrôle qualité
+                                                     dont on assure le suivi fait parti d'un lot de contrôles qualités.
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.TYPE_CONTROLE :
+                                                     Q : DATIM ou CORA
+                                                     R : requete paramétrable VB6
+       3   TYPE_CONTROLE              char(1)
+                                                     N : Requête paramétrable .NET
+                                                     B : labo / biologie
+                                                     A : contrôle DimXpert
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.ID_CONTROLE :
+                                                     Lien vers :
+                                                     -TB_TEST_QUALITE.ID_TEST_QUALITE si contrôle de type DATIM ou CORA
+       4   ID_CONTROLE                int(10)        -TB_REQUETE.ID_REQUETE si contrôle de type requête paramétrable
+                                                     -TB_LABO_CONTROLE_QUALITE.ID_CONTROLE_LABO si contrôle de type
+                                                     labo
+                                                     -TB_AMEDIM_CONTROLE_QUALITE.ID_CONTROLE si contrôle DimXpert
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.RESULTAT:
+       5   RESULTAT                   char(1)        P : Positif au contrôle qualité
+                                                     N : Négatif au contrôle qualité
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.ACTIF :
+       6   ACTIF                      char(1)
+                                                     N : inactif O : actif
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.ID_MVT :
+       7   ID_MVT                     int(10)
+                                                     Identifiant du mouvement Externe
+                                                     Copie de la donnée TB_CTRL_SUIVI_EXT.DATE_INFO :
+       8   DATE_INFO                  datetime
+                                                     Date du dernier résultat d'exécution du contrôle qualité
+                                                     Copied de la donnée TB_CTRL_SUIVI_EXT.ID_INFO :
+       9   ID_INFO                    int(10)        Lien vers Util.ID_UTIL.
+                                                     Identifiant de l'utilisateur ayant effectué la dernière modification

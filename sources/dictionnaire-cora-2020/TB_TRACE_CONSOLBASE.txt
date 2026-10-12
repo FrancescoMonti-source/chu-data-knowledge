@@ -1,0 +1,15 @@
+==== TB_TRACE_CONSOLBASE ====
+      1    ID_TRACE                  int(10)         Clé de la Table
+                                                     'E' : Erreur
+      2    TYPE_TRACE                char(1)
+                                                     'T' : Trace des différents processus exécutés
+      3    CODE_TRACE                char(5)         Code Interne de Traçage des processus
+
+      4    LIB_TRACE                 varchar(4000)   Libellé de la trace
+       5   DATE_TRACE                 datetime       Date + Heure
+                                                     Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT :
+       6   ID_ETABLIS                 smallint(5)    Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                     Siège centralisée
+       7   NOM_FICHIER                varchar(50)    Nom du fichier d'export ou d'intégration
+
+       8   SOURCE_TRAITEMENT          char(1)                                                                                     'I'

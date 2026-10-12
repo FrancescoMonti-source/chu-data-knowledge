@@ -1,0 +1,28 @@
+==== TB_HIST_PATIENT_EPISODE ====
+     1   ID_PATIENT_EPISODE   int(10)
+
+     2   ID_PATIENT           int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3   ID_EPISODE           smallint(5)
+
+     4   COMMENTAIRE          varchar(2000)
+
+     5   DATE_DEBUT_EPISODE   datetime
+
+     6   DATE_FIN_EPISODE     datetime
+                                              Lien sur TB_UTIL.ID_UTIL
+     7   ID_CREAT             int(10)
+                                              Identifiant de l'utilisateur de création
+     8   DATE_CREAT           datetime        Date de création
+                                              Lien vers Util.ID_UTIL.
+     9   ID_INFO              int(10)
+                                              Identifiant de l'utilisateur ayant effectué la dernière modification
+    10   DATE_INFO            datetime        Date de la dernière modification
+
+    11   ID_TRACE             int(10)
+
+    12   DATE_TRACE           datetime
+
+    13   TYPE_TRACE           char(1)
+
+    14   DESCR                varchar(5)

@@ -1,0 +1,8 @@
+==== R_ACTIVITE_AGRE_RADIO ====
+Agréments radio autorisés pour l'activité
+                                                        CCAM n° 1+2
+        1   AA_CODE                      char(14)       Code activité interne = Code
+                                                        Acte + Code Activité
+                                                        CCAM n° 40
+        2   AGRAD_COD                    char(2)
+                                                        Code agrément radio

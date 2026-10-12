@@ -1,0 +1,12 @@
+==== NGAP_LC ====
+Table contenant les lettres clés paramétrées par l'établissement
+                                                       Clé
+       1   LC                         char(9)
+                                                       Code NGAP de la lettre clé
+       2   ACTIF                      char(1)          si ='N', inactif
+                                                       si ='O' --> LC médicale
+       4   LC_MEDICALE                char(1)          si ='N' --> LC non médicale
+                                                       si =Null --> LC non restreinte
+       5   LC_INTERNE                 char(1)          LC interne non facturée si ='O'. Sinon, LC normale
+
+       6   GESTION_DECOTE             char(1)

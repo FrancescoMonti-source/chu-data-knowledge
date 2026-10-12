@@ -1,0 +1,107 @@
+==== TB_REQUETE ====
+Table de stockage des requêtes
+                                                        Clé :
+       1    ID_REQUETE                  int(10)
+                                                        Identifiant de le requête
+                                                        GUID :
+       2    GUID_REQUETE                char(36)
+                                                        Permet de conserver un dentifiant unique de la requête indépendant de l'ID
+       3    CODE                        varchar(15)     Code
+
+       4    LIBELLE                     varchar(300)    Libellé
+
+       5    DESCRIPTION                 varchar(2000)   Description
+                                            ENU_TYPE_REQUETE
+                                            <cls_libelleAttribute("Contrôle Qualité"), cls_bdValueAttribute("Q")>
+                                            CONTROLE_QUALITE
+                                            <cls_libelleAttribute("Indicateur"), cls_bdValueAttribute("I")> INDICATEUR
+6    TYPE_REQUETE            char(1)
+                                            <cls_libelleAttribute("Filtre"), cls_bdValueAttribute("F")> FILTRE
+                                            <cls_libelleAttribute("Requête"), cls_bdValueAttribute("R")> REQUETE
+                                            <cls_libelleAttribute("Statistique"), cls_bdValueAttribute("S")> STATISTIQUE
+                                            <cls_libelleAttribute("Console"), cls_bdValueAttribute("C")> CONSOLE
+7    COMPARABLE              char(1)        Flag comparaison autorise                                                           'N'
+
+8    FORAGE                  char(1)        Indique si le forage est activé sur la requete                                      'N'
+                             text
+9    REQUETE_XML                            Schema Xml de la requete
+                             (2147483647)
+                             text
+10   GRAPHIQUE_XML                          Schema Xml de la representation visuelle de la requete
+                             (2147483647)
+11   VERSION_XML             smallint(5)    Version de la requête                                                               0
+                                            Lien sur Recueil.TB_REQUETE_CATEGORIE :
+12   ID_REQUETE_CATEGORIE    smallint(5)
+                                            Identifiant de la catégorie contenant la requête
+13   VISIBLE_EXECUTION       char(1)        La requete est-elle visible dans la liste ?                                         'O'
+
+14   MODE_SQL                char(1)        La requete est-elle en SQL directement                                              'N'
+
+15   ACTIF                   char(1)        La requete est-elle active ?                                                        'O'
+
+16   CODE_APPLI              char(3)        Code de l'application
+
+17   CORA                    char(1)        Est-ce une requete CoRa ? oui/non                                                   'N'
+
+18   LICENCE                 varchar(255)   Cle de Licence de la requete
+
+19   DATE_CREAT              datetime       Date de création
+                                            Lien sur TB_UTIL.ID_UTIL
+20   ID_CREAT                int(10)
+                                            Identifiant de l'utilisateur de création
+21   DATE_MODIF              datetime       Date de modification
+
+22   ID_MODIF                int(10)        Identifiant de l'utilisateur de modification
+                                            Domaine d'activité lié à la requete
+                                            ENU_TYPE_DOMAINE_ANALYSE
+                                            <cls_libelleAttribute("MCO"), cls_bdValueAttribute("MCO")> MCO
+23   TYPE_DOMAINE_ACTIVITE   char(3)        <cls_libelleAttribute("PSY"), cls_bdValueAttribute("PSY")> PSY
+                                            <cls_libelleAttribute("HAD"), cls_bdValueAttribute("HAD")> HAD
+                                            <cls_libelleAttribute("SSR"), cls_bdValueAttribute("SSR")> SSR
+                                            <cls_libelleAttribute("TOUS"), cls_bdValueAttribute("ALL")> ALL
+                             text
+24   XML_VERSION_COMPLET                    Schema Xml de la requete SQL
+                             (2147483647)
+                                            Nullable(Of ENU_TYPE_CTRL_QUALITE)
+                                             <cls_libelleAttribute("01 - Règle liée au mouvement"), cls_bdValueAttribute
+                                            ("MVT")> PMC_REG_01
+                                            <cls_libelleAttribute("02 - Règle liée au RSS"), cls_bdValueAttribute("RSS")>
+                                            PMC_REG_02
+                                            <cls_libelleAttribute("03 - Règle liée au séjour"), cls_bdValueAttribute("SEJ")>
+                                            PMC_REG_03
+                                            <cls_libelleAttribute("04 - Règle liée au patient"), cls_bdValueAttribute("PAT")>
+                                            PMC_REG_04
+25   TYPE_CTRL_QUALITE       varchar(8)     <cls_libelleAttribute("05 - Règle liée au code acte du mouvement"),
+                                            cls_bdValueAttribute("ACT_MVT")> PMC_REG_05
+                                            <cls_libelleAttribute("06 - Règle liée au code diag du mouvement"),
+                                            cls_bdValueAttribute("DIAG_MVT")> PMC_REG_06
+                                            <cls_libelleAttribute("07 - Règle liée au code acte du RSS"),
+                                            cls_bdValueAttribute("ACT_RSS")> PMC_REG_07
+                                            <cls_libelleAttribute("08 - Règle liée au code diag du RSS"),
+                                            cls_bdValueAttribute("DIAG_RSS")> PMC_REG_08
+                                            <cls_libelleAttribute("09 - Règle liée au RHS"), cls_bdValueAttribute("RHS")>
+                                            PMC_REG_09
+26   CODE_TYPE_ANALYSE       varchar(15)    Type d'analyse (MCO, HAD...)
+
+27   TYPE_ENTRE              varchar(10)    obsolète
+
+28   TYPE_SORTIE             varchar(10)    obsolète
+
+29   VB6                     char(10)       La requête existe-t-elle en VB6 ?
+           ID_REQUETE_CATEGORIE_VB
+      30                           smallint(5)        Id de la catégorie parent
+           6
+      31   DATE_DEBUT_VALIDITE        datetime        Date de début de validité
+
+      32   DATE_FIN_VALIDITE          datetime        Date de fin de validité
+
+      33   PERIODE_VALIDITE           char(1)         La requête a-t-elle une période de validité associée ?
+                                                      Type de la requête : pointe vers la table TB_SYNTH_RSS, TB_SYNTH_RUM,
+      34   LIST_TYPE_INPUT            varchar(50)
+                                                      MVT, TB_SEJOUR...
+      35   M_PMSI                     char(1)                                                                                      'N'
+                                                      Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                      CORA_UTIL)
+      36   ID_ETABLIS                 smallint(5)
+                                                      Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                      Siège centralisée

@@ -1,0 +1,7 @@
+==== TB_BNA_CONSULT_DET ====
+                                                       Identifiant de l'enregistrement de la consultation
+       1   ID_BNA_CONSULT               int(10)
+                                                       Lien sur TB_BNA_CONSULT.ID_BNA_CONSULT
+       2   CODE_RUBRIQUE                char(3)        Code de la rubrique
+
+       3   VALEUR                       varchar(100)   Données de la rubrique

@@ -1,0 +1,4 @@
+==== CIM_OUVERTURE ====
+       1   CHOIX_UTIL                     smallint(5)
+
+       2   ID_UTIL                        int(10)        Clé - Lien Util.id_util

@@ -1,0 +1,22 @@
+==== TB_FLUX_LABO_OBX ====
+     1   ID_FLUX_LABO_OBX    int(10)         PK
+
+     2   ID_FLUX_LABO_OBR    int(10)         FK TB_FLUX_LABO_OBR.ID_FLUX_LABO_OBR
+
+     3   ID_FLUX_LABO_PAT    int(10)         FK TB_FLUX_LABO_PAT.ID_FLUX_LABO_PAT
+
+     4   MESSAGE             varchar(4000)   Contenu du message reçu ou envoyé
+
+     5   IPP                 varchar(20)     IPP Patient
+                                             FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+     6   NO_SEJOUR           varchar(20)
+                                             l'établissement
+     7   DATE_MESSAGE        datetime        Date du message
+
+     8   FLAG_IMPORT         char(1)
+
+     9   ID_APPLICATION      int(10)         Lien sur TB_INT_APPLICATION.ID
+
+    10   STATUT              char(1)
+
+    11   DETAIL_NON_INTEGR   smallint(5)     Numéro de ligne non intégrée

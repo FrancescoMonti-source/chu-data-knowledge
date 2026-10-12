@@ -1,0 +1,10 @@
+==== TB_ACTE_CSARR_INTERVENANT ====
+Table donnant le détail des intervenants pour un acte CSARR pluriprofessionnel : Lorsque le champ NB_INTERVENANT de
+TB_ACTE_CSAAR est supérieur à 1 et que le paramétrage établissement autorise le renseignement détaillé des intervenants
+                                                     Identifiant de l'acte CSARR (Lien sur
+       1   ID_ACTE_CSARR               int(10)
+                                                     CORA_RECUEIL..TB_ACTE_CSARR.ID_ACTE_CSARR)
+       2   ID_UTIL                     int(10)       Identifiant de l'utilisateur (lien sur CORA_UTIL..Util.ID_UTIL)
+                                                     Type éxécutant (lien sur
+       3   TYPE_EXEC                   varchar(10)
+                                                     CORA_UTIL..TB_TYPE_EXECUTANT_SSR.TYPE_EXECUTANT)

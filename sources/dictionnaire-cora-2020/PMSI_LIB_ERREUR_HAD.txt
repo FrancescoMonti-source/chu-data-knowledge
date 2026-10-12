@@ -1,0 +1,7 @@
+==== PMSI_LIB_ERREUR_HAD ====
+Table contenant les erreurs de groupage HAD
+       1   CODE_ERREUR                 char(3)         Code de l'erreur HAD
+
+       2   LIBELLE_ERREUR              varchar(150)    Libellé de l'erreur HAD
+
+       3   TYPE                        char(1)         Type de l'erreur (B pour Bloquant ou N pour non bloquant)

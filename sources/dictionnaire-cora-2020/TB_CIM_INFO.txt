@@ -1,0 +1,20 @@
+==== TB_CIM_INFO ====
+Table liant un diagnosstic avecun ensemble d'informations
+                                                       Lien avec le diagnostic dont les informations sont associés. Lien avec
+       1   SID_REF                      int(10)
+                                                       CIM_HIERACHIE.SID_REF.
+                                                       Type d'informations liée au diagnostic.
+                                                       Les valeurs possibles sont :
+                                                       A l'exclusion de
+       2   TYPE_INFO                    char(30)       Descripteur
+                                                       A l'exclusion (indirecte) de
+                                                       Comprend
+                                                       Référence
+       3   LIBELLE_INFO                 char(280)      Libellé de l'information associée.
+                                                       Source de ?
+       4   SOURCE                       char(1)        Les valeurs possibles : N, E, D, R, I
+                                                       D pour Descripteur; E pour Exclusion, I pour Inclusion/ Comprend.
+       5   LIBELLE_INFO_SS_ACC          char(280)      Libellé de l'information associée sans accent et en majuscules
+                                                       Chrono permettant de définir un ordre lorsque pour un même diagnostic il y a
+       6   CHRONO                       int(10)        plusieurs éléments d'un type d'informations (exemple : plusieurs
+                                                       descripteurs...)

@@ -1,0 +1,10 @@
+==== TB_CONFIGURATION_SHS ====
+       1   UTILISATEUR                    varchar(50)
+
+       2   MOTDEPASSE                     varchar(50)
+
+       3   SERVEUR                        varchar(50)
+
+       4   PORT                           int(10)
+
+       5   ENVAS400                       char(10)

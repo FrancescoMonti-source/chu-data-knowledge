@@ -1,0 +1,8 @@
+==== PMSI_KARNO ====
+Thésaurus des Indices de Karnofsky
+                                                       Clé
+       1   CODE_KARNO                  char(3)
+                                                       Code
+       2   LIBELLE_KARNO               varchar(150)    Indice de Karnofsky
+
+       3   PONDERATION                 decimal(5, 4)   Pondération individuelle de l'IK

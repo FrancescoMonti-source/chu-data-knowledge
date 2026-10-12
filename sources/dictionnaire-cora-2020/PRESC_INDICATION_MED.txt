@@ -1,0 +1,10 @@
+==== PRESC_INDICATION_MED ====
+                                                      Lien sur PRESC_MED.ID_MED : (Base CCAM / CORA)
+       1   ID_MED                     int(10)
+                                                      Lien sur le Médicament
+                                                      Lien sur PRESC_THES_INDICATION.ID_INDICATION : (Base CORA /
+       2   ID_INDICATION              smallint(5)     CCAM)
+                                                      Lien sur l'indication
+       3   ORDRE                      smallint(5)     Non utilisé
+
+       4   CODE_INDICT2A              char(1)         Non utilisé

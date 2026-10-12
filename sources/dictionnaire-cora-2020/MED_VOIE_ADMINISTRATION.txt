@@ -1,0 +1,8 @@
+==== MED_VOIE_ADMINISTRATION ====
+       1   ID_VOIE                    smallint(5)
+
+       2   LIB_VOIE                   varchar(25)
+
+       3   CODE_ABREV                 char(4)
+
+       4   ACTIF                      char(1)                                                                                                'O'

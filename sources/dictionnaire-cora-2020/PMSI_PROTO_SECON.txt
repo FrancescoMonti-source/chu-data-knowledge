@@ -1,0 +1,11 @@
+==== PMSI_PROTO_SECON ====
+Thésaurus des Modes de prise en charge associé
+                                                       Clé:
+       1   CODE_PROTO                  char(2)
+                                                       Code du mode de prise en charge associé
+       2   LIBELLE_PROTO               char(100)       Libellé
+
+       3   PONDERATION                 decimal(5, 4)   Pondération individuelle du mode de prise en charge associé
+                                                       Variable indiquant si le code est pour un Mode de prise en charge uniquement
+       4   MPC_UNIQ                    char(1)                                                                                          'N'
+                                                       pour le PEC documentaire.

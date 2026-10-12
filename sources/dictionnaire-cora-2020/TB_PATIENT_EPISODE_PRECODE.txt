@@ -1,0 +1,17 @@
+==== TB_PATIENT_EPISODE_PRECODE ====
+           ID_PATIENT_EPISODE_PREC
+       1                              int(10)
+           ODE
+       2   ID_PATIENT_EPISODE         int(10)
+
+       3   LIBELLE                    varchar(100)
+
+       4   COMMENTAIRE                varchar(2000)
+
+       5   TYPE_PRECODE               smallint(5)
+                                                      Lien sur TB_UTIL.ID_UTIL
+       6   ID_CREAT                   int(10)
+                                                      Identifiant de l'utilisateur de création
+       7   DATE_CREAT                 datetime        Date de création
+
+       8   CODE_METIER                char(3)

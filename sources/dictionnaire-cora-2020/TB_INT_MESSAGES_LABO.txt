@@ -1,0 +1,13 @@
+==== TB_INT_MESSAGES_LABO ====
+     1   ID_MESSAGE         int(10)
+
+     2   ID_MESSAGE_BIN     int(10)
+      3   LISTE_IPP_PATIENT       varchar(1000)
+
+      4   LISTE_NO_SEJOUR         varchar(1000)
+
+      5   DATE_MESSAGE            datetime
+
+      6   ID_APPLICATION          smallint(5)
+
+      7   NOM_FICHIER             varchar(50)

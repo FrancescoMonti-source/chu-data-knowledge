@@ -1,0 +1,9 @@
+==== PRESC_MED_EQUIV ====
+Gestion des équivalence des medicaments
+                                                         Lien sur PRESC_MED.ID_MED : (Base CCAM / CORA)
+       1   ID_MED                       int(10)
+                                                         Lien sur le Médicament
+                                                         Lien sur PRESC_MED.ID_MED : (Base CCAM / CORA)
+       2   ID_MED_EQUIV                 int(10)
+                                                         Lien sur le Médicament équivalent
+       3   TYPE_EQUIV                   smallint(5)      1 pour équivalence Thésorimed et 2 pour équivalence AFSSAPS

@@ -1,0 +1,16 @@
+==== TB_CTRL_CONFORMITE ====
+       1   TYPE_CTRL                   smallint(5)
+
+       2   CODE_APPLI                  char(3)
+
+       3   CODE_ECRAN                  varchar(30)
+
+       4   ID_UTIL_CTRL                int(10)
+
+       5   CONFORMITE                  char(1)                                                                                              'N'
+
+       6   DATE_CTRL                   datetime
+
+       7   ID_PATIENT                  int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       8   ID_SEJOUR                   int(10)

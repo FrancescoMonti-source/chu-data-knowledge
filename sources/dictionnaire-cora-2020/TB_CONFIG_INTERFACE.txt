@@ -1,0 +1,17 @@
+==== TB_CONFIG_INTERFACE ====
+Table des paramètres des modules d'interfaces (Patients, Actes…)
+                                                       Clé :
+                                                       Identifiant du paramètre de configuration
+                                                       Exemples :
+       1   CLE_CONFIG                  varchar(20)     - GHS_SHS pour la gestion Services Siemens GHS
+                                                       - PSY_SHS pour la gestion Services Siemens PSY
+                                                       - ACTE_SHS pour la gestion Services Siemens ACTES
+                                                       - EXHA_SHS pour la gestion Services Siemens EXHAUSTIVITE ACTES
+       2   VALEUR_CONFIG               varchar(400)    Valeur du paramètre (souvent 'O' ou 'N')
+
+       3   INTERFACE                   varchar(20)     Nom de l'interface lié à ce paramètre
+
+       4   DATE_MODIF                  datetime        Date de dernière modification de ce paramètre
+                                                       Clé - Lien sur Util.id_util :
+       5   ID_MODIF                    int(10)
+                                                       Identifiant de l'Utilisateur ayant fait cette dernière modification

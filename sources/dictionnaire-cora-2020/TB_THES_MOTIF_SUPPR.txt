@@ -1,0 +1,7 @@
+==== TB_THES_MOTIF_SUPPR ====
+Cette table définit un thésaurus pour les motifs de suppression de documents.
+       1   ID_MOTIF_SUPPR              smallint(5)    Définit l'identiifiant du motif de suppression.
+
+       2   LIB_MOTIF_SUPPR             varchar(200)   Définit le libellé du motif de suppression.
+
+       3   ACTIF                       char(1)        Définit si le motif de suppression est actif.                             'O'

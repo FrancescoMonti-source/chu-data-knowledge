@@ -1,0 +1,9 @@
+==== LPP_INCOMPATIBLE ====
+Table des Incompatibilités de LPP
+                                                          Clé :
+       1    CODE_LPP                     char(13)
+                                                          Code référence du 1er LPP.
+                                                          Clé :
+       2    CODE_LPP_INCOMPATIBLE        char(13)
+                                                          Code référence du 2ème LPP.
+       3    ENCOURS_INTEGR               char(1)

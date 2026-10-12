@@ -1,0 +1,6 @@
+==== TB_NATURE_ACTE_NGAP_LC ====
+       1    CODE_NATURE_ACTE            char(3)
+
+       2    LETTRE_CLE                  char(9)
+
+       3    PRESCR_OBL                  char(1)

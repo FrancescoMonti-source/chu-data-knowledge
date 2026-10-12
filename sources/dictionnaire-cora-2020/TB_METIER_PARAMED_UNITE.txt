@@ -1,0 +1,4 @@
+==== TB_METIER_PARAMED_UNITE ====
+       1   ID_METIER_PARAMED           smallint(5)    lien sur la table tb_metier_paramed
+
+       2   ID_UNITE                    int(10)        lien sur la table cora_recueil.tb_unite.id_unite

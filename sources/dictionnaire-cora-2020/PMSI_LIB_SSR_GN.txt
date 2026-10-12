@@ -1,0 +1,11 @@
+==== PMSI_LIB_SSR_GN ====
+Table des groupes nosologique
+       1   CODE_GN                     char(4)        Code du Groupe Nosologique
+
+       2   LIBELLE_GN                  varchar(500)   Libellé du Groupe Nosologique
+
+       3   CODE_CM                     char(2)        Code de la Catégorie Majeure correspondante
+
+       4   DATE_DEBUT                  datetime       Date de début de validité du GN
+
+       5   DATE_FIN                    datetime       Date de fin de validité du GN

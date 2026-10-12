@@ -1,0 +1,14 @@
+==== TB_RSF_ENVOI ====
+     1   NUM_LOT                int(10)        Numéro du lot
+
+     2   DATE_INFO              datetime       Date de la dernière modification
+
+     3   DATE_ENVOI             datetime
+
+     4   DATE_DEBUT             datetime
+
+     5   DATE_FIN               datetime
+
+     6   ID_ENVOI               int(10)
+
+     7   COMMENTAIRE            varchar(300)   Commentaire

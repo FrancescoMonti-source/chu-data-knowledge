@@ -1,0 +1,16 @@
+==== PMSI_GHT ====
+Table des GHT : Groupe Homogène des Tarifs
+                                                         Clé
+       1   CODE_GHT                     char(2)
+                                                         Code du Groupe Homogène des Tarifs
+       2   BAS_IPT                      decimal(3, 2)    Borne basse
+
+       3   HAUT_IPT                     decimal(3, 2)    Borne haute
+
+       4   COEF                         decimal(3, 2)    Indice de Pondération
+
+       5   MONTANT                      decimal(5, 2)    Montant du GHT
+
+       6   DATE_DEBUT                   datetime         Date de début d'application du GHT
+
+       7   DATE_FIN                     datetime         Date de fin d'application du GHT

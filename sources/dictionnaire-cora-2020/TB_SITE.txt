@@ -1,0 +1,28 @@
+==== TB_SITE ====
+Thésaurus des Sites / Localisation de réalisation des actes
+                                                       Clé :
+       1   ID_SITE                      int(10)
+                                                       Identifiant (PrisMédica) du Site
+       2   CODE_SITE                    char(12)       Code du Site
+
+       3   LIBELLE_SITE                 char(50)       Libellé du Site
+
+       5   ACTIF                        char(1)        Site actif (si ="O")
+                                                       Lien sur TB_SITE.ID_SITE :
+       6   ID_PERE                      int(10)
+                                                       Permet de réaliser une arborescence dans cette liste des Sites
+                                                       si ="O", ce site est un bloc opératoire (Paramétrage utilisé pour la gestion des
+       7   BLOC                         char(1)
+                                                       Blocs-Intervention dans recueil Cora
+       8   LIEU_REAL_ACTE               char(1)        si ="O", ce site est ègale au lieu de réalisation
+                                                       Spécifique LJM en date du 14/09/05: Contient le code de l'unite d'exécution.
+       9   CODE_EXPORT                  varchar(4)     Permet d'affecter la bonne unite lors de l'export des actes en attendant leur
+                                                       modification de structure
+                                                       Lien sur TB_ETABLISSEMENT.ID_ETABLISSEMENT : (Base UTIL /
+                                                       CORA_UTIL)
+      10   ID_ETABLIS                   smallint(5)
+                                                       Lien sur un établissement dans le cas d'une consolidation dans une Base
+                                                       Siège centralisée
+      11   ID_EJ                        smallint(5)    Identifiant de l'EJ. Lien sur TB_EJ.ID_EJ.                                            1
+
+      12   ID_EXTERNE                   varchar(16)

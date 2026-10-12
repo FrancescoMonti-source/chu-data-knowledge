@@ -1,0 +1,17 @@
+==== TB_DOCUMENT_PATIENT_STATUT ====
+Cette table liste l'historique des statuts de documents.
+            ID_DOCUMENT_PATIENT_STA
+       1                            int(10)                Définit l'identifiant de l'historique du statut du document.
+            TUT
+                                                           Lien vers TB_DOCUMENT_PATIENT.ID_DOCUMENT_PATIENT
+       2    ID_DOCUMENT_PATIENT          int(10)
+                                                           Définit l'identifiant du document patient.
+                                                           Lien vers TB_STATUT_DOC.ID_STATUT_DOC
+       3    ID_STATUT_DOC                smallint(5)
+                                                           Définit l'identifiant du statut du document.
+                                                           Lien vers Util.ID_UTIL.
+       4    ID_INFO                      int(10)           Définit l'identifiant de l'utilisateur ayant historisé le statut, à l'origine du
+                                                           changement de statut.
+       5    DATE_INFO                    datetime          Définit la date d'historisation du statut du document.
+
+       6    HEURE_INFO                   datetime          Définit l'heure d'historisation du statut du document.

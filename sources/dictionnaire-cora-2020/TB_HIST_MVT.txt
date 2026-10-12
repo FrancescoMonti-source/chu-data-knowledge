@@ -1,0 +1,174 @@
+==== TB_HIST_MVT ====
+Tables Historique de TB_MVT (Historisation des modifications (Signature / Désignature) )
+                                                        Copie de la donnée de TB_MVT:
+       1   ID_MVT                      int(10)
+                                                        Identifiant (PrisMédica) du mouvement
+                                                        Copie de la donnée de TB_MVT : Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                  int(10)
+                                                        Identifiant du Patient. Lien non principal (Lien principal = ID_SEJOUR)
+                                                        Copie de la donnée de TB_MVT : Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                   int(10)          Identifiant du Séjour dans lequel se trouve ce Mouvement d'Unité (Lien
+                                                        obligatoire)
+                                                        Copie de la donnée de TB_MVT : Date de Début du Mouvement (Données
+       4   DATE_DEBUT_MVT              datetime
+                                                        obligatoire)
+       5   DATE_FIN_MVT                datetime         Copie de la donnée de TB_MVT : Date de Fin du Mouvement
+
+       6   HEURE_DEBUT_MVT             datetime         Copie de la donnée de TB_MVT : Heure de Début du Mouvement
+7    HEURE_FIN_MVT            datetime   Copie de la donnée de TB_MVT : Heure de Fin du Mouvement
+                                         Copie de la donnée de TB_MVT : Lien sur TB_UNITE.CODE_UNITE :
+8    ID_UNITE_M               char(12)   Unité (UF) du Mouvement (Données obligatoire pour les Mouvements d'Unité
+                                         Fonctionnel)
+                                         Copie de la donnée de TB_MVT : Mode d'entrée du Mouvement. Valeur
+9    MODE_ENTREE              char(2)    'officielle' (ex : 6 - Entrée par Mutation / 8 - Provenance Domicile)
+                                         Valeur possible : 0, 6, 7, 8, N
+                                         Copie de la donnée de TB_MVT : Mode de sortie du Mouvement. Valeur
+10   MODE_SORTIE              char(2)    'officielle' (ex : 8 - Sortie vers Domicile / 9 – Décès)
+                                         Valeur possible : 0, 6, 7, 8, 9
+                                         Copie de la donnée de TB_MVT : Lien sur Util.id_util :
+11   ID_MED_RUM               int(10)
+                                         Identifiant du médecin ayant signé le RUM
+12   DATE_SIGN_RUM            datetime   Copie de la donnée de TB_MVT : Date de signature du RUM
+
+13   HEURE_SIGN_RUM           datetime   Copie de la donnée de TB_MVT : Heure de signature du RUM
+                                         Copie de la donnée de TB_MVT : Code Provenance du Mouvement. Valeur
+14   CODE_PROVENANCE          char(2)    'officielle' (ex : 1 - D'une unité de soins de courte durée)
+                                         Valeur possible : 1 à 7
+                                         Copie de la donnée de TB_MVT : Code Destination du Mouvement. Valeur
+15   CODE_DESTINATION         char(2)    'officielle' (ex : 1 - Vers unité de soins de courte durée)
+                                         Valeur possible : 1 à 7
+16   POIDS_RUM                int(10)    Copie de la donnée de TB_MVT : Poids (des nouveaux-nés) en grammes
+                                         Copie de la donnée de TB_MVT : Indice de Gravité simplifié (utilisé pour la
+17   IGS2                     char(3)
+                                         Réanimation)
+                                         Copie de la donnée de TB_MVT : Lien sur Util.id_util :
+18   ID_MEDECIN_RESPONSABLE int(10)
+                                         Identifiant du médecin responsable du RUM
+19   DATE_INFO                datetime   Date d'insertion dans cette Table d'Historique
+
+20   HEURE_INFO               datetime   Heure d'insertion dans cette Table d'Historique
+                                         Lien sur Util.code_util :
+21   ID_INFO                  int(10)
+                                         Identifiant de l'utilisateur ayant réalisé la modification
+                                         Type d'évènement intervenu sur ce diag :
+                                         - 'S' : Signature du RUM
+22   TYPE_INFO                char(1)
+                                         - 'D' : Désignature du RUM
+                                         - 'E' : suppression du RUM
+                                         Code Description de l'évènement intervenu sur ce mouvement :
+                                         DELIA - delete interface activité
+                                         DELIM - Delete interface Manager
+                                         DELIP - delete interface patient
+                                         DESIA - Designature interface activité
+                                         DESIP - désignature interface patient
+                                         DELWR - delete Recueil WEB
+23   DESCR                    char(5)    DFUIP - Défusion Interface patient
+                                         SIGWR - Signature Recueil WEB
+                                         SIGRU - Signature du RUM (Ecran RUM)
+                                         DEVRU - Dévalidation du RUM (écran RUM)
+                                         SIGSE : Signature du RUM (écran RUM)
+                                         DEVSE : Dévalidation du RUM (écran RUM)
+                                         DEVPO : Dévalidation du RUM (écran Population)
+                                         SIGPO : Signature du RUM (écran Population)
+                                         Copie de la donnée de TB_MVT : Lien sur TB_SITE.ID_SITE :
+24   ID_SITE_MVT              int(10)    Pour les mouvements de Site (= de Plateaux Technique) permet d'enregistrer
+                                         le Site
+                                         Copie de la donnée de TB_MVT : Mouvement spécifique de Site (=de Plateaux
+25   FLAG_MVT_SITE            char(1)
+                                         Technique)
+                                         Copie de la donnée de TB_MVT : N° de Dossier (cas des Plateaux
+26   NO_MVT                   char(20)
+                                         Techniques)
+                                         Copie de la donnée de TB_MVT : Obsolète. Ce champ n'est plus utilisé.
+
+                                         -- Historique --
+                                         Dans le cas de récupération de mouvement (Interface HPRIM) :
+                                         Si l'Unité du mouvement n'est pas une UF (paramétrée à 'N' dans le Thésaurus
+27   UF_PMSI                  char(10)
+                                         des unités) : Vérification si le CAC envoyé est paramétrée comme Unité. Si
+                                         Oui, ce code du CAC est enregistré dans ce champ.
+                                         Permet de gérer le cas des Unités disposant de CAC de différents types
+                                         d'hospitalisation (il faut alors enregistrer les deux infos 'unités' pour typer
+                                         correctement le mouvement)
+                                         Copie de la donnée de TB_MVT : Lien sur TB_SYNTH_RSS.ID_RSS :
+28   ID_RSS                   int(10)
+                                         Lien sur le RSS (pour le PMSI et les Mouvements d'Unité soumis au PMSI)
+29   STATUT_RSS              char(2)       Copie de la donnée de TB_MVT : Non géré actuellement
+
+30   SEM_AMENORHEE           smallint(5)   Copie de la donnée de TB_MVT : Nombre de semaine aménorrhée
+                                           Copie de la donnée de TB_MVT : Renseignement sur l'hebergement
+31   CHAMBRE                 varchar(10)
+                                           'Chambre' si les Mouvements de cette Table se font sur l'Unité d'Hebergement
+                                           Copie de la donnée de TB_MVT : Renseignement sur l'hebergement 'Lit' si les
+32   LIT                     varchar(10)
+                                           Mouvements de cette Table se font sur l'Unité d'Hebergement
+                                           Copie de la donnée de TB_MVT : SI = 'O' : dossier a été éligible et facturé en
+33   BLOCAGE_RSS             char(1)
+                                           SE
+                                           Copie de la donnée de TB_MVT : Lien entre deux séjours de deux
+34   NO_SEJOUR_LIE           varchar(20)   établissements (mutation d'un établissement a l'autre dans un même CHU) -
+                                           Cas d'un seul établissement actuellement
+35   DATE_CREAT              datetime      Date de création
+                                           Lien sur TB_UTIL.ID_UTIL
+36   ID_CREAT                int(10)
+                                           Identifiant de l'utilisateur de création
+                                           Copie de la donnée de TB_MVT : FK
+37   PARCOURS_SOINS          varchar(3)    TB_THES_PARCOURS_SOINS.CODE_PARCOURS_SOINS - Code de
+                                           l'élément du parcours de soins.
+38   RDTH_TYPE_MACHINE       char(1)       Copie de la donnée de TB_MVT : Radiothérapie - Type de Machine
+
+39   RDTH_TYPE_DOSIMETRIE    char(1)       Copie de la donnée de TB_MVT : Radiothérapie - Type Dosimétrie
+                                           Copie de la donnée de TB_MVT : Lien sur TB_UNITE_AM :
+40   ID_UNITE_AM             smallint(5)
+                                           Lien sur les Unités d'Activité Médicales (Gestion Optionnel dans Cora Recueil)
+                                           Copie de la donnée de TB_MVT : Lien sur TB_MOTIF_ADMISSION :
+41   ID_MOTIF_ADMISSION      int(10)
+                                           Lien sur le Motif d'Admission (Gestion Optionnel dans Cora Recueil)
+42   RDTH_NB_FAISCEAUX       smallint(5)   Copie de la donnée de TB_MVT : Radiothérapie - Nb de Faisceaux
+                                           Copie de la donnée de TB_MVT : Non géré actuellement (Prévision : N° de
+43   NO_RSS                  varchar(20)
+                                           RSS auquelle appartient le RUM)
+                                           Copie de la donnée de TB_MVT : Traitement retour ré-hospitalisation:
+44   FLAG_REHOSPIT           char(1)
+                                           ‘V’ pour le mouvement d’avant, ‘P’ pour le mouvement d’après
+45   DATE_DR                 datetime      Copie de la donnée de TB_MVT : Date de dernière règle
+
+46   NUM_INNOVATION          varchar(15)   Copie de la donnée de TB_MVT : N° Innovation - Ajout RUM016
+
+47   NB_IVG_ANTE             smallint(5)   Copie de la donnée de TB_MVT : Nombre d'IVG antérieures - Ajout RUM017
+                                           Copie de la donnée de TB_MVT : Nombre de naissances vivantes antérieures
+48   NB_NAIS_VIVANTES_ANTE   smallint(5)
+                                           - Ajout RUM017
+49   ANNEE_IVG_PREC          varchar(4)    Copie de la donnée de TB_MVT : Année IVG précédente - Ajout RUM017
+                                           Copie de la donnée de TB_MVT : Description
+50   ID_UNITE_PMSI           int(10)       Lien sur TB_UNITE.ID_UNITE :
+                                           Unité fonctionnelle (UF) du Mouvement
+                                           Copie de la donnée de TB_MVT : Condition de prise en charge du patient
+                                           AD - ALD applicable, à confirmer sur le dossier
+                                           AR - ALD en rapport
+                                           AN - ALD non en rapport
+
+                                           Différent du parcours de soins:
+                                           Le parcours de soins est renseigné lors de l'admission et n'est requis que pour
+51   CONDITION_PEC           varchar(2)
+                                           les externes et mutation externe/hospit, pas pour les hospit.
+                                           La condition de prise en charge est transmise par le soignant pour les
+                                           admissions, mutations et sorties.
+
+                                           Ref: CP (N°76) validée dans la V2.7 IHE PAM 2.5 FR Janvier 2016.
+                                           L'info sur les conditions de prise en charge ALD (PV2-18) doublon avec le
+                                           parcours de soins PV2-7.
+                                           Copie de TB_MVT.CONVERSION_HP_HC : Conversion Hospitalisation
+                                           partielle - hospitalisation complète
+52   CONVERSION_HP_HC        char(1)       Pas de valeur = Rum non concerné
+                                           "1" = Conversion HP HC
+                                           "2" = Absence de conversion HP HC
+                                           Copie de TB_MVT.ID_MAISON_NAISSANCE : Identifiant de la maison de
+53   ID_MAISON_NAISSANCE     int(10)       naissance lien avec
+                                           TB_THES_MAISONS_NAISSANCE.ID_THES_MAIS_NAIS.
+                                           Copie de la donnée de TB_MVT : Définit la date du blocage des diagnostics
+54   DATE_SIGN_DIAG          datetime
+                                           pour le RUM.
+                                           Copie de la donnée de TB_MVT : Définit l'identifiant de l'utilisateur à l'origine
+55   ID_UTIL_SIGN_DIAG       int(10)
+                                           du blocage des diagnostics pour le RUM.

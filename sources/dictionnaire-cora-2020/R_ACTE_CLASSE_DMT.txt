@@ -1,0 +1,6 @@
+==== R_ACTE_CLASSE_DMT ====
+Classes de DMT (Discipline Medico Tarifaire) de l'acte
+       1    ACTE_COD                      char(13)       code semi structuré de l'acte
+                                                         CCAM n° 41.1
+       2    CLDMT_COD                     char(2)        Classe de DMT autorisée pour
+                                                         la réalisation de l'acte

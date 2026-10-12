@@ -1,0 +1,23 @@
+==== TB_ACK_ACTE ====
+Table enregistrant les acquittements en erreur des applications ayant reçu des actes de PrisMédica(Permet de gérer et
+réemmettre les actes non intégrés par les applications réceptrices des actes)
+                                                        Clé :
+       1    ID_ERR                       int(10)
+                                                        Identifiant de la table
+                                                        Lien sur TB_ACTE.ID_ACTE :
+       2    ID_ACTE                      int(10)
+                                                        Lien sur l'acte CCAM envoyé et non intégré par l'application réceptice
+       3    DATE_ERR                     datetime       Date de réception de l'acquittement
+                                                        Lien sur TB_APPLICATION_TRANSFERT.CODE_APPLI :
+       4    CODE_APPLI                   char(3)
+                                                        Lien sur l'application concernée
+       5    CODE_ERR                     varchar(20)    Code de l'erreur présente dans le fichier d'acquittement
+
+       6    LIBELLE_ERR                  varchar(80)    Libellé de l'erreur
+
+       7    COMMENTAIRE                  varchar(500)   Commentaire
+
+       8    ID_COTATION                  int(10)        Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP
+                                                        Lien sur TB_COTATION_NGAP.NO_INTERVENTION_CCAM OU
+       9    NO_INTERVENTION_CCAM         int(10)
+                                                        TB_ACTE.NO_INTERVENTION_CCAM

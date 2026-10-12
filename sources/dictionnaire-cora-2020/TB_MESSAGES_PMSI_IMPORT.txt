@@ -1,0 +1,13 @@
+==== TB_MESSAGES_PMSI_IMPORT ====
+       1   ID_MESSAGE                  int(10)
+
+       2   NO_LOT                      int(10)
+
+       3   APPLICATION                 char(3)
+       4   NOM_FICHIER                   varchar(50)
+
+       5   LISTE_IDENTIFIANTS            varchar(500)
+
+       6   FICHIER                       image
+
+       7   DATE_MESSAGE                  datetime

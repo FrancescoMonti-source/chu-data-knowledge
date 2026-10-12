@@ -1,0 +1,24 @@
+==== TB_DOCUMENT_CERFA ====
+                                                       Clé :
+       1   ID_DOC_CERFA                int(10)
+                                                       Définit l'identifiant du document Cerfa.
+       2   ID_PATIENT                  int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+       3   ID_SEJOUR                    int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour.
+
+       4   ID_MVT                       int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du mouvement.
+                                        text
+       5   DOC_CERFA_XML                                Définit le document Cerfa au format Text.
+                                        (2147483647)
+       6   DATE_CREAT                   datetime        Définit la date de création du document Cerfa.
+                                                        FK UTIL.ID_UTIL.
+       7   ID_CREAT                     int(10)
+                                                        Définit l'identifiant du créateur du document Cerfa.
+                                                        Définit un enum pour les types de Cerfas.
+                                                        "0" : ARRET_DE_TRAVAIL
+                                                        "1" : DEMANDE_ENTENTE_PREALABLE
+                                                        "2" : FEUILLE_DE_SOIN
+       8   TYPE_CERFA                   smallint(5)
+                                                        "3" : ORDONNANCE_BIZONE
+                                                        "4" : PROTOCOLE_DE_SOIN
+                                                        "5" : BON_DE_TRANSPORT
+                                                        "6" : DEMANDE_TRANSPORT

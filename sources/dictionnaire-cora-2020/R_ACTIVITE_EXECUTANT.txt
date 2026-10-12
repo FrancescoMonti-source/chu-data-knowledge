@@ -1,0 +1,11 @@
+==== R_ACTIVITE_EXECUTANT ====
+Catégorie de spécialités exécutants permises pour l'activité
+                                                        CCAM n° 1+2
+        1   AA_COD                       char(14)       Code activité interne = Code
+                                                        Acte + Code Activité
+                                                        date de mise à jour de
+        2   AADT_MODIF                   datetime
+                                                        l'activité de l'acte
+                                                        CCAM n° 32
+        3   CATSPE_COD                   char(2)        Code catégorie de spécialité
+                                                        exécutants permises

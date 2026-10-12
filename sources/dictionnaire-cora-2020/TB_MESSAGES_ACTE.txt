@@ -1,0 +1,21 @@
+==== TB_MESSAGES_ACTE ====
+Stockage des fichiers HPRIM XML Acte envoyé
+                                                       Clé - Lien sur TB_ACTE.ID_ACTE :
+       1   ID_ACTE                     int(10)
+                                                       Lien sur l'acte envoyé
+                                                       Clé - Lien sur TB_EMISSION.NO_LOT :
+       2   NO_LOT                      int(10)
+                                                       Lien sur le n° de lot d'envoi concerné
+                                                       Clé :
+                                                       - C : Création
+       3   TYPE_MESSAGE                char(1)
+                                                       - S : Suppression
+                                                       - I : Intervention (spécifique longjumeau)
+       4   NOM_FICHIER                 char(50)        Nom du fichier stocké
+
+       5   FICHIER                     image           Fichier xml
+
+       6   DATE_MESSAGE                datetime        Date d'envoi du fichier
+                                                       Clé - Lien sur TB_COTATION_NGAP.CPT_ID_COTATION_NGAP :
+       7   ID_COTATION                 int(10)
+                                                       Lien sur l'acte envoyé

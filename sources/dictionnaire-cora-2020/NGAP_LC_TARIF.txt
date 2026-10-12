@@ -1,0 +1,9 @@
+==== NGAP_LC_TARIF ====
+                                                       Clé
+       1   LC                         char(9)
+                                                       Code NGAP de la lettre clé. Lien avec NGAP_LC.LC
+       2   DATE_DEB                   datetime         Date de début de validité du tarif appliqué à la lettre clé
+
+       3   DATE_FIN                   datetime         Date de fin de validité du tarif appliqué à la lettre clé
+
+       4   MNT_TARIF                  decimal(10, 2)   Montant du tarif

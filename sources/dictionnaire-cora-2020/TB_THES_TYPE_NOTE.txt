@@ -1,0 +1,9 @@
+==== TB_THES_TYPE_NOTE ====
+       1   ID_TYPE_NOTE            smallint(5)
+
+       2   CODE_TYPE_NOTE          varchar(8)
+       3   LIB_TYPE_NOTE                varchar(50)
+
+       4   ACTIF                        char(1)                                                                                         'O'
+
+       5   CONFIDENTIEL                 char(1)                                                                                         'N'

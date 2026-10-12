@@ -1,0 +1,6 @@
+==== TB_DICOM_IMAGE_CLE ====
+       1   ID_EXAMEN                   int(10)
+
+       2   NO_IMAGE                    varchar(200)
+
+       3   ID_CORPS_PHRASIER           int(10)

@@ -1,0 +1,12 @@
+==== TB_PROTOCOLE_NGAP ====
+Table de lien entre Une Cotation NGAP et un Protocole groupe CCAM-CIM
+                                                       Clé - Lien sur CCAM_PROTOCOLE.ID_PROTOCOLE (Schéma CCAM ou
+       1   ID_PROTOCOLE                 int(10)        Base CORA) :
+                                                       Identifiant du Protocole
+                                                       Clé - Lien sur TB_COTATION.ID_PROTOCOLE :
+       2   ID_COTATION                  int(10)
+                                                       Identifiant de la cotation NGAP
+       3   ACTIF                        char(1)        si ='O' : lien actif
+                                                       Lien sur util_lib_groupe.id_groupe (schéma UTIL ou Base CORA_UTIL) :
+       4   ID_GROUPE                    int(10)
+                                                       Lien sur le groupe auquel appartient le protocole

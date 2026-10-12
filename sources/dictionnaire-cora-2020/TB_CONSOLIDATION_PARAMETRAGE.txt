@@ -1,0 +1,21 @@
+==== TB_CONSOLIDATION_PARAMETRAGE ====
+       1   DATE_DEBUT                 datetime         Date de début des séjours consolidés
+
+       2   DATE_FIN                   datetime         Date de fin des séjours consolidés
+                                                       O/N
+       3   EXCLURE_MULTI_RUM          char(1)          Exclure ou non les multi-rum.
+                                                       Si oui, impact la liste des modes de calcul disponible.
+       4   EXCLURE_SEJOURS_COURTS char(1)              Exclure ou non les séjours courts de la consolidation
+           DUREE_SEJOURS_LONGS_EX
+       5                          int(10)
+           CLUS
+       6   CMD_EXCLUS                 varchar(200)
+                                                       Méthode de calcul choisie pour la consolidation
+                                                       Issue de l'énumération ModeCalcul
+                                                       PRTA_TPS_GHS : Prorata temporis GHS
+                                                       PRTA_TPS_MNT_TOT : Prorata temporis montant total
+       7   MODE_CALCUL                varchar(20)
+                                                       PRTA_TARIF_GHS : Prorata tarif GHS
+                                                       PRTA_TARIF_MNT_TOT : Prorata tarif montant total
+                                                       NIORT_STRAS_UM : Niort Strasbourg UM
+                                                       NIORT_STRAS_ETAB : Niort Strasbourg Etablissement

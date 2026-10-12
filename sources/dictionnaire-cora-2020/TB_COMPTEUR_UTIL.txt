@@ -1,0 +1,8 @@
+==== TB_COMPTEUR_UTIL ====
+       1    CPT_ID_DEPL_SERVEUR         smallint(5)
+
+       2    CPT_ID_MACHINE              int(10)
+
+       3    CPT_ID_STAT_DEF             int(10)
+
+       4    CPT_ID_STAT_FAVORI          int(10)

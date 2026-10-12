@@ -1,0 +1,5 @@
+==== R_AGRE_RADIO ====
+Liste des Types d'agrément radio utilisés en Base CCAM
+       1   COD_AGRAD                  char(2)       Code agrément radio
+
+       2   LIBELLE                    char(100)     libellé agrément radio

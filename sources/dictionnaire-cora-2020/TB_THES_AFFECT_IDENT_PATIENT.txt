@@ -1,0 +1,11 @@
+==== TB_THES_AFFECT_IDENT_PATIENT ====
+       1    ID_AFFECT_IDENT_PATIENT     smallint(5)
+
+       2    CODE_APPLI                  char(3)
+           CODE_AFFECT_IDENT_PATIE
+      3                            varchar(20)
+           NT
+           LIBELLE_AFFECT_IDENT_PATI
+      4                              varchar(100)
+           ENT
+      5    ID_IDENT_PATIENT           smallint(5)

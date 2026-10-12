@@ -1,0 +1,10 @@
+==== TB_THES_FICHE_BLOC ====
+       1   ID_THES_FICHE_BLOC          smallint(5)     Identifiant de la fiche de bloc
+
+       2   CODE_THES_FICHE_BLOC        varchar(10)     Code de la fiche de bloc
+
+       3   LIB_THES_FICHE_BLOC         varchar(100)    Libellé de la fiche de bloc
+
+       4   ACTIF                       char(1)         O ou N                                                            'O'
+
+       5   TYPE_USER                   char(1)

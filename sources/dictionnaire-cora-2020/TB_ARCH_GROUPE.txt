@@ -1,0 +1,27 @@
+==== TB_ARCH_GROUPE ====
+Définit une table contenant l'ensemble des rangements d'archives.
+                                                       Clé :
+       1    ID_ARCH_GROUPE              int(10)
+                                                       Définit l'identifiant du rangement d'archive.
+       2    CODE_ARCH_GROUPE            char(8)        Définit le code du rangement d'archive.
+
+       3    COULEUR                     char(20)       Définit la couleur associée au rangement.
+
+       4    LIBELLE_ARCH_GROUPE         varchar(100)   Définit le libellé du rangement.
+
+       5    LIBELLE_COMM_ARCH           varchar(100)   Définit le commentaire associé au rangement.
+       6    NB_MAX_ARCH                  int(10)         Définit le nombre maximal de dossier que le rangement peut contenir.
+
+       7    CODE_RG                      char(20)        Définit le code interne du rangement.
+
+       8    ID_PERE                      int(10)         Définit l'identifiant du rangement père.
+
+       9    OPT_DOSSIER                  char(1)         Définit si le rangement peut contenir des dossiers.
+                                                         Définit le niveau auquel le rangement se situe dans l'arborescence des
+       10   NIVEAU                       int(10)
+                                                         rangements.
+       11   ACTIF                        char(1)         Définit si le rangement est actif.                                                       'O'
+
+       12   INDEX_ICONE                  char(5)
+
+       13   ID_CENTRE_ARCHIVE            smallint(5)     Définit le centre d'archive associé au rangement.

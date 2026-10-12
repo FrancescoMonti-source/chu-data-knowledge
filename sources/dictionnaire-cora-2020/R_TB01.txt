@@ -1,0 +1,7 @@
+==== R_TB01 ====
+Table des modes de traitement impliquant un tauxd'hospitalisation.
+       1   MODE_TRAIT                   char(2)       Code du Mode de traitement.
+
+       2   DT_DEBUT                     datetime      Date de Début.
+
+       3   DT_FIN                       datetime      Date de Fin.

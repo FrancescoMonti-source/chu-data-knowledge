@@ -1,0 +1,34 @@
+==== TB_FORMAT_PARAM ====
+VIDHOSP = 1 FICHCOMPMED = 2 FICHCOMPDMI = 3 RUM = 4 RHS = 5 B2 = 6 RSF = 7 RDS = 8
+                                              VIDHOSP = 1
+                                                   FICHCOMPMED = 2
+                                                   FICHCOMPDMI = 3
+                                                   RUM = 4
+                                                   RHS = 5
+                                                   B2 = 6
+                                                   RSF = 7
+                                                   RDS = 8
+     1   NORME               smallint(5)
+                                                   RPS = 9
+                                                   FICHCOMPORP =10
+                                                   FICHCOMPCONTISOLPSY =11
+                                                   RAA = 12
+                                                   RPSS = 13
+                                                   DATEXPMRC = 14
+                                                   FICHCOMPTEMPSPARTIELPSY = 15
+                                                   DATEXPLPPINTRAGHS=16
+     2   NOM_CHAMP           varchar(100)     Nom du champ dans la norme
+
+     3   NOM_CHAMP_CORA      varchar(100)     Nom du champ dans la base CORA
+
+     4   TYPE                varchar(15)      Datetime, decimal, char, varchar
+
+     5   TAILLE              smallint(5)      longueur du champ
+
+     6   POSITION            smallint(5)      Premier caractère dans une chaine
+
+     7   CODE_GROUPE         smallint(5)      Regroupement de champs
+
+     8   TAILLE_GROUPE       smallint(5)      longueur du groupe pour repetitions
+
+     9   VERSION             varchar(10)      Version de la norme decrite

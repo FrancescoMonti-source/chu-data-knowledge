@@ -1,0 +1,34 @@
+==== TB_THES_LIT ====
+Thésaurus des lits Clé de la table
+Thésaurus des lits
+                                                         Clé de la table
+       1   ID_LIT                       int(10)
+                                                         Identifiant du lit
+       2   CODE_LIT                     varchar(10)      Code du lit
+
+       3   LIBELLE_LIT                  varchar(100)     Libellé du lit
+                                                         Lien vers TB_THES_CHAMBRE.ID_CHAMBRE
+       4   ID_CHAMBRE                   int(10)
+                                                         Identifiant de la chambre associé au lit
+                                                         Lien vers TB_THES_TYPE_LIT.ID_TYPE_LIT
+       5   ID_TYPE_LIT                  smallint(5)
+                                                         Identifiant du type de lit
+                                                         Emplacement du lit
+                                                         P = Porte
+       6   EMPLACEMENT                  char(1)          C= Couloir
+                                                         F= Fenêtre
+                                                         Null = Aucun
+       7   TELEPHONE                    varchar(10)      Numéro de téléphone associé au lit
+
+       8   RESERVE                      char(1)          Indique si le lit est un lit de réserve (O/N)
+
+       9   ACTIF                        char(1)          Indique si le lit est actif (O/N)                                   'O'
+
+      10   DATE_CREAT                   datetime         Date de création
+                                                         Lien vers TB_UTIL.ID_UTIL
+      11   ID_CREAT                     int(10)
+                                                         Identifiant de la personne ayant crée le lit
+      12   DATE_INFO                    datetime         Date de dernière modification
+                                                         Lien vers TB_UTIL.ID_UTIL
+      13   ID_INFO                      int(10)
+                                                         Identifiant de la personne ayant fait la dernière modification

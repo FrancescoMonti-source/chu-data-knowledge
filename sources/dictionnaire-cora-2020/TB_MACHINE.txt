@@ -1,0 +1,33 @@
+==== TB_MACHINE ====
+cette table contient la liste des machines du site déployées avec les applications CORA.remarque : la majeure partie des
+informations de cette table sont récupérées via WMI lors du lancement de CORA Client Installer
+       1   ID_MACHINE                  int(10)        identifiant unique de la machine
+
+       2   NOM                         varchar(50)    nom NETBIOS de la machine
+
+       3   NOM_COMPLET                 varchar(250)   nom DNS complet de la machine
+
+       4   ADRESSE_IPV4                varchar(15)    adresse ip V4
+
+       5   NOM_OS                      varchar(250)   nom complet du système d'exploitation installé
+
+       6   VERSION_OS                  varchar(50)    version du système d'exploitation installé
+
+       7   ARCHITECTURE_OS             varchar(50)    type d'architecture de l'OS (32bits/64bits)
+
+       8   WINDIR                      varchar(250)   emplacement du dossier Windows
+
+       9   SERVICE_PACK                varchar(100)   version du service pack Windows installé
+
+      10   LOGIN                       varchar(250)   login à utiliser pour administrer cette machine à distance
+                                                      nom de domaine de l'utilisateur utilisé pour administrer cette machine à
+      11   DOMAINE                     varchar(50)
+                                                      distance
+      12   PWD                         varchar(250)   mot de passe de l'utilisateur utilisé pour administrer cette machine à distance
+
+      13   DESCRIPTION                 varchar(500)   description de la machine (commentaire libre)
+
+      14   DATE_CREAT                  datetime       date d'ajout de la machine dans la table
+                                                      idenfiant du serveur d'application à utiliser de préférence pour mettre à jour
+      15   ID_DEPL_SERVEUR             smallint(5)
+                                                      cette machine

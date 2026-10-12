@@ -1,0 +1,84 @@
+==== TB_DET_ACTE ====
+Tables de lien entre les actes CCAM et les personnes ayant réalisés l'acte --> Notion Actes CCAM + Activité (1 acte CCAM est
+réalisé par au moins un médecin)
+                                                       Clé :
+       1   ID_DET_ACTE                int(10)
+                                                       Identifiant (PrisMédica) de l'acte
+                                                       Lien obligatoire sur TB_ACTE.ID_ACTE :
+       2   ID_ACTE                    int(10)
+                                                       Identifiant de l'Acte CCAM (Acte + Phase)
+       3   ID_ACTIVITE                int(10)          Code Activité
+                                                       Lien sur Util.id_util :
+       4   ID_MEDECIN                 int(10)
+                                                       Identifiant du médecin opérateur de l'acte (médecin exécutant)
+                                                       Lien sur R_EXTENSION.COD_EXTENS :
+       6   EXT_DOCUMENT               char(1)
+                                                       Code de l'extension documentaire
+       7   MODIFICATEUR               char(50)         Codes Modificateurs de l'acte-activité (code concaténé)
+
+       8   ETAT                       char(1)          Si ='X' : activité non réalisée
+                                                       Lien sur Util.id_util :
+       9   ID_MEDECIN_SIGN            int(10)
+                                                       Identifiant du médecin ayant signé l'acte-activité
+      10   DATE_SIGN                  datetime         Date de signature de l'acte-activité
+
+      11   HEURE_SIGN                 datetime         Heure de signature de l'acte-activité
+
+      12   DATE_INFO                  datetime         Date de dernière modification de cet acte-activité
+
+      13   HEURE_INFO                 datetime         Heure de dernière modification de cet acte-activité
+                                                       Lien sur Util.id_util :
+      14   ID_INFO                    int(10)          Identifiant du dernier utilisateur ayant réalisé une modification de cet acte-
+                                                       activité (signature, désignature….)
+      15   ACTIVITE_LIBERALE          char(1)          Acte-Activité réalisé en activité libérale (si = "1")
+                                                       Lien sur TB_SITE.ID_SITE :
+      16   ID_SITE_ACTIVITE           int(10)          Identifiant du Site de Production de l'acte (Site de production pour le médecin
+                                                       ayant réalisé l'activité de l'acte)
+                                                       Lien sur TB_UNITE.ID_UNITE :
+      17   ID_UNITE_ACTIVITE          int(10)          Identifiant de l'Unité de Production de l'acte (Unité de production pour le
+                                                       médecin ayant réalisé l'activité de l'acte)
+                                                       Code association non prévue.
+                                                       Il est utilisé pour signaler la réalisation de plusieurs actes au cours d'une
+                                                       même intervention (Association d'actes)
+                                                       (Pour les actes CCAM en Externe, en cas de saisie de plusieurs actes CCAM)
+      18   CODE_ASSOCIATION           char(1)          - 1 (ou vide) : 100%
+                                                       - 3 : 75%
+                                                       - 2 : 50%
+                                                       - 4 : actes de radio (100%)
+                                                       - 5 : actes complémentaires (100%)
+      19   CODE_REMBOURSEMENT         char(1)          Copie de la valeur de TB_ACTE.REMB_EXC
+
+      20   REALISE_LIT                char(1)          si = 'O' : Acte réalisé au lit du patient
+                                                       si = 'O' : Acte gratuit
+      21   ACTE_GRATUIT               char(1)          Si Null --> 'N'
+                                                       (en donc non facturable)
+                                                       Permet de spécifier qu'une activité est non facturable (si ='N') selon les règles
+      22   FACTURABLE                 char(1)          de facturation et non selon l'information 'acte gratuit'
+                                                       Si Null --> 'O'
+                                                       Code exonération saisi pour l'acte CCAM.
+                                                       Il peut prendre les valeurs de R_EXO_TM.COD_EXOTM.
+      23   CODE_EXONERATION           char(1)
+                                                       Les codes d'exonération possibles pour un acte sont définis dans la table
+                                                       R_ACTE_EXO_TM.
+      24   MNT_DEPASS                 decimal(10, 2)   Montant du Dépassement
+           MODIF_CODE_ASSOC_MANU
+      25                         char(1)               Si l'utilisateur a modifié 'manuellement' le code association : = 'O'
+           EL
+                                                       - 'D' = entente directe
+                                                       - 'E' = exigence du patient,
+      26   MOTIF_DEPASS               char(1)          - 'F' = déplacement non prescrit
+                                                       - 'N' = à ne pas rembourser en amo
+                                                       - 'G' = Gratuit
+      27   MNT_ACTIVITE               decimal(10, 2)   Prix de l'acte / activité
+      28   MNT_MODIFICATEUR             decimal(10, 2)   Montant de supplément du aux modificateurs
+
+      29   MNT_TOTAL                    decimal(10, 2)   Prix total
+
+      31   POUR_MEMOIRE                 char(1)          O = acte documentaire
+                                                         Enregistrement du contexte patient au moment de la saisie de l'activité de
+      32   CODE_CONTEXTE_BN             smallint(5)
+                                                         l'acte.
+                                                         Enregistrement du contexte praticien au moment de la saisie de l'activité de
+      33   CODE_CONTEXTE_PS             smallint(5)
+                                                         l'acte.
+      34   CODE_GRILLE_TARIFAIRE        smallint(5)      Enregistrement du code de la grille tarifaire.

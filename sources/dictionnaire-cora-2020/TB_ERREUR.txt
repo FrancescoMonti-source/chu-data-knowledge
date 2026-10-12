@@ -1,0 +1,16 @@
+==== TB_ERREUR ====
+Table des erreurs pour l'Interface Patient
+                                                        Clé :
+       1    ID_ERR                      int(10)
+                                                        Identifiant interne
+       2    DATE_ERR                    datetime        Date ou l'erreur est intervenue
+                                                        Type d'erreur :
+                                                        - 'A' : Erreur applicative (Bug application)
+       3    TYPE                        char(1)         - 'F' : Erreur de Flux (ex : Suppression d'un patient inexistant...)
+                                                        - 'I' : Message d'information (Traitement effectué, Connexion réalisée…)
+                                                        - 'R' : Rejet (ex : N° de Séjour non valide…)
+       4    LIBELLE                     varchar(250)    Libellé de l'erreur
+
+       5    DETAIL                      varchar(1000)   Détail (requête)
+
+       6    APPLICATION                 char(3)         'HPR' pour Hprim

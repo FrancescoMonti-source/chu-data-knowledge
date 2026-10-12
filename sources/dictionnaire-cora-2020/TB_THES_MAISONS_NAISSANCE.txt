@@ -1,0 +1,7 @@
+==== TB_THES_MAISONS_NAISSANCE ====
+Table du thésaurus des maisons de naissance
+       1   ID_THES_MAIS_NAIS           int(10)        Clé : Identifiant de la maison de naissance.
+
+       2   ACTIF                       char(1)        'O' indique si la maison de naissance est active ou non.
+
+       3   NOM_MAISON_NAIS             varchar(100)   Nom de la maison de naissance

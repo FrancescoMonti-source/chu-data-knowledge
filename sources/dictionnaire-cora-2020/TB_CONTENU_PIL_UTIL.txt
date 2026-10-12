@@ -1,0 +1,8 @@
+==== TB_CONTENU_PIL_UTIL ====
+       1   ID_UTIL                    int(10)
+
+       2   ID_ELEMENT                 int(10)
+
+       3   TYPE_ELEMENT               char(1)
+
+       4   DROIT                      char(1)

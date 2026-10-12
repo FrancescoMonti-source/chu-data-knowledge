@@ -1,0 +1,6 @@
+==== NOMENC_ACRONYMES_DETAIL ====
+       1   ID_ACRONYME                int(10)          Identifiant de l'acronyme
+
+       2   CODE                       char(16)         Code du diagnostic ou de l'acte lié à l'acronyme
+
+       3   TYPE_CODE                  char(1)          Type de donnée (Acte : A, Diagnostic: D)

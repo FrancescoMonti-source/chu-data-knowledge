@@ -1,0 +1,8 @@
+==== R_ACTE_NAT_ASS ====
+Natures d'assurances du code acte
+                                                        CCAM n° 1
+        1   ACTE_COD                     char(13)
+                                                        Code semi-structuré de l'acte
+                                                        CCAM n° 30.1
+        2   NATASS_COD                   char(2)
+                                                        Code nature d'assurance

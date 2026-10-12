@@ -1,0 +1,25 @@
+==== TB_INT_PARAM_FTP ====
+Table contenant les paramètres FTP (Plusieurs connexions avec plusieurs Login possibles)
+                                                      Clé :
+       1   ID_PARAM_FTP               smallint(5)
+                                                      Identifiant interne de la table
+       2   NOM_SERVEUR_FTP            varchar(30)     Nom du Serveur FTP
+
+       3   LOGIN                      varchar(272)    Paramètre Login du Serveur FTP
+
+       4   PASSWORD                   varchar(250)    Paramètre Password potentiellement cryptée du Serveur FTP
+
+       5   ACTIF                      char(1)                                                                                         'O'
+                                                      Nom de l'application externe concernée (ex : Pastel Acte, Noyau
+       6   NOM_APPLI_EXTERNE          varchar(50)
+                                                      Convergence…)
+       7   NOM_APPLI_INTERNE          varchar(50)     Nom de l'application PrisMédica concernée (Interface Activité, Patient…)
+                                                      Nom du répertoire contenant les fichiers à transmette ou Nom du répertoire
+       8   NOM_REPERTOIRE             varchar(250)
+                                                      destination des fichiers
+                                                      - E : Emission
+       9   TYPE                       char(1)
+                                                      - R : Réception
+                                                      Répertoire sur le serveur FTP dans le quel on va récupérer / déposer les
+      10   NOM_REPERTOIRE_DISTANT varchar(250)
+                                                      fichiers après s'être connecté.

@@ -1,0 +1,14 @@
+==== R_TB09 ====
+Compatibilités entre modificateurs
+                                                          CCAM n° 6
+       1   MODIF_COD1                     char(1)
+                                                          Code modificateur de l'acte
+                                                          CCAM n° 6
+       2   MODIF_COD2                     char(1)
+                                                          Code modificateur de l'acte
+                                                          Date d'effet de la compatibilité
+       3   DT_DEBUT                       datetime
+                                                          entre les modificateurs
+                                                          date de fin de la compatibilité
+       4   DT_FIN                         datetime
+                                                          entre les modificateurs

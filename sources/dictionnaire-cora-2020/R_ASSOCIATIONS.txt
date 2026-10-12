@@ -1,0 +1,22 @@
+==== R_ASSOCIATIONS ====
+Matrice des associations prévues d'actes
+                                                    Clé - Lien avec R_ACTE_IVITE :
+       1   AA_CODE1                   char(14)
+                                                    Code acte + Code Activité
+                                                    Clé - Lien avec R_ACTE_IVITE :
+       2   DT_MODIF1                  datetime
+                                                    Date de mise à jour
+                                                    Clé - Lien avec R_ACTE_IVITE :
+       3   AA_CODE2                   char(14)
+                                                    Code acte + Code Activité
+                                                    Clé - Lien avec R_ACTE_IVITE :
+       4   DT_MODIF2                  datetime
+                                                    Date de mise à jour
+                                                    Ajout PMC
+       5   REGLE_COD                  char(1)
+                                                    RAS
+                                                    Ajout PMC
+                                                    Vide normalement,
+       6   ETAT_PMC                   char(1)
+                                                    I pour ajout interne
+                                                    A pour adaptation de la norme par PMC

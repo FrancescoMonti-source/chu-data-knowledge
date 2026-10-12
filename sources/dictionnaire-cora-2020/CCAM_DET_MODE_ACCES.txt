@@ -1,0 +1,4 @@
+==== CCAM_DET_MODE_ACCES ====
+       1   CODE_PRINC                 char(1)
+
+       2   MOT_CLE                    char(100)

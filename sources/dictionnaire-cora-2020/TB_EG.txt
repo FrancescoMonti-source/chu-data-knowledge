@@ -1,0 +1,15 @@
+==== TB_EG ====
+Table contenant l'ensemble des EG
+       1   ID_EG                          smallint(5)    Identifiant de l'entité géographique
+
+       2   CODE_EG                        varchar(12)    Code de l'entité géographique
+
+       3   LIBELLE_EG                     varchar(100)   Libellé de l'entité géographique
+
+       4   NO_FINESS                      char(9)        Numéro de finess géographique
+
+       5   ID_EJ                          smallint(5)    Identifiant de l'EJ auquelle l'EG est associée
+
+       6   ACTIF                          char(1)        Caractère Actif de l'EG
+
+       7   ID_EXTERNE                     varchar(16)

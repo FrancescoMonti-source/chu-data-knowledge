@@ -1,0 +1,9 @@
+==== TB_EMISSION ====
+Table des N° de lot d'envoi (des actes)
+                                                         Clé :
+       1   NO_LOT                         int(10)
+                                                         Identifiant d'envoi
+       2   DATE_ENVOI                     datetime       Date d'envoi du lot
+                                                         Lien sur TB_APPLICATION_TRANSFERT.CODE_APPLI :
+       3   CODE_APPLI                     char(3)
+                                                         Lien sur l'application concernée

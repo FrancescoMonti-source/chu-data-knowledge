@@ -1,0 +1,16 @@
+==== TB_PARCOURS_SOINS ====
+Table de Paramétrage de la génération des Lettres clés du Parcours de soins
+                                                        Clé :
+       1    ID_PARCOURS_SOINS            smallint(5)    Valeur insérée dans les champs FLAG_MNC de TB_ACTE et
+                                                        TB_COTATION_NGAP
+       2    CODE_PARCOURS_SOINS          char(9)        Code Lettre clé correspondante (ex : 'MTO', 'MTN'…)
+
+       3    LIBELLE_PARCOURS_SOINS       varchar(50)    Libellé (ex : pour MTO 'Patient orienté par le médecin traitant'…)
+
+       4    GESTION_AUTO                 char(1)        Génération automatique de cette lettre clé : O/N
+
+       5    GESTION_EXT                  char(1)
+
+       6    GESTION_URG                  char(1)
+
+       7    GESTION_MCO                  char(1)

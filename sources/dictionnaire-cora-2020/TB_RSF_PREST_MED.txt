@@ -1,0 +1,36 @@
+==== TB_RSF_PREST_MED ====
+       1    ID_RSF_PREST_MED             int(10)         Identifiant de la prestation méd. Clé de la table.
+
+       2    ID_RSF_PREST                 int(10)         identifiant de la prestation : clef primaire de TB_RSF_PRESTATIONS
+
+       3    ID_RSF_FACT                  int(10)         identifiant de la facture : clef primaire de TB_RSF_FACT
+                                                         Code UCD associé à une nature de
+       4    CODE_UCD                     varchar(13)     prestation PH8, pour les médicaments
+                                                         délivrables en sus du GHS.
+       5    CODE_TAUX                    char(1)
+                                                         Le coefficient de fractionnement indique
+                                                         la fraction délivrée par rapport à l’unité
+                                                         de facturation. Il est inférieur ou égal à
+                                                         1.
+                                                         Exemple : pour la délivrance du 1/3
+       6    COEF_FRACTIONNEMENT          decimal(5, 4)   d’un conditionnement donné, le
+                                                         coefficient de fractionnement est égal à
+                                                         03333.
+                                                         Si le coefficient de fractionnement est
+                                                         strictement inférieur à 1, alors la
+                                                         quantité doit être égale à 1.
+       7    QUANTITE                     smallint(5)     nombre d'articles identiques
+
+       8    PRIX_ACHAT_UNIT              decimal(8, 2)   Prix d’achat unitaire TTC.
+
+       9    PRIX_FACT_UNIT               decimal(8, 2)   Prix unitaire facturé
+
+       10   MNT_FACTURE                  decimal(8, 2)   Montant total facturé (prix unitaire x quantite)
+
+       11   MNT_UNITE_ECART              decimal(8, 2)   Montant unitaire de l’écart indemnisable
+
+       12   MNT_TOT_ECART                decimal(8, 2)   Montant total de l’écart indemnisable
+
+       13   MEMO_LIGNE_PREST_MED         varchar(200)    Ligne RSF H correspondant à la presta médicamenteuse
+
+       14   INDICATION_LES               varchar(7)      Indication de la spécialité pharmaceutique

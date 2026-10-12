@@ -1,0 +1,9 @@
+==== MED_UCD_LES ====
+Table matrice entre le code UCD et le code LES
+       1   ID_LES                     int(10)          Identifiant du code LES. Lien avec MED_REF_LES.ID_LES.
+
+       2   CODE_UCD                   varchar(7)       Code UCD sur 7 caractère. Lien avec MED_COUTEUX.UCD.
+
+       3   DATE_DEBUT                 datetime         Date de début de validité
+
+       4   DATE_FIN                   datetime         Date de fin de validité

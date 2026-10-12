@@ -1,0 +1,14 @@
+==== NGAP_CCAM ====
+       1   CLE                         char(9)
+
+       2   LC                          char(9)
+
+       3   COEF                        float(53)
+
+       4   DATE_EFFET                  datetime
+
+       5   DATE_REVOCATION             datetime
+
+       6   ACTIF                       char(1)
+
+       7   ARE                         char(1)

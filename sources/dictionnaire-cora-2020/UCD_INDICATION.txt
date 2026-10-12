@@ -1,0 +1,15 @@
+==== UCD_INDICATION ====
+Matrice UCD INDICATION
+      1   UCD7              varchar(7)      UCD sur 7 caractères
+
+      2   UCD13             varchar(13)     UCD sur 13 caractères
+
+      3   INDICATION        varchar(7)      code de l'indication
+
+      4   DATE_DEBUT        datetime        Date début de validité de l'indication au niveau du remboursement
+
+      5   DATE_FIN          datetime        Date fin de validité de l'indication au niveau du remboursement
+
+      6   LIB_INDICATION    varchar(2000)   Libellé de l'indication
+
+      7   TYPE_INDICATION   char(1)         Type de l'indication A ATU ou P Post ATU

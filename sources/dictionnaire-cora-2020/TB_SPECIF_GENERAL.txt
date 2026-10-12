@@ -1,0 +1,13 @@
+==== TB_SPECIF_GENERAL ====
+cette table est utilisé pour les package de type CORA Infrastructure lors de l'étape de création des scripts de différences de
+structureelle décrit la liste des spécificités du client au niveau des tables
+       1    SCHEMATABLE_ID              int(10)        identifiant unique du schéma
+
+       2    SCHEMANAME                  varchar(50)    nom du schéma (il s'agit du code interne et nom pas du nom réel)
+
+       3    TABLENAME                   varchar(200)   nom de la table
+
+       4    ALLOWDROP                   char(1)        O / N indique si l'on autorise la suppression de la table                              'N'
+                                                       O / N indique si l'on autorise la modification de la table (si 'N' les infos mise
+       5    ALLOWCHANGE                 char(1)
+                                                       dans TB_SPECIF_COLONNE sont ignorées)

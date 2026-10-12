@@ -1,0 +1,8 @@
+==== TB_BANDEAU_CAT_LIEN ====
+Table de lien entre les catégories de bandeau patient et les bandeaux patient.
+                                                        Clé :
+       1    ID_BANDEAU_CAT               int(10)
+                                                        Définit l'identifiant de la catégorie de bandeau patient.
+                                                        Clé :
+       2    ID_BANDEAU                   int(10)
+                                                        Définit l'identifiant du bandeau patient.

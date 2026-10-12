@@ -1,0 +1,28 @@
+==== TB_SYNTH_RUM_COMPL ====
+    1    ID_RUM_COMPL              int(10)
+
+    2    CHRONO_RUM_COMPL          smallint(5)
+
+    3    ID_RSS                    int(10)
+
+    4    DATE_DEBUT                datetime
+
+    5    DATE_FIN                  datetime
+
+    6    DUREE                     int(10)
+
+    7    ID_UNITE                  int(10)
+
+    8    ID_UNITE_MEDICALE         int(10)
+
+    9    MNT_PRORATA_TPS           decimal(10, 2)
+
+    10   MNT_PRORATA_TPS_GHS       decimal(10, 2)
+
+    11   MNT_TMJ_PRORATA_TPS       decimal(10, 2)
+         MNT_TMJ_PRORATA_TPS_GH
+    12                          decimal(10, 2)
+         S
+    13   MNT_PRORATA_STRA          decimal(10, 2)
+
+    14   MNT_PRORATA_STRA_ETAB     decimal(10, 2)

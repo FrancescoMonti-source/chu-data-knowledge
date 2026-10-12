@@ -1,0 +1,4 @@
+==== ACTION_DETAIL_FAVORI_MJ ====
+     1   ID_DETAIL_FAVORI        int(10)
+
+     2   HEURE_JOURNEE           datetime

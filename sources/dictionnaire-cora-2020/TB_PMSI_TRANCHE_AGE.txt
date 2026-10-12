@@ -1,0 +1,13 @@
+==== TB_PMSI_TRANCHE_AGE ====
+Table de gestion des consolidations par tranche d'age des RSS
+       1   ID_TRANCHE_AGE              smallint(5)
+
+       2   BORNE_BASSE                 smallint(5)
+
+       3   BORNE_HAUTE                 smallint(5)
+                                                      A = âge en années
+       4   TYPE                        char(1)        M : âge en mois
+                                                      J = âge en jours
+       5   LIB_TRANCHE_AGE             varchar(20)
+
+       6   CODE_TRANCHE_AGE            char(3)

@@ -1,0 +1,10 @@
+==== TB_MODELE_DOC_CATEGORIE ====
+Cette table définit les regroupements de modèles (Catégorie de Modèle).
+                                                           Clé :
+       1   ID_MODELE_DOC_CAT             smallint(5)
+                                                           Définit l'identifiant (PrisMédica) de la catégorie de modèle.
+       2   LIB_MODELE_DOC_CAT            varchar(50)       Définit le libellé de la catégorie de modèle.
+                                                           Définit l'identifiant de la catégorie parente.Lien Père - Fils permettant une
+       3   ID_MODELE_DOC_CAT_PERE smallint(5)
+                                                           arborescence dans ce thésaurus.
+       4   COULEUR                       varchar(15)       Définit une couleur au format hexadécimal. Utilisé dans M-Entrepôt.

@@ -1,0 +1,14 @@
+==== TB_DIAG_EMIS ====
+Table contenant les diagnostics émis pour un n° de lot
+                                                         Clé - Lien sur TB_EMISSION_DIAG.NO_LOT :
+       1   NO_LOT                      int(10)
+                                                         Lien sur le n° de lot d'envoi concerné
+                                                         Clé - Lien sur TB_DIAG.ID_DIAG :
+       2   ID_DIAG                     int(10)
+                                                         Lien sur le diagnostic envoyé
+                                                         Type d'info envoyée pour le diagnostic :
+                                                         - 'E' : Emis
+       3   STATUT                      char(1)
+                                                         - 'R' : Réémis (cas des modification)
+                                                         - 'S' ou 'D' : Suppression
+       4   DATE_EMIS                   datetime          Date d'émission du diagnostic

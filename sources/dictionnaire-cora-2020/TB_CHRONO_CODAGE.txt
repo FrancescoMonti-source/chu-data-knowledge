@@ -1,0 +1,31 @@
+==== TB_CHRONO_CODAGE ====
+Table de stockage des évènements de la chronologie de codage des séjours.
+                                                       Identifiant unique du chrono de codage. Détermination de l’identifiant par
+       1   ID_CHRONO_CODAGE           int(10)
+                                                       séquence/compteur CPT_ID_CHRONO_CODAGE
+       2   ID_SEJOUR                  int(10)          Identifiant du séjour
+
+       3   ID_RSS                     int(10)          Identifiant du RSS
+
+       4   DATE_ACTE                  datetime         Date de saisie du premier acte
+
+       5   DATE_DP                    datetime         Date du premier diagnostic principal saisi
+
+       6   DATE_GRP                   datetime         Date du premier groupage sans erreur
+
+       7   DATE_STATUT_CQ             datetime         Date du premier statut CQ OK
+
+       8   DATE_VALIDE_DIM            datetime         Date du premier Validé DIM
+
+       9   DATE_COMPLET               datetime         Date de dossier complet
+
+      10   DATE_VIDHOSP               datetime         Date de premier VIDHOSP reçu ou importé
+
+      11   DATE_FACT                  datetime         Date de première facturation
+
+      12   DATE_DEFIS                 datetime         Date de premier envoi RSS à DEFIS
+       13   DATE_VALIDE_DEFIS           datetime       Date de première validation dans DEFIS
+
+       14   DATE_DEMANDE_B2             datetime       Date de première demande de B2
+
+       15   DATE_ENVOI_B2               datetime       Date de premier envoi de fichier B2

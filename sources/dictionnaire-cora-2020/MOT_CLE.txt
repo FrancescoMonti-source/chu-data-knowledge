@@ -1,0 +1,11 @@
+==== MOT_CLE ====
+Table contenant l'ensemble des mots clés des Actes et diagnostics.
+       1   MOT_CLE                    char(50)         Mot-clé
+                                                       Type de mot clé: 'A' pour un mot clé pour les Actes et 'D' pour un mot clé pour
+       2   TYPE                       char(1)
+                                                       les Diagnostics.
+                                                       Identifiant faisant le lien avec les actes et diagnostics pouvant correspondre au
+                                                       mot-clé.
+       3   CLE                        char(7)
+                                                       Pours les Actes fait le lien avec CCAM_NV.
+                                                       Pour les diagnostics fait le lien avec CIM_HIERARCHIE.CPT

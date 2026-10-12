@@ -1,0 +1,9 @@
+==== CSARR_DETAIL_FAVORI ====
+Table contenant les actes CSARR d'un Favori
+                                                      Clé - Lien sur CSARR_FOLDER_FAVORI.ID_FOLDER :
+       1   ID_FOLDER                   int(10)
+                                                      Identifiant du Favori
+                                                      Clé - Lien sur CSARR.CODE (ou CLE) :
+       2   CODE                        varchar(7)
+                                                      Code de l'acte CSARR
+       3   ORDRE                       smallint(5)    Ordre d'affichage de l'acte dans le Favori

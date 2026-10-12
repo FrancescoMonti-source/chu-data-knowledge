@@ -1,0 +1,99 @@
+==== TB_LABO_RESULTAT ====
+Table des résultats des analyses de biologie
+                                                        Clé :
+       1   ID_LABO_RESULTAT            int(10)
+                                                        Identifiant de la table
+                                                        Lien sur TB_LABO_RES_ANALYSE.ID_LABO_RES_ANALYSE :
+       2   ID_LABO_RES_ANALYSE         int(10)
+                                                        Identifiant de l'analyse.
+       3   ID_FLUX_LABO_OBX            int(10)          Identifiant du segment OBX
+
+       4   CHRONO                      smallint(5)      Chrono du résultat dans l'analyse
+
+       5   CODE_EXAMEN                 varchar(22)      Code de l'examen
+
+       6   CODE_EXAMEN_DET             varchar(22)      Code de l'examen détaillé
+
+       7   LIB_EXAMEN                  varchar(250)     Libellé de l'examen
+                                                        Type de résultat :
+       8   TYPE_RESULTAT               char(1)          - T pour Texte
+                                                        - N pour numérique
+       9   VALEUR_RESULTAT             varchar(4000)    Valeur alphanumérique du résultat
+
+      10   VALEUR_RESULTAT_NUM         decimal(12, 4)   Valeur décimale du résultat si TYPE_RESULTAT='N'
+
+      11   LIB_RESULTAT                varchar(100)     Libellé du résultat
+12   LIB_UNITE                  varchar(20)     Libellé de l'unité du résultat
+
+13   LIB_NORMALES               varchar(60)     Libellé des valeurs normales. Exemple : 60-150, ou <100
+                                                Flag envoyé par la norme HPRIM pour spécifier la nature des valeurs
+14   NATURE_NORMALES            varchar(5)      normales
+                                                Non exploité
+15   VALEUR_NORMALES            varchar(100)    Valeurs normales. Différence avec LIB_NORMALES ?
+                                                Le champ Anormal (FLAG_ANORMAL) permet de connaitre un résultat
+                                                anormal.
+                                                Pour une info commentaire, il faut tester le champ 'Indicateur Anormal'
+                                                (INDICATEUR_ANORMAL) qui contient l'information suivante :
+                                                L : Inférieur à la normale basse
+                                                H : Supérieur à la normale haute
+                                                LL : Inférieur à la limite panique basse
+                                                HH : Supérieur à la limite panique haute
+                                                < : Inférieur à la valeur minimale mesurable
+16   INDICATEUR_ANORMAL         varchar(12)     > : Supérieur à la valeur maximale mesurable
+                                                A : Anormal (applicable aux résultats non numériques)
+                                                AA : Très anormal
+                                                U : Forte Augmentation par rapport au résultat antérieur
+                                                D : Forte diminution par rapport au résultat antérieur
+                                                B : Amélioration par rapport au résultat antérieur
+                                                W : Dégradation par rapport au résultat antérieur
+
+                                                ATTENTION : Il peut y avoir 2 infos à la fois (ex : 'H' et 'U')
+                                                Pour cela le résultats sont formatés avec des '~' (ex : '~A~' ou '~A~D~')
+17   FLAG_ANORMAL               char(1)         Flag de normalité du résultat : O / N                                                   'N'
+
+18   PROBABILITE                decimal(6, 2)   Probabilité du résultat
+                                                Statut du résultat
+                                                F : résultat Final
+                                                I : échantillons reçus, analyses non effectuées
+                                                P : résultats non validés biologiquement
+                                                M : résultats partiels validés biologiquement
+19   STATUT_RESULTAT            char(2)
+                                                R : Résultats non validés techniquement
+                                                C : Correction de résultats déjà transmis
+                                                O : demande reçue, échantillons non reçus
+                                                D : demande annulée par le demandeur
+                                                X : demande annulée par l'exécutant
+20   DATE_RESULTAT              datetime        Date d'emission du résultat
+
+21   SECTEUR_TECHNIQUE          varchar(80)     Secteur technique de l'analyse
+
+22   COMMENTAIRE                varchar(2000)   Commentaire associé au résultat
+                                                Lien sur Util.id_util :
+23   ID_INFO                    int(10)         Identifiant du dernier utilisateur ayant réalisé une modification = identifiant de
+                                                l'interface -333
+24   DATE_INFO                  datetime        Date de dernière modification de l'enregistrement
+
+25   ID_APPLICATION             int(10)         Lien sur TB_INT_APPLICATION.ID
+                                                Etat de l'enregistrement : M pour modification, Null sinon
+26   FLAG_ETAT                  char(1)         Ce sont seulement les analyse ayant le flag_etat et type_info à NULL qui
+                                                seront prises en compte par les contrôles qualité labo.
+                                                Zone de stockage de la donnée Lien AU envoyée par le flux HPRIM.
+27   FLAG_LIEN_AU               char(1)
+                                                Non exploité
+28   ID_LABO_RESULTAT_LIEN      int(10)         Identifiant du résultat lié
+
+29   ID_COULEUR                 smallint(5)     Identifiant de la couleur de surlignage du résultat
+                                                Zone de stockage de la donnée Sous-identifiant Test
+30   SOUS_IDENTIFIANT_TEST      varchar(60)
+                                                Non exploité
+     SOUS_IDENTIFIANT_TEST_NU                   Zone de stockage de la donnée Sous-identifiant Test Numérique
+31                            smallint(5)
+     M                                          Non exploité
+                                                Etat de l'enregistrement : M pour modification, Null sinon
+32   TYPE_INFO                  char(1)         Ce sont seulement les résultats ayant le flag_etat et type_info à NULL qui
+                                                seront prises en compte par les contrôles qualité labo.
+33   ZONE_SOUS_ID_TEST          varchar(20)     Zone de stockage de la donnée Zone Sous-identifiant Test OBX 10.5
+     ZONE_CODE_SECTEUR_TEC                      Zone de stockage de la donnée Zone Secteur Technique
+34                         varchar(60)
+     H                                          Non exploité
+       35   NOM_BIOLOGISTE              varchar(255)    Libellé du médecin biologiste valideur (Information récupéré du fichier HPRIM)

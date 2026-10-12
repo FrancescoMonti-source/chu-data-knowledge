@@ -1,0 +1,38 @@
+==== TB_PARAM_GESTION_APPLI ====
+Table permettant de stocker les paramétrages établissement des applications.
+                                           HEURE_MATIN
+                                           HEURE_MIDI
+                                           HEURE_APRESMIDI
+                                           HEURE_SOIR
+                                           HEURE_NUIT
+                                           NB_JOURS_JUSQUA_FIN_SEJ
+                                           INTERVALLE_MODIF
+                                           NIVEAU_AFF_INTERACTIONS
+                                           POLICE_DEFAUT
+                                           CHAMP_SIGNATAIRE_PRESC
+                                           PARAPHE_DISPO
+                                           AFF_BIO_PS
+                                           MODELE_SYNTHESE_CORA_DOC
+                                           DEFAUT_JUSQUA_FIN_SEJ
+                                           IAO_AUTOMATIQUE
+     1   CODE_PARAMETRE     varchar(30)
+                                           CHAMP_RPU
+                                           SORTIE_ACTE_COMPL
+                                           SORTIE_NGAP
+                                           SORTIE_INTERVENTIONS_MEDICALES
+                                           EXCLUSION_ACTES_RECUS
+                                           TYPE_BASE_MED
+                                           MODELE_VESTIAIRE
+                                           IDENTIFICATION_NV_PRESC
+                                           SIGNATURE_PRESC
+                                           INTER_ACTU_RECH_PAT
+                                           DELAI_AFF_LISTE_PRESC
+                                           INTER_ACTU_PLAN_URG
+                                           TRI_PLAN_URG
+                                           AFF_NOM_PATIENT
+                                           ALERTE_HAUTE
+     2   TYPE_PARAMETRE     char(2)
+
+     3   VALEUR_PARAMETRE   varchar(200)
+
+     4   CODE_APPLI         char(3)

@@ -1,0 +1,28 @@
+==== CCAM_CNAM ====
+       1    CODE                         char(7)
+
+       2    ACT_1                        int(10)
+
+       3    PHASE_ACT2                   int(10)
+
+       4    W_ACT1                       int(10)
+
+       5    T_ACT1                       int(10)
+
+       6    ACT_ARE                      int(10)
+
+       7    PHASE_ARE                    int(10)
+
+       8    W_ARE                        int(10)
+
+       9    T_ARE                        int(10)
+
+       10   CEC                          int(10)
+
+       11   PHASE_CEC                    int(10)
+
+       12   W_CEC                        int(10)
+
+       13   PHASE                        int(10)
+
+       14   TYPE                         char(1)

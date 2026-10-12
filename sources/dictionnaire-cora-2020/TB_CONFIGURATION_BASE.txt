@@ -1,0 +1,30 @@
+==== TB_CONFIGURATION_BASE ====
+Pour la gestion des connections BDD
+                                                      Clé :
+                                                      Identifiant de la connexion :
+                                                      - CORA_GEN : générateur d'écran
+                                                      - CORA_DOC : documents
+                                                      - CORA_DOA : documents archivés
+       1   CODE_BASE                  char(10)
+                                                      - CORA_MED : base dossier patient
+                                                      - MED_THESO : base médicament Thesorimed
+                                                      - MED_THERIA : base médicament Theriaque
+                                                      - MED_VIDAL : basemédicament Vidal
+                                                      - MED_BCB : base médicament Claude Bernard
+       2   UTILISATEUR                char(20)        User de la connexion
+
+       3   MOTDEPASSE                 varchar(50)     MDP de la connexion (peut être crypté)
+
+       4   SERVEUR                    varchar(50)     Serveur BDD
+
+       5   BASE                       char(20)        Nom de la base / du schéma
+                                                      Type de SGBD :
+                                                      - O pour Oracle
+                                                      - S pour Sql Server
+       6   TYPE_SGBD                  char(1)
+                                                      - M pour MySql
+                                                      - D pour DB2
+                                                      si vide : même SGBD que celui de la connexion principale
+       7   TABLESPACE_DATA            varchar(30)     nom du tablespace de données s'il est différent du nom par défaut
+
+       8   TABLESPACE_INDEX           varchar(30)     nom du tablespace d'index s'il est différent du nom par défaut

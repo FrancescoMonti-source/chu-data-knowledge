@@ -1,0 +1,13 @@
+==== TB_UNITE_MATRICE ====
+Table permettant de regrouper des Codes Unités (recus par les applications externes (Interafce Patient et/ou Actes) dans des
+Codes génériques
+       1   CODE_UNITE_EXPORT           char(12)      Code Unité recu par l'appication
+
+       2   CODE_UNITE_RECUEIL          char(12)      Code Unité a utiliser par l'interface
+
+       3   LIBELLE                     varchar(50)   Visible uniquement dans le thesaurus, sert à qualifier la redirection
+                                                     Indique dans quel cadre utiliser cette matrice. Code utilisé:
+                                                     N: Naissance les bébés nés dans une unité X (export) sont enrgistrés dans
+       4   TYPE_M                      char(1)
+                                                     l'unité Y (recueil)
+                                                     Champ prévisionnel, un seul code pour l'instant

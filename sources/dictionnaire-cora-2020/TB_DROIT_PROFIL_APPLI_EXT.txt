@@ -1,0 +1,4 @@
+==== TB_DROIT_PROFIL_APPLI_EXT ====
+       1   ID_PROFIL_DPI                smallint(5)
+
+       2   ID_APPLI                     smallint(5)

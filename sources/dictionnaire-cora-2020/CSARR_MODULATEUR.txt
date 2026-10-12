@@ -1,0 +1,9 @@
+==== CSARR_MODULATEUR ====
+Table
+        1   CODE                    varchar(7)
+
+        2   CODE_MODULATEUR         varchar(7)
+
+        3   DATE_DEBUT              datetime       Date de début
+
+        4   DATE_FIN                datetime       Date de fin

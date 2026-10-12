@@ -1,0 +1,12 @@
+==== TB_INT_NGAP_EMIS ====
+       1   ID_ACTE                    int(10)         FK TB_COTATION_NGAP.CPT_ID_COTATION_NGAP
+
+       2   ID_APPLICATION             int(10)         Lien sur TB_INT_APPLICATION.ID
+
+       3   STATUT                     char(1)         E émis, B bloqué, A attente de correction
+
+       4   ID_SEJOUR                  int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+       5   DATE_ENVOI                 datetime        Date de changement de statut
+
+       6   NO_LOT                     int(10)         inutilisé

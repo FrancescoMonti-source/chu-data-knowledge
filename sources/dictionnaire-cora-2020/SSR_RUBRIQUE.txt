@@ -1,0 +1,5 @@
+==== SSR_RUBRIQUE ====
+Rubrique des actes SSR (ex : 11 Physiothérapie)
+       1   CODE_RUBRIQUE              char(2)        Clé
+
+       2   LIBELLE_RUBRIQUE           char(200)

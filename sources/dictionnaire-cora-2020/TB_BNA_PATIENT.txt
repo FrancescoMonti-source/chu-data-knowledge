@@ -1,0 +1,26 @@
+==== TB_BNA_PATIENT ====
+     1   ID_BNA_PATIENT          int(10)        Identifiant de la fiche BNA Patient
+
+     2   ID_PATIENT              int(10)        FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3   TYPE_FIN_SUIVI          char(7)        Type de fin de suivi
+
+     4   DATE_FIN_SUIVI          datetime       Date de fin de suivi
+
+     5   DATE_ENTREE_INST        datetime       Date d'entrée en institution
+
+     6   DATE_DECES              datetime       Date de décès
+
+     7   DATE_ENVOI              datetime       Date d'envoi de la fiche
+
+     8   STATUT_ENVOI            char(1)        Statut de l'envoi : X (en cours d'envoi), E (envoyé), R (Réémission)
+
+     9   DATE_CREAT              datetime       Date de création
+                                                Lien sur TB_UTIL.ID_UTIL
+    10   ID_CREAT                int(10)
+                                                Identifiant de l'utilisateur de création
+    11   DATE_INFO               datetime       Date de la dernière modification
+                                                Lien vers Util.ID_UTIL.
+    12   ID_INFO                 int(10)
+                                                Identifiant de l'utilisateur ayant effectué la dernière modification
+    13   NB_ANOMALIE_INTERNE     smallint(5)    Nombre d'anomalies sur la fiche

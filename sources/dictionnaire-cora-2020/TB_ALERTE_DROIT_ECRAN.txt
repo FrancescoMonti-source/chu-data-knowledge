@@ -1,0 +1,4 @@
+==== TB_ALERTE_DROIT_ECRAN ====
+       1   ID_ALERTE                    smallint(5)    FK TB_ALERTE.ID_ALERTE - Identifiant CORA de l'alerte
+
+       2   CODE_DROIT_ECRAN             varchar(50)    Code de l'ecran : par exemple ECR_ACC pour l'écran d'accueil

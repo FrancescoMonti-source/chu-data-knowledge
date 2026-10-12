@@ -1,0 +1,8 @@
+==== TB_DET_ITEM_DISPONIBLE ====
+      1    LIBELLE_ITEM              varchar(100)
+
+      2    ITEM_DOC                  varchar(150)
+
+      3    DETAIL_ITEM               varchar(300)
+
+      4    AJOUT_PATIENT             char(1)                                                                                               'N'

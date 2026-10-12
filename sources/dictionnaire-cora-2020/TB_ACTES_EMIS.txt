@@ -1,0 +1,13 @@
+==== TB_ACTES_EMIS ====
+Tables contenant les actes CCAM émis pour un n° de lot
+                                                       Clé - Lien sur TB_EMISSION.NO_LOT :
+       1   NO_LOT                      int(10)
+                                                       Lien sur le n° de lot d'envoi concerné
+                                                       Clé - Lien sur TB_ACTE.ID_ACTE :
+       2   ID_ACTE                     int(10)
+                                                       Lien sur l'acte envoyé
+                                                       Type d'info envoyée pour l'acte :
+                                                       - 'E' : Emis
+       3   STATUT                      char(1)
+                                                       - 'R' : Réémis (cas des modification)
+                                                       - 'S' ou 'D' : Suppression

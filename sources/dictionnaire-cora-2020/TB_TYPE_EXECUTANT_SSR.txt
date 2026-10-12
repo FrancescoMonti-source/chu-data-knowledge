@@ -1,0 +1,9 @@
+==== TB_TYPE_EXECUTANT_SSR ====
+Thésaurus : Type 'Spécialité' des Intervenants des dossiers SSR (ex : Diététicien, Psychologue…)
+       1   TYPE_EXECUTANT             char(10)       Clé : Code Type
+
+       2   LIBELLE_EXECUTANT          char(50)       Libellé
+
+       3   CODE_OFFICIEL              char(2)        Code officiel
+
+       4   ACTIF                      char(1)        O/N                                                                          'O'

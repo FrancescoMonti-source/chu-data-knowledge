@@ -1,0 +1,39 @@
+==== TB_INT_REJET_ACT ====
+     1   ID_REJET         int(10)         PK - Identifiant du rejet
+
+     2   ID_PATIENT       int(10)         FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+     3   ID_SEJOUR        int(10)         FK TB_SEJOUR.ID_SEJOUR - Identifiant CORA du séjour
+
+     4   ID_MVT           int(10)         FK TB_MVT.ID_MVT - Identifiant CORA du mouvement
+
+     5   ID_ACTE          int(10)         FK TB_ACTE.ID_ACTE - Identifiant CORA d'un acte CCAM
+                                          FK TB_COTATION_NGAP.CPT_ID_COTATION_NGAP - Identifiant CORA d'un
+     6   ID_COTATION      int(10)
+                                          acte NGAP
+     7   ID_DIAG          int(10)         FK TB_DIAG.ID_DIAG - Identifiant CORA d'un diagnostic
+
+     8   ID_RSS           int(10)         FK TB_SYNTH_RSS.ID_RSS - Identifiant CORA du RSS
+                                          FK TB_SEJOUR.NO_SEJOUR - Identifiant du séjour (IEP) partagé au sein de
+     9   NO_SEJOUR        varchar(20)
+                                          l'établissement
+                                          FK TB_PATIENT.IPP_PATIENT - Identifiant permanent du patient (IPP) au sein
+    10   IPP_PATIENT      varchar(20)
+                                          de l'établissement
+    11   TYPE_TRANSFERT   char(1)         Type de transfert de la donnée : 'R' Reçu, 'E' Emis
+
+    12   ID_APPLICATION   smallint(5)     Lien sur TB_INT_APPLICATION.ID
+
+    13   DATE_REJET       datetime        Date et heure à laquelle s'est produit le rejet lors de l'import ou l'export
+
+    14   CODE             varchar(50)     Code de l'évènement
+
+    15   DETAIL           varchar(4000)   Description détaillée de l'évènement
+                                          FK - Lien sur TB_INT_MESSAGES_(ACTIVITE, ADM, DEM_EXAMEN, DIV,
+    16   ID_MESSAGE       int(10)
+                                          DOC...).ID_MESSAGE
+    17   REIMPORTABLE     char(1)         Indique si le rejet est ré-importable
+
+    18   ID_MED_PAT       int(10)         FK TB_MED_PATIENT.ID_MED_PAT
+
+    19   ID_LPP           int(10)         FK TB_LPP.ID_LPP

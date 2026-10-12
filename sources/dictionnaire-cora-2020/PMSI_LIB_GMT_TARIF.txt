@@ -1,0 +1,29 @@
+==== PMSI_LIB_GMT_TARIF ====
+Définition des différents GMT (Groupe Médicaux Tarifaire) avec gestion des historiques
+       1   CODE_GMT                    varchar(4)      Code du GMT
+
+       2   LIBELLE_GMT                 varchar(250)    Libellé du GMT
+
+       3   PRIX                        float(53)       Tarif zone forfaitaire
+
+       4   BAS                         smallint(5)     Borne basse (en jour)
+
+       5   HAUT                        smallint(5)     Borne haute (en jour)
+                                                       Date de début de validité du tarif (date officielle des changements de version
+       6   DATE_DEBUT                  datetime
+                                                       FG)
+       7   DATE_FIN                    datetime        Date de fin de validité du tarif
+
+       8   MNT_JOUR_SZB                float(53)       Montant supplément journalier zone basse (SZB)
+
+       9   MNT_JOUR_EXH                float(53)       Montant journalier supérieur à la borne haute -> OBSOLETE
+
+      10   MNT_JOUR_SZH                float(53)       Montant supplément journalier zone haute (SZH)
+
+      11   VERSION                     int(10)         Version de la FG de groupage
+                                                       Permet de requêter pour avoir le libellé sur une version sans doublons (O à
+      12   GET_LIBELLE                 char(1)
+                                                       prendre)
+      13   CODE_GME                    char(6)         Code du GME
+
+      14   PRIX_ZB                     decimal(7, 2)   Tarif zone basse

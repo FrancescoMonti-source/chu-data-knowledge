@@ -1,0 +1,11 @@
+==== TB_PROTO_STATUT_DOC ====
+Table d'association entre les protocoles de statuts et les statuts.
+       1   ID_PROTO_STATUT_DOC          smallint(5)    Clé : Définit l'identifiant (PrisMédica) du protocole de statut.
+
+       2   CODE_PROTO_STATUT_DOC char(10)              Définit le code du protocole de statut.
+           LIBELLE_PROTO_STATUT_DO
+       3                           varchar(100)        Définit le libellé du protocole de statut.
+           C
+       4   ACTIF                        char(1)        Définit un boolean indiquant si le protocole de statut est actif.         'O'
+
+       5   COMMENTAIRE                  varchar(200)   Définit un commentaire sur le protocole de statut.

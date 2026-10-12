@@ -1,0 +1,6 @@
+==== TB_GEN_ECRAN_PAGE ====
+       1   ID_ECRAN                     smallint(5)
+
+       2   NUM_PAGE                     smallint(5)
+
+       3   LIB_PAGE                     varchar(30)

@@ -1,0 +1,8 @@
+==== PRESC_UNITE_MED ====
+       1   ID_UNITE_MED                smallint(5)     Id de l'unité médicamenteuse
+
+       2   ID_MED                      int(10)         Id du médicament
+
+       3   USUELLE                     char(1)         Unité usuelle (cad saisissable) ? O/N
+
+       4   QTE_CORRESPONDANCE          decimal(9, 3)   Quantité correspondante

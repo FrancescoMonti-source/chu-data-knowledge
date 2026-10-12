@@ -1,0 +1,328 @@
+==== TB_COMPTEUR ====
+Table des identifiants internes CORA
+       1   CPT_ID_ACTE                 int(10)      Définit le compteur des actes CCAM. PK TB_ACTE.ID_ACTE
+                                                    Définit le compteur des activités des actes CCAM. PK
+       2   CPT_ID_DET_ACTE             int(10)
+                                                    TB_DET_ACTE.ID_ACTE
+       3   CPT_ID_DIAG                 int(10)      Définit le compteur des diagnostics de la CIM 10. PK TB_DIAG.ID_DIAG
+                                                    Définit le compteur des interventions PK
+       4   CPT_ID_INTERVENTION         int(10)
+                                                    TB_INTERVENTION.ID_INTERVENTION
+                                                    Définit le compteur des cotations NGAP. PK
+       5   CPT_ID_COTATION_NGAP        int(10)
+                                                    TB_COTATION_NGAP.ID_COTATION_NGAP
+       6   CPT_ID_ERR                  int(10)      Définit le compteur des erreurs de l'interface patient PK TB_ERREUR.ID_ERR
+
+       7   CPT_ID_SEJOUR               int(10)      Définit le compteur des séjours PK TB_SEJOUR.ID_SEJOUR
+
+       8   CPT_ID_MVT                  int(10)      Définit le compteur des mouvements PK TB_MVT.ID_MVT
+                                                    Définit le compteur des erreurs de transfert pour l'interface Actes PK
+       9   CPT_ID_ERR_TRANSFERT        int(10)
+                                                    TB_ERREUR_TRANSFERT.ID_ERR_TRANSFERT
+      10   CPT_ID_PATIENT              int(10)      Définiti le compteur des patients PK TB_PATIENT.ID_PATIENT
+
+      11   CPT_ID_MESSAGE              int(10)      Définit le compteur des messages PK TB_MESSAGE.ID_MESSAGE
+                                                    Définit le compteur des actes CDARR PK
+      12   CPT_ID_ACTE_SSR             int(10)
+                                                    TB_ACTE_SSR_CDARR.ID_ACTE_SSR
+           CPT_ID_INTERVENTION_EVE                  Définit le compteur des evenements intervenus lors d'une intervention PK
+      13                           int(10)
+           NEMENT                                   TB_INTERVENTION_EVENEMENT.ID_INTERVENTION_EVENEMENT
+           CPT_ID_INTERVENTION_PETI                 Définit le compteur du petit matériel utilisé lors d'une intervention. PK
+      14                            int(10)
+           T_MAT                                    TB_INTERVENTION_PETIT_MAT
+      15   CPT_ID_ADRESSE              int(10)
+
+      16   CPT_ID_RSS                  int(10)      Définit le compteur des RSS PK TB_SYNTH_RSS.ID_RSS
+                                                    Définit le compteurs des molécules onéreuses saisies pour le PMSI PK
+      17   CPT_ID_MED_PAT              int(10)
+                                                    TB_MED_PATIENT.ID_MED_PAT
+      18   CPT_ID_RUM                  int(10)      Définit le compteur des RUM PK TB_SYNTH_RUM.ID_RUM
+                                                    Définit le compteur du découpage des lettres clés d'une cotation PK
+      19   CPT_NGAP_LC                 int(10)
+                                                    TB_NGAP_LC.CPT_NGAP_LC
+                                                    Définit le compteur des cotations de Biologie 'B' : détail des codes NABM
+      20   CPT_NABM                    int(10)
+                                                    (=codes affinés) liés PK TB_NABM.CPT_NABM
+      21   CPT_ID_COMMUNE              int(10)      Définit le compteur des communes PK TB_COMMUNE.ID_COMMUNE
+                                                    Définit le compteur des renseignement des Dossiers Patients (dossiers papier)
+      22   CPT_ID_PATIENT_DOSSIER      int(10)
+                                                    PK TB_PATIENT_DOSSIER.ID_PATIENT_DOSSIER
+           CPT_ID_DOSSIER_CIRCULATI                 Définit le compteur des renseignements des prêts de dossier PK
+      23                            int(10)
+           ON                                       TB_DOSSIER_CIRCULATION.ID_DOSSIER_CIRCULATION.
+                                                    Définit le compteur des renseignements de prise en Charge des patients PK
+      24   CPT_ID_PATIENT_ADMIN        int(10)
+                                                    TB_PATIENT_ADMIN.ID_PATIENT_ADMIN
+                                                    Définit le compteur des mouvements sur l'axe unité non PMSI (traitant ou
+      25   CPT_ID_MVT_COMPL            int(10)      hébergement en fonction de ce qui est intégré dans TB_MVT) PK
+                                                    TB_MVT_COMPL.ID_MVT_COMPL
+                                                    Définit le compteur des interventions globalisant des actes CCAM saisis dans
+           CPT_NO_INTERVENTION_CCA
+      26                           int(10)          le même temps médicalement (géré dans le nouvel écran Externe + Ecran
+           M
+                                                    Bloc)
+      27   CPT_ID_MESSAGE_NGAP         int(10)
+28   CPT_ID_MESSAGE_DIAG       int(10)
+
+29   CPT_ID_REJET_ACTIVITE     int(10)
+
+30   CPT_ID_LPP                int(10)   Définit le compter des LPP pK TB_LPP.ID_LPP
+
+31   CPT_ID_REJET_PATIENT      int(10)
+
+32   CPT_ID_ERR_IMPORT         int(10)
+                                         Définit le compteur des traces utilisateurs PK
+33   CPT_ID_ID_TRACE_UTIL      int(10)
+                                         TB_TRACE_UTIL.ID_TRACE_UTIL
+     CPT_ID_TRACE_CONSOLBAS
+34                          int(10)
+     E
+                                         PK TB_RSF_IMPORT.ID_RSf_IMPORT : Compteur de l'identifiant de l'import
+35   CPT_ID_RSF_IMPORT         int(10)
+                                         de la facturation de la table TB_RSF_IMPORT
+                                         PK TB_RSF_FACT.ID_RSF_FACT : Compteur de l'identifiant de la facture - de
+36   CPT_ID_RSF_FACTURE        int(10)
+                                         la table TB_RSF_FACT
+                                         PK TB_RSF_PRESTATIONS.ID_RSF_PREST : Compteur de l'identifiant de la
+37   CPT_ID_RSF_PRESTATION     int(10)
+                                         prestation lié à une facture - de la table TB_RSF_PRESTATIONS
+                                         PK TB_RSF_HONORAIRE.ID_RSF_HONO: Compteur de l'identifiant de la
+38   CPT_ID_RSF_HONORAIRE      int(10)
+                                         table TB_RSF_HONORAIRES
+                                         PK TB_RSF_HONO_CCAM.ID_RSF_HONO_CCAM : Compteur de l'identifiant
+39   CPT_ID_RSF_HONO_CCAM      int(10)
+                                         de la table TB_RSF_HONO_CCAM
+                                         PK TB_RSF_PREST_PROTHESE.ID_RSF_PREST_PROTHESE : Compteur
+40   CPT_ID_RSF_PROTHESE       int(10)   de l'identifiant des factures de LPP liées à une prestation - de la table
+                                         TB_RSF_PREST_PROTHESE
+                                         PK TB_RSF_PREST_MED.ID_RSF_PREST_MED : Compteur de l'identifiant
+41   CPT_ID_RSF_MED            int(10)
+                                         des prestations médicales - de la table TB_RSF_PREST_MED
+     CPT_AGENDA_ID_RDV_ACTE_
+42                           int(10)
+     CCAM
+     CPT_AGENDA_ID_RDV_ACTE_
+43                           int(10)
+     COT
+44   CPT_AGENDA_ID_MODELE      int(10)
+
+45   CPT_ID_IGS                int(10)   Définit le compteur de la table des IGS PK TB_IGS.ID_IGS
+
+46   CPT_ID_PIECE_SEJOUR       int(10)
+
+47   CPT_IPP_PATIENT           int(10)
+
+48   CPT_NO_SEJOUR             int(10)
+
+49   CPT_ID_PSY_MVT_SEQ        int(10)
+
+50   CPT_ID_PSY_MVT_ACTE       int(10)
+
+51   CPT_ID_PSY_PRESENCE       int(10)
+
+52   CPT_ID_PSY_PERMISSION     int(10)
+
+53   CPT_ID_PSY_ISOLEMENT      int(10)
+
+54   CPT_ID_PSY_EVT            int(10)
+
+55   CPT_ID_PSY_INTER_THER     int(10)
+
+56   CPT_ID_PSY_CSD            int(10)
+
+57   CPT_ID_PATIENT_CONTACT    int(10)
+
+58   CPT_ID_HIST_IMPR          int(10)
+
+59   CPT_ID_MAIL               int(10)
+
+60   CPT_ID_GEN_LOG            int(10)
+
+61   CPT_ID_PSY_ADDICT         int(10)
+
+62   CPT_ID_SEQ_HAD            int(10)
+
+63   CPT_ID_SS_SEQ_HAD         int(10)
+
+64   CPT_ID_GEN_SUPP           int(10)
+
+65   CPT_ID_PSY_OFDT           int(10)
+66    CPT_ID_CORRESPONDANT       int(10)
+                                           Compteur de la table TB_VIDHOSP. Définit l'identifiant d'un vidhosp qui est
+67    CPT_ID_VIDHOSP             int(10)
+                                           associé à un séjour.
+68    CPT_ID_FORFAITS_COMPL      int(10)
+
+69    CPT_ID_RSS_SUIVI           int(10)
+
+70    CPT_ID_CTRL_SUIVI          int(10)
+
+71    CPT_ID_POPULATION          int(10)
+
+72    CPT_ID_LABO_RES_ANALYSE int(10)
+
+73    CPT_ID_LABO_RESULTAT       int(10)
+
+74    CPT_ID_EVT                 int(10)
+
+75    CPT_ID_EVT_APP             int(10)
+
+76    CPT_ID_ERR_RUM             int(10)
+
+77    CPT_ID_ARCH_DOSSIER        int(10)
+
+78    CPT_ID_ARCH_DEMANDE        int(10)
+      CPT_ID_PATIENT_GROSSESS
+79                            int(10)
+      E
+80    CPT_ID_PATHOS              int(10)
+
+81    CPT_ID_DET_PATHOS          int(10)
+
+82    CPT_ID_GIR                 int(10)
+
+83    CPT_ID_BNA_CONSULT         int(10)
+
+84    CPT_ID_BNA_PATIENT         int(10)
+
+85    CPT_ID_BNA_PATIENT_ENVOI int(10)
+      CPT_ID_BNA_CONSULT_ENV
+86                               int(10)
+      OI
+87    CPT_ID_REGROUPEMENT        int(10)
+
+88    CPT_ID_PSY_CFTMEA          int(10)
+      CPT_ID_INTERVENTION_FICH
+89                             int(10)
+      E
+90    CPT_ID_SEJOUR_PREORG       int(10)
+
+91    CPT_ID_PEC                 int(10)
+
+92    CPT_ID_PATIENT_FILIATION   int(10)
+
+93    CPT_ID_NOTE_INFO           int(10)
+
+94    CPT_ID_MESSAGERIE          int(10)
+
+95    CPT_ID_MESSAGERIE_UTIL     int(10)
+
+96    CPT_ID_DOC_PATIENT         int(10)   Définit l'identifiant du document patient.
+
+97    CPT_ID_DICOM_EXAMEN        int(10)
+      CPT_ID_DOCUMENT_PATIENT
+98                            int(10)      Définit le compteur pour l'identifiant du statut du document.
+      _STATUT
+      CPT_ID_DOC_ACTION_STATU
+99                            int(10)
+      T
+100 CPT_ID_PATIENT_EPISODE       int(10)
+
+101 CPT_ID_DOC_CERFA             int(10)   Définit l'identifiant du document Cerfa.
+      CPT_ID_DEMANDE_DET_EXA
+102                          int(10)
+      MEN
+103 CPT_ID_DEMANDE_EXAMEN        int(10)
+      CPT_ID_PATIENT_EPISODE_P
+104                            int(10)
+      RECODE
+      CPT_ID_PATIENT_EPISODE_P
+105                            int(10)
+      RE_DET
+      CPT_ID_HIST_DEMANDE_EXA
+106                           int(10)
+      MEN
+107 CPT_ID_RSF_HONO_BIO          int(10)
+
+108 CPT_ID_HIST_IMPR_FICHIER     int(10)
+                                           Définit le compteur de l'identifiant de la table contenant les actes CSARR
+109 CPT_ID_ACTE_CSARR            int(10)
+                                           réalisé sur un patient. (TB_ACTE_CSARR.ID_ACTE_CSARR).
+                                           Définit le compteur de l'identifiant de la table des séjours des maladies
+110 CPT_ID_SEJOUR_ORPHA          int(10)
+                                           Orphanet. (TB_SEJOUR_ORPHA.ID_SEJOUR_ORPHA).
+                                           Définit l'identifiant des requêtes
+111 CPT_ID_REQUETE               int(10)
+                                           (TB_REQUETE.ID_REQUETE)
+      CPT_ID_REQUETE_EXECUTIO              Définit le compteur de l'identifiant de la table d'historique des exécutions des
+112                           int(10)
+      N                                    requêtes. (TB_REQUETE_EXECUTION.ID_REQUETE_EXECUTION).
+                                           Définit le compteur de l'identifiant de la table des matériels stérilisables.
+113 CPT_ID_MATERIEL_STE          int(10)
+                                           (TB_MATERIEL_STE.ID_MATERIEL_STE).
+                                           Définit le compteur de l'identifiant de la table de gestion des jours de presence
+114 CPT_ID_PRESENCE              int(10)
+                                           pour les hospitalisations en temps partiel. (TB_PRESENCE.ID_PRESENCE).
+                                           Définit le compteur de l'identifiant de la table de gestion des jours de
+115 CPT_ID_PERMISSION            int(10)   permission pour les hospitalisations complètes.
+                                           (TB_PERMISSION.ID_PERMISSION).
+116 CPT_ID_REQUETE_PLANIF        int(10)
+      CPT_ID_REQUETE_PLANIF_R
+117                           int(10)
+      ESULTAT
+                                           Définit le compteur de l'identifiant de la table pour les demandes de lit
+118 CPT_ID_DEMANDE_LIT           int(10)
+                                           (TB_DEMANDE_LIT.ID_DEMANDE_LIT).
+                                           Définit le compteur de l'identifiant de la table représentant une occupation d'un
+119 CPT_ID_OCCUPATION_LIT        int(10)
+                                           lit par un patient (TB_OCCUPATION_LIT.ID_OCCUPATION_LIT).
+                                           Définit le compteur de l'identifiant de la table d'enregistrement des données
+120 CPT_ID_SEJOUR_PIE            int(10)
+                                           PIE (Prestations inter-établissement). (TB_SEJOUR_PIE.ID_SEJOUR_PIE).
+                                           Définit l'identifiant de la chronologie de codage
+121 CPT_ID_CHRONO_CODAGE         int(10)
+                                           (TB_CHRONO_CODAGE.ID_CHRONO_CODAGE)
+                                           Définit le compteur de l'identifiant de la table qui permet de synthétiser toutes
+122 CPT_ID_CONSO_MUTATION        int(10)   les mutations (changement de mouvement) opérée au cours d'un séjour pour
+                                           un patient. (TB_CONSOLIDATION_MUTATION.ID_CONSO_MUTATION).
+123 CPT_ID_TRACE_PLUGIN_PMSI int(10)
+
+124 CPT_ID_RUM_COMPL             int(10)
+                                           Définit le compteur de l'identifiant de la table contenant l'ensemble des
+125 CPT_ID_IPP_MAT               int(10)   identifiants externes d'un patient (IPP Local, régional, fédérateur).
+                                           (TB_IPP_MATRICE.ID_IPP_MAT).
+                                           Définit l'identifiant des contrôles de suivis SSR
+126 CPT_ID_CTRL_SUIVI_SSR        int(10)
+                                           (TB_CTRL_SUIVI_SSR.ID_CTRL_SUIVI_SSR)
+      CPT_ID_CTRL_SUIVI_DESACTI            Définit l'identifiant de la table de désactivaion des CQ positif sur un RSS
+127                             int(10)
+      VE                                   (TB_CTRL_SUIVI_DESACTIVE.ID_CTRL_SUIVI_DESACTIVE)
+      CPT_ID_CTRL_SUIVI_DESACT             Définit l'identifiant de la table de désactivation des CQ positif sur un RHS
+128                            int(10)
+      _SSR                                 (TB_CTRL_SUIVI_DESACTIVE_SSR.ID_CTRL_SUIVI_DESACTIVE_SSR).
+      CPT_ID_COMMENTAIRE_REC
+129                          int(10)
+      UEIL
+      CPT_ID_CAMPAGNE_CONTRO               Définit le compteur de l'identifiant des campagnes de contrôle des RSS dans
+130                          int(10)
+      LE                                   TB_CAMPAGNE_CONTROLE
+      CPT_ID_THESAURUS_CONTR               Définit le compteur de l'identifiant des thésaurus utilisés dans le suivi des
+131                          int(10)
+      OLE                                  campagnes de contrôle dans TB_THESAURUS_CONTROLE
+      CPT_ID_THESAURUS_CAMPA               Définit le compteur de l'identifiant des thésaurus des campagnes de contrôle
+132                          int(10)
+      GNE                                  dans TB_THESAURUS_CAMPAGNE
+                                           Définit le compteur de l'identifiant de l'historisation des Contrôles qualité
+133 CPT_ID_CTRL_SUIVI_EXT        int(10)
+                                           externe (TB_CTL_SUIVI_EXT.ID_CTRL_SUIVI_EXT)
+                                           Définit le compteur de l'dentifiant de la désactivation d'un contrôle qualité sur
+      CPT_ID_CTRL_SUIVI_DESACT
+134                            int(10)     un dossier externe
+      _EXT
+                                           (TB_CTRL_SUIVI_DESACTIVE_EXT.ID_CTL_SUIVI_DESACTIVE_EXT)
+                                           Définit le compteur de l'identifiant des erreurs de groupage non bloquante
+135 CPT_ID_ERREUR_DESACTIVE int(10)
+                                           désactivées (TB_RSS_ERREUR_DESACTIVE.ID)
+                                           Définit le compteur de l'identifiant des appels à l'API solféges. (Lien avec
+136 CPT_ID_API_SOLFEGES          int(10)
+                                           TB_COM_API_SOLFEGES.ID)
+           CPT_ID_API_SOLFEGES_ERR                  Définit le compteur de l'identitiant du détail des erreurs des appels à l'API
+     137                           int(10)
+           EUR                                      Solféges (Lient avec TB_COM_API_SOLEFES_ERREUR.ID)
+                                                    Définit le compteur de l'identifiant des périodes contention/isolement PSY dans
+     138 CPT_ID_PERIODE_ISOL_PSY     int(10)
+                                                    TB_PSY_PERIODE_CONTISOL
+           CPT_ID_INSTRUCTION_GRAD                  Définit le compteur d l'identifant des instructions de gradation d'un séjour dans
+     139                           int(10)
+           ATION                                    TB_INSTRUCTION_GRADATION

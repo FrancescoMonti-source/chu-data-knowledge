@@ -1,0 +1,7 @@
+==== TB_BNA_MODELE_DONNEE ====
+                                                Identifiant du modèle d'envoi de la BNA
+     1   ID_BNA_MODELE           smallint(5)
+                                                Lien sur TB_BNA_MODELE
+     2   CODE_RUBRIQUE           char(3)        Code de la rubrique BNA
+
+     3   VALEUR                  varchar(100)   Valeur par défaut de la donnée pour ce modèle

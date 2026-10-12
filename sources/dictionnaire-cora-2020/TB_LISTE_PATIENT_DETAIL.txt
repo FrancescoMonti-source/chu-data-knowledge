@@ -1,0 +1,24 @@
+==== TB_LISTE_PATIENT_DETAIL ====
+Table contenant les Patients d'une Liste
+                                                        Clé - Lien sur TB_LISTE_PATIENT :
+       1   ID_LISTE_PATIENT            int(10)
+                                                        Identifiant de la liste
+                                                        Clé - Lien sur TB_PATIENT.ID_PATIENT :
+       2   ID_PATIENT                  int(10)
+                                                        Identifiant du Patient. Lien obligatoire
+                                                        Lien sur TB_SEJOUR.ID_SEJOUR :
+       3   ID_SEJOUR                   int(10)
+                                                        Identifiant du Séjour. Lien non obligatoire
+                                                        Heure de présence du Patient (heure du RDV, heure de passage dans le
+       4   HEURE_ACTE                  datetime
+                                                        bloc…).
+                                                        Lien sur Util.id_util :
+       5   ID_OPERATEUR                int(10)
+                                                        Médecin opérateur (supposé) des actes du Patient
+                                                        Lien sur Util.id_util :
+       6   ID_ARE                      int(10)
+                                                        Médecin anesthésiste (supposé) des actes du Patient
+       7   FLAG_TRAITE                 char(1)          Champ spécifique utilisé dans l'Interface Agenda
+                                                        Lien sur TB_SALLE_BLOC.CODE_SALLE :
+       8   CODE_SALLE                  varchar(10)      Champ spécifique utilisé dans l'interface Agenda pour la gestion de la salle de
+                                                        bloc des listes d'intervention

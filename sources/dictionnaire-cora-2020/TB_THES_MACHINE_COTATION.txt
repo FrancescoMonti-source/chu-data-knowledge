@@ -1,0 +1,17 @@
+==== TB_THES_MACHINE_COTATION ====
+Permet de stocker les différentes cotations de type forfait technique liées à une machine.
+       1   ID_MACHINE                   int(10)          Identifiant de l’appareil
+
+       2   LETTRE_CLE                   varchar(9)       Code NGAP
+
+       3   COEFF                        decimal(10, 2)   Coefficient NGAP
+
+       4   MONTANT                      decimal(10, 2)   Montant du forfait Technique
+
+       5   DATE_DEBUT                   datetime         Date de début de validité du tarif
+
+       6   DATE_FIN                     datetime         Date de fin de validité du tarif
+
+       7   SEUIL_BAS                    int(10)          Seuil minimal d’attribution du forfait technique
+
+       8   SEUIL_HAUT                   int(10)          Seuil maximal d’attribution du forfait technique

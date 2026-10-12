@@ -1,0 +1,12 @@
+==== TB_REQUETE_FILTRE_UTIL ====
+                                                         LIEN
+       1   ID_FILTRE                     int(10)
+                                                         TB_REQUETE_FILTRE.ID_FILTRE
+                                                         Filtre disponible pour:
+                                                         U -> Utilisateurs
+       2   TYPE_APPARTENANCE             char(1)
+                                                         P -> Profils
+                                                         E -> Etablissement
+       3   ID_IDENTIFIANT                int(10)         Identifiant de l'utilisateur de création
+
+       4   LIBELLE                       varchar(1000)   Libellé

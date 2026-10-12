@@ -1,0 +1,12 @@
+==== TB_HIST_PATIENT_DENT ====
+       1   ID_PATIENT                   int(10)          FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       2   ID_DENT                      smallint(5)
+
+       3   ETAT_DENT                    char(1)
+                                              Lien vers Util.ID_UTIL.
+     4   ID_INFO              int(10)
+                                              Identifiant de l'utilisateur ayant effectué la dernière modification
+     5   DATE_INFO            datetime        Date de la dernière modification
+
+     6   TYPE_INFO            char(1)

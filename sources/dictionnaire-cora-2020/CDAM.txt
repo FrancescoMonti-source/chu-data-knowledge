@@ -1,0 +1,6 @@
+==== CDAM ====
+       1   CODE_ACTE                   char(10)       Code de l'acte CDAM (obsolète depuis la CCAM)
+
+       2   CLASSANT                    char(1)        Acte Classant (O / N)
+
+       3   LIBELLE                     char(250)      Libellé de l'acte CDAM

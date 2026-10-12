@@ -1,0 +1,6 @@
+==== TB_LOGSESSIONMODE ====
+table de log utilisé par les outils de packaging CORA Package Créationdeux mode sont disponible:                SIMULATION = 0 ' Les
+"actions" sont affichées au lieu d'être exécutées.    REEL = 1
+       1   SESSIONMODE_ID              smallint(5)     identifiant unique de type de session
+
+       2   SESSIONMODE_NOM             varchar(20)     nom du type de session

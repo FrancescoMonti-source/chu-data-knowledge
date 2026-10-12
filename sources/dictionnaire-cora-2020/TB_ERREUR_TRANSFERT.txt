@@ -1,0 +1,27 @@
+==== TB_ERREUR_TRANSFERT ====
+Table des erreurs pour l'Interface Actes
+                                                           Clé :
+       1   ID_ERR                          int(10)
+                                                           Identifiant interne de la table
+                                                           Lien sur TB_ACTE.ID_ACTE :
+       2   ID_ACTE                         int(10)
+                                                           Lien sur l'acte envoyé (Lien obligatoire)
+       3   DATE_ERR                        datetime        Date ou l'erreur est intervenue
+                                                           Type d'erreur :
+                                                           - 'A' : Erreur applicative (Bug application)
+       4   TYPE_ERR                        char(1)         - 'F' : Erreur de Flux (ex : Suppression d'un patient inexistant...)
+                                                           - 'I' : Message d'information (Traitement effectué, Connexion réalisée…)
+                                                           - 'R' : Rejet (ex : N° de Séjour non valide…)
+                                                      - 'E' si l'acte était émis
+       5   TYPE_TRANSFERT             char(1)
+                                                      - 'R' si l'acte était recu
+                                                      Lien sur TB_APPLICATION_TRANSFERT.CODE_APPLI :
+       6   APPLI_TRANSFERT            char(50)
+                                                      Lien sur l'application concernée
+       7   CODE_ERR                   varchar(50)     Descriptif court de l'erreur
+
+       8   DETAIL_ERR                 varchar(250)    Détail de l'erreur
+
+       9   NOM_FICHIER                varchar(50)     Fichier dans lequel l'acte se trouve
+
+      10   CHEMIN_FICHIER             varchar(500)    Chemin de présence du fichier

@@ -1,0 +1,5 @@
+==== R_FORFAIT ====
+Liste des Forfaits techniques ou consommables applicablesà l'acte
+       1   COD_FORFAI                  char(1)        Code Type de Forfait
+
+       2   LIBELLE                     char(100)      libellé du forfait

@@ -1,0 +1,6 @@
+==== TB_INTERVENTION_CHRONO ====
+      1    ID_INTERVENTION            int(10)
+
+      2    ID_THES_BLOC_CHRONO        smallint(5)
+
+      3    DATE_CHRONO                datetime

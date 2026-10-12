@@ -1,0 +1,18 @@
+==== TB_BANDEAU_CAT ====
+Table des catégories de bandeau patient
+                                                        Clé :
+       1    ID_BANDEAU_CAT               int(10)
+                                                        Définit l'identifiant de la catégorie de bandeau patient.
+       2    LIBELLE                      varchar(200)   Définit le libellé de la catégorie de bandeau patient.
+
+       3    DESCRIPTIF                   varchar(500)   Définit le descriptif de la catégorie de bandeau patient.
+                                                        Lien sur Util.id_util :
+       4    ID_CREAT                     int(10)
+                                                        Définit l'identifiant du créateur de la catégorie de bandeau patient.
+       5    DATE_CREAT                   datetime       Définit la date de création de la catégorie de bandeau patient.
+
+       6    DATE_INFO                    datetime       Définit la date de modification de la catégorie de bandeau patient.
+                                                        Lien sur Util.id_util :
+       7    ID_INFO                      int(10)
+                                                        Définit l'identifiant du modificateur de la catégorie de bandeau patient.
+       8    NIVEAU                       int(10)        Définit l’identifiant du niveau ou rubrique associé à la catégorie.

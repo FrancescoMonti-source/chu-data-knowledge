@@ -1,0 +1,7 @@
+==== TB_MATRICE_RSS_RUM ====
+Table matrice faisant le lien entre le RSS et ses RUM
+       1   ID_RSS                       int(10)         Identifiant du RSS. Lien sur TB_SYNTH_RSS.ID_RSS
+
+       2   ID_RUM                       int(10)         Identifiant du RUM. Lien sur TB_SYNTH_RUM
+
+       3   CHRONO_RUM                   smallint(5)     Chrono du RUM

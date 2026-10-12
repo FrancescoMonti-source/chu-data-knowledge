@@ -1,0 +1,25 @@
+==== TB_SEJOUR_PIE ====
+Table d’enregistrement des données PIE (prestations inter-établissement).
+       1   ID_SEJOUR_PIE               int(10)          Identifiant de la saisie
+
+       2   ID_PATIENT                  int(10)          Identifiant du Patient. Lien sur TB_PATIENT.ID_PATIENT
+
+       3   ID_SEJOUR                   int(10)          Identifiant du Séjour. Lien sur TB_ SEJOUR.ID_SEJOUR
+
+       4   DATE_DEBUT                  datetime         Date de début de prestation (dd/mm/yyyy)
+
+       5   DATE_FIN                    datetime         Date de fin de prestation (dd/mm/yyyy)
+
+       6   TYPE_FORFAIT                char(3)          Type de forfait (REA, SRC, STF, NN1, NN2, et NN3)
+
+       7   NB_FORFAIT                  smallint(5)      Nombre de forfaits (entier)
+                                                        Montants des forfaits = Nb Forfait x Mnt Unitaire (Information de
+       8   MNT_FORFAIT                 decimal(10, 2)
+                                                        TB_PRESTATION_VALO)
+       9   ID_INFO                     int(10)          Identifiant de l’utilisateur ayant fait la dernière saisie. Lien sur Util.id_util
+
+      10   DATE_INFO                   datetime         Date-Heure de dernière modification de la saisie (dd/mm/yyyy hh :nn)
+                                                        Identifiant de l’utilisateur ayant créé la saisie (première saisie). Lien sur
+      11   ID_CREAT                    int(10)
+                                                        Util.id_util
+      12   DATE_CREAT                  datetime         Date-Heure de création de la saisie (dd/mm/yyyy hh :nn)

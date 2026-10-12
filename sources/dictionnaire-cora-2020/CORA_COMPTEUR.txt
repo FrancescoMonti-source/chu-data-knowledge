@@ -1,0 +1,6 @@
+==== CORA_COMPTEUR ====
+       1   CPT_ID_MED                     int(10)
+
+       2   CPT_ID_MED_TARIF               int(10)
+
+       3   CPT_ID_MED_TRACA               int(10)

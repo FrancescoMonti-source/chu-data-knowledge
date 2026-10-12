@@ -1,0 +1,9 @@
+==== TB_PAYS ====
+       1   ID_PAYS                     smallint(5)
+
+       2   CODE_INSEE                  int(10)
+
+       3   CODE_ISO2                   char(2)
+       4   CODE_ISO3                 char(3)
+
+       5   LIB_PAYS                  varchar(100)

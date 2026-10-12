@@ -1,0 +1,21 @@
+==== TB_MODE_ES_ADMIN ====
+                                                           Code administratif d'entrée ou sortie auquel est associé un mode et un code
+       1   CODE_ES_ADMIN                 varchar(10)
+                                                           PMSI
+                                                           Descriptif du mode administratif. exs: entrée urgence pompiers, retour domicile
+       2   LIBELLE                       varchar(100)
+                                                           taxi
+       3   TYPE_ES                       char(1)           E pour mode d'Entrée, S pour Sortie
+                                                           6 - mutation
+                                                           7 - Transfert vers autre entité juridique
+       4   CODE_PMSI                     char(1)
+                                                           8 - Domicile
+                                                           0 - Transfert pour ou après prestation inter établissement
+                                                           1 - unité de soins de courte durée
+                                                           2 - unité de soins de suite et de réadaptation
+                                                           3 - unité de soins de longue durée
+       5   CODE_DEST_PROV                char(1)           4 - unité de psychiatrie
+                                                           5 - service d'urgence
+                                                           6 - hospitalisation à domicile
+                                                           7 - structure hébergement médico-sociale
+       6   ID_EJ                         smallint(5)                                                                                          1

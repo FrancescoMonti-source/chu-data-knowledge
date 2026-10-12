@@ -1,0 +1,8 @@
+==== TB_LOGSESSIONPARAMETER ====
+table de log utilisé par les outils de packaging CORA Package Créationpermet d'ajouter des informations complémentaire sur le
+contexte d'exécution d'une session
+       1   REF_SESSION_ID              char(36)        identifiant unique de la session
+
+       2   PARAMETER_KEY               varchar(50)     clé du paramètre
+
+       3   PARAMETER_VALUE             varchar(500)    valeur du paramètre

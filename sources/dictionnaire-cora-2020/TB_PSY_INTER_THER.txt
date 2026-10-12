@@ -1,0 +1,15 @@
+==== TB_PSY_INTER_THER ====
+Table des intervenants thérapeutiques
+                                                        Clé :
+       1   ID_INTER_THER                int(10)
+                                                        Identifiant de l'intervenant thérapeutique
+       2   DATE_DEBUT_SUIVI             datetime        Date de début de suivi
+
+       3   DATE_FIN_SUIVI               datetime        Date de fin de suivi
+                                                        Lien sur Util.id_util :
+       4   ID_MED_SUIVI                 int(10)
+                                                        Identifiant du médecin qui fait le suivi
+                                                        Lien sur TB_PATIENT.ID_PATIENT :
+       5   ID_PATIENT                   int(10)
+                                                        Identifiant du patient
+       6   NOTE                         varchar(500)    Notes

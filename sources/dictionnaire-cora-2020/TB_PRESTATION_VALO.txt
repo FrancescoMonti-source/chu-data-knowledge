@@ -1,0 +1,22 @@
+==== TB_PRESTATION_VALO ====
+Table contenant la valorisation des suppléments
+       1    CODE_PREST                   char(3)          Code de la Prestation
+
+       2    LIBELLE                      varchar(200)     Libellé de la prestation
+
+       3    MONTANT                      decimal(12, 4)   Montant de la prestation
+
+       4    ACTIF                        char(1)          Indique si le supplément est actif 'O'
+
+       5    TYPE_ETABLIS                 char(1)          Type de l'établissement
+
+       6    DATE_DEBUT                   datetime         Date de début de la prestation
+
+       7    DATE_FIN                     datetime         Date de fin de la prestation
+
+       8    TYPE_UNITE                   char(2)
+                                                          Identifiant de l'EJ. Utilisé pour l'instant uniquement pour les forfaits MCO, FT et
+                                                          SSR.
+       9    ID_EJ                        smallint(5)                                                                                            0
+                                                          0 par défaut => toutes les EJ qui n'ont pas de paramétrage spécifique utilisent
+                                                          cette valeur.

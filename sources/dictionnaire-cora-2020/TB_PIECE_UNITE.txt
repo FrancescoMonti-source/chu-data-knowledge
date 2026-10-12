@@ -1,0 +1,4 @@
+==== TB_PIECE_UNITE ====
+       1   ID_PIECE                   smallint(5)
+
+       2   ID_UNITE                   int(10)

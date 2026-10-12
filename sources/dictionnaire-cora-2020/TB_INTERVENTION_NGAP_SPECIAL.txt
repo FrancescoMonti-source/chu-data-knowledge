@@ -1,0 +1,30 @@
+==== TB_INTERVENTION_NGAP_SPECIAL ====
+Table utilisée pour enregistrer les transcodages NGAP (d'acte CCAM) modifié manuellement (sur certains dossiers)
+                                                         Clé - Lien sur TB_DET_ACTE.ID_DET_ACTE :
+       1    ID_DET_ACTE                   int(10)
+                                                         Identifiant de l'Acte-Activité dont le transcodage a été modifié
+                                                         Lien sur TB_INTERVENTION.ID_INTERVENTION :
+       2    ID_INTERVENTION               int(10)
+                                                         Lien sur l'intervention
+                                                         Lien sur TB_ACTE.ID_ACTE :
+       3    ID_ACTE                       int(10)
+                                                         Identifiant de l'Acte CCAM (Acte + Phase)
+       4    LC1                           char(9)        Code NGAP (1er code)
+
+       5    QLC1                          char(8)        Coefficient NGAP (lié au 1er code)
+
+       6    LC2                           char(9)        Code NGAP (2ème code)
+
+       7    QLC2                          char(8)        Coefficient NGAP (lié au 2ème code)
+
+       8    LC3                           char(9)        Code NGAP (3ème code)
+
+       9    QLC3                          char(8)        Coefficient NGAP (lié au 3ème code)
+
+       10   LC4                           char(9)        Code NGAP (4ème code)
+
+       11   QLC4                          char(8)        Coefficient NGAP (lié au 4ème code)
+
+       12   LC5                           char(9)        Code NGAP (5ème code)
+
+       13   QLC5                          char(8)        Coefficient NGAP (lié au 5ème code)

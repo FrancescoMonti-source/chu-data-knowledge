@@ -1,0 +1,47 @@
+==== DATIM_CCAM_INFO ====
+Table des références des tests DATIM pour les actes CCAM
+       1   CODE_ACTE                    char(7)           Code l'acte CCAM
+
+       2   PHASE_ACTE                   char(1)           Phase de l'acte CCAM
+                                                          Indique si l'acte correspondant donne l'éligbilité au forfait FFM (Forfait de frais
+       3   FORF_FFM                     char(1)
+                                                          matériel)
+                                                          Indique si l'acte correspondant donne l'éligibilité au forfait SE (1 à 6) (5 et 6
+       4   FORF_SE                      char(1)
+                                                          étant obsolète depuis 2020)
+                                                          Indique si l'acte correspondant donne une majoration autre que la majoration
+       5   EXTERNE_AUTRE                char(1)           de nuit ou férié (soit codes se terminant par N ou F) ou à des codes de
+                                                          regroupement CCAM
+       6   POURC_UNIQ_SEJ               decimal(18, 14)
+
+       7   CODE_IMCOMP                  char(7)
+
+       8   GEST_COMP_ARE                char(1)
+
+       9   DATE_DEBUT                   datetime          Date de début de validité
+
+      10   DATE_FIN                     datetime          Date de fin
+
+      11   FORF_FSD                     char(1)
+
+      12   ACTE_DIALYSE                 char(1)           Indique si c'est un acte de dialyse
+
+      13   ACTE_ESTHE                   char(1)           Indique si c'est un acte d'esthétique
+
+      14   ACTE_CONFORT                 char(1)
+
+      15   ACTE_BRULE                   char(1)
+
+      16   ACTE_NEUROCHIR               char(1)
+                                                 Indique s'il s'agit d'un acte CCAM requérant un code Z en position de DP
+    17   ACTE_DIAGZ            char(1)           Valeur possibles : 1 = Oui il faut un code Z en DP, 0 = Non il ne faut pas de
+                                                 code Z en DP
+    18   ZERO_JOUR_ATYPIQUE    char(1)
+
+    19   ACTE_ACCOUCHEMENT     char(1)           Indique si c'est un acte d'accouchement
+
+    20   ACTE_SEANCE           char(1)           Indique si c'est un acte de séance
+
+    21   ATYPIE_EXTERNE        char(1)           Indique si c'est une atypie externe
+
+    22   NB_ACTE_EXT_ATTENDU   smallint(5)       Nombre d'acte attendu

@@ -1,0 +1,11 @@
+==== TB_PSY_ACTE ====
+Table du thésaurus des actes ambulatoires (EDGAR)
+       1   CODE_ACTE                    char(10)       Code de l'acte
+
+       2   LIBELLE_ACTE                 varchar(150)   Libellé de l'acte
+                                                       Lien sur TB_PMSI_PSY_NATURE_ACTE.CODE_NATURE_ACTE :
+       3   CODE_NATURE_ACTE             char(1)
+                                                       Code nature de l'acte (E, D, G, A, R)
+       4   COMMENTAIRE                  varchar(200)   Commentaire
+
+       5   ACTIF                        char(1)        L'acte est actif ('O', 'N')                                               'O'

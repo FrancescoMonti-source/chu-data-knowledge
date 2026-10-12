@@ -1,0 +1,11 @@
+==== TB_GROUPE_DROIT_UNITE ====
+gestion des groupes d'unité
+       1   ID_GROUPE_DROIT             smallint(5)
+
+       2   ID_UNITE                    int(10)
+
+       3   DATE_DEBUT                  datetime
+
+       4   DATE_FIN                    datetime
+
+       5   TYPE_DROIT                  char(1)

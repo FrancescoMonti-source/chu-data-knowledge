@@ -1,0 +1,27 @@
+==== TB_PSY_ISOLEMENT ====
+Table des isolements thérapeutiques
+                                                        Clé :
+       1   ID_PSY_ISOLEMENT             int(10)
+                                                        Identifiant de l'isolement
+                                                        Lien sur TB_MVT.ID_MVT :
+       2   ID_MVT                       int(10)
+                                                        Identifiant du mouvement
+       3   DATE_ISOLEMENT               datetime        Date de l'isolement
+                                                        Lien sur Util.id_util :
+       4   ID_INFO                      int(10)
+                                                        Identifiant du dernier utilisateur qui a modifié ces données
+       5   DATE_INFO                  datetime         Date de dernière modification de ces données
+
+       6   HEURE_INFO                 datetime         Heure de dernière modification de ces données
+                                                       Lien sur TB_MVT_PSY_SEQ.ID_SEQUENCE :
+       7   ID_SEQUENCE                int(10)
+                                                       Identifiant de la séquence
+                                                       Lien sur TB_PATIENT.ID_PATIENT :
+       8   ID_PATIENT                 int(10)
+                                                       Identifiant du patient
+                                                       Lien sur TB_SEJOUR.ID_SEJOUR :
+       9   ID_SEJOUR                  int(10)                                                                      -1
+                                                       Identifiant du séjour
+                                                       Lien sur TB_UNITE.ID_UNITE :
+      10   ID_UNITE                   int(10)
+                                                       Identifiant de l'unité

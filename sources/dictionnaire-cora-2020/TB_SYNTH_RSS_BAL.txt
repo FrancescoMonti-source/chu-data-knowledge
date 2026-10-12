@@ -1,0 +1,14 @@
+==== TB_SYNTH_RSS_BAL ====
+BAL intermédiaire de communication entre Cora Activité et les interfaces. Toutes les modifications du statut sont enregistrés
+avec une précision de l'ordre de la milliseconde pour éviter une gestion transactionnelle.
+       1   ID_RSS                       int(10)          Identifiant du RSS
+
+       2   TYPE_BAL                     smallint(5)      Type de BAL (1 : Validé DIM)
+
+       3   VALEUR_BAL                   char(1)          V ou D - Validé ou Dévalité
+
+       4   ID_CREAT                     int(10)          Identifiant de l’utilisateur ayant modifié le statut
+                                                         Date-Heure de la modification du statut- précision à la milliseconde - Insertion
+       5   DATE_CREAT                   datetime                                                                                          getdate
+                                                         auto
+       6   ID_SEJOUR                    int(10)          Identifiant du séjour

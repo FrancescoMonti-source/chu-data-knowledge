@@ -1,0 +1,12 @@
+==== NOMENC_ACRONYMES ====
+       1   ACRONYME                   varchar(20)      Code de l'acronyme
+
+       2   LIBELLE_ACRONYME           varchar(300)     libelle assoscié à l'acronyme
+
+       3   ID_ACRONYME                int(10)          Id de l'acronyme
+
+       4   LIBELLE_SS_ACC             varchar(300)     libelle assoscié à l'acronyme sans accent
+
+       5   TYPE_CODE                  char(1)          Semble non utilisé
+
+       6   FLAG_INTERNE               char(1)

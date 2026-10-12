@@ -1,0 +1,4 @@
+==== NABM_DET_PROTOCOLE ====
+       1   ID_PROTOCOLE                int(10)
+
+       2   CODE_NABM                   char(4)

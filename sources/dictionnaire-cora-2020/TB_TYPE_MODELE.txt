@@ -1,0 +1,8 @@
+==== TB_TYPE_MODELE ====
+Cette table définit un thésaurus pour les types de modèles.
+                                                       Clé :
+       1    ID_TYPE_MODELE              smallint(5)
+                                                       Définit le type de modèle.
+       2    LIB_TYPE_MODELE             varchar(50)    Définit le libellé du type de modèle.
+
+       3    ACTIF                       char(1)        Définit si le type de modèle est actif.

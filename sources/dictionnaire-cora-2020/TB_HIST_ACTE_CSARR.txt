@@ -1,0 +1,59 @@
+==== TB_HIST_ACTE_CSARR ====
+     1   ID_ACTE_CSARR           int(10)       Copie de TB_ACTE_CSARR
+
+     2   ID_PATIENT              int(10)       Copie de TB_ACTE_CSARR
+
+     3   ID_MVT                  int(10)       Copie de TB_ACTE_CSARR
+
+     4   NO_SEMAINE              int(10)       Copie de TB_ACTE_CSARR
+
+     5   ID_EXECUTANT            int(10)       Copie de TB_ACTE_CSARR
+
+     6   TYPE_EXECUTANT          varchar(10)   Copie de TB_ACTE_CSARR
+
+     7   DATE_ACTE               datetime      Copie de TB_ACTE_CSARR
+
+     8   DATE_CREAT              datetime      Copie de TB_ACTE_CSARR
+
+     9   ID_CREAT                int(10)       Copie de TB_ACTE_CSARR
+
+    10   DATE_INFO               datetime      Copie de TB_ACTE_CSARR
+
+    11   ID_INFO                 int(10)       Copie de TB_ACTE_CSARR
+
+    12   CODE_CSARR              varchar(7)    Copie de TB_ACTE_CSARR
+
+    13   CODE_APPAREIL1          char(1)       Copie de TB_ACTE_CSARR
+
+    14   CODE_APPAREIL2          char(1)       Copie de TB_ACTE_CSARR
+
+    15   CODE_APPAREIL3          char(1)       Copie de TB_ACTE_CSARR
+
+    16   CODE_MODUL_LIEU         varchar(7)    Copie de TB_ACTE_CSARR
+
+    17   CODE_MODUL_PAT1         varchar(7)    Copie de TB_ACTE_CSARR
+
+    18   CODE_MODUL_PAT2         varchar(7)    Copie de TB_ACTE_CSARR
+
+    19   NB_PATIENT              smallint(5)   Copie de TB_ACTE_CSARR
+
+    20   DESCR                   char(5)       Ecran sur lequel a été créé l'acte (S, CRIDO, MOIDO)
+
+    21   TYPE_INFO               char(1)       C : création, M : modification, D : suppression
+
+    22   ID_ACTE_CSARR_PERE      int(10)       Copie de TB_ACTE_CSARR
+
+    23   NB_PATIENT_REEL         smallint(5)   Copie de TB_ACTE_CSARR
+      24   NB_INTERVENANT               smallint(5)   Copie de TB_ACTE_CSARR
+
+      25   EXT_DOC                      char(2)       Copie de TB_ACTE_CSARR
+
+      26   DUREE                        smallint(5)   Copie de TB_ACTE_CSARR
+
+      27   ID_APPLICATION               int(10)       Copie de TB_ACTE_CSARR
+
+      28   POIDS                        smallint(5)   Copie de TB_ACTE_CSARR
+
+      29   ID_SITE                      int(10)       Copie de TB_ACTE_CSARR
+
+      30   ID_SEJOUR                    int(10)       Copie de TB_ACTE_CSARR

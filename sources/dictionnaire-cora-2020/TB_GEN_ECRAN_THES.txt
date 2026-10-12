@@ -1,0 +1,22 @@
+==== TB_GEN_ECRAN_THES ====
+       1   ID_ECRAN_THES                int(10)
+
+       2   FLAG_THES_LIB                char(1)                                         'O'
+
+       3   ID_ECRAN_THES_PERE           int(10)
+
+       4   LIB_THES                     char(50)
+
+       5   ACTIF                        char(1)                                         'O'
+
+       6   ORDRE                        smallint(5)
+                                                      Type du champ :
+                                                      1 : Chaine
+                                                      2 : réel
+                                                      3: Date
+       7   TYPE_CHAMP                   smallint(5)
+                                                      4 : Entier
+                                                      5 : Commentaire
+                                                      6 : Heure
+                                                      7 : Date et heure
+       8   FLAG_DEFAUT                  char(1)

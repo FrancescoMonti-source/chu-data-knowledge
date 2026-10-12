@@ -1,0 +1,45 @@
+==== TB_HIST_DEMANDE_DET_EXAMEN ====
+       1   ID_HIST_DEMANDE_EXAMEN int(10)            Identifiant de l'historisation de la donnée
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.ID_DEMANDE_DET_EXAMEN : Clé
+       2   ID_DEMANDE_DET_EXAMEN      int(10)
+                                                     de la table
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.ID_DEMANDE_EXAMEN : FK
+       3   ID_DEMANDE_EXAMEN          int(10)        TB_DEMANDE_EXAMEN.ID_DEMANDE_EXAMEN - Identifiant CORA de la
+                                                     demande d'examen
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.CODE_EXAMEN : Code de
+       4   CODE_EXAMEN                varchar(20)
+                                                     l'examen
+       5   LIB_EXAMEN                 varchar(150)   Copie de TB_DEMANDE_DET_EXAMEN.LIB_EXAMEN : Libellé de l'examen
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.COMMENT_MOTIF : Commentaire
+       6   COMMENT_MOTIF              varchar(600)
+                                                     sur l'examen
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.ID_LIEN_DEMANDE : FK
+       7   ID_LIEN_DEMANDE            int(10)
+                                                     TB_PAT_ACTION.ID_PAT_ACTION - Identifiant CORA de l'action liée
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.DATE_EXAMEN : Date de la
+       8   DATE_EXAMEN                datetime
+                                                     demande d'examen
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.DATE_PRELEVEMENT : Date du
+       9   DATE_PRELEVEMENT           datetime
+                                                     prélèvement
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.ID_UTIL_PRELEVEMENT : FK
+      10   ID_UTIL_PRELEVEMENT        int(10)
+                                                     UTIL.ID_UTIL - Identifiant CORA de la personne qui a fait le prélèvement
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.NUM_ECHANTILLON : Numéro
+      11   NUM_ECHANTILLON            varchar(20)
+                                                     d'échantillon
+                                                     Copie de TB_DEMANDE_DET_EXAMEN.CPT_NUM_ECHANTILLON :
+      12   CPT_NUM_ECHANTILLON        int(10)
+                                                     Compteur utilisé pour le calcul du numéro d'échantillon
+      13   TYPE_INFO                  char(1)        Type d'info
+
+      14   DESCR                      char(5)        Type d'action pour qu'il soit historisé
+                                                   Copie de TB_DEMANDE_DET_EXAMEN.CODE_DETAIL_REGROUP : Code
+      15   CODE_DETAIL_REGROUP       varchar(20)
+                                                   du tube
+                                                   Copie de TB_DEMANDE_DET_EXAMEN.NB_TUBE_DEFAUT : Nombre de
+      16   NB_TUBE_DEFAUT            smallint(5)
+                                                   tubes
+                                                   Copie de TB_DEMANDE_DET_EXAMEN.STATUT : A: prélevé, P: Prélevé,
+      17   STATUT                    char(1)
+                                                   N:Non prélevé,R:Radio

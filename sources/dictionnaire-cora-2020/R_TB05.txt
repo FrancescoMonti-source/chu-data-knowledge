@@ -1,0 +1,11 @@
+==== R_TB05 ====
+Association des natures de prestations aux forfaits
+       1   FORFAI_COD                     char(1)       code forfait
+
+       2   COD_NATURE                     char(3)       code nature prestation
+                                                        date de début de l'association
+       3   DT_DEBUT                       datetime      nature de prestation/type de
+                                                        forfait
+                                                        date de fin de l'association
+       4   DT_FIN                         datetime      nature de prestation/type de
+                                                        forfait

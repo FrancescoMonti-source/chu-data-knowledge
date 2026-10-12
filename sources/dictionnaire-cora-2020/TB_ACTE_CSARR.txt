@@ -1,0 +1,62 @@
+==== TB_ACTE_CSARR ====
+Table contenant les actes CSARR réalisé sur un patient
+       1   ID_ACTE_CSARR              int(10)       Clé : identifiant de l'acte CSARR
+
+       2   ID_PATIENT                 int(10)       FK TB_PATIENT.ID_PATIENT - Identifiant CORA du patient
+
+       3   ID_MVT                     int(10)       Lien sur TB_MVT.ID_MVT : identifiant du mouvement
+                                                    Numéro de la semaine SSR, pour lien sur TB_MVT_SSR_SEM.NO_SEMAINE
+       4   NO_SEMAINE                 int(10)
+                                                    (en complément du lien ID_MVT)
+                                                    identifiant de l'exécutant de l'acte
+       5   ID_EXECUTANT               int(10)
+                                                    Lien sur Util.id_util
+                                                     Type de l'exécutant de l'acte (lien sur
+       6   TYPE_EXECUTANT              varchar(10)
+                                                     CORA_UTIL..TB_TYPE_EXECUTANT_SSR.TYPE_EXECUTANT)
+       7   DATE_ACTE                   datetime      Date de l'acte
+
+       8   DATE_CREAT                  datetime      Date de création de l'enregistrement
+                                                     Utilisateur de création de l'enregistrement
+       9   ID_CREAT                    int(10)
+                                                     Lien sur Util.id_util
+      10   DATE_INFO                   datetime      Date de dernière modification de l'enregistrement
+                                                     Utilisateur de dernière modification de l'enregistrement
+      11   ID_INFO                     int(10)
+                                                     Lien sur Util.id_util
+                                                     Code de l'acte CSARR.
+      12   CODE_CSARR                  varchar(7)
+                                                     Lien sur CORA..CSARR
+      13   CODE_APPAREIL1              char(1)       Code appareil 1
+
+      14   CODE_APPAREIL2              char(1)       Code appareil 2
+
+      15   CODE_APPAREIL3              char(1)       Code appareil 3
+
+      16   CODE_MODUL_LIEU             varchar(7)    Code Modulateur Lieu
+
+      17   CODE_MODUL_PAT1             varchar(7)    Code Modulateur Patient 1
+
+      18   CODE_MODUL_PAT2             varchar(7)    Code Modulateur Patient 2
+                                                     Nombre de patients (attention : voir spécification FG SSR, c'est l'identifiant de
+      19   NB_PATIENT                  smallint(5)
+                                                     la tranche de nombre)
+                                                     Identifiant de l'acte père dans le cas d'un complémentaire (lien sur
+      20   ID_ACTE_CSARR_PERE          int(10)
+                                                     TB_ACTE_CSARR.ID_ACTE_CSARR
+                                                     Nombre réel de patient (ce n'est plus une tranche mais bien un nombre réel)
+      21   NB_PATIENT_REEL             smallint(5)
+                                                     depuis janvier 2014
+      22   NB_INTERVENANT              smallint(5)   Nombre d'intervenants.(En particulier pour les actes pluriprofessionnels)
+                                                     Extension documentaire (Lien sur
+      23   EXT_DOC                     char(2)
+                                                     CORA..CSARR_EXTENSION.CODE_EXTENTION )
+      24   DUREE                       smallint(5)   Durée de l'acte CSARR en minutes.
+                                                     Identifant du conncteur d'interface ayant créé l'acte. Lien sur
+      25   ID_APPLICATION              int(10)
+                                                     TB_INT_APPLICATION.ID
+      26   POIDS                       smallint(5)   Poids de l'acte CSARR une fois codé
+
+      27   ID_SITE                     int(10)       FK TB_SITE.ID_SITE - Identifiant du site de réalisation de l'acte
+
+      28   ID_SEJOUR                   int(10)       Lien vers TB_SEJOUR.ID_SEJOUR

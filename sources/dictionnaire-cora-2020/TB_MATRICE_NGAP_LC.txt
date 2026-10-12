@@ -1,0 +1,4 @@
+==== TB_MATRICE_NGAP_LC ====
+       1   LETTRE_CLE_PMC               char(9)
+
+       2   LETTRE_CLE_EXT               char(3)

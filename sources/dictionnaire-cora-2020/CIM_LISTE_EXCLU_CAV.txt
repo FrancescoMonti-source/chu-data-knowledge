@@ -1,0 +1,10 @@
+==== CIM_LISTE_EXCLU_CAV ====
+Liste des diags exclus par la finalité principale
+       1   CODE_DIAG_CAV                  char(16)       Code du diagnostic
+                                          text
+       2   CIM_LISTE_DIAG_EXCLU                          Liste des codes diagnostics de finalité principale qui exclu le code diag
+                                          (2147483647)
+       3   VERSION_FG                     char(3)        Version de la fonction de groupage
+                                                         Compteur si il y a plusieurs listes de diagnostics exclus pour le même diag et
+       4   CHRONO                         smallint(5)                                                                                       1
+                                                         la même FG

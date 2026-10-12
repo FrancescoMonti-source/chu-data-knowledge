@@ -1,0 +1,7 @@
+==== TB_DROIT_UTIL_METIER_PARAMED ====
+                                                         Clé - Lien sur TB_METIER_PARAMED.ID_METIER_PARAMED :
+        1   ID_METIER_PARAMED            smallint(5)
+                                                         Identifiant du metier paramédical
+        2   ID_UTIL                      int(10)         Clé - Lien Util.id_util
+
+        3   TYPE_DROIT                   smallint(5)     Droits : 0 =Aucun, 1=Lecture, 2=Ecriture

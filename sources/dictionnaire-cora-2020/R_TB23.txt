@@ -1,0 +1,8 @@
+==== R_TB23 ====
+Grille TarifaireLibellé et détail des Grilles Tarifaire
+        1   COD_GRILLE                      smallint(5)    Code de la Grille
+
+        2   LIBELLE                         varchar(100)   libelle de la grille
+                                                           Description de la Grille
+        3   DEFINITION                      varchar(250)
+                                                           Tarifaire

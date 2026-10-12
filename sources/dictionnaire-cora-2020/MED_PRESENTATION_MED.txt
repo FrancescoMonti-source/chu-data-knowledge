@@ -1,0 +1,4 @@
+==== MED_PRESENTATION_MED ====
+       1   ID_PRESENTATION           int(10)
+
+       2   ID_MED                    int(10)

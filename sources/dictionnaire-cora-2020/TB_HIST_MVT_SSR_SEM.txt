@@ -1,0 +1,318 @@
+==== TB_HIST_MVT_SSR_SEM ====
+                                      Copie de la donnée de TB_MVT_SSR_SEM.FK TB_PATIENT.ID_PATIENT -
+     1   ID_PATIENT     int(10)
+                                      Identifiant CORA du patient
+                                      Copie de la donnée de TB_MVT_SSR_SEM.FK TB_SEJOUR.ID_SEJOUR -
+     2   ID_SEJOUR      int(10)
+                                      Identifiant CORA du séjour
+                                      Copie de la donnée de TB_MVT_SSR_SEM.ID_MVT : Lien sur
+     3   ID_MVT         int(10)       TB_MVT.ID_MVT :
+                                      Identifiant du Mouvement (Lien obligatoire)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.NO_SEMAINE : Chrono semaine
+     4   NO_SEMAINE     int(10)
+                                      dans un même mouvement (Forme la clé avec ID_MVT)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.LU : Présence du Patient le Lundi
+     5   LU             char(1)
+                                      (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.MA : Présence du Patient le Mardi
+     6   MA             char(1)
+                                      (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.ME : Présence du Patient le
+     7   ME             char(1)
+                                      Mercredi (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.JE : Présence du Patient le Jeudi
+     8   JE             char(1)
+                                      (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.VE : Présence du Patient le
+     9   VE             char(1)
+                                      Vendredi (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.SA : Présence du Patient le
+    10   SA             char(1)
+                                      Samedi (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.DI : Présence du Patient le
+    11   DI             char(1)
+                                      Dimanche (pour le mouvement - semaine) (si = "O")
+                                      Copie de la donnée de TB_MVT_SSR_SEM.HABILLAGE : Max des valeurs de
+    12   HABILLAGE      smallint(5)
+                                      dépendances 'Habillage' pour la semaine (voir TB_DET_DEP_SSR)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.DEPLACEMENT : Max des
+    13   DEPLACEMENT    smallint(5)   valeurs de dépendances 'Dépendance' pour la semaine (voir
+                                      TB_DET_DEP_SSR)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.ALIMENTATION : Max des
+    14   ALIMENTATION   smallint(5)   valeurs de dépendances 'Alimentation' pour la semaine (voir
+                                      TB_DET_DEP_SSR)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.CONTINENCE : Max des valeurs
+    15   CONTINENCE     smallint(5)
+                                      de dépendances 'Continence' pour la semaine (voir TB_DET_DEP_SSR)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.COMPORTEMENT : Max des
+    16   COMPORTEMENT   smallint(5)   valeurs de dépendances 'Comportement' pour la semaine (voir
+                                      TB_DET_DEP_SSR)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.RELATION : Max des valeurs de
+    17   RELATION       smallint(5)
+                                      dépendances 'Relation' pour la semaine (voir TB_DET_DEP_SSR)
+                                      Copie de la donnée de TB_MVT_SSR_SEM.MC : Temps hebdomadaire de
+    18   MC             int(10)
+                                      Rééducation mécanique
+                                      Copie de la donnée de TB_MVT_SSR_SEM.CM : Temps hebdomadaire de
+    19   CM             int(10)
+                                      Rééducation Sensori-motrice
+                                      Copie de la donnée de TB_MVT_SSR_SEM.NP : Temps hebdomadaire de
+    20   NP             int(10)
+                                      Rééducation neuro-psycho
+                                      Copie de la donnée de TB_MVT_SSR_SEM.CR : Temps hebdomadaire de
+    21   CR             int(10)
+                                      Rééducation cardio respiratoire
+                                      Copie de la donnée de TB_MVT_SSR_SEM.NU : Temps hebdomadaire de
+    22   NU             int(10)
+                                      Rééducation nutritionnelle
+                                      Copie de la donnée de TB_MVT_SSR_SEM.RU : Temps hebdomadaire de
+    23   RU             int(10)
+                                      Rééducation Uro-sphinctérienne
+                                      Copie de la donnée de TB_MVT_SSR_SEM.RI : Temps hebdomadaire de
+    24   RI             int(10)
+                                      Réadaptation et Réinsertion
+                                      Copie de la donnée de TB_MVT_SSR_SEM.AP : Temps hebdomadaire
+    25   AP             int(10)
+                                      d'Adaptation appareillage
+                                      Copie de la donnée de TB_MVT_SSR_SEM.CO : Temps hebdomadaire de
+    26   CO             int(10)
+                                      Rééducation Collective
+                                      Copie de la donnée de TB_MVT_SSR_SEM.BI : Temps hebdomadaire de
+    27   BI             int(10)
+                                      Bilans
+                                      Copie de la donnée de TB_MVT_SSR_SEM.PH : Temps hebdomadaire de
+    28   PH             int(10)
+                                      Physiothérapie
+                                      Copie de la donnée de TB_MVT_SSR_SEM.BA : Temps hebdomadaire de
+    29   BA             int(10)
+                                      Balnéothérapie
+                                      Copie de la donnée de TB_MVT_SSR_SEM.FAUTEUIL : Utilisation d'un
+    30   FAUTEUIL       smallint(5)
+                                      Fauteuil roulant durant la semaine
+                                             Copie de la donnée de TB_MVT_SSR_SEM.ID_UTIL_SIGN : Lien sur
+31   ID_UTIL_SIGN           int(10)          Util.id_util :
+                                             Prévu : signataire de la semaine
+32   DATE_SIGN              datetime         Copie de la donnée de TB_MVT_SSR_SEM.DATE_SIGN : Date de signature
+                                             Copie de la donnée de TB_MVT_SSR_SEM.HEURE_SIGN : Heure de
+33   HEURE_SIGN             datetime
+                                             signature
+                                             Copie de la donnée de TB_MVT_SSR_SEM.STATUT : Statut prévu du RHS :
+34   STATUT                 char(1)          - "T" : Terminé si le séjour SSR est bloqué
+                                             - Code du statut personnalisé dans PMSI_STATUT_CTRL
+                                             Copie de la donnée de TB_MVT_SSR_SEM.LIBELLE_INTERVENTION :
+35   LIBELLE_INTERVENTION   char(50)
+                                             Libellé de l'intervention éventuellement réalisée dans la semaine
+                                             Copie de la donnée de TB_MVT_SSR_SEM.DATE_INTERVENTION : Date de
+36   DATE_INTERVENTION      datetime
+                                             l'intervention qui a justifié la mise en SSR
+37   DATE_INFO              datetime         Copie de TB_MVT_SSR_SEM.DATE_INFO : Date de la dernière modification.
+                                             Copie de TB_MVT_SSR_SEM.HEURE_INFO : Heure de la dernière
+38   HEURE_INFO             datetime
+                                             modification.
+                                             Copie de TB_MVT_SSR_SEM.ID_INFO : Lien vers Util.ID_UTIL.
+39   ID_INFO                int(10)
+                                             Identifiant de l'utilisateur ayant effectué la dernière modification
+40   CMC                    char(4)          Copie de la donnée de TB_MVT_SSR_SEM.CMD : Catégorie Majeur Clinique
+                                             Copie de la donnée de TB_MVT_SSR_SEM.GHJ : Groupe Homogène de
+41   GHJ                    char(4)
+                                             journée
+                                             Copie de la donnée de TB_MVT_SSR_SEM.NO_SEMAINE_CIVILE : N° de
+42   NO_SEMAINE_CIVILE      int(10)
+                                             Semaine civile concaténée à l'année (ex : 1ère semaine de 2004 = 200401)
+                                             Copie de la donnée de TB_MVT_SSR_SEM.DATE_DEBUT_SEM : Date du
+43   DATE_DEBUT_SEM         datetime         début de la semaine lié à l'enregistrement (= Date du lundi même si le mvt est
+                                             débuté après)
+                                             Copie de la donnée de TB_MVT_SSR_SEM.DATE_FIN_SEM : Date de fin de
+44   DATE_FIN_SEM           datetime         la semaine lié à l'enregistrement (= date du dimanche même si le mvt est fini
+                                             avant)
+                                             Copie de la donnée de TB_MVT_SSR_SEM.TYPE_ACTIVITE : - 'SEM' : Type
+45   TYPE_ACTIVITE          char(3)          classique semaine
+                                             - 'HDJ' : Type passage quelques journées
+                                             Copie de la donnée de TB_MVT_SSR_SEM.CODE_GMD : Code GMD du
+46   CODE_GMD               char(5)
+                                             RHS. Remplacé par les GME depuis 2013.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.CODE_ERR : Code Erreur de
+47   CODE_ERR               char(3)
+                                             Retour du Groupage
+                                             Copie de la donnée de TB_MVT_SSR_SEM.STATUT_GROUPAGE : Statut du
+48   STATUT_GROUPAGE        char(1)          Groupage du séjour. 'G' si le dossier est groupé, Null s'il n'est pas groupé ou
+                                             s'il y a une erreur de groupage
+                                             Copie de la donnée de TB_MVT_SSR_SEM.STATUT_FACT : Statut de la
+49   STATUT_FACT            char(1)
+                                             facturation de la semaine
+                                             Copie de la donnée de TB_MVT_SSR_SEM.LIGNE_GRP : Ligne de groupage
+50   LIGNE_GRP              varchar(4000)
+                                             du RHS
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_LU : Score de l'indice de
+51   IVA_LU                 int(10)
+                                             valorisation de l'activité du Lundi. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_MA : Score de l'indice de
+52   IVA_MA                 int(10)
+                                             valorisation de l'activité du Mardi. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_ME : Score de l'indice de
+53   IVA_ME                 int(10)
+                                             valorisation de l'activité du Mercredi. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_JE : Score de l'indice de
+54   IVA_JE                 int(10)
+                                             valorisation de l'activité du Jeudi. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_VE : Score de l'indice de
+55   IVA_VE                 int(10)
+                                             valorisation de l'activité du Vendredi. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_SA : Score de l'indice de
+56   IVA_SA                 int(10)
+                                             valorisation de l'activité du Samedi. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_DI : Score de l'indice de
+57   IVA_DI                 int(10)
+                                             valorisation de l'activité du Dimanche. Utilisé avant la T2A.
+                                             Copie de la donnée de TB_MVT_SSR_SEM.IVA_RHS : Score total de l'indice
+58   IVA_RHS                decimal(10, 2)
+                                             de valorisation de l'activité. Utilisé avant la T2A.
+                                              Copie de la donnée de TB_MVT_SSR_SEM.TYPE_HOSPIT_SSR :
+                                              1 - Hospitalisation complète ou de semaine en soins de suite médicalisés
+                                              2 - Hospitalisation de jour en soins de suite médicalisés
+                                              3 - Hospitalisation de nuit en soins de suite médicalisés
+59   TYPE_HOSPIT_SSR         smallint(5)      4 - Traitements et cures ambulatoires (séances) en soins de suite médicalisés
+                                              5 - Hospitalisation complète ou de semaine en rééducation fonctionnelle
+                                              6 - Hospitalisation de jour en rééducation fonctionnelle
+                                              7 - Hospitalisation de nuit en rééducation fonctionnelle
+                                              8 - Traitements et cures ambulatoires (séances) en rééducation fonctionnelle
+60   DATE_TRACE              datetime         Date à laquelle une modification a été faite pour l'enregistrement dans la table
+                                              Identifiant de l'utilisateur ayant fait la modification ayant permi l'enregistrement
+61   ID_TRACE                int(10)
+                                              de la donnée
+62   IVA_GMD                 decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_GMD
+
+63   IVA_AGE                 decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_AGE
+
+64   IVA_DEP_PHYS            decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_DEP_PHYS
+
+65   IVA_DEP_COGN            decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_DEP_COGN
+
+66   IVA_CAV                 decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_CAV
+
+67   IVA_ARR                 decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_ARR
+
+68   IVA_FP                  decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_FP
+
+69   IVA_HC                  decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_HC
+
+70   IVA_JOURNALIE           decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.IVA_JOURNALIE
+
+71   NUM_LOT                 int(10)          Copie de la donnée de TB_MVT_SSR_SEM.NUM_LOT
+
+72   MNT_IVA_RHS             decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.MNT_IVA_RHS
+
+73   MNT_IVA_JOUR            decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.MNT_IVA_JOUR
+                                              Copie de la donnée de TB_MVT_SSR_SEM.CODE_AUTORISATION : Code
+74   CODE_AUTORISATION       char(3)
+                                              Autorisation de l'UF du RHS
+                                              Copie de la donnée de TB_MVT_SSR_SEM.CODE_GME : Groupe médico
+75   CODE_GME                char(6)
+                                              économique du RHS
+                                              Copie de la donnée de TB_MVT_SSR_SEM.INDIC_ERR : Indicateur d’erreur
+76   INDIC_ERR               char(1)
+                                              du groupeur GME : X ? erreur, NULL ? pas d’erreur
+                                              Copie de la donnée de
+                                              TB_MVT_SSR_SEM.POURSUITE_PROJET_THERAPEUTIQUE : Poursuite
+                                              d'un même Projet Thérapeutique : indique si le RHS est une poursuite du
+                                              même projet thérapeutique.
+     POURSUITE_PROJET_THERA                   - 1 : Oui
+77                          char(1)
+     P                                        - 2 : Non
+                                              - NULL : non renseigné.
+                                              Cette valeur est saisie sur le 1er RHS du séjour correspondant à la poursuite
+                                              du projet thérapeutique (séjour qui doit intervenir entre le 2e et le 5e jour
+                                              suivant la fin du séjour concerné par le projet thérapeutique).
+                                              Copie de la donnée de TB_MVT_SSR_SEM.PONDERATION_RR_RHS :
+78   PONDERATION_RR_RHS      int(10)          Pondération RR de la semaine (Somme des pondérations RR des actes
+                                              CSARR et CCAM)
+                                              Copie de la donnée de TB_MVT_SSR_SEM.PONDERATION_RR_TOTAL :
+79   PONDERATION_RR_TOTAL    int(10)
+                                              Pondération RR du séjour (HC) ou de la semaine (HP)
+                                              Copie de la donnée de TB_MVT_SSR_SEM.SCORE_RR : Pondération RR du
+80   SCORE_RR                int(10)          séjour (HC) ou de la semaine (HP)/Nombre de jours de pésence du séjour
+                                              (HC) ou de la semaine (HP)
+                                              Copie de la donnée de TB_MVT_SSR_SEM.GUID_EXTERNE : Identifiant
+81   GUID_EXTERNE            char(36)         unique du séjour SSR utilisé pour la reconnaissance de tous les RHS d'un
+                                              séjour du côté de DimXpert
+                                              Copie de la donnée de TB_MVT_SSR_SEM.GUID_EXTERNE_RHS :
+82   GUID_EXTERNE_RHS        char(36)         Identifiant unique du RHS utilisé pour la reconnaissance du RHS du côté de
+                                              DimXpert
+                                              Copie de la donnée de TB_MVT_SSR_SEM.LIT_SOINS_PALLIATIFS :
+83   LIT_SOINS_PALLIATIFS    char(2)          Indique si le patient se trouve dans un lit identifié soins palliatifs (08), null
+                                              sinon.
+                                              Copie de la donnée de TB_MVT_SSR_SEM.CODE_GME_SEM : Code du
+84   CODE_GME_SEM            char(6)          groupage médico-économique de la semaine. Seulement en hospitalisation
+                                              complète.
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.INDIC_ERR_SEM : Indicateur
+    85   INDIC_ERR_SEM          char(1)          d'erreur du groupeur GME de la semaine: X ? erreur, NULL ? pas d'erreur.
+                                                 Seulement en hospitalisation complète.
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.CODE_ERR_SEM : Code Erreur
+    86   CODE_ERR_SEM           char(3)
+                                                 de Retour du Groupage de la semaine. Seulement en hospitalisation complète.
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.STATUT_GROUPAGE_SEM :
+                                                 Statut du Groupage de la semainer. 'G' si la semaine est groupée, Null si elle
+    87   STATUT_GROUPAGE_SEM    char(1)
+                                                 n'est pas groupée ou s'il y a une erreur de groupage. Seulement en
+                                                 hospitalisation complète.
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.SCORE_RR_SEM : Pondération
+    88   SCORE_RR_SEM           int(10)          RR de la semaine / Nombre de jours de présence de la semaine. Seulement
+                                                 en hospitalisation complète.
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.NBJ_SZB : Nb jours supplément
+    89   NBJ_SZB                int(10)
+                                                 zone basse
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.NBJ_SZH : Nb jours supplément
+    90   NBJ_SZH                int(10)
+                                                 zone haute
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.NBJ_EXH : Obsolete ? Nb de
+    91   NBJ_EXH                int(10)
+                                                 jours supplément zone forfaitaire
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.NBJ_PRESENCE : Nb jours de
+    92   NBJ_PRES               int(10)
+                                                 présences
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.NBJ_PRESHW : Nb jours de
+    93   NBJ_PRESHW             int(10)
+                                                 présences hors week end
+    94   CODE_GMT               varchar(4)       Copie de la donnée de TB_MVT_SSR_SEM.CODE_GMT : Code GMT
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.MNT_SZB : Montant calculé
+    95   MNT_SZB                decimal(10, 2)
+                                                 supplément zone basse
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.MNT_SZH : Montant calculé
+    96   MNT_SZH                decimal(10, 2)
+                                                 supplément zone haute
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.MNT_EXH : Obsolete ? Montant
+    97   MNT_EXH                decimal(10, 2)
+                                                 calculé supplément zone forfaitaire
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.MNT_GMT : Montant GMT
+    98   MNT_GMT                decimal(10, 2)
+                                                 suivant les cas tarif zone forfaitaire ou tarif zone basse
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.BORNE_BASSE : Flag borne
+    99   BORNE_BASSE            char(1)
+                                                 basse
+    100 VERSION                 int(10)          Copie de la donnée de TB_MVT_SSR_SEM.VERSION : version FGSSR
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.TYPE_GME : voir si le gme est
+    101 TYPE_GME                char(1)
+                                                 valorisable ou pas
+    102 MNT_TOTAL               decimal(10, 2)   Copie de la donnée de TB_MVT_SSR_SEM.MNT_TOTAL : Montant Total
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.LIGNE_VALO : Ligne du fichier
+    103 LIGNE_VALO              varchar(150)
+                                                 RDSSSR
+                                                 Copie de la donnée de TB_MVT_SSR_SEM.DATE_BLOCAGE : Date de
+    104 DATE_BLOCAGE            datetime
+                                                 blocage du RHS
+                                                 Action d'historisation :
+                                                 C : Création d'une semaine
+                                                 E : Effacer une semaine
+    105 TYPE_INFO               char(1)
+                                                 M : modification d'une semaine
+                                                 S : Signature d'une semaine
+                                                 D : Désignature d'une semaine
+                                                 DEL_RECU : Suppression à partir de CORA RECUEIL
+                                                 CPLUGSSR : Création à partir du plugin création semaine SSR
+                                                 CREC_SSR : Création à partir de CORA Recueil
+                                                 C_METIER : Création à partir de couches métiers
+    106 DESCR                   char(8)          CPRESPER : Création à partir des MAJ présences et permissions
+                                                 MREC_SSR : Modification à partir de CORA Recueil
+                                                 MGRP_SSR : Modification à partir du groupage SSR
+                                                 MLOT_SSR : Modification suite à gestion des lots
+                                                 BLOC_SSR : Modification suite à blocage séjour

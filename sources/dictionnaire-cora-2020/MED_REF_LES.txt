@@ -1,0 +1,9 @@
+==== MED_REF_LES ====
+Table des référentiels des codes de LES (Liste en sus) qui sont associés aux MON
+       1   ID_LES                     int(10)          Clé primaire : Identifiant de la table.
+
+       2   CODE_LES                   varchar(7)       Code LES
+
+       3   LIBELLE                    varchar(2000)    Libellé du code LES
+
+       4   SPECIALITE                 varchar(50)
