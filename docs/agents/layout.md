@@ -11,12 +11,12 @@ Deux frontières rangent un claim. Son sujet : systems/ ou domains/. Son rôle :
 | `investigations/<enquête>/` | la réponse à une question précise, construite sur des claims réutilisables | que répond-on à cette question ? | un passage dans une UF correspond-il à un RUM ? |
 | sources/ | la fiche de chaque document | quel document ? | dictionnaire-cora-2020.md |
 
-Chaque système a la même forme ; un domaine aussi, sans requests/ :
+Chaque système a la même forme ; un domaine aussi, sans queries/ :
 
 ```text
 systems/cora/
   GLOSSARY.md   les termes du contexte
-  requests/     les requêtes préparées (.sql)
+  queries/      les requêtes préparées (.sql)
   evidence/     une preuve par fichier
   claims/       un claim par fichier
 ```

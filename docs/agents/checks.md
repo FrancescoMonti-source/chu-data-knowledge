@@ -13,7 +13,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 |---|---|
 | ROUGE | fichier en UTF-8 ; en-tête lisible, sans clé répétée, sans « # » hors guillemets |
 | ROUGE | id = nom du fichier ; minuscules, chiffres, tirets ; unique dans le dépôt |
-| ROUGE | champs obligatoires présents, valeurs admises (claims.md, evidence.md, requests.md) |
+| ROUGE | champs obligatoires présents, valeurs admises (claims.md, evidence.md, queries.md) |
 | ROUGE | review en premier champ ; bloc de relecture complet ; reviewed signé par une autre personne que l'author, author-reread par l'author |
 | ROUGE | pas de champ authority dans un claim |
 | ROUGE | termes présents dans un GLOSSARY.md ; liens vers des ids qui existent, du bon type |
@@ -35,7 +35,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 
 - Le contrôle voit que le masquage est présent, pas qu'il est juste (surtout la suppression secondaire).
 - La recherche de valeurs ne garantit pas l'anonymat : un nom, une adresse ou un IPP ne sont pas reconnus.
-- Les effectifs de 1 à 9 ne sont cherchés que dans les colonnes N_ et NB_ (requests.md, règle 1).
+- Les effectifs de 1 à 9 ne sont cherchés que dans les colonnes N_ et NB_ (queries.md, règle 1).
 - L'author et le relecteur sont déclarés, pas prouvés.
 - Aucun contrôle ne sait si un claim est vrai.
 

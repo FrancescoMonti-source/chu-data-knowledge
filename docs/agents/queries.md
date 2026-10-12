@@ -4,14 +4,14 @@ La protection des données est dans la requête elle-même, pas dans la discipli
 
 ## Le fichier
 
-Une requête est un fichier .sql dans `systems/<système>/requests/`, nommé par la date et le sujet. Il commence par trois lignes d'en-tête :
+Une requête est un fichier .sql dans `systems/<système>/queries/`, nommé par la date et le sujet. Il commence par trois lignes d'en-tête :
 
 ```sql
 -- id: 20261007-mvt-rum
 -- person_data: masked
 -- purpose: compter les mouvements par année (étape 2 du plan)
 -- La base et l'heure s'écrivent selon le dialecte du système : voir ses claims, ou demander à la personne.
-SELECT '20261007-mvt-rum' AS request_id,
+SELECT '20261007-mvt-rum' AS query_id,
        DB_NAME() AS database_name,
        CURRENT_TIMESTAMP AS run_at,
        ANNEE,
