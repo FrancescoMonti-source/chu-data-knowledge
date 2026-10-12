@@ -44,6 +44,7 @@ Une enquête : voir investigations/README.md.
 ## Termes et glossaires
 
 - Le GLOSSARY.md de chaque système et de chaque domaine définit les termes de son contexte : un titre par terme (## cora:mouvement), puis la définition en français.
+- Un terme entre dans son glossaire avec le premier claim qui le cite.
 - Un claim cite ses termes dans terms. Un terme absent des glossaires bloque.
 - Un glossaire définit des mots. Ce qui est vrai d'un système (une jointure, un piège) est un claim, avec ses preuves.
 - GLOSSARY-MAP.md liste les contextes. Un pont entre deux contextes est un claim.
