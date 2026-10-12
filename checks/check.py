@@ -30,15 +30,15 @@ CLAIM_VALUES = {"kind": ("documentary", "empirical", "decision"),
                 "maturity": ("documented", "observed", "provisional"),
                 "lifecycle": ("active", "challenged", "superseded", "withdrawn")}
 KIND_FIELDS = {"empirical": ("refuted_if",), "decision": ("responsible", "reconsider_when")}
-EXECUTION_FIELDS = ("id", "type", "request", "run_at", "database", "executed_by",
+EXECUTION_FIELDS = ("id", "type", "query", "run_at", "database", "executed_by",
                     "modified", "person_data")
 READING_FIELDS = ("id", "type", "source", "locator", "read_by", "read_at")
 SOURCE_FIELDS = ("id", "title", "publisher", "edition", "location", "authority")
 SOURCE_AUTHORITY = ("official", "vendor-doc", "local", "unknown")
 PERSON_DATA = ("masked", "no-person-data")
-REQUEST_FIELDS = ("id", "person_data", "purpose")
+QUERY_FIELDS = ("id", "person_data", "purpose")
 INACTIVE = ("challenged", "superseded", "withdrawn")
-DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "request": "requests.md"}
+DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md"}
 SCANNED = (".md", ".sql", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
 
 NIR = re.compile(r"\b[12]\s?\d{2}\s?\d{2}\s?(?:\d{2}|2[AB])\s?\d{3}\s?\d{3}\s?\d{2}\b")
@@ -119,7 +119,7 @@ def table_rows(text):
             yield columns, cells
 
 
-def request_header(text):
+def query_header(text):
     """Lit les lignes « -- clé: valeur » au début d'un fichier .sql."""
     header, body = {}, []
     lines = normalized(text).split("\n")
@@ -172,14 +172,14 @@ class Repository:
                 self.add(path, "evidence", place=path.parts[-4], context=path.parts[-3])
         for path in sorted(self.root.glob("sources/*.md")):
             self.add(path, "source")
-        for path in sorted(self.root.glob("systems/*/requests/*.sql")):
-            self.add(path, "request", context=path.parts[-3])
+        for path in sorted(self.root.glob("systems/*/queries/*.sql")):
+            self.add(path, "query", context=path.parts[-3])
 
     def add(self, path, role, place=None, context=None):
         name = self.relative(path)
         text = path.read_text(encoding="utf-8", errors="replace")
         try:
-            header, body = request_header(text) if role == "request" else front_matter(text)
+            header, body = query_header(text) if role == "query" else front_matter(text)
         except ValueError as error:
             self.report(RED, name, None, str(error), "Corriger l'en-tête : voir docs/agents/" + DOCS[role] + ".")
             return
@@ -363,9 +363,9 @@ class Repository:
                             "Ranger la preuve dans systems/<système>/evidence/.")
             self.allowed(evidence, "modified", ("yes", "no", "unknown"))
             self.allowed(evidence, "person_data", PERSON_DATA)
-            self.linked(evidence, "request", [header["request"]], "request")
-            request = self.records.get(header["request"], {})
-            if request.get("role") == "request" and request["header"].get("person_data") != header["person_data"]:
+            self.linked(evidence, "query", [header["query"]], "query")
+            query = self.records.get(header["query"], {})
+            if query.get("role") == "query" and query["header"].get("person_data") != header["person_data"]:
                 self.report(RED, path, "person_data", "la valeur diffère de celle de la requête.",
                             "Recopier person_data de la requête.")
             if header["modified"] == "yes" and "```sql" not in evidence["body"]:
@@ -386,13 +386,13 @@ class Repository:
         if self.require(source, SOURCE_FIELDS):
             self.allowed(source, "authority", SOURCE_AUTHORITY)
 
-    def check_request(self, request):
-        header, path = request["header"], request["path"]
+    def check_query(self, query):
+        header, path = query["header"], query["path"]
         # Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste.
-        sql = SQL_COMMENT.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", request["body"])
-        if not self.require(request, REQUEST_FIELDS):
+        sql = SQL_COMMENT.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", query["body"])
+        if not self.require(query, QUERY_FIELDS):
             return
-        self.allowed(request, "person_data", PERSON_DATA)
+        self.allowed(query, "person_data", PERSON_DATA)
         if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
             return
         if SELECT_STAR.search(sql):
@@ -402,13 +402,13 @@ class Repository:
             return
         if f"'{header['id']}'" not in sql:
             self.report(RED, path, None, "la première colonne du résultat doit afficher l'id de la requête.",
-                        f"Ajouter '{header['id']}' AS request_id en tête du SELECT.")
+                        f"Ajouter '{header['id']}' AS query_id en tête du SELECT.")
         if not AGGREGATE.search(sql):
             self.report(RED, path, None, "une requête sur des personnes ne renvoie que des agrégats.",
                         "Agréger (COUNT, SUM…) au lieu de renvoyer des lignes individuelles.")
         if not MASK.search(sql):
             self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
-                        "Masquer toute statistique sous 10 dans la requête elle-même (docs/agents/requests.md).")
+                        "Masquer toute statistique sous 10 dans la requête elle-même (docs/agents/queries.md).")
 
     def check_masked_result(self, evidence):
         """Le contrôle des effectifs ne lit que les tableaux : hors d'un bloc sql, le résultat n'est qu'un tableau."""
@@ -504,7 +504,7 @@ class Repository:
         for evidence_id in header.get("supported_by", []):
             evidence = self.records.get(evidence_id, {})
             parts.append(evidence.get("text", "absent:" + evidence_id))
-            origin = evidence.get("header", {}).get("request") or evidence.get("header", {}).get("source")
+            origin = evidence.get("header", {}).get("query") or evidence.get("header", {}).get("source")
             if isinstance(origin, str):
                 parts.append(self.records.get(origin, {}).get("text", "absent:" + origin))
         for premise_id in header.get("depends_on", []):

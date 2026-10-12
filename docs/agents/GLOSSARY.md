@@ -8,8 +8,8 @@ Une affirmation sur les données du CHU, dans un fichier, avec ses preuves. Form
 ## preuve (evidence)
 Une observation dans un fichier : l'exécution d'une requête, ou la lecture d'un passage. Format : evidence.md.
 
-## requête (request)
-Un fichier .sql préparé par un agent et exécuté à l'hôpital par une personne. Format : requests.md.
+## requête (query)
+Un fichier .sql préparé par un agent et exécuté à l'hôpital par une personne. Format : queries.md.
 
 ## source
 La fiche d'un document : titre, éditeur, édition, où le trouver, autorité. Une fiche par édition.

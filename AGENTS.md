@@ -23,7 +23,7 @@ Les principes, un mot chacun :
 ## Règles obligatoires
 
 1. Aucune donnée de personne dans un fichier ni dans une réponse : le filtre passe avant tout enregistrement (docs/agents/privacy.md).
-2. Une requête pour l'hôpital suit docs/agents/requests.md : agrégats seulement, masquage <10 dans la requête elle-même.
+2. Une requête pour l'hôpital suit docs/agents/queries.md : agrégats seulement, masquage <10 dans la requête elle-même.
 3. Avant d'écrire un fichier, lire la convention de son type (tableau ci-dessous).
 4. Lancer `python checks/check.py` avant chaque commit. Corriger le contenu, jamais le contrôle.
 5. Toute réponse qui utilise un claim cite son état de relecture.
@@ -37,7 +37,7 @@ Les principes, un mot chacun :
 | ranger un fichier, choisir un id, chercher ce qu'on sait | docs/agents/layout.md |
 | écrire un claim | docs/agents/claims.md |
 | écrire une preuve ou une fiche de source | docs/agents/evidence.md |
-| préparer une requête, enregistrer un résultat | docs/agents/requests.md |
+| préparer une requête, enregistrer un résultat | docs/agents/queries.md |
 | réutiliser, relire ou contester un claim | docs/agents/review.md |
 | ouvrir, retrouver ou reprendre une enquête | investigations/README.md |
 | corriger une friction | docs/agents/maintenance.md |

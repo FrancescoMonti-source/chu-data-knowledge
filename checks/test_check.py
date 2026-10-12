@@ -9,16 +9,16 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from check import ORANGE, RED, Repository, front_matter, normalized, request_header  # noqa: E402
+from check import ORANGE, RED, Repository, front_matter, normalized, query_header  # noqa: E402
 from sync_skills import sync  # noqa: E402
 
 DOCS = Path(__file__).resolve().parent.parent / "docs" / "agents"
 
-REQUEST = """\
+QUERY = """\
 -- id: 20261007-mvt-rum
 -- person_data: masked
 -- purpose: compter les mouvements par année
-SELECT '20261007-mvt-rum' AS request_id,
+SELECT '20261007-mvt-rum' AS query_id,
        ANNEE,
        CASE WHEN COUNT(*) < 10 THEN '<10' ELSE CAST(COUNT(*) AS VARCHAR(10)) END AS N_MVT
 FROM TB_MVT_RUM
@@ -29,14 +29,14 @@ EXECUTION = """\
 ---
 id: 20261008-mvt-rum
 type: execution
-request: 20261007-mvt-rum
+query: 20261007-mvt-rum
 run_at: 2026-10-08 09:14
 database: CORAPROD
 executed_by: Francesco
 modified: no
 person_data: masked
 ---
-| request_id | ANNEE | N_MVT |
+| query_id | ANNEE | N_MVT |
 |---|---|---|
 | 20261007-mvt-rum | 2024 | 1520 |
 | 20261007-mvt-rum | 2025 | <10 |
@@ -105,7 +105,7 @@ Raisonnement et limites.
 FILES = {
     "systems/cora/GLOSSARY.md": "# Glossaire CORA\n\n## cora:mouvement\n\nUn passage.\n\n## cora:rum\n\nUn RUM.\n",
     "domains/pmsi/GLOSSARY.md": "# Glossaire PMSI\n\n## pmsi:rum\n\nRésumé d'unité médicale.\n",
-    "systems/cora/requests/20261007-mvt-rum.sql": REQUEST,
+    "systems/cora/queries/20261007-mvt-rum.sql": QUERY,
     "systems/cora/evidence/20261008-mvt-rum.md": EXECUTION,
     "sources/atih-guide-mco-2026.md": SOURCE,
     "domains/pmsi/evidence/20261009-guide-rum.md": READING,
@@ -298,10 +298,10 @@ class RepositoryTest(unittest.TestCase):
         self.edit("systems/cora/evidence/20261008-mvt-rum.md", "1520", "1521")
         self.assertProblem(ORANGE, "systems/cora/claims/mvt-rum-lien.md", "périmée")
 
-    def test_review_goes_stale_when_request_or_premise_changes(self):
+    def test_review_goes_stale_when_query_or_premise_changes(self):
         self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
         self.review("mvt-annuel", by="Marie")
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "GROUP BY ANNEE", "GROUP BY ANNEE, MOIS")
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE", "GROUP BY ANNEE, MOIS")
         self.assertProblem(ORANGE, "systems/cora/claims/mvt-annuel.md", "périmée")
 
     def test_fingerprint_ignores_review_and_line_endings(self):
@@ -339,7 +339,7 @@ class RepositoryTest(unittest.TestCase):
 
     # Preuves et requêtes
 
-    def test_execution_must_match_request_person_data(self):
+    def test_execution_must_match_query_person_data(self):
         self.edit("systems/cora/evidence/20261008-mvt-rum.md", "person_data: masked", "person_data: no-person-data")
         self.assertProblem(RED, "systems/cora/evidence/20261008-mvt-rum.md", "diffère")
 
@@ -355,20 +355,20 @@ class RepositoryTest(unittest.TestCase):
         self.edit("domains/pmsi/evidence/20261009-guide-rum.md", "> Le RUM", "Le RUM")
         self.assertProblem(RED, "domains/pmsi/evidence/20261009-guide-rum.md", "citation")
 
-    def test_masked_request_rules(self):
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "SELECT '20261007-mvt-rum' AS request_id,", "SELECT")
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
+    def test_masked_query_rules(self):
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "SELECT '20261007-mvt-rum' AS query_id,", "SELECT")
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
         problems = [p["message"] for p in self.run_checks()]
         self.assertTrue(any("première colonne" in m for m in problems), problems)
         self.assertTrue(any("<10" in m for m in problems), problems)
 
     def test_select_star_only_for_column_names(self):
-        self.write({"systems/cora/requests/20261011-colonnes.sql":
+        self.write({"systems/cora/queries/20261011-colonnes.sql":
                     "-- id: 20261011-colonnes\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
                     "SELECT * FROM TB_MVT WHERE 1=0;\n"})
         self.assertClean()
-        self.edit("systems/cora/requests/20261011-colonnes.sql", " WHERE 1=0", "")
-        self.assertProblem(RED, "systems/cora/requests/20261011-colonnes.sql", "SELECT *")
+        self.edit("systems/cora/queries/20261011-colonnes.sql", " WHERE 1=0", "")
+        self.assertProblem(RED, "systems/cora/queries/20261011-colonnes.sql", "SELECT *")
 
     # Données personnelles
 
@@ -457,68 +457,68 @@ class RepositoryTest(unittest.TestCase):
         self.write({"systems/cora/claims/cle-liste.md": "---\n[a, b]: c\nid: cle-liste\n---\n"})
         (self.root / "systems/cora/claims/latin.md").write_bytes(
             claim("latin").replace("relie", "relié").encode("latin-1"))
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "request: 20261007-mvt-rum", "request: [20261007-mvt-rum]")
+        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "query: 20261007-mvt-rum", "query: [20261007-mvt-rum]")
         self.review("mvt-rum-lien", by="Marie", fingerprint="000000000000")
         messages = " ".join(p["message"] for p in self.run_checks())
         for words in ("clé non admise", "UTF-8", "texte simple"):
             self.assertIn(words, messages)
 
     def test_masked_query_for_column_names(self):
-        self.write({"systems/cora/requests/20261011-colonnes.sql":
+        self.write({"systems/cora/queries/20261011-colonnes.sql":
                     "-- id: 20261011-colonnes\n-- person_data: masked\n-- purpose: lister les colonnes\n"
                     "SELECT * FROM TB_PATIENT WHERE 1=0;\n"})
         self.assertClean()
 
     def test_select_star_variants_and_repeated_header(self):
-        path = "systems/cora/requests/20261007-mvt-rum.sql"
+        path = "systems/cora/queries/20261007-mvt-rum.sql"
         self.edit(path, "       ANNEE,", "       t.*,")
         self.assertProblem(RED, path, "SELECT *")
-        self.edit(path, "SELECT '20261007-mvt-rum' AS request_id,\n       t.*,", "SELECT TOP 100 *, '20261007-mvt-rum',")
+        self.edit(path, "SELECT '20261007-mvt-rum' AS query_id,\n       t.*,", "SELECT TOP 100 *, '20261007-mvt-rum',")
         self.assertProblem(RED, path, "SELECT *")
-        self.write({path: REQUEST.replace("-- purpose:", "-- person_data: no-person-data\n-- purpose:")})
+        self.write({path: QUERY.replace("-- purpose:", "-- person_data: no-person-data\n-- purpose:")})
         self.assertProblem(RED, path, "clé répétée")
 
-    def test_comments_do_not_count_in_a_request(self):
-        path = "systems/cora/requests/20261013-patients.sql"
+    def test_comments_do_not_count_in_a_query(self):
+        path = "systems/cora/queries/20261013-patients.sql"
         header = "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
         self.write({path: header + "SELECT * FROM TB_PATIENT; -- WHERE 1=0\n"})
         self.assertProblem(RED, path, "SELECT *")
         self.write({path: header + "SELECT * FROM TB_PATIENT /* WHERE 1=0 */;\n"})
         self.assertProblem(RED, path, "SELECT *")
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "GROUP BY ANNEE;", "GROUP BY ANNEE; -- < 10")
-        self.assertProblem(RED, "systems/cora/requests/20261007-mvt-rum.sql", "<10")
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE;", "GROUP BY ANNEE; -- < 10")
+        self.assertProblem(RED, "systems/cora/queries/20261007-mvt-rum.sql", "<10")
 
     def test_comment_marks_inside_a_literal_stay_sql(self):
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
-        self.assertProblem(RED, "systems/cora/requests/20261007-mvt-rum.sql", "SELECT *")
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
+        self.assertProblem(RED, "systems/cora/queries/20261007-mvt-rum.sql", "SELECT *")
 
     def test_column_names_query_is_a_single_select(self):
-        path = "systems/cora/requests/20261013-patients.sql"
+        path = "systems/cora/queries/20261013-patients.sql"
         self.write({path: "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
                           "SELECT * FROM TB_PATIENT WHERE 1=0 UNION SELECT * FROM TB_PATIENT;\n"})
         self.assertProblem(RED, path, "SELECT *")
 
     def test_masked_result_is_a_markdown_table(self):
         path = "systems/cora/evidence/20261008-mvt-rum.md"
-        table = "| request_id | ANNEE | N_MVT |\n|---|---|---|\n| 20261007-mvt-rum | 2024 | 1520 |\n" \
+        table = "| query_id | ANNEE | N_MVT |\n|---|---|---|\n| 20261007-mvt-rum | 2024 | 1520 |\n" \
                 "| 20261007-mvt-rum | 2025 | <10 |\n"
-        self.edit(path, table, "```text\nrequest_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2025\t4\n```\n")
+        self.edit(path, table, "```text\nquery_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2025\t4\n```\n")
         self.assertProblem(RED, path, "tableau")
         self.edit(path, "```text", table + "\n```text")
         self.assertProblem(RED, path, "bloc")
-        self.write({path: EXECUTION + "\nrequest_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2023\t4\n"})
+        self.write({path: EXECUTION + "\nquery_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2023\t4\n"})
         self.assertProblem(RED, path, "hors du tableau")
 
     def test_mask_written_as_at_most_nine(self):
-        self.edit("systems/cora/requests/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
+        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
         self.assertClean()
 
     def test_birth_date_false_positives(self):
         self.write({"investigations/2026-test/notes.md":
                     "Base de connaissances à jour au 2026-10-10.\n"
                     "Séjours de naissance du 01/01/2024 au 31/12/2024.\n",
-                    "systems/cora/requests/20261012-age.sql": REQUEST.replace("20261007-mvt-rum", "20261012-age")
+                    "systems/cora/queries/20261012-age.sql": QUERY.replace("20261007-mvt-rum", "20261012-age")
                     .replace("GROUP BY", "WHERE DT_NAISSANCE < '2008-10-01'\nGROUP BY")})
         self.assertClean()
 
@@ -535,7 +535,7 @@ class RepositoryTest(unittest.TestCase):
             text = normalized(doc.read_text(encoding="utf-8"))
             for language, example in re.findall(r"^```(markdown|sql)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
                 if language == "sql":
-                    name = f"systems/cora/requests/{request_header(example)[0]['id']}.sql"
+                    name = f"systems/cora/queries/{query_header(example)[0]['id']}.sql"
                 elif example.startswith("---\n"):
                     header = front_matter(example)[0]
                     folder = ("systems/cora/claims" if "kind" in header else
@@ -545,7 +545,7 @@ class RepositoryTest(unittest.TestCase):
                     continue
                 self.write({name: example})
                 folders.add(name.split("/")[-2])
-        self.assertEqual(folders, {"claims", "evidence", "requests", "sources"})
+        self.assertEqual(folders, {"claims", "evidence", "queries", "sources"})
         self.assertClean()
 
     # Ligne de commande

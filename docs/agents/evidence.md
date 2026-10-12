@@ -6,27 +6,27 @@ Avant d'écrire une preuve : le filtre de privacy.md. L'en-tête suit les règle
 
 ## Exécution
 
-Une exécution d'une requête à l'hôpital, toujours dans `systems/<système>/evidence/`. Sous l'en-tête, le fichier ne contient que le résultat, en tableau Markdown, avec les colonnes telles qu'elles sont revenues : le contrôle des effectifs ne lit que les tableaux. La requête reste une seule fois dans requests/.
+Une exécution d'une requête à l'hôpital, toujours dans `systems/<système>/evidence/`. Sous l'en-tête, le fichier ne contient que le résultat, en tableau Markdown, avec les colonnes telles qu'elles sont revenues : le contrôle des effectifs ne lit que les tableaux. La requête reste une seule fois dans queries/.
 
 ```markdown
 ---
 id: 20261008-mvt-rum
 type: execution
-request: 20261007-mvt-rum
+query: 20261007-mvt-rum
 run_at: 2026-10-08 09:14
 database: CORAPROD
 executed_by: Francesco
 modified: no
 person_data: masked
 ---
-| request_id | database_name | run_at | ANNEE | N_MVT |
+| query_id | database_name | run_at | ANNEE | N_MVT |
 |---|---|---|---|---|
 | 20261007-mvt-rum | CORAPROD | 2026-10-08 09:14 | 2025 | 1520 |
 ```
 
 | Champ | Valeurs |
 |---|---|
-| request | l'id de la requête |
+| query | l'id de la requête |
 | run_at, database | recopiés du résultat, où la requête les imprime |
 | executed_by | la personne qui a exécuté (claims.md, « Les personnes ») |
 | modified | no · yes · unknown. Si yes, la requête réellement exécutée suit le résultat, dans un bloc sql |
