@@ -44,16 +44,25 @@ Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attend
 
 ## Le dépôt
 
+Deux sortes de fichiers : ce qu'on apprend sur l'hôpital, qui vaut par ses preuves, et la façon de travailler, qui vaut parce que le mainteneur l'a décidée. Pourquoi chaque dossier existe et où va chaque fichier : docs/agents/layout.md.
+
+Ce qu'on apprend :
+
+```text
+systems/           ce que fait un logiciel ou une base : tables, comportements (CORA, EDSaN…)
+domains/           ce qui resterait vrai si le CHU changeait de logiciel : concepts et règles métier (PMSI)
+investigations/    la réponse à une question, construite sur les claims de systems/ et domains/
+sources/           une fiche par document, citée par chacune de ses lectures
+GLOSSARY-MAP.md    les contextes (pmsi, cora, edsan…) et leurs glossaires
+```
+
+Comment on travaille :
+
 ```text
 AGENTS.md          règles pour les agents et pointeurs
-GLOSSARY-MAP.md    les contextes (pmsi, cora, edsan…) et leurs glossaires
-systems/           ce qu'on sait de chaque logiciel ou base
-domains/           concepts et règles sans logiciel précis (PMSI)
-investigations/    une enquête par dossier
-sources/           une fiche par document
-docs/agents/       les conventions
+docs/agents/       les conventions : écrire un claim, une preuve, une requête
 docs/adr/          les décisions et leurs raisons
-.agents/skills/    frame, research, relay, sediment, retro
+.agents/skills/    les étapes : frame, research, relay, sediment, retro
 checks/            les contrôles et leurs tests
 ```
 
