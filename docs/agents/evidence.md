@@ -74,6 +74,19 @@ authority: vendor-doc
 ---
 ```
 
+location dit où lire le document. Pour un document public, c'est le lien vers le fichier de cette édition, chez son éditeur officiel : pour le PMSI, l'ATIH, le Bulletin officiel, Légifrance ou ameli. Une page « dernière version » change de document à chaque édition ; un fichier garde le sien. Un site qui regroupe les liens, comme lespmsi.com, aide à trouver le document ; la fiche cite le fichier de l'éditeur. (docs/adr/0013)
+
+```markdown
+---
+id: atih-guide-mco-2024
+title: "Guide méthodologique de production des informations relatives à l'activité médicale et à sa facturation en MCO"
+publisher: "ATIH, Bulletin officiel Santé n° 22 du 1er août 2024"
+edition: "2024"
+location: "https://atih.sante.fr/sites/default/files/public/content/4709/2024.22.sante_.pdf"
+authority: official
+---
+```
+
 | authority | Sens |
 |---|---|
 | official | texte réglementaire, guide de l'ATIH |
