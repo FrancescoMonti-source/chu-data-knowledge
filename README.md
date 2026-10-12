@@ -46,13 +46,17 @@ Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro`
 
 Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt. writing-for-agents sert à écrire les règles : skills, AGENTS.md, docs/agents/. domain-modeling sert à préciser les termes et à écrire glossaires et ADR, dans les formats du dépôt (docs/adr/0016). Les deux sont indispensables au mainteneur et conseillées à tous. Le dépôt n'en garde pas de copie (docs/adr/0000).
 
-Pour les installer, avec Node.js, dans un terminal :
+Il faut d'abord Node.js, qui fournit la commande `npx`. Sous Windows : `winget install OpenJS.NodeJS.LTS` dans un terminal, ou l'installateur « LTS » de https://nodejs.org. Fermez puis rouvrez le terminal, et vérifiez avec `node --version`.
+
+Puis, dans un terminal :
 
 ```bash
 npx skills add svyatov/supermatt -g -a claude-code -a codex -s writing-for-agents -s domain-modeling
 ```
 
 L'option `-g` les installe dans votre dossier personnel (~/.claude/skills/ et ~/.agents/skills/), pour tous vos projets. Sans elle, la commande les écrirait dans .claude/skills/ et .agents/skills/ du dépôt, à côté de ses propres skills. Pour les mettre à jour : `npx skills update -g writing-for-agents domain-modeling`.
+
+Si PowerShell refuse `npx` (« l'exécution de scripts est désactivée sur ce système »), tapez `npx.cmd` à la place de `npx` : c'est la même commande, sans le script que PowerShell bloque.
 
 Le plugin supermatt complet, pour Claude Code ou Codex, contient aussi ces deux skills. Dans ce dépôt, ne lancez pas sa commande `setup-supermatt-skills` : elle écrit dans AGENTS.md et docs/agents/, qui suivent ici leurs propres règles.
 
