@@ -1,0 +1,18 @@
+-- catalogue CORA : valorisation imputable a SANCARE
+SELECT      rss.ID_RSS AS "ID_RSS" , 
+    rss.NO_SEJOUR AS "NO_SEJOUR" , 
+    rss.DATE_FIN AS "DATE_FIN" , 
+    NVL(valoAvant.MNT_AVANT,0) AS "MNT_AVANT" , 
+    NVL(valoApres.MNT_APRES,0) AS "MNT_APRES" , 
+    NVL(valoApres.MNT_APRES,0) - NVL(valoAvant.MNT_AVANT,0) AS "DIFF_SANCARE" 
+
+FROM     TB_SYNTH_RSS rss
+     LEFT JOIN (  SELECT DISTINCT sui.ID_RSS  AS  ID_RSS, NVL(FIRST_VALUE(sui.MNT_TOTAL) OVER (PARTITION BY sui.ID_RSS ORDER BY sui.DATE_INFO DESC),0)  AS  MNT_AVANT         FROM        TB_RSS_SUIVI sui  INNER        JOIN        (   SELECT mrum.ID_RSS  AS  ID_RSS, MIN(dia.DATE_CREAT)  AS  DATE_DIAG_MIN          FROM        TB_DIAG dia   LEFT        JOIN        TB_HIST_DIAG hdia ON hdia.ID_DIAG = dia.ID_DIAG   INNER        JOIN        TB_MVT_RUM mrum ON mrum.ID_MVT = dia.ID_MVT          WHERE        ((dia.ID_CREAT = -1900 AND dia.APPLI_TRANSFERT = 'SNC') OR (hdia.TYPE_INFO = 'C' AND hdia.DESCR = 'CSANC'))   GROUP BY mrum.ID_RSS  )  VueMin On VueMin.ID_RSS = sui.ID_RSS AND sui.DATE_INFO <= VueMin.DATE_DIAG_MIN ) valoAvant
+      ON  valoAvant.ID_RSS = rss.ID_RSS
+     INNER JOIN (  SELECT DISTINCT sui.ID_RSS  AS  ID_RSS, NVL(FIRST_VALUE(sui.MNT_TOTAL) OVER (PARTITION BY sui.ID_RSS ORDER BY sui.DATE_INFO ASC),0)  AS  MNT_APRES         FROM        TB_RSS_SUIVI sui  INNER        JOIN        (   SELECT mrum.ID_RSS  AS  ID_RSS, MAX(dia.DATE_CREAT)  AS  DATE_DIAG_MAX          FROM        TB_DIAG dia   LEFT        JOIN        TB_HIST_DIAG hdia ON hdia.ID_DIAG = dia.ID_DIAG   INNER        JOIN        TB_MVT_RUM mrum ON mrum.ID_MVT = dia.ID_MVT          WHERE        ((dia.ID_CREAT = -1900 AND dia.APPLI_TRANSFERT = 'SNC') OR (hdia.TYPE_INFO = 'C' AND hdia.DESCR = 'CSANC'))   GROUP BY mrum.ID_RSS  )  VueMax On VueMax.ID_RSS = sui.ID_RSS AND sui.DATE_INFO >= VueMax.DATE_DIAG_MAX ) valoApres
+      ON  valoApres.ID_RSS = rss.ID_RSS
+
+WHERE 
+1=1 
+  AND rss.DATE_FIN >='01/01/2026 00:00' AND rss.DATE_FIN <='31/12/2026 23:59'
+

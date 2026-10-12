@@ -1,0 +1,12 @@
+-- catalogue CORA : Analyse médico-administrative / RUM-RSS / analyse RUM (mono ou multi unité)
+SELECT      RSS.ID_RSS AS "NB  RSS" , 
+    CASE  WHEN RSS.NB_RUM=1 THEN 'MONO RUM'  ELSE 'MULTI RUM' END AS "RUM" , 
+    CASE WHEN  RSS.NB_RUM=1 THEN  ' '   WHEN  RSS.NB_RUM=2 THEN  ' 2 RUM'  WHEN RSS.NB_RUM=3 THEN ' 3 RUM' ELSE ' Plus de 3 RUM' END AS "MULTI UNITE" , 
+    RSS.DATE_FIN AS "DATE FIN" 
+
+FROM     TB_SYNTH_RSS RSS
+
+WHERE 
+1=1 
+  AND RSS.DATE_FIN<'31/12/2026 23:59' AND RSS.DATE_FIN>'01/01/2026 00:00'
+

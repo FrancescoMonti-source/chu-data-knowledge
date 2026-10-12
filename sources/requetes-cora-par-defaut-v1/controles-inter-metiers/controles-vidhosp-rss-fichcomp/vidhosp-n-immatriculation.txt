@@ -1,0 +1,13 @@
+-- catalogue CORA : Controles inter metiers / Controles VIDHOSP RSS FICHCOMP / VIDHOSP n immatricolation
+SELECT      RSS.NO_SEJOUR AS "NO SEJOUR RSS" , 
+    V.ID_SEJOUR AS "ID_SEJOUR" , 
+    V.NO_SECU AS "NO IMMAT" , 
+    V.CLE_SECU AS "CLE" 
+
+FROM     TB_SYNTH_RSS RSS,
+    TB_VIDHOSP V
+
+WHERE 
+1=1 
+  AND RSS.ID_SEJOUR=V.ID_SEJOUR AND (LENGTH(V.NO_SECU)!=13 OR (V.NO_SECU  NOT LIKE ('1%') AND V.NO_SECU  NOT LIKE ('2%') AND V.NO_SECU  NOT LIKE ('5%') AND V.NO_SECU  NOT LIKE ('6%') AND V.NO_SECU  NOT LIKE ('7%') AND (V.NO_SECU  NOT LIKE ('8%') OR (V.CLE_SECU!= mod(v.cle_secu,97) AND v.cle_secu!=97 AND mod(v.cle_secu,97)!=0 AND v.cle_secu is not null AND cle_secu not like 'X%')))) AND RSS.DATE_FIN>='01/01/2026 00:00' AND RSS.DATE_FIN<='31/12/2026 23:59'
+

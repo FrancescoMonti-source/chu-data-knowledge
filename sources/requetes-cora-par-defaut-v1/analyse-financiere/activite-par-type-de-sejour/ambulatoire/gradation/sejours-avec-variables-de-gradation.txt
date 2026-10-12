@@ -1,0 +1,27 @@
+-- catalogue CORA : Analyse Financière / Activité par Type de Séjour / Ambulatoire / Gradation / sejours avec variables de gradation
+SELECT      S.NO_SEJOUR AS "NUM SEJOUR" , 
+    S.DATE_ENTREE AS "DATE ENTREE SEJ" , 
+    floor(S.DATE_SORTIE-S.DATE_ENTREE) AS "DUREE SEJ" , 
+    CASE GRAD.CTXT_PAT_SURV_PART WHEN '2' THEN '2 - Non' WHEN '1' THEN '1 - Oui' ELSE 'Non renseigné' END AS "MVT - CTXT PATIENT" , 
+    CASE GRAD.ADMIN_PRODUIT_RH WHEN '2' THEN '2 - Non' WHEN '1' THEN '1 - Oui' ELSE 'Non renseigné' END AS "MVT - ADMIN PRODUIT RH" , 
+    CASE GRAD.CAT_NB_INTERVENTIONS_TOTALES WHEN 'A' THEN 'A - Inférieure à 3 interventions' WHEN 'B' THEN 'B - Egale à 3 interventions' WHEN 'C' THEN 'C - Supérieure à 3 interventions' ELSE 'Non renseigné' END AS "MVT - CAT NB INTERVENTIONS" , 
+    RSS.ELIGIBLE_GRADATION_HDJ AS "RSS ELIGIBLE GRADATION" , 
+    RSS.HDJ_RELEVE_EXT AS "RSS RELEVE EXT" , 
+    RSS.RESCRIT_TARIFAIRE AS "RSS RESCRIT TARIFAIRE" 
+
+FROM     TB_SEJOUR S
+     INNER JOIN TB_SYNTH_RSS RSS
+         INNER JOIN TB_SYNTH_RUM RUM
+             INNER JOIN TB_MVT_RUM MVTRUM
+                 INNER JOIN TB_MVT M
+                     LEFT JOIN TB_INSTRUCTION_GRADATION GRAD
+                      ON  M.ID_MVT = GRAD.ID_MVT
+                  ON  MVTRUM.ID_MVT=M.ID_MVT
+              ON  RUM.ID_RUM=MVTRUM.ID_RUM
+          ON  RSS.ID_RSS=RUM.ID_RSS
+      ON  S.ID_SEJOUR=RSS.ID_SEJOUR
+
+WHERE 
+1=1 
+ AND S.DATE_ENTREE >= '01/03/2020 00:00' AND S.DATE_ENTREE <= '31/12/2020 23:59' AND floor(S.DATE_SORTIE-S.DATE_ENTREE) = 0
+

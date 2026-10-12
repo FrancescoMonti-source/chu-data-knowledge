@@ -1,0 +1,29 @@
+-- catalogue CORA : Analyse médico-administrative / Casemix / 03 - casemix GHM
+SELECT      RSS.CODE_CMD AS "Code CMD" , 
+    RSS.CODE_CMD || RSS.CODE_GHM AS "Code GHM" , 
+    RSS.CODE_CMD || RSS.CODE_GHM || ' - '|| coalesce((select max(PMSI.LIBELLE_GHS)    FROM    PMSI_LIB_GHS_TARIF PMSI where PMSI.GHS=RSS.CODE_CMD||RSS.CODE_GHM AND PMSI.GET_LIBELLE='O'), 'GHM inconnu') AS "LIBELLE GHM" , 
+    UM.LIBELLE_UNITE_MED AS "LIBELLE UM RETENU" , 
+    PRUM.LIBELLE_POLE AS "LIBELLE POLE RETENU" , 
+    RSS.ID_RSS AS "Nb RSS" , 
+    DUREE_SEJOUR AS "Nb Jours" , 
+    AGE_ENTREE AS "Age Moyen" , 
+    coalesce((case when RSS.MODE_SORTIE='9' then 1 else 0 end),0) AS "Décès" , 
+    coalesce((case when P.SEXE = 'M' then 1 end),0) AS "Masculin" , 
+    coalesce((case when P.SEXE = 'F' then 1 end),0) AS "Féminin" , 
+    coalesce((case when P.SEXE = 'F' then 0 when P.SEXE = 'M' then 0 when P.SEXE = '1' then 0 when P.SEXE = '2' then 0 else 1 end),0) AS "Sexe NR" , 
+    (case when RTRIM(RTRIM(BORNE_BASSE))='O' then 1 else 0 end) AS "Nb EXB" , 
+    (case when QUANTITE_J_DEP > 0 then 1 else 0 end) AS "Nb EXH" , 
+    RSS.DATE_FIN AS "DATE" 
+
+FROM     TB_SYNTH_RSS RSS
+     INNER JOIN TB_PATIENT P
+      ON  RSS.ID_PATIENT=P.ID_PATIENT
+     LEFT JOIN (SELECT PUM2.ID_UNITE_MED, PUM2.DATE_DEBUT, PUM2.DATE_FIN, PRUM.ID_POLE, PRUM.CODE_POLE, PRUM.LIBELLE_POLE, PRUM.ACTIF    FROM    TB_UNITE_POLE_UM PUM2, TB_UNITE_POLE PRUM    WHERE    PUM2.ID_POLE=PRUM.ID_POLE) PRUM
+      ON  ( PRUM.DATE_DEBUT IS NULL OR PRUM.DATE_DEBUT<=RSS.DATE_FIN )    AND ( PRUM.DATE_FIN IS NULL OR PRUM.DATE_FIN>=RSS.DATE_FIN ) AND  RSS.ID_UM_RETENU=PRUM.ID_UNITE_MED
+     LEFT JOIN TB_UNITE_MEDICALE UM
+      ON  UM.ID_UNITE_MED = RSS.ID_UM_RETENU
+
+WHERE 
+1=1 
+  AND RSS.DATE_FIN >= '01/01/2026 00:00' AND RSS.DATE_FIN <= '31/12/2026 23:59'
+

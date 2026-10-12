@@ -1,0 +1,42 @@
+-- catalogue CORA : Analyse médico-administrative / COVID-19 / repartition covid confirmés - venus sur les n derniers jours
+SELECT   DISTINCT     sej.ID_SEJOUR AS "ID_SEJOUR" , 
+    sej.NO_SEJOUR AS "NO_SEJOUR" , 
+    sej.DATE_ENTREE AS "DATE_ENTREE" , 
+    TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) AS "Age" , 
+    sej.MODE_ENTREE AS "MODE_ENTREE" , 
+    sej.CODE_PROVENANCE AS "CODE_PROVENANCE" , 
+    sej.MODE_SORTIE AS "MODE_SORTIE" , 
+    sej.CODE_DESTINATION AS "CODE_DESTINATION" , 
+    umEnt.HEURE_DEBUT_MVT AS "HEURE_DEBUT_MVT" , 
+    CASE WHEN rss.ID_UM_RETENU is null THEN umEnt.CODE_UNITE_MED ELSE umRet.CODE_UNITE_MED END AS "UM" , 
+    CASE WHEN rss.ID_UM_RETENU is null THEN umEnt.LIBELLE_UNITE_MED ELSE umRet.LIBELLE_UNITE_MED END AS "Libellé UM" , 
+    umEnt.CODE_UNITE_MED AS "Code UM entrée" , 
+    umEnt.LIBELLE_UNITE_MED AS "Libellé UM entrée" , 
+    umRet.CODE_UNITE_MED AS "Code UM RSS retenue" , 
+    umRet.LIBELLE_UNITE_MED AS "Libellé UM retenue" , 
+    CASE WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) > 74 THEN 'T5 : > 74'   WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) BETWEEN 18 AND 49 THEN 'T2 : 18-49'    WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) BETWEEN 50 AND 64 THEN 'T3 : 50-64'    WHEN TRUNC((sej.DATE_ENTREE - pat.DATE_NAIS) / 365.25) BETWEEN 65 AND 74 THEN 'T4 : 65-74'    ELSE 'T1 : < 18'  END AS "Tranche âge entrée" , 
+    CASE WHEN rss.ID_UM_RETENU is null THEN umEnt.CODE_EG ELSE egRet.CODE_EG END AS "Code EG" , 
+    CASE WHEN rss.ID_UM_RETENU is null THEN umEnt.LIBELLE_EG ELSE egRet.LIBELLE_EG END AS "Libellé EG" 
+
+FROM     TB_SEJOUR sej
+     INNER JOIN TB_PATIENT pat
+      ON  pat.ID_PATIENT = sej.ID_PATIENT
+     INNER JOIN TB_DIAG covid
+      ON  covid.ID_SEJOUR = sej.ID_SEJOUR
+     LEFT JOIN TB_SYNTH_RSS rss
+      ON  rss.ID_SEJOUR = sej.ID_SEJOUR
+     LEFT JOIN TB_UNITE_MEDICALE umRet
+      ON  umRet.ID_UNITE_MED = rss.ID_UM_RETENU
+     LEFT JOIN TB_UNITE_M_UNITE umuRet
+      ON  umuRet.ID_UNITE_MED = umRet.ID_UNITE_MED
+     LEFT JOIN TB_EG_UNITE eguRet
+      ON  eguRet.ID_UNITE = umuRet.ID_UNITE
+     LEFT JOIN TB_EG egRet
+      ON  egRet.ID_EG = eguRet.ID_EG
+     INNER JOIN (SELECT mvt.ID_SEJOUR, um.CODE_UNITE_MED, um.LIBELLE_UNITE_MED, mvt.HEURE_DEBUT_MVT, eg.CODE_EG, eg.LIBELLE_EG         FROM     TB_MVT mvt     INNER     JOIN     TB_UNITE_M_UNITE umu ON umu.ID_UNITE = mvt.ID_UNITE_PMSI     INNER     JOIN     TB_UNITE_MEDICALE um ON um.ID_UNITE_MED = umu.ID_UNITE_MED     LEFT     JOIN     TB_EG_UNITE egu ON egu.ID_UNITE = umu.ID_UNITE    LEFT     JOIN     TB_EG eg ON eg.ID_EG = egu.ID_EG       INNER     JOIN     (SELECT mvt2.ID_SEJOUR, min(mvt2.HEURE_DEBUT_MVT)  AS  DATE_DEB_MIN            FROM     TB_MVT mvt2            INNER     JOIN     TB_UNITE un ON un.ID_UNITE = mvt2.ID_UNITE_PMSI                                 WHERE     un.GESTION_PMSI = 'O' GROUP BY mvt2.ID_SEJOUR) mvtMin ON mvtMin.ID_SEJOUR = mvt.ID_SEJOUR     AND mvtMin.DATE_DEB_MIN = mvt.HEURE_DEBUT_MVT) umEnt
+      ON  umEnt.ID_SEJOUR = sej.ID_SEJOUR
+
+WHERE 
+1=1 
+  AND covid.CODE_DIAG IN ('U071','U0710','U0711','U0712','U0714','U0715') AND TRUNC(sysdate - sej.DATE_ENTREE) <= 7
+

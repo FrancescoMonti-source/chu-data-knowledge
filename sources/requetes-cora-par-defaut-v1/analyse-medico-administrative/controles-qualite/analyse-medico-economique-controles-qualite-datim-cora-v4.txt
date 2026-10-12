@@ -1,0 +1,21 @@
+-- catalogue CORA : Analyse médico-administrative / Controles qualité / analyse medico economique - controles qualité DATIM CORA V4
+SELECT      R.CODE AS "CODE" , 
+    R.LIBELLE AS "LIBELLE" , 
+    CASE WHEN vueCorriges.ID_RSS IS NOT NULL THEN 'Corrigés' ELSE (CASE WHEN C.RESULTAT='P' AND C.ACTIF = 'O' THEN 'Positifs' ELSE 'Négatifs Initialement' END) END AS "Résultats" , 
+    CASE WHEN C.RESULTAT ='P' THEN 'Contrôles qualité Positifs' ELSE 'Contrôles qualité Négatifs' END AS "RESULTAT_PN" , 
+    RSS.ID_RSS AS "ID_RSS" 
+
+FROM     TB_SYNTH_RSS RSS
+     INNER JOIN TB_CTRL_SUIVI C
+      ON  C.ID_RSS=RSS.ID_RSS
+     INNER JOIN TB_REQUETE R
+      ON  R.ID_REQUETE=C.ID_CONTROLE and C.TYPE_CONTROLE = 'N'
+     LEFT JOIN (SELECT ID_RSS, RESULTAT, ID_CONTROLE, TYPE_CONTROLE   FROM   TB_CTRL_SUIVI   WHERE   ACTIF = 'N' AND RESULTAT = 'P' ) vueCorriges
+      ON  C.ID_CONTROLE = vueCorriges.ID_CONTROLE AND vueCorriges.TYPE_CONTROLE = C.TYPE_CONTROLE AND C.ID_RSS = vueCorriges.ID_RSS AND C.RESULTAT <> vueCorriges.RESULTAT
+
+WHERE 
+1=1 
+  AND R.TYPE_REQUETE='Q' AND R.CORA='O' AND C.ACTIF='O' AND RSS.DATE_FIN >= '01/01/2026 00:00' AND RSS.DATE_FIN<='31/12/2026 23:59' AND R.ACTIF = 'O'
+
+ GROUP BY R.CODE, R.LIBELLE, C.RESULTAT, RSS.ID_RSS, C.ACTIF, vueCorriges.ID_RSS
+
