@@ -1,4 +1,4 @@
-# 0015 — Les skills supermatt : leur méthode, les formats du dépôt
+# 0016 — Les skills supermatt : leur méthode, les formats du dépôt
 
 Statut : proposé, 2026-10-12 (question de Francesco : les deux skills supermatt conviennent-elles telles quelles ?).
 
