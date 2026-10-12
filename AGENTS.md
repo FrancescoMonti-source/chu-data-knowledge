@@ -22,28 +22,28 @@ Les principes, un mot chacun :
 
 ## Règles obligatoires
 
-1. Aucune donnée de personne dans un fichier ni dans une réponse : le filtre passe avant tout enregistrement (docs/agents/privacy.md).
-2. Une requête pour l'hôpital suit docs/agents/queries.md : agrégats seulement, masquage <10 dans la requête elle-même.
+1. Aucune donnée de personne dans un fichier ni dans une réponse : le filtre passe avant tout enregistrement (method/privacy.md).
+2. Une requête pour l'hôpital suit method/queries.md : agrégats seulement, masquage <10 dans la requête elle-même.
 3. Avant d'écrire un fichier, lire la convention de son type (tableau ci-dessous).
 4. Lancer `python checks/check.py` avant chaque commit. Corriger le contenu, jamais le contrôle.
 5. Toute réponse qui utilise un claim cite son état de relecture.
 6. Clés et valeurs en anglais ; texte libre en français.
-7. Une règle (ce fichier, docs/agents/, les skills, checks/) ne change que par le mainteneur ; une décision reçoit un ADR dans docs/adr/.
+7. Une règle (ce fichier, method/, les skills, checks/) ne change que par le mainteneur ; une décision reçoit un ADR dans method/adr/.
 
 ## Où lire
 
 | Avant de… | Lire |
 |---|---|
-| ranger un fichier, choisir un id, chercher ce qu'on sait | docs/agents/layout.md |
-| écrire un claim | docs/agents/claims.md |
-| écrire une preuve ou une fiche de source | docs/agents/evidence.md |
-| préparer une requête, enregistrer un résultat | docs/agents/queries.md |
-| réutiliser, relire ou contester un claim | docs/agents/review.md |
+| ranger un fichier, choisir un id, chercher ce qu'on sait | method/layout.md |
+| écrire un claim | method/claims.md |
+| écrire une preuve ou une fiche de source | method/evidence.md |
+| préparer une requête, enregistrer un résultat | method/queries.md |
+| réutiliser, relire ou contester un claim | method/review.md |
 | ouvrir, retrouver ou reprendre une enquête | investigations/README.md |
-| corriger une friction | docs/agents/maintenance.md |
-| comprendre un message ROUGE ou ORANGE | docs/agents/checks.md |
-| comprendre un mot de la méthode | docs/agents/GLOSSARY.md |
-| savoir pourquoi une règle existe, écrire un ADR | docs/adr/README.md |
+| corriger une friction | method/maintenance.md |
+| comprendre un message ROUGE ou ORANGE | method/checks.md |
+| comprendre un mot de la méthode | method/GLOSSARY.md |
+| savoir pourquoi une règle existe, écrire un ADR | method/adr/README.md |
 
 ## Agent skills
 
@@ -55,4 +55,4 @@ Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans 
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
 - **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
 
-Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon docs/agents/layout.md (« Termes et glossaires »), un lien entre deux contextes comme un claim, un ADR selon docs/adr/README.md.
+Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de method/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon method/layout.md (« Termes et glossaires »), un lien entre deux contextes comme un claim, un ADR dans method/adr/, selon son README.md.

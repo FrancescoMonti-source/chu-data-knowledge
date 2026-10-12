@@ -1,23 +1,17 @@
 # Enquêtes
 
-Une enquête répond à une question précise. Un dossier par enquête, nommé par son sujet : `investigations/uf-vs-rum/`.
+Une enquête répond à une question précise. Un dossier par enquête, nommé par son sujet, avec son seul README.md : `investigations/uf-vs-rum/README.md`. Il garde la question, le cadrage, les choix et les conclusions.
 
-```text
-investigations/uf-vs-rum/
-  README.md   la question, le cadrage, les choix, les conclusions
-  claims/     les claims d'enquête
-```
-
-Les preuves ne vont pas ici : elles vont dans systems/ ou domains/, où d'autres enquêtes les retrouveront.
+Les claims, les preuves et les requêtes de l'enquête vont dans knowledge/ (method/layout.md), où d'autres enquêtes les retrouveront. Le README les cite par leur id.
 
 ## La branche
 
-Une enquête se fait sur sa branche, `enquete/<id>`, où l'id est le nom de son dossier. La branche principale est main, la branche par défaut du dépôt sur GitHub : le README d'une enquête n'y arrive qu'avec sediment.
+Une enquête se fait sur sa branche, `investigation/<id>`, où l'id est le nom de son dossier. La branche principale est main, la branche par défaut du dépôt sur GitHub : le README d'une enquête n'y arrive qu'avec sediment.
 
 - **Ouvrir :** créer la branche depuis la branche principale à jour.
-- **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/enquete/*"` : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
+- **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/investigation/*"` : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
 - **Reprendre :** avant tout travail, se placer sur sa branche, puis y faire entrer la branche principale à jour (`git fetch`, puis `git merge origin/main`). Sinon l'enquête ne voit pas les claims entrés depuis son ouverture.
-- **Enregistrer :** `python checks/check.py` sans ROUGE ; commit sur la branche de l'enquête ; push (`git push -u origin enquete/<id>`) ; puis, pour chaque nouvelle preuve, un commentaire dans l'issue avec son id et l'étape du plan qu'elle couvre. La session suivante retrouve tout, même sur un autre ordinateur.
+- **Enregistrer :** `python checks/check.py` sans ROUGE ; commit sur la branche de l'enquête ; push (`git push -u origin investigation/<id>`) ; puis, pour chaque nouvelle preuve, un commentaire dans l'issue avec son id et l'étape du plan qu'elle couvre. La session suivante retrouve tout, même sur un autre ordinateur.
 
 ## Le README.md d'une enquête
 
@@ -43,7 +37,7 @@ Une décision de méthode prise avec la personne s'écrit dans Choix au moment o
 
 ## Le plan
 
-Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .github/ISSUE_TEMPLATE/enquete.md).
+Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .github/ISSUE_TEMPLATE/investigation.md).
 
 - Un plan revu est un nouveau commentaire « Plan revu », avec sa raison. Le plan valable est le dernier. La raison va aussi dans Choix : l'issue finit fermée, le README reste.
 - Sans `gh`, la personne fait le lien : elle colle l'issue dans la conversation pour que l'agent la lise, et colle dans l'issue le texte que l'agent lui donne.

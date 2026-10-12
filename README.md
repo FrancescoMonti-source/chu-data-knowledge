@@ -40,7 +40,7 @@ Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro`
 
 ## Skills à installer soi-même
 
-Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt. writing-for-agents sert à écrire les règles : skills, AGENTS.md, docs/agents/. domain-modeling sert à préciser les termes et à écrire glossaires et ADR, dans les formats du dépôt (docs/adr/0016). Les deux sont indispensables au mainteneur et conseillées à tous. Le dépôt n'en garde pas de copie (docs/adr/0000).
+Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt. writing-for-agents sert à écrire les règles : skills, AGENTS.md, method/. domain-modeling sert à préciser les termes et à écrire glossaires et ADR, dans les formats du dépôt (method/adr/0016). Les deux sont indispensables au mainteneur et conseillées à tous. Le dépôt n'en garde pas de copie (method/adr/0000).
 
 Il faut d'abord Node.js, qui fournit la commande `npx`. Sous Windows : `winget install OpenJS.NodeJS.LTS` dans un terminal, ou l'installateur « LTS » de https://nodejs.org. Fermez puis rouvrez le terminal, et vérifiez avec `node --version`.
 
@@ -54,30 +54,31 @@ L'option `-g` les installe dans votre dossier personnel (~/.claude/skills/ et ~/
 
 Si PowerShell refuse `npx` (« l'exécution de scripts est désactivée sur ce système »), tapez `npx.cmd` à la place de `npx` : c'est la même commande, sans le script que PowerShell bloque.
 
-Le plugin supermatt complet, pour Claude Code ou Codex, contient aussi ces deux skills. Dans ce dépôt, ne lancez pas sa commande `setup-supermatt-skills` : elle écrit dans AGENTS.md et docs/agents/, qui suivent ici leurs propres règles.
+Le plugin supermatt complet, pour Claude Code ou Codex, contient aussi ces deux skills. Dans ce dépôt, ne lancez pas sa commande `setup-supermatt-skills` : elle écrit dans AGENTS.md, qui suit ici ses propres règles, et dans docs/agents/, que le contrôle refuse.
 
 ## Le dépôt
 
-Deux sortes de fichiers : ce qu'on apprend sur l'hôpital, qui vaut par ses preuves, et la façon de travailler, qui vaut parce que le mainteneur l'a décidée. Pourquoi chaque dossier existe et où va chaque fichier : docs/agents/layout.md.
+Deux sortes de fichiers : ce qu'on apprend sur les données du CHU, qui vaut par ses preuves, et la façon de travailler, qui vaut parce que le mainteneur l'a décidée. Chaque fichier va dans le dossier de son type, quel que soit son sujet (method/layout.md).
 
 Ce qu'on apprend :
 
 ```text
-systems/           connaissance relative à un logiciel ou à une base : tables, comportements (CORA, EDSaN…)
-domains/           connaissance appartenant à un domaine précis et qui resterait vraie si le CHU changeait de logiciel : concepts et règles métier (PMSI par ex.)
-investigations/    la réponse à une question, construite sur les claims de systems/ et/ou domains/
-sources/           une fiche par document, citée par chacune de ses lectures
-GLOSSARY-MAP.md    les contextes (pmsi, cora, edsan…) et leurs glossaires
+sources/                une fiche par document, citée par chacune de ses lectures
+knowledge/claims/       un claim par fichier : une affirmation, avec ses preuves
+knowledge/evidence/     une preuve par fichier : une lecture ou une exécution
+knowledge/queries/      les requêtes préparées pour l'hôpital (.sql)
+knowledge/glossaries/   un glossaire par contexte (pmsi, cora…) ; README.md : la carte des contextes
+investigations/         une enquête par dossier : son README.md, qui cite ses claims
 ```
 
 Comment on travaille :
 
 ```text
-AGENTS.md          règles pour les agents et pointeurs
-docs/agents/       les conventions : écrire un claim, une preuve, une requête
-docs/adr/          les décisions et leurs raisons (ADR : Architecture Decision Record)
-.agents/skills/    les étapes : frame, research, relay, sediment, retro
-checks/            les contrôles et leurs tests
+AGENTS.md               règles pour les agents et pointeurs
+method/                 les conventions : écrire un claim, une preuve, une requête
+method/adr/             les décisions et leurs raisons (ADR : Architecture Decision Record)
+.agents/skills/         les étapes : frame, research, relay, sediment, retro
+checks/                 les contrôles et leurs tests
 ```
 
 ## Commandes
