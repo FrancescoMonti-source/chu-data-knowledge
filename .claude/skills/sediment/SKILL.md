@@ -5,21 +5,20 @@ description: Transformer les preuves d'une enquête en claims et les faire entre
 
 # sediment
 
-1. **Écrire les claims.** Un claim par test possible (claims.md, « Taille »), rangé selon layout.md, avec ses preuves dans supported_by et ses prémisses dans depends_on. La réponse à la question devient un claim d'enquête qui dépend des claims atomiques.
+1. **Écrire les claims.** Un claim par test possible (claims.md, « Taille »), dans knowledge/claims/, avec ses preuves dans supported_by et ses prémisses dans depends_on. La réponse à la question devient un claim d'enquête qui dépend des claims atomiques.
    Fini quand : chaque conclusion de l'enquête est un claim, et chaque claim cite ses preuves ou ses prémisses.
 2. **Relire ce qu'on réutilise** (review.md). Pour chaque prémisse, selon sa sorte :
    - **claim d'une autre personne, sans relecture à jour :** la relecture au réemploi. La personne lit le travail refait et l'approuve avant que l'agent écrive le bloc review à son nom.
    - **claim de la même personne, venu d'une autre enquête :** author-reread, que la personne fait dans une nouvelle session ; l'agent le lui demande et attend qu'elle revienne.
-   - **claim d'enquête :** la promotion (layout.md).
 
-   Fini quand : chaque prémisse est relue ou déjà à jour. Seule exception : un claim provisional peut s'appuyer sur le claim d'une autre personne sans relecture à jour (ORANGE).
+   Fini quand : chaque prémisse est relue ou déjà à jour, et sa portée (scope) couvre le nouvel usage. Seule exception : un claim provisional peut s'appuyer sur le claim d'une autre personne sans relecture à jour (ORANGE).
 3. **Contrôler :** `python checks/check.py`.
    Fini quand : aucun ROUGE ; les ORANGE restants sont listés pour la personne.
 4. **Conclure le README.** Dans la section Conclusions du README de l'enquête : les claims, avec leur état de relecture. Relire Choix avec la personne : chaque décision de méthode de l'enquête y est. Enregistrer (investigations/README.md, « La branche »).
    Fini quand : Conclusions liste chaque claim que la branche fait entrer, la personne a confirmé Choix, et le README est enregistré.
 5. **Faire entrer.** La personne qui mène l'enquête relit et confirme ; l'agent fait le merge de la branche de l'enquête dans la branche principale (investigations/README.md, « La branche »). Sur GitHub, par une PR qui écrit « Refs #N » : l'issue reste ouverte, et l'étape 6 la ferme ou la suspend. Un résultat partiel peut entrer pendant que l'enquête reste ouverte.
    Fini quand : la personne a confirmé et le merge est fait.
-6. **Suspendre ou fermer**, au choix de la personne, quand l'enquête s'arrête. Fermer : une fois le dernier merge fait, supprimer la branche de l'enquête (`git push origin --delete enquete/<id>`), puis fermer l'issue à la main, avec un commentaire qui cite la PR. Suspendre : laisser l'issue ouverte, avec un commentaire qui dit où en est l'enquête et ce qui la relancerait.
+6. **Suspendre ou fermer**, au choix de la personne, quand l'enquête s'arrête. Fermer : une fois le dernier merge fait, supprimer la branche de l'enquête (`git push origin --delete investigation/<id>`), puis fermer l'issue à la main, avec un commentaire qui cite la PR. Suspendre : laisser l'issue ouverte, avec un commentaire qui dit où en est l'enquête et ce qui la relancerait.
    Fini quand : la branche est supprimée et l'issue fermée, ou l'issue porte le commentaire de suspension.
 
 **Contester ou remplacer un claim :** review.md, « Contestation », puis les étapes 3 et 5.

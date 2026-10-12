@@ -5,7 +5,7 @@ description: Chercher ce qui est déjà écrit sur une question cadrée, d'abord
 
 # research
 
-Où chercher : docs/agents/layout.md, « Retrouver ce qu'on sait ». Les formats : docs/agents/evidence.md. Si l'enquête est déjà ouverte, passer directement aux documents.
+Où chercher : method/layout.md, « Retrouver ce qu'on sait ». Les formats : method/evidence.md. Si l'enquête est déjà ouverte, passer directement aux documents.
 
 ## Le dépôt
 
@@ -22,8 +22,8 @@ Pour chaque étape du plan qui demande un document :
 
 4. **Identifier le document :** titre, éditeur, édition, champ et période d'application (pour le PMSI, l'édition de l'année). Chercher sa fiche dans sources/ ; si elle manque, la créer.
    Fini quand : la fiche existe, avec l'édition dans l'id et l'autorité.
-5. **Lire les passages utiles.** Pour chaque passage, un fichier de lecture dans le dossier evidence/ du sujet du passage (docs/agents/layout.md), avec l'endroit exact et une courte citation.
-   Fini quand : chaque passage dont l'enquête se sert a son fichier, et aucune citation ne contient de donnée de personne (docs/agents/privacy.md).
+5. **Lire les passages utiles.** Pour chaque passage, un fichier de lecture dans knowledge/evidence/, avec l'endroit exact et une courte citation.
+   Fini quand : chaque passage dont l'enquête se sert a son fichier, et aucune citation ne contient de donnée de personne (method/privacy.md).
 6. **Enregistrer** (investigations/README.md, « La branche »).
    Fini quand : chaque nouvelle preuve est enregistrée.
 

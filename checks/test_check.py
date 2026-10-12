@@ -12,10 +12,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check import ORANGE, RED, Repository, front_matter, normalized, query_header  # noqa: E402
 from sync_skills import sync  # noqa: E402
 
-DOCS = Path(__file__).resolve().parent.parent / "docs" / "agents"
+DOCS = Path(__file__).resolve().parent.parent / "method"
 
 QUERY = """\
 -- id: 20261007-mvt-rum
+-- system: cora
 -- person_data: masked
 -- purpose: compter les mouvements par année
 SELECT '20261007-mvt-rum' AS query_id,
@@ -95,7 +96,7 @@ refuted_if: un mouvement MCO sans aucune ligne dans TB_MVT_RUM
 maturity: observed
 lifecycle: active
 terms: [cora:mouvement, cora:rum]
-tables: [TB_MVT, TB_MVT_RUM]
+tables: [cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261008-mvt-rum]
 depends_on: []
 ---
@@ -103,14 +104,14 @@ Raisonnement et limites.
 """
 
 FILES = {
-    "systems/cora/GLOSSARY.md": "# Glossaire CORA\n\n## cora:mouvement\n\nUn passage.\n\n## cora:rum\n\nUn RUM.\n",
-    "domains/pmsi/GLOSSARY.md": "# Glossaire PMSI\n\n## pmsi:rum\n\nRésumé d'unité médicale.\n",
-    "systems/cora/queries/20261007-mvt-rum.sql": QUERY,
-    "systems/cora/evidence/20261008-mvt-rum.md": EXECUTION,
+    "knowledge/glossaries/cora.md": "# Glossaire CORA\n\n## cora:mouvement\n\nUn passage.\n\n## cora:rum\n\nUn RUM.\n",
+    "knowledge/glossaries/pmsi.md": "# Glossaire PMSI\n\n## pmsi:rum\n\nRésumé d'unité médicale.\n",
+    "knowledge/queries/20261007-mvt-rum.sql": QUERY,
+    "knowledge/evidence/20261008-mvt-rum.md": EXECUTION,
     "sources/atih-guide-mco-2026.md": SOURCE,
-    "domains/pmsi/evidence/20261009-guide-rum.md": READING,
-    "domains/pmsi/claims/rum-definition.md": DOCUMENTARY,
-    "systems/cora/claims/mvt-rum-lien.md": EMPIRICAL,
+    "knowledge/evidence/20261009-guide-rum.md": READING,
+    "knowledge/claims/rum-definition.md": DOCUMENTARY,
+    "knowledge/claims/mvt-rum-lien.md": EMPIRICAL,
 }
 
 
@@ -185,98 +186,108 @@ class RepositoryTest(unittest.TestCase):
         self.assertClean()
 
     def test_missing_field_is_red(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "scope: CORA, MCO, 2024-2025\n", "")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "obligatoire")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "scope: CORA, MCO, 2024-2025\n", "")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "obligatoire")
 
     def test_review_must_come_first(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "review: unreviewed\nid: mvt-rum-lien",
+        self.edit("knowledge/claims/mvt-rum-lien.md", "review: unreviewed\nid: mvt-rum-lien",
                   "id: mvt-rum-lien\nreview: unreviewed")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "premier champ")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "premier champ")
 
     def test_id_must_match_file_name(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "id: mvt-rum-lien", "id: autre-nom")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "nom du fichier")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "id: mvt-rum-lien", "id: autre-nom")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "nom du fichier")
 
     def test_id_characters(self):
-        self.write({"systems/cora/claims/Mvt.md": claim("Mvt")})
-        self.assertProblem(RED, "systems/cora/claims/Mvt.md", "caractères")
+        self.write({"knowledge/claims/Mvt.md": claim("Mvt")})
+        self.assertProblem(RED, "knowledge/claims/Mvt.md", "caractères")
 
     def test_duplicate_id_across_folders(self):
-        self.write({"systems/icca/claims/mvt-rum-lien.md": EMPIRICAL})
-        self.assertProblem(RED, "systems/icca/claims/mvt-rum-lien.md", "existe déjà")
+        self.write({"knowledge/evidence/mvt-rum-lien.md": READING.replace("20261009-guide-rum", "mvt-rum-lien")})
+        self.assertProblem(RED, "knowledge/evidence/mvt-rum-lien.md", "existe déjà")
 
     def test_repeated_yaml_key_is_red(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: active\nlifecycle: withdrawn")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "clé répétée")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: active\nlifecycle: withdrawn")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "clé répétée")
 
     def test_list_field_must_be_a_list(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "tables: [TB_MVT, TB_MVT_RUM]", "tables: TB_MVT")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "liste")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "tables: [cora:TB_MVT, cora:TB_MVT_RUM]", "tables: TB_MVT")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "liste")
 
     def test_unknown_value_is_red(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "maturity: observed", "maturity: certain")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "non admise")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "maturity: observed", "maturity: certain")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "non admise")
 
     # Liens et termes
 
     def test_unknown_term_is_red(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "cora:rum]", "cora:sejour]")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "GLOSSARY")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "cora:rum]", "cora:sejour]")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "knowledge/glossaries/cora.md")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "cora:sejour]", "rum]")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "n'a pas de contexte")
+
+    def test_term_is_defined_in_the_glossary_of_its_context(self):
+        self.edit("knowledge/glossaries/cora.md", "## cora:rum", "## pmsi:sejour\n\nUn séjour.\n\n## cora:rum")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "cora:rum]", "cora:rum, pmsi:sejour]")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "knowledge/glossaries/pmsi.md")
+        self.assertProblem(RED, "knowledge/glossaries/cora.md", "pmsi:sejour")
+
+    def test_claim_needs_a_term(self):
+        self.edit("knowledge/claims/mvt-rum-lien.md", "terms: [cora:mouvement, cora:rum]", "terms: []")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "au moins un terme")
+
+    def test_tables_name_their_system(self):
+        path = "knowledge/claims/mvt-rum-lien.md"
+        self.edit(path, "tables: [cora:TB_MVT, cora:TB_MVT_RUM]", "tables: [TB_MVT, cora:TB_MVT_RUM]")
+        self.assertProblem(RED, path, "« TB_MVT » ne dit pas son système")
+        self.edit(path, "tables: [TB_MVT,", "tables: [corra:TB_MVT,")
+        self.assertProblem(RED, path, "« corra »")
 
     def test_missing_evidence_is_red(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "[20261008-mvt-rum]", "[20261008-absent]")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "n'existe pas")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "[20261008-mvt-rum]", "[20261008-absent]")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "n'existe pas")
 
     def test_link_to_wrong_type_is_red(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "supported_by: [20261008-mvt-rum]",
+        self.edit("knowledge/claims/mvt-rum-lien.md", "supported_by: [20261008-mvt-rum]",
                   "supported_by: [20261008-mvt-rum, rum-definition]")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "type evidence")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "type evidence")
 
     # Règles du claim
 
     def test_refuted_if_only_for_empirical(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "refuted_if: un mouvement MCO sans aucune ligne dans TB_MVT_RUM\n", "")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "obligatoire")
-        self.assertNotIn("refuted_if", (self.root / "domains/pmsi/claims/rum-definition.md").read_text(encoding="utf-8"))
+        self.edit("knowledge/claims/mvt-rum-lien.md", "refuted_if: un mouvement MCO sans aucune ligne dans TB_MVT_RUM\n", "")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "obligatoire")
+        self.assertNotIn("refuted_if", (self.root / "knowledge/claims/rum-definition.md").read_text(encoding="utf-8"))
 
     def test_decision_needs_responsible(self):
-        self.write({"systems/cora/claims/choix-annee.md": claim("choix-annee")
+        self.write({"knowledge/claims/choix-annee.md": claim("choix-annee")
                     .replace("kind: empirical", "kind: decision")
                     .replace("maturity: observed", "maturity: provisional")
                     .replace("refuted_if:", "reconsider_when:")})
-        self.assertProblem(RED, "systems/cora/claims/choix-annee.md", "obligatoire")
+        self.assertProblem(RED, "knowledge/claims/choix-annee.md", "obligatoire")
 
     def test_authority_belongs_to_source(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: active\nauthority: official")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "autorité")
-
-    def test_domain_claim_with_tables_is_red(self):
-        self.edit("domains/pmsi/claims/rum-definition.md", "tables: []", "tables: [TB_RUM]")
-        self.assertProblem(RED, "domains/pmsi/claims/rum-definition.md", "nomme des tables")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: active\nauthority: official")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "autorité")
 
     def test_documentary_needs_a_reading(self):
-        self.edit("domains/pmsi/claims/rum-definition.md", "kind: documentary", "kind: empirical\nrefuted_if: x")
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "kind: empirical", "kind: documentary")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "lecture")
+        self.edit("knowledge/claims/rum-definition.md", "kind: documentary", "kind: empirical\nrefuted_if: x")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "kind: empirical", "kind: documentary")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "lecture")
 
     def test_observed_needs_attributed_execution(self):
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "database: CORAPROD", "database: unknown")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "observed")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "database: CORAPROD", "database: unknown")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "observed")
 
     def test_provisional_accepts_unknown_context(self):
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "database: CORAPROD", "database: unknown")
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "maturity: observed", "maturity: provisional")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "database: CORAPROD", "database: unknown")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "maturity: observed", "maturity: provisional")
         self.assertClean()
 
-    def test_system_claim_cannot_depend_on_investigation(self):
-        self.write({"investigations/2026-duree-sejour/claims/hypothese.md": claim("hypothese")})
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "depends_on: []", "depends_on: [hypothese]")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "enquête")
-
     def test_superseded_needs_a_successor(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: superseded")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "remplacer")
-        self.write({"systems/cora/claims/mvt-rum-lien-v2.md": claim("mvt-rum-lien-v2", extra="\nsupersedes: [mvt-rum-lien]")})
+        self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: superseded")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "remplacer")
+        self.write({"knowledge/claims/mvt-rum-lien-v2.md": claim("mvt-rum-lien-v2", extra="\nsupersedes: [mvt-rum-lien]")})
         self.assertClean()
 
     # Relecture et empreinte
@@ -287,33 +298,33 @@ class RepositoryTest(unittest.TestCase):
 
     def test_author_cannot_sign_reviewed(self):
         self.review("mvt-rum-lien", by="francesco")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "auteur")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "auteur")
 
     def test_author_reread_is_for_author(self):
         self.review("mvt-rum-lien", by="Marie", status="author-reread")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "réservé")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "réservé")
 
     def test_review_goes_stale_when_evidence_changes(self):
         self.review("mvt-rum-lien", by="Marie")
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "1520", "1521")
-        self.assertProblem(ORANGE, "systems/cora/claims/mvt-rum-lien.md", "périmée")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "1520", "1521")
+        self.assertProblem(ORANGE, "knowledge/claims/mvt-rum-lien.md", "périmée")
 
     def test_review_goes_stale_when_query_or_premise_changes(self):
-        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
+        self.write({"knowledge/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
         self.review("mvt-annuel", by="Marie")
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE", "GROUP BY ANNEE, MOIS")
-        self.assertProblem(ORANGE, "systems/cora/claims/mvt-annuel.md", "périmée")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE", "GROUP BY ANNEE, MOIS")
+        self.assertProblem(ORANGE, "knowledge/claims/mvt-annuel.md", "périmée")
 
     def test_fingerprint_ignores_review_and_line_endings(self):
         before = self.current("mvt-rum-lien")
         self.review("mvt-rum-lien", by="Marie")
-        path = self.root / "systems/cora/claims/mvt-rum-lien.md"
+        path = self.root / "knowledge/claims/mvt-rum-lien.md"
         path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
         self.assertEqual(self.current("mvt-rum-lien"), before)
         self.assertRegex(before, r"^[0-9a-f]{12}$")
 
     def test_fingerprint_needs_only_loading(self):
-        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
+        self.write({"knowledge/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
         repository = Repository(self.root)
         repository.load()
         self.assertEqual(repository.fingerprint("mvt-annuel"), self.current("mvt-annuel"))
@@ -321,76 +332,103 @@ class RepositoryTest(unittest.TestCase):
     # Réutilisation
 
     def test_reuse_of_unreviewed_claim_of_another_author(self):
-        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", author="Marie", depends_on="mvt-rum-lien")})
-        self.assertProblem(RED, "systems/cora/claims/mvt-annuel.md", "autre personne")
+        self.write({"knowledge/claims/mvt-annuel.md": claim("mvt-annuel", author="Marie", depends_on="mvt-rum-lien")})
+        self.assertProblem(RED, "knowledge/claims/mvt-annuel.md", "autre personne")
 
     def test_reuse_is_orange_when_provisional_and_free_for_same_author(self):
-        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", author="Marie", maturity="provisional",
+        self.write({"knowledge/claims/mvt-annuel.md": claim("mvt-annuel", author="Marie", maturity="provisional",
                                                                 depends_on="mvt-rum-lien")})
-        self.assertProblem(ORANGE, "systems/cora/claims/mvt-annuel.md", "autre personne")
-        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
+        self.assertProblem(ORANGE, "knowledge/claims/mvt-annuel.md", "autre personne")
+        self.write({"knowledge/claims/mvt-annuel.md": claim("mvt-annuel", depends_on="mvt-rum-lien")})
         self.assertClean()
 
     def test_inactive_premise_is_flagged_transitively(self):
-        self.write({"systems/cora/claims/etape-1.md": claim("etape-1", depends_on="mvt-rum-lien"),
-                    "systems/cora/claims/etape-2.md": claim("etape-2", depends_on="etape-1")})
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: withdrawn")
-        self.assertProblem(ORANGE, "systems/cora/claims/etape-2.md", "mvt-rum-lien (withdrawn)")
+        self.write({"knowledge/claims/etape-1.md": claim("etape-1", depends_on="mvt-rum-lien"),
+                    "knowledge/claims/etape-2.md": claim("etape-2", depends_on="etape-1")})
+        self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: withdrawn")
+        self.assertProblem(ORANGE, "knowledge/claims/etape-2.md", "mvt-rum-lien (withdrawn)")
 
     # Preuves et requêtes
 
     def test_execution_must_match_query_person_data(self):
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "person_data: masked", "person_data: no-person-data")
-        self.assertProblem(RED, "systems/cora/evidence/20261008-mvt-rum.md", "diffère")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "person_data: masked", "person_data: no-person-data")
+        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "diffère")
 
     def test_modified_execution_keeps_the_sql(self):
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "modified: no", "modified: yes")
-        self.assertProblem(RED, "systems/cora/evidence/20261008-mvt-rum.md", "version exécutée")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "modified: no", "modified: yes")
+        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "version exécutée")
 
-    def test_execution_lives_in_systems(self):
-        self.write({"domains/pmsi/evidence/20261010-mvt.md": EXECUTION.replace("20261008-mvt-rum", "20261010-mvt")})
-        self.assertProblem(RED, "domains/pmsi/evidence/20261010-mvt.md", "système")
+    def test_query_names_its_system(self):
+        path = "knowledge/queries/20261007-mvt-rum.sql"
+        self.edit(path, "-- system: cora\n", "")
+        self.assertProblem(RED, path, "obligatoire")
+        self.write({path: QUERY.replace("-- system: cora", "-- system: corra")})
+        self.assertProblem(RED, path, "corra")
 
     def test_reading_needs_a_quote(self):
-        self.edit("domains/pmsi/evidence/20261009-guide-rum.md", "> Le RUM", "Le RUM")
-        self.assertProblem(RED, "domains/pmsi/evidence/20261009-guide-rum.md", "citation")
+        self.edit("knowledge/evidence/20261009-guide-rum.md", "> Le RUM", "Le RUM")
+        self.assertProblem(RED, "knowledge/evidence/20261009-guide-rum.md", "citation")
 
     def test_masked_query_rules(self):
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "SELECT '20261007-mvt-rum' AS query_id,", "SELECT")
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "SELECT '20261007-mvt-rum' AS query_id,", "SELECT")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
         problems = [p["message"] for p in self.run_checks()]
         self.assertTrue(any("première colonne" in m for m in problems), problems)
         self.assertTrue(any("<10" in m for m in problems), problems)
 
     def test_select_star_only_for_column_names(self):
-        self.write({"systems/cora/queries/20261011-colonnes.sql":
-                    "-- id: 20261011-colonnes\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
+        self.write({"knowledge/queries/20261011-colonnes.sql":
+                    "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
                     "SELECT * FROM TB_MVT WHERE 1=0;\n"})
         self.assertClean()
-        self.edit("systems/cora/queries/20261011-colonnes.sql", " WHERE 1=0", "")
-        self.assertProblem(RED, "systems/cora/queries/20261011-colonnes.sql", "SELECT *")
+        self.edit("knowledge/queries/20261011-colonnes.sql", " WHERE 1=0", "")
+        self.assertProblem(RED, "knowledge/queries/20261011-colonnes.sql", "SELECT *")
 
     # Données personnelles
 
     def test_nir_with_valid_key_is_red_and_not_echoed(self):
         nir = valid_nir()
-        self.write({"investigations/2026-test/notes.md": f"Patient : {nir}\n"})
-        self.assertProblem(RED, "investigations/2026-test/notes.md", "NIR")
+        self.write({"investigations/2026-test/README.md": f"Patient : {nir}\n"})
+        self.assertProblem(RED, "investigations/2026-test/README.md", "NIR")
         self.assertNotIn(nir.replace(" ", "")[:7], str(self.run_checks()))
 
     def test_nir_with_wrong_key_is_ignored(self):
         nir = valid_nir()
         wrong = nir[:-2] + f"{(int(nir[-2:]) + 1) % 97:02d}"
-        self.write({"investigations/2026-test/notes.md": f"Numéro : {wrong}\n"})
+        self.write({"investigations/2026-test/README.md": f"Numéro : {wrong}\n"})
         self.assertClean()
 
     def test_birth_date_is_red(self):
-        self.write({"investigations/2026-test/notes.md": "Date de naissance : 12/03/1951\n"})
-        self.assertProblem(RED, "investigations/2026-test/notes.md", "naissance")
+        self.write({"investigations/2026-test/README.md": "Date de naissance : 12/03/1951\n"})
+        self.assertProblem(RED, "investigations/2026-test/README.md", "naissance")
 
     def test_small_count_in_masked_result_is_red(self):
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "| 2025 | <10 |", "| 2025 | 7 |")
-        self.assertProblem(RED, "systems/cora/evidence/20261008-mvt-rum.md", "inférieur à 10")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "| 2025 | <10 |", "| 2025 | 7 |")
+        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "inférieur à 10")
+
+    # Rangement
+
+    def test_old_folders_are_red(self):
+        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel")})
+        self.assertProblem(RED, "systems/cora/claims/mvt-annuel.md", "knowledge/")
+        self.write({"domains/pmsi/GLOSSARY.md": "# Glossaire PMSI\n"})
+        self.assertProblem(RED, "domains/pmsi/GLOSSARY.md", "knowledge/")
+        self.write({"docs/agents/issue-tracker.md": "# Issues\n"})
+        self.assertProblem(RED, "docs/agents/issue-tracker.md", "method/")
+        self.write({"docs/adr/0019-editions.md": "# 0019 — Éditions\n"})
+        self.assertProblem(RED, "docs/adr/0019-editions.md", "method/adr/")
+
+    def test_gitkeep_keeps_an_empty_folder(self):
+        self.write({"knowledge/queries/.gitkeep": ""})
+        self.assertClean()
+
+    def test_knowledge_has_no_subject_folders(self):
+        self.write({"knowledge/claims/cora/mvt-annuel.md": claim("mvt-annuel")})
+        self.assertProblem(RED, "knowledge/claims/cora/mvt-annuel.md", "sous-dossier")
+
+    def test_investigation_holds_only_its_readme(self):
+        self.write({"investigations/uf-vs-rum/claims/reponse.md": claim("reponse")})
+        self.assertProblem(RED, "investigations/uf-vs-rum/claims/reponse.md", "README.md")
 
     # Skills
 
@@ -403,9 +441,9 @@ class RepositoryTest(unittest.TestCase):
     # Cas limites
 
     def test_challenge_stays_orange_for_other_authors(self):
-        self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel", author="Marie", depends_on="mvt-rum-lien")})
+        self.write({"knowledge/claims/mvt-annuel.md": claim("mvt-annuel", author="Marie", depends_on="mvt-rum-lien")})
         self.review("mvt-rum-lien", by="Marie")
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: challenged")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: challenged")
         problems = self.run_checks()
         self.assertEqual([p["level"] for p in problems], [ORANGE], problems)
         self.assertIn("challenged", problems[0]["message"])
@@ -414,23 +452,14 @@ class RepositoryTest(unittest.TestCase):
         answer = DOCUMENTARY.replace("id: rum-definition", "id: reponse") \
             .replace("supported_by: [20261009-guide-rum]", "supported_by: []") \
             .replace("depends_on: []", "depends_on: [rum-definition]")
-        self.write({"investigations/uf-vs-rum/claims/reponse.md": answer})
+        self.write({"knowledge/claims/reponse.md": answer})
         self.assertClean()
-        self.edit("investigations/uf-vs-rum/claims/reponse.md", "depends_on: [rum-definition]", "depends_on: []")
-        self.assertProblem(RED, "investigations/uf-vs-rum/claims/reponse.md", "au moins une preuve ou une prémisse")
-
-    def test_promoted_answer_keeps_its_premises(self):
-        answer = DOCUMENTARY.replace("id: rum-definition", "id: reponse") \
-            .replace("supported_by: [20261009-guide-rum]", "supported_by: []") \
-            .replace("depends_on: []", "depends_on: [rum-definition]")
-        self.write({"domains/pmsi/claims/reponse.md": answer})
-        self.assertClean()
-        self.edit("domains/pmsi/claims/reponse.md", "depends_on: [rum-definition]", "depends_on: []")
-        self.assertProblem(RED, "domains/pmsi/claims/reponse.md", "au moins une preuve ou une prémisse")
+        self.edit("knowledge/claims/reponse.md", "depends_on: [rum-definition]", "depends_on: []")
+        self.assertProblem(RED, "knowledge/claims/reponse.md", "au moins une preuve ou une prémisse")
 
     def test_answer_maturity_follows_its_premises(self):
-        path = "investigations/uf-vs-rum/claims/reponse.md"
-        self.edit("domains/pmsi/claims/rum-definition.md", "author: Marie", "author: Francesco")
+        path = "knowledge/claims/reponse.md"
+        self.edit("knowledge/claims/rum-definition.md", "author: Marie", "author: Francesco")
         self.write({path: claim("reponse", depends_on="rum-definition, mvt-rum-lien")
                     .replace("supported_by: [20261008-mvt-rum]", "supported_by: []")})
         self.assertClean()
@@ -439,38 +468,38 @@ class RepositoryTest(unittest.TestCase):
         self.edit(path, "maturity: documented", "maturity: provisional")
         self.assertClean()
         self.edit(path, "maturity: provisional", "maturity: observed")
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "maturity: observed", "maturity: provisional")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "maturity: observed", "maturity: provisional")
         self.assertProblem(RED, path, "maturité")
 
     def test_terms_may_have_accents(self):
-        self.edit("systems/cora/GLOSSARY.md", "## cora:rum", "## cora:séjour\n\nUn séjour.\n\n## cora:rum")
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "cora:rum]", "cora:rum, cora:séjour]")
+        self.edit("knowledge/glossaries/cora.md", "## cora:rum", "## cora:séjour\n\nUn séjour.\n\n## cora:rum")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "cora:rum]", "cora:rum, cora:séjour]")
         self.assertClean()
 
     def test_unquoted_hash_cuts_the_value(self):
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "scope: CORA, MCO, 2024-2025", "scope: CORA, MCO #2")
-        self.assertProblem(RED, "systems/cora/claims/mvt-rum-lien.md", "« # »")
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "scope: CORA, MCO #2", 'scope: "CORA : MCO #2"')
+        self.edit("knowledge/claims/mvt-rum-lien.md", "scope: CORA, MCO, 2024-2025", "scope: CORA, MCO #2")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "« # »")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "scope: CORA, MCO #2", 'scope: "CORA : MCO #2"')
         self.assertClean()
 
     def test_malformed_files_do_not_stop_the_check(self):
-        self.write({"systems/cora/claims/cle-liste.md": "---\n[a, b]: c\nid: cle-liste\n---\n"})
-        (self.root / "systems/cora/claims/latin.md").write_bytes(
+        self.write({"knowledge/claims/cle-liste.md": "---\n[a, b]: c\nid: cle-liste\n---\n"})
+        (self.root / "knowledge/claims/latin.md").write_bytes(
             claim("latin").replace("relie", "relié").encode("latin-1"))
-        self.edit("systems/cora/evidence/20261008-mvt-rum.md", "query: 20261007-mvt-rum", "query: [20261007-mvt-rum]")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "query: 20261007-mvt-rum", "query: [20261007-mvt-rum]")
         self.review("mvt-rum-lien", by="Marie", fingerprint="000000000000")
         messages = " ".join(p["message"] for p in self.run_checks())
         for words in ("clé non admise", "UTF-8", "texte simple"):
             self.assertIn(words, messages)
 
     def test_masked_query_for_column_names(self):
-        self.write({"systems/cora/queries/20261011-colonnes.sql":
-                    "-- id: 20261011-colonnes\n-- person_data: masked\n-- purpose: lister les colonnes\n"
+        self.write({"knowledge/queries/20261011-colonnes.sql":
+                    "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: masked\n-- purpose: lister les colonnes\n"
                     "SELECT * FROM TB_PATIENT WHERE 1=0;\n"})
         self.assertClean()
 
     def test_select_star_variants_and_repeated_header(self):
-        path = "systems/cora/queries/20261007-mvt-rum.sql"
+        path = "knowledge/queries/20261007-mvt-rum.sql"
         self.edit(path, "       ANNEE,", "       t.*,")
         self.assertProblem(RED, path, "SELECT *")
         self.edit(path, "SELECT '20261007-mvt-rum' AS query_id,\n       t.*,", "SELECT TOP 100 *, '20261007-mvt-rum',")
@@ -479,28 +508,28 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, path, "clé répétée")
 
     def test_comments_do_not_count_in_a_query(self):
-        path = "systems/cora/queries/20261013-patients.sql"
-        header = "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
+        path = "knowledge/queries/20261013-patients.sql"
+        header = "-- id: 20261013-patients\n-- system: cora\n-- person_data: masked\n-- purpose: test\n"
         self.write({path: header + "SELECT * FROM TB_PATIENT; -- WHERE 1=0\n"})
         self.assertProblem(RED, path, "SELECT *")
         self.write({path: header + "SELECT * FROM TB_PATIENT /* WHERE 1=0 */;\n"})
         self.assertProblem(RED, path, "SELECT *")
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE;", "GROUP BY ANNEE; -- < 10")
-        self.assertProblem(RED, "systems/cora/queries/20261007-mvt-rum.sql", "<10")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) < 5")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE;", "GROUP BY ANNEE; -- < 10")
+        self.assertProblem(RED, "knowledge/queries/20261007-mvt-rum.sql", "<10")
 
     def test_comment_marks_inside_a_literal_stay_sql(self):
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
-        self.assertProblem(RED, "systems/cora/queries/20261007-mvt-rum.sql", "SELECT *")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
+        self.assertProblem(RED, "knowledge/queries/20261007-mvt-rum.sql", "SELECT *")
 
     def test_column_names_query_is_a_single_select(self):
-        path = "systems/cora/queries/20261013-patients.sql"
-        self.write({path: "-- id: 20261013-patients\n-- person_data: masked\n-- purpose: test\n"
+        path = "knowledge/queries/20261013-patients.sql"
+        self.write({path: "-- id: 20261013-patients\n-- system: cora\n-- person_data: masked\n-- purpose: test\n"
                           "SELECT * FROM TB_PATIENT WHERE 1=0 UNION SELECT * FROM TB_PATIENT;\n"})
         self.assertProblem(RED, path, "SELECT *")
 
     def test_masked_result_is_a_markdown_table(self):
-        path = "systems/cora/evidence/20261008-mvt-rum.md"
+        path = "knowledge/evidence/20261008-mvt-rum.md"
         table = "| query_id | ANNEE | N_MVT |\n|---|---|---|\n| 20261007-mvt-rum | 2024 | 1520 |\n" \
                 "| 20261007-mvt-rum | 2025 | <10 |\n"
         self.edit(path, table, "```text\nquery_id\tANNEE\tN_MVT\n20261007-mvt-rum\t2025\t4\n```\n")
@@ -511,22 +540,22 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, path, "hors du tableau")
 
     def test_mask_written_as_at_most_nine(self):
-        self.edit("systems/cora/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "COUNT(*) < 10", "COUNT(*) <= 9")
         self.assertClean()
 
     def test_birth_date_false_positives(self):
-        self.write({"investigations/2026-test/notes.md":
+        self.write({"investigations/2026-test/README.md":
                     "Base de connaissances à jour au 2026-10-10.\n"
                     "Séjours de naissance du 01/01/2024 au 31/12/2024.\n",
-                    "systems/cora/queries/20261012-age.sql": QUERY.replace("20261007-mvt-rum", "20261012-age")
+                    "knowledge/queries/20261012-age.sql": QUERY.replace("20261007-mvt-rum", "20261012-age")
                     .replace("GROUP BY", "WHERE DT_NAISSANCE < '2008-10-01'\nGROUP BY")})
         self.assertClean()
 
     def test_birth_date_in_a_table_column(self):
-        self.write({"investigations/2026-test/notes.md": "| SEXE | DATE_NAISSANCE |\n|---|---|\n| F | 1951-03-12 |\n"})
-        self.assertProblem(RED, "investigations/2026-test/notes.md", "tableau")
+        self.write({"investigations/2026-test/README.md": "| SEXE | DATE_NAISSANCE |\n|---|---|\n| F | 1951-03-12 |\n"})
+        self.assertProblem(RED, "investigations/2026-test/README.md", "tableau")
 
-    # Exemples de docs/agents
+    # Exemples de method/
 
     def test_doc_examples_pass_the_check(self):
         """Les exemples que les agents recopient, mis à la place des fichiers de base (mêmes ids), passent le contrôle."""
@@ -535,11 +564,11 @@ class RepositoryTest(unittest.TestCase):
             text = normalized(doc.read_text(encoding="utf-8"))
             for language, example in re.findall(r"^```(markdown|sql)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
                 if language == "sql":
-                    name = f"systems/cora/queries/{query_header(example)[0]['id']}.sql"
+                    name = f"knowledge/queries/{query_header(example)[0]['id']}.sql"
                 elif example.startswith("---\n"):
                     header = front_matter(example)[0]
-                    folder = ("systems/cora/claims" if "kind" in header else
-                              "systems/cora/evidence" if "type" in header else "sources")
+                    folder = ("knowledge/claims" if "kind" in header else
+                              "knowledge/evidence" if "type" in header else "sources")
                     name = f"{folder}/{header['id']}.md"
                 else:
                     continue
@@ -558,7 +587,7 @@ class RepositoryTest(unittest.TestCase):
         result = subprocess.run([sys.executable, script, "--root", str(self.root), "--fingerprint", "mvt-rum-lien"],
                                 capture_output=True, text=True, encoding="utf-8")
         self.assertEqual(result.stdout.strip(), self.current("mvt-rum-lien"))
-        self.edit("systems/cora/claims/mvt-rum-lien.md", "maturity: observed", "maturity: certain")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "maturity: observed", "maturity: certain")
         result = subprocess.run([sys.executable, script, "--root", str(self.root)],
                                 capture_output=True, text=True, encoding="utf-8")
         self.assertEqual(result.returncode, 1)

@@ -7,7 +7,7 @@ Usage :
     python checks/check.py                   contrôle tout le dépôt
     python checks/check.py --fingerprint ID  affiche l'empreinte à recopier dans une relecture
 
-Les règles contrôlées et leurs limites : docs/agents/checks.md.
+Les règles contrôlées et leurs limites : method/checks.md.
 """
 
 import argparse
@@ -36,10 +36,23 @@ READING_FIELDS = ("id", "type", "source", "locator", "read_by", "read_at")
 SOURCE_FIELDS = ("id", "title", "publisher", "edition", "location", "authority")
 SOURCE_AUTHORITY = ("official", "vendor-doc", "local", "unknown")
 PERSON_DATA = ("masked", "no-person-data")
-QUERY_FIELDS = ("id", "person_data", "purpose")
+QUERY_FIELDS = ("id", "system", "person_data", "purpose")
 INACTIVE = ("challenged", "superseded", "withdrawn")
 DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md"}
 SCANNED = (".md", ".sql", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
+ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence",
+         "sources/*.md": "source", "knowledge/queries/*.sql": "query"}
+GLOSSARIES = "knowledge/glossaries/*.md"
+READMES = ("investigations/README.md", "investigations/*/README.md")
+UNREAD = {
+    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier.",
+                  "Le ranger dans knowledge/claims/, evidence/, queries/ (.sql) ou glossaries/ (method/layout.md)."),
+    "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
+                       "Un claim va dans knowledge/claims/, une preuve dans knowledge/evidence/ "
+                       "(investigations/README.md)."),
+}
+OLD_FOLDERS = {"systems": "knowledge/", "domains": "knowledge/",
+               "docs/agents": "method/", "docs/adr": "method/adr/"}
 
 NIR = re.compile(r"\b[12]\s?\d{2}\s?\d{2}\s?(?:\d{2}|2[AB])\s?\d{3}\s?\d{3}\s?\d{2}\b")
 FULL_DATE = r"\b(?:\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})\b"
@@ -139,6 +152,7 @@ class Repository:
         self.root = Path(root)
         self.problems = []
         self.records = {}
+        self.contexts = set()
         self.terms = set()
         self.fingerprints = {}
 
@@ -161,30 +175,29 @@ class Repository:
                                 "L'enregistrer en UTF-8.")
                     text = path.read_text(encoding="utf-8", errors="replace")
                 self.check_privacy(self.relative(path), text)
-        for glossary in sorted(self.root.glob("*/*/GLOSSARY.md")):
-            if glossary.parts[-3] in ("systems", "domains"):
-                self.terms.update(TERM_HEADING.findall(glossary.read_text(encoding="utf-8", errors="replace")))
-        for path in sorted(self.root.glob("*/*/claims/*.md")):
-            if path.parts[-4] in ("systems", "domains", "investigations"):
-                self.add(path, "claim", place=path.parts[-4], context=path.parts[-3])
-        for path in sorted(self.root.glob("*/*/evidence/*.md")):
-            if path.parts[-4] in ("systems", "domains"):
-                self.add(path, "evidence", place=path.parts[-4], context=path.parts[-3])
-        for path in sorted(self.root.glob("sources/*.md")):
-            self.add(path, "source")
-        for path in sorted(self.root.glob("systems/*/queries/*.sql")):
-            self.add(path, "query", context=path.parts[-3])
+        for glossary in sorted(self.root.glob(GLOSSARIES)):
+            self.contexts.add(glossary.stem)
+            for term in TERM_HEADING.findall(glossary.read_text(encoding="utf-8", errors="replace")):
+                if term.startswith(glossary.stem + ":"):
+                    self.terms.add(term)
+                else:
+                    self.report(RED, self.relative(glossary), None,
+                                f"« {term} » n'est pas un terme du contexte {glossary.stem}.",
+                                f"Le définir dans knowledge/glossaries/{term.split(':')[0]}.md, "
+                                "le glossaire de son contexte.")
+        for pattern, role in ROLES.items():
+            for path in sorted(self.root.glob(pattern)):
+                self.add(path, role)
 
-    def add(self, path, role, place=None, context=None):
+    def add(self, path, role):
         name = self.relative(path)
         text = path.read_text(encoding="utf-8", errors="replace")
         try:
             header, body = query_header(text) if role == "query" else front_matter(text)
         except ValueError as error:
-            self.report(RED, name, None, str(error), "Corriger l'en-tête : voir docs/agents/" + DOCS[role] + ".")
+            self.report(RED, name, None, str(error), "Corriger l'en-tête : voir method/" + DOCS[role] + ".")
             return
-        record = {"role": role, "path": name, "place": place, "context": context,
-                  "header": header, "body": body, "text": normalized(text)}
+        record = {"role": role, "path": name, "header": header, "body": body, "text": normalized(text)}
         identifier = header.get("id")
         if identifier != path.stem:
             self.report(RED, name, "id", f"l'id doit être le nom du fichier : « {path.stem} ».",
@@ -209,6 +222,7 @@ class Repository:
         for record in self.records.values():
             getattr(self, "check_" + record["role"])(record)
         self.check_reuse()
+        self.check_places()
         self.check_skill_copies()
         return self.problems
 
@@ -219,7 +233,7 @@ class Repository:
             value = header.get(field)
             if not (value or value == []):
                 self.report(RED, record["path"], field, "champ obligatoire absent ou vide.",
-                            "Remplir le champ (docs/agents/" + DOCS[record["role"]] + ").")
+                            "Remplir le champ (method/" + DOCS[record["role"]] + ").")
             elif field not in CLAIM_LISTS + ("review",) and not isinstance(value, str):
                 self.report(RED, record["path"], field, "ce champ doit être un texte simple.",
                             "Écrire la valeur sur la même ligne, sans liste ni sous-champs.")
@@ -242,6 +256,12 @@ class Repository:
             elif target["role"] != role:
                 self.report(RED, record["path"], field, f"« {identifier} » n'est pas un fichier de type {role}.",
                             "Citer un fichier du bon type.")
+
+    def known_context(self, record, field, context):
+        """Le système d'une requête ou d'une table est un contexte qui a son glossaire."""
+        if context not in self.contexts:
+            self.report(RED, record["path"], field, f"« {context} » n'a pas de glossaire dans knowledge/glossaries/.",
+                        "Écrire le système comme son contexte dans la carte (knowledge/glossaries/README.md).")
 
     def claim_shape(self, claim):
         """Forme du claim, vue au chargement : sans elle, ses autres contrôles et son empreinte n'ont pas de sens."""
@@ -269,10 +289,28 @@ class Repository:
         if "authority" in header:
             self.report(RED, path, "authority", "l'autorité appartient à la source ou à la preuve, pas au claim.",
                         "Retirer authority ; décrire l'autorité dans la fiche de la source.")
+        if not header["terms"]:
+            self.report(RED, path, "terms", "un claim cite au moins un terme : ses termes disent son contexte.",
+                        "Citer ses termes avec leur contexte, par exemple cora:mouvement "
+                        "(method/layout.md, « Termes et glossaires »).")
         for term in header["terms"]:
-            if term not in self.terms:
-                self.report(RED, path, "terms", f"le terme « {term} » n'est dans aucun GLOSSARY.md.",
-                            "Ajouter le terme au glossaire de son contexte, ou corriger le terme.")
+            context, colon, _ = term.partition(":")
+            if not colon:
+                self.report(RED, path, "terms", f"le terme « {term} » n'a pas de contexte.",
+                            "L'écrire avec son contexte, par exemple pmsi:rum "
+                            "(method/layout.md, « Termes et glossaires »).")
+            elif term not in self.terms:
+                self.report(RED, path, "terms", f"le terme « {term} » n'est pas défini dans "
+                            f"knowledge/glossaries/{context}.md.",
+                            "Ajouter le terme à ce glossaire, ou corriger le terme "
+                            "(method/layout.md, « Termes et glossaires »).")
+        for table in header["tables"]:
+            context, colon, _ = table.partition(":")
+            if not colon:
+                self.report(RED, path, "tables", f"la table « {table} » ne dit pas son système.",
+                            "L'écrire avec son système, par exemple cora:TB_MVT_RUM (method/claims.md).")
+            else:
+                self.known_context(claim, "tables", context)
         self.linked(claim, "supported_by", header["supported_by"], "evidence")
         for field in ("depends_on", "challenges", "supersedes"):
             self.linked(claim, field, header.get(field, []), "claim")
@@ -281,15 +319,6 @@ class Repository:
         if not header["supported_by"] and not header["depends_on"]:
             self.report(RED, path, "supported_by", "un claim s'appuie sur au moins une preuve ou une prémisse.",
                         "Citer ses preuves dans supported_by ou ses prémisses dans depends_on.")
-        if claim["place"] in ("systems", "domains"):
-            for identifier in header["depends_on"]:
-                if self.records.get(identifier, {}).get("place") == "investigations":
-                    self.report(RED, path, "depends_on", f"« {identifier} » est un claim d'enquête.",
-                                "Une enquête dépend de systems/ et domains/, jamais l'inverse : "
-                                "promouvoir d'abord le claim (docs/agents/layout.md).")
-        if claim["place"] == "domains" and header["tables"]:
-            self.report(RED, path, "tables", "un claim qui nomme des tables décrit un système.",
-                        "Le déplacer dans systems/<système>/claims/ (docs/agents/layout.md).")
         # Sans preuve propre, un claim d'enquête est contrôlé à travers ses prémisses.
         if (header["supported_by"] and header["kind"] == "documentary"
                 and not any(e["header"].get("type") == "reading" for e in evidence)):
@@ -324,7 +353,7 @@ class Repository:
         if header["maturity"] not in (expected, "provisional"):
             self.report(RED, claim["path"], "maturity", f"la maturité ne suit pas celle des prémisses : {expected} attendu.",
                         f"Écrire maturity: {expected}, ou provisional "
-                        "(docs/agents/claims.md, « Claim sans preuve propre »).")
+                        "(method/claims.md, « Claim sans preuve propre »).")
 
     def check_review(self, claim):
         review, path, author = claim["header"]["review"], claim["path"], claim["header"]["author"]
@@ -333,13 +362,13 @@ class Repository:
         if not isinstance(review, dict) or review.get("status") not in ("reviewed", "author-reread"):
             self.report(RED, path, "review", "valeur non admise.",
                         "Écrire review: unreviewed, ou un bloc status/by/at/work/fingerprint "
-                        "(docs/agents/review.md).")
+                        "(method/review.md).")
             return
         missing = [field for field in ("by", "at", "work", "fingerprint")
                    if not isinstance(review.get(field), str) or not review[field]]
         if missing:
             self.report(RED, path, "review", "relecture incomplète : " + ", ".join(missing) + ".",
-                        "Compléter le bloc review (docs/agents/review.md).")
+                        "Compléter le bloc review (method/review.md).")
             return
         same_person = review["by"].strip().casefold() == author.strip().casefold()
         if review["status"] == "reviewed" and same_person:
@@ -350,7 +379,7 @@ class Repository:
                         "Utiliser reviewed pour une autre personne.")
         elif review["fingerprint"] != self.fingerprint(claim["header"]["id"]):
             self.report(ORANGE, path, "review", "relecture périmée : le claim ou ses appuis ont changé.",
-                        "Relire à nouveau puis recopier la nouvelle empreinte (docs/agents/review.md).")
+                        "Relire à nouveau puis recopier la nouvelle empreinte (method/review.md).")
 
     def check_evidence(self, evidence):
         header, path = evidence["header"], evidence["path"]
@@ -358,9 +387,6 @@ class Repository:
         if kind == "execution":
             if not self.require(evidence, EXECUTION_FIELDS):
                 return
-            if evidence["place"] != "systems":
-                self.report(RED, path, "type", "une exécution lit toujours un système.",
-                            "Ranger la preuve dans systems/<système>/evidence/.")
             self.allowed(evidence, "modified", ("yes", "no", "unknown"))
             self.allowed(evidence, "person_data", PERSON_DATA)
             self.linked(evidence, "query", [header["query"]], "query")
@@ -393,6 +419,7 @@ class Repository:
         if not self.require(query, QUERY_FIELDS):
             return
         self.allowed(query, "person_data", PERSON_DATA)
+        self.known_context(query, "system", header["system"])
         if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
             return
         if SELECT_STAR.search(sql):
@@ -408,7 +435,7 @@ class Repository:
                         "Agréger (COUNT, SUM…) au lieu de renvoyer des lignes individuelles.")
         if not MASK.search(sql):
             self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
-                        "Masquer toute statistique sous 10 dans la requête elle-même (docs/agents/queries.md).")
+                        "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
 
     def check_masked_result(self, evidence):
         """Le contrôle des effectifs ne lit que les tableaux : hors d'un bloc sql, le résultat n'est qu'un tableau."""
@@ -422,10 +449,10 @@ class Repository:
                 outside.append(line)
         if not outside:
             self.report(RED, path, None, "le résultat n'est pas un tableau Markdown.",
-                        "Recopier le résultat en tableau Markdown, avec ses colonnes (docs/agents/evidence.md).")
+                        "Recopier le résultat en tableau Markdown, avec ses colonnes (method/evidence.md).")
         elif any(not line.lstrip().startswith("|") for line in outside):
             self.report(RED, path, None, "des lignes sont hors du tableau Markdown du résultat.",
-                        "Mettre tout le résultat dans le tableau, et retirer le reste (docs/agents/evidence.md).")
+                        "Mettre tout le résultat dans le tableau, et retirer le reste (method/evidence.md).")
         if any(tag != "sql" for tag in tags):
             self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée (```sql).",
                         "Mettre le résultat dans le tableau, et retirer le bloc.")
@@ -437,10 +464,10 @@ class Repository:
                 if COUNT_COLUMN.match(name) and value.isdigit() and 0 < int(value) < 10:
                     self.report(RED, evidence["path"], name, "un effectif inférieur à 10 apparaît en clair.",
                                 "Ne pas conserver ce résultat ; corriger le masquage de la requête "
-                                "(docs/agents/privacy.md).")
+                                "(method/privacy.md).")
 
     def check_privacy(self, name, text):
-        stop = "Arrêter : ne pas diffuser ce fichier, prévenir le mainteneur (docs/agents/privacy.md)."
+        stop = "Arrêter : ne pas diffuser ce fichier, prévenir le mainteneur (method/privacy.md)."
         birth = ("Si c'est la date d'une personne : " + stop[0].lower() + stop[1:]
                  + " Si c'est un critère ou une période : écrire l'année seule, ou le mois et l'année.")
         text = normalized(text)
@@ -467,14 +494,14 @@ class Repository:
                 level = ORANGE if header["maturity"] == "provisional" else RED
                 self.report(level, claim["path"], "depends_on",
                             f"« {premise_id} » est le claim d'une autre personne, sans relecture à jour.",
-                            "Relire ce claim (docs/agents/review.md), ou garder ce claim en provisional.")
+                            "Relire ce claim (method/review.md), ou garder ce claim en provisional.")
             if header["lifecycle"] != "active":
                 continue
             chain = self.inactive_premises(claims, identifier)
             if chain:
                 self.report(ORANGE, claim["path"], "depends_on",
                             "à réexaminer : il s'appuie sur " + ", ".join(chain) + ".",
-                            "Revoir la conclusion ; la confirmer, la corriger ou la retirer (docs/agents/review.md).")
+                            "Revoir la conclusion ; la confirmer, la corriger ou la retirer (method/review.md).")
 
     def inactive_premises(self, claims, identifier):
         found, pending, seen = [], list(claims[identifier]["header"]["depends_on"]), {identifier}
@@ -516,6 +543,20 @@ class Repository:
         if not seen:
             self.fingerprints[identifier] = value
         return value
+
+    def check_places(self):
+        """Un fichier texte hors de sa place : sous un ancien dossier (method/adr/0018), ou non lu par le contrôle."""
+        for old, new in OLD_FOLDERS.items():
+            for path in sorted((self.root / old).rglob("*")):
+                if path.is_file():
+                    self.report(RED, self.relative(path), None,
+                                f"{old}/ est remplacé par {new} (method/adr/0018-ranger-par-type.md).",
+                                "Déplacer le fichier dans le dossier de son type (method/layout.md).")
+        read = {path for pattern in (*ROLES, GLOSSARIES, *READMES) for path in self.root.glob(pattern)}
+        for folder, (message, fix) in UNREAD.items():
+            for path in sorted((self.root / folder).rglob("*")):
+                if path.is_file() and path.suffix.lower() in SCANNED and path not in read:
+                    self.report(RED, self.relative(path), None, message, fix)
 
     def check_skill_copies(self):
         source, copy = self.root / ".agents" / "skills", self.root / ".claude" / "skills"
