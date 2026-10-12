@@ -44,7 +44,7 @@ Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro`
 
 ## Skills à installer soi-même
 
-Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt : writing-for-agents et domain-modeling. Elles servent à modifier les règles (skills, AGENTS.md, glossaires, ADR) : indispensables au mainteneur, conseillées à tous. Le dépôt n'en garde pas de copie (docs/adr/0000).
+Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt. writing-for-agents sert à écrire les règles : skills, AGENTS.md, docs/agents/. domain-modeling sert à préciser les termes et à écrire glossaires et ADR, dans les formats du dépôt (docs/adr/0015). Les deux sont indispensables au mainteneur et conseillées à tous. Le dépôt n'en garde pas de copie (docs/adr/0000).
 
 ## Le dépôt
 

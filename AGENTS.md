@@ -43,7 +43,7 @@ Les principes, un mot chacun :
 | corriger une friction | docs/agents/maintenance.md |
 | comprendre un message ROUGE ou ORANGE | docs/agents/checks.md |
 | comprendre un mot de la méthode | docs/agents/GLOSSARY.md |
-| savoir pourquoi une règle existe | docs/adr/ |
+| savoir pourquoi une règle existe, écrire un ADR | docs/adr/README.md |
 
 ## Agent skills
 
@@ -55,4 +55,4 @@ Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans 
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
 - **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
 
-Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/ ; jamais pour un claim) et domain-modeling.
+Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de docs/agents/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon docs/agents/layout.md (« Termes et glossaires »), un lien entre deux contextes comme un claim, un ADR selon docs/adr/README.md.
