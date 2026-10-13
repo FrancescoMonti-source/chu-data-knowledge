@@ -52,7 +52,10 @@ Avant d'écrire une chose, la classer :
 - **Une requête, une preuve ou un claim :** l'écrire dans le dépôt, sur la branche de l'enquête. Dans l'issue, écrire seulement l'id de la preuve, sans le résultat.
 - **Un plan, une hypothèse ou un test à faire :** l'écrire dans l'issue.
 
-Une preuve qu'aucun claim ne cite reste dans le dépôt : un claim futur s'en servira.
+Une preuve qu'aucun claim ne cite, avant que l'enquête entre dans la branche principale :
+
+- **une lecture :** la supprimer. Relire le document coûte peu.
+- **le résultat d'une requête :** le garder dans le dépôt, avec sa requête. Une nouvelle exécution demande une personne à l'hôpital.
 
 Une affirmation non éprouvée est une hypothèse, même quand un document la dit. La lecture du document est une preuve ; l'affirmation reste dans l'issue jusqu'à son test.
 
