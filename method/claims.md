@@ -2,6 +2,18 @@
 
 Un claim est une affirmation sur les données du CHU, soutenue par des preuves. Un fichier par claim, dans knowledge/claims/.
 
+Un claim s'écrit pour l'agent suivant, celui qui interrogera les données : il lui dit ce qu'il peut faire ou doit éviter. Une variable fiable ou non, et depuis quand ; une jointure ; un piège ; une méthode pour retrouver ou classer quelque chose. Les chiffres appuient le claim : ils vont dans son corps, rarement dans statement.
+
+## Entrer ou non
+
+Un claim entre s'il apprend à l'agent ce que les sources ne lui disent pas :
+
+- il contredit une source : le dictionnaire dit une chose, les données une autre ;
+- il dit ce qu'aucune source ne dit et qui change la façon d'interroger : un piège, une période de validité, une jointure, une méthode ;
+- il pose une décision de l'équipe.
+
+Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus : elle reste dans l'issue de la question, avec sa requête et son résultat, jusqu'à ce qu'un claim s'en serve.
+
 ```markdown
 ---
 review: unreviewed
@@ -18,6 +30,12 @@ tables: [cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261008-mvt-rum]
 depends_on: []
 ---
+## Pour s'en servir
+
+Joindre TB_MVT à TB_MVT_RUM par ID_MVT pour passer d'un mouvement à ses RUM.
+
+## Ce qui l'appuie
+
 Raisonnement et limites.
 
 Points ouverts : non vérifié sur l'instance de production.
@@ -31,7 +49,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
 | author | la personne pour qui l'agent écrit (« Les personnes ») |
-| statement | l'affirmation, en une phrase |
+| statement | l'affirmation, en une phrase, dite pour qui interroge les données : ce qu'une variable permet ou non, une règle, un piège |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
 | lifecycle | active · challenged · superseded · withdrawn |
@@ -53,7 +71,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 - **documentary :** ce qu'un document dit. Cite au moins une lecture.
 - **empirical :** ce qu'on observe dans les données. Ajoute refuted_if : l'observation qui le contredirait, c'est-à-dire le test à lancer pour l'éprouver.
-- **decision :** un choix de l'équipe qui vaut pour toutes les enquêtes, par exemple une façon de compter adoptée au CHU. Ajoute responsible (qui a décidé) et reconsider_when (ce qui ferait revoir le choix). Il cite la lecture du document où il est écrit (compte rendu, note : une source local). Une décision propre à une enquête n'est pas un claim : c'est une ligne de la section Choix de son README (investigations/README.md, « Choix »).
+- **decision :** un choix de l'équipe qui vaut pour toutes les enquêtes, par exemple une façon de compter adoptée au CHU, ou une méthode pour reconstruire ce qu'une variable ne donne pas (classer les séjours par type de prise en charge). Ajoute responsible (qui a décidé) et reconsider_when (ce qui ferait revoir le choix). Il cite la lecture du document où il est écrit (compte rendu, note : une source local). Une décision propre à une enquête n'est pas un claim : c'est une ligne de la section Choix de son README (investigations/README.md, « Choix »).
 
 ## Maturité
 
@@ -67,13 +85,18 @@ Un claim peut ne citer que des prémisses (supported_by: []) : c'est le cas de l
 
 ## Taille
 
-Un claim est ce qu'on peut réfuter avec un seul test. Deux affirmations sont séparées si l'une peut être fausse alors que l'autre reste vraie, ou si quelqu'un pourrait réutiliser l'une sans l'autre. Le raisonnement qui tient ou tombe avec elle reste dans le corps.
+Un claim est ce qu'on peut réfuter avec un seul test. Deux affirmations sont séparées si l'une peut être fausse alors que l'autre reste vraie, ou si quelqu'un pourrait réutiliser l'une sans l'autre. Le raisonnement qui tient ou tombe avec elle reste dans le corps, comme les chiffres qui ne servent qu'à l'appuyer : on ne fait pas un claim par chiffre, mais un claim par usage.
+
+Une règle d'usage qui découle d'un constat se sépare de lui quand elle dépend d'un choix : le constat (« TYPE_SEJOUR change de codage en 2020 ») est empirical ; la méthode qu'on adopte à la place est un claim decision qui déclare depends_on vers lui.
 
 La réponse à une question combine plusieurs faits : elle devient un claim d'enquête qui déclare depends_on vers les claims atomiques. Si l'un d'eux tombe, on sait quoi revoir.
 
 ## Le corps
 
-Sous l'en-tête : le raisonnement et les limites, puis « Points ouverts : … ». Ce qui n'est pas vérifié va dans les points ouverts.
+Sous l'en-tête, deux sections :
+
+- **Pour s'en servir :** ce que l'agent fait de ce claim quand il interroge les données. La variable à prendre ou à éviter, le filtre, la jointure, les étapes d'une méthode, ou le claim qui les donne. Un agent qui ne lit que cette section sait quoi faire.
+- **Ce qui l'appuie :** le raisonnement, les chiffres tirés des preuves, les limites, puis « Points ouverts : … ». Ce qui n'est pas vérifié va dans les points ouverts.
 
 ## Autorité
 
