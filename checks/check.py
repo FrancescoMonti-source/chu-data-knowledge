@@ -135,12 +135,12 @@ def table_rows(text):
 
 
 def definitions(text):
-    """Les termes d'un glossaire : (terme, définition), la définition allant jusqu'au titre suivant."""
+    """Les termes d'un glossaire : (terme, définition), la définition allant jusqu'au terme suivant.
+    Couper plus tôt, à un « # » dans un bloc de code par exemple, laisserait une relecture à jour à tort."""
     text = normalized(text)
-    for match in TERM_HEADING.finditer(text):
-        rest = text[match.end():]
-        following = re.search(r"^#", rest, re.MULTILINE)
-        yield match.group(1), rest[:following.start() if following else len(rest)].strip()
+    matches = list(TERM_HEADING.finditer(text))
+    for match, end in zip(matches, [m.start() for m in matches[1:]] + [len(text)]):
+        yield match.group(1), text[match.end():end].strip()
 
 
 def query_header(text):
