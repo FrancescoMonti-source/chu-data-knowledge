@@ -25,7 +25,7 @@ Relier le séjour à son RSS par les mouvements (TB_MVT → TB_MVT_RUM → TB_SY
 
 Un séjour qui porte plusieurs RSS (rare) se classe sur un RSS choisi explicitement ; le dire dans l'analyse.
 
-## Raisons et limites
+## Ce qui l'appuie
 
 TYPE_SEJOUR change de codage en 2020-2021 (type-sejour-non-fiable). Le RSS porte les informations du groupage, stables dans le temps.
 
