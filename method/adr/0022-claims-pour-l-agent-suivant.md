@@ -19,7 +19,7 @@ La base de connaissances de dim-code avait une section « Comment l'appliquer »
 
 ## Décision
 
-- claims.md dit qu'un claim s'écrit pour l'agent suivant, et ajoute « Entrer ou non » : un claim entre s'il contredit une source, s'il dit ce qu'aucune source ne dit et qui change la façon d'interroger, ou s'il pose une décision. Pas de claim qui recopie une source ; pas de claim pour une mesure qui n'oriente aucun usage (elle reste dans l'issue).
+- claims.md dit qu'un claim s'écrit pour l'agent suivant, et ajoute « Ce qui mérite un claim » : un claim entre s'il contredit une source, s'il dit ce qu'aucune source ne dit et qui change la façon d'interroger, ou s'il pose une décision. Pas de claim qui recopie une source ; pas de claim pour une mesure qui n'oriente aucun usage (elle reste dans l'issue).
 - statement est dit pour qui interroge les données ; les chiffres vont dans le corps.
 - « Taille » : un claim par usage, pas un claim par chiffre. Une méthode adoptée à la suite d'un constat est un claim decision qui dépend du constat empirical.
 - decision couvre aussi une méthode pour reconstruire ce qu'une variable ne donne pas.
