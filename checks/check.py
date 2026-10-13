@@ -45,11 +45,13 @@ ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence"
 GLOSSARIES = "knowledge/glossaries/*.md"
 READMES = ("investigations/README.md", "investigations/*/README.md")
 UNREAD = {
-    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier.",
-                  "Le ranger dans knowledge/claims/, evidence/, queries/ (.sql) ou glossaries/ (method/layout.md)."),
+    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier, "
+                  "et des fichiers .md (.sql pour les requêtes).",
+                  "Le ranger dans knowledge/claims/, evidence/, queries/ ou glossaries/, au format de son type "
+                  "(method/layout.md)."),
     "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
-                       "Un claim va dans knowledge/claims/, une preuve dans knowledge/evidence/ "
-                       "(investigations/README.md)."),
+                       "Un claim va dans knowledge/claims/ ; un résultat devient une preuve de knowledge/evidence/, "
+                       "après le filtre de method/privacy.md."),
 }
 OLD_FOLDERS = {"systems": "knowledge/", "domains": "knowledge/",
                "docs/agents": "method/", "docs/adr": "method/adr/"}
@@ -550,7 +552,8 @@ class Repository:
         return value
 
     def check_places(self):
-        """Un fichier texte hors de sa place : sous un ancien dossier (method/adr/0018), ou non lu par le contrôle."""
+        """Un fichier hors de sa place : sous un ancien dossier, ou non lu par le contrôle dans knowledge/ ou
+        investigations/ ; un fichier caché, comme .gitkeep, reste permis (method/adr/0018)."""
         for old, new in OLD_FOLDERS.items():
             for path in sorted((self.root / old).rglob("*")):
                 if path.is_file():
@@ -560,7 +563,7 @@ class Repository:
         read = {path for pattern in (*ROLES, GLOSSARIES, *READMES) for path in self.root.glob(pattern)}
         for folder, (message, fix) in UNREAD.items():
             for path in sorted((self.root / folder).rglob("*")):
-                if path.is_file() and path.suffix.lower() in SCANNED and path not in read:
+                if path.is_file() and not path.name.startswith(".") and path not in read:
                     self.report(RED, self.relative(path), None, message, fix)
 
     def check_skill_copies(self):
