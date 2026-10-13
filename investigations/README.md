@@ -42,3 +42,12 @@ Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .gith
 
 - Un plan revu est un nouveau commentaire « Plan revu », avec sa raison. Le plan valable est le dernier. La raison va aussi dans Choix : l'issue finit fermée, le README reste.
 - Sans `gh`, la personne fait le lien : elle colle l'issue dans la conversation pour que l'agent la lise, et colle dans l'issue le texte que l'agent lui donne.
+
+## L'issue ou le dépôt
+
+L'issue porte le travail en cours ; le dépôt garde ce qu'on a observé. Avant d'écrire quelque chose, une seule question : d'où vient-il ?
+
+- **De l'hôpital ou d'un document :** dans le dépôt, sur la branche de l'enquête qui l'a produit. La requête dans knowledge/queries/, la preuve dans knowledge/evidence/, le claim s'il y en a un. L'issue cite l'id de la preuve, sans recopier le résultat. Une preuve qu'aucun claim ne cite encore reste dans le dépôt, prête pour le claim qui s'en servira.
+- **De ce qu'on prévoit ou suppose :** dans l'issue. Le plan, les hypothèses, les tests à faire, et une affirmation pas encore éprouvée, même lue ailleurs.
+
+Raison : le contrôle et research ne lisent que le dépôt, et l'issue finit fermée.
