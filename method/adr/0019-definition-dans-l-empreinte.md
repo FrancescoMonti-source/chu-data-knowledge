@@ -1,6 +1,6 @@
 # 0019 — La définition d'un terme entre dans l'empreinte
 
-Statut : proposé, 2026-10-13 (revue de conception après 0018, demandée par Francesco ; en attente de sa décision).
+Statut : accepté, 2026-10-13 (Francesco, sur la carte de décision de la revue de conception après 0018).
 
 ## Contexte
 
