@@ -338,6 +338,23 @@ class RepositoryTest(unittest.TestCase):
         self.assertClean()
         self.edit("knowledge/glossaries/cora.md", "Alias : résumé d'unité", "Alias : résumé d'unité, RUM CORA")
         self.assertClean()
+        self.edit("knowledge/glossaries/cora.md", "Alias : résumé d'unité, RUM CORA\n\n", "")
+        self.assertClean()
+
+    def test_alias_like_text_in_definition_counts_in_fingerprint(self):
+        examples = {
+            "fenced block": "```text\nAlias : une ligne par UF.\n```",
+            "definition body": "Un RUM.\n\nAlias : une ligne par UF.",
+            "multiline text": "Alias\n: une ligne par UF.",
+            "indented block": "    Alias : une ligne par UF.",
+        }
+        for placement, definition in examples.items():
+            with self.subTest(placement=placement):
+                self.write(FILES)
+                self.edit("knowledge/glossaries/cora.md", "Un RUM.", definition)
+                self.review("mvt-rum-lien", by="Marie")
+                self.edit("knowledge/glossaries/cora.md", "une ligne par UF.", "une ligne par séjour.")
+                self.assertProblem(ORANGE, "knowledge/claims/mvt-rum-lien.md", "périmée")
 
     def test_fingerprint_ignores_review_and_line_endings(self):
         before = self.current("mvt-rum-lien")
