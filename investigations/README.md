@@ -52,10 +52,12 @@ Avant d'écrire une chose, la classer :
 - **Une requête, une preuve ou un claim :** l'écrire dans le dépôt, sur la branche de l'enquête. Dans l'issue, écrire seulement l'id de la preuve, sans le résultat.
 - **Un plan, une hypothèse ou un test à faire :** l'écrire dans l'issue.
 
-Une preuve qu'aucun claim ne cite, avant que l'enquête entre dans la branche principale :
+Une preuve qu'aucun claim ne cite :
 
-- **une lecture :** la supprimer. Relire le document coûte peu.
-- **le résultat d'une requête :** le garder dans le dépôt, avec sa requête. Une nouvelle exécution demande une personne à l'hôpital.
+- **le résultat d'une requête :** il reste dans le dépôt tant que l'issue ouverte d'une enquête le cite. Si l'enquête se ferme sans claim qui le cite, la preuve et sa requête sont supprimées (sediment, étape 6).
+- **une lecture :** la supprimer avant le merge. Relire le document coûte peu.
+
+Un claim jugé inutile avant le merge part avec ce qui ne servait qu'à lui : preuves, requêtes, termes. Après le merge, il passe en withdrawn (method/claims.md).
 
 Une affirmation non éprouvée est une hypothèse, même quand un document la dit. La lecture du document est une preuve ; l'affirmation reste dans l'issue jusqu'à son test.
 
