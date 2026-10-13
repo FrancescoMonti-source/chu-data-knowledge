@@ -1,32 +1,44 @@
-# 0023 — L'issue porte le travail en cours, le dépôt ce qu'on a observé
+# 0023 — L'issue garde le travail à faire, le dépôt garde ce qu'on a observé
 
 Statut : proposé, 2026-10-13 (Francesco, après la discussion de la PR de 0022). À accepter par le mainteneur.
 
 ## Contexte
 
-investigations/README.md mettait deux choses dans l'issue d'une enquête : le plan, et un commentaire par nouvelle preuve qui donne son id. Rien ne disait ce qui n'y va pas.
+investigations/README.md disait ce qui va dans l'issue d'une enquête : le plan, et un commentaire par nouvelle preuve, avec son id. Il ne disait pas ce qui va ailleurs.
 
-L'issue #25 (les séjours CORA sans RSS) mêle trois sortes de choses : le plan et des hypothèses ; le tableau d'un résultat rapporté de l'hôpital, avec sa requête ; une affirmation reprise de dim-code, non éprouvée. La requête et la preuve de ce résultat ont été retirées de la branche de l'enquête, faute de claim pour les citer. Le résultat ne vit plus que dans l'issue.
+L'issue #25 (les séjours CORA sans RSS) contient trois sortes de choses :
 
-Une issue est hors des fichiers du dépôt. check.py ne la lit pas : le contrôle des effectifs de 1 à 9 (method/privacy.md) n'y passe pas. research cherche dans le dépôt : l'agent suivant ne trouve pas le résultat et risque de redemander le même relay. Et l'issue finit fermée.
+- un plan, des hypothèses et des tests à faire ;
+- le résultat d'une requête exécutée à l'hôpital, avec la requête ;
+- une affirmation de dim-code, non éprouvée.
+
+La requête et sa preuve ne sont plus dans le dépôt : aucun claim ne les citait, et l'enquête les a retirées de sa branche. Le résultat est maintenant seulement dans l'issue.
+
+Une issue n'est pas un fichier du dépôt. Trois conséquences :
+
+- check.py ne lit pas l'issue. Le contrôle des effectifs de 1 à 9 (method/privacy.md) ne s'applique pas au résultat.
+- research cherche dans le dépôt. L'agent suivant ne trouve pas le résultat, et peut demander le même relay une deuxième fois.
+- L'issue finit fermée.
 
 ## Décision
 
-investigations/README.md reçoit la section « L'issue ou le dépôt », avec une seule question : d'où vient ce qu'on écrit ?
+investigations/README.md reçoit la section « L'issue ou le dépôt ». Avant d'écrire une chose, l'agent la classe :
 
-- De l'hôpital ou d'un document : dans le dépôt (requête, preuve, claim s'il y en a un). L'issue cite l'id de la preuve, sans recopier le résultat. Une preuve qu'aucun claim ne cite encore reste dans le dépôt.
-- De ce qu'on prévoit ou suppose : dans l'issue (plan, hypothèses, tests à faire, affirmation pas encore éprouvée).
+- une requête, une preuve ou un claim : dans le dépôt. L'issue donne seulement l'id de la preuve.
+- un plan, une hypothèse ou un test à faire : dans l'issue.
 
-AGENTS.md, « Où lire », renvoie à cette section avant d'écrire dans une issue.
+Une preuve qu'aucun claim ne cite reste dans le dépôt. Une affirmation non éprouvée est une hypothèse, même quand un document la dit.
+
+Dans AGENTS.md, « Où lire » envoie à investigations/README.md avant d'écrire dans une issue.
 
 ## Raisons
 
 - Tout ce qui vient de l'hôpital passe par le contrôle et reste trouvable : privacy-by-design, single-source-of-truth.
-- Le contrôle permet déjà une preuve qu'aucun claim ne cite : rien à changer dans checks/.
+- Le contrôle accepte déjà une preuve qu'aucun claim ne cite : checks/ ne change pas.
 
 ## Conséquences
 
-- Les issues friction suivent déjà cette ligne : aucun extrait de résultat (retro, étape 4).
-- Si 0022 est accepté, sa phrase « elle reste dans l'issue de la question, avec sa requête et son résultat » est à remplacer : la mesure n'est pas un claim, mais sa preuve reste dans le dépôt.
-- Pour #25 : remettre la requête 20261013-sejours-sans-rss et sa preuve sur la branche investigation/fondations-cora, et remplacer le tableau de l'issue par l'id de la preuve.
+- Les issues friction suivent déjà cette règle : aucun extrait de résultat (retro, étape 4).
+- Si 0022 est accepté, une phrase de claims.md change. Elle dit qu'une mesure sans usage « reste dans l'issue de la question, avec sa requête et son résultat ». Avec 0023, la mesure n'est pas un claim, mais sa requête et sa preuve restent dans le dépôt.
+- Pour #25 : remettre la requête 20261013-sejours-sans-rss et sa preuve sur la branche investigation/fondations-cora. Dans l'issue, remplacer le tableau par l'id de la preuve.
 - La règle reste une règle de confiance : le contrôle ne lit pas les issues.

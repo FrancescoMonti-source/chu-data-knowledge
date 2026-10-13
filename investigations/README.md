@@ -45,9 +45,17 @@ Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .gith
 
 ## L'issue ou le dépôt
 
-L'issue porte le travail en cours ; le dépôt garde ce qu'on a observé. Avant d'écrire quelque chose, une seule question : d'où vient-il ?
+L'issue d'une enquête garde le travail à faire. Le dépôt garde ce qu'on a observé.
 
-- **De l'hôpital ou d'un document :** dans le dépôt, sur la branche de l'enquête qui l'a produit. La requête dans knowledge/queries/, la preuve dans knowledge/evidence/, le claim s'il y en a un. L'issue cite l'id de la preuve, sans recopier le résultat. Une preuve qu'aucun claim ne cite encore reste dans le dépôt, prête pour le claim qui s'en servira.
-- **De ce qu'on prévoit ou suppose :** dans l'issue. Le plan, les hypothèses, les tests à faire, et une affirmation pas encore éprouvée, même lue ailleurs.
+Avant d'écrire une chose, la classer :
 
-Raison : le contrôle et research ne lisent que le dépôt, et l'issue finit fermée.
+- **Une requête, une preuve ou un claim :** l'écrire dans le dépôt, sur la branche de l'enquête. Dans l'issue, écrire seulement l'id de la preuve, sans le résultat.
+- **Un plan, une hypothèse ou un test à faire :** l'écrire dans l'issue.
+
+Une preuve qu'aucun claim ne cite reste dans le dépôt : un claim futur s'en servira.
+
+Une affirmation non éprouvée est une hypothèse, même quand un document la dit. La lecture du document est une preuve ; l'affirmation reste dans l'issue jusqu'à son test.
+
+Exemple : le résultat d'une requête sur les séjours sans RSS est une preuve, dans knowledge/evidence/. « La plupart des séjours sans RSS sont des consultations externes » est une hypothèse, dans l'issue.
+
+Raison : le contrôle et research lisent seulement le dépôt, et l'issue finit fermée.
