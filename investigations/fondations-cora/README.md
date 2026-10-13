@@ -20,5 +20,5 @@ Comparaison : sans objet.
 - Le lien séjour → RSS passe par les mouvements (TB_MVT → TB_MVT_RUM) ; la jointure directe par TB_SYNTH_RSS.ID_SEJOUR est contestée dans dim-code et n'est pas utilisée ici.
 
 ## Conclusions
-- type-sejour-hdj-depuis-2020 (unreviewed)
-- type-sejour-mco-hospit-une-nuit (unreviewed)
+- type-sejour-non-fiable (unreviewed)
+- type-prise-en-charge-mco (unreviewed)
