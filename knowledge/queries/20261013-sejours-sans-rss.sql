@@ -1,0 +1,24 @@
+-- id: 20261013-sejours-sans-rss
+-- system: cora
+-- person_data: masked
+-- purpose: part des séjours clôturés sans RSS, par année de sortie (étape 2 du plan)
+-- Oracle. Lien séjour → RSS par les mouvements : TB_MVT → TB_MVT_RUM (ID_RSS renseigné).
+-- N_SEJ_SANS_RSS_0J : séjours sans RSS sortis le jour de leur entrée.
+SELECT '20261013-sejours-sans-rss' AS query_id,
+       SYS_CONTEXT('USERENV', 'DB_NAME') AS database_name,
+       TO_CHAR(SYSTIMESTAMP, 'YYYY-MM-DD HH24:MI') AS run_at,
+       EXTRACT(YEAR FROM s.DATE_SORTIE) AS ANNEE_SORTIE,
+       CASE WHEN COUNT(*) < 10 THEN '<10' ELSE TO_CHAR(COUNT(*)) END AS N_SEJ,
+       CASE WHEN SUM(CASE WHEN r.ID_SEJOUR IS NULL THEN 1 ELSE 0 END) < 10 THEN '<10'
+            ELSE TO_CHAR(SUM(CASE WHEN r.ID_SEJOUR IS NULL THEN 1 ELSE 0 END)) END AS N_SEJ_SANS_RSS,
+       CASE WHEN SUM(CASE WHEN r.ID_SEJOUR IS NULL AND TRUNC(s.DATE_SORTIE) = TRUNC(s.DATE_ENTREE) THEN 1 ELSE 0 END) < 10 THEN '<10'
+            ELSE TO_CHAR(SUM(CASE WHEN r.ID_SEJOUR IS NULL AND TRUNC(s.DATE_SORTIE) = TRUNC(s.DATE_ENTREE) THEN 1 ELSE 0 END)) END AS N_SEJ_SANS_RSS_0J
+FROM TB_SEJOUR s
+LEFT JOIN (SELECT DISTINCT m.ID_SEJOUR
+           FROM TB_MVT m
+           JOIN TB_MVT_RUM mr ON mr.ID_MVT = m.ID_MVT
+           WHERE mr.ID_RSS IS NOT NULL) r ON r.ID_SEJOUR = s.ID_SEJOUR
+WHERE s.DATE_SORTIE >= DATE '2014-01-01'
+  AND s.DATE_SORTIE < DATE '2026-01-01'
+GROUP BY EXTRACT(YEAR FROM s.DATE_SORTIE)
+ORDER BY ANNEE_SORTIE;
