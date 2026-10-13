@@ -1,6 +1,6 @@
 # 0019 — La définition d'un terme entre dans l'empreinte
 
-Statut : accepté, 2026-10-13 (Francesco, sur la carte de décision de la revue de conception après 0018).
+Statut : accepté, 2026-10-13 (Francesco, sur la carte de décision de la revue de conception après 0018). Modifié par 0020 : la ligne « Aussi dit » reste hors de l'empreinte.
 
 ## Contexte
 

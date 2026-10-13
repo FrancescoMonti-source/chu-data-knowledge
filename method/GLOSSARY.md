@@ -17,6 +17,9 @@ La fiche d'un document : titre, éditeur, édition, où le trouver, autorité. U
 ## contexte
 Le modèle dans lequel un terme a un sens : un système ou un domaine. La carte les liste (knowledge/glossaries/README.md). Un terme s'écrit avec son contexte : cora:mouvement.
 
+## aussi dit
+Les autres mots employés pour un terme, sur une ligne sous son titre dans le glossaire. Ils servent à la recherche, pas au sens. Voir layout.md, « Termes et glossaires ».
+
 ## pont
 Un claim dont les terms viennent de deux contextes. Il dit comment deux modèles se correspondent.
 
