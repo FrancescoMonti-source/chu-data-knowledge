@@ -134,6 +134,15 @@ def table_rows(text):
             yield columns, cells
 
 
+def definitions(text):
+    """Les termes d'un glossaire : (terme, définition), la définition allant jusqu'au titre suivant."""
+    text = normalized(text)
+    for match in TERM_HEADING.finditer(text):
+        rest = text[match.end():]
+        following = re.search(r"^#", rest, re.MULTILINE)
+        yield match.group(1), rest[:following.start() if following else len(rest)].strip()
+
+
 def query_header(text):
     """Lit les lignes « -- clé: valeur » au début d'un fichier .sql."""
     header, body = {}, []
@@ -155,7 +164,7 @@ class Repository:
         self.problems = []
         self.records = {}
         self.contexts = set()
-        self.terms = set()
+        self.terms = {}
         self.fingerprints = {}
 
     def report(self, level, path, field, message, fix):
@@ -181,14 +190,17 @@ class Repository:
             if glossary.name == "README.md":  # la carte des contextes, pas un glossaire
                 continue
             self.contexts.add(glossary.stem)
-            for term in TERM_HEADING.findall(glossary.read_text(encoding="utf-8", errors="replace")):
-                if term.startswith(glossary.stem + ":"):
-                    self.terms.add(term)
-                else:
+            for term, definition in definitions(glossary.read_text(encoding="utf-8", errors="replace")):
+                if not term.startswith(glossary.stem + ":"):
                     self.report(RED, self.relative(glossary), None,
                                 f"« {term} » n'est pas un terme du contexte {glossary.stem}.",
                                 f"Le définir dans knowledge/glossaries/{term.split(':')[0]}.md, "
                                 "le glossaire de son contexte.")
+                elif term in self.terms:
+                    self.report(RED, self.relative(glossary), None, f"« {term} » est défini deux fois.",
+                                "Garder une seule définition, sous un seul titre ## " + term + ".")
+                else:
+                    self.terms[term] = definition
         for pattern, role in ROLES.items():
             for path in sorted(self.root.glob(pattern)):
                 self.add(path, role)
@@ -530,12 +542,14 @@ class Repository:
                 and review.get("fingerprint") == self.fingerprint(claim["header"]["id"]))
 
     def fingerprint(self, identifier, seen=()):
-        """Empreinte du claim, de ses preuves (avec requête ou source) et de ses prémisses."""
+        """Empreinte du claim, de la définition de ses termes, de ses preuves (avec requête ou source)
+        et de ses prémisses."""
         if not seen and identifier in self.fingerprints:
             return self.fingerprints[identifier]
         claim = self.records[identifier]
         header = {key: value for key, value in claim["header"].items() if key not in ("review", "lifecycle")}
         parts = [json.dumps(header, sort_keys=True, ensure_ascii=False), claim["body"]]
+        parts += [self.terms.get(term, "absent:" + term) for term in header.get("terms", [])]
         for evidence_id in header.get("supported_by", []):
             evidence = self.records.get(evidence_id, {})
             parts.append(evidence.get("text", "absent:" + evidence_id))

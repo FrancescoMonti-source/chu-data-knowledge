@@ -39,7 +39,7 @@ La réponse à la question d'une enquête, construite sur des claims atomiques. 
 Le contrôle d'un claim au moment où on le réutilise : par une autre personne (reviewed), ou par son auteur dans une nouvelle session (author-reread). Voir review.md.
 
 ## empreinte (fingerprint)
-Un code de 12 caractères calculé à partir d'un claim, de ses preuves et de ses prémisses. Si l'un d'eux change, l'empreinte change et la relecture est périmée.
+Un code de 12 caractères calculé à partir d'un claim, de la définition de ses termes, de ses preuves et de ses prémisses. Si l'un d'eux change, l'empreinte change et la relecture est périmée.
 
 ## friction
 Tout accroc pendant une session. La retro (.agents/skills/retro/SKILL.md) les relève et en fait des issues GitHub avec l'étiquette friction.
