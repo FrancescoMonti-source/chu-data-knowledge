@@ -433,9 +433,17 @@ class RepositoryTest(unittest.TestCase):
         self.write({"knowledge/queries/.gitkeep": ""})
         self.assertClean()
 
+    def test_hidden_system_file_is_left_alone(self):
+        self.write({"knowledge/claims/.DS_Store": "\x00\x00\x00\x01Bud1"})
+        self.assertClean()
+
     def test_knowledge_has_no_subject_folders(self):
         self.write({"knowledge/claims/cora/mvt-annuel.md": claim("mvt-annuel")})
         self.assertProblem(RED, "knowledge/claims/cora/mvt-annuel.md", "sous-dossier")
+
+    def test_raw_export_in_an_investigation_is_red(self):
+        self.write({"investigations/uf-vs-rum/resultat.xlsx": "PK\x03\x04"})
+        self.assertProblem(RED, "investigations/uf-vs-rum/resultat.xlsx", "README.md")
 
     def test_investigation_holds_only_its_readme(self):
         self.write({"investigations/uf-vs-rum/claims/reponse.md": claim("reponse")})

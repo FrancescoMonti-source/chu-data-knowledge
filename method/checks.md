@@ -29,7 +29,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
 | ROUGE | depends_on vers le claim d'une autre personne sans relecture à jour (ORANGE si le claim est provisional) |
 | ROUGE | .claude/skills identique à .agents/skills |
-| ROUGE | aucun fichier sous systems/, domains/, docs/agents/ ou docs/adr/ (anciens dossiers, method/adr/0018) ; dans knowledge/ et investigations/, aucun fichier texte que le contrôle ne lit pas (layout.md) |
+| ROUGE | aucun fichier sous systems/, domains/, docs/agents/ ou docs/adr/ (anciens dossiers, method/adr/0018) ; dans knowledge/ et investigations/, aucun fichier que le contrôle ne lit pas, sauf un fichier caché comme .gitkeep (layout.md) |
 | ORANGE | relecture périmée : l'empreinte a changé |
 | ORANGE | prémisse, même indirecte, challenged, superseded ou withdrawn : à réexaminer |
 
@@ -37,6 +37,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 
 - Le contrôle voit que le masquage est présent, pas qu'il est juste (surtout la suppression secondaire).
 - La recherche de valeurs ne garantit pas l'anonymat : un nom, une adresse ou un IPP ne sont pas reconnus.
+- Les valeurs ne sont cherchées que dans les fichiers texte connus (SCANNED, dans check.py) : hors de knowledge/ et investigations/, un export brut (.xlsx, .rpt) n'est pas lu.
 - Les effectifs de 1 à 9 ne sont cherchés que dans les colonnes N_ et NB_ (queries.md, règle 1).
 - L'author et le relecteur sont déclarés, pas prouvés.
 - Aucun contrôle ne sait si un claim est vrai.
