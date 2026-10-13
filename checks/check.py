@@ -22,7 +22,7 @@ import yaml
 RED, ORANGE = "ROUGE", "ORANGE"
 ID_PATTERN = re.compile(r"[a-z0-9][a-z0-9-]*")
 TERM_HEADING = re.compile(r"^##\s+([\w-]+:[\w-]+)\s*$", re.MULTILINE)
-ALIASES = re.compile(r"^Aussi dit\s*:.*$\n?", re.MULTILINE)
+ALIASES = re.compile(r"^Alias\s*:.*$\n?", re.MULTILINE)
 
 CLAIM_FIELDS = ("review", "id", "kind", "author", "statement", "scope", "maturity",
                 "lifecycle", "terms", "tables", "supported_by", "depends_on")
@@ -138,7 +138,7 @@ def table_rows(text):
 def definitions(text):
     """Les termes d'un glossaire : (terme, définition), la définition allant jusqu'au terme suivant.
     Couper plus tôt, à un « # » dans un bloc de code par exemple, laisserait une relecture à jour à tort.
-    La ligne « Aussi dit : » sert à la recherche, pas au sens : elle reste hors de la définition (0020)."""
+    La ligne « Alias : » sert à la recherche, pas au sens : elle reste hors de la définition (0021)."""
     text = normalized(text)
     matches = list(TERM_HEADING.finditer(text))
     for match, end in zip(matches, [m.start() for m in matches[1:]] + [len(text)]):

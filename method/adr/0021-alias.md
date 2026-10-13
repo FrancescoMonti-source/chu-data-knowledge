@@ -1,4 +1,4 @@
-# 0020 — La ligne « Aussi dit » dans les glossaires
+# 0021 — Les alias dans les glossaires
 
 Statut : proposé, 2026-10-13 (Pierre, avant la migration de la base de connaissances de dim-code). À accepter par le mainteneur.
 
@@ -10,14 +10,14 @@ Un agent cherche ce que sait le dépôt à partir des termes d'une question (lay
 
 ## Décision
 
-- Sous le titre `## ctx:terme`, une ligne facultative `Aussi dit : mot, mot, …` liste les autres mots employés pour le terme, sigles et jargon compris.
-- Elle sert à la recherche : research cherche les mots de la question dans les glossaires, titres et lignes « Aussi dit », pour trouver les termes.
+- Sous le titre `## ctx:terme`, une ligne facultative `Alias : mot, mot, …` liste les alias du terme : les autres mots employés pour lui, sigles et jargon compris.
+- Elle sert à la recherche : research cherche les mots de la question dans les glossaires, titres et lignes « Alias », pour trouver les termes.
 - Elle ne fait pas partie de la définition : le contrôle la retire avant de calculer l'empreinte. Ajouter un mot ne périme aucune relecture.
 - Un mot qui a un autre sens dans le même contexte n'y entre pas : c'est un autre terme.
 
 ## Raisons
 
-- La ligne _Avoid_ dit quels mots ne pas écrire ; la recherche a besoin des mots que les gens emploient. Ce sont souvent les mêmes, mais l'intention change ce qu'un agent y met : « Aussi dit » décrit, _Avoid_ prescrit.
+- La ligne _Avoid_ dit quels mots ne pas écrire ; la recherche a besoin des mots que les gens emploient. Ce sont souvent les mêmes, mais l'intention change ce qu'un agent y met : « Alias » décrit, _Avoid_ prescrit.
 - Hors de l'empreinte : un alias ne change pas ce que dit un claim. Avec 0019 seul, enrichir un glossaire pendant la migration périmerait la relecture de chaque claim qui cite le terme.
 - Une ligne de texte, lue par git grep : pas d'index, pas de nouveau fichier (layout.md, « Retrouver ce qu'on sait »).
 
@@ -29,5 +29,5 @@ Un agent cherche ce que sait le dépôt à partir des termes d'une question (lay
 
 ## Conséquences
 
-- Un mot ajouté à tort dans « Aussi dit » ne se voit pas à la relecture des claims : la ligne est relue avec le glossaire. Règle de confiance : un mot à double sens n'y entre pas.
+- Un mot ajouté à tort dans la ligne « Alias » ne se voit pas à la relecture des claims : la ligne est relue avec le glossaire. Règle de confiance : un mot à double sens n'y entre pas.
 - Le contrôle ne vérifie ni la place de la ligne ni qu'un même mot n'appartient pas à deux termes du même contexte. À ajouter si une friction le demande.

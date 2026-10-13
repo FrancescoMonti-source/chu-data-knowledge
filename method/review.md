@@ -29,7 +29,7 @@ review:
 
 ## Relecture périmée
 
-L'empreinte couvre l'en-tête du claim (sauf review et lifecycle), son corps, la définition de ses termes dans leur glossaire (sans la ligne « Aussi dit »), le texte de ses preuves avec leur requête ou leur source, et l'empreinte de ses prémisses. Si l'un d'eux change, la relecture est périmée : ORANGE. Une contestation ne périme pas la relecture : elle passe par lifecycle, et les claims qui dépendent du claim contesté reçoivent leur propre ORANGE (« Contestation »). On relit à nouveau et on recopie la nouvelle empreinte. Pour ceux qui en dépendent, un claim à la relecture périmée compte comme non relu.
+L'empreinte couvre l'en-tête du claim (sauf review et lifecycle), son corps, la définition de ses termes dans leur glossaire (sans la ligne « Alias »), le texte de ses preuves avec leur requête ou leur source, et l'empreinte de ses prémisses. Si l'un d'eux change, la relecture est périmée : ORANGE. Une contestation ne périme pas la relecture : elle passe par lifecycle, et les claims qui dépendent du claim contesté reçoivent leur propre ORANGE (« Contestation »). On relit à nouveau et on recopie la nouvelle empreinte. Pour ceux qui en dépendent, un claim à la relecture périmée compte comme non relu.
 
 ## Contestation
 
