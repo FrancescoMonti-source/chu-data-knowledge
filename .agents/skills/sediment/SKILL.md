@@ -5,8 +5,8 @@ description: Transformer les preuves d'une enquête en claims et les faire entre
 
 # sediment
 
-1. **Écrire les claims.** Un claim par test possible (claims.md, « Taille »), dans knowledge/claims/, avec ses termes dans terms, ses preuves dans supported_by et ses prémisses dans depends_on. La réponse à la question devient un claim d'enquête qui dépend des claims atomiques.
-   Fini quand : chaque conclusion de l'enquête est un claim, et chaque claim cite ses preuves ou ses prémisses.
+1. **Écrire les claims.** D'abord, pour chaque conclusion : que fera de ce résultat l'agent qui interrogera les données plus tard ? La réponse donne le claim (claims.md, « Entrer ou non ») ; une conclusion qui ne change rien à la façon d'interroger reste dans le README ou dans l'issue. Puis un claim par usage et par test possible (claims.md, « Taille »), dans knowledge/claims/, avec ses termes dans terms, ses preuves dans supported_by et ses prémisses dans depends_on, et la section « Pour s'en servir » (claims.md, « Le corps »). La réponse à la question devient un claim d'enquête qui dépend des claims atomiques.
+   Fini quand : chaque conclusion qui change la façon d'interroger les données est un claim ; chaque claim cite ses preuves ou ses prémisses ; et sa section « Pour s'en servir » dit à un agent quoi faire, sans qu'il lise la suite.
 2. **Relire ce qu'on réutilise** (review.md). Pour chaque prémisse, selon sa sorte :
    - **claim d'une autre personne, sans relecture à jour :** la relecture au réemploi. La personne lit le travail refait et l'approuve avant que l'agent écrive le bloc review à son nom.
    - **claim de la même personne, venu d'une autre enquête :** author-reread, que la personne fait dans une nouvelle session ; l'agent le lui demande et attend qu'elle revienne.
