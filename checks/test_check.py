@@ -326,6 +326,12 @@ class RepositoryTest(unittest.TestCase):
         self.edit("knowledge/glossaries/cora.md", "Un RUM.", "Un séjour entier, toutes UF confondues.")
         self.assertProblem(ORANGE, "knowledge/claims/mvt-rum-lien.md", "périmée")
 
+    def test_whole_definition_counts_in_fingerprint(self):
+        self.edit("knowledge/glossaries/cora.md", "Un RUM.", "Un RUM.\n\n```text\n# exemple\n```\n\nUne ligne par UF.")
+        self.review("mvt-rum-lien", by="Marie")
+        self.edit("knowledge/glossaries/cora.md", "Une ligne par UF.", "Une ligne par séjour.")
+        self.assertProblem(ORANGE, "knowledge/claims/mvt-rum-lien.md", "périmée")
+
     def test_fingerprint_ignores_review_and_line_endings(self):
         before = self.current("mvt-rum-lien")
         self.review("mvt-rum-lien", by="Marie")
