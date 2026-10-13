@@ -63,7 +63,7 @@ Deux sortes de fichiers : ce qu'on apprend sur les données du CHU, qui vaut par
 Ce qu'on apprend :
 
 ```text
-sources/                une fiche par document, citée par chacune de ses lectures
+sources/                une fiche par document, citée par ses lectures ; le texte d'un document hors ligne
 knowledge/claims/       un claim par fichier : une affirmation, avec ses preuves
 knowledge/evidence/     une preuve par fichier : une lecture ou une exécution
 knowledge/queries/      les requêtes préparées pour l'hôpital (.sql)

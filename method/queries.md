@@ -21,7 +21,7 @@ FROM TB_MVT_RUM
 GROUP BY ANNEE;
 ```
 
-- **system :** le système interrogé, écrit comme son contexte dans la carte (knowledge/glossaries/README.md).
+- **system :** le système interrogé, écrit comme son contexte dans la carte (knowledge/glossaries/README.md). Un système absent de la carte y entre d'abord (layout.md, « Termes et glossaires »).
 - **person_data :** masked si la requête touche des personnes, patients ou personnel ; no-person-data pour des codes, des référentiels ou des schémas. Dans le doute : masked. Les tables du personnel sont masquées.
 - **purpose :** ce que la requête cherche, et l'étape du plan qu'elle sert.
 

@@ -34,7 +34,7 @@ Les principes, un mot chacun :
 
 | Avant de… | Lire |
 |---|---|
-| ranger un fichier, choisir un id, chercher ce qu'on sait | method/layout.md |
+| ranger un fichier, choisir un id, définir un terme ou un contexte, chercher ce qu'on sait | method/layout.md |
 | écrire un claim | method/claims.md |
 | écrire une preuve ou une fiche de source | method/evidence.md |
 | préparer une requête, enregistrer un résultat | method/queries.md |
