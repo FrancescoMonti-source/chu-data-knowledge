@@ -11,6 +11,7 @@ Une enquête se fait sur sa branche, `investigation/<id>`, où l'id est le nom d
 - **Ouvrir :** créer la branche depuis la branche principale à jour.
 - **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/investigation/*"` : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
 - **Reprendre :** avant tout travail, se placer sur sa branche, puis y faire entrer la branche principale à jour (`git fetch`, puis `git merge origin/main`). Sinon l'enquête ne voit pas les claims entrés depuis son ouverture.
+- **Conflit d'id :** un conflit add/add sur un fichier de knowledge/ veut dire que deux enquêtes ont choisi le même id. Garder tel quel le fichier de main, et donner au sien un nouvel id : nom du fichier, champ id, et partout où il est cité.
 - **Enregistrer :** `python checks/check.py` sans ROUGE ; commit sur la branche de l'enquête ; push (`git push -u origin investigation/<id>`) ; puis, pour chaque nouvelle preuve, un commentaire dans l'issue avec son id et l'étape du plan qu'elle couvre. La session suivante retrouve tout, même sur un autre ordinateur.
 
 ## Le README.md d'une enquête

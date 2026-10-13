@@ -104,6 +104,8 @@ Raisonnement et limites.
 """
 
 FILES = {
+    "knowledge/glossaries/README.md": "# Carte des contextes\n\n| Contexte | Sorte | Glossaire |\n|---|---|---|\n"
+                                      "| pmsi | domaine | pmsi.md |\n| cora | système | cora.md |\n",
     "knowledge/glossaries/cora.md": "# Glossaire CORA\n\n## cora:mouvement\n\nUn passage.\n\n## cora:rum\n\nUn RUM.\n",
     "knowledge/glossaries/pmsi.md": "# Glossaire PMSI\n\n## pmsi:rum\n\nRésumé d'unité médicale.\n",
     "knowledge/queries/20261007-mvt-rum.sql": QUERY,
@@ -354,6 +356,10 @@ class RepositoryTest(unittest.TestCase):
         self.edit("knowledge/evidence/20261008-mvt-rum.md", "person_data: masked", "person_data: no-person-data")
         self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "diffère")
 
+    def test_execution_takes_its_system_from_its_query(self):
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "person_data: masked", "person_data: masked\nsystem: icca")
+        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "vient de sa requête")
+
     def test_modified_execution_keeps_the_sql(self):
         self.edit("knowledge/evidence/20261008-mvt-rum.md", "modified: no", "modified: yes")
         self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "version exécutée")
@@ -364,6 +370,11 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, path, "obligatoire")
         self.write({path: QUERY.replace("-- system: cora", "-- system: corra")})
         self.assertProblem(RED, path, "corra")
+
+    def test_the_map_is_not_a_context(self):
+        path = "knowledge/queries/20261007-mvt-rum.sql"
+        self.write({path: QUERY.replace("-- system: cora", "-- system: README")})
+        self.assertProblem(RED, path, "« README » n'a pas de glossaire")
 
     def test_reading_needs_a_quote(self):
         self.edit("knowledge/evidence/20261009-guide-rum.md", "> Le RUM", "Le RUM")
@@ -410,13 +421,13 @@ class RepositoryTest(unittest.TestCase):
 
     def test_old_folders_are_red(self):
         self.write({"systems/cora/claims/mvt-annuel.md": claim("mvt-annuel")})
-        self.assertProblem(RED, "systems/cora/claims/mvt-annuel.md", "knowledge/")
+        self.assertProblem(RED, "systems/cora/claims/mvt-annuel.md", "remplacé par knowledge/ (")
         self.write({"domains/pmsi/GLOSSARY.md": "# Glossaire PMSI\n"})
-        self.assertProblem(RED, "domains/pmsi/GLOSSARY.md", "knowledge/")
+        self.assertProblem(RED, "domains/pmsi/GLOSSARY.md", "remplacé par knowledge/ (")
         self.write({"docs/agents/issue-tracker.md": "# Issues\n"})
-        self.assertProblem(RED, "docs/agents/issue-tracker.md", "method/")
+        self.assertProblem(RED, "docs/agents/issue-tracker.md", "remplacé par method/ (")
         self.write({"docs/adr/0019-editions.md": "# 0019 — Éditions\n"})
-        self.assertProblem(RED, "docs/adr/0019-editions.md", "method/adr/")
+        self.assertProblem(RED, "docs/adr/0019-editions.md", "remplacé par method/adr/ (")
 
     def test_gitkeep_keeps_an_empty_folder(self):
         self.write({"knowledge/queries/.gitkeep": ""})

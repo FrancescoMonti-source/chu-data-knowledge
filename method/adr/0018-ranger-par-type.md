@@ -48,6 +48,7 @@ AGENTS.md, README.md, checks/ et .agents/skills/ ne bougent pas.
 | le système d'une requête, donné par son chemin | le champ system |
 | le contexte d'un claim, donné par son dossier | ses terms, au moins un, contrôlés contre leur glossaire |
 | l'interdiction, pour un claim de systems/ ou domains/, de s'appuyer sur une réponse d'enquête | la relecture au réemploi, contrôlée, et la portée du claim, relue à ce moment (règle de confiance) |
+| le ROUGE du contrôle quand deux enquêtes donnent le même id à deux claims | un conflit add/add de git quand la branche de l'une fait entrer main ; investigations/README.md dit comment le résoudre |
 
 Le sens des contextes reste : chaque contexte garde son glossaire, et une correspondance entre deux contextes reste un claim, avec ses preuves et ses limites.
 
