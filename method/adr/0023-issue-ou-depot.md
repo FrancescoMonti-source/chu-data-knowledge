@@ -31,6 +31,8 @@ Une preuve qu'aucun claim ne cite reste dans le dépôt. Une affirmation non ép
 
 Dans AGENTS.md, « Où lire » envoie à investigations/README.md avant d'écrire dans une issue.
 
+research trouvait une preuve seulement par les claims qui la citent. method/layout.md (« Retrouver ce qu'on sait ») et research cherchent aussi les requêtes qui lisent les tables de la question, puis leurs preuves.
+
 ## Raisons
 
 - Tout ce qui vient de l'hôpital passe par le contrôle et reste trouvable : privacy-by-design, single-source-of-truth.
