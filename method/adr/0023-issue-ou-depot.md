@@ -27,7 +27,7 @@ investigations/README.md reçoit la section « L'issue ou le dépôt ». Avant d
 - une requête, une preuve ou un claim : dans le dépôt. L'issue donne seulement l'id de la preuve.
 - un plan, une hypothèse ou un test à faire : dans l'issue.
 
-Une preuve qu'aucun claim ne cite reste dans le dépôt. Une affirmation non éprouvée est une hypothèse, même quand un document la dit.
+Une preuve qu'aucun claim ne cite : une lecture est supprimée avant le merge ; le résultat d'une requête reste dans le dépôt, avec sa requête. Une affirmation non éprouvée est une hypothèse, même quand un document la dit.
 
 Dans AGENTS.md, « Où lire » envoie à investigations/README.md avant d'écrire dans une issue.
 
@@ -37,6 +37,7 @@ research trouvait une preuve seulement par les claims qui la citent. method/layo
 
 - Tout ce qui vient de l'hôpital passe par le contrôle et reste trouvable : privacy-by-design, single-source-of-truth.
 - Le contrôle accepte déjà une preuve qu'aucun claim ne cite : checks/ ne change pas.
+- Pierre, à la relecture : des preuves sans claim encombrent le dépôt. Une lecture se refait vite : la supprimer garde le dépôt propre. Une exécution demande une personne à l'hôpital : la supprimer oblige à refaire le relay.
 
 ## Conséquences
 
