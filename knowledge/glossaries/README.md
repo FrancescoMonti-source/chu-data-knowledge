@@ -11,8 +11,9 @@ Un contexte est un système, c'est-à-dire un logiciel ou une base, comme CORA ;
 | edsan | système | edsan.md |
 | icca | système | icca.md |
 | oproom | système | oproom.md |
-| méthode | le dépôt lui-même | method/GLOSSARY.md (termes sans préfixe) |
+
+Les mots de la méthode (claim, preuve, enquête…) ne forment pas un contexte : method/GLOSSARY.md les définit, sans préfixe.
 
 ## Ponts
 
-Un pont est un claim dont les terms viennent de deux contextes : il dit comment deux modèles se correspondent. Aucun pour l'instant. On les trouve en cherchant les claims dont le champ terms mélange deux préfixes.
+Aucun pour l'instant (définition : method/GLOSSARY.md). On les trouve en cherchant les claims dont le champ terms mélange deux préfixes.

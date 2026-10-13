@@ -4,7 +4,7 @@ Le type d'un fichier décide de son dossier, quel que soit son sujet.
 
 | Dossier | Un fichier par… | Format |
 |---|---|---|
-| sources/ | document : sa fiche | evidence.md, « Sources » |
+| sources/ | document : sa fiche, et le texte d'un document hors ligne | evidence.md, « Sources » |
 | knowledge/claims/ | claim | claims.md |
 | knowledge/evidence/ | preuve : une lecture ou une exécution | evidence.md |
 | knowledge/queries/ | requête préparée pour l'hôpital (.sql) | queries.md |
@@ -30,7 +30,8 @@ Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (metho
 - La carte, knowledge/glossaries/README.md, liste les contextes : chacun avec sa sorte, système ou domaine, et son glossaire.
 - Un claim cite au moins un terme. Un terme entre dans son glossaire avec le premier claim qui le cite.
 - Un glossaire définit des mots. Ce qui est vrai d'un système (une jointure, un piège) est un claim, avec ses preuves.
-- Le savoir propre au CHU, une convention ou une façon de compter, est un claim comme les autres. Un nouveau contexte naît avec le premier claim qui en a besoin : son glossaire, et sa ligne dans la carte.
+- Le savoir propre au CHU, une convention ou une façon de compter, est un claim comme les autres.
+- Un nouveau contexte naît avec le premier fichier qui en a besoin, requête ou claim : son glossaire, et sa ligne dans la carte.
 - **PMSI par édition.** Le domaine pmsi suit les textes réglementaires et les guides de l'ATIH, dans leur champ et leur période d'application. Chaque édition remplace la précédente : l'id de la fiche porte l'année.
 
 ## Retrouver ce qu'on sait

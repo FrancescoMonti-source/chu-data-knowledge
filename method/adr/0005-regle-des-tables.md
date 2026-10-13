@@ -1,6 +1,6 @@
 # 0005 — Un claim qui nomme des tables va dans systems/
 
-Statut : accepté, 2026-10-10 (Francesco). Modifié par 0018 : domains/ n'existe plus, et une table s'écrit avec son système (cora:TB_MVT_RUM).
+Statut : accepté, 2026-10-10 (Francesco). Modifié par 0018 : systems/ et domains/ n'existent plus, leur contrôle non plus, et une table s'écrit avec son système (cora:TB_MVT_RUM).
 
 ## Contexte
 

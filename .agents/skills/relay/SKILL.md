@@ -1,6 +1,6 @@
 ---
 name: relay
-description: Préparer une requête qu'une personne exécutera à l'hôpital, puis enregistrer le résultat comme preuve. Utiliser quand une étape du plan demande des données de CORA, EDSaN, ICCA, OpRoom ou d'un autre système.
+description: Préparer une requête qu'une personne exécutera à l'hôpital, puis enregistrer le résultat comme preuve. Utiliser quand une étape du plan demande des données d'un système de l'hôpital, comme CORA (la liste : knowledge/glossaries/README.md).
 ---
 
 # relay

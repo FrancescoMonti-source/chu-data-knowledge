@@ -265,7 +265,8 @@ class Repository:
         """Le système d'une requête ou d'une table est un contexte qui a son glossaire."""
         if context not in self.contexts:
             self.report(RED, record["path"], field, f"« {context} » n'a pas de glossaire dans knowledge/glossaries/.",
-                        "Écrire le système comme son contexte dans la carte (knowledge/glossaries/README.md).")
+                        "Écrire le système comme dans la carte (knowledge/glossaries/README.md) ; un système absent "
+                        "de la carte y entre d'abord, avec son glossaire (method/layout.md).")
 
     def claim_shape(self, claim):
         """Forme du claim, vue au chargement : sans elle, ses autres contrôles et son empreinte n'ont pas de sens."""

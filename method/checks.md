@@ -56,6 +56,8 @@ Ce que rien ne contrôle reste une règle, déclarée comme telle :
 - une prémisse retirée est expliquée ;
 - son propre claim, réutilisé depuis une autre enquête, est relu en author-reread ;
 - au réemploi, la portée du claim couvre le nouvel usage ;
+- la carte liste chaque glossaire avec sa sorte, et un terme n'a qu'une définition ;
+- le system d'une requête, comme celui d'une table, est un système de la carte, pas un domaine ;
 - une requête exécutée ne change plus.
 
 ## Pas encore construit
