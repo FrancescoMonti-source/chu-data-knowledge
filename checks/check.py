@@ -176,6 +176,8 @@ class Repository:
                     text = path.read_text(encoding="utf-8", errors="replace")
                 self.check_privacy(self.relative(path), text)
         for glossary in sorted(self.root.glob(GLOSSARIES)):
+            if glossary.name == "README.md":  # la carte des contextes, pas un glossaire
+                continue
             self.contexts.add(glossary.stem)
             for term in TERM_HEADING.findall(glossary.read_text(encoding="utf-8", errors="replace")):
                 if term.startswith(glossary.stem + ":"):
@@ -394,6 +396,9 @@ class Repository:
             if query.get("role") == "query" and query["header"].get("person_data") != header["person_data"]:
                 self.report(RED, path, "person_data", "la valeur diffère de celle de la requête.",
                             "Recopier person_data de la requête.")
+            if "system" in header:
+                self.report(RED, path, "system", "le système d'une exécution vient de sa requête.",
+                            "Retirer system : la requête le donne dans son en-tête (method/evidence.md).")
             if header["modified"] == "yes" and "```sql" not in evidence["body"]:
                 self.report(RED, path, "modified", "la requête a été modifiée mais la version exécutée manque.",
                             "Ajouter la requête réellement exécutée dans un bloc ```sql.")

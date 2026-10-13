@@ -6,7 +6,7 @@ Avant d'écrire une preuve : le filtre de privacy.md. L'en-tête suit les règle
 
 ## Exécution
 
-Une exécution d'une requête à l'hôpital. Elle prend le système de sa requête. Sous l'en-tête, le fichier ne contient que le résultat, en tableau Markdown, avec les colonnes telles qu'elles sont revenues : le contrôle des effectifs ne lit que les tableaux. La requête reste une seule fois dans knowledge/queries/.
+Une exécution d'une requête à l'hôpital. Elle prend le système de sa requête, sans le recopier. Sous l'en-tête, le fichier ne contient que le résultat, en tableau Markdown, avec les colonnes telles qu'elles sont revenues : le contrôle des effectifs ne lit que les tableaux. La requête reste une seule fois dans knowledge/queries/.
 
 ```markdown
 ---
