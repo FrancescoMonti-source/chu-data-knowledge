@@ -1,6 +1,6 @@
 # 0018 — Ranger par type de fichier : knowledge/ et method/
 
-Statut : accepté, 2026-10-12 (Francesco, après une revue de la structure du dépôt).
+Statut : accepté, 2026-10-12 (Francesco, après une revue de la structure du dépôt). L'extension du point 9 aux fichiers non lus, ajoutée pendant la mise en œuvre, acceptée le 2026-10-13.
 
 ## Contexte
 
