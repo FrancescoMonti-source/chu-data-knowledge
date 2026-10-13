@@ -4,9 +4,9 @@ Un claim est une affirmation sur les données du CHU, soutenue par des preuves. 
 
 Un claim s'écrit pour l'agent suivant, celui qui interrogera les données : il lui dit ce qu'il peut faire ou doit éviter. Une variable fiable ou non, et depuis quand ; une jointure ; un piège ; une méthode pour retrouver ou classer quelque chose. Les chiffres appuient le claim : ils vont dans son corps, rarement dans statement.
 
-## Entrer ou non
+## Ce qui mérite un claim
 
-Un claim entre s'il apprend à l'agent ce que les sources ne lui disent pas :
+Un claim se justifie s'il apprend à l'agent ce que les sources ne lui disent pas :
 
 - il contredit une source : le dictionnaire dit une chose, les données une autre ;
 - il dit ce qu'aucune source ne dit et qui change la façon d'interroger : un piège, une période de validité, une jointure, une méthode ;
