@@ -12,7 +12,7 @@ Un claim se justifie s'il apprend à l'agent ce que les sources ne lui disent pa
 - il dit ce qu'aucune source ne dit et qui change la façon d'interroger : un piège, une période de validité, une jointure, une méthode ;
 - il pose une décision de l'équipe.
 
-Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus : elle reste dans l'issue de la question, avec sa requête et son résultat, jusqu'à ce qu'un claim s'en serve.
+Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus : sa requête et sa preuve restent dans le dépôt tant qu'une issue ouverte les cite, et partent si l'issue se ferme sans claim (#28). Un claim jugé inutile est retiré avec ce qui ne servait qu'à lui : preuves, requêtes, termes.
 
 ```markdown
 ---
