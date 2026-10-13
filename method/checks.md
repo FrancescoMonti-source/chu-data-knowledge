@@ -16,7 +16,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | champs obligatoires présents, valeurs admises (claims.md, evidence.md, queries.md) |
 | ROUGE | review en premier champ ; bloc de relecture complet ; reviewed signé par une autre personne que l'author, author-reread par l'author |
 | ROUGE | pas de champ authority dans un claim |
-| ROUGE | claim : au moins un terme, écrit avec son contexte et défini dans son glossaire (pmsi:x dans knowledge/glossaries/pmsi.md) ; un glossaire ne définit que les termes de son contexte |
+| ROUGE | claim : au moins un terme, écrit avec son contexte et défini dans son glossaire (pmsi:x dans knowledge/glossaries/pmsi.md) ; un glossaire ne définit que les termes de son contexte, chacun une seule fois |
 | ROUGE | table écrite avec son système (cora:TB_MVT_RUM) ; system d'une requête et système d'une table : un contexte qui a son glossaire |
 | ROUGE | liens vers des ids qui existent, du bon type |
 | ROUGE | claim : au moins une preuve ou une prémisse |
@@ -56,7 +56,7 @@ Ce que rien ne contrôle reste une règle, déclarée comme telle :
 - une prémisse retirée est expliquée ;
 - son propre claim, réutilisé depuis une autre enquête, est relu en author-reread ;
 - au réemploi, la portée du claim couvre le nouvel usage ;
-- la carte liste chaque glossaire avec sa sorte, et un terme n'a qu'une définition ;
+- la carte liste chaque glossaire avec sa sorte ;
 - le system d'une requête, comme celui d'une table, est un système de la carte, pas un domaine ;
 - une requête exécutée ne change plus.
 

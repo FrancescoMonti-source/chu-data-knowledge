@@ -29,6 +29,7 @@ Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (metho
 - Un terme s'écrit avec son contexte : pmsi:rum. Il est défini dans le glossaire de ce contexte, et seulement là : knowledge/glossaries/pmsi.md, sous un titre `## pmsi:rum`, puis la définition en français.
 - La carte, knowledge/glossaries/README.md, liste les contextes : chacun avec sa sorte, système ou domaine, et son glossaire.
 - Un claim cite au moins un terme. Un terme entre dans son glossaire avec le premier claim qui le cite.
+- La définition d'un terme fait partie du sens des claims qui le citent : la changer périme leur relecture (review.md).
 - Un glossaire définit des mots. Ce qui est vrai d'un système (une jointure, un piège) est un claim, avec ses preuves.
 - Le savoir propre au CHU, une convention ou une façon de compter, est un claim comme les autres.
 - Un nouveau contexte naît avec le premier fichier qui en a besoin, requête ou claim : son glossaire, et sa ligne dans la carte.

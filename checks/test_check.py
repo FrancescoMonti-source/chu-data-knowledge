@@ -234,6 +234,10 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "knowledge/glossaries/pmsi.md")
         self.assertProblem(RED, "knowledge/glossaries/cora.md", "pmsi:sejour")
 
+    def test_term_is_defined_once(self):
+        self.edit("knowledge/glossaries/cora.md", "Un RUM.\n", "Un RUM.\n\n## cora:rum\n\nUn autre RUM.\n")
+        self.assertProblem(RED, "knowledge/glossaries/cora.md", "défini deux fois")
+
     def test_claim_needs_a_term(self):
         self.edit("knowledge/claims/mvt-rum-lien.md", "terms: [cora:mouvement, cora:rum]", "terms: []")
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "au moins un terme")
@@ -316,6 +320,11 @@ class RepositoryTest(unittest.TestCase):
         self.review("mvt-annuel", by="Marie")
         self.edit("knowledge/queries/20261007-mvt-rum.sql", "GROUP BY ANNEE", "GROUP BY ANNEE, MOIS")
         self.assertProblem(ORANGE, "knowledge/claims/mvt-annuel.md", "périmée")
+
+    def test_review_goes_stale_when_a_term_definition_changes(self):
+        self.review("mvt-rum-lien", by="Marie")
+        self.edit("knowledge/glossaries/cora.md", "Un RUM.", "Un séjour entier, toutes UF confondues.")
+        self.assertProblem(ORANGE, "knowledge/claims/mvt-rum-lien.md", "périmée")
 
     def test_fingerprint_ignores_review_and_line_endings(self):
         before = self.current("mvt-rum-lien")
