@@ -40,7 +40,7 @@ Les principes, un mot chacun :
 | écrire une preuve ou une fiche de source | method/evidence.md |
 | préparer une requête, enregistrer un résultat | method/queries.md |
 | réutiliser, relire ou contester un claim | method/review.md |
-| ouvrir, retrouver ou reprendre une enquête | investigations/README.md |
+| ouvrir, retrouver ou reprendre une enquête, écrire dans son issue | investigations/README.md |
 | corriger une friction | method/maintenance.md |
 | comprendre un message ROUGE ou ORANGE | method/checks.md |
 | comprendre un mot de la méthode | method/GLOSSARY.md |
