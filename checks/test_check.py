@@ -334,9 +334,9 @@ class RepositoryTest(unittest.TestCase):
 
     def test_aliases_stay_out_of_fingerprint(self):
         self.review("mvt-rum-lien", by="Marie")
-        self.edit("knowledge/glossaries/cora.md", "## cora:rum\n\n", "## cora:rum\n\nAussi dit : résumé d'unité\n\n")
+        self.edit("knowledge/glossaries/cora.md", "## cora:rum\n\n", "## cora:rum\n\nAlias : résumé d'unité\n\n")
         self.assertClean()
-        self.edit("knowledge/glossaries/cora.md", "Aussi dit : résumé d'unité", "Aussi dit : résumé d'unité, RUM CORA")
+        self.edit("knowledge/glossaries/cora.md", "Alias : résumé d'unité", "Alias : résumé d'unité, RUM CORA")
         self.assertClean()
 
     def test_fingerprint_ignores_review_and_line_endings(self):

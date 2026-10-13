@@ -27,12 +27,12 @@ Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (metho
 ## Termes et glossaires
 
 - Un terme s'écrit avec son contexte : pmsi:rum. Il est défini dans le glossaire de ce contexte, et seulement là : knowledge/glossaries/pmsi.md, sous un titre `## pmsi:rum`, puis la définition en français.
-- **Aussi dit.** Les autres mots qu'on emploie pour le terme, sigles et jargon compris, vont sur une ligne qui commence par `Aussi dit :`, juste sous le titre. Elle sert à retrouver le terme à partir des mots d'une question ; elle ne fait pas partie de la définition, et la changer ne périme aucune relecture (method/adr/0020). Un mot qui a un autre sens dans le même contexte n'y entre pas : c'est un autre terme.
+- **Alias.** Les autres mots qu'on emploie pour le terme, sigles et jargon compris, vont sur une ligne qui commence par `Alias :`, juste sous le titre. Elle sert à retrouver le terme à partir des mots d'une question ; elle ne fait pas partie de la définition, et la changer ne périme aucune relecture (method/adr/0021). Un mot qui a un autre sens dans le même contexte n'y entre pas : c'est un autre terme.
 
 ```text
 ## pmsi:rss
 
-Aussi dit : résumé de sortie standardisé, résumé de sortie
+Alias : résumé de sortie standardisé, résumé de sortie
 
 La définition, en français…
 ```
@@ -52,7 +52,7 @@ Pas d'index : on cherche dans knowledge/claims/. Dans tout le dépôt, les fichi
 git grep -n "cora:mouvement" -- knowledge/claims/
 ```
 
-- **Des mots de la question au terme :** chercher chaque mot dans les glossaires, titres et lignes « Aussi dit » : `git grep -n -i -w "dms" -- knowledge/glossaries/`. Le titre au-dessus de la ligne trouvée est le terme.
+- **Des mots de la question au terme :** chercher chaque mot dans les glossaires, titres et lignes « Alias » : `git grep -n -i -w "dms" -- knowledge/glossaries/`. Le titre au-dessus de la ligne trouvée est le terme.
 - **Termes et tables :** chercher le terme (cora:mouvement) ou la table (cora:TB_MVT_RUM).
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
 - **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question.
