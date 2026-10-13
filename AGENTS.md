@@ -29,6 +29,7 @@ Les principes, un mot chacun :
 5. Toute réponse qui utilise un claim cite son état de relecture.
 6. Clés et valeurs en anglais ; texte libre en français.
 7. Une règle (ce fichier, method/, les skills, checks/) ne change que par le mainteneur ; une décision reçoit un ADR dans method/adr/.
+8. Les agents travaillent sur une branche autre que `main` et ouvrent une pull request vers `main`. Aucun push direct sur `main`, même si leurs droits GitHub le permettent.
 
 ## Où lire
 
