@@ -15,7 +15,7 @@ depends_on: []
 ---
 ## Pour s'en servir
 
-Un séjour sans DATE_SORTIE et sans mouvement est un dossier vide : il ne porte aucune activité. Le retirer avant de compter des séjours (exclure-sejours-sans-sortie-ni-mouvement) :
+Un séjour sans DATE_SORTIE et sans mouvement est un dossier vide : il ne porte aucune activité. Le retirer avant de compter des séjours (exclure-sejours-sans-sortie-orphelins) :
 
 ```sql
 WHERE NOT (s.DATE_SORTIE IS NULL

@@ -13,9 +13,10 @@ Comparaison : préadmissions avec mouvement, préadmissions sans mouvement, autr
 
 ## Choix
 - Un acte ou un diagnostic est relié au séjour par TB_ACTE.ID_SEJOUR ou TB_DIAG.ID_SEJOUR (lien secondaire du dictionnaire), ou par un mouvement du séjour (TB_ACTE.ID_MVT, TB_DIAG.ID_MVT, lien principal) : un séjour sans mouvement n'a que le premier.
-- La décision d'exclure les séjours reliés à rien est de Pierre, posée avant la mesure ; elle est consignée dans un commentaire de #32, qui sert de source.
+- La décision d'exclure les séjours reliés à rien est de Pierre, posée avant la mesure, puis étendue à toutes les préadmissions sans sortie (« le foutoir avant 2018 ») ; elle est consignée dans un commentaire de #32, qui sert de source.
 - Les séjours restés ouverts (un mouvement ouvert) relèvent de #33, pas de cette enquête.
 
 ## Conclusions
 - sejour-sans-sortie-ni-mouvement-vide (unreviewed)
-- exclure-sejours-sans-sortie-ni-mouvement (unreviewed)
+- preadmission-sans-sortie-sans-activite (unreviewed)
+- exclure-sejours-sans-sortie-orphelins (unreviewed)
