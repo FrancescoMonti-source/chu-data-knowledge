@@ -43,3 +43,21 @@ Un enregistrement de TB_MVT : le séjour d'un patient dans une unité (UF), d'un
 Alias : préadmission, préadmissions, STATUT_PROG P, séjour programmé, venue programmée
 
 Un séjour de TB_SEJOUR créé à l'avance pour une venue programmée, reconnaissable à TB_SEJOUR.STATUT_PROG = 'P'.
+
+## cora:acte
+
+Alias : TB_ACTE, acte, actes, acte CCAM, codage des actes, DATE_ACTE
+
+Un enregistrement de TB_ACTE : un acte CCAM réalisé, rattaché à un mouvement (ID_MVT, lien principal) et à son séjour (ID_SEJOUR).
+
+## cora:diagnostic
+
+Alias : TB_DIAG, diagnostic, diagnostics, CIM-10, codage des diagnostics, DATE_DIAG
+
+Un enregistrement de TB_DIAG : un code CIM-10 rattaché à un mouvement (ID_MVT, lien principal) et à son séjour (ID_SEJOUR).
+
+## cora:intervention
+
+Alias : TB_INTERVENTION, intervention, interventions, intervention de bloc, NO_INTERVENTION, NO_INTERVENTION_CCAM, NO_INTERVENTION_EXT
+
+Une intervention au bloc : une ligne de TB_INTERVENTION, ou un groupe d'actes de TB_ACTE qui partagent le même NO_INTERVENTION_CCAM.
