@@ -1,6 +1,6 @@
 # 0023 — L'issue garde le travail à faire, le dépôt garde ce qu'on a observé
 
-Statut : proposé, 2026-10-13 (Francesco, après la discussion de la PR de 0022). À accepter par le mainteneur.
+Statut : accepté, 2026-10-14 (Francesco, dans le fil du projet, après la relecture de Pierre sur la PR #28).
 
 ## Contexte
 
