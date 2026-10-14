@@ -18,6 +18,7 @@ Comparaison : sans objet.
 - Un claim n'entre que s'il apporte ce que les sources ne disent pas : il contredit la documentation, il mesure, ou il signale un piège que la structure ne laisse pas deviner. Ce que le dictionnaire CORA dit déjà n'est pas recopié en claim (étape 1 abandonnée ; diagnoses-attached-to-movement et ghm-code-without-cmd non migrés).
 - La part des séjours sans RSS (étape 2) n'est pas un claim : la question n'est pas mûre. Elle passe dans l'issue #25 ; la requête 20261013-sejours-sans-rss et sa preuve 20261013-sejours-sans-rss-resultat restent dans le dépôt, citées par #25, jusqu'à ce qu'un claim s'en serve ou que #25 se ferme sans claim (elles sont alors supprimées).
 - Repérer les UF d'urgences (étapes 11 à 13) : les deux constats sur les signaux de CORA entrent comme claims ; la méthode de repérage attend l'accès à la structure de Cora Admin Recueil et passe dans l'issue #30. Les requêtes 20261014-structure-uf-urgences et 20261014-chercher-structure-schemas et leurs preuves restent dans le dépôt, citées par #30, jusqu'à ce qu'un claim s'en serve ou que #30 se ferme sans claim.
+- Sorties manquantes (étape 3) : les deux constats entrent comme claims ; la date de référence du séjour (claim decision) attend #32 (préadmissions et séjours sans mouvement : les exclure ?) et #33 (séjours restés ouverts).
 - Le lien séjour → RSS passe par les mouvements (TB_MVT → TB_MVT_RUM) ; la jointure directe par TB_SYNTH_RSS.ID_SEJOUR est contestée dans dim-code et n'est pas utilisée ici.
 
 ## Conclusions
@@ -25,3 +26,5 @@ Comparaison : sans objet.
 - type-prise-en-charge-mco (unreviewed)
 - drapeau-urgence-uf-non-fiable (unreviewed)
 - sejour-sans-signal-urgences (unreviewed)
+- date-sortie-manquante (unreviewed)
+- dernier-mouvement-date-la-sortie (unreviewed)
