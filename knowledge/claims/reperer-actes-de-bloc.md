@@ -3,7 +3,7 @@ review: unreviewed
 id: reperer-actes-de-bloc
 kind: empirical
 author: Pierre
-statement: "Dans CORA, pour récupérer les actes de bloc, prendre les actes dont le site de réalisation est un site de bloc (TB_ACTE.ID_SITE → TB_SITE.BLOC = 'O'), quelle que soit leur origine, flux CPage jusqu'en 2024 ou saisie dans CORA depuis 2025 ; en 2020 et 2021, ce filtre en perd une partie, car ID_SITE est vide pour environ 63 000 et 147 000 actes."
+statement: "Dans CORA, on ne peut pas récupérer les actes de bloc avec certitude avant 2022 : jusqu'en septembre 2020 ils viennent de reprises d'historique, et en 2020-2021 ID_SITE est vide pour environ 63 000 et 147 000 actes. Depuis 2022, prendre les actes dont le site de réalisation est un site de bloc (TB_ACTE.ID_SITE → TB_SITE.BLOC = 'O'), quelle que soit leur origine, flux CPage jusqu'en 2024 ou saisie dans CORA depuis 2025."
 scope: "CORA de production (CWPROD, schéma CORA_REC), tables TB_ACTE et TB_SITE, actes datés de 2014 à 2025, lus le 2026-10-14"
 refuted_if: "plus de 10 000 actes d'une année autre que 2020 et 2021 ont ID_SITE vide, ou la saisie CORA porte moins de la moitié des actes de bloc de 2025"
 maturity: observed
@@ -14,6 +14,8 @@ supported_by: [20261014-epoques-actes-resultat]
 depends_on: [epoques-codage-actes]
 ---
 ## Pour s'en servir
+
+**Période :** partir de 2022. Avant, le résultat est incomplet, et l'écart n'est pas mesurable : le dire, et ne pas comparer ces années aux suivantes.
 
 **Requête :**
 
@@ -29,7 +31,7 @@ Garder les deux origines : ne pas filtrer sur l'application, car les actes de bl
 - **TB_ACTE.NO_INTERVENTION :** il ne couvre que les actes saisis dans l'écran Bloc.
 - **TB_INTERVENTION avant 2026 :** elle est incomplète (interventions-cora-flux-oproom).
 
-**Ce qu'il faut signaler :**
+**Ce qu'il faut dire si une analyse remonte avant 2022 :**
 - **2020 et 2021 :** une partie des actes n'a pas de site et sort du périmètre, sans que l'activité baisse.
 - **Avant octobre 2020 :** les actes viennent de reprises d'historique (epoques-codage-actes).
 
