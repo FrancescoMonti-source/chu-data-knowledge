@@ -23,7 +23,7 @@ Comparaison : sans objet.
 - Le préfixe de NO_SEJOUR (étape 10, kb : no-sejour-is-a-counter) n'est pas migré : un agent n'a pas de raison de dater un séjour par son numéro (Pierre).
 - Lot du 14/10 (Pierre : « de manière industrielle ») : les fiches CORA restantes sont triées en une fois ; huit requêtes, exécutées ensemble par scripts/cdk/executer_requetes_cdk.py de dim-code (branche migration-cdk), couvrent celles qui se mesurent : stay-to-rss-link (20261014-lien-sejour-rss) ; rss-path-scope (20261014-chemin-rss-actes-diags) ; act-history-epochs, act-origin, act-site-missing-2021, surgical-acts-coded-in-cora, no-intervention-bloc-screen-only (20261014-epoques-actes) ; intervention-table-is-oproom-flow (20261014-interventions-cora) ; convention.intervention-id-no-intervention-ccam (20261014-groupes-ccam) ; rss-before-validation (20261014-rss-recents) ; convention.age-at-admission (20261014-age-entree) ; convention.exit-mode et convention.last-movement-uf (20261014-sortie-et-dernier-mvt).
 - Fiches CORA non migrées : stay-duration-from-stay-dates (principe sans mesure, qu'un agent applique déjà en partant des dates du séjour) ; definition.intervention-numbers (recopie le dictionnaire) ; or-act-included-in-ghs (règle de financement, pas un fait des données CORA) ; definition.ghm-to-ghs-table (un emplacement de table : un terme de glossaire si un claim en a besoin) ; or-site-flag-incomplete (demande OpRoom : avec la migration d'OpRoom) ; les sept fiches propres à un projet (casemix-bloc, pmct-6103, smr-onco), qui restent dans dim-code.
-- Conventions : convention.length-of-stay devient un claim decision au nom de Pierre, avec pour source la fiche validée de la kb ; convention.age-at-admission, convention.exit-mode et convention.last-movement-uf deviennent des claims empiriques, la mesure suffisant à fonder la consigne ; convention.reference-date attend #33.
+- Conventions : convention.length-of-stay devient un claim decision au nom de Pierre, reformulé par lui dans sa revue de la PR #38 (demander journées ou nuitées) ; convention.age-at-admission, convention.exit-mode et convention.last-movement-uf deviennent des claims empiriques, la mesure suffisant à fonder la consigne ; convention.reference-date attend #33.
 - Le lien séjour → RSS : la jointure directe par TB_SYNTH_RSS.ID_SEJOUR, d'abord écartée sur la foi de dim-code, est mesurée le 14/10 (20261014-lien-sejour-rss) : elle vaut le chemin par les mouvements depuis 2018 et retrouve seule les RSS de 2016 ; c'est le filtre CHRONO_RSS = 1 qui la vidait (joindre-rss-par-id-sejour). Les claims qui comptent les RSS par les mouvements restent justes depuis 2018 ; sur 2016, ils les sous-estiment.
 
 ## Conclusions
@@ -37,14 +37,14 @@ Comparaison : sans objet.
 - joindre-uf-par-code (unreviewed)
 - borner-entree-date-extraction (unreviewed)
 - joindre-rss-par-id-sejour (unreviewed)
-- actes-diags-hors-rss (unreviewed)
+- chemin-actes-diags-par-mouvement (unreviewed)
 - dater-diagnostic-par-mouvement (unreviewed)
 - epoques-codage-actes (unreviewed)
-- acte-site-bloc (unreviewed)
+- reperer-actes-de-bloc (unreviewed)
 - grouper-actes-par-no-intervention-ccam (unreviewed)
 - interventions-cora-flux-oproom (unreviewed)
 - rss-mois-recents-non-codes (unreviewed)
 - age-entree-a-recalculer (unreviewed)
 - mode-sortie-du-sejour (unreviewed)
 - uf-sortie-dernier-mouvement (unreviewed)
-- duree-sejour-en-journees (unreviewed)
+- duree-sejour-journees-ou-nuitees (unreviewed)
