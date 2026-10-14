@@ -11,7 +11,7 @@ Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md.
 
 1. **Décider person_data.** La demande touche-t-elle des personnes, patients ou personnel ? Dans le doute, oui : masked.
    Fini quand : la valeur est choisie, masked ou no-person-data.
-2. **Écrire la requête** dans knowledge/queries/, avec le system qu'elle interroge, en suivant les claims sur les tables qu'elle touche. Sans claim sur ces tables, demander d'abord à la personne le moteur de la base (SQL Server, Oracle…), et commencer par une requête WHERE 1=0 pour connaître les colonnes (queries.md, règle 2).
+2. **Écrire la requête** dans knowledge/queries/. Avant, chercher les requêtes qui lisent les mêmes tables (method/layout.md, « Retrouver ce qu'on sait ») : si l'une a déjà été exécutée et répond à l'étape, partir de sa preuve plutôt que d'en écrire une nouvelle. Écrire la requête avec le system qu'elle interroge, en suivant les claims sur les tables qu'elle touche. Sans claim sur ces tables, demander d'abord à la personne le moteur de la base (SQL Server, Oracle…), et commencer par une requête WHERE 1=0 pour connaître les colonnes (queries.md, règle 2).
    Fini quand : `python checks/check.py` ne donne aucun ROUGE sur la requête, et chaque règle de queries.md qui s'applique a sa ligne pour la personne (queries.md, « Aller »).
 3. **Livrer.** Enregistrer la requête (investigations/README.md, « La branche »), puis la donner à la personne avec son message (queries.md, « Aller »).
    Fini quand : la requête est enregistrée, et la personne l'a, avec son message.
