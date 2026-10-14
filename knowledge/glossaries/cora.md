@@ -37,3 +37,9 @@ Le passage d'un patient dans une unité d'urgences du CHU, enregistré dans CORA
 Alias : TB_MVT, mouvement, mouvement d'unité, passage dans une unité, ID_MVT
 
 Un enregistrement de TB_MVT : le séjour d'un patient dans une unité (UF), d'une date et heure de début (DATE_DEBUT_MVT, HEURE_DEBUT_MVT) à une date et heure de fin (DATE_FIN_MVT, HEURE_FIN_MVT). Un séjour (cora:sejour) en compte un ou plusieurs.
+
+## cora:preadmission
+
+Alias : préadmission, préadmissions, STATUT_PROG P, séjour programmé, venue programmée
+
+Un séjour de TB_SEJOUR créé à l'avance pour une venue programmée, reconnaissable à TB_SEJOUR.STATUT_PROG = 'P'.
