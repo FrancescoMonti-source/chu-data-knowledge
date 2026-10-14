@@ -20,6 +20,7 @@ Comparaison : sans objet.
 - Repérer les UF d'urgences (étapes 11 à 13) : les deux constats sur les signaux de CORA entrent comme claims ; la méthode de repérage attend l'accès à la structure de Cora Admin Recueil et passe dans l'issue #30. Les requêtes 20261014-structure-uf-urgences et 20261014-chercher-structure-schemas et leurs preuves restent dans le dépôt, citées par #30, jusqu'à ce qu'un claim s'en serve ou que #30 se ferme sans claim.
 - Sorties manquantes (étape 3) : les deux constats entrent comme claims ; la date de référence du séjour (claim decision) attend #32 (préadmissions et séjours sans mouvement : les exclure ?) et #33 (séjours restés ouverts).
 - Période d'analyse par défaut : 2018 et après, décision de Pierre (« le foutoir avant 2018 »), consignée dans un commentaire de #24 qui sert de source (claim periode-analyse-cora-2018).
+- Le préfixe de NO_SEJOUR (étape 10, kb : no-sejour-is-a-counter) n'est pas migré : un agent n'a pas de raison de dater un séjour par son numéro (Pierre).
 - Le lien séjour → RSS passe par les mouvements (TB_MVT → TB_MVT_RUM) ; la jointure directe par TB_SYNTH_RSS.ID_SEJOUR est contestée dans dim-code et n'est pas utilisée ici.
 
 ## Conclusions
@@ -30,3 +31,4 @@ Comparaison : sans objet.
 - date-sortie-manquante (unreviewed)
 - dernier-mouvement-date-la-sortie (unreviewed)
 - periode-analyse-cora-2018 (unreviewed)
+- joindre-uf-par-code (unreviewed)
