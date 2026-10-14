@@ -12,7 +12,7 @@ Un claim se justifie s'il apprend à l'agent ce que les sources ne lui disent pa
 - il dit ce qu'aucune source ne dit et qui change la façon d'interroger : un piège, une période de validité, une jointure, une méthode ;
 - il pose une décision de l'équipe.
 
-Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus : sa requête et sa preuve restent dans le dépôt tant qu'une issue ouverte les cite, et partent si l'issue se ferme sans claim (#28). Un claim jugé inutile est retiré avec ce qui ne servait qu'à lui : preuves, requêtes, termes.
+Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus. Ce que deviennent alors sa preuve et sa requête, et un claim jugé inutile : investigations/README.md, « L'issue ou le dépôt ».
 
 ```markdown
 ---
@@ -69,7 +69,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 ## Trois sortes (kind)
 
-- **documentary :** ce qu'un document dit. Cite au moins une lecture.
+- **documentary :** ce qu'un document dit. Cite au moins une lecture. Il se justifie quand il rapproche plusieurs passages ou plusieurs sources, ou quand il tire d'une source une conséquence pour la requête (« le guide rattache le séjour à sa sortie : prendre TB_SEJOUR.DATE_SORTIE ») ; pas quand il recopie une ligne qu'un agent lirait en ouvrant la source.
 - **empirical :** ce qu'on observe dans les données. Ajoute refuted_if : l'observation qui le contredirait, c'est-à-dire le test à lancer pour l'éprouver.
 - **decision :** un choix de l'équipe qui vaut pour toutes les enquêtes, par exemple une façon de compter adoptée au CHU, ou une méthode pour reconstruire ce qu'une variable ne donne pas (classer les séjours par type de prise en charge). Ajoute responsible (qui a décidé) et reconsider_when (ce qui ferait revoir le choix). Il cite la lecture du document où il est écrit (compte rendu, note : une source local). Une décision propre à une enquête n'est pas un claim : c'est une ligne de la section Choix de son README (investigations/README.md, « Choix »).
 
