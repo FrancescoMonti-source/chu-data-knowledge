@@ -31,3 +31,9 @@ Une unité du thésaurus TB_UNITE, désignée par son code (CODE_UNITE). Un séj
 Alias : urgences, passage aux urgences, SAU, UF d'urgences, URGENCE, UF_URGENCE, TYPE_SEJOUR URG
 
 Le passage d'un patient dans une unité d'urgences du CHU, enregistré dans CORA comme un séjour ou un mouvement dans l'une de ces unités.
+
+## cora:mouvement
+
+Alias : TB_MVT, mouvement, mouvement d'unité, passage dans une unité, ID_MVT
+
+Un enregistrement de TB_MVT : le séjour d'un patient dans une unité (UF), d'une date et heure de début (DATE_DEBUT_MVT, HEURE_DEBUT_MVT) à une date et heure de fin (DATE_FIN_MVT, HEURE_FIN_MVT). Un séjour (cora:sejour) en compte un ou plusieurs.
