@@ -18,7 +18,7 @@ depends_on: [date-sortie-manquante, dernier-mouvement-date-la-sortie]
 
 Borner l'analyse au 1er janvier 2018 sauf demande contraire, et le dire. Tant que la date de référence du séjour n'est pas fixée (#33), borner les séjours clos sur DATE_SORTIE >= DATE '2018-01-01' et les séjours sans sortie sur DATE_ENTREE >= DATE '2018-01-01'.
 
-Une série qui remonte avant 2018 doit traiter à part : 2014-2015 (peu de séjours ; séjours sans sortie presque tous sans mouvement, #32), 2016-2017 (aucun lien séjour → RSS par TB_MVT_RUM), 2017 (30 % de séjours sans sortie).
+Une série qui remonte avant 2018 doit traiter à part : 2014-2015 (peu de séjours ; séjours sans sortie presque tous sans mouvement, #32), 2016-2017 (aucun lien séjour → RSS par TB_MVT_RUM ; en 2016, la jointure par TB_SYNTH_RSS.ID_SEJOUR retrouve les RSS, joindre-rss-par-id-sejour ; en 2017, il n'y a presque pas de RSS), 2017 (30 % de séjours sans sortie).
 
 ## Ce qui l'appuie
 
