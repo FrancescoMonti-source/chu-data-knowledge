@@ -9,7 +9,7 @@ Où chercher : method/layout.md, « Retrouver ce qu'on sait ». Les formats : me
 
 ## Le dépôt
 
-1. **Chercher ce qu'on sait.** D'abord, trouver les termes : chercher les mots de la question dans les glossaires, titres et lignes « Alias » (method/layout.md, « Retrouver ce qu'on sait »). Puis, pour chaque terme et chaque table de la question : les glossaires, puis les claims qui les citent, puis leurs prémisses et leurs preuves ; puis les requêtes qui lisent ces tables, et leurs preuves ; enfin, les questions des enquêtes passées.
+1. **Chercher ce qu'on sait.** D'abord, trouver les termes : chercher les mots de la question dans les glossaires, titres et lignes « Alias » (method/layout.md, « Retrouver ce qu'on sait »). Puis, pour chaque terme et chaque table de la question : les glossaires, puis les claims qui les citent, puis leurs prémisses ; puis les requêtes qui lisent ces tables (leur ligne purpose) ; enfin, les questions des enquêtes passées. D'un claim, lire l'en-tête et le corps : ils disent ce qu'il établit et dans quelle portée. Ne pas ouvrir les preuves (method/review.md, « Quand relire ») : celles d'une requête s'ouvrent quand le plan demande ses données (relay, étape 2).
    Fini quand : chaque terme et chaque table a été cherché, et la personne a reçu ce qui existe, avec l'état de relecture de chaque claim (claims.md, « Citer un claim »), et ce qui manque.
 2. **Si ça suffit,** répondre en citant les claims et leur état de relecture. S'arrêter là : aucune enquête ne s'ouvre.
    Fini quand : la personne a sa réponse, et elle dit qu'elle lui suffit.
