@@ -7,6 +7,7 @@
 --   SEJOURS : par année d'entrée depuis 2018, séjours dont UF_ENTREE trouve 0, 1 ou plusieurs lignes de TB_UNITE par égalité de code (avec et sans TRIM).
 --   MOUVEMENTS : par année de début depuis 2018, mouvements dont ID_UNITE_M existe comme TB_UNITE.ID_UNITE, comme TB_UNITE_MEDICALE.ID_UNITE_MED, les deux, ou aucun.
 -- Colonnes N_A, N_B, N_C : pour CODES, les codes dont les lignes ont des libellés différents (N_A), plus d'une ligne active (N_B), plusieurs écritures égales après TRIM (N_C) ; pour SEJOURS, la même répartition 0 ligne (N_A), 1 ligne (N_B), plusieurs lignes (N_C) mais par égalité de code sans TRIM ; vides pour MOUVEMENTS.
+-- Identifiants comparés comme texte (TRIM(TO_CHAR(...))) : leurs types diffèrent selon les tables, et une conversion implicite en nombre échoue (ORA-01722).
 -- Masquage : chaque effectif < 10 sort en <10. Suppression secondaire (règle 4) : pour SEJOURS, N_A + N_B + N_C = N, donc N sort en « masqué » dès que l'un des trois est entre 1 et 9.
 WITH u AS (
   SELECT TRIM(CODE_UNITE) AS CODE,
@@ -52,10 +53,10 @@ sej AS (
 mvt AS (
   SELECT 'MOUVEMENTS' AS NIVEAU,
          EXTRACT(YEAR FROM m.DATE_DEBUT_MVT) AS ANNEE,
-         CASE WHEN EXISTS (SELECT 1 FROM CORA_REC.TB_UNITE x WHERE x.ID_UNITE = m.ID_UNITE_M)
-              THEN CASE WHEN EXISTS (SELECT 1 FROM CORA_REC.TB_UNITE_MEDICALE y WHERE y.ID_UNITE_MED = m.ID_UNITE_M)
+         CASE WHEN EXISTS (SELECT 1 FROM CORA_REC.TB_UNITE x WHERE TRIM(TO_CHAR(x.ID_UNITE)) = TRIM(TO_CHAR(m.ID_UNITE_M)))
+              THEN CASE WHEN EXISTS (SELECT 1 FROM CORA_REC.TB_UNITE_MEDICALE y WHERE TRIM(TO_CHAR(y.ID_UNITE_MED)) = TRIM(TO_CHAR(m.ID_UNITE_M)))
                         THEN 'TB_UNITE et TB_UNITE_MEDICALE' ELSE 'TB_UNITE seulement' END
-              ELSE CASE WHEN EXISTS (SELECT 1 FROM CORA_REC.TB_UNITE_MEDICALE y WHERE y.ID_UNITE_MED = m.ID_UNITE_M)
+              ELSE CASE WHEN EXISTS (SELECT 1 FROM CORA_REC.TB_UNITE_MEDICALE y WHERE TRIM(TO_CHAR(y.ID_UNITE_MED)) = TRIM(TO_CHAR(m.ID_UNITE_M)))
                         THEN 'TB_UNITE_MEDICALE seulement' ELSE 'aucune' END
          END AS MODALITE,
          1 AS UN
