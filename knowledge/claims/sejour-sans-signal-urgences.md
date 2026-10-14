@@ -15,7 +15,7 @@ depends_on: []
 ---
 ## Pour s'en servir
 
-Ne pas repérer les passages aux urgences par TB_SEJOUR.UF_URGENCE ni par TYPE_SEJOUR = 'URG' : ces filtres perdent presque tous les séjours entrés par les grandes UF d'urgences. Suivre reperer-passage-urgences.
+Ne pas repérer les passages aux urgences par TB_SEJOUR.UF_URGENCE ni par TYPE_SEJOUR = 'URG' : ces filtres perdent presque tous les séjours entrés par les grandes UF d'urgences. Le drapeau URGENCE des UF ne supplée pas (drapeau-urgence-uf-non-fiable). Aucune méthode n'est encore établie pour repérer les UF d'urgences : en attendant, nommer les UF retenues dans l'analyse et le dire (#30).
 
 ## Ce qui l'appuie
 

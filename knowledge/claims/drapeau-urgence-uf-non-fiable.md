@@ -15,7 +15,7 @@ depends_on: []
 ---
 ## Pour s'en servir
 
-Ne pas filtrer les UF sur TB_UNITE.URGENCE = 'O' pour trouver les urgences : le filtre perd les UF qui reçoivent presque tous les passages. Pour repérer un passage aux urgences, suivre reperer-passage-urgences.
+Ne pas filtrer les UF sur TB_UNITE.URGENCE = 'O' pour trouver les urgences : le filtre perd les UF qui reçoivent presque tous les passages. Les champs du séjour ne suppléent pas (sejour-sans-signal-urgences). Aucune méthode n'est encore établie pour repérer les UF d'urgences : en attendant, nommer les UF retenues dans l'analyse et le dire (#30).
 
 ## Ce qui l'appuie
 
