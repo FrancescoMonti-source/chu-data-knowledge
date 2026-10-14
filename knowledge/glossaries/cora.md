@@ -24,7 +24,7 @@ La colonne TYPE_SEJOUR de TB_SEJOUR, sur trois caractères : MCO, HDJ, EXT, URG,
 
 Alias : UF, unité fonctionnelle, unité, TB_UNITE, CODE_UNITE, UF d'entrée, UF_ENTREE
 
-Une unité du thésaurus TB_UNITE, désignée par son code (CODE_UNITE). Un séjour porte son UF d'entrée (TB_SEJOUR.UF_ENTREE), chaque mouvement l'UF où il a lieu (TB_MVT.ID_UNITE_M). Un même code peut avoir plusieurs lignes dans TB_UNITE.
+Une unité du thésaurus TB_UNITE, désignée par son code (CODE_UNITE). Un séjour porte son UF d'entrée (TB_SEJOUR.UF_ENTREE), chaque mouvement l'UF où il a lieu (TB_MVT.ID_UNITE_M, qui contient le code et non un identifiant).
 
 ## cora:passage-urgences
 
