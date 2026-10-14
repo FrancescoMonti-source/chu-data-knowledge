@@ -19,7 +19,7 @@ Ne pas sélectionner une période sur DATE_SORTIE brute, ni filtrer DATE_SORTIE 
 
 La sortie manquante ne se retrouve pas par le RSS : ces séjours n'en ont presque jamais. Le dernier mouvement est le seul repère (dernier-mouvement-date-la-sortie).
 
-Avant 2020, une part des séjours sans sortie sont des préadmissions (TB_SEJOUR.STATUT_PROG = 'P') ou des séjours sans aucun mouvement : les traiter à part.
+Avant 2020, une part des séjours sans sortie sont des préadmissions (TB_SEJOUR.STATUT_PROG = 'P') ou des séjours sans aucun mouvement : les traiter à part (#32). Les séjours restés ouverts, un seul mouvement sans fin ni RSS, sont étudiés dans #33.
 
 ## Ce qui l'appuie
 
