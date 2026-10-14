@@ -2,7 +2,13 @@
 
 ## Pourquoi ce dépôt
 
-On travaille de plus en plus avec un agent IA, et ce qu'on apprend ensemble reste dans la conversation, puis se perd. Ce dépôt est un lieu commun : plusieurs personnes et leurs agents y sédimentent ce qu'ils découvrent sur les données du CHU, et chaque conversation, de n'importe qui, part de là. Ce qui entre porte ses preuves : sinon, une erreur faite dans une conversation passerait dans toutes les suivantes.
+Ce dépôt sédimente ce que nous apprenons en analysant les données de l'hôpital, pour donner à l'agent de la prochaine analyse un contexte précis et vérifié. Ce contexte le guide pour interroger les données et interpréter les résultats, et pour produire à son tour des claims utiles, vrais et vérifiés, en suivant le format, la validation par une personne et les contraintes du dépôt. Plusieurs personnes et leurs agents y contribuent, et chaque conversation, de n'importe qui, part de là.
+
+Un claim est donc écrit pour cet agent. Il doit être :
+
+- **utile :** il change ce que l'agent écrit dans une requête ou conclut d'un résultat (method/claims.md, « Ce qui mérite un claim ») ;
+- **vrai et vérifié :** appuyé sur ses preuves, réfutable, relu quand on le réutilise. Sans preuves, une erreur faite dans une conversation passerait dans toutes les suivantes ;
+- **conforme :** le format de method/, le relay pour les données, la validation par une personne, les contrôles de check.py.
 
 Les principes, un mot chacun :
 
