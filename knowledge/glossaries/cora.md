@@ -21,3 +21,15 @@ Un enregistrement de TB_SYNTH_RSS : le résultat du groupage MCO d'un séjour da
 Alias : TYPE_SEJOUR, type de séjour
 
 La colonne TYPE_SEJOUR de TB_SEJOUR, sur trois caractères : MCO, HDJ, EXT, URG, PSY, REA, SSR, LSJ… Le dictionnaire CORA 2020 la présente comme un moyen de distinguer, par exemple, l'externe de l'hospitalisation dans une même unité.
+
+## cora:uf
+
+Alias : UF, unité fonctionnelle, unité, TB_UNITE, CODE_UNITE, UF d'entrée, UF_ENTREE
+
+Une unité du thésaurus TB_UNITE, désignée par son code (CODE_UNITE). Un séjour porte son UF d'entrée (TB_SEJOUR.UF_ENTREE), chaque mouvement l'UF où il a lieu (TB_MVT.ID_UNITE_M). Un même code peut avoir plusieurs lignes dans TB_UNITE.
+
+## cora:passage-urgences
+
+Alias : urgences, passage aux urgences, SAU, UF d'urgences, URGENCE, UF_URGENCE, TYPE_SEJOUR URG
+
+Le passage d'un patient dans une unité d'urgences du CHU, enregistré dans CORA comme un séjour ou un mouvement dans l'une de ces unités.

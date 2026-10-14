@@ -17,8 +17,12 @@ Comparaison : sans objet.
 - Une fiche de dim-code peut donner plusieurs claims : une affirmation par test possible (claims.md, « Taille »).
 - Un claim n'entre que s'il apporte ce que les sources ne disent pas : il contredit la documentation, il mesure, ou il signale un piège que la structure ne laisse pas deviner. Ce que le dictionnaire CORA dit déjà n'est pas recopié en claim (étape 1 abandonnée ; diagnoses-attached-to-movement et ghm-code-without-cmd non migrés).
 - La part des séjours sans RSS (étape 2) n'est pas un claim : la question n'est pas mûre. Elle passe dans l'issue #25 ; la requête 20261013-sejours-sans-rss et sa preuve 20261013-sejours-sans-rss-resultat restent dans le dépôt, citées par #25, jusqu'à ce qu'un claim s'en serve ou que #25 se ferme sans claim (elles sont alors supprimées).
+- La liste des UF d'urgences est une décision de Pierre, pour toutes les enquêtes (claim reperer-passage-urgences) ; elle est consignée dans un commentaire de l'issue #24, qui sert de source.
 - Le lien séjour → RSS passe par les mouvements (TB_MVT → TB_MVT_RUM) ; la jointure directe par TB_SYNTH_RSS.ID_SEJOUR est contestée dans dim-code et n'est pas utilisée ici.
 
 ## Conclusions
 - type-sejour-non-fiable (unreviewed)
 - type-prise-en-charge-mco (unreviewed)
+- drapeau-urgence-uf-non-fiable (unreviewed)
+- sejour-sans-signal-urgences (unreviewed)
+- reperer-passage-urgences (unreviewed)
