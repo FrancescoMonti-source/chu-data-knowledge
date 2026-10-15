@@ -13,11 +13,12 @@ But : migrer les fiches OpRoom de la kb de DIM-code en claims qui disent à un a
 - Ce que l'extraction ne contient pas (tables de facturation, vacations, temps de référence, statistiques Oracle) attend une requête SQL sur QBLOCP : plan de #39, étape 6.
 - Pierre : en théorie toutes les requêtes tournent sur la base ; passer par l'extraction est un pis-aller tant qu'il n'a pas accès à QBLOCP.
 - hosptype-is-declarative : l'extraction ne permet pas de comparer au tableau de bord ni à CORA ; la consigne (passer par CORA pour l'ambulatoire PMSI) est reprise dans specialite-et-etat-intervention, la mesure attend le chaînage OpRoom → CORA.
+- definition.tros de la kb (TROS arrêté au début du bionettoyage) : écartée ; selon le benchmark ANAP et selon Pierre, une intervention dure de l'entrée en salle à la fin de la remise en état, et le TROS en est la somme (duree-intervention-avec-bionettoyage).
 - Fiches non migrées : thick-mode (configuration de l'outil, sa place est dans oproom_toolbox) ; convention.priority-at-request et convention.tmi-tros-bionet-included (propres au projet casemix-bloc).
 
 ## Conclusions
 - developper-sur-qbloct (unreviewed)
 - oproom-blocs-entres-par-etapes (unreviewed)
-- fin-intervention-inclut-bionettoyage (unreviewed)
+- duree-intervention-avec-bionettoyage (unreviewed)
 - salle-gillies-hors-bloc (unreviewed)
 - specialite-et-etat-intervention (unreviewed)
