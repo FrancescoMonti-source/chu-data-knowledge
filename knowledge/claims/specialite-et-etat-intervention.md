@@ -3,7 +3,7 @@ review: unreviewed
 id: specialite-et-etat-intervention
 kind: empirical
 author: Pierre
-statement: "Dans OpRoom, une intervention réalisée est à l'état 4 (clôturée), presque jamais à l'état 2 ; elle n'a pas de spécialité propre : celle de sa procédure est celle de sa demande pour 99,9 % des interventions, comme le type d'hospitalisation (AMBU ou HOSPIT) pour 99,2 %. Sur ces interventions, TYPE_SALLE vaut toujours 2, aucune salle n'est virtuelle et aucune n'est exclue du temps de référence."
+statement: "Dans OpRoom, une intervention réalisée est à l'état 4 ; elle n'a pas de spécialité propre : prendre celle de sa procédure, égale à celle de la demande pour 99,9 % des interventions. TYPE_SALLE, la salle virtuelle et l'exclusion du temps de référence ont la même valeur pour toutes les interventions réalisées et ne filtrent rien."
 scope: "OpRoom de production (QBLOCP), interventions terminées ou clôturées commencées de janvier 2023 au 2026-10-09, par l'extraction de requete_oproom.py"
 refuted_if: "pour une année, plus de 1 % des interventions réalisées sont à l'état 2, ou la spécialité de la procédure diffère de celle de la demande pour plus de 1 %"
 maturity: observed

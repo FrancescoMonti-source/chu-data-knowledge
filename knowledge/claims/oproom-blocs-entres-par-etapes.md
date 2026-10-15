@@ -8,7 +8,7 @@ scope: "OpRoom de production (QBLOCP), interventions terminées ou clôturées c
 refuted_if: "un de ces blocs compte plus de 50 interventions par mois avant la date d'entrée donnée ici"
 maturity: observed
 lifecycle: active
-terms: [oproom:intervention]
+terms: [oproom:intervention, oproom:bloc]
 tables: [oproom:OR_INTERVENTIONS, oproom:OR_ROOMS, oproom:OR_SITES]
 supported_by: [20261014-oproom-blocs-mois-resultat, 20261014-oproom-specialites-salles-resultat]
 depends_on: [developper-sur-qbloct]

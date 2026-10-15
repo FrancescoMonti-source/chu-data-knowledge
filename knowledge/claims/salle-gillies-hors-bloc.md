@@ -3,12 +3,12 @@ review: unreviewed
 id: salle-gillies-hors-bloc
 kind: empirical
 author: Pierre
-statement: "Dans OpRoom, la salle GILLIES est hors bloc mais porte des interventions depuis 2024 : environ 400 à 500 par an en ORL, 200 à 350 en chirurgie maxillo-faciale, et toute la dermatologie depuis 2025 ; l'exclure des volumes de bloc et du TVO."
+statement: "Dans OpRoom, exclure la salle GILLIES des volumes de bloc et du TVO : elle est hors bloc, mais porte depuis 2024 une part notable de l'ORL et de la chirurgie maxillo-faciale, et depuis 2025 toute la dermatologie."
 scope: "OpRoom de production (QBLOCP), interventions terminées ou clôturées commencées de janvier 2023 au 2026-10-09, par l'extraction de requete_oproom.py"
-refuted_if: "la salle GILLIES porte des interventions d'autres spécialités que l'ORL, la CMF et la dermatologie à plus de 10 par an, ou plus de 10 interventions en 2023"
+refuted_if: "la salle GILLIES porte plus de 10 interventions par an d'autres spécialités que l'ORL, la CMF et la dermatologie"
 maturity: observed
 lifecycle: active
-terms: [oproom:intervention]
+terms: [oproom:intervention, oproom:bloc, oproom:tvo]
 tables: [oproom:OR_INTERVENTIONS, oproom:OR_ROOMS, oproom:OR_PROCEDURES, oproom:OR_SPECIALISMS]
 supported_by: [20261014-oproom-specialites-salles-resultat, 20261014-kb-gillies]
 depends_on: [developper-sur-qbloct]
