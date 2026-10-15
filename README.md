@@ -66,7 +66,7 @@ Ce qu'on apprend :
 sources/                une fiche par document, citée par ses lectures ; le texte d'un document hors ligne
 knowledge/claims/       un claim par fichier : une affirmation, avec ses preuves
 knowledge/evidence/     une preuve par fichier : une lecture ou une exécution
-knowledge/queries/      les requêtes préparées pour l'hôpital (.sql)
+knowledge/queries/      les requêtes préparées pour l'hôpital (.sql, ou .R pour un fichier)
 knowledge/glossaries/   un glossaire par contexte (pmsi, cora…) ; README.md : la carte des contextes
 investigations/         une enquête par dossier : son README.md, qui cite ses claims
 ```
