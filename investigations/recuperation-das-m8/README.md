@@ -20,5 +20,7 @@ Comparaison : premier codage contre ajouts après le premier groupage sans erreu
 - « Récupéré » = un DAS ajouté à un RSS après son premier groupage sans erreur (TB_CHRONO_CODAGE.DATE_GRP), et non plus « ajouté après l'envoi M8 » : presque rien n'a été ajouté dans les 13 jours après M8 (20261015-m8-ecart-themes-resultat), et une date de coupure au 31 août mêlerait le codage tardif habituel au rattrapage (Francesco, 15/10).
 - Un DAS créé moins de 24 heures après le premier groupage sans erreur compte comme premier codage : le groupage peut tourner au cours de la même saisie.
 
+- L'envoi sur ePMSI a eu lieu le 2 octobre à 9:48 (Francesco, 15/10) ; la coupure reste l'heure du fichier groupé (07:47:40), qui fixe le contenu de M8.
+
 ## Conclusions
 Aucune pour l'instant.
