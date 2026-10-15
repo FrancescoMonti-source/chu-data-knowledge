@@ -51,3 +51,4 @@ Comparaison : sans objet.
 - duree-sejour-journees-ou-nuitees (unreviewed)
 - separer-ambulatoire-par-ghm (unreviewed)
 - referentiels-pmsi-dans-cora (unreviewed)
+- anesthesie-ast-top-ophtalmologie (unreviewed, pour #39)
