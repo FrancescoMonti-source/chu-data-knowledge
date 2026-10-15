@@ -38,12 +38,13 @@ Les règles 1 à 5 valent pour masked ; les règles 2 et 6, pour toutes les requ
 
 ## Un script sur un fichier
 
-Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier groupé d'un envoi, la requête est un script R de base, sans paquet : un fichier .R dans knowledge/queries/, nommé comme une requête (method/adr/0026).
+Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier groupé d'un envoi, la requête est un script R de base : un fichier .R dans knowledge/queries/, nommé comme une requête (method/adr/0026).
 
 - **En-tête :** les quatre mêmes lignes, commentées par `#`. system : le système qui a produit le fichier.
 - **Règles :** 1 et 3 à 6. Le script imprime un seul tableau d'agrégats, masqués dans le script ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Il n'affiche ni n'écrit aucune ligne du fichier.
 - **Colonnes du fichier :** à la place de la règle 2, ses positions viennent de la fiche de son format, dans sources/.
-- **Chemin du fichier :** la seule ligne que la personne adapte. La changer ne compte pas comme une modification.
+- **Joindre à CORA :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi CORA par `DBI::dbGetQuery`, sur la connexion que la personne a ouverte. C'est le seul paquet admis. La requête nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
+- **Chemins et connexion :** les seules lignes que la personne adapte. Les changer ne compte pas comme une modification.
 
 ```r
 # id: 20261016-grp-rum-par-mois
