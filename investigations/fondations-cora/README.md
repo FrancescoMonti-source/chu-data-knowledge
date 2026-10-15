@@ -54,3 +54,4 @@ Comparaison : sans objet.
 - anesthesie-ast-top-ophtalmologie (unreviewed, pour #39)
 - applications-emettrices (unreviewed)
 - chainer-oproom-cora (unreviewed, pour #47)
+- rattacher-actes-bloc-sans-cle (unreviewed, pour #47)
