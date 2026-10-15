@@ -413,6 +413,8 @@ class RepositoryTest(unittest.TestCase):
     def test_modified_execution_keeps_the_sql(self):
         self.edit("knowledge/evidence/20261008-mvt-rum.md", "modified: no", "modified: yes")
         self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "version exécutée")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "| <10 |\n", "| <10 |\n\n```r\nl <- 1\n```\n")
+        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "```sql")
 
     def test_query_names_its_system(self):
         path = "knowledge/queries/20261007-mvt-rum.sql"
@@ -446,7 +448,9 @@ class RepositoryTest(unittest.TestCase):
         self.assertClean()
         self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "modified: no", "modified: yes")
         self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "version exécutée")
-        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "| <10 |\n", "| <10 |\n\n```r\nl <- 1\n```\n")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "| <10 |\n", "| <10 |\n\n```sql\nSELECT 1\n```\n")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "```r")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```sql\nSELECT 1", "```r\nl <- 1")
         self.assertClean()
 
     def test_masked_script_rules(self):

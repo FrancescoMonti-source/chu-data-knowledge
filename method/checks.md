@@ -23,7 +23,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | s'il cite des preuves : documentary, au moins une lecture ; empirical observed, une exécution sans unknown |
 | ROUGE | superseded : un autre claim déclare le remplacer |
 | ROUGE | claim sans preuve propre : maturité qui suit ses prémisses, ou provisional (claims.md) |
-| ROUGE | exécution : même person_data que sa requête, sans champ system, version exécutée si modified: yes ; si masked, rien hors du tableau Markdown du résultat, sauf un bloc ```sql (```r pour un script) |
+| ROUGE | exécution : même person_data que sa requête, sans champ system, version exécutée dans le langage de la requête si modified: yes ; si masked, rien hors du tableau Markdown du résultat, sauf un bloc ```sql (```r pour un script) |
 | ROUGE | lecture : une citation |
 | ROUGE | requête, lue sans ses commentaires (le texte entre guillemets reste) : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 ; un script .R, lu sans ses commentaires # : si masked, l'id entre guillemets, un comptage, le seuil < 10 |
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
