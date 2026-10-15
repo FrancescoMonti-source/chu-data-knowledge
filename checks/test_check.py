@@ -26,6 +26,17 @@ FROM TB_MVT_RUM
 GROUP BY ANNEE;
 """
 
+SCRIPT = """\
+# id: 20261016-grp-rss
+# system: cora
+# person_data: masked
+# purpose: compter les RSS par mois dans un fichier groupé
+l <- readLines("CHEMIN/VERS/fichier.grp")
+n <- table(substr(l, 105, 110))
+print(data.frame(QUERY_ID = "20261016-grp-rss", MOIS = names(n),
+                 N_RSS = ifelse(n < 10, "<10", as.character(n))))
+"""
+
 EXECUTION = """\
 ---
 id: 20261008-mvt-rum
@@ -426,6 +437,29 @@ class RepositoryTest(unittest.TestCase):
         self.assertTrue(any("première colonne" in m for m in problems), problems)
         self.assertTrue(any("<10" in m for m in problems), problems)
 
+    def test_script_on_a_file_is_a_query(self):
+        path = "knowledge/queries/20261016-grp-rss.R"
+        self.write({path: SCRIPT,
+                    "knowledge/evidence/20261016-grp-rss-resultat.md": EXECUTION
+                    .replace("id: 20261008-mvt-rum", "id: 20261016-grp-rss-resultat")
+                    .replace("query: 20261007-mvt-rum", "query: 20261016-grp-rss")})
+        self.assertClean()
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "modified: no", "modified: yes")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "version exécutée")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "| <10 |\n", "| <10 |\n\n```r\nl <- 1\n```\n")
+        self.assertClean()
+
+    def test_masked_script_rules(self):
+        path = "knowledge/queries/20261016-grp-rss.R"
+        self.write({path: SCRIPT.replace('QUERY_ID = "20261016-grp-rss", ', "")
+                    .replace('ifelse(n < 10, "<10", as.character(n))', "n  # < 10")
+                    .replace("table(", "unique(")})
+        problems = [p["message"] for p in self.run_checks() if p["path"] == path]
+        for words in ("première colonne", "agrégats", "<10"):
+            self.assertTrue(any(words in m for m in problems), problems)
+        self.write({path: SCRIPT.replace("# system: cora", "-- system: cora")})
+        self.assertProblem(RED, path, "obligatoire")
+
     def test_select_star_only_for_column_names(self):
         self.write({"knowledge/queries/20261011-colonnes.sql":
                     "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
@@ -620,9 +654,11 @@ class RepositoryTest(unittest.TestCase):
         folders = set()
         for doc in sorted(DOCS.glob("*.md")):
             text = normalized(doc.read_text(encoding="utf-8"))
-            for language, example in re.findall(r"^```(markdown|sql)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
+            for language, example in re.findall(r"^```(markdown|sql|r)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
                 if language == "sql":
                     name = f"knowledge/queries/{query_header(example)[0]['id']}.sql"
+                elif language == "r":
+                    name = f"knowledge/queries/{query_header(example, '#')[0]['id']}.R"
                 elif example.startswith("---\n"):
                     header = front_matter(example)[0]
                     folder = ("knowledge/claims" if "kind" in header else

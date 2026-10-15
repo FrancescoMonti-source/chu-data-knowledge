@@ -40,14 +40,14 @@ PERSON_DATA = ("masked", "no-person-data")
 QUERY_FIELDS = ("id", "system", "person_data", "purpose")
 INACTIVE = ("challenged", "superseded", "withdrawn")
 DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md"}
-SCANNED = (".md", ".sql", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
+SCANNED = (".md", ".sql", ".r", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
 ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence",
-         "sources/*.md": "source", "knowledge/queries/*.sql": "query"}
+         "sources/*.md": "source", "knowledge/queries/*.sql": "query", "knowledge/queries/*.R": "query"}
 GLOSSARIES = "knowledge/glossaries/*.md"
 READMES = ("investigations/README.md", "investigations/*/README.md")
 UNREAD = {
     "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier, "
-                  "et des fichiers .md (.sql pour les requêtes).",
+                  "et des fichiers .md (.sql ou .R pour les requêtes).",
                   "Le ranger dans knowledge/claims/, evidence/, queries/ ou glossaries/, au format de son type "
                   "(method/layout.md)."),
     "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
@@ -68,9 +68,11 @@ SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*
 NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
 SELECT = re.compile(r"(?i)\bselect\b")
 SQL_COMMENT = re.compile(r"'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"|--[^\n]*|/\*.*?\*/", re.DOTALL)
+R_COMMENT = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"|#[^\n]*")
 FENCE = re.compile(r"\s*```\s*(\S*)")
 MASK = re.compile(r"(?<!')<\s*10\b|<=\s*9\b|>=\s*10\b|>\s*9\b")
 AGGREGATE = re.compile(r"(?i)\b(?:count|sum|avg|min|max)\s*\(")
+R_AGGREGATE = re.compile(r"\b(?:sum|length|nrow|table|tabulate|aggregate|tapply|mean|median|min|max)\s*\(")
 UNQUOTED_HASH = re.compile(r"\s*([\w-]+):\s+[^\"'\s\[{][^\n]*\s#")
 
 
@@ -145,12 +147,12 @@ def definitions(text):
         yield match.group(1), ALIAS_LINE.sub("", text[match.end():end], count=1).strip()
 
 
-def query_header(text):
-    """Lit les lignes « -- clé: valeur » au début d'un fichier .sql."""
+def query_header(text, mark="--"):
+    """Lit les lignes « -- clé: valeur » au début d'un fichier .sql, « # clé: valeur » au début d'un script .R."""
     header, body = {}, []
     lines = normalized(text).split("\n")
     for index, line in enumerate(lines):
-        match = re.match(r"--\s*([a-z_]+)\s*:\s*(.*)", line)
+        match = re.match(re.escape(mark) + r"\s*([a-z_]+)\s*:\s*(.*)", line)
         if not match:
             body = lines[index:]
             break
@@ -211,7 +213,8 @@ class Repository:
         name = self.relative(path)
         text = path.read_text(encoding="utf-8", errors="replace")
         try:
-            header, body = query_header(text) if role == "query" else front_matter(text)
+            header, body = (query_header(text, "#" if path.suffix == ".R" else "--") if role == "query"
+                            else front_matter(text))
         except ValueError as error:
             self.report(RED, name, None, str(error), "Corriger l'en-tête : voir method/" + DOCS[role] + ".")
             return
@@ -416,9 +419,9 @@ class Repository:
             if "system" in header:
                 self.report(RED, path, "system", "le système d'une exécution vient de sa requête.",
                             "Retirer system : la requête le donne dans son en-tête (method/evidence.md).")
-            if header["modified"] == "yes" and "```sql" not in evidence["body"]:
+            if header["modified"] == "yes" and "```sql" not in evidence["body"] and "```r" not in evidence["body"]:
                 self.report(RED, path, "modified", "la requête a été modifiée mais la version exécutée manque.",
-                            "Ajouter la requête réellement exécutée dans un bloc ```sql.")
+                            "Ajouter la requête réellement exécutée dans un bloc ```sql (```r pour un script).")
             if header["person_data"] == "masked":
                 self.check_masked_result(evidence)
         elif kind == "reading":
@@ -436,12 +439,17 @@ class Repository:
 
     def check_query(self, query):
         header, path = query["header"], query["path"]
+        script = path.endswith(".R")
         # Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste.
-        sql = SQL_COMMENT.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", query["body"])
+        sql = (R_COMMENT if script else SQL_COMMENT).sub(
+            lambda m: m.group() if m.group()[0] in "'\"" else " ", query["body"])
         if not self.require(query, QUERY_FIELDS):
             return
         self.allowed(query, "person_data", PERSON_DATA)
         self.known_context(query, "system", header["system"])
+        if script:
+            self.check_script(query, sql)
+            return
         if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
             return
         if SELECT_STAR.search(sql):
@@ -459,6 +467,21 @@ class Repository:
             self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
                         "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
 
+    def check_script(self, query, code):
+        """Un script R lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md)."""
+        header, path = query["header"], query["path"]
+        if header["person_data"] != "masked":
+            return
+        if not any(quote + header["id"] + quote in code for quote in "'\""):
+            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id du script.",
+                        f"Mettre QUERY_ID = \"{header['id']}\" en tête du tableau imprimé.")
+        if not R_AGGREGATE.search(code):
+            self.report(RED, path, None, "un script sur des personnes n'imprime que des agrégats.",
+                        "Compter (sum, length, table…) au lieu d'imprimer des lignes du fichier.")
+        if not MASK.search(code):
+            self.report(RED, path, None, "le masquage <10 n'apparaît pas dans le script.",
+                        "Masquer toute statistique sous 10 dans le script lui-même (method/queries.md).")
+
     def check_masked_result(self, evidence):
         """Le contrôle des effectifs ne lit que les tableaux : hors d'un bloc sql, le résultat n'est qu'un tableau."""
         path, tags, outside, inside = evidence["path"], [], [], False
@@ -475,8 +498,9 @@ class Repository:
         elif any(not line.lstrip().startswith("|") for line in outside):
             self.report(RED, path, None, "des lignes sont hors du tableau Markdown du résultat.",
                         "Mettre tout le résultat dans le tableau, et retirer le reste (method/evidence.md).")
-        if any(tag != "sql" for tag in tags):
-            self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée (```sql).",
+        if any(tag not in ("sql", "r") for tag in tags):
+            self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée "
+                        "(```sql, ou ```r pour un script).",
                         "Mettre le résultat dans le tableau, et retirer le bloc.")
         self.check_small_counts(evidence)
 

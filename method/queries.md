@@ -36,6 +36,30 @@ GROUP BY ANNEE;
 
 Les règles 1 à 5 valent pour masked ; les règles 2 et 6, pour toutes les requêtes. Le contrôle lit la requête sans ses commentaires. Il vérifie SELECT *, et pour masked la présence du seuil (< 10 ou <= 9), d'un agrégat et de l'id. Il ne vérifie pas que le masquage est juste, ni les règles 4 et 6.
 
+## Un script sur un fichier
+
+Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier groupé d'un envoi, la requête est un script R de base, sans paquet : un fichier .R dans knowledge/queries/, nommé comme une requête (method/adr/0026).
+
+- **En-tête :** les quatre mêmes lignes, commentées par `#`. system : le système qui a produit le fichier.
+- **Règles :** 1 et 3 à 6. Le script imprime un seul tableau d'agrégats, masqués dans le script ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Il n'affiche ni n'écrit aucune ligne du fichier.
+- **Colonnes du fichier :** à la place de la règle 2, ses positions viennent de la fiche de son format, dans sources/.
+- **Chemin du fichier :** la seule ligne que la personne adapte. La changer ne compte pas comme une modification.
+
+```r
+# id: 20261016-grp-rum-par-mois
+# system: cora
+# person_data: masked
+# purpose: compter les RUM du fichier groupé d'un envoi par mois de sortie de l'UM (étape 2 du plan)
+fichier <- "CHEMIN/VERS/fichier.grp"
+l <- readLines(fichier, encoding = "latin1")
+n <- table(substr(l, 105, 110))
+print(data.frame(QUERY_ID = "20261016-grp-rum-par-mois", DATABASE_NAME = basename(fichier),
+                 RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"), MOIS = names(n),
+                 N_RUM = ifelse(n < 10, "<10", as.character(n))), row.names = FALSE)
+```
+
+Le contrôle lit le script sans ses commentaires : pour masked, il cherche l'id entre guillemets, un comptage (sum, length, table…) et le seuil < 10. Il ne vérifie pas que le script n'imprime rien d'autre.
+
 ## Aller
 
 Le message qui accompagne la requête donne deux lignes à la personne : à quelle étape du plan sert la requête et ce qui change selon le résultat ; où et comment l'exécuter. Il lui rappelle de prévenir si elle modifie la requête.
