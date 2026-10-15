@@ -55,3 +55,5 @@ Comparaison : sans objet.
 - applications-emettrices (unreviewed)
 - chainer-oproom-cora (unreviewed, pour #47)
 - rattacher-actes-bloc-sans-cle (unreviewed, pour #47)
+- sejours-ouverts-urgences-cegidd (unreviewed, pour #33)
+- sejours-sans-rss-venues-externes (unreviewed, pour #25)
