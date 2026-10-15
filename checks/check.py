@@ -419,9 +419,10 @@ class Repository:
             if "system" in header:
                 self.report(RED, path, "system", "le système d'une exécution vient de sa requête.",
                             "Retirer system : la requête le donne dans son en-tête (method/evidence.md).")
-            if header["modified"] == "yes" and "```sql" not in evidence["body"] and "```r" not in evidence["body"]:
-                self.report(RED, path, "modified", "la requête a été modifiée mais la version exécutée manque.",
-                            "Ajouter la requête réellement exécutée dans un bloc ```sql (```r pour un script).")
+            fence = "```r" if query.get("path", "").endswith(".R") else "```sql"
+            if header["modified"] == "yes" and fence not in evidence["body"]:
+                self.report(RED, path, "modified", f"la requête a été modifiée mais la version exécutée manque (bloc {fence}).",
+                            f"Ajouter la requête réellement exécutée dans un bloc {fence}, le langage de la requête.")
             if header["person_data"] == "masked":
                 self.check_masked_result(evidence)
         elif kind == "reading":
