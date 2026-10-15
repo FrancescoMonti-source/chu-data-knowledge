@@ -17,7 +17,7 @@ depends_on: []
 
 - **Tarif d'un GHS :** le lire dans `PMSI_LIB_GHS_TARIF` (colonnes GHS, CODE_GHS, PRIX, BAS, HAUT, CODE_GHM_RACINE), en prenant la ligne dont `DATE_DEBUT`–`DATE_FIN` contient la date choisie, et dire laquelle (date de sortie du RSS, ou une date fixe dans l'année). Un GHM peut avoir plusieurs GHS. `PMSI_LIB_GHS`, sans dates, est plus ancienne et plus courte : ne pas la prendre. Les tarifs des GMT (SMR) sont dans `PMSI_LIB_GMT_TARIF`.
 - **Listes d'exclusion de CMA, seuils de sévérité :** ils ne sont pas dans CORA. Les prendre dans les référentiels de l'ATIH (manuel des GHM, annexes), ou dans un package qui les reprend.
-- **Nom d'une application émettrice (ID_APPLICATION_TRANSFERT) :** `TB_APPLICATION_TRANSFERT` est vide. `TB_INT_APPLICATION` (17 lignes : ID, LIBELLE, TYPE_TRANSFERT) est la seule table candidate, et elle reste à lire.
+- **Nom d'une application émettrice (ID_APPLICATION_TRANSFERT) :** `TB_APPLICATION_TRANSFERT` est vide ; les noms sont dans `TB_INT_APPLICATION` (applications-emettrices).
 
 ## Ce qui l'appuie
 
