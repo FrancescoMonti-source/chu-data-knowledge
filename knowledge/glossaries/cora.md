@@ -43,3 +43,9 @@ Un enregistrement de TB_MVT : le séjour d'un patient dans une unité (UF), d'un
 Alias : préadmission, préadmissions, STATUT_PROG P, séjour programmé, venue programmée
 
 Un séjour de TB_SEJOUR créé à l'avance pour une venue programmée, reconnaissable à TB_SEJOUR.STATUT_PROG = 'P'.
+
+## cora:acte
+
+Alias : TB_ACTE, acte codé, acte CCAM de CORA
+
+Un enregistrement de TB_ACTE : un acte CCAM codé dans CORA pour un séjour. Le chaînage le rattache à une intervention OpRoom par TB_ACTE.NO_INTERVENTION.
