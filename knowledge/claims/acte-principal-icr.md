@@ -23,7 +23,7 @@ Pour classer une intervention par un seul acte :
 3. parmi les restants, prendre celui dont l'ICR médecin salarié est le plus élevé (feuille ICR de icr_v3_2021, clé Code_principal et activité) ;
 4. à égalité, le tarif CCAM le plus élevé, puis le code par ordre alphabétique.
 
-Une intervention sans acte rattaché n'a pas de strate : le dire, et comparer les années sur les seules interventions avec acte. Pour savoir si le chaînage a changé entre les années, lire chainage-actes-oproom-progressif.
+Une intervention sans acte rattaché n'a pas de strate : le dire, et comparer les années sur les seules interventions avec acte. Les actes de bloc se repèrent et se rattachent aux interventions comme dit reperer-actes-de-bloc et rattacher-actes-bloc-sans-cle ; le chaînage direct étant récent, l'acte principal d'une même intervention peut changer avec le niveau de rattachement : le dire quand on compare des années.
 
 ## Ce qui l'appuie
 

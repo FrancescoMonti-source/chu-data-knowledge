@@ -21,7 +21,11 @@ Comparaison : sans objet.
 - Sorties manquantes (étape 3) : les deux constats entrent comme claims ; la date de référence du séjour (claim decision) attend #32 (préadmissions et séjours sans mouvement : les exclure ?) et #33 (séjours restés ouverts).
 - Période d'analyse par défaut : 2018 et après, décision de Pierre (« le foutoir avant 2018 »), consignée dans un commentaire de #24 qui sert de source (claim periode-analyse-cora-2018).
 - Le préfixe de NO_SEJOUR (étape 10, kb : no-sejour-is-a-counter) n'est pas migré : un agent n'a pas de raison de dater un séjour par son numéro (Pierre).
-- Le lien séjour → RSS passe par les mouvements (TB_MVT → TB_MVT_RUM) ; la jointure directe par TB_SYNTH_RSS.ID_SEJOUR est contestée dans dim-code et n'est pas utilisée ici.
+- Lot du 14/10 (Pierre : « de manière industrielle ») : les fiches CORA restantes sont triées en une fois ; huit requêtes, exécutées ensemble par scripts/cdk/executer_requetes_cdk.py de dim-code (branche migration-cdk), couvrent celles qui se mesurent : stay-to-rss-link (20261014-lien-sejour-rss) ; rss-path-scope (20261014-chemin-rss-actes-diags) ; act-history-epochs, act-origin, act-site-missing-2021, surgical-acts-coded-in-cora, no-intervention-bloc-screen-only (20261014-epoques-actes) ; intervention-table-is-oproom-flow (20261014-interventions-cora) ; convention.intervention-id-no-intervention-ccam (20261014-groupes-ccam) ; rss-before-validation (20261014-rss-recents) ; convention.age-at-admission (20261014-age-entree) ; convention.exit-mode et convention.last-movement-uf (20261014-sortie-et-dernier-mvt).
+- Fiches CORA non migrées : stay-duration-from-stay-dates (principe sans mesure, qu'un agent applique déjà en partant des dates du séjour) ; definition.intervention-numbers (recopie le dictionnaire) ; or-act-included-in-ghs (règle de financement, pas un fait des données CORA) ; definition.ghm-to-ghs-table (un emplacement de table : un terme de glossaire si un claim en a besoin) ; or-site-flag-incomplete (demande OpRoom : avec la migration d'OpRoom) ; les sept fiches propres à un projet (casemix-bloc, pmct-6103, smr-onco), qui restent dans dim-code.
+- Conventions : convention.length-of-stay devient un claim decision au nom de Pierre, reformulé par lui dans sa revue de la PR #38 (demander journées ou nuitées) ; convention.age-at-admission, convention.exit-mode et convention.last-movement-uf deviennent des claims empiriques, la mesure suffisant à fonder la consigne ; convention.reference-date attend #33.
+- Lot 2 du 15/10 (Pierre : un seul script pour toutes les questions restantes) : six requêtes sur le backlog de la kb et les fiches transverses ; site-bloc-values répond dans reperer-actes-de-bloc (BLOC vaut 'O' ou 'N'), anesthesia-grouping dans #39. NO_INTERVENTION_EXT vaut « I_KEY-phase » (lot 3 et code de DIM-code) ; les noms des applications sont dans TB_INT_APPLICATION (lot 3).
+- Le lien séjour → RSS : la jointure directe par TB_SYNTH_RSS.ID_SEJOUR, d'abord écartée sur la foi de dim-code, est mesurée le 14/10 (20261014-lien-sejour-rss) : elle vaut le chemin par les mouvements depuis 2018 et retrouve seule les RSS de 2016 ; c'est le filtre CHRONO_RSS = 1 qui la vidait (joindre-rss-par-id-sejour). Les claims qui comptent les RSS par les mouvements restent justes depuis 2018 ; sur 2016, ils les sous-estiment.
 
 ## Conclusions
 - type-sejour-non-fiable (unreviewed)
@@ -33,3 +37,23 @@ Comparaison : sans objet.
 - periode-analyse-cora-2018 (unreviewed)
 - joindre-uf-par-code (unreviewed)
 - borner-entree-date-extraction (unreviewed)
+- joindre-rss-par-id-sejour (unreviewed)
+- chemin-actes-diags-par-mouvement (unreviewed)
+- dater-diagnostic-par-mouvement (unreviewed)
+- epoques-codage-actes (unreviewed)
+- reperer-actes-de-bloc (unreviewed)
+- grouper-actes-par-no-intervention-ccam (unreviewed)
+- interventions-cora-flux-oproom (unreviewed)
+- rss-mois-recents-non-codes (unreviewed)
+- age-entree-a-recalculer (unreviewed)
+- mode-sortie-du-sejour (unreviewed)
+- uf-sortie-dernier-mouvement (unreviewed)
+- duree-sejour-journees-ou-nuitees (unreviewed)
+- separer-ambulatoire-par-ghm (unreviewed)
+- referentiels-pmsi-dans-cora (unreviewed)
+- anesthesie-ast-top-ophtalmologie (unreviewed, pour #39)
+- applications-emettrices (unreviewed)
+- chainer-oproom-cora (unreviewed, pour #47)
+- rattacher-actes-bloc-sans-cle (unreviewed, pour #47)
+- sejours-ouverts-urgences-cegidd (unreviewed, pour #33)
+- sejours-sans-rss-venues-externes (unreviewed, pour #25)
