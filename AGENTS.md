@@ -24,7 +24,7 @@ Les principes, un mot chacun :
 | single-source-of-truth | chaque information à un seul endroit |
 | CI-enforced | les contrôles imposent ce qui peut l'être ; le reste est une règle de confiance |
 | human-in-the-loop | aucune règle ne change sans une personne |
-| industry-practice | une règle qui compte suit la pratique courante ; s'en écarter demande une raison écrite |
+| industry-practice | une règle du dépôt qui compte suit la pratique courante ; s'en écarter demande une raison écrite |
 | YAGNI | la structure naît quand une vraie enquête la demande |
 
 ## Règles obligatoires
