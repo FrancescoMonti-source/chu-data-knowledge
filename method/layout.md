@@ -54,6 +54,7 @@ git grep -n "cora:mouvement" -- knowledge/claims/
 
 - **Des mots de la question au terme :** chercher chaque mot dans les glossaires, titres et lignes « Alias » : `git grep -n -i -w "dms" -- knowledge/glossaries/`. Le titre au-dessus de la ligne trouvée est le terme.
 - **Termes et tables :** chercher le terme (cora:mouvement) ou la table (cora:TB_MVT_RUM).
+- **Colonnes et valeurs d'une table :** avant d'écrire une requête pour les apprendre, chercher la table dans le dictionnaire et les requêtes par défaut de CORA : `git grep -n "TB_DIAG" -- sources/dictionnaire-cora-2020/ sources/requetes-cora-par-defaut-v1/`. C'est la seule recherche à faire dans sources/.
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
 - **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat.
 - **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question.

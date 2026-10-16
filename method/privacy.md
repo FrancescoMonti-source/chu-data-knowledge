@@ -10,6 +10,8 @@ Aucune donnée qui permette de reconnaître une personne, patient ou personnel, 
 
 Décrire une colonne est permis : « NIR : numéro d'inscription au répertoire » est un libellé, pas une donnée. Si le contrôle prend un critère pour une date de naissance (une cohorte, une période), écrire l'année seule, ou le mois et l'année.
 
+Le dépôt est public : un effectif de 1 à 9 n'y entre jamais. Dans la conversation, la personne peut montrer le résultat non masqué d'un agrégat sur une strate large, comme l'UF, le GHM ou le mois : l'agent en parle sans l'écrire nulle part. Si la strate isole un cas rare que des collègues reconnaîtraient (un GHM rare, une très petite unité, moins d'un mois), l'agent demande la version masquée. Aucun de ces cas n'est un incident : l'incident vaut pour une donnée qui désigne une personne, comme une ligne de séjour, un identifiant ou une date de naissance (0030).
+
 ## Incident
 
 Si une donnée de personne arrive dans la conversation ou dans un fichier :
