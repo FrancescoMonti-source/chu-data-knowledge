@@ -15,7 +15,7 @@ Un document lu dix fois donne une fiche dans sources/ et dix preuves dans knowle
 
 Le sujet s'écrit dans le fichier : les terms d'un claim (pmsi:rum), ses tables (cora:TB_MVT_RUM), le system d'une requête. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres. La réponse d'une enquête aussi : le README de l'enquête la cite dans Conclusions.
 
-Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), leurs raisons (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision du mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
+Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des décisions qui comptent (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision du mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
 
 ## Ids et noms de fichiers
 

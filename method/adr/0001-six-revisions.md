@@ -1,6 +1,6 @@
 # 0001 — Les six révisions après la v0.4
 
-Statut : accepté, 2026-10-10 (séance de questions après la v0.4, résumée dans le SPEC.md de la première version, supprimée le 2026-10-11 : le tableau ci-dessous en garde le résultat).
+Statut : accepté, 2026-10-10 (séance de questions après la v0.4, résumée dans le SPEC.md de la première version, supprimée le 2026-10-11 : le tableau ci-dessous en garde le résultat). Modifié par 0028 : une règle change quand le mainteneur fusionne la pull request ; seule une décision qui compte et qui tranche reçoit un ADR.
 
 ## Contexte
 

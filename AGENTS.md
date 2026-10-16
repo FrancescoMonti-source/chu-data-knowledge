@@ -34,7 +34,7 @@ Les principes, un mot chacun :
 4. Lancer `python checks/check.py` avant chaque commit. Corriger le contenu, jamais le contrôle.
 5. Toute réponse qui utilise un claim cite son état de relecture.
 6. Clés et valeurs en anglais ; texte libre en français.
-7. Une règle (ce fichier, method/, les skills, checks/) ne change que par le mainteneur ; une décision reçoit un ADR dans method/adr/.
+7. Une règle (ce fichier, method/, les skills, checks/) ne change que par le mainteneur, quand il fusionne la pull request. Une décision qui compte et qui tranche reçoit un ADR (method/adr/README.md).
 8. Les agents travaillent sur une branche autre que `main` et ouvrent une pull request vers `main`. Aucun push direct sur `main`, même si leurs droits GitHub le permettent.
 
 ## Où lire
@@ -50,7 +50,7 @@ Les principes, un mot chacun :
 | corriger une friction | method/maintenance.md |
 | comprendre un message ROUGE ou ORANGE | method/checks.md |
 | comprendre un mot de la méthode | method/GLOSSARY.md |
-| savoir pourquoi une règle existe, écrire un ADR | method/adr/README.md |
+| changer une règle, écrire un ADR, savoir pourquoi une règle existe | method/adr/README.md |
 
 ## Agent skills
 
