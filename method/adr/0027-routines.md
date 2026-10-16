@@ -4,7 +4,7 @@ Statut : accepté, 2026-10-16 (Francesco, enquête revalorisation-chir-m8, issue
 
 ## Contexte
 
-L'enquête revalorisation-chir-m8 a écrit un script R qui compare deux états du codage, le fichier groupé d'un envoi et CORA aujourd'hui, et classe les RSS qui ont gagné un diagnostic. Francesco veut le refaire avec d'autres codes, d'autres fichiers (M7 contre M8, par exemple) et d'autres regroupements, et d'autres calculs de ce genre viendront. Une requête exécutée ne change plus (queries.md, règle 6) : chaque nouvelle exécution recopierait tout le script sous un nouvel id. La méthode du calcul (positions du fichier, classes, limites) n'aurait pas de place à elle : elle resterait dans les commentaires de chaque copie.
+Un même calcul revient d'une question à l'autre, avec d'autres réglages. Par exemple, mesurer la revalorisation entre deux états du codage, pour d'autres codes, d'autres envois ou un autre périmètre. Une requête exécutée ne change plus (queries.md, règle 6) : refaire le calcul voudrait dire recopier tout le script sous un nouvel id. Sa méthode (positions du fichier, définitions, limites) n'aurait pas d'endroit à elle : elle resterait dans les commentaires de chaque copie.
 
 ## Décision
 
@@ -27,11 +27,10 @@ Le contrôle applique à la routine les règles d'un script (le texte « <id> v<
 
 ## Alternatives écartées
 
-- **Un dossier scripts/ hors de knowledge/ :** une routine compte des données du CHU et dépend de claims (les positions, le sens d'un TYPE_DIAG) : elle va avec ce qu'on apprend, et le contrôle doit la lire.
+- **Un dossier scripts/ hors de knowledge/ :** une routine compte des données du CHU et dépend de claims (les positions d'un fichier, le sens d'un code de la base) : elle va avec ce qu'on apprend, et le contrôle doit la lire.
 - **Recopier le script à chaque exécution :** la méthode se disperse, et une correction ne touche qu'une copie.
 
 ## Conséquences
 
 - Seulement en R pour l'instant. Une routine SQL attendra une vraie enquête qui la demande.
 - Le contrôle ne vérifie pas qu'une version a augmenté quand le code a changé : c'est une règle de confiance (checks.md).
-- La première routine est revalorisation-entre-deux-etats, tirée de 20261015-classes-envoi.

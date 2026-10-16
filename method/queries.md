@@ -43,7 +43,7 @@ Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier grou
 - **En-tête :** les quatre mêmes lignes, commentées par `#`. system : le système qui a produit le fichier.
 - **Règles :** 1 et 3 à 6. Le script imprime un seul tableau d'agrégats, masqués dans le script ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Il n'affiche ni n'écrit aucune ligne du fichier.
 - **Colonnes du fichier :** à la place de la règle 2, ses positions viennent de la fiche de son format, dans sources/.
-- **Joindre à CORA :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi CORA par `DBI::dbGetQuery`, sur la connexion que la personne a ouverte. C'est le seul paquet admis. La requête nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
+- **Lire la base :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi le système de son en-tête par `DBI::dbGetQuery`, sur la connexion que la personne a ouverte. C'est le seul paquet admis. La requête SQL nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
 - **Chemins et connexion :** les seules lignes que la personne adapte. Les changer ne compte pas comme une modification.
 
 ```r
