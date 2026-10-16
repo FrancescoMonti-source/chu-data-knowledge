@@ -14,7 +14,7 @@ Un petit effectif peut pourtant désigner quelqu'un quand la strate est étroite
 
 ## Décision
 
-Un effectif de 1 à 9 n'entre jamais dans le dépôt. Dans la conversation, un agrégat sur une strate large peut venir en clair ; l'agent en parle sans l'écrire. Une strate qui isole un cas rare demande la version masquée. L'incident vaut seulement pour une donnée qui désigne une personne. La règle : privacy.md.
+Un effectif de 1 à 9 n'entre jamais dans le dépôt. Dans la conversation, un agrégat sur une strate large peut venir en clair ; l'agent en parle sans l'écrire. L'incident vaut seulement pour une donnée qui désigne une personne, y compris un petit effectif sur une strate qui isole un cas rare. La règle : privacy.md.
 
 ## Alternatives écartées
 
