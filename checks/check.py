@@ -190,7 +190,7 @@ class Repository:
     def load(self):
         for path in sorted(self.root.rglob("*")):
             if (path.is_file() and path.suffix.lower() in SCANNED and ".git" not in path.parts
-                    and not (path.suffix == ".py" and path.parent.name == "checks")):  # ses tests portent des données fausses
+                    and not (path.suffix == ".py" and path.parent == self.root / "checks")):  # ses tests portent des données fausses
                 try:
                     text = path.read_text(encoding="utf-8")
                 except UnicodeDecodeError:
@@ -428,7 +428,8 @@ class Repository:
                 self.report(RED, path, "system", "le système d'une exécution vient de sa requête.",
                             "Retirer system : la requête le donne dans son en-tête (method/evidence.md).")
             fence = "```" + SCRIPTS.get(Path(query.get("path", "")).suffix, "sql")
-            if header["modified"] == "yes" and fence not in evidence["body"]:
+            executed = re.compile("^" + fence + r"[ \t]*\n[ \t]*\S.*?^```", re.MULTILINE | re.DOTALL)
+            if header["modified"] == "yes" and not executed.search(evidence["body"]):
                 self.report(RED, path, "modified", f"la requête a été modifiée mais la version exécutée manque (bloc {fence}).",
                             f"Ajouter la requête réellement exécutée dans un bloc {fence}, le langage de la requête.")
             if header["person_data"] == "masked":
@@ -517,6 +518,9 @@ class Repository:
                 inside = not inside
             elif not inside and line.strip():
                 outside.append(line)
+        if inside:
+            self.report(RED, path, None, "un bloc de code n'est pas fermé.",
+                        "Fermer le bloc par une ligne ```.")
         if not outside:
             self.report(RED, path, None, "le résultat n'est pas un tableau Markdown.",
                         "Recopier le résultat en tableau Markdown, avec ses colonnes (method/evidence.md).")

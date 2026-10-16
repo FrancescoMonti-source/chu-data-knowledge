@@ -473,6 +473,10 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "```r")
         self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```sql\nSELECT 1", "```r\nl <- 1")
         self.assertClean()
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```r\nl <- 1\n```\n", "```r\n```\n")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "version exécutée")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```r\n```\n", "```r\nl <- 1\n")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "pas fermé")
 
     def test_python_script_is_a_query(self):
         path = "knowledge/queries/20261016-grp-rss.py"
@@ -517,6 +521,10 @@ class RepositoryTest(unittest.TestCase):
         (self.root / "knowledge/routines/grp-par-mois/README.md").unlink()
         self.assertProblem(RED, path, "README.md")
         (self.root / path).unlink()
+        self.write({"knowledge/routines/checks/checks.py": "# id: checks\n# system: cora\n# purpose: test\n"
+                    "# né le 12/03/1951\n", "knowledge/routines/checks/README.md": "# checks\n"})
+        self.assertProblem(RED, "knowledge/routines/checks/checks.py", "naissance")
+        (self.root / "knowledge/routines/checks/checks.py").unlink()
         self.write({"knowledge/routines/grp-par-mois/grp-par-mois.py":
                     "# id: grp-par-mois\n# system: cora\n# purpose: compter les RSS par mois\nprint(1)\n",
                     "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n"})
