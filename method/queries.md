@@ -67,7 +67,7 @@ Un calcul qu'on refait avec d'autres réglages (d'autres codes, d'autres fichier
 
 - **Le code :** une fonction qui prend les réglages en paramètres, masquer = TRUE par défaut, et suit les règles d'un script. L'en-tête est celui d'un script, plus `version`, un entier augmenté de 1 à chaque changement du code. Le tableau imprimé commence par QUERY_ID, l'id de la requête qui l'appelle, et ROUTINE, « <id> v<version> ».
 - **README.md :** la méthode, en français. Ce que la routine compte ; chaque paramètre ; d'où viennent les positions et les codes ; ses limites ; les claims sur lesquels elle s'appuie.
-- **Une exécution :** une requête de knowledge/queries/, datée comme les autres, avec la ligne `# routine: <id>`. Elle charge la routine par source() et appelle sa fonction avec l'id de la requête et ses réglages. Ses réglages ne changent plus après l'exécution (règle 6), sauf les chemins, la connexion et masquer.
+- **Une exécution :** elle entre dans le dépôt seulement quand son résultat sert de preuve à un claim ; sinon, elle reste à l'hôpital (method/adr/0027). Elle est alors une requête de knowledge/queries/, datée comme les autres, avec la ligne `# routine: <id>`. Elle charge la routine par source() et appelle sa fonction avec l'id de la requête et ses réglages. Ses réglages ne changent plus après l'exécution (règle 6), sauf les chemins, la connexion et masquer.
 
 ```r
 # id: grp-rum-par-mois

@@ -13,7 +13,7 @@ Un calcul qu'on refait est une routine : un dossier knowledge/routines/<id>/ qui
 - `<id>.R` : le code. Il définit une fonction qui prend les réglages en paramètres et imprime un seul tableau d'agrégats masqués. Son en-tête est celui d'un script (queries.md), plus `version`, un entier. Ses premières colonnes : QUERY_ID, l'id de la requête qui l'appelle, et ROUTINE, « <id> v<version> ».
 - `README.md` : la méthode, en français : ce que la routine compte, ses paramètres, d'où viennent les positions, ses limites, les claims sur lesquels elle s'appuie.
 
-Une exécution reste une requête de knowledge/queries/ : un court script R, avec la ligne d'en-tête `# routine: <id>`, qui charge la routine et appelle sa fonction avec ses réglages. Le résultat est une preuve d'exécution de cette requête, comme avant.
+Une exécution entre dans le dépôt seulement quand son résultat sert de preuve à un claim. Elle est alors une requête de knowledge/queries/ : un court script R, avec la ligne d'en-tête `# routine: <id>`, qui charge la routine et appelle sa fonction avec ses réglages. Le résultat est une preuve d'exécution de cette requête, comme avant. Une exécution pour un suivi ou un chiffre demandé en passant reste à l'hôpital : le dépôt garde ce qu'on apprend, pas les chiffres qu'une routine produit à chaque fois.
 
 Une routine change, contrairement à une requête : chaque changement du code augmente sa version de 1. L'empreinte d'un claim couvre le code de la routine de ses preuves : un changement périme sa relecture.
 
