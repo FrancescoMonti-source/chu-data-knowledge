@@ -63,39 +63,24 @@ Le contrôle lit le script sans ses commentaires : pour masked, il cherche l'id 
 
 ## Une routine
 
-Un calcul qu'on refait avec d'autres réglages (d'autres codes, d'autres fichiers) devient une routine : un dossier knowledge/routines/<id>/, avec `<id>.R` et `README.md` (method/adr/0027). L'id dit ce que la routine calcule, sans date.
+Un calcul qu'on refait à l'hôpital avec d'autres réglages (d'autres codes, d'autres fichiers) devient une routine : un dossier knowledge/routines/<id>/, avec `<id>.R` et `README.md` (method/adr/0027). L'id dit ce que la routine calcule, sans date.
 
-- **Le code :** une fonction qui prend les réglages en paramètres, masquer = TRUE par défaut, et suit les règles d'un script. L'en-tête est celui d'un script, plus `version`, un entier augmenté de 1 à chaque changement du code. Le tableau imprimé commence par QUERY_ID, l'id de la requête qui l'appelle, et ROUTINE, « <id> v<version> ».
-- **README.md :** la méthode, en français. Ce que la routine compte ; chaque paramètre ; d'où viennent les positions et les codes ; ses limites ; les claims sur lesquels elle s'appuie.
-- **Une exécution :** elle entre dans le dépôt seulement quand son résultat sert de preuve à un claim ; sinon, elle reste à l'hôpital (method/adr/0027). Elle est alors une requête de knowledge/queries/, datée comme les autres, avec la ligne `# routine: <id>`. Elle charge la routine par source() et appelle sa fonction avec l'id de la requête et ses réglages. Ses réglages ne changent plus après l'exécution (règle 6), sauf les chemins, la connexion et masquer.
+- **Le code :** une fonction qui prend les réglages en paramètres. Trois lignes d'en-tête, commentées par `#` : id, system, purpose.
+- **README.md :** la méthode, en français : ce que la routine compte, chaque paramètre, ses limites. Ce qu'elle suppose sur les données (les positions d'un fichier, une clé de jointure) s'écrit en claims, que le README cite.
+- **Le résultat reste à l'hôpital.** Il n'entre pas dans le dépôt. Non masqué, il ne se colle pas non plus dans une conversation (privacy.md).
+- **Un chiffre qui doit devenir une preuve :** une requête de knowledge/queries/ (« Un script sur un fichier »), avec tout son calcul dans le script. Elle ne charge pas la routine : une requête exécutée ne change plus (règle 6), une routine si.
 
 ```r
 # id: grp-rum-par-mois
 # system: cora
-# person_data: masked
 # purpose: compter les RUM d'un fichier groupé par mois de sortie de l'UM
-# version: 1
-grp_rum_par_mois <- function(query_id, fichier, masquer = TRUE) {
+grp_rum_par_mois <- function(fichier) {
   l <- readLines(fichier, encoding = "latin1")
-  n <- table(substr(l, 105, 110))
-  print(data.frame(QUERY_ID = query_id, ROUTINE = "grp-rum-par-mois v1", DATABASE_NAME = basename(fichier),
-                   RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"), MOIS = names(n),
-                   N_RUM = if (masquer) ifelse(n < 10, "<10", as.character(n)) else as.character(n)),
-        row.names = FALSE)
+  print(table(MOIS = substr(l, 105, 110)))
 }
 ```
 
-```r
-# id: 20261020-grp-m8-rum-par-mois
-# system: cora
-# person_data: masked
-# purpose: compter les RUM du fichier M8 par mois de sortie de l'UM (étape 2 du plan)
-# routine: grp-rum-par-mois
-source("CHEMIN/VERS/knowledge/routines/grp-rum-par-mois/grp-rum-par-mois.R")
-grp_rum_par_mois(query_id = "20261020-grp-m8-rum-par-mois", fichier = "CHEMIN/VERS/fichier.grp")
-```
-
-Le contrôle applique à la routine les règles d'un script, avec « <id> v<version> » à la place de l'id. Il vérifie son README.md et son dossier. Pour la requête, il vérifie que la routine existe, que le script la charge, qu'il passe l'id de la requête entre guillemets et que person_data est le même.
+Le contrôle vérifie le dossier de la routine, son README.md et son en-tête, et qu'aucune requête ne la charge. Il ne lit pas ce qu'elle imprime.
 
 ## Aller
 
