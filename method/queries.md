@@ -38,12 +38,13 @@ Les règles 1 à 5 valent pour masked ; les règles 2 et 6, pour toutes les requ
 
 ## Un script sur un fichier
 
-Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier groupé d'un envoi, la requête est un script R de base : un fichier .R dans knowledge/queries/, nommé comme une requête (method/adr/0026).
+Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier groupé d'un envoi, la requête est un script : un fichier .R ou .py dans knowledge/queries/, nommé comme une requête (method/adr/0026).
 
+- **Langage et paquets :** R ou Python, avec les paquets que la personne a déjà à l'hôpital. Dans le doute, l'agent lui demande.
 - **En-tête :** les quatre mêmes lignes, commentées par `#`. system : le système qui a produit le fichier.
 - **Règles :** 1 et 3 à 6. Le script imprime un seul tableau d'agrégats, masqués dans le script ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Il n'affiche ni n'écrit aucune ligne du fichier.
 - **Colonnes du fichier :** à la place de la règle 2, ses positions viennent de la fiche de son format, dans sources/.
-- **Lire la base :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi le système de son en-tête par `DBI::dbGetQuery`, sur la connexion que la personne a ouverte. C'est le seul paquet admis. La requête SQL nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
+- **Lire la base :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi le système de son en-tête, sur la connexion que la personne a ouverte. La requête SQL nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
 - **Chemins et connexion :** les seules lignes que la personne adapte. Les changer ne compte pas comme une modification.
 
 ```r
@@ -59,11 +60,11 @@ print(data.frame(QUERY_ID = "20261016-grp-rum-par-mois", DATABASE_NAME = basenam
                  N_RUM = ifelse(n < 10, "<10", as.character(n))), row.names = FALSE)
 ```
 
-Le contrôle lit le script sans ses commentaires : pour masked, il cherche l'id entre guillemets, un comptage (sum, length, table…) et le seuil < 10. Il ne vérifie pas que le script n'imprime rien d'autre.
+Le contrôle lit le script sans ses commentaires : pour masked, il cherche l'id entre guillemets, un comptage (sum, length, table, len, Counter…) et le seuil < 10. Il ne vérifie pas que le script n'imprime rien d'autre.
 
 ## Une routine
 
-Un calcul qu'on refait à l'hôpital avec d'autres réglages (d'autres codes, d'autres fichiers) devient une routine : un dossier knowledge/routines/<id>/, avec `<id>.R` et `README.md` (method/adr/0027). L'id dit ce que la routine calcule, sans date.
+Un calcul qu'on refait à l'hôpital avec d'autres réglages (d'autres codes, d'autres fichiers) devient une routine : un dossier knowledge/routines/<id>/, avec son code `<id>.R` ou `<id>.py` et `README.md` (method/adr/0027). L'id dit ce que la routine calcule, sans date.
 
 - **Le code :** une fonction qui prend les réglages en paramètres. Trois lignes d'en-tête, commentées par `#` : id, system, purpose.
 - **README.md :** la méthode, en français : ce que la routine compte, chaque paramètre, ses limites. Ce qu'elle suppose sur les données (les positions d'un fichier, une clé de jointure) s'écrit en claims, que le README cite.

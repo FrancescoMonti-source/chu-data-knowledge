@@ -42,16 +42,17 @@ ROUTINE_FIELDS = ("id", "system", "purpose")
 INACTIVE = ("challenged", "superseded", "withdrawn")
 DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md",
         "routine": "queries.md"}
-SCANNED = (".md", ".sql", ".r", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
+SCRIPTS = {".R": "r", ".py": "python"}  # un script lu par le contrôle, et le bloc de sa version exécutée
+SCANNED = (".md", ".sql", ".r", ".py", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
 ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence",
          "sources/*.md": "source", "knowledge/queries/*.sql": "query", "knowledge/queries/*.R": "query",
-         "knowledge/routines/*/*.R": "routine"}
+         "knowledge/queries/*.py": "query", "knowledge/routines/*/*.R": "routine", "knowledge/routines/*/*.py": "routine"}
 GLOSSARIES = "knowledge/glossaries/*.md"
 READMES = ("investigations/README.md", "investigations/*/README.md", "knowledge/routines/*/README.md")
 UNREAD = {
     "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier "
-                  "sauf un par routine, et des fichiers .md (.sql ou .R pour les requêtes, .R et README.md "
-                  "pour une routine).",
+                  "sauf un par routine, et des fichiers .md (.sql, .R ou .py pour les requêtes, .R ou .py et "
+                  "README.md pour une routine).",
                   "Le ranger dans knowledge/claims/, evidence/, queries/, glossaries/ ou routines/<id>/, au format "
                   "de son type (method/layout.md)."),
     "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
@@ -71,13 +72,14 @@ SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*
                          r"(?:[\w\"\[\]]+\.)?\*")
 NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
 SELECT = re.compile(r"(?i)\bselect\b")
-LOADS_ROUTINE = re.compile(r"routines[/\\]+[\w-]+[/\\]+[\w-]+\.R")
+LOADS_ROUTINE = re.compile(r"routines[/\\]+[\w-]+[/\\]+[\w-]+\.(?:R|py)\b")
 SQL_COMMENT = re.compile(r"'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"|--[^\n]*|/\*.*?\*/", re.DOTALL)
-R_COMMENT = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"|#[^\n]*")
+HASH_COMMENT = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"|#[^\n]*")
 FENCE = re.compile(r"\s*```\s*(\S*)")
 MASK = re.compile(r"(?<!')<\s*10\b|<=\s*9\b|>=\s*10\b|>\s*9\b")
 AGGREGATE = re.compile(r"(?i)\b(?:count|sum|avg|min|max)\s*\(")
-R_AGGREGATE = re.compile(r"\b(?:sum|length|nrow|table|tabulate|aggregate|tapply|mean|median|min|max)\s*\(")
+SCRIPT_AGGREGATE = re.compile(r"\b(?:sum|length|nrow|table|tabulate|aggregate|tapply|mean|median|min|max"
+                              r"|len|count|value_counts|groupby|size|nunique|Counter)\s*\(")
 UNQUOTED_HASH = re.compile(r"\s*([\w-]+):\s+[^\"'\s\[{][^\n]*\s#")
 
 
@@ -153,7 +155,7 @@ def definitions(text):
 
 
 def query_header(text, mark="--"):
-    """Lit les lignes « -- clé: valeur » au début d'un fichier .sql, « # clé: valeur » au début d'un script .R."""
+    """Lit les lignes « -- clé: valeur » au début d'un fichier .sql, « # clé: valeur » au début d'un script."""
     header, body = {}, []
     lines = normalized(text).split("\n")
     for index, line in enumerate(lines):
@@ -187,7 +189,8 @@ class Repository:
 
     def load(self):
         for path in sorted(self.root.rglob("*")):
-            if path.is_file() and path.suffix.lower() in SCANNED and ".git" not in path.parts:
+            if (path.is_file() and path.suffix.lower() in SCANNED and ".git" not in path.parts
+                    and not (path.suffix == ".py" and path.parent.name == "checks")):  # ses tests portent des données fausses
                 try:
                     text = path.read_text(encoding="utf-8")
                 except UnicodeDecodeError:
@@ -218,7 +221,7 @@ class Repository:
         name = self.relative(path)
         text = path.read_text(encoding="utf-8", errors="replace")
         try:
-            header, body = (query_header(text, "#" if path.suffix == ".R" else "--") if role in ("query", "routine")
+            header, body = (query_header(text, "#" if path.suffix in SCRIPTS else "--") if role in ("query", "routine")
                             else front_matter(text))
         except ValueError as error:
             self.report(RED, name, None, str(error), "Corriger l'en-tête : voir method/" + DOCS[role] + ".")
@@ -424,7 +427,7 @@ class Repository:
             if "system" in header:
                 self.report(RED, path, "system", "le système d'une exécution vient de sa requête.",
                             "Retirer system : la requête le donne dans son en-tête (method/evidence.md).")
-            fence = "```r" if query.get("path", "").endswith(".R") else "```sql"
+            fence = "```" + SCRIPTS.get(Path(query.get("path", "")).suffix, "sql")
             if header["modified"] == "yes" and fence not in evidence["body"]:
                 self.report(RED, path, "modified", f"la requête a été modifiée mais la version exécutée manque (bloc {fence}).",
                             f"Ajouter la requête réellement exécutée dans un bloc {fence}, le langage de la requête.")
@@ -445,8 +448,8 @@ class Repository:
 
     def check_query(self, query):
         header, path = query["header"], query["path"]
-        script = path.endswith(".R")
-        sql = without_comments(query["body"], R_COMMENT if script else SQL_COMMENT)
+        script = Path(path).suffix in SCRIPTS
+        sql = without_comments(query["body"], HASH_COMMENT if script else SQL_COMMENT)
         if not self.require(query, QUERY_FIELDS):
             return
         self.allowed(query, "person_data", PERSON_DATA)
@@ -472,7 +475,7 @@ class Repository:
                         "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
 
     def check_script(self, query, code):
-        """Un script R lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md)."""
+        """Un script R ou Python lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md)."""
         header, path = query["header"], query["path"]
         if LOADS_ROUTINE.search(code):
             self.report(RED, path, None, "une requête ne charge pas une routine : la routine change, la requête "
@@ -483,7 +486,7 @@ class Repository:
         if not any(quote + header["id"] + quote in code for quote in "'\""):
             self.report(RED, path, None, "la première colonne du résultat doit afficher l'id du script.",
                         f"Mettre QUERY_ID = \"{header['id']}\" en tête du tableau imprimé.")
-        if not R_AGGREGATE.search(code):
+        if not SCRIPT_AGGREGATE.search(code):
             self.report(RED, path, None, "un script sur des personnes n'imprime que des agrégats.",
                         "Compter (sum, length, table…) au lieu d'imprimer des lignes du fichier.")
         if not MASK.search(code):
@@ -491,7 +494,7 @@ class Repository:
                         "Masquer toute statistique sous 10 dans le script lui-même (method/queries.md).")
 
     def check_routine(self, routine):
-        """Une routine : un outil R qu'on lance à l'hôpital, dans knowledge/routines/<id>/ avec son README.md.
+        """Une routine : un outil R ou Python qu'on lance à l'hôpital, dans knowledge/routines/<id>/ avec son README.md.
         Son résultat reste à l'hôpital : ses règles de masquage ne sont pas celles d'une requête (method/adr/0027)."""
         header, path = routine["header"], routine["path"]
         folder = (self.root / path).parent
@@ -520,9 +523,9 @@ class Repository:
         elif any(not line.lstrip().startswith("|") for line in outside):
             self.report(RED, path, None, "des lignes sont hors du tableau Markdown du résultat.",
                         "Mettre tout le résultat dans le tableau, et retirer le reste (method/evidence.md).")
-        if any(tag not in ("sql", "r") for tag in tags):
+        if any(tag not in ("sql", *SCRIPTS.values()) for tag in tags):
             self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée "
-                        "(```sql, ou ```r pour un script).",
+                        "(```sql, ou ```r ou ```python pour un script).",
                         "Mettre le résultat dans le tableau, et retirer le bloc.")
         self.check_small_counts(evidence)
 
