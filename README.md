@@ -36,7 +36,7 @@ research et relay peuvent alterner : un résultat de l'hôpital peut demander un
 
 ## Finir une session
 
-Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro` dans Claude Code ; avec Codex, demandez-la. C'est la seule skill que l'agent ne lance pas de lui-même. Vous parlez avec lui de ce qui a gêné et de sa cause ; il ouvre ou complète une issue friction sur GitHub. Un mainteneur corrige une friction quand elle revient.
+Quand vous vous arrêtez, à n'importe quelle étape, l'agent vous propose la retro (vous pouvez aussi la lancer avec `/retro` dans Claude Code ou la demander). Vous parlez avec lui de ce qui a gêné et de sa cause ; il ouvre ou complète une issue friction sur GitHub. Un mainteneur corrige une friction quand elle revient.
 
 ## Skills à installer soi-même
 

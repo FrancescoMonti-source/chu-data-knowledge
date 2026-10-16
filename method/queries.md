@@ -42,8 +42,8 @@ Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier grou
 
 - **Langage et paquets :** R ou Python, avec les paquets que la personne a déjà à l'hôpital. Dans le doute, l'agent lui demande.
 - **En-tête :** les quatre mêmes lignes, commentées par `#`. system : le système qui a produit le fichier.
-- **Règles :** 1 et 3 à 6. Le script imprime un seul tableau d'agrégats, masqués dans le script ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Il n'affiche ni n'écrit aucune ligne du fichier.
-- **Colonnes du fichier :** à la place de la règle 2, ses positions viennent de la fiche de son format, dans sources/.
+- **Règles :** 2 et 5 à 6, plus 1, 3 et 4 pour masked. Le script imprime un seul tableau ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Pour masked, il n'imprime que des agrégats, masqués dans le script, sans aucune ligne du fichier.
+- **Colonnes du fichier :** ses positions viennent de la fiche de son format, dans sources/.
 - **Lire la base :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi le système de son en-tête, sur la connexion que la personne a ouverte. La requête SQL nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
 - **Chemins et connexion :** les seules lignes que la personne adapte. Les changer ne compte pas comme une modification.
 
@@ -88,9 +88,3 @@ Le contrôle vérifie le dossier de la routine, son README.md et son en-tête, e
 Le message qui accompagne la requête donne deux lignes à la personne : à quelle étape du plan sert la requête et ce qui change selon le résultat ; où et comment l'exécuter. Il lui rappelle de prévenir si elle modifie la requête.
 
 Il donne aussi une ligne par règle qui s'applique à la requête : comment elle la respecte. Par exemple : « Règle 4 : la ligne TOTAL est masquée dès qu'une cellule l'est. » Avec ces lignes, la personne vérifie le masquage avant d'exécuter.
-
-## Retour
-
-Les étapes : .agents/skills/relay/SKILL.md, « Retour ».
-
-**Risque résiduel :** la personne modifie la requête sans le dire. Seuls un en-tête ou des colonnes qui ne correspondent pas le révèlent.

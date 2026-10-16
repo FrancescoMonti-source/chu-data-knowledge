@@ -252,6 +252,23 @@ class RepositoryTest(unittest.TestCase):
         self.edit("knowledge/claims/mvt-rum-lien.md", "maturity: observed", "maturity: certain")
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "non admise")
 
+    def test_unknown_header_field_is_red(self):
+        self.edit("knowledge/claims/mvt-rum-lien.md", "depends_on: []", "depends_on: []\nchallenge: [rum-definition]")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "champ non admis")
+        self.edit("knowledge/claims/mvt-rum-lien.md", "challenge: [rum-definition]", "challenges: [rum-definition]")
+        self.assertClean()
+        self.edit("knowledge/claims/rum-definition.md", "kind: documentary", 'kind: documentary\nrefuted_if: "aucun"')
+        self.assertProblem(RED, "knowledge/claims/rum-definition.md", "champ non admis")
+        self.edit("knowledge/evidence/20261009-guide-rum.md", "read_by: Marie", "read_by: Marie\nauthor: Marie")
+        self.assertProblem(RED, "knowledge/evidence/20261009-guide-rum.md", "champ non admis")
+        self.edit("sources/atih-guide-mco-2026.md", "authority: official", "authority: official\nyear: 2026")
+        self.assertProblem(RED, "sources/atih-guide-mco-2026.md", "champ non admis")
+        self.edit("knowledge/queries/20261007-mvt-rum.sql", "-- purpose:", "-- author: Francesco\n-- purpose:")
+        self.assertProblem(RED, "knowledge/queries/20261007-mvt-rum.sql", "champ non admis")
+        self.write(self.routine_files())
+        self.edit("knowledge/routines/grp-par-mois/grp-par-mois.R", "# purpose:", "# person_data: masked\n# purpose:")
+        self.assertProblem(RED, "knowledge/routines/grp-par-mois/grp-par-mois.R", "champ non admis")
+
     # Liens et termes
 
     def test_unknown_term_is_red(self):
@@ -308,25 +325,34 @@ class RepositoryTest(unittest.TestCase):
         self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: active\nauthority: official")
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "autorité")
 
-    def test_documentary_needs_a_reading(self):
+    def test_documentary_and_decision_need_a_reading(self):
         self.edit("knowledge/claims/rum-definition.md", "kind: documentary", "kind: empirical\nrefuted_if: x")
         self.edit("knowledge/claims/mvt-rum-lien.md", "kind: empirical", "kind: documentary")
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "lecture")
+        self.write({"knowledge/claims/choix-annee.md": claim("choix-annee", maturity="documented")
+                    .replace("kind: empirical", "kind: decision\nresponsible: Pierre")
+                    .replace("refuted_if:", "reconsider_when:")})
+        self.assertProblem(RED, "knowledge/claims/choix-annee.md", "lecture")
 
-    def test_observed_needs_attributed_execution(self):
+    def test_observed_needs_attributed_execution_and_empirical_kind(self):
         self.edit("knowledge/evidence/20261008-mvt-rum.md", "database: CORAPROD", "database: unknown")
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "observed")
+        self.write(FILES)
+        self.edit("knowledge/claims/rum-definition.md", "maturity: documented", "maturity: observed")
+        self.assertProblem(RED, "knowledge/claims/rum-definition.md", "observed")
 
     def test_provisional_accepts_unknown_context(self):
         self.edit("knowledge/evidence/20261008-mvt-rum.md", "database: CORAPROD", "database: unknown")
         self.edit("knowledge/claims/mvt-rum-lien.md", "maturity: observed", "maturity: provisional")
         self.assertClean()
 
-    def test_superseded_needs_a_successor(self):
+    def test_superseded_and_supersedes_match(self):
         self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: active", "lifecycle: superseded")
         self.assertProblem(RED, "knowledge/claims/mvt-rum-lien.md", "remplacer")
         self.write({"knowledge/claims/mvt-rum-lien-v2.md": claim("mvt-rum-lien-v2", extra="\nsupersedes: [mvt-rum-lien]")})
         self.assertClean()
+        self.edit("knowledge/claims/mvt-rum-lien.md", "lifecycle: superseded", "lifecycle: active")
+        self.assertProblem(RED, "knowledge/claims/mvt-rum-lien-v2.md", "superseded")
 
     # Relecture et empreinte
 
@@ -612,6 +638,9 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, "docs/agents/issue-tracker.md", "remplacé par method/ (")
         self.write({"docs/adr/0019-editions.md": "# 0019 — Éditions\n"})
         self.assertProblem(RED, "docs/adr/0019-editions.md", "remplacé par method/adr/ (")
+        self.write({"GLOSSARY.md": "# Glossaire\n", "GLOSSARY-MAP.md": "# Carte\n"})
+        self.assertProblem(RED, "GLOSSARY.md", "knowledge/glossaries/")
+        self.assertProblem(RED, "GLOSSARY-MAP.md", "knowledge/glossaries/README.md")
 
     def test_gitkeep_keeps_an_empty_folder(self):
         self.write({"knowledge/queries/.gitkeep": ""})

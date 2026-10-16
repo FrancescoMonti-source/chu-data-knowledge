@@ -295,6 +295,13 @@ class Repository:
             wrong.append(field)
         return not wrong
 
+    def only_fields(self, record, *groups):
+        """Aucun champ hors de ceux de ce type d'en-tête."""
+        allowed = {field for group in groups for field in group}
+        for field in set(record["header"]) - allowed:
+            self.report(RED, record["path"], field, "champ non admis dans cet en-tête.",
+                        "Retirer ou corriger ce champ (method/" + DOCS[record["role"]] + ").")
+
     def allowed(self, record, field, values):
         if record["header"].get(field) not in values:
             self.report(RED, record["path"], field, "valeur non admise.",
@@ -340,6 +347,8 @@ class Repository:
         for field, values in CLAIM_VALUES.items():
             self.allowed(claim, field, values)
         self.require(claim, KIND_FIELDS.get(header["kind"], ()))
+        self.only_fields(claim, CLAIM_FIELDS, KIND_FIELDS.get(header["kind"], ()),
+                         ("challenges", "supersedes", "authority"))
         if "authority" in header:
             self.report(RED, path, "authority", "l'autorité appartient à la source ou à la preuve, pas au claim.",
                         "Retirer authority ; décrire l'autorité dans la fiche de la source.")
@@ -374,11 +383,14 @@ class Repository:
             self.report(RED, path, "supported_by", "un claim s'appuie sur au moins une preuve ou une prémisse.",
                         "Citer ses preuves dans supported_by ou ses prémisses dans depends_on.")
         # Sans preuve propre, un claim d'enquête est contrôlé à travers ses prémisses.
-        if (header["supported_by"] and header["kind"] == "documentary"
+        if (header["supported_by"] and header["kind"] in ("documentary", "decision")
                 and not any(e["header"].get("type") == "reading" for e in evidence)):
-            self.report(RED, path, "supported_by", "un claim documentaire cite au moins une lecture.",
+            self.report(RED, path, "supported_by", f"un claim {header['kind']} cite au moins une lecture.",
                         "Ajouter une preuve de type reading.")
-        if (header["supported_by"] and header["kind"] == "empirical" and header["maturity"] == "observed"
+        if header["maturity"] == "observed" and header["kind"] != "empirical":
+            self.report(RED, path, "maturity", "observed est réservé aux claims empiriques.",
+                        "Choisir documented ou provisional (method/claims.md).")
+        elif (header["supported_by"] and header["maturity"] == "observed"
                 and not any(attributed_execution(e) for e in evidence)):
             self.report(RED, path, "maturity", "observed demande une exécution dont tout le contexte est connu.",
                         "Citer une exécution sans valeur unknown, ou passer maturity à provisional.")
@@ -387,6 +399,11 @@ class Repository:
                 for other in self.records.values() if other["role"] == "claim"):
             self.report(RED, path, "lifecycle", "aucun claim ne déclare remplacer celui-ci.",
                         "Ajouter supersedes: [" + header["id"] + "] dans le claim qui le remplace.")
+        for target_id in header.get("supersedes", []):
+            target = self.records.get(target_id)
+            if target and target.get("valid") and target["header"]["lifecycle"] != "superseded":
+                self.report(RED, path, "supersedes", f"« {target_id} » est remplacé mais son lifecycle n'est pas superseded.",
+                            f"Passer lifecycle à superseded dans {target['path']}.")
         if not header["supported_by"]:
             self.check_derived_maturity(claim)
         self.check_review(claim)
@@ -441,6 +458,7 @@ class Repository:
         if kind == "execution":
             if not self.require(evidence, EXECUTION_FIELDS):
                 return
+            self.only_fields(evidence, EXECUTION_FIELDS, ("system",))
             self.allowed(evidence, "modified", ("yes", "no", "unknown"))
             self.allowed(evidence, "person_data", PERSON_DATA)
             self.linked(evidence, "query", [header["query"]], "query")
@@ -460,6 +478,7 @@ class Repository:
                 self.check_masked_result(evidence)
         elif kind == "reading":
             if self.require(evidence, READING_FIELDS):
+                self.only_fields(evidence, READING_FIELDS)
                 self.linked(evidence, "source", [header["source"]], "source")
             if not re.search(r"^>", evidence["body"], re.MULTILINE):
                 self.report(RED, path, None, "la citation manque.",
@@ -469,6 +488,7 @@ class Repository:
 
     def check_source(self, source):
         if self.require(source, SOURCE_FIELDS):
+            self.only_fields(source, SOURCE_FIELDS)
             self.allowed(source, "authority", SOURCE_AUTHORITY)
 
     def check_query(self, query):
@@ -477,6 +497,7 @@ class Repository:
         code = without_comments(query["body"], code_language["comments"])
         if not self.require(query, QUERY_FIELDS):
             return
+        self.only_fields(query, QUERY_FIELDS)
         self.allowed(query, "person_data", PERSON_DATA)
         self.known_context(query, "system", header["system"])
         if LOADS_ROUTINE.search(code):
@@ -514,6 +535,7 @@ class Repository:
             self.report(RED, path, None, "la routine n'a pas de README.md qui décrit sa méthode.",
                         "Écrire README.md dans le dossier de la routine (method/queries.md, « Une routine »).")
         if self.require(routine, ROUTINE_FIELDS):
+            self.only_fields(routine, ROUTINE_FIELDS)
             self.known_context(routine, "system", header["system"])
 
     def check_masked_result(self, evidence):
@@ -639,6 +661,11 @@ class Repository:
                     self.report(RED, self.relative(path), None,
                                 f"{old}/ est remplacé par {new} (method/adr/0018-ranger-par-type.md).",
                                 "Déplacer le fichier dans le dossier de son type (method/layout.md).")
+        for name, place in {"GLOSSARY.md": "knowledge/glossaries/<contexte>.md (ou method/GLOSSARY.md)",
+                            "GLOSSARY-MAP.md": "knowledge/glossaries/README.md"}.items():
+            if (self.root / name).is_file():
+                self.report(RED, name, None, f"{name} à la racine n'est pas le format du dépôt : voir {place}.",
+                            f"Déplacer le contenu dans {place} et supprimer {name} (method/layout.md).")
         read = {path for path, _ in self.files()} | {
             path for pattern in (GLOSSARIES, *READMES) for path in self.root.glob(pattern)}
         for folder, (message, fix) in UNREAD.items():

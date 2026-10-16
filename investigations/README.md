@@ -9,10 +9,11 @@ Les claims, les preuves et les requêtes de l'enquête vont dans knowledge/ (met
 Une enquête se fait sur sa branche, `investigation/<id>`, où l'id est le nom de son dossier. La branche principale est main, la branche par défaut du dépôt sur GitHub : le README d'une enquête n'y arrive qu'avec sediment.
 
 - **Ouvrir :** créer la branche depuis la branche principale à jour.
-- **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/investigation/*"` : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
+- **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/investigation/*"` (et `gh issue list --label investigation`, ou `git show origin/investigation/<id>:investigations/<id>/README.md` pour lire la question) : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
 - **Reprendre :** avant tout travail, se placer sur sa branche, puis y faire entrer la branche principale à jour (`git fetch`, puis `git merge origin/main`). Sinon l'enquête ne voit pas les claims entrés depuis son ouverture.
 - **Conflits :** un conflit add/add sur un claim de knowledge/claims/ veut dire que deux enquêtes ont choisi le même id. Garder tel quel le fichier de main, et donner au sien un nouvel id : nom du fichier, champ id, et partout où il est cité. Dans un glossaire, garder les termes des deux côtés ; un terme défini deux fois se tranche avec la personne.
 - **Enregistrer :** `python checks/check.py` sans ROUGE ; commit sur la branche de l'enquête ; push (`git push -u origin investigation/<id>`) ; puis, pour chaque nouvelle preuve, un commentaire dans l'issue avec son id et l'étape du plan qu'elle couvre. La session suivante retrouve tout, même sur un autre ordinateur.
+- **Faire entrer :** ouvrir ou mettre à jour une pull request de la branche vers main, avec « Refs #<N> » dans le corps (jamais « Closes #<N> », qui fermerait l'issue avant l'étape 6 de sediment). Sans `gh`, donner le titre et le corps de la PR à la personne pour qu'elle l'ouvre sur GitHub. Un mainteneur fusionne la PR.
 
 ## Le README.md d'une enquête
 
@@ -54,7 +55,7 @@ Avant d'écrire une chose, la classer :
 
 Une preuve qu'aucun claim ne cite :
 
-- **le résultat d'une requête :** il reste dans le dépôt tant que l'issue ouverte d'une enquête le cite. Si l'enquête se ferme sans claim qui le cite, la preuve et sa requête sont supprimées (sediment, étape 6).
+- **le résultat d'une requête :** il reste dans le dépôt tant que l'issue ouverte d'une enquête le cite. Si l'enquête se ferme sans claim qui le cite, la preuve et sa requête sont supprimées (sediment, étape 4).
 - **une lecture :** la supprimer avant le merge. Relire le document coûte peu.
 
 Un claim jugé inutile avant le merge part avec ce qui ne servait qu'à lui : preuves, requêtes, termes. Après le merge, il passe en withdrawn (method/claims.md).
