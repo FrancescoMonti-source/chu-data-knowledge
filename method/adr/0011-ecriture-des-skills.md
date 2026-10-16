@@ -1,6 +1,6 @@
 # 0011 — L'écriture des skills, et la branche main
 
-Statut : accepté, 2026-10-11 (Francesco, après la relecture des skills selon writing-for-agents).
+Statut : accepté, 2026-10-11 (Francesco, après la relecture des skills selon writing-for-agents). Modifié par 0031 : suppression d'agents/openai.yaml sur retro et relecture dans sediment limitée aux prémisses d'une autre personne ou d'une autre enquête.
 
 ## Contexte
 

@@ -66,12 +66,10 @@ NIR = re.compile(r"\b[12]\s?\d{2}\s?\d{2}\s?(?:\d{2}|2[AB])\s?\d{3}\s?\d{3}\s?\d
 FULL_DATE = r"\b(?:\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})\b"
 BIRTH_DATE = re.compile(r"(?i)\b(?:date\s+de\s+naissance|n[ée]e?\s+le|ddn|dob|date\s+of\s+birth|birth\s*date)\b"
                         r"[^\n]{0,40}?" + FULL_DATE)
-BIRTH_COLUMN = re.compile(r"(?i)(?:^|[_\s])(?:naiss|birth|dob|ddn)")
+BIRTH_COLUMN = re.compile(r"(?i)(?:^|[_\s])(?:nais|birth|dob|ddn)")
 COUNT_COLUMN = re.compile(r"(?i)^(?:n|nb)_")
 SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*\d+\s*\)?\s+(?:percent\s+)?)*|,\s*)"
                          r"(?:[\w\"\[\]]+\.)?\*")
-NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
-SELECT = re.compile(r"(?i)\bselect\b")
 LOADS_ROUTINE = re.compile(r"routines[/\\]+[\w-]+[/\\]+[\w-]+\.(?:R|py)\b")
 SQL_COMMENT = re.compile(r"'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"|--[^\n]*|/\*.*?\*/", re.DOTALL)
 HASH_COMMENT = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"|#[^\n]*")
@@ -271,6 +269,13 @@ class Repository:
             wrong.append(field)
         return not wrong
 
+    def only_fields(self, record, *groups):
+        """Aucun champ hors de ceux de ce type d'en-tête."""
+        allowed = {field for group in groups for field in group}
+        for field in set(record["header"]) - allowed:
+            self.report(RED, record["path"], field, "champ non admis dans cet en-tête.",
+                        "Retirer ou corriger ce champ (method/" + DOCS[record["role"]] + ").")
+
     def allowed(self, record, field, values):
         if record["header"].get(field) not in values:
             self.report(RED, record["path"], field, "valeur non admise.",
@@ -316,6 +321,8 @@ class Repository:
         for field, values in CLAIM_VALUES.items():
             self.allowed(claim, field, values)
         self.require(claim, KIND_FIELDS.get(header["kind"], ()))
+        self.only_fields(claim, CLAIM_FIELDS, KIND_FIELDS.get(header["kind"], ()),
+                         ("challenges", "supersedes", "authority"))
         if "authority" in header:
             self.report(RED, path, "authority", "l'autorité appartient à la source ou à la preuve, pas au claim.",
                         "Retirer authority ; décrire l'autorité dans la fiche de la source.")
@@ -350,11 +357,14 @@ class Repository:
             self.report(RED, path, "supported_by", "un claim s'appuie sur au moins une preuve ou une prémisse.",
                         "Citer ses preuves dans supported_by ou ses prémisses dans depends_on.")
         # Sans preuve propre, un claim d'enquête est contrôlé à travers ses prémisses.
-        if (header["supported_by"] and header["kind"] == "documentary"
+        if (header["supported_by"] and header["kind"] in ("documentary", "decision")
                 and not any(e["header"].get("type") == "reading" for e in evidence)):
-            self.report(RED, path, "supported_by", "un claim documentaire cite au moins une lecture.",
+            self.report(RED, path, "supported_by", f"un claim {header['kind']} cite au moins une lecture.",
                         "Ajouter une preuve de type reading.")
-        if (header["supported_by"] and header["kind"] == "empirical" and header["maturity"] == "observed"
+        if header["maturity"] == "observed" and header["kind"] != "empirical":
+            self.report(RED, path, "maturity", "observed est réservé aux claims empiriques.",
+                        "Choisir documented ou provisional (method/claims.md).")
+        elif (header["supported_by"] and header["maturity"] == "observed"
                 and not any(attributed_execution(e) for e in evidence)):
             self.report(RED, path, "maturity", "observed demande une exécution dont tout le contexte est connu.",
                         "Citer une exécution sans valeur unknown, ou passer maturity à provisional.")
@@ -363,6 +373,11 @@ class Repository:
                 for other in self.records.values() if other["role"] == "claim"):
             self.report(RED, path, "lifecycle", "aucun claim ne déclare remplacer celui-ci.",
                         "Ajouter supersedes: [" + header["id"] + "] dans le claim qui le remplace.")
+        for target_id in header.get("supersedes", []):
+            target = self.records.get(target_id)
+            if target and target.get("valid") and target["header"]["lifecycle"] != "superseded":
+                self.report(RED, path, "supersedes", f"« {target_id} » est remplacé mais son lifecycle n'est pas superseded.",
+                            f"Passer lifecycle à superseded dans {target['path']}.")
         if not header["supported_by"]:
             self.check_derived_maturity(claim)
         self.check_review(claim)
@@ -417,6 +432,7 @@ class Repository:
         if kind == "execution":
             if not self.require(evidence, EXECUTION_FIELDS):
                 return
+            self.only_fields(evidence, EXECUTION_FIELDS, ("system",))
             self.allowed(evidence, "modified", ("yes", "no", "unknown"))
             self.allowed(evidence, "person_data", PERSON_DATA)
             self.linked(evidence, "query", [header["query"]], "query")
@@ -436,6 +452,7 @@ class Repository:
                 self.check_masked_result(evidence)
         elif kind == "reading":
             if self.require(evidence, READING_FIELDS):
+                self.only_fields(evidence, READING_FIELDS)
                 self.linked(evidence, "source", [header["source"]], "source")
             if not re.search(r"^>", evidence["body"], re.MULTILINE):
                 self.report(RED, path, None, "la citation manque.",
@@ -445,6 +462,7 @@ class Repository:
 
     def check_source(self, source):
         if self.require(source, SOURCE_FIELDS):
+            self.only_fields(source, SOURCE_FIELDS)
             self.allowed(source, "authority", SOURCE_AUTHORITY)
 
     def check_query(self, query):
@@ -453,21 +471,20 @@ class Repository:
         sql = without_comments(query["body"], HASH_COMMENT if script else SQL_COMMENT)
         if not self.require(query, QUERY_FIELDS):
             return
+        self.only_fields(query, QUERY_FIELDS)
         self.allowed(query, "person_data", PERSON_DATA)
         self.known_context(query, "system", header["system"])
         if script:
             self.check_script(query, sql)
             return
-        if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
-            return
         if SELECT_STAR.search(sql):
-            self.report(RED, path, None, "SELECT * n'est admis qu'avec WHERE 1=0 (noms des colonnes seulement).",
-                        "Nommer les colonnes une par une.")
-        if header["person_data"] != "masked":
-            return
+            self.report(RED, path, None, "SELECT * est interdit : une requête nomme ses colonnes.",
+                        "Nommer les colonnes une par une ; pour les découvrir, interroger le catalogue (method/queries.md).")
         if f"'{header['id']}'" not in sql:
             self.report(RED, path, None, "la première colonne du résultat doit afficher l'id de la requête.",
                         f"Ajouter '{header['id']}' AS query_id en tête du SELECT.")
+        if header["person_data"] != "masked":
+            return
         if not AGGREGATE.search(sql):
             self.report(RED, path, None, "une requête sur des personnes ne renvoie que des agrégats.",
                         "Agréger (COUNT, SUM…) au lieu de renvoyer des lignes individuelles.")
@@ -476,17 +493,17 @@ class Repository:
                         "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
 
     def check_script(self, query, code):
-        """Un script R ou Python lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md)."""
+        """Un script R ou Python lit un fichier gardé à l'hôpital : mêmes règles qu'une requête SQL (method/queries.md)."""
         header, path = query["header"], query["path"]
         if LOADS_ROUTINE.search(code):
             self.report(RED, path, None, "une requête ne charge pas une routine : la routine change, la requête "
                         "exécutée ne change plus (règle 6).",
                         "Recopier dans le script le calcul de la routine (method/queries.md, « Une routine »).")
-        if header["person_data"] != "masked":
-            return
         if not any(quote + header["id"] + quote in code for quote in "'\""):
             self.report(RED, path, None, "la première colonne du résultat doit afficher l'id du script.",
                         f"Mettre QUERY_ID = \"{header['id']}\" en tête du tableau imprimé.")
+        if header["person_data"] != "masked":
+            return
         if not SCRIPT_AGGREGATE.search(code):
             self.report(RED, path, None, "un script sur des personnes n'imprime que des agrégats.",
                         "Compter (sum, length, table…) au lieu d'imprimer des lignes du fichier.")
@@ -506,6 +523,7 @@ class Repository:
             self.report(RED, path, None, "la routine n'a pas de README.md qui décrit sa méthode.",
                         "Écrire README.md dans le dossier de la routine (method/queries.md, « Une routine »).")
         if self.require(routine, ROUTINE_FIELDS):
+            self.only_fields(routine, ROUTINE_FIELDS)
             self.known_context(routine, "system", header["system"])
 
     def check_masked_result(self, evidence):
@@ -630,6 +648,11 @@ class Repository:
                     self.report(RED, self.relative(path), None,
                                 f"{old}/ est remplacé par {new} (method/adr/0018-ranger-par-type.md).",
                                 "Déplacer le fichier dans le dossier de son type (method/layout.md).")
+        for name, place in {"GLOSSARY.md": "knowledge/glossaries/<contexte>.md (ou method/GLOSSARY.md)",
+                            "GLOSSARY-MAP.md": "knowledge/glossaries/README.md"}.items():
+            if (self.root / name).is_file():
+                self.report(RED, name, None, f"{name} à la racine n'est pas le format du dépôt : voir {place}.",
+                            f"Déplacer le contenu dans {place} et supprimer {name} (method/layout.md).")
         read = {path for pattern in (*ROLES, GLOSSARIES, *READMES) for path in self.root.glob(pattern)}
         for folder, (message, fix) in UNREAD.items():
             for path in sorted((self.root / folder).rglob("*")):
@@ -649,7 +672,7 @@ class Repository:
 
 
 def without_comments(code, pattern):
-    """Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste."""
+    """Un commentaire ne compte pas dans le contrôle d'une requête ; un texte entre guillemets reste."""
     return pattern.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", code)
 
 

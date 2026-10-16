@@ -32,7 +32,7 @@ person_data: masked
 | modified | no · yes · unknown. Si yes, la requête réellement exécutée suit le résultat, dans un bloc sql (r ou python pour un script) |
 | person_data | recopié de la requête : masked ou no-person-data |
 
-Une valeur inconnue s'écrit unknown. Un claim empirique observed demande une exécution sans unknown.
+Une valeur inconnue s'écrit unknown. Un claim empirique observed demande une exécution sans unknown. Risque résiduel : la personne modifie la requête sans le dire ; seuls un en-tête ou des colonnes qui ne correspondent pas le révèlent.
 
 ## Lecture
 

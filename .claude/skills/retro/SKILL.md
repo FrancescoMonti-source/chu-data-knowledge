@@ -1,12 +1,11 @@
 ---
 name: retro
-description: Rétrospective en fin de session : relever les accrocs avec la personne, comprendre leur cause, puis ouvrir ou compléter une issue friction sur GitHub. Quand la personne la demande.
-disable-model-invocation: true
+description: Faire la rétrospective des accrocs de la session avec la personne. Utiliser quand la personne la demande ou dit qu'elle s'arrête.
 ---
 
 # retro
 
-La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige.
+Quand la personne dit qu'elle s'arrête, lui proposer la retro avant de commencer. La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; le mainteneur corrige.
 
 Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois qu'il revient, un commentaire.
 

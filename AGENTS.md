@@ -10,22 +10,6 @@ Un claim est donc écrit pour cet agent. Il doit être :
 - **vrai et vérifié :** appuyé sur ses preuves, réfutable, relu quand on le réutilise. Sans preuves, une erreur faite dans une conversation passerait dans toutes les suivantes ;
 - **conforme :** le format de method/, le relay pour les données, la validation par une personne, les contrôles de check.py.
 
-Les principes, un mot chacun :
-
-| Principe | En pratique |
-|---|---|
-| agent-first | les agents écrivent, les personnes décident |
-| over-the-air | l'hôpital, on l'atteint par une personne |
-| bounded-context | chaque terme vaut dans son contexte |
-| evidence-based | chaque claim renvoie à ses preuves |
-| falsifiable | chaque claim empirique dit quelle observation le contredirait |
-| review-on-reuse | on relit un claim quand on construit dessus |
-| privacy-by-design | des agrégats seulement, masqués dans la requête |
-| single-source-of-truth | chaque information à un seul endroit |
-| CI-enforced | les contrôles imposent ce qui peut l'être ; le reste est une règle de confiance |
-| human-in-the-loop | aucune règle ne change sans une personne |
-| YAGNI | la structure naît quand une vraie enquête la demande |
-
 ## Règles obligatoires
 
 1. Aucune donnée de personne dans un fichier ni dans une réponse : le filtre passe avant tout enregistrement (method/privacy.md).
@@ -43,8 +27,8 @@ Les principes, un mot chacun :
 |---|---|
 | ranger un fichier, choisir un id, définir un terme ou un contexte, chercher ce qu'on sait | method/layout.md |
 | écrire un claim | method/claims.md |
-| écrire une preuve ou une fiche de source | method/evidence.md |
-| préparer une requête, enregistrer un résultat | method/queries.md |
+| écrire une preuve (lecture ou résultat) ou une fiche de source | method/evidence.md |
+| préparer une requête ou une routine | method/queries.md |
 | réutiliser, relire ou contester un claim | method/review.md |
 | ouvrir, retrouver ou reprendre une enquête, écrire dans son issue | investigations/README.md |
 | corriger une friction | method/maintenance.md |
@@ -54,12 +38,6 @@ Les principes, un mot chacun :
 
 ## Agent skills
 
-Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
+Les skills du dépôt (frame, research, relay, sediment, retro) sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
 
-- **frame :** cadrer avec la personne une question sur les données du CHU.
-- **research :** chercher ce qui est déjà écrit, dans les claims du dépôt puis dans les documents.
-- **relay :** l'aller-retour à l'hôpital.
-- **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
-- **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
-
-Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de method/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon method/layout.md (« Termes et glossaires »), un lien entre deux contextes comme un claim, un ADR dans method/adr/, selon son README.md.
+Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de method/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon method/layout.md (« Termes et glossaires »), la carte des contextes dans knowledge/glossaries/README.md, un lien entre deux contextes comme un claim, un ADR dans method/adr/, selon son README.md.

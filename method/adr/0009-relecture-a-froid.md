@@ -1,6 +1,6 @@
 # 0009 — Corrections après la relecture à froid
 
-Statut : accepté, 2026-10-11 (Francesco, choix « Clear fixes » après la relecture à froid des skills et de docs/agents). Modifié par 0018 : la branche d'une enquête s'appelle investigation/<id>.
+Statut : accepté, 2026-10-11 (Francesco, choix « Clear fixes » après la relecture à froid des skills et de docs/agents). Modifié par 0018 : la branche d'une enquête s'appelle investigation/<id>. Modifié par 0031 : suppression de l'exception WHERE 1=0, reprise d'enquête dans research, Conclusions avant l'ouverture de la pull request.
 
 ## Contexte
 

@@ -1,6 +1,6 @@
 # 0008 — La retro en fin de session
 
-Statut : accepté, 2026-10-10 (Francesco). Modifie 0006 (retro), 0001 (révision 5) et deux lignes de 0000.
+Statut : accepté, 2026-10-10 (Francesco). Modifie 0006 (retro), 0001 (révision 5) et deux lignes de 0000. Modifié par 0031 : retro est invocable par l'agent quand la personne dit qu'elle s'arrête.
 
 ## Contexte
 
