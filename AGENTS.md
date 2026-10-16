@@ -34,7 +34,7 @@ Les principes, un mot chacun :
 4. Lancer `python checks/check.py` avant chaque commit. Corriger le contenu, jamais le contrôle.
 5. Toute réponse qui utilise un claim cite son état de relecture.
 6. Clés et valeurs en anglais ; texte libre en français.
-7. Une règle (ce fichier, method/, les skills, checks/) ne change que par le mainteneur, quand il fusionne la pull request. Une décision qui compte et qui tranche reçoit un ADR (method/adr/README.md).
+7. Une règle (ce fichier, method/, les skills, checks/) ne change que quand un mainteneur fusionne la pull request. Si l'autre s'y oppose, avec une raison, elle reste ou redevient ce qu'elle était jusqu'à leur accord. Une décision qui compte et qui tranche reçoit un ADR (method/adr/README.md).
 8. Les agents travaillent sur une branche autre que `main` et ouvrent une pull request vers `main`. Aucun push direct sur `main`, même si leurs droits GitHub le permettent.
 
 ## Où lire

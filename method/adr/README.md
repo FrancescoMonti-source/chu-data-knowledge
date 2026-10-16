@@ -11,7 +11,7 @@ Une décision reçoit un ADR quand elle compte et qu'elle tranche (0028) :
 1. **Elle compte :** elle change ce sur quoi d'autres s'appuient (un format, le rangement, une garantie du contrôle, une étape que suit chaque session), ou elle coûterait cher à défaire (S1, S12, S15, S21).
 2. **Elle tranche :** une autre option sérieuse existait, et sans la raison, un lecteur pourrait rouvrir la question ou défaire la règle (S16, S22, S23).
 
-Un renommage ou une reformulation ne tranche rien (S21, S28, S31) : sa raison va dans la pull request. Adaptation au dépôt, sans source (pratique-courante.md, « Ce que les sources ne disent pas »), parce que l'agent suivant ne lit que les fichiers : quand l'agent qui applique la règle a besoin de la raison, la règle elle-même la dit en quelques mots. Par exemple, evidence.md dit d'un document en texte : « le contrôle le lit, et un agent y cherche plus facilement ». Dans le doute, l'agent pose la question au mainteneur dans la pull request.
+Un renommage ou une reformulation ne tranche rien (S21, S28, S31) : sa raison va dans la pull request. Adaptation au dépôt, sans source (pratique-courante.md, « Ce que les sources ne disent pas »), parce que l'agent suivant ne lit que les fichiers : quand l'agent qui applique la règle a besoin de la raison, la règle elle-même la dit en quelques mots. Par exemple, evidence.md dit d'un document en texte : « le contrôle le lit, et un agent y cherche plus facilement ». Dans le doute, l'agent pose la question aux mainteneurs dans la pull request.
 
 ## Comment l'écrire
 
@@ -26,6 +26,6 @@ Un renommage ou une reformulation ne tranche rien (S21, S28, S31) : sa raison va
 
 ## Statut
 
-- Tant que le mainteneur n'a pas tranché : `Statut : proposé, AAAA-MM-JJ (qui propose, à quelle occasion).` On corrige alors l'ADR librement (S1, S19).
-- Quand il tranche, l'agent écrit avant la fusion : `Statut : accepté, AAAA-MM-JJ (qui a décidé, à quelle occasion).` Un fichier ne change pas seul à la fusion : le mainteneur fusionne seulement un ADR accepté.
+- Tant qu'aucun mainteneur n'a tranché : `Statut : proposé, AAAA-MM-JJ (qui propose, à quelle occasion).` On corrige alors l'ADR librement (S1, S19).
+- Quand un mainteneur tranche, l'agent écrit avant la fusion : `Statut : accepté, AAAA-MM-JJ (qui a décidé, à quelle occasion).` Un fichier ne change pas seul à la fusion : un mainteneur ne fusionne qu'un ADR accepté.
 - Après la fusion, seul le Statut change (S12, S15). Une décision qui en change une autre reçoit son propre ADR ; son Statut dit ce qu'elle modifie, et celui de l'ancien dit ce qui le modifie, comme « Modifié par 0008 : … » (S1).

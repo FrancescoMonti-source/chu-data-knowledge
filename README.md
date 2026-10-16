@@ -36,11 +36,11 @@ research et relay peuvent alterner : un résultat de l'hôpital peut demander un
 
 ## Finir une session
 
-Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro` dans Claude Code ; avec Codex, demandez-la. C'est la seule skill que l'agent ne lance pas de lui-même. Vous parlez avec lui de ce qui a gêné et de sa cause ; il ouvre ou complète une issue friction sur GitHub. Le mainteneur corrige une friction quand elle revient.
+Quand vous vous arrêtez, à n'importe quelle étape, lancez la retro : `/retro` dans Claude Code ; avec Codex, demandez-la. C'est la seule skill que l'agent ne lance pas de lui-même. Vous parlez avec lui de ce qui a gêné et de sa cause ; il ouvre ou complète une issue friction sur GitHub. Un mainteneur corrige une friction quand elle revient.
 
 ## Skills à installer soi-même
 
-Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt. writing-for-agents sert à écrire les règles : skills, AGENTS.md, method/. domain-modeling sert à préciser les termes et à écrire glossaires et ADR, dans les formats du dépôt (method/adr/0016). Les deux sont indispensables au mainteneur et conseillées à tous. Le dépôt n'en garde pas de copie (method/adr/0000).
+Deux skills du paquet supermatt, dérivé des skills de Matt Pocock, sont attendues hors du dépôt. writing-for-agents sert à écrire les règles : skills, AGENTS.md, method/. domain-modeling sert à préciser les termes et à écrire glossaires et ADR, dans les formats du dépôt (method/adr/0016). Les deux sont indispensables aux mainteneurs et conseillées à tous. Le dépôt n'en garde pas de copie (method/adr/0000).
 
 Il faut d'abord Node.js, qui fournit la commande `npx`. Sous Windows : `winget install OpenJS.NodeJS.LTS` dans un terminal, ou l'installateur « LTS » de https://nodejs.org. Fermez puis rouvrez le terminal, et vérifiez avec `node --version`.
 
@@ -58,7 +58,7 @@ Le plugin supermatt complet, pour Claude Code ou Codex, contient aussi ces deux 
 
 ## Le dépôt
 
-Deux sortes de fichiers : ce qu'on apprend sur les données du CHU, qui vaut par ses preuves, et la façon de travailler, qui vaut parce que le mainteneur l'a décidée. Chaque fichier va dans le dossier de son type, quel que soit son sujet (method/layout.md).
+Deux sortes de fichiers : ce qu'on apprend sur les données du CHU, qui vaut par ses preuves, et la façon de travailler, qui vaut parce qu'un mainteneur l'a décidée. Chaque fichier va dans le dossier de son type, quel que soit son sujet (method/layout.md).
 
 Ce qu'on apprend :
 

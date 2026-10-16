@@ -1,0 +1,9 @@
+# Une pull request qui change une règle demande la relecture de l'autre mainteneur, sans bloquer la fusion (AGENTS.md, règle 7 ; method/adr/0029).
+/AGENTS.md      @FrancescoMonti-source @p-pinson
+/CLAUDE.md      @FrancescoMonti-source @p-pinson
+/method/        @FrancescoMonti-source @p-pinson
+/.agents/       @FrancescoMonti-source @p-pinson
+/.claude/       @FrancescoMonti-source @p-pinson
+/checks/        @FrancescoMonti-source @p-pinson
+/investigations/README.md @FrancescoMonti-source @p-pinson
+/.github/       @FrancescoMonti-source @p-pinson
