@@ -11,7 +11,7 @@ Une décision reçoit un ADR quand elle compte et qu'elle tranche (0028) :
 1. **Elle compte :** elle change ce sur quoi d'autres s'appuient (un format, le rangement, une garantie du contrôle, une étape que suit chaque session), ou elle coûterait cher à défaire.
 2. **Elle tranche :** une autre option sérieuse existait, et sans la raison, un lecteur pourrait rouvrir la question ou défaire la règle.
 
-Un renommage, une reformulation, une correction ou une précision ne tranche rien : sa raison va dans la pull request. Adaptation au dépôt, parce que l'agent suivant ne lit que les fichiers : quand l'agent qui applique la règle a besoin de la raison, la règle elle-même la dit en quelques mots. Par exemple, evidence.md dit d'un document en texte : « le contrôle le lit, et un agent y cherche plus facilement ». Dans le doute, l'agent pose la question au mainteneur dans la pull request.
+Un renommage ou une reformulation ne tranche rien : sa raison va dans la pull request. Adaptation au dépôt, parce que l'agent suivant ne lit que les fichiers : quand l'agent qui applique la règle a besoin de la raison, la règle elle-même la dit en quelques mots. Par exemple, evidence.md dit d'un document en texte : « le contrôle le lit, et un agent y cherche plus facilement ». Dans le doute, l'agent pose la question au mainteneur dans la pull request.
 
 ## Comment l'écrire
 
@@ -19,9 +19,9 @@ Un renommage, une reformulation, une correction ou une précision ne tranche rie
 - Première ligne : `# NNNN — Titre`. Puis la ligne Statut (plus bas).
 - Une décision par ADR, une page au plus.
 - **Contexte :** les forces en jeu et ce qui les oppose, en faits, pour le lecteur futur.
-- **Décision :** une ou deux phrases. Les règles vivent dans method/, les skills ou checks/ : l'ADR y renvoie.
+- **Décision :** une ou deux phrases. Les règles vivent dans AGENTS.md, method/, les skills ou checks/ : l'ADR y renvoie.
 - **Raisons :** seulement quand le contexte ne les dit pas déjà.
-- **Alternatives écartées :** celles qu'on a vraiment envisagées, ou qu'un lecteur proposerait, chacune avec sa raison. Une pratique courante que l'ADR ne suit pas en fait partie.
+- **Alternatives écartées :** celles qu'on a vraiment envisagées, chacune avec sa raison. Une pratique courante que l'ADR ne suit pas en fait partie.
 - **Conséquences :** aussi ce qu'on perd, par exemple ce que le contrôle ne vérifie plus.
 - **Sources :** les liens vers les sources primaires de la pratique courante.
 
