@@ -21,7 +21,3 @@ Une règle du dépôt qui compte suit la pratique courante, quand elle existe, d
 
 - Proposer une règle qui compte prend plus de temps : l'agent cherche d'abord la pratique courante.
 - Un fait sur les données n'est pas une règle : il reste un claim, avec ses preuves.
-
-## Sources
-
-- Gouvernement britannique, Service Standard, point 13, « Use and contribute to open standards, common components and patterns » : https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns
