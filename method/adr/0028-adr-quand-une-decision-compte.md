@@ -27,3 +27,13 @@ Le dépôt suit la pratique courante : un ADR pour une décision qui compte et q
 - La raison d'une petite décision, restée dans la pull request, échappe à l'agent suivant. Quand elle sert à appliquer la règle, elle va dans la règle.
 - Les ADR existants gardent leur texte, même ceux qui ne passeraient pas le test.
 - Un ADR reste proposé tant que le mainteneur n'a pas tranché.
+
+## Sources
+
+- Michael Nygard, « Documenting Architecture Decisions », 2011 : https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+- AWS, « ADR process » : https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+- Microsoft, « Maintain an architecture decision record (ADR) » : https://learn.microsoft.com/en-ca/azure/well-architected/architect-role/architecture-decision-record
+- Google Cloud, « Architecture decision records overview » : https://docs.cloud.google.com/architecture/architecture-decision-records
+- Gouvernement britannique, « Architectural Decision Record framework » : https://www.gov.uk/government/publications/architectural-decision-record-framework/architectural-decision-record-framework
+- Olaf Zimmermann, « How to create ADRs — and how not to », 2023 : https://ozimmer.ch/practices/2023/04/03/ADRCreation.html
+- Joel Parker Henderson, « architecture-decision-record » : https://github.com/joelparkerhenderson/architecture-decision-record
