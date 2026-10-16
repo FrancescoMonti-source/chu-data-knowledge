@@ -61,6 +61,42 @@ print(data.frame(QUERY_ID = "20261016-grp-rum-par-mois", DATABASE_NAME = basenam
 
 Le contrôle lit le script sans ses commentaires : pour masked, il cherche l'id entre guillemets, un comptage (sum, length, table…) et le seuil < 10. Il ne vérifie pas que le script n'imprime rien d'autre.
 
+## Une routine
+
+Un calcul qu'on refait avec d'autres réglages (d'autres codes, d'autres fichiers) devient une routine : un dossier knowledge/routines/<id>/, avec `<id>.R` et `README.md` (method/adr/0027). L'id dit ce que la routine calcule, sans date.
+
+- **Le code :** une fonction qui prend les réglages en paramètres, masquer = TRUE par défaut, et suit les règles d'un script. L'en-tête est celui d'un script, plus `version`, un entier augmenté de 1 à chaque changement du code. Le tableau imprimé commence par QUERY_ID, l'id de la requête qui l'appelle, et ROUTINE, « <id> v<version> ».
+- **README.md :** la méthode, en français. Ce que la routine compte ; chaque paramètre ; d'où viennent les positions et les codes ; ses limites ; les claims sur lesquels elle s'appuie.
+- **Une exécution :** une requête de knowledge/queries/, datée comme les autres, avec la ligne `# routine: <id>`. Elle charge la routine par source() et appelle sa fonction avec l'id de la requête et ses réglages. Ses réglages ne changent plus après l'exécution (règle 6), sauf les chemins, la connexion et masquer.
+
+```r
+# id: grp-rum-par-mois
+# system: cora
+# person_data: masked
+# purpose: compter les RUM d'un fichier groupé par mois de sortie de l'UM
+# version: 1
+grp_rum_par_mois <- function(query_id, fichier, masquer = TRUE) {
+  l <- readLines(fichier, encoding = "latin1")
+  n <- table(substr(l, 105, 110))
+  print(data.frame(QUERY_ID = query_id, ROUTINE = "grp-rum-par-mois v1", DATABASE_NAME = basename(fichier),
+                   RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"), MOIS = names(n),
+                   N_RUM = if (masquer) ifelse(n < 10, "<10", as.character(n)) else as.character(n)),
+        row.names = FALSE)
+}
+```
+
+```r
+# id: 20261020-grp-m8-rum-par-mois
+# system: cora
+# person_data: masked
+# purpose: compter les RUM du fichier M8 par mois de sortie de l'UM (étape 2 du plan)
+# routine: grp-rum-par-mois
+source("CHEMIN/VERS/knowledge/routines/grp-rum-par-mois/grp-rum-par-mois.R")
+grp_rum_par_mois(query_id = "20261020-grp-m8-rum-par-mois", fichier = "CHEMIN/VERS/fichier.grp")
+```
+
+Le contrôle applique à la routine les règles d'un script, avec « <id> v<version> » à la place de l'id. Il vérifie son README.md et son dossier. Pour la requête, il vérifie que la routine existe, que le script la charge, qu'il passe l'id de la requête entre guillemets et que person_data est le même.
+
 ## Aller
 
 Le message qui accompagne la requête donne deux lignes à la personne : à quelle étape du plan sert la requête et ce qui change selon le résultat ; où et comment l'exécuter. Il lui rappelle de prévenir si elle modifie la requête.

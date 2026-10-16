@@ -8,6 +8,7 @@ Le type d'un fichier décide de son dossier, quel que soit son sujet.
 | knowledge/claims/ | claim | claims.md |
 | knowledge/evidence/ | preuve : une lecture ou une exécution | evidence.md |
 | knowledge/queries/ | requête préparée pour l'hôpital (.sql, ou .R pour un fichier gardé à l'hôpital) | queries.md |
+| knowledge/routines/<id>/ | routine, un calcul qu'on refait : son code `<id>.R` et sa méthode README.md | queries.md, « Une routine » |
 | knowledge/glossaries/ | contexte : son glossaire ; README.md est la carte des contextes | « Termes et glossaires », plus bas |
 | investigations/<id>/ | enquête : son README.md, seul | investigations/README.md |
 
@@ -21,6 +22,7 @@ Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (metho
 
 - Le nom du fichier, sans extension, est l'id, unique dans tout le dépôt : minuscules, chiffres et tirets (mvt-rum-lien).
 - Preuves et requêtes commencent par la date : 20261008-mvt-rum. Deux agents en parallèle ne choisissent pas le même nom.
+- Une routine n'a pas de date : son id dit ce qu'elle calcule (revalorisation-entre-deux-etats).
 - L'id d'une source finit par son édition : dictionnaire-cora-2020.
 - On garde les mots de la source : mvt-rum, pas movement-rum.
 
@@ -56,6 +58,7 @@ git grep -n "cora:mouvement" -- knowledge/claims/
 - **Termes et tables :** chercher le terme (cora:mouvement) ou la table (cora:TB_MVT_RUM).
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
 - **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat.
+- **Calculs déjà écrits :** la première ligne `# purpose:` de chaque knowledge/routines/<id>/<id>.R dit ce que la routine calcule.
 - **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question.
 
 Un index viendra seulement si cette recherche ne suffit plus.
