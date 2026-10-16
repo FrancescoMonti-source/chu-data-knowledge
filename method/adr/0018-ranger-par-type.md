@@ -1,6 +1,6 @@
 # 0018 — Ranger par type de fichier : knowledge/ et method/
 
-Statut : accepté, 2026-10-12 (Francesco, après une revue de la structure du dépôt). L'extension du point 9 aux fichiers non lus, ajoutée pendant la mise en œuvre, acceptée le 2026-10-13.
+Statut : accepté, 2026-10-12 (Francesco, après une revue de la structure du dépôt). L'extension du point 9 aux fichiers non lus, ajoutée pendant la mise en œuvre, acceptée le 2026-10-13. Modifié par 0032 : la réponse d'une enquête ne va dans knowledge/claims/ que si elle mérite un claim.
 
 ## Contexte
 

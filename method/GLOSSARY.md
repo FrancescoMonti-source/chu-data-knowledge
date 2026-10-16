@@ -38,9 +38,6 @@ Un claim cité dans depends_on : le claim s'appuie dessus.
 ## claim atomique
 Un claim qu'un seul test peut réfuter. Voir claims.md, « Taille ».
 
-## claim d'enquête
-La réponse à la question d'une enquête, construite sur des claims atomiques. Il est dans knowledge/claims/ comme les autres, et le README de l'enquête le cite dans Conclusions. Voir claims.md, « Claim sans preuve propre ».
-
 ## relecture (review)
 Le contrôle d'un claim au moment où on le réutilise : par une autre personne (reviewed), ou par son auteur dans une nouvelle session (author-reread). Voir review.md.
 
