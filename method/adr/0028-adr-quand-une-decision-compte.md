@@ -14,7 +14,7 @@ Ici, le lecteur futur est souvent un agent qui part de zéro et lit les fichiers
 
 ## Décision
 
-Le dépôt suit la pratique courante : un ADR pour une décision qui compte et qui tranche, écrit pour le lecteur futur. La raison d'une autre décision va dans la pull request, et dans la règle elle-même quand l'agent qui l'applique en a besoin. Le test, la manière d'écrire et le Statut : method/adr/README.md.
+Le dépôt suit la pratique courante des ADR : un ADR pour une décision qui compte et qui tranche, écrit pour le lecteur futur. La raison d'une autre décision va dans la pull request, et dans la règle elle-même quand l'agent qui l'applique en a besoin. Le test, la manière d'écrire et le Statut : method/adr/README.md.
 
 ## Alternatives écartées
 

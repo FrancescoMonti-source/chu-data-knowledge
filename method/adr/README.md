@@ -23,7 +23,6 @@ Un renommage ou une reformulation ne tranche rien : sa raison va dans la pull re
 - **Raisons :** seulement quand le contexte ne les dit pas déjà.
 - **Alternatives écartées :** celles qu'on a vraiment envisagées, chacune avec sa raison.
 - **Conséquences :** aussi ce qu'on perd, par exemple ce que le contrôle ne vérifie plus.
-- **Sources :** quand l'ADR suit ou quitte une pratique courante, les liens vers ses sources primaires.
 
 ## Statut
 
