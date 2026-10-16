@@ -1,0 +1,8 @@
+# Les règles du dépôt ne changent que par le mainteneur (AGENTS.md, règle 7).
+/AGENTS.md      @FrancescoMonti-source
+/CLAUDE.md      @FrancescoMonti-source
+/method/        @FrancescoMonti-source
+/.agents/       @FrancescoMonti-source
+/.claude/       @FrancescoMonti-source
+/checks/        @FrancescoMonti-source
+/.github/       @FrancescoMonti-source
