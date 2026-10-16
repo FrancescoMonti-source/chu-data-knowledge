@@ -25,4 +25,3 @@ Un calcul qu'on refait est une routine : un dossier knowledge/routines/<id>/ ave
 ## Conséquences
 
 - Le contrôle ne lit pas ce qu'une routine imprime : que son résultat reste à l'hôpital est une règle de confiance (checks.md).
-- Seulement en R pour l'instant.

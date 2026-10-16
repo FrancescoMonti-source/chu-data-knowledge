@@ -29,7 +29,7 @@ person_data: masked
 | query | l'id de la requête |
 | run_at, database | recopiés du résultat, où la requête les imprime ; pour un script, database est le nom du fichier lu |
 | executed_by | la personne qui a exécuté (claims.md, « Les personnes ») |
-| modified | no · yes · unknown. Si yes, la requête réellement exécutée suit le résultat, dans un bloc sql (r pour un script) |
+| modified | no · yes · unknown. Si yes, la requête réellement exécutée suit le résultat, dans un bloc sql (r ou python pour un script) |
 | person_data | recopié de la requête : masked ou no-person-data |
 
 Une valeur inconnue s'écrit unknown. Un claim empirique observed demande une exécution sans unknown.

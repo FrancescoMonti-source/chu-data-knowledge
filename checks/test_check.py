@@ -37,6 +37,17 @@ print(data.frame(QUERY_ID = "20261016-grp-rss", MOIS = names(n),
                  N_RSS = ifelse(n < 10, "<10", as.character(n))))
 """
 
+PY_SCRIPT = """\
+# id: 20261016-grp-rss
+# system: cora
+# person_data: masked
+# purpose: compter les RSS par mois dans un fichier groupé
+from collections import Counter
+n = Counter(l[104:110] for l in open("CHEMIN/VERS/fichier.grp", encoding="latin-1"))
+for mois, k in sorted(n.items()):
+    print("20261016-grp-rss", mois, "<10" if k < 10 else k)
+"""
+
 ROUTINE = """\
 # id: grp-par-mois
 # system: cora
@@ -463,6 +474,21 @@ class RepositoryTest(unittest.TestCase):
         self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```sql\nSELECT 1", "```r\nl <- 1")
         self.assertClean()
 
+    def test_python_script_is_a_query(self):
+        path = "knowledge/queries/20261016-grp-rss.py"
+        self.write({path: PY_SCRIPT,
+                    "knowledge/evidence/20261016-grp-rss-resultat.md": EXECUTION
+                    .replace("id: 20261008-mvt-rum", "id: 20261016-grp-rss-resultat")
+                    .replace("query: 20261007-mvt-rum", "query: 20261016-grp-rss")
+                    .replace("modified: no", "modified: yes")})
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "```python")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "| <10 |\n", "| <10 |\n\n```python\nn = 1\n```\n")
+        self.assertClean()
+        self.write({path: PY_SCRIPT.replace('"<10" if k < 10 else k', "k")})
+        self.assertProblem(RED, path, "<10")
+        self.write({path: PY_SCRIPT.replace("for mois", 'exec(open("knowledge/routines/grp-par-mois/grp-par-mois.py").read())\nfor mois')})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+
     def test_masked_script_rules(self):
         path = "knowledge/queries/20261016-grp-rss.R"
         self.write({path: SCRIPT.replace('QUERY_ID = "20261016-grp-rss", ', "")
@@ -490,6 +516,11 @@ class RepositoryTest(unittest.TestCase):
         self.write({path: ROUTINE})
         (self.root / "knowledge/routines/grp-par-mois/README.md").unlink()
         self.assertProblem(RED, path, "README.md")
+        (self.root / path).unlink()
+        self.write({"knowledge/routines/grp-par-mois/grp-par-mois.py":
+                    "# id: grp-par-mois\n# system: cora\n# purpose: compter les RSS par mois\nprint(1)\n",
+                    "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n"})
+        self.assertClean()
 
     def test_routine_lives_in_its_own_folder(self):
         self.write(self.routine_files())

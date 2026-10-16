@@ -9,10 +9,10 @@ Une affirmation sur les données du CHU, dans un fichier, avec ses preuves. Form
 Une observation dans un fichier : l'exécution d'une requête, ou la lecture d'un passage. Format : evidence.md.
 
 ## requête (query)
-Un fichier .sql, ou un script .R pour un fichier gardé à l'hôpital, préparé par un agent et exécuté à l'hôpital par une personne. Format : queries.md.
+Un fichier .sql, ou un script .R ou .py pour un fichier gardé à l'hôpital, préparé par un agent et exécuté à l'hôpital par une personne. Format : queries.md.
 
 ## routine
-Un calcul qu'on refait à l'hôpital avec d'autres réglages : un script R et sa méthode, dans knowledge/routines/<id>/. Son résultat reste à l'hôpital. Format : queries.md, « Une routine ».
+Un calcul qu'on refait à l'hôpital avec d'autres réglages : un script R ou Python et sa méthode, dans knowledge/routines/<id>/. Son résultat reste à l'hôpital. Format : queries.md, « Une routine ».
 
 ## source
 La fiche d'un document : titre, éditeur, édition, où le trouver, autorité. Une fiche par édition.
