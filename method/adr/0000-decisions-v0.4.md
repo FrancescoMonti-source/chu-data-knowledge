@@ -20,7 +20,7 @@ Statut : accepté, 2026-10-09 (architecture v0.4, annexe). Certaines lignes sont
 | Pas d'index au départ | la recherche dans les champs des claims suffit ; un index généré met en conflit les PR parallèles | en vigueur |
 | Token sans « Administration » ; pas de compte pour les agents | protège les réglages à faible coût | à appliquer : le dépôt est sur GitHub depuis le 2026-10-10 |
 | Première enquête, puis import, puis archivage de cora_knowledge | le format des claims se fixe avec la première enquête | modifié : l'usage peut commencer sans nouveau pilote (0001) |
-| CODEOWNERS seulement avec plusieurs mainteneurs | seul, personne ne peut approuver ses propres PR | en vigueur |
+| CODEOWNERS seulement avec plusieurs mainteneurs | seul, personne ne peut approuver ses propres PR | modifié : deux mainteneurs ; CODEOWNERS demande la relecture de l'autre, sans bloquer la fusion (0029) |
 | Chaque preuve est un fichier, même une lecture | un seul format : les mêmes liens et les mêmes contrôles pour toutes les preuves | en vigueur |
 | Un claim = un test (refuted_if) | si un fait tombe, il tombe seul, et on sait quoi revoir | modifié : refuted_if seulement pour les claims empiriques (0001) ; la taille reste « un test » |
 | Ligne de relecture obligatoire, relecteur différent de l'auteur | le contrôle voit l'étiquette, pas le travail : la ligne rend le raccourci visible | modifié : la ligne devient le champ work, l'auteur est déclaré, l'empreinte lie la relecture à une version (0003) |

@@ -7,8 +7,7 @@ Le type d'un fichier décide de son dossier, quel que soit son sujet.
 | sources/ | document : sa fiche, et le texte d'un document hors ligne | evidence.md, « Sources » |
 | knowledge/claims/ | claim | claims.md |
 | knowledge/evidence/ | preuve : une lecture ou une exécution | evidence.md |
-| knowledge/queries/ | requête préparée pour l'hôpital (.sql, ou .R ou .py pour un fichier gardé à l'hôpital) | queries.md |
-| knowledge/routines/<id>/ | routine, un calcul qu'on refait : son code `<id>.R` ou `<id>.py` et sa méthode README.md | queries.md, « Une routine » |
+| knowledge/queries/ | requête préparée pour l'hôpital (.sql) | queries.md |
 | knowledge/glossaries/ | contexte : son glossaire ; README.md est la carte des contextes | « Termes et glossaires », plus bas |
 | investigations/<id>/ | enquête : son README.md, seul | investigations/README.md |
 
@@ -16,13 +15,12 @@ Un document lu dix fois donne une fiche dans sources/ et dix preuves dans knowle
 
 Le sujet s'écrit dans le fichier : les terms d'un claim (pmsi:rum), ses tables (cora:TB_MVT_RUM), le system d'une requête. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres. La réponse d'une enquête aussi : le README de l'enquête la cite dans Conclusions.
 
-Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des décisions qui comptent (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision du mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
+Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des décisions qui comptent (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision d'un mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
 
 ## Ids et noms de fichiers
 
 - Le nom du fichier, sans extension, est l'id, unique dans tout le dépôt : minuscules, chiffres et tirets (mvt-rum-lien).
 - Preuves et requêtes commencent par la date : 20261008-mvt-rum. Deux agents en parallèle ne choisissent pas le même nom.
-- Une routine n'a pas de date : son id dit ce qu'elle calcule (revalorisation-entre-deux-etats).
 - L'id d'une source finit par son édition : dictionnaire-cora-2020.
 - On garde les mots de la source : mvt-rum, pas movement-rum.
 
@@ -56,10 +54,8 @@ git grep -n "cora:mouvement" -- knowledge/claims/
 
 - **Des mots de la question au terme :** chercher chaque mot dans les glossaires, titres et lignes « Alias » : `git grep -n -i -w "dms" -- knowledge/glossaries/`. Le titre au-dessus de la ligne trouvée est le terme.
 - **Termes et tables :** chercher le terme (cora:mouvement) ou la table (cora:TB_MVT_RUM).
-- **Colonnes et valeurs d'une table :** avant d'écrire une requête pour les apprendre, chercher la table dans le dictionnaire et les requêtes par défaut de CORA : `git grep -n "TB_DIAG" -- sources/dictionnaire-cora-2020/ sources/requetes-cora-par-defaut-v1/`. C'est la seule recherche à faire dans sources/.
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
 - **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat.
-- **Calculs déjà écrits :** chercher la table ou le fichier dans les routines : `git grep -n "TB_SYNTH_RSS" -- knowledge/routines/`. La ligne `# purpose:` de la routine dit ce qu'elle calcule.
 - **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question.
 
 Un index viendra seulement si cette recherche ne suffit plus.

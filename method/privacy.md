@@ -17,8 +17,8 @@ Le dépôt est public : un effectif de 1 à 9 n'y entre jamais. Dans la conversa
 Si une donnée de personne arrive dans la conversation ou dans un fichier :
 
 1. **Arrêter.** Ne rien écrire ; si c'est écrit, pas de commit ; si le commit est fait, pas de push.
-2. **Prévenir le mainteneur** (Francesco), sans recopier la donnée.
-3. **Le mainteneur coordonne l'effacement** d'un fichier touché. Si la donnée est dans l'historique de git, il le réécrit : c'est le seul cas où on réécrit l'historique.
-4. **Le mainteneur note l'incident :** date, conversation ou fichier, sorte de donnée, cause. Jamais la valeur.
+2. **Prévenir un mainteneur**, sans recopier la donnée.
+3. **Ce mainteneur coordonne l'effacement** d'un fichier touché. Si la donnée est dans l'historique de git, il le réécrit : c'est le seul cas où on réécrit l'historique.
+4. **Il note l'incident :** date, conversation ou fichier, sorte de donnée, cause. Jamais la valeur.
 
 Les relectures ne dépendent pas de l'historique de git : une réécriture ne les casse pas.

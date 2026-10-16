@@ -542,7 +542,7 @@ class Repository:
                                 "(method/privacy.md).")
 
     def check_privacy(self, name, text):
-        stop = "Arrêter : ne pas diffuser ce fichier, prévenir le mainteneur (method/privacy.md)."
+        stop = "Arrêter : ne pas diffuser ce fichier, prévenir un mainteneur (method/privacy.md)."
         birth = ("Si c'est la date d'une personne : " + stop[0].lower() + stop[1:]
                  + " Si c'est un critère ou une période : écrire l'année seule, ou le mois et l'année.")
         text = normalized(text)

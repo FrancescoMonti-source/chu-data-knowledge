@@ -54,4 +54,4 @@ Tout accroc pendant une session. La retro (.agents/skills/retro/SKILL.md) les re
 Les deux niveaux des contrôles : ROUGE bloque, ORANGE signale un travail à faire. Voir checks.md.
 
 ## mainteneur
-La personne qui garde les règles du jeu : Francesco pour l'instant.
+Une des deux personnes qui gardent les règles du jeu, à égalité : Francesco et Pierre (FrancescoMonti-source et p-pinson sur GitHub). Comment ils décident : AGENTS.md, règle 7.
