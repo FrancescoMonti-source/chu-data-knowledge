@@ -1,6 +1,6 @@
 # 0029 — Suivre la pratique courante
 
-Statut : proposé, 2026-10-16 (Claude, à la demande de Francesco, enquête revalorisation-chir-m8).
+Statut : accepté, 2026-10-16 (Francesco, carte « Accept ADR 0029, the new principle to follow industry practice? », enquête revalorisation-chir-m8).
 
 ## Contexte
 
