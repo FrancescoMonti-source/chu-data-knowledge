@@ -1,6 +1,6 @@
 # 0016 — Les skills supermatt : leur méthode, les formats du dépôt
 
-Statut : accepté, 2026-10-12 (Francesco, PR #13 fusionnée ; la ligne « À éviter » attendra une enquête qui en a besoin). Modifié par 0018 : les ADR sont dans method/adr/, et les glossaires dans knowledge/glossaries/. Modifié par 0021 : la ligne « Alias » remplace la ligne _Avoid_. Modifié par 0028 : le dépôt suit la pratique courante, un ADR pour une décision qui compte et qui tranche.
+Statut : accepté, 2026-10-12 (Francesco, PR #13 fusionnée ; la ligne « À éviter » attendra une enquête qui en a besoin). Modifié par 0018 : les ADR sont dans method/adr/, et les glossaires dans knowledge/glossaries/. Modifié par 0021 : la ligne « Alias » remplace la ligne _Avoid_. Modifié par 0028 : seule une décision qui compte et qui tranche reçoit un ADR.
 
 ## Contexte
 
