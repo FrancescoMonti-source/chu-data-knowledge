@@ -40,24 +40,11 @@ print(data.frame(QUERY_ID = "20261016-grp-rss", MOIS = names(n),
 ROUTINE = """\
 # id: grp-par-mois
 # system: cora
-# person_data: masked
 # purpose: compter les RSS d'un fichier groupé par mois de sortie
-# version: 1
-grp_par_mois <- function(query_id, fichier, masquer = TRUE) {
+grp_par_mois <- function(fichier) {
   n <- table(substr(readLines(fichier), 105, 110))
-  print(data.frame(QUERY_ID = query_id, ROUTINE = "grp-par-mois v1", MOIS = names(n),
-                   N_RSS = if (masquer) ifelse(n < 10, "<10", as.character(n)) else as.character(n)))
+  print(data.frame(MOIS = names(n), N_RSS = as.character(n)))
 }
-"""
-
-ROUTINE_RUN = """\
-# id: 20261020-grp-m8-par-mois
-# system: cora
-# person_data: masked
-# purpose: compter les RSS du fichier M8 par mois
-# routine: grp-par-mois
-source("CHEMIN/VERS/knowledge/routines/grp-par-mois/grp-par-mois.R")
-grp_par_mois(query_id = "20261020-grp-m8-par-mois", fichier = "CHEMIN/VERS/fichier.grp")
 """
 
 EXECUTION = """\
@@ -489,27 +476,18 @@ class RepositoryTest(unittest.TestCase):
 
     def routine_files(self):
         return {"knowledge/routines/grp-par-mois/grp-par-mois.R": ROUTINE,
-                "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n\nCe que la routine compte.\n",
-                "knowledge/queries/20261020-grp-m8-par-mois.R": ROUTINE_RUN,
-                "knowledge/evidence/20261020-grp-m8-par-mois-resultat.md": EXECUTION
-                .replace("id: 20261008-mvt-rum", "id: 20261020-grp-m8-par-mois-resultat")
-                .replace("query: 20261007-mvt-rum", "query: 20261020-grp-m8-par-mois")}
+                "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n\nCe que la routine compte.\n"}
 
-    def test_routine_and_its_run(self):
-        self.write(self.routine_files())
-        self.assertClean()
-
-    def test_routine_rules(self):
+    def test_routine_is_a_tool_with_its_method(self):
+        """Son résultat reste à l'hôpital : une routine non masquée passe le contrôle."""
         path = "knowledge/routines/grp-par-mois/grp-par-mois.R"
         self.write(self.routine_files())
-        self.edit(path, "# version: 1", "# version: 2")
-        self.assertProblem(RED, path, "« grp-par-mois v2 »")
-        self.edit(path, "# version: 2", "# version: v1")
-        self.assertProblem(RED, path, "entier")
-        self.write({path: ROUTINE.replace('ifelse(n < 10, "<10", as.character(n))', "n").replace("table(", "unique(")})
-        problems = [p["message"] for p in self.run_checks() if p["path"] == path]
-        for words in ("agrégats", "<10"):
-            self.assertTrue(any(words in m for m in problems), problems)
+        self.assertClean()
+        self.edit(path, "# system: cora", "# system: corra")
+        self.assertProblem(RED, path, "corra")
+        self.edit(path, "# system: corra\n", "")
+        self.assertProblem(RED, path, "obligatoire")
+        self.write({path: ROUTINE})
         (self.root / "knowledge/routines/grp-par-mois/README.md").unlink()
         self.assertProblem(RED, path, "README.md")
 
@@ -520,29 +498,15 @@ class RepositoryTest(unittest.TestCase):
         self.write({"knowledge/routines/grp/notes.txt": "brouillon\n"})
         self.assertProblem(RED, "knowledge/routines/grp/notes.txt", "ne lit pas")
 
-    def test_run_of_a_routine(self):
-        path = "knowledge/queries/20261020-grp-m8-par-mois.R"
+    def test_query_does_not_load_a_routine(self):
+        path = "knowledge/queries/20261016-grp-rss.R"
         self.write(self.routine_files())
-        self.edit(path, "# routine: grp-par-mois", "# routine: grp-par-semaine")
-        self.assertProblem(RED, path, "« grp-par-semaine » n'existe pas")
-        self.edit(path, "# routine: grp-par-semaine", "# routine: 20261007-mvt-rum")
-        self.assertProblem(RED, path, "de type routine")
-        self.edit(path, "# routine: 20261007-mvt-rum", "# routine: grp-par-mois")
-        self.edit(path, "grp-par-mois.R", "autre.R")
-        self.assertProblem(RED, path, "ne charge pas")
-        self.edit(path, 'query_id = "20261020-grp-m8-par-mois", ', "")
-        self.assertProblem(RED, path, "l'id de la requête")
-        self.edit("knowledge/routines/grp-par-mois/grp-par-mois.R", "# person_data: masked", "# person_data: no-person-data")
-        self.assertProblem(RED, path, "routine")
-
-    def test_routine_change_makes_the_review_stale(self):
-        self.write(self.routine_files())
-        self.write({"knowledge/claims/rss-par-mois.md": claim("rss-par-mois", author="Marie")
-                    .replace("[20261008-mvt-rum]", "[20261020-grp-m8-par-mois-resultat]")})
-        self.review("rss-par-mois", by="Francesco")
+        self.write({path: SCRIPT.replace("l <- readLines", 'source("CHEMIN/VERS/knowledge/routines/grp-par-mois/grp-par-mois.R")\nl <- readLines')})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+        self.write({path: SCRIPT.replace("l <- readLines", "source('C:\\\\depot\\\\knowledge\\\\routines\\\\grp-par-mois\\\\grp-par-mois.R')\nl <- readLines")})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+        self.write({path: SCRIPT.replace("l <- readLines", "# même calcul que la routine grp-par-mois (knowledge/routines/grp-par-mois/grp-par-mois.R)\nl <- readLines")})
         self.assertClean()
-        self.edit("knowledge/routines/grp-par-mois/grp-par-mois.R", "substr(", "substring(")
-        self.assertProblem(ORANGE, "knowledge/claims/rss-par-mois.md", "périmée")
 
     def test_select_star_only_for_column_names(self):
         self.write({"knowledge/queries/20261011-colonnes.sql":
@@ -743,9 +707,10 @@ class RepositoryTest(unittest.TestCase):
                     name = f"knowledge/queries/{query_header(example)[0]['id']}.sql"
                 elif language == "r":
                     header = query_header(example, "#")[0]
-                    name = (f"knowledge/routines/{header['id']}/{header['id']}.R" if "version" in header
+                    routine = "person_data" not in header  # une routine n'a pas de person_data : son résultat reste à l'hôpital
+                    name = (f"knowledge/routines/{header['id']}/{header['id']}.R" if routine
                             else f"knowledge/queries/{header['id']}.R")
-                    if "version" in header:
+                    if routine:
                         self.write({f"knowledge/routines/{header['id']}/README.md": "# Méthode\n"})
                 elif example.startswith("---\n"):
                     header = front_matter(example)[0]

@@ -59,7 +59,7 @@ git grep -n "cora:mouvement" -- knowledge/claims/
 - **Colonnes et valeurs d'une table :** avant d'écrire une requête pour les apprendre, chercher la table dans le dictionnaire et les requêtes par défaut de CORA : `git grep -n "TB_DIAG" -- sources/dictionnaire-cora-2020/ sources/requetes-cora-par-defaut-v1/`. C'est la seule recherche à faire dans sources/.
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
 - **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat.
-- **Calculs déjà écrits :** la première ligne `# purpose:` de chaque knowledge/routines/<id>/<id>.R dit ce que la routine calcule.
+- **Calculs déjà écrits :** chercher la table ou le fichier dans les routines : `git grep -n "TB_SYNTH_RSS" -- knowledge/routines/`. La ligne `# purpose:` de la routine dit ce qu'elle calcule.
 - **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question.
 
 Un index viendra seulement si cette recherche ne suffit plus.

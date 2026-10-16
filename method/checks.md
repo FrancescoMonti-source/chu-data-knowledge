@@ -26,12 +26,12 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | exécution : même person_data que sa requête, sans champ system, version exécutée dans le langage de la requête si modified: yes ; si masked, rien hors du tableau Markdown du résultat, sauf un bloc ```sql (```r pour un script) |
 | ROUGE | lecture : une citation |
 | ROUGE | requête, lue sans ses commentaires (le texte entre guillemets reste) : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 ; un script .R, lu sans ses commentaires # : si masked, l'id entre guillemets, un comptage, le seuil < 10 |
-| ROUGE | routine : dans knowledge/routines/<id>/ avec son README.md, version entière ; si masked, « <id> v<version> » entre guillemets, un comptage, le seuil < 10 ; la requête qui l'appelle (`# routine:`) nomme une routine qui existe, la charge, passe son id entre guillemets, même person_data |
+| ROUGE | routine : dans knowledge/routines/<id>/, avec son README.md ; en-tête id, system, purpose ; aucune requête .R ne charge une routine |
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
 | ROUGE | depends_on vers le claim d'une autre personne sans relecture à jour (ORANGE si le claim est provisional) |
 | ROUGE | .claude/skills identique à .agents/skills |
 | ROUGE | aucun fichier sous systems/, domains/, docs/agents/ ou docs/adr/ (anciens dossiers, method/adr/0018) ; dans knowledge/ et investigations/, aucun fichier que le contrôle ne lit pas, sauf un fichier caché comme .gitkeep (layout.md) |
-| ORANGE | relecture périmée : l'empreinte a changé (elle couvre aussi la routine d'une requête) |
+| ORANGE | relecture périmée : l'empreinte a changé |
 | ORANGE | prémisse, même indirecte, challenged, superseded ou withdrawn : à réexaminer |
 
 ## Limites
@@ -60,7 +60,7 @@ Ce que rien ne contrôle reste une règle, déclarée comme telle :
 - la carte liste chaque glossaire avec sa sorte ;
 - le system d'une requête, comme celui d'une table, est un système de la carte, pas un domaine ;
 - une requête exécutée ne change plus ;
-- une routine dont le code change augmente sa version de 1.
+- le résultat d'une routine reste à l'hôpital ; non masqué, il ne se colle pas dans une conversation.
 
 ## Pas encore construit
 
