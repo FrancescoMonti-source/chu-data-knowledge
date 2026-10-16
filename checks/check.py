@@ -38,18 +38,22 @@ SOURCE_FIELDS = ("id", "title", "publisher", "edition", "location", "authority")
 SOURCE_AUTHORITY = ("official", "vendor-doc", "local", "unknown")
 PERSON_DATA = ("masked", "no-person-data")
 QUERY_FIELDS = ("id", "system", "person_data", "purpose")
+ROUTINE_FIELDS = QUERY_FIELDS + ("version",)
 INACTIVE = ("challenged", "superseded", "withdrawn")
-DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md"}
+DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md",
+        "routine": "queries.md"}
 SCANNED = (".md", ".sql", ".r", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
 ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence",
-         "sources/*.md": "source", "knowledge/queries/*.sql": "query", "knowledge/queries/*.R": "query"}
+         "sources/*.md": "source", "knowledge/queries/*.sql": "query", "knowledge/queries/*.R": "query",
+         "knowledge/routines/*/*.R": "routine"}
 GLOSSARIES = "knowledge/glossaries/*.md"
-READMES = ("investigations/README.md", "investigations/*/README.md")
+READMES = ("investigations/README.md", "investigations/*/README.md", "knowledge/routines/*/README.md")
 UNREAD = {
-    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier, "
-                  "et des fichiers .md (.sql ou .R pour les requêtes).",
-                  "Le ranger dans knowledge/claims/, evidence/, queries/ ou glossaries/, au format de son type "
-                  "(method/layout.md)."),
+    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier "
+                  "sauf un par routine, et des fichiers .md (.sql ou .R pour les requêtes, .R et README.md "
+                  "pour une routine).",
+                  "Le ranger dans knowledge/claims/, evidence/, queries/, glossaries/ ou routines/<id>/, au format "
+                  "de son type (method/layout.md)."),
     "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
                        "Un claim va dans knowledge/claims/ ; un résultat devient une preuve de knowledge/evidence/, "
                        "après le filtre de method/privacy.md."),
@@ -213,7 +217,7 @@ class Repository:
         name = self.relative(path)
         text = path.read_text(encoding="utf-8", errors="replace")
         try:
-            header, body = (query_header(text, "#" if path.suffix == ".R" else "--") if role == "query"
+            header, body = (query_header(text, "#" if path.suffix == ".R" else "--") if role in ("query", "routine")
                             else front_matter(text))
         except ValueError as error:
             self.report(RED, name, None, str(error), "Corriger l'en-tête : voir method/" + DOCS[role] + ".")
@@ -441,15 +445,16 @@ class Repository:
     def check_query(self, query):
         header, path = query["header"], query["path"]
         script = path.endswith(".R")
-        # Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste.
-        sql = (R_COMMENT if script else SQL_COMMENT).sub(
-            lambda m: m.group() if m.group()[0] in "'\"" else " ", query["body"])
+        sql = without_comments(query["body"], R_COMMENT if script else SQL_COMMENT)
         if not self.require(query, QUERY_FIELDS):
             return
         self.allowed(query, "person_data", PERSON_DATA)
         self.known_context(query, "system", header["system"])
+        if script and "routine" in header:
+            self.check_routine_run(query, sql)
+            return
         if script:
-            self.check_script(query, sql)
+            self.check_script(query, sql, header["id"])
             return
         if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
             return
@@ -468,20 +473,60 @@ class Repository:
             self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
                         "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
 
-    def check_script(self, query, code):
-        """Un script R lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md)."""
+    def check_script(self, query, code, label):
+        """Un script R lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md).
+        label : l'id du script, ou « id vN » pour une routine, qui reçoit l'id de la requête qui l'appelle."""
         header, path = query["header"], query["path"]
         if header["person_data"] != "masked":
             return
-        if not any(quote + header["id"] + quote in code for quote in "'\""):
-            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id du script.",
-                        f"Mettre QUERY_ID = \"{header['id']}\" en tête du tableau imprimé.")
+        if not any(quote + label + quote in code for quote in "'\""):
+            column = "ROUTINE" if query["role"] == "routine" else "QUERY_ID"
+            self.report(RED, path, None, f"la première colonne du tableau imprimé doit afficher « {label} », entre guillemets.",
+                        f"Mettre {column} = \"{label}\" en tête du tableau imprimé (method/queries.md).")
         if not R_AGGREGATE.search(code):
             self.report(RED, path, None, "un script sur des personnes n'imprime que des agrégats.",
                         "Compter (sum, length, table…) au lieu d'imprimer des lignes du fichier.")
         if not MASK.search(code):
             self.report(RED, path, None, "le masquage <10 n'apparaît pas dans le script.",
                         "Masquer toute statistique sous 10 dans le script lui-même (method/queries.md).")
+
+    def check_routine(self, routine):
+        """Une routine : un script R réutilisable, dans knowledge/routines/<id>/ avec son README.md (method/adr/0027)."""
+        header, path = routine["header"], routine["path"]
+        folder = (self.root / path).parent
+        if folder.name != header["id"]:
+            self.report(RED, path, "id", f"une routine est rangée dans un dossier à son nom : knowledge/routines/{header['id']}/.",
+                        "Mettre le même nom au dossier, au fichier et dans le champ id.")
+        if not (folder / "README.md").is_file():
+            self.report(RED, path, None, "la routine n'a pas de README.md qui décrit sa méthode.",
+                        "Écrire README.md dans le dossier de la routine (method/queries.md, « Une routine »).")
+        if not self.require(routine, ROUTINE_FIELDS):
+            return
+        self.allowed(routine, "person_data", PERSON_DATA)
+        self.known_context(routine, "system", header["system"])
+        if not header["version"].isdigit():
+            self.report(RED, path, "version", "la version est un entier.",
+                        "Écrire version: 1, puis l'augmenter de 1 à chaque changement du code.")
+            return
+        self.check_script(routine, without_comments(routine["body"], R_COMMENT), f"{header['id']} v{header['version']}")
+
+    def check_routine_run(self, query, code):
+        """Une requête qui appelle une routine : la routine porte les comptages et le seuil, la requête son id."""
+        header, path = query["header"], query["path"]
+        name = header["routine"]
+        self.linked(query, "routine", [name], "routine")
+        routine = self.records.get(name, {})
+        if routine.get("role") != "routine":
+            return
+        if routine["header"].get("person_data") != header["person_data"]:
+            self.report(RED, path, "person_data", "la valeur diffère de celle de la routine.",
+                        "Recopier person_data de la routine.")
+        if f"{name}.R" not in code:
+            self.report(RED, path, "routine", f"le script ne charge pas la routine {name}.",
+                        f"Charger knowledge/routines/{name}/{name}.R par source(), puis appeler sa fonction.")
+        if header["person_data"] == "masked" and not any(q + header["id"] + q in code for q in "'\""):
+            self.report(RED, path, None, "la routine doit recevoir l'id de la requête, entre guillemets.",
+                        f"Passer query_id = \"{header['id']}\" à la fonction de la routine.")
 
     def check_masked_result(self, evidence):
         """Le contrôle des effectifs ne lit que les tableaux : hors d'un bloc sql, le résultat n'est qu'un tableau."""
@@ -569,8 +614,8 @@ class Repository:
                 and review.get("fingerprint") == self.fingerprint(claim["header"]["id"]))
 
     def fingerprint(self, identifier, seen=()):
-        """Empreinte du claim, de la définition de ses termes, de ses preuves (avec requête ou source)
-        et de ses prémisses."""
+        """Empreinte du claim, de la définition de ses termes, de ses preuves (avec requête et sa routine,
+        ou source) et de ses prémisses."""
         if not seen and identifier in self.fingerprints:
             return self.fingerprints[identifier]
         claim = self.records[identifier]
@@ -582,7 +627,11 @@ class Repository:
             parts.append(evidence.get("text", "absent:" + evidence_id))
             origin = evidence.get("header", {}).get("query") or evidence.get("header", {}).get("source")
             if isinstance(origin, str):
-                parts.append(self.records.get(origin, {}).get("text", "absent:" + origin))
+                query = self.records.get(origin, {})
+                parts.append(query.get("text", "absent:" + origin))
+                routine = query.get("header", {}).get("routine") if query.get("role") == "query" else None
+                if isinstance(routine, str):
+                    parts.append(self.records.get(routine, {}).get("text", "absent:" + routine))
         for premise_id in header.get("depends_on", []):
             if premise_id in seen or not self.records.get(premise_id, {}).get("valid"):
                 parts.append("absent:" + premise_id)
@@ -618,6 +667,11 @@ class Repository:
         if files != copies:
             self.report(RED, ".claude/skills", None, "la copie des skills diffère de .agents/skills.",
                         "Lancer python checks/sync_skills.py ; modifier seulement .agents/skills.")
+
+
+def without_comments(code, pattern):
+    """Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste."""
+    return pattern.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", code)
 
 
 def attributed_execution(evidence):
