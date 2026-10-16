@@ -8,7 +8,7 @@ La règle 7 donnait un ADR à chaque décision sur une règle. En une semaine, l
 
 Un agent écrit l'ADR pendant que la pull request est ouverte, et son premier lecteur est le mainteneur qui l'approuve. Pour une décision évidente, l'agent remplit quand même chaque section : il trouve une raison, ajoute une alternative que personne n'a proposée, et plaide pour la solution.
 
-La pratique courante (Nygard en 2011 ; les guides d'AWS, de Microsoft, de Google Cloud et du gouvernement britannique ; Zimmermann) écrit un ADR pour une décision importante, qui a tranché entre de vraies options. Elle l'écrit pour le lecteur futur. La raison d'une petite décision reste avec le changement.
+La pratique courante écrit un ADR pour une décision importante, qui a tranché entre de vraies options, et l'écrit pour le lecteur futur. La raison d'une petite décision reste avec le changement.
 
 Ici, le lecteur futur est souvent un agent qui part de zéro et lit les fichiers, pas les pull requests. Il applique aussi les règles, et leur raison l'aide aux cas limites. La pull request fusionnée garde déjà qui a décidé, quoi et quand.
 

@@ -1,25 +1,27 @@
 # 0029 — Suivre la pratique courante
 
-Statut : proposé, 2026-10-16 (Claude, d'après ce que Francesco a demandé dans le fil de l'enquête revalorisation-chir-m8).
+Statut : proposé, 2026-10-16 (Claude, à la demande de Francesco, enquête revalorisation-chir-m8).
 
 ## Contexte
 
-Le dépôt a été reconstruit en une semaine. Ses règles ont été écrites par des agents, à partir des besoins des premières enquêtes, et relues par le mainteneur, seul à décider.
+Les règles du dépôt sont écrites par des agents et décidées par le mainteneur. Un agent propose volontiers une solution neuve et bien argumentée, et le mainteneur ne peut pas vérifier chaque fois qu'elle ne réinvente pas un usage connu. La règle des ADR s'écartait ainsi de la pratique courante, sans raison écrite (0028).
 
-Un agent propose volontiers une solution neuve et bien argumentée. Le mainteneur ne peut pas vérifier, à chaque règle, qu'elle ne réinvente pas un usage déjà connu. Les ADR en sont un exemple : une pratique courante existait, la règle du dépôt s'en écartait sans raison écrite, et poussait les agents à inventer des raisons (0028).
-
-Une pratique courante a été éprouvée par beaucoup d'équipes ; ses défauts connus sont décrits. Mais elle ne prévoit pas toujours ce qui est propre au dépôt : des agents qui écrivent et lisent ses règles, des données de patients qui restent à l'hôpital.
+Une pratique courante a été éprouvée par beaucoup d'équipes, et ses défauts sont décrits. Mais ses sources divergent parfois, et elle ne prévoit pas toujours ce qui est propre au dépôt : des agents qui écrivent et appliquent ses règles, des données de patients qui restent à l'hôpital.
 
 ## Décision
 
-Le dépôt suit la pratique courante quand elle existe. S'en écarter est une décision qui tranche : elle nomme la pratique qu'elle quitte et dit pourquoi. Le principe s'appelle industry-practice, dans AGENTS.md.
+Une règle du dépôt qui compte suit la pratique courante, quand elle existe, d'après ses sources primaires. S'en écarter, ou choisir entre des sources qui divergent, tranche : l'ADR dit pourquoi. C'est le principe industry-practice d'AGENTS.md.
 
 ## Alternatives écartées
 
-- **Décider chaque règle à partir des seuls besoins du dépôt :** on refait des erreurs que d'autres ont déjà corrigées, et le mainteneur relit chaque règle comme une invention.
+- **Décider chaque règle d'après les seuls besoins du dépôt :** on refait des erreurs que d'autres ont déjà corrigées.
+- **Chercher la pratique courante avant tout changement de règle :** pour une correction ou une reformulation, la recherche coûte plus qu'elle ne rapporte.
 
 ## Conséquences
 
-- Avant de proposer une règle, l'agent cherche s'il existe une pratique courante ; l'ADR la cite dans ses sources.
-- Une adaptation au dépôt reste possible, avec sa raison, comme celles de method/adr/README.md.
-- Chercher prend du temps avant chaque règle nouvelle.
+- Proposer une règle qui compte prend plus de temps : l'agent cherche d'abord la pratique courante.
+- Un fait sur les données n'est pas une règle : il reste un claim, avec ses preuves.
+
+## Sources
+
+- Gouvernement britannique, Service Standard, point 13, « Use and contribute to open standards, common components and patterns » : https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns
