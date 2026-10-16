@@ -12,7 +12,7 @@ Un claim se justifie s'il apprend à l'agent ce que les sources ne lui disent pa
 - il dit ce qu'aucune source ne dit et qui change la façon d'interroger : un piège, une période de validité, une jointure, une méthode ;
 - il pose une décision de l'équipe.
 
-Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus. Ce que deviennent alors sa preuve et sa requête, et un claim jugé inutile : investigations/README.md, « L'issue ou le dépôt ».
+Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus, même quand elle répond à la question d'une enquête. Ce que deviennent alors sa preuve et sa requête, et un claim jugé inutile : investigations/README.md, « L'issue ou le dépôt ».
 
 ```markdown
 ---
@@ -81,7 +81,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 ## Claim sans preuve propre
 
-Un claim peut ne citer que des prémisses (supported_by: []) : c'est le cas de la réponse à une question. Il prend la sorte de sa conclusion. Sa maturité vient de ses prémisses : provisional si l'une d'elles l'est ; sinon observed s'il est empirical et qu'une prémisse au moins est observed ; sinon documented. documented et observed disent ce qui appuie un claim, pas à quel point il est sûr : seul provisional est plus faible. L'auteur peut toujours choisir provisional, par prudence. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
+Un claim peut ne citer que des prémisses (supported_by: []). Il prend la sorte de sa conclusion. Sa maturité vient de ses prémisses : provisional si l'une d'elles l'est ; sinon observed s'il est empirical et qu'une prémisse au moins est observed ; sinon documented. documented et observed disent ce qui appuie un claim, pas à quel point il est sûr : seul provisional est plus faible. L'auteur peut toujours choisir provisional, par prudence. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
 
 ## Taille
 
@@ -89,7 +89,7 @@ Un claim est ce qu'on peut réfuter avec un seul test. Deux affirmations sont s�
 
 Une règle d'usage qui découle d'un constat se sépare de lui quand elle dépend d'un choix : le constat (« TYPE_SEJOUR change de codage en 2020 ») est empirical ; la méthode qu'on adopte à la place est un claim decision qui déclare depends_on vers lui.
 
-La réponse à une question combine plusieurs faits : elle devient un claim d'enquête qui déclare depends_on vers les claims atomiques. Si l'un d'eux tombe, on sait quoi revoir.
+Un claim qui combine plusieurs faits déclare depends_on vers les claims atomiques : si l'un d'eux tombe, on sait quoi revoir.
 
 ## Le corps
 
