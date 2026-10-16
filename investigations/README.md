@@ -49,7 +49,7 @@ L'issue d'une enquête garde le travail à faire. Le dépôt garde ce qu'on a ob
 
 Avant d'écrire une chose, la classer :
 
-- **Une requête, une preuve ou un claim :** l'écrire dans le dépôt, sur la branche de l'enquête. Dans l'issue, écrire seulement l'id de la preuve, sans le résultat.
+- **Une requête, une preuve ou un claim :** l'écrire dans le dépôt, sur la branche de l'enquête. Dans l'issue, écrire seulement l'id de la preuve, sans le résultat. Seule exception : le commentaire qui ferme l'issue donne la réponse, masquée comme une preuve (sediment, étape 6).
 - **Un plan, une hypothèse ou un test à faire :** l'écrire dans l'issue.
 
 Une preuve qu'aucun claim ne cite :
