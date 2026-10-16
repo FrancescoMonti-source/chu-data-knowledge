@@ -1,6 +1,6 @@
 # 0022 — Un claim s'écrit pour l'agent qui interrogera les données
 
-Statut : proposé, 2026-10-13 (Pierre, pendant la migration de la base de connaissances de dim-code, #24). À accepter par le mainteneur. Applique 0025 (finalité du dépôt) à claims.md et aux skills.
+Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-13 par Pierre, pendant la migration de la base de connaissances de dim-code (#24). Applique 0025 (finalité du dépôt) à claims.md et aux skills.
 
 ## Contexte
 

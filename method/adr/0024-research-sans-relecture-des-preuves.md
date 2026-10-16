@@ -1,6 +1,6 @@
 # 0024 — research ne relit pas les preuves
 
-Statut : proposé, 2026-10-14 (Pierre). À accepter par le mainteneur.
+Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-14 par Pierre.
 
 ## Contexte
 

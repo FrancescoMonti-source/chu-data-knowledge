@@ -1,6 +1,6 @@
 # 0025 — La finalité du dépôt
 
-Statut : proposé, 2026-10-14 (Pierre ; accord de principe de Francesco sur #26). À accepter par le mainteneur.
+Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-14 par Pierre ; accord de principe de Francesco sur #26.
 
 ## Contexte
 
