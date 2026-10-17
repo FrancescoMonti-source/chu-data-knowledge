@@ -29,7 +29,7 @@ Les principes, un mot chacun :
 ## Règles obligatoires
 
 1. Aucune donnée de personne dans un fichier ni dans une réponse : le filtre passe avant tout enregistrement (method/privacy.md).
-2. Une requête pour l'hôpital suit method/queries.md : agrégats seulement, masquage <10 dans la requête elle-même.
+2. Une requête pour l'hôpital suit method/queries.md : sur des personnes, agrégats seulement, masquage <10 dans la requête elle-même.
 3. Avant d'écrire un fichier, lire la convention de son type (tableau ci-dessous).
 4. Lancer `python checks/check.py` avant chaque commit. Corriger le contenu, jamais le contrôle.
 5. Toute réponse qui utilise un claim cite son état de relecture.

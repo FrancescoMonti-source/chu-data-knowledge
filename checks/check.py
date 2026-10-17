@@ -57,8 +57,6 @@ BIRTH_COLUMN = re.compile(r"(?i)(?:^|[_\s])(?:naiss|birth|dob|ddn)")
 COUNT_COLUMN = re.compile(r"(?i)^(?:n|nb)(?:_|$)")
 SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*\d+\s*\)?\s+(?:percent\s+)?)*|,\s*)"
                          r"(?:[\w\"\[\]]+\.)?\*")
-NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
-SELECT = re.compile(r"(?i)\bselect\b")
 SQL_COMMENT = re.compile(r"'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"|--[^\n]*|/\*.*?\*/", re.DOTALL)
 HASH_COMMENT = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"|#[^\n]*")
 FENCE = re.compile(r"\s*```\s*(\S*)")
@@ -485,21 +483,18 @@ class Repository:
             self.report(RED, path, None, "une requête ne charge pas une routine : la routine change, la requête "
                         "exécutée ne change plus (règle 6).",
                         "Recopier dans le script le calcul de la routine (method/queries.md, « Une routine »).")
-        if code_language["fence"] == "sql":
-            if NO_ROWS.search(code) and len(SELECT.findall(code)) == 1:
-                return
-            if SELECT_STAR.search(code):
-                self.report(RED, path, None, "SELECT * n'est admis qu'avec WHERE 1=0 (noms des colonnes seulement).",
-                            "Nommer les colonnes une par une.")
+        if code_language["fence"] == "sql" and SELECT_STAR.search(code):
+            self.report(RED, path, None, "SELECT * est interdit : une requête nomme ses colonnes.",
+                        "Nommer les colonnes une par une ; pour les connaître, interroger le catalogue (method/queries.md, règle 2).")
+        if not any(quote + header["id"] + quote in code for quote in code_language["quotes"]):
+            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id de la requête.",
+                        code_language["id_fix"].format(header["id"]))
         if header["person_data"] == "masked":
             self.check_masked_output(query, code, code_language)
 
     def check_masked_output(self, query, code, code_language):
         """Une requête sur des personnes, en SQL ou en script sur un fichier gardé à l'hôpital (method/queries.md)."""
-        identifier, path = query["header"]["id"], query["path"]
-        if not any(quote + identifier + quote in code for quote in code_language["quotes"]):
-            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id de la requête.",
-                        code_language["id_fix"].format(identifier))
+        path = query["path"]
         if not code_language["aggregate"].search(code):
             self.report(RED, path, None, "une requête sur des personnes ne renvoie que des agrégats.",
                         code_language["aggregate_fix"])
@@ -677,7 +672,7 @@ def language(path):
 
 
 def without_comments(code, pattern):
-    """Un commentaire ne compte ni comme masquage ni comme WHERE 1=0 ; un texte entre guillemets reste."""
+    """Un commentaire ne compte pas dans le contrôle d'une requête ; un texte entre guillemets reste."""
     return pattern.sub(lambda m: m.group() if m.group()[0] in "'\"" else " ", code)
 
 
