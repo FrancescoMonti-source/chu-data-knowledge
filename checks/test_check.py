@@ -591,8 +591,13 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, "investigations/2026-test/README.md", "naissance")
 
     def test_small_count_in_masked_result_is_red(self):
-        self.edit("knowledge/evidence/20261008-mvt-rum.md", "| 2025 | <10 |", "| 2025 | 7 |")
-        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "inférieur à 10")
+        path = "knowledge/evidence/20261008-mvt-rum.md"
+        self.edit(path, "| 2025 | <10 |", "| 2025 | 7 |")
+        self.assertProblem(RED, path, "inférieur à 10")
+        self.edit(path, "| N_MVT |", "| N |")
+        self.assertProblem(RED, path, "inférieur à 10")
+        self.edit(path, "| N |", "| NO_UF |")
+        self.assertClean()
 
     # Rangement
 
@@ -631,6 +636,14 @@ class RepositoryTest(unittest.TestCase):
     def test_skill_copies_must_match(self):
         self.write({".agents/skills/frame/SKILL.md": "---\nname: frame\n---\nCadrer.\n"})
         self.assertProblem(RED, ".claude/skills", "diffère")
+        sync(self.root)
+        self.assertClean()
+
+    def test_skill_header_must_be_yaml(self):
+        self.write({".agents/skills/relay/SKILL.md": "---\nname: relay\ndescription: Relayer (la liste : README.md).\n---\n"})
+        sync(self.root)
+        self.assertProblem(RED, ".agents/skills/relay/SKILL.md", "illisible")
+        self.edit(".agents/skills/relay/SKILL.md", "Relayer (la liste : README.md).", '"Relayer (la liste : README.md)."')
         sync(self.root)
         self.assertClean()
 

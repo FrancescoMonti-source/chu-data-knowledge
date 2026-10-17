@@ -16,4 +16,4 @@ Les mots de la méthode (claim, preuve, enquête…) ne forment pas un contexte 
 
 ## Ponts
 
-Aucun pour l'instant (définition : method/GLOSSARY.md). On les trouve en cherchant les claims dont le champ terms mélange deux préfixes.
+Définition : method/GLOSSARY.md. On les trouve en cherchant les claims dont le champ terms mélange deux préfixes.

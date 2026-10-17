@@ -1,6 +1,6 @@
 ---
 name: retro
-description: Rétrospective en fin de session : relever les accrocs avec la personne, comprendre leur cause, puis ouvrir ou compléter une issue friction sur GitHub. Quand la personne la demande.
+description: "Rétrospective en fin de session : relever les accrocs avec la personne, comprendre leur cause, puis ouvrir ou compléter une issue friction sur GitHub. Quand la personne la demande."
 disable-model-invocation: true
 ---
 
