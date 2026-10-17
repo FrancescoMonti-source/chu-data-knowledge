@@ -42,23 +42,10 @@ ROUTINE_FIELDS = ("id", "system", "purpose")
 INACTIVE = ("challenged", "superseded", "withdrawn")
 DOCS = {"claim": "claims.md", "evidence": "evidence.md", "source": "evidence.md", "query": "queries.md",
         "routine": "queries.md"}
-SCRIPTS = {".R": "r", ".py": "python"}  # un script lu par le contrôle, et le bloc de sa version exécutée
-SCANNED = (".md", ".sql", ".r", ".py", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml")
-ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence",
-         "sources/*.md": "source", "knowledge/queries/*.sql": "query", "knowledge/queries/*.R": "query",
-         "knowledge/queries/*.py": "query", "knowledge/routines/*/*.R": "routine", "knowledge/routines/*/*.py": "routine"}
+ROLES = {"knowledge/claims/*.md": "claim", "knowledge/evidence/*.md": "evidence", "sources/*.md": "source",
+         "knowledge/queries/*": "query", "knowledge/routines/*/*": "routine"}  # requête, routine : selon LANGUAGES
 GLOSSARIES = "knowledge/glossaries/*.md"
 READMES = ("investigations/README.md", "investigations/*/README.md", "knowledge/routines/*/README.md")
-UNREAD = {
-    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier "
-                  "sauf un par routine, et des fichiers .md (.sql, .R ou .py pour les requêtes, .R ou .py et "
-                  "README.md pour une routine).",
-                  "Le ranger dans knowledge/claims/, evidence/, queries/, glossaries/ ou routines/<id>/, au format "
-                  "de son type (method/layout.md)."),
-    "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
-                       "Un claim va dans knowledge/claims/ ; un résultat devient une preuve de knowledge/evidence/, "
-                       "après le filtre de method/privacy.md."),
-}
 OLD_FOLDERS = {"systems": "knowledge/", "domains": "knowledge/",
                "docs/agents": "method/", "docs/adr": "method/adr/"}
 
@@ -72,7 +59,6 @@ SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*
                          r"(?:[\w\"\[\]]+\.)?\*")
 NO_ROWS = re.compile(r"(?i)\bwhere\s+1\s*=\s*0\b")
 SELECT = re.compile(r"(?i)\bselect\b")
-LOADS_ROUTINE = re.compile(r"routines[/\\]+[\w-]+[/\\]+[\w-]+\.(?:R|py)\b")
 SQL_COMMENT = re.compile(r"'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"|--[^\n]*|/\*.*?\*/", re.DOTALL)
 HASH_COMMENT = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"|#[^\n]*")
 FENCE = re.compile(r"\s*```\s*(\S*)")
@@ -81,6 +67,40 @@ AGGREGATE = re.compile(r"(?i)\b(?:count|sum|avg|min|max)\s*\(")
 SCRIPT_AGGREGATE = re.compile(r"\b(?:sum|length|nrow|table|tabulate|aggregate|tapply|mean|median|min|max"
                               r"|len|count|value_counts|groupby|size|nunique|Counter)\s*\(")
 UNQUOTED_HASH = re.compile(r"\s*([\w-]+):\s+[^\"'\s\[{][^\n]*\s#")
+
+# Les langages d'une requête, un par ligne ; la casse de la fin du fichier ne compte pas (.R ou .r).
+# fence : le bloc de la version exécutée dans une preuve ; mark : le début des lignes d'en-tête ;
+# quotes : les guillemets autour de l'id dans le résultat ; roles : requête, et routine pour un outil qu'on relance.
+SCRIPT = {"mark": "#", "comments": HASH_COMMENT, "aggregate": SCRIPT_AGGREGATE, "quotes": "'\"",
+          "roles": ("query", "routine"), "id_fix": 'Mettre QUERY_ID = "{}" en tête du tableau imprimé.',
+          "aggregate_fix": "Compter (sum, length, table…) au lieu d'imprimer des lignes du fichier."}
+LANGUAGES = {
+    ".sql": {"fence": "sql", "mark": "--", "comments": SQL_COMMENT, "aggregate": AGGREGATE, "quotes": "'",
+             "roles": ("query",), "id_fix": "Ajouter '{}' AS query_id en tête du SELECT.",
+             "aggregate_fix": "Agréger (COUNT, SUM…) au lieu de renvoyer des lignes individuelles."},
+    ".R": {**SCRIPT, "fence": "r"},
+    ".py": {**SCRIPT, "fence": "python"},
+}
+ROUTINE_ENDINGS = [ending for ending, row in LANGUAGES.items() if "routine" in row["roles"]]
+LOADS_ROUTINE = re.compile(r"routines[/\\]+[\w-]+[/\\]+[\w-]+\.(?i:"
+                           + "|".join(re.escape(ending[1:]) for ending in ROUTINE_ENDINGS) + r")\b")
+SCANNED = (".md", ".txt", ".csv", ".tsv", ".json", ".yml", ".yaml", *(ending.lower() for ending in LANGUAGES))
+
+
+def listed(items):
+    return ", ".join(items[:-1]) + " ou " + items[-1] if len(items) > 1 else items[0]
+
+
+UNREAD = {
+    "knowledge": ("le contrôle ne lit pas ce fichier : knowledge/ a un dossier par type, sans sous-dossier "
+                  f"sauf un par routine, et des fichiers .md ({listed(list(LANGUAGES))} pour les requêtes, "
+                  f"{listed(ROUTINE_ENDINGS)} et README.md pour une routine).",
+                  "Le ranger dans knowledge/claims/, evidence/, queries/, glossaries/ ou routines/<id>/, au format "
+                  "de son type (method/layout.md)."),
+    "investigations": ("une enquête n'a que son README.md : le contrôle ne lit pas ce fichier.",
+                       "Un claim va dans knowledge/claims/ ; un résultat devient une preuve de knowledge/evidence/, "
+                       "après le filtre de method/privacy.md."),
+}
 
 
 class Loader(yaml.BaseLoader):
@@ -213,15 +233,21 @@ class Repository:
                                 "Garder une seule définition, sous un seul titre ## " + term + ".")
                 else:
                     self.terms[term] = definition
+        for path, role in self.files():
+            self.add(path, role)
+
+    def files(self):
+        """Les fichiers lus avec leur rôle ; une requête ou une routine se reconnaît à son langage."""
         for pattern, role in ROLES.items():
             for path in sorted(self.root.glob(pattern)):
-                self.add(path, role)
+                if pattern.endswith(".md") or role in (language(path) or {}).get("roles", ()):
+                    yield path, role
 
     def add(self, path, role):
         name = self.relative(path)
         text = path.read_text(encoding="utf-8", errors="replace")
         try:
-            header, body = (query_header(text, "#" if path.suffix in SCRIPTS else "--") if role in ("query", "routine")
+            header, body = (query_header(text, language(path)["mark"]) if role in ("query", "routine")
                             else front_matter(text))
         except ValueError as error:
             self.report(RED, name, None, str(error), "Corriger l'en-tête : voir method/" + DOCS[role] + ".")
@@ -427,7 +453,7 @@ class Repository:
             if "system" in header:
                 self.report(RED, path, "system", "le système d'une exécution vient de sa requête.",
                             "Retirer system : la requête le donne dans son en-tête (method/evidence.md).")
-            fence = "```" + SCRIPTS.get(Path(query.get("path", "")).suffix, "sql")
+            fence = "```" + (language(query.get("path", "")) or LANGUAGES[".sql"])["fence"]
             executed = re.compile("^" + fence + r"[ \t]*\n[ \t]*\S.*?^```", re.MULTILINE | re.DOTALL)
             if header["modified"] == "yes" and not executed.search(evidence["body"]):
                 self.report(RED, path, "modified", f"la requête a été modifiée mais la version exécutée manque (bloc {fence}).",
@@ -449,50 +475,37 @@ class Repository:
 
     def check_query(self, query):
         header, path = query["header"], query["path"]
-        script = Path(path).suffix in SCRIPTS
-        sql = without_comments(query["body"], HASH_COMMENT if script else SQL_COMMENT)
+        code_language = language(path)
+        code = without_comments(query["body"], code_language["comments"])
         if not self.require(query, QUERY_FIELDS):
             return
         self.allowed(query, "person_data", PERSON_DATA)
         self.known_context(query, "system", header["system"])
-        if script:
-            self.check_script(query, sql)
-            return
-        if NO_ROWS.search(sql) and len(SELECT.findall(sql)) == 1:
-            return
-        if SELECT_STAR.search(sql):
-            self.report(RED, path, None, "SELECT * n'est admis qu'avec WHERE 1=0 (noms des colonnes seulement).",
-                        "Nommer les colonnes une par une.")
-        if header["person_data"] != "masked":
-            return
-        if f"'{header['id']}'" not in sql:
-            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id de la requête.",
-                        f"Ajouter '{header['id']}' AS query_id en tête du SELECT.")
-        if not AGGREGATE.search(sql):
-            self.report(RED, path, None, "une requête sur des personnes ne renvoie que des agrégats.",
-                        "Agréger (COUNT, SUM…) au lieu de renvoyer des lignes individuelles.")
-        if not MASK.search(sql):
-            self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
-                        "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
-
-    def check_script(self, query, code):
-        """Un script R ou Python lit un fichier gardé à l'hôpital : mêmes règles qu'une requête masquée (method/queries.md)."""
-        header, path = query["header"], query["path"]
         if LOADS_ROUTINE.search(code):
             self.report(RED, path, None, "une requête ne charge pas une routine : la routine change, la requête "
                         "exécutée ne change plus (règle 6).",
                         "Recopier dans le script le calcul de la routine (method/queries.md, « Une routine »).")
-        if header["person_data"] != "masked":
-            return
-        if not any(quote + header["id"] + quote in code for quote in "'\""):
-            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id du script.",
-                        f"Mettre QUERY_ID = \"{header['id']}\" en tête du tableau imprimé.")
-        if not SCRIPT_AGGREGATE.search(code):
-            self.report(RED, path, None, "un script sur des personnes n'imprime que des agrégats.",
-                        "Compter (sum, length, table…) au lieu d'imprimer des lignes du fichier.")
+        if code_language["fence"] == "sql":
+            if NO_ROWS.search(code) and len(SELECT.findall(code)) == 1:
+                return
+            if SELECT_STAR.search(code):
+                self.report(RED, path, None, "SELECT * n'est admis qu'avec WHERE 1=0 (noms des colonnes seulement).",
+                            "Nommer les colonnes une par une.")
+        if header["person_data"] == "masked":
+            self.check_masked_output(query, code, code_language)
+
+    def check_masked_output(self, query, code, code_language):
+        """Une requête sur des personnes, en SQL ou en script sur un fichier gardé à l'hôpital (method/queries.md)."""
+        identifier, path = query["header"]["id"], query["path"]
+        if not any(quote + identifier + quote in code for quote in code_language["quotes"]):
+            self.report(RED, path, None, "la première colonne du résultat doit afficher l'id de la requête.",
+                        code_language["id_fix"].format(identifier))
+        if not code_language["aggregate"].search(code):
+            self.report(RED, path, None, "une requête sur des personnes ne renvoie que des agrégats.",
+                        code_language["aggregate_fix"])
         if not MASK.search(code):
-            self.report(RED, path, None, "le masquage <10 n'apparaît pas dans le script.",
-                        "Masquer toute statistique sous 10 dans le script lui-même (method/queries.md).")
+            self.report(RED, path, None, "le masquage <10 n'apparaît pas dans la requête.",
+                        "Masquer toute statistique sous 10 dans la requête elle-même (method/queries.md).")
 
     def check_routine(self, routine):
         """Une routine : un outil R ou Python qu'on lance à l'hôpital, dans knowledge/routines/<id>/ avec son README.md.
@@ -527,9 +540,10 @@ class Repository:
         elif any(not line.lstrip().startswith("|") for line in outside):
             self.report(RED, path, None, "des lignes sont hors du tableau Markdown du résultat.",
                         "Mettre tout le résultat dans le tableau, et retirer le reste (method/evidence.md).")
-        if any(tag not in ("sql", *SCRIPTS.values()) for tag in tags):
+        fences = [row["fence"] for row in LANGUAGES.values()]
+        if any(tag not in fences for tag in tags):
             self.report(RED, path, None, "un résultat masqué n'a pas d'autre bloc que la requête exécutée "
-                        "(```sql, ou ```r ou ```python pour un script).",
+                        f"({listed(['```' + fence for fence in fences])}, selon son langage).",
                         "Mettre le résultat dans le tableau, et retirer le bloc.")
         self.check_small_counts(evidence)
 
@@ -630,7 +644,8 @@ class Repository:
                     self.report(RED, self.relative(path), None,
                                 f"{old}/ est remplacé par {new} (method/adr/0018-ranger-par-type.md).",
                                 "Déplacer le fichier dans le dossier de son type (method/layout.md).")
-        read = {path for pattern in (*ROLES, GLOSSARIES, *READMES) for path in self.root.glob(pattern)}
+        read = {path for path, _ in self.files()} | {
+            path for pattern in (GLOSSARIES, *READMES) for path in self.root.glob(pattern)}
         for folder, (message, fix) in UNREAD.items():
             for path in sorted((self.root / folder).rglob("*")):
                 if path.is_file() and not path.name.startswith(".") and path not in read:
@@ -646,6 +661,12 @@ class Repository:
         if files != copies:
             self.report(RED, ".claude/skills", None, "la copie des skills diffère de .agents/skills.",
                         "Lancer python checks/sync_skills.py ; modifier seulement .agents/skills.")
+
+
+def language(path):
+    """La ligne de LANGUAGES d'un fichier, ou None."""
+    suffix = Path(path).suffix.lower()
+    return next((row for ending, row in LANGUAGES.items() if ending.lower() == suffix), None)
 
 
 def without_comments(code, pattern):
