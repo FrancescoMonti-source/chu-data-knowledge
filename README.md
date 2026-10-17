@@ -21,18 +21,24 @@ Puis poser une question à son agent : il commence par la cadrer avec vous.
 - **Claude Code** lit CLAUDE.md, qui renvoie à AGENTS.md, et .claude/skills/.
 - **App web :** créer un projet avec l'instruction « au début, lis AGENTS.md du dépôt et suis ses instructions ». À vérifier par un essai.
 
-## Une enquête, étape par étape
+## Le parcours d'une demande
 
-Chaque étape est une skill. L'agent les suit de lui-même : il suffit de lui poser la question.
+Les skills accompagnent la demande selon ce qu'elle nécessite.
 
-| Étape | Skill | Ce que vous faites | Ce que vous obtenez |
-|---|---|---|---|
-| Cadrer | frame | vous posez la question ; vous confirmez le but, la population, la période, l'unité, la mesure et la comparaison | une question claire, en une phrase |
-| Chercher | research | vous indiquez ou fournissez les documents | ce que le dépôt sait déjà ; s'il ne suffit pas, une enquête avec un plan, puis une preuve par passage lu |
-| Interroger l'hôpital | relay | vous exécutez la requête à l'hôpital et rapportez le résultat | une requête prête à copier, puis le résultat enregistré comme preuve |
-| Conclure | sediment | vous relisez les conclusions et donnez votre accord pour le merge | des claims que d'autres enquêtes réutiliseront |
+```mermaid
+flowchart TD
+    Q["Demande"] --> F["frame — Préciser le besoin"]
+    F --> R["research — Retrouver ce qui est utile"]
+    R --> T["Répondre ou préparer la routine"]
+    R -. "incertitude à vérifier" .-> E["Enquête — research et/ou relay"]
+    T -. "découverte utile à vérifier" .-> E
+    E --> T
+    E -. "connaissance établie à conserver" .-> S["sediment — Claims"]
+    T -->|"routine à conserver"| PR["PR vers main"]
+    S --> PR
+```
 
-research et relay peuvent alterner : un résultat de l'hôpital peut demander un nouveau document, sans l'imposer.
+Les flèches pointillées sont des possibilités, pas des étapes obligatoires. Une même demande peut aboutir à une réponse, une routine et des claims, selon ce que le travail révèle. Pour une routine, on conserve le script paramétrique et sa méthode ; les résultats de ses exécutions restent à l'hôpital (method/queries.md, « Une routine »). Un mainteneur fusionne la PR.
 
 ## Finir une session
 
