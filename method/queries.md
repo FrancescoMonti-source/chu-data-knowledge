@@ -28,7 +28,7 @@ GROUP BY ANNEE;
 ## Les règles
 
 1. Seulement des colonnes agrégées. Une colonne d'effectif s'appelle N_… ou NB_… (N_SEJ, NB_PATIENTS) : c'est là que le contrôle cherche les effectifs de 1 à 9 en clair.
-2. Les colonnes sont nommées une par une : jamais SELECT *. Pour connaître les tables et les colonnes absentes de sources/, interroger le catalogue de la base (ALL_TAB_COLUMNS sous Oracle, INFORMATION_SCHEMA.COLUMNS sous SQL Server), en no-person-data : il donne aussi le type et la taille de chaque colonne.
+2. Les colonnes sont nommées une par une : jamais SELECT *. Pour connaître les tables et les colonnes que ni les claims ni sources/ ne donnent, interroger le catalogue de la base (ALL_TAB_COLUMNS sous Oracle, INFORMATION_SCHEMA.COLUMNS sous SQL Server), en no-person-data : il donne aussi le type et la taille de chaque colonne.
 3. Toute statistique calculée sur moins de 10 personnes, séjours ou actes sort comme <10, minimum et maximum compris. Le masquage est écrit dans la requête.
 4. On cache aussi les totaux qui permettraient de recalculer une cellule masquée (suppression secondaire) : total 25, cellules visibles 12 et 8, donc la cellule cachée vaut 5.
 5. La première colonne affiche l'id de la requête ; les suivantes, la base et l'heure d'exécution.

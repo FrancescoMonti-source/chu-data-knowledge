@@ -10,7 +10,7 @@ Aucune requête de knowledge/queries/ n'a suivi ce chemin. Quand une enquête a 
 
 ## Décision
 
-Les tables et les colonnes absentes de sources/ se cherchent dans le catalogue de la base, par une requête no-person-data. SELECT * est interdit sans exception, et toute requête, masked ou non, affiche son id dans la première colonne (method/queries.md, règles 2 et 5).
+Les tables et les colonnes que ni les claims ni sources/ ne donnent se cherchent dans le catalogue de la base, par une requête no-person-data. SELECT * est interdit sans exception, et toute requête, masked ou non, affiche son id dans la première colonne (method/queries.md, règles 2 et 5).
 
 ## Alternatives écartées
 
@@ -19,5 +19,5 @@ Les tables et les colonnes absentes de sources/ se cherchent dans le catalogue d
 ## Conséquences
 
 - Le contrôle refuse tout SELECT * et demande l'id dans toute requête. Les cinq requêtes no-person-data du dépôt l'affichent déjà.
-- La réponse du catalogue a des lignes : relay, étape 5, ne demande des agrégats que pour masked.
+- La réponse du catalogue a des lignes : relay (étape 5), le filtre de method/privacy.md et la règle 2 d'AGENTS.md ne demandent des agrégats que pour un résultat sur des personnes, comme queries.md le faisait déjà.
 - Ce qu'on perd : si le compte de la personne ne peut pas lire le catalogue, la méthode n'offre plus d'autre requête pour connaître les colonnes ; l'agent les demande à la personne.
