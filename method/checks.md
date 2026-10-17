@@ -39,7 +39,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 - Le contrôle voit que le masquage est présent, pas qu'il est juste (surtout la suppression secondaire).
 - La recherche de valeurs ne garantit pas l'anonymat : un nom, une adresse ou un IPP ne sont pas reconnus.
 - Les valeurs ne sont cherchées que dans les fichiers texte connus (SCANNED, dans check.py) : hors de knowledge/ et investigations/, un export brut (.xlsx, .rpt) n'est pas lu.
-- Les effectifs de 1 à 9 ne sont cherchés que dans les colonnes N, NB, N_… et NB_… (queries.md, règle 1).
+- Les effectifs de 1 à 9 ne sont cherchés que dans les colonnes N_… et NB_… (queries.md, règle 1), et dans les colonnes N et NB, que des preuves emploient aussi.
 - L'author et le relecteur sont déclarés, pas prouvés.
 - Aucun contrôle ne sait si un claim est vrai.
 
