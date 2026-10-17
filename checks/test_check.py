@@ -757,8 +757,11 @@ class RepositoryTest(unittest.TestCase):
         self.assertClean()
 
     def test_birth_date_in_a_table_column(self):
-        self.write({"investigations/2026-test/README.md": "| SEXE | DATE_NAISSANCE |\n|---|---|\n| F | 1951-03-12 |\n"})
-        self.assertProblem(RED, "investigations/2026-test/README.md", "tableau")
+        # DATE_NAIS et DATE_NAIS_LUN : les noms de TB_PATIENT dans le dictionnaire CORA.
+        for column in ("DATE_NAISSANCE", "DATE_NAIS", "DATE_NAIS_LUN"):
+            with self.subTest(column=column):
+                self.write({"investigations/2026-test/README.md": f"| SEXE | {column} |\n|---|---|\n| F | 1951-03-12 |\n"})
+                self.assertProblem(RED, "investigations/2026-test/README.md", "tableau")
 
     # Exemples de method/
 
