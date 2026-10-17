@@ -25,7 +25,7 @@ Chaque message donne le fichier, le champ et le problème, puis, à la ligne sui
 | ROUGE | claim sans preuve propre : maturité qui suit ses prémisses, ou provisional (claims.md) |
 | ROUGE | exécution : même person_data que sa requête, sans champ system, version exécutée dans le langage de la requête si modified: yes ; si masked, rien hors du tableau Markdown du résultat, sauf un bloc ```sql (```r ou ```python pour un script) |
 | ROUGE | lecture : une citation |
-| ROUGE | requête, lue sans ses commentaires (le texte entre guillemets reste) : SELECT * seulement avec WHERE 1=0 et un seul SELECT ; si masked, hors requête des colonnes : l'id dans le résultat, un agrégat, le seuil < 10 ; un script .R ou .py, lu sans ses commentaires # : si masked, l'id entre guillemets, un comptage, le seuil < 10 |
+| ROUGE | requête, lue sans ses commentaires (le texte entre guillemets reste) : jamais SELECT *, l'id dans le résultat ; si masked, un agrégat, le seuil < 10 ; un script .R ou .py, lu sans ses commentaires # : l'id entre guillemets ; si masked, un comptage, le seuil < 10 |
 | ROUGE | routine : dans knowledge/routines/<id>/, avec son README.md ; en-tête id, system, purpose ; aucun script de knowledge/queries/ ne charge une routine |
 | ROUGE | dans tout fichier texte : NIR à clé valide, date de naissance ; dans un résultat masqué : effectif de 1 à 9 en clair |
 | ROUGE | depends_on vers le claim d'une autre personne sans relecture à jour (ORANGE si le claim est provisional) |

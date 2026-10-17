@@ -564,13 +564,15 @@ class RepositoryTest(unittest.TestCase):
         self.write({path: SCRIPT.replace("l <- readLines", "# même calcul que la routine grp-par-mois (knowledge/routines/grp-par-mois/grp-par-mois.R)\nl <- readLines")})
         self.assertClean()
 
-    def test_select_star_only_for_column_names(self):
-        self.write({"knowledge/queries/20261011-colonnes.sql":
-                    "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
-                    "SELECT * FROM TB_MVT WHERE 1=0;\n"})
+    def test_catalogue_query_names_columns_and_shows_its_id(self):
+        path = "knowledge/queries/20261011-colonnes.sql"
+        header = "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
+        self.write({path: header + "SELECT '20261011-colonnes' AS query_id, COLUMN_NAME FROM ALL_TAB_COLUMNS;\n"})
         self.assertClean()
-        self.edit("knowledge/queries/20261011-colonnes.sql", " WHERE 1=0", "")
-        self.assertProblem(RED, "knowledge/queries/20261011-colonnes.sql", "SELECT *")
+        self.write({path: header + "SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS;\n"})
+        self.assertProblem(RED, path, "première colonne")
+        self.write({path: header + "SELECT '20261011-colonnes' AS query_id, t.* FROM TB_MVT t WHERE 1=0;\n"})
+        self.assertProblem(RED, path, "SELECT *")
 
     # Données personnelles
 
@@ -701,11 +703,11 @@ class RepositoryTest(unittest.TestCase):
         for words in ("clé non admise", "UTF-8", "texte simple"):
             self.assertIn(words, messages)
 
-    def test_masked_query_for_column_names(self):
-        self.write({"knowledge/queries/20261011-colonnes.sql":
-                    "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: masked\n-- purpose: lister les colonnes\n"
-                    "SELECT * FROM TB_PATIENT WHERE 1=0;\n"})
-        self.assertClean()
+    def test_where_1_equals_0_does_not_allow_select_star(self):
+        path = "knowledge/queries/20261011-colonnes.sql"
+        self.write({path: "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: masked\n-- purpose: lister les colonnes\n"
+                          "SELECT * FROM TB_PATIENT WHERE 1=0;\n"})
+        self.assertProblem(RED, path, "SELECT *")
 
     def test_select_star_variants_and_repeated_header(self):
         path = "knowledge/queries/20261007-mvt-rum.sql"
@@ -730,12 +732,6 @@ class RepositoryTest(unittest.TestCase):
     def test_comment_marks_inside_a_literal_stay_sql(self):
         self.edit("knowledge/queries/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
         self.assertProblem(RED, "knowledge/queries/20261007-mvt-rum.sql", "SELECT *")
-
-    def test_column_names_query_is_a_single_select(self):
-        path = "knowledge/queries/20261013-patients.sql"
-        self.write({path: "-- id: 20261013-patients\n-- system: cora\n-- person_data: masked\n-- purpose: test\n"
-                          "SELECT * FROM TB_PATIENT WHERE 1=0 UNION SELECT * FROM TB_PATIENT;\n"})
-        self.assertProblem(RED, path, "SELECT *")
 
     def test_masked_result_is_a_markdown_table(self):
         path = "knowledge/evidence/20261008-mvt-rum.md"
