@@ -504,6 +504,23 @@ class RepositoryTest(unittest.TestCase):
         self.write({path: SCRIPT.replace("# system: cora", "-- system: cora")})
         self.assertProblem(RED, path, "obligatoire")
 
+    def test_lowercase_r_is_an_r_script(self):
+        """RStudio enregistre en .R ou en .r : le contrôle les lit de la même façon, sous Windows comme sous Linux."""
+        path = "knowledge/queries/20261016-grp-rss.r"
+        self.write({path: SCRIPT,
+                    "knowledge/evidence/20261016-grp-rss-resultat.md": EXECUTION
+                    .replace("id: 20261008-mvt-rum", "id: 20261016-grp-rss-resultat")
+                    .replace("query: 20261007-mvt-rum", "query: 20261016-grp-rss")
+                    .replace("modified: no", "modified: yes")
+                    .replace("| <10 |\n", "| <10 |\n\n```r\nl <- 1\n```\n"),
+                    "knowledge/routines/grp-par-mois/grp-par-mois.r": ROUTINE,
+                    "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n"})
+        self.assertClean()
+        self.write({path: SCRIPT.replace('ifelse(n < 10, "<10", as.character(n))', "n")})
+        self.assertProblem(RED, path, "<10")
+        self.write({path: SCRIPT.replace("l <- readLines", 'source("knowledge/routines/grp-par-mois/grp-par-mois.r")\nl <- readLines')})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+
     def routine_files(self):
         return {"knowledge/routines/grp-par-mois/grp-par-mois.R": ROUTINE,
                 "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n\nCe que la routine compte.\n"}
