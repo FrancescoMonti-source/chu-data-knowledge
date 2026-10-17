@@ -53,7 +53,7 @@ NIR = re.compile(r"\b[12]\s?\d{2}\s?\d{2}\s?(?:\d{2}|2[AB])\s?\d{3}\s?\d{3}\s?\d
 FULL_DATE = r"\b(?:\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})\b"
 BIRTH_DATE = re.compile(r"(?i)\b(?:date\s+de\s+naissance|n[ée]e?\s+le|ddn|dob|date\s+of\s+birth|birth\s*date)\b"
                         r"[^\n]{0,40}?" + FULL_DATE)
-BIRTH_COLUMN = re.compile(r"(?i)(?:^|[_\s])(?:naiss|birth|dob|ddn)")
+BIRTH_COLUMN = re.compile(r"(?i)(?:^|[_\s])(?:nais|birth|dob|ddn)")
 COUNT_COLUMN = re.compile(r"(?i)^(?:n|nb)(?:_|$)")
 SELECT_STAR = re.compile(r"(?i)(?:\bselect\s+(?:(?:distinct|all)\s+|top\s*\(?\s*\d+\s*\)?\s+(?:percent\s+)?)*|,\s*)"
                          r"(?:[\w\"\[\]]+\.)?\*")
