@@ -2,7 +2,7 @@
 
 Un claim est une affirmation sur les données du CHU, soutenue par des preuves. Un fichier par claim, dans knowledge/claims/.
 
-Un claim s'écrit pour l'agent suivant, celui qui interrogera les données : il lui dit ce qu'il peut faire ou doit éviter. Une variable fiable ou non, et depuis quand ; une jointure ; un piège ; une méthode pour retrouver ou classer quelque chose. Les chiffres appuient le claim : ils vont dans son corps, rarement dans statement.
+Un claim s'écrit pour l'agent suivant, celui qui interrogera les données : il lui dit ce qu'il peut faire ou doit éviter. Une variable fiable ou non, et depuis quand ; une jointure ; un piège ; une méthode pour retrouver ou classer quelque chose. Les chiffres appuient le claim : ils vont dans son corps. statement n'en garde un que si la consigne en dépend.
 
 ## Ce qui mérite un claim
 
