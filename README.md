@@ -32,8 +32,7 @@ flowchart TD
     R --> T["Répondre ou préparer la routine"]
     R -. "incertitude à vérifier" .-> E["Enquête — research et/ou relay"]
     T -. "découverte utile à vérifier" .-> E
-    E --> T
-    E -. "connaissance établie à conserver" .-> S["sediment — Claims"]
+    E --> S["sediment — Claims, réponse, clôture"]
     T -->|"routine à conserver"| PR["PR vers main"]
     S --> PR
 ```
