@@ -21,7 +21,7 @@ Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md.
 4. **Vérifier** l'id, la base et les colonnes attendues. Demander si la requête a été modifiée ; si oui, obtenir la version exécutée. Le fichier .sql ne change pas (queries.md, règle 6).
    Fini quand : ces quatre points sont confirmés.
 5. **Filtrer** le résultat (privacy.md). S'il contient une donnée de personne : ne rien écrire, prévenir la personne, suivre privacy.md, « Incident », puis écrire une nouvelle version de la requête qui masque mieux (étape 2).
-   Fini quand : aucune donnée de personne n'apparaît ; pour masked, le résultat ne contient que des agrégats, sans effectif de 1 à 9 en clair.
+   Fini quand : aucune donnée de personne ni aucun effectif de 1 à 9 n'apparaît en clair ; pour masked, le résultat ne contient que des agrégats.
 6. **Écrire et enregistrer** la preuve d'exécution (method/evidence.md ; investigations/README.md, « La branche »).
    Fini quand : la preuve est enregistrée.
 
