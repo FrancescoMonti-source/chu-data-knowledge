@@ -4,11 +4,7 @@
 
 Ce dépôt sédimente ce que nous apprenons en analysant les données de l'hôpital, pour donner à l'agent de la prochaine analyse un contexte précis et vérifié. Ce contexte le guide pour interroger les données et interpréter les résultats, et pour produire à son tour des claims utiles, vrais et vérifiés, en suivant le format, la validation par une personne et les contraintes du dépôt. Plusieurs personnes et leurs agents y contribuent, et chaque conversation, de n'importe qui, part de là.
 
-Un claim est donc écrit pour cet agent. Il doit être :
-
-- **utile :** il change ce que l'agent écrit dans une requête ou conclut d'un résultat (method/claims.md, « Ce qui mérite un claim ») ;
-- **vrai et vérifié :** appuyé sur ses preuves, réfutable, relu quand on le réutilise. Sans preuves, une erreur faite dans une conversation passerait dans toutes les suivantes ;
-- **conforme :** le format de method/, le relay pour les données, la validation par une personne, les contrôles de check.py.
+Un claim est donc écrit pour cet agent : il doit changer ce que l'agent écrit dans une requête ou conclut d'un résultat (method/claims.md, « Ce qui mérite un claim »). Il doit aussi être vrai : sans preuves, une erreur faite dans une conversation passerait dans toutes les suivantes.
 
 Les principes, un mot chacun :
 
@@ -20,7 +16,7 @@ Les principes, un mot chacun :
 | evidence-based | chaque claim renvoie à ses preuves |
 | falsifiable | chaque claim empirique dit quelle observation le contredirait |
 | review-on-reuse | on relit un claim quand on construit dessus |
-| privacy-by-design | des agrégats seulement, masqués dans la requête |
+| privacy-by-design | sur des personnes, des agrégats seulement, masqués dans la requête |
 | single-source-of-truth | chaque information à un seul endroit |
 | CI-enforced | les contrôles imposent ce qui peut l'être ; le reste est une règle de confiance |
 | human-in-the-loop | aucune règle ne change sans une personne |
@@ -44,7 +40,7 @@ Les principes, un mot chacun :
 | ranger un fichier, choisir un id, définir un terme ou un contexte, chercher ce qu'on sait | method/layout.md |
 | écrire un claim | method/claims.md |
 | écrire une preuve ou une fiche de source | method/evidence.md |
-| préparer une requête, enregistrer un résultat | method/queries.md |
+| préparer une requête ou une routine, enregistrer un résultat | method/queries.md |
 | réutiliser, relire ou contester un claim | method/review.md |
 | ouvrir, retrouver ou reprendre une enquête, écrire dans son issue | investigations/README.md |
 | corriger une friction | method/maintenance.md |
