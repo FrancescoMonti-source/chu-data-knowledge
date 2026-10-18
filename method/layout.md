@@ -7,7 +7,8 @@ Le type d'un fichier décide de son dossier, quel que soit son sujet.
 | sources/ | document : sa fiche, et le texte d'un document hors ligne | evidence.md, « Sources » |
 | knowledge/claims/ | claim | claims.md |
 | knowledge/evidence/ | preuve : une lecture ou une exécution | evidence.md |
-| knowledge/queries/ | requête préparée pour l'hôpital (.sql) | queries.md |
+| knowledge/queries/ | requête préparée pour l'hôpital (.sql, ou .R ou .py pour un fichier) | queries.md |
+| knowledge/routines/<id>/ | routine : son code et son README.md | queries.md, « Une routine » |
 | knowledge/glossaries/ | contexte : son glossaire ; README.md est la carte des contextes | « Termes et glossaires », plus bas |
 | investigations/<id>/ | enquête : son README.md, seul | investigations/README.md |
 
