@@ -8,7 +8,7 @@ Les claims, les preuves et les requêtes de l'enquête vont dans knowledge/ (met
 
 Une enquête se fait sur sa branche, `investigation/<id>`, où l'id est le nom de son dossier. La branche principale est main, la branche par défaut du dépôt sur GitHub : le README d'une enquête n'y arrive qu'avec sediment.
 
-- **Ouvrir :** créer la branche depuis la branche principale à jour.
+- **Ouvrir :** ouvrir l'issue, avec la question et le plan (« Le plan ») ; créer la branche depuis la branche principale à jour ; y écrire `investigations/<id>/README.md`, avec la question, le cadrage de frame et le numéro de l'issue ; enregistrer.
 - **Retrouver :** `git fetch --prune`, puis `git branch -r --list "origin/investigation/*"` : une branche par enquête ouverte ou suspendue, car fermer une enquête supprime sa branche (sediment, étape 6).
 - **Reprendre :** avant tout travail, se placer sur sa branche, puis y faire entrer la branche principale à jour (`git fetch`, puis `git merge origin/main`). Sinon l'enquête ne voit pas les claims entrés depuis son ouverture.
 - **Conflits :** un conflit add/add sur un claim de knowledge/claims/ veut dire que deux enquêtes ont choisi le même id. Garder tel quel le fichier de main, et donner au sien un nouvel id : nom du fichier, champ id, et partout où il est cité. Dans un glossaire, garder les termes des deux côtés ; un terme défini deux fois se tranche avec la personne.
@@ -38,7 +38,7 @@ Une décision de méthode prise avec la personne s'écrit dans Choix au moment o
 
 ## Le plan
 
-Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .github/ISSUE_TEMPLATE/investigation.md).
+Le plan est un échafaudage : il vit dans l'issue de l'enquête (modèle : .github/ISSUE_TEMPLATE/investigation.md). C'est ce qui manque, en quelques étapes dans l'ordre, chacune avec ce à quoi elle sert : un document à lire (research), une requête à l'hôpital (relay), ou une définition à trancher avec la personne une fois ses preuves réunies, qui s'écrit alors dans Choix. Une routine qui fait le calcul d'une étape y est nommée avec ses réglages, et l'écart entre ce qu'elle compte et la question, s'il y en a un.
 
 - Un plan revu est un nouveau commentaire « Plan revu », avec sa raison. Le plan valable est le dernier. La raison va aussi dans Choix : l'issue finit fermée, le README reste.
 - Sans `gh`, la personne fait le lien : elle colle l'issue dans la conversation pour que l'agent la lise, et colle dans l'issue le texte que l'agent lui donne.
@@ -63,4 +63,4 @@ Une affirmation non éprouvée est une hypothèse, même quand un document la di
 
 Exemple : le résultat d'une requête sur les séjours sans RSS est une preuve, dans knowledge/evidence/. « La plupart des séjours sans RSS sont des consultations externes » est une hypothèse, dans l'issue.
 
-Raison : le contrôle et research lisent seulement le dépôt, et l'issue finit fermée.
+Raison : le contrôle et la recherche de frame lisent seulement le dépôt, et l'issue finit fermée.

@@ -52,9 +52,8 @@ Les principes, un mot chacun :
 
 Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
 
-- **frame :** cadrer avec la personne une question sur les données du CHU.
-- **research :** chercher ce qui est déjà écrit, dans les claims du dépôt puis dans les documents.
-- **relay :** l'aller-retour à l'hôpital.
+- **frame :** cadrer avec la personne une question sur les données du CHU, et retrouver ce que le dépôt en sait ; puis répondre ou préparer une routine, ou ouvrir une enquête si quelque chose manque.
+- Pour chaque étape du plan d'une enquête : **research** pour lire un document, **relay** pour l'aller-retour à l'hôpital.
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
 - **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
 

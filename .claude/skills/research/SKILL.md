@@ -1,30 +1,19 @@
 ---
 name: research
-description: Chercher ce qui est déjà écrit sur une question cadrée, d'abord dans les claims du dépôt, puis dans les documents. Utiliser après frame, et quand une étape du plan demande un document.
+description: Lire un document dont une étape du plan d'une enquête a besoin (un guide de l'ATIH, un dictionnaire de données, une instruction), et enregistrer chaque passage utile comme preuve. Utiliser quand une étape du plan demande un document.
 ---
 
 # research
 
-Où chercher : method/layout.md, « Retrouver ce qu'on sait ». Les formats : method/evidence.md. Si l'enquête est déjà ouverte, passer directement aux documents.
-
-## Le dépôt
-
-1. **Chercher ce qu'on sait.** D'abord, trouver les termes : chercher les mots de la question dans les glossaires, titres et lignes « Alias » (method/layout.md, « Retrouver ce qu'on sait »). Puis, pour chaque terme et chaque table de la question : les glossaires, puis les claims qui les citent, puis leurs prémisses ; puis les requêtes et les routines qui lisent ces tables (leur ligne purpose) ; enfin, les questions des enquêtes passées. D'une routine, lire aussi son README : comparer ce qu'elle compte et ses limites à la question cadrée, et chercher les claims sur lesquels elle s'appuie, comme les autres. D'un claim, lire l'en-tête et le corps : ils disent ce qu'il établit et dans quelle portée. Ne pas ouvrir les preuves (method/review.md, « Quand relire ») : celles d'une requête s'ouvrent quand le plan demande ses données (relay, étape 2).
-   Fini quand : chaque terme et chaque table a été cherché, et la personne a reçu ce qui existe, avec l'état de relecture de chaque claim (claims.md, « Citer un claim »), et ce qui manque.
-2. **Si ce qu'on sait suffit, répondre ou préparer la routine.** Citer les claims utilisés et leur état de relecture. Pour une routine : method/queries.md, « Une routine », puis une pull request pour son code et son README (AGENTS.md, règle 8). Ce qui reste à vérifier pendant ce travail passe à l'étape 3.
-   Fini quand : la personne a sa réponse ou sa routine, et dit qu'elle lui suffit ; une routine à garder a sa pull request.
-3. **Si quelque chose reste à vérifier, ouvrir l'enquête** (investigations/README.md). Ouvrir l'issue avec la question et un plan. Le plan, c'est ce qui manque, en quelques étapes dans l'ordre, chacune avec ce à quoi elle sert : un document à lire, ou une requête à l'hôpital. Une routine qui fait le calcul d'une étape y est nommée avec ses réglages, et l'écart entre ce qu'elle compte et la question, s'il y en a un. Puis créer la branche de l'enquête (investigations/README.md, « La branche ») et `investigations/<id>/README.md`, avec la question, le cadrage de frame et le numéro de l'issue. Enregistrer (même section).
-   Fini quand : l'issue existe avec le plan, et le README est enregistré.
-
-## Les documents
+Les formats : method/evidence.md.
 
 Pour chaque étape du plan qui demande un document :
 
-4. **Identifier le document :** titre, éditeur, édition, champ et période d'application (pour le PMSI, l'édition de l'année). Chercher sa fiche dans sources/ ; si elle manque, la créer.
+1. **Identifier le document :** titre, éditeur, édition, champ et période d'application (pour le PMSI, l'édition de l'année). Chercher sa fiche dans sources/ ; si elle manque, la créer.
    Fini quand : la fiche existe, avec l'édition dans l'id et l'autorité.
-5. **Lire les passages utiles.** Pour chaque passage, un fichier de lecture dans knowledge/evidence/, avec l'endroit exact et une courte citation.
+2. **Lire les passages utiles.** Pour chaque passage, un fichier de lecture dans knowledge/evidence/, avec l'endroit exact et une courte citation.
    Fini quand : chaque passage dont l'enquête se sert a son fichier, et aucune citation ne contient de donnée de personne (method/privacy.md).
-6. **Enregistrer** (investigations/README.md, « La branche »).
+3. **Enregistrer** (investigations/README.md, « La branche »).
    Fini quand : chaque nouvelle preuve est enregistrée.
 
-Ensuite : relay pour une étape qui demande des données de l'hôpital ; sediment quand les preuves suffisent pour répondre. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ».
+Ensuite : l'étape suivante du plan (research pour un document, relay pour des données de l'hôpital) ; sediment quand les preuves suffisent pour répondre. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ».

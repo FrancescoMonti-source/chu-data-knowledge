@@ -10,7 +10,7 @@ Un projet d'équipe du DIM et de l'entrepôt de données, pas institutionnel. Ve
 
 Les agents écrivent ; vous posez les questions et décidez. Ils n'atteignent pas l'hôpital : vous exécutez leurs requêtes, et seuls des agrégats en sortent. L'agent mène le travail et vous appelle quand il a besoin de vous :
 
-- **Cadrer :** il précise votre question avec vous.
+- **Cadrer :** il vous dit si quelqu'un a déjà posé la question, puis la précise avec vous.
 - **Exécuter :** il vous donne une requête et son message. Vérifiez le masquage, exécutez à l'hôpital, rapportez le résultat ; prévenez-le si vous modifiez autre chose que les chemins et la connexion (method/queries.md, « Aller »).
 - **Protéger :** aucune donnée qui permette de reconnaître une personne, patient ou personnel, n'entre dans le dépôt ni dans la conversation. Si une telle donnée y arrive, arrêtez et prévenez un mainteneur (method/privacy.md). Le résultat d'une routine, lui, reste à l'hôpital : il peut ne pas être masqué, ne le collez pas dans la conversation (method/queries.md, « Une routine »).
 - **Confirmer :** les choix de méthode d'une enquête, puis ce qu'elle fait entrer dans le dépôt (claims et preuves), avant la pull request.
@@ -24,17 +24,16 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
 
 1. Cloner le dépôt, puis `pip install -r requirements.txt`.
 2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie.
-3. Installer les deux skills externes. Les skills du parcours (frame, research, relay, sediment, retro) arrivent avec le dépôt ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
+3. Installer les deux skills externes. Les skills du dépôt (frame, research, relay, sediment, retro) arrivent avec lui ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
 4. Poser votre question.
 
 ## Le parcours d'une demande
 
 ```mermaid
 flowchart TD
-    Q["Demande"] --> F["frame — Préciser le besoin"]
-    F --> R["research — Retrouver ce qui est utile"]
-    R --> T["Répondre ou préparer la routine"]
-    R -. "incertitude à vérifier" .-> E["Enquête — research et/ou relay"]
+    Q["Demande"] --> F["frame — Préciser le besoin, retrouver ce qu'on sait"]
+    F --> T["Répondre ou préparer la routine"]
+    F -. "quelque chose manque" .-> E["Enquête — research et/ou relay"]
     T -. "découverte utile à vérifier" .-> E
     E --> S["sediment — Claims, réponse, clôture"]
     T -->|"routine à conserver"| PR["PR vers main"]
@@ -69,7 +68,7 @@ Comment on travaille :
 AGENTS.md               règles pour les agents et pointeurs
 method/                 les conventions : écrire un claim, une preuve, une requête
 method/adr/             les décisions et leurs raisons (ADR : Architecture Decision Record)
-.agents/skills/         les étapes : frame, research, relay, sediment, retro
+.agents/skills/         les skills : frame, research, relay, sediment, retro
 checks/                 les contrôles et leurs tests, lancés par les agents et par la CI
 ```
 

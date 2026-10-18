@@ -1,4 +1,4 @@
-# Où va quoi
+# Où va la connaissance
 
 Le type d'un fichier décide de son dossier, quel que soit son sujet.
 
@@ -56,7 +56,9 @@ git grep -n "cora:mouvement" -- knowledge/claims/
 - **Des mots de la question au terme :** chercher chaque mot dans les glossaires, titres et lignes « Alias » : `git grep -n -i -w "dms" -- knowledge/glossaries/`. Le titre au-dessus de la ligne trouvée est le terme.
 - **Termes et tables :** chercher le terme (cora:mouvement) ou la table (cora:TB_MVT_RUM).
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
-- **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat.
-- **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question.
+- **Lire un claim :** son en-tête et son corps, et ceux de ses prémisses, suffisent pour l'utiliser ; vérifier que sa portée (scope) couvre la question. Ses preuves s'ouvrent à la relecture (review.md, « Quand relire »).
+- **Routines :** chercher la table dans knowledge/routines/, puis lire le README.md de la routine : comparer ce qu'elle compte et ses limites à la question, et chercher les claims sur lesquels elle s'appuie.
+- **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat. Le résultat s'ouvre dans relay, avant d'écrire une requête (relay, étape 2).
+- **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question ; sa réponse est dans Conclusions, ou dans le commentaire qui ferme son issue (Issue : #N).
 
 Un index viendra seulement si cette recherche ne suffit plus.
