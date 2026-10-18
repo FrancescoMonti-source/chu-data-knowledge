@@ -16,7 +16,7 @@ Un document lu dix fois donne une fiche dans sources/ et dix preuves dans knowle
 
 Le sujet s'écrit dans le fichier : les terms d'un claim (pmsi:rum), ses tables (cora:TB_MVT_RUM), le system d'une requête. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres.
 
-Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des décisions qui comptent (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision d'un mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
+Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des décisions qui comptent (method/adr/), les skills (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision d'un mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
 
 ## Ids et noms de fichiers
 
@@ -55,10 +55,11 @@ git grep -n "cora:mouvement" -- knowledge/claims/
 
 - **Des mots de la question au terme :** chercher chaque mot dans les glossaires, titres et lignes « Alias » : `git grep -n -i -w "dms" -- knowledge/glossaries/`. Le titre au-dessus de la ligne trouvée est le terme.
 - **Termes et tables :** chercher le terme (cora:mouvement) ou la table (cora:TB_MVT_RUM).
+- **Colonnes et valeurs d'une table :** avant d'écrire une requête pour les apprendre, chercher la table dans le dictionnaire et les requêtes par défaut de CORA : `git grep -n "TB_DIAG" -- sources/dictionnaire-cora-2020/ sources/requetes-cora-par-defaut-v1/`. C'est la seule recherche à faire dans sources/.
 - **Liens :** d'un claim, ses preuves (supported_by) et ses prémisses (depends_on). Pour savoir qui dépend d'un claim, chercher son id.
 - **Lire un claim :** son en-tête et son corps, et ceux de ses prémisses, suffisent pour l'utiliser ; vérifier que sa portée (scope) couvre la question. Ses preuves s'ouvrent à la relecture (review.md, « Quand relire »).
 - **Routines :** chercher la table dans knowledge/routines/, puis lire le README.md de la routine : comparer ce qu'elle compte et ses limites à la question, et chercher les claims sur lesquels elle s'appuie.
-- **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat. Le résultat s'ouvre dans relay, avant d'écrire une requête (relay, étape 2).
-- **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question ; sa réponse est dans Conclusions, ou dans le commentaire qui ferme son issue (Issue : #N).
+- **Preuves qu'aucun claim ne cite :** chercher la table dans knowledge/queries/ : `git grep -n "TB_SEJOUR" -- knowledge/queries/`, et lire la ligne purpose de chaque requête trouvée. Puis chercher l'id de la requête dans knowledge/evidence/ : la preuve qui le porte dans query est son résultat. Il s'ouvre quand le purpose répond à la question cadrée, avec sa date ; sinon, dans relay, avant d'écrire une requête (relay, étape 2).
+- **Enquêtes passées :** la première ligne de chaque investigations/<id>/README.md est la question ; sa réponse est dans Conclusions, ou dans le commentaire qui ferme son issue (Issue : #N). Une enquête fermée sans claim ne garde que son issue, avec la réponse et le cadrage (investigations/README.md, « La branche », Retrouver).
 
 Un index viendra seulement si cette recherche ne suffit plus.

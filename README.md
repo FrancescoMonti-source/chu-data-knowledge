@@ -40,7 +40,7 @@ flowchart TD
     S --> PR
 ```
 
-Les pointillés sont des possibilités, pas des étapes. Une demande peut finir en réponse, en routine, en claims, ou les trois. Dès qu'elle change le dépôt (une routine, une enquête), l'agent ouvre une pull request ; un mainteneur la fusionne.
+Les pointillés sont des possibilités, pas des étapes. Une demande peut finir en réponse, en routine, en claims, ou les trois. Dès qu'elle fait entrer quelque chose dans le dépôt (une routine, des claims), l'agent ouvre une pull request ; un mainteneur la fusionne.
 
 ## Finir une session
 

@@ -1,6 +1,6 @@
 ---
 name: research
-description: Lire un document dont une étape du plan d'une enquête a besoin (un guide de l'ATIH, un dictionnaire de données, une instruction), et enregistrer chaque passage utile comme preuve. Utiliser quand une étape du plan demande un document.
+description: Dans une enquête ouverte, lire le document qu'une étape du plan demande (un guide de l'ATIH, un dictionnaire de données, une instruction), et enregistrer chaque passage utile comme preuve. Sans enquête ouverte, une question sur un document commence par frame.
 ---
 
 # research

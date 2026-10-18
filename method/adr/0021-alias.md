@@ -1,6 +1,6 @@
 # 0021 — Les alias dans les glossaires
 
-Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-13 par Pierre, avant la migration de la base de connaissances de dim-code.
+Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-13 par Pierre, avant la migration de la base de connaissances de dim-code. Modifié par 0034 : c'est frame qui cherche les mots de la question.
 
 ## Contexte
 

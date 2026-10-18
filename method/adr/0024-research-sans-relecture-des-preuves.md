@@ -1,6 +1,6 @@
 # 0024 — research ne relit pas les preuves
 
-Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-14 par Pierre. Modifié par 0033 : la recherche dans le dépôt est désormais celle de frame.
+Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chir-m8). Proposé le 2026-10-14 par Pierre. Modifié par 0034 : la recherche dans le dépôt est désormais celle de frame, et elle ouvre le résultat d'une requête dont le purpose répond à la question.
 
 ## Contexte
 

@@ -1,6 +1,6 @@
 # 0023 — L'issue garde le travail à faire, le dépôt garde ce qu'on a observé
 
-Statut : accepté, 2026-10-14 (Francesco, dans le fil du projet, après la relecture de Pierre sur la PR #28).
+Statut : accepté, 2026-10-14 (Francesco, dans le fil du projet, après la relecture de Pierre sur la PR #28). Modifié par 0034 : c'est frame qui cherche dans le dépôt ; sediment fait les deux tris à l'étape 5, et une enquête sans claim se ferme sans pull request.
 
 ## Contexte
 
