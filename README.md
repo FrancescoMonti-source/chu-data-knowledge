@@ -11,10 +11,10 @@ Un projet d'équipe du DIM et de l'entrepôt de données, pas institutionnel. Ve
 Les agents écrivent ; vous posez les questions et décidez. Ils n'atteignent pas l'hôpital : vous exécutez leurs requêtes, et seuls des agrégats en sortent. L'agent mène le travail et vous appelle quand il a besoin de vous :
 
 - **Cadrer :** il précise votre question avec vous.
-- **Exécuter :** il vous donne une requête et son message. Vérifiez le masquage, exécutez à l'hôpital, rapportez le résultat ; prévenez-le si vous modifiez la requête (method/queries.md, « Aller »).
-- **Protéger :** aucune donnée qui permette de reconnaître une personne, patient ou personnel, n'entre dans le dépôt ni dans la conversation. Si une telle donnée y arrive, arrêtez et prévenez un mainteneur (method/privacy.md).
-- **Confirmer :** les choix de méthode d'une enquête, avant que ses claims entrent.
-- **Relire au réemploi :** pour vous appuyer sur le claim d'un collègue, approuvez le travail que l'agent a refait ; l'un de vos propres claims, relisez-le dans une nouvelle session (method/review.md).
+- **Exécuter :** il vous donne une requête et son message. Vérifiez le masquage, exécutez à l'hôpital, rapportez le résultat ; prévenez-le si vous modifiez autre chose que les chemins et la connexion (method/queries.md, « Aller »).
+- **Protéger :** aucune donnée qui permette de reconnaître une personne, patient ou personnel, n'entre dans le dépôt ni dans la conversation. Si une telle donnée y arrive, arrêtez et prévenez un mainteneur (method/privacy.md). Le résultat d'une routine, lui, reste à l'hôpital : il peut ne pas être masqué, ne le collez pas dans la conversation (method/queries.md, « Une routine »).
+- **Confirmer :** les choix de méthode d'une enquête, puis ce qu'elle fait entrer dans le dépôt (claims et preuves), avant la pull request.
+- **Relire au réemploi :** quand un nouveau claim s'appuie sur celui d'un collègue, approuvez le travail que l'agent a refait ; quand il s'appuie sur l'un des vôtres, venu d'une autre enquête, relisez-le dans une nouvelle session (method/review.md).
 - **Décider :** suspendre ou fermer l'enquête.
 - **Finir :** la retro (plus bas).
 
@@ -23,7 +23,7 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
 ## Commencer
 
 1. Cloner le dépôt, puis `pip install -r requirements.txt`.
-2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie. 
+2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie.
 3. Installer les deux skills externes. Les skills du parcours (frame, research, relay, sediment, retro) arrivent avec le dépôt ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
 4. Poser votre question.
 
@@ -41,7 +41,7 @@ flowchart TD
     S --> PR
 ```
 
-Les pointillés sont des possibilités, pas des étapes. Une demande peut finir en réponse, en routine, en claims, ou les trois ; l'agent ouvre la pull request, un mainteneur la fusionne.
+Les pointillés sont des possibilités, pas des étapes. Une demande peut finir en réponse, en routine, en claims, ou les trois. Dès qu'elle change le dépôt (une routine, une enquête), l'agent ouvre une pull request ; un mainteneur la fusionne.
 
 ## Finir une session
 
