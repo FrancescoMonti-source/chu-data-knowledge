@@ -23,7 +23,7 @@ Personne : <qui mène l'enquête>
 Issue : #<N>
 
 ## Cadrage
-But, population, période, unité d'analyse, mesure, comparaison.
+Le cadrage de frame : but, source, population, période, unité d'analyse, mesure, comparaison, définitions.
 
 ## Choix
 Les décisions de méthode, une ligne chacune avec sa raison.

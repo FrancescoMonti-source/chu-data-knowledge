@@ -1,15 +1,16 @@
 ---
 name: frame
-description: Cadrer avec la personne une question sur les données du CHU, avant toute recherche. Utiliser au début de chacune de ces questions, et quand une session reprend une enquête.
+description: Cadrer avec la personne une question sur les données du CHU, avant de chercher, d'écrire une requête ou de compter. Utiliser dès qu'une demande porte sur ces données (un chiffre, un comptage, une extraction, une comparaison, une définition, dans CORA, OpRoom ou le PMSI), même quand elle paraît rapide ; et quand une session reprend une enquête.
 ---
 
 # frame
 
-frame est une conversation : rien ne s'écrit dans le dépôt.
+Cadrer coûte moins que refaire. frame s'assure avec la personne qu'on sait quelle question on pose, et que personne n'y travaille déjà, avant de dépenser quoi que ce soit. C'est une conversation : rien ne s'écrit dans le dépôt.
 
-1. **Reprendre.** Chercher si la question appartient à une enquête ouverte (investigations/README.md, « La branche »). Si oui, la reprendre (même section), puis lire son README et son issue (investigations/README.md, « Le plan ») : le dernier plan et les preuves déjà citées.
-   Fini quand : la liste des enquêtes ouvertes a été lue, et la question est rattachée à l'une d'elles, ou elle est nouvelle.
-2. **Affiner la question** avec la personne : le but (et, pour une question sur une base, ce que la réponse permettra de faire avec les données : retrouver, classer, joindre, compter), la population, la période, l'unité d'analyse (séjour, patient, acte), la mesure, la comparaison. Proposer une formulation, la faire corriger.
-   Fini quand : la question tient en une phrase, les six points sont écrits (« sans objet » quand un point ne s'applique pas : une définition n'a ni mesure ni comparaison), et la personne les a confirmés.
+1. **Regarder si la question existe déjà**, en quelques minutes, avant de cadrer complètement: les enquêtes ouvertes (investigations/README.md, « La branche »), les issues et les pull requests ouvertes (`gh issue list`, `gh pr list` ; sans `gh`, demander à la personne), les questions des enquêtes passées, les titres des claims qui portent les mots de la question. Un coup d'œil : la recherche en profondeur est celle de research.
+   Si quelque chose répond à la question ou y travaille, le montrer à la personne, qui choisit : s'arrêter là, rejoindre le travail en cours (pour une enquête : la reprendre, même section, puis l'étape en cours de son plan), ou poser une autre question.
+   Fini quand : la personne sait ce qui existe, et a choisi.
+2. **Cadrer.** Cuisiner la personne, par lots de questions chacune avec une réponse recommandée (un seul lot pour une demande rapide), jusqu'à la méthode prévue, provisoire : but, source, population, période, unité d'analyse, mesure, comparaison, définitions opérationnelles (ou « à trancher » : le plan commencera par elles), ou « sans objet ».
+   Fini quand : la personne a confirmé la question, en une phrase, et le cadrage.
 
-Ensuite : research pour une question nouvelle ; pour une enquête reprise, l'étape en cours de son plan.
+Ensuite : research.
