@@ -23,7 +23,7 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
 ## Commencer
 
 1. Cloner le dépôt, puis `pip install -r requirements.txt`.
-2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie. App web, non testé : un projet avec l'instruction « au début, lis AGENTS.md du dépôt et suis ses instructions ».
+2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie. 
 3. Installer les deux skills externes. Les skills du parcours (frame, research, relay, sediment, retro) arrivent avec le dépôt ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
 4. Poser votre question.
 
