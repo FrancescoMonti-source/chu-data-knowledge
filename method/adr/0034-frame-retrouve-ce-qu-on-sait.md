@@ -14,7 +14,7 @@ Le parcours a trois temps : frame, l'enquête si quelque chose manque, sediment.
 
 ## Raisons
 
-- La recherche nourrit le grill : la faire dans frame évite de la refaire dans research. research et relay gardent chacune une activité nette, un document ou des données, au service d'une étape du plan ; research garde son nom, lire un document reste une recherche.
+- La recherche nourrit le cadrage : la faire dans frame évite de la refaire dans research. research et relay gardent chacune une activité nette, un document ou des données, au service d'une étape du plan ; research garde son nom, lire un document reste une recherche.
 - Ce qu'une source dit déjà n'est pas recopié en claim (method/claims.md, « Ce qui mérite un claim »), et sa lecture serait supprimée avant le merge (investigations/README.md, « L'issue ou le dépôt ») : une enquête n'en garderait que l'issue.
 - 0024 évitait d'ouvrir les preuves d'un claim pour s'en servir. Le résultat d'une requête dont le purpose répond à la question est la réponse elle-même : frame l'ouvre, avec sa date.
 
