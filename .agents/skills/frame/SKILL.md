@@ -16,7 +16,7 @@ Si la personne reprend une enquête qu'elle nomme : la reprendre (investigations
 3. **Conclure :**
    - si rien ne manque, répondre en citant ce qui existe : chaque claim avec son état de relecture, le texte de sources/, la date d'un résultat ;
    - si la question ne demande que ce que dit un document hors du dépôt (une règle du PMSI, sans les données du CHU), le lire et répondre en citant son édition et l'endroit exact, sans rien écrire : ce qu'une source dit déjà n'est pas un claim (method/claims.md, « Ce qui mérite un claim ») ;
-   - pour un calcul que la personne refera à l'hôpital avec d'autres réglages, préparer sa routine (method/queries.md, « Une routine »), avec sa pull request ;
+   - si rien ne manque et que la personne refera le calcul à l'hôpital avec d'autres réglages, préparer sa routine (method/queries.md, « Une routine »), avec sa pull request ;
    - sinon, ouvrir l'enquête (investigations/README.md, « La branche ») ; les points à trancher deviennent des étapes de son plan.
 
    Un doute né en chemin ouvre l'enquête.
