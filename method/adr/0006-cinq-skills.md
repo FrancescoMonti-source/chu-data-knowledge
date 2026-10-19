@@ -1,6 +1,6 @@
 # 0006 — Cinq skills : frame, research, relay, sediment, retro
 
-Statut : accepté, 2026-10-10 (Francesco). La retro est modifiée par 0008 : lancée par tous en fin de session. Modifié par 0034 : frame retrouve ce que le dépôt sait et ouvre l'enquête ; research et relay servent les étapes du plan. Modifié par 0036 : chaque skill se déclenche par l'action qu'elle sert, à tout moment.
+Statut : accepté, 2026-10-10 (Francesco). La retro est modifiée par 0008 : lancée par tous en fin de session. Modifié par 0034 : frame retrouve ce que le dépôt sait et ouvre l'enquête ; research et relay servent les étapes du plan.
 
 ## Contexte
 
