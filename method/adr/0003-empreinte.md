@@ -10,9 +10,9 @@ La première version liait chaque relecture à un commit SHA, l'identifiant d'un
 
 Une relecture recopie une empreinte : les 12 premiers caractères du SHA-256 de l'en-tête du claim (sans review ni lifecycle), de son corps, du texte de ses preuves avec leur requête ou leur source, et de l'empreinte de ses prémisses. Les fins de ligne sont normalisées. `python checks/check.py --fingerprint <id>` l'affiche. L'auteur est déclaré dans le champ author.
 
-lifecycle reste hors de l'empreinte : une contestation ne doit pas bloquer les claims des autres, seulement leur signaler un réexamen (0004).
+lifecycle reste hors de l'empreinte : une contestation ne doit pas bloquer les claims des autres, seulement leur signaler un réexamen (ORANGE).
 
-La v0.4 donnait aussi à chaque exécution un champ request_commit. Il est remplacé par une règle : une requête exécutée ne change plus, une nouvelle version prend un nouvel id (docs/agents/requests.md).
+La v0.4 donnait aussi à chaque exécution un champ request_commit. Il est remplacé par une règle : une requête exécutée ne change plus, une nouvelle version prend un nouvel id (method/queries.md).
 
 ## Conséquences
 
