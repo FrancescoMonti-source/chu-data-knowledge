@@ -1,6 +1,6 @@
 # 0012 — Branches d'enquête, place des claims atomiques, cadrage
 
-Statut : accepté, 2026-10-11 (Francesco, choix « All five » après une troisième relecture de docs/agents et des skills). Modifié par 0018 : tous les claims vont dans knowledge/claims/, et la branche d'une enquête s'appelle investigation/<id>. Modifié par 0035 : une enquête qui n'a rien à faire entrer se ferme sans merge.
+Statut : accepté, 2026-10-11 (Francesco, choix « All five » après une troisième relecture de docs/agents et des skills). Modifié par 0018 : tous les claims vont dans knowledge/claims/, et la branche d'une enquête s'appelle investigation/<id>.
 
 ## Contexte
 
