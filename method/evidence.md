@@ -61,7 +61,7 @@ Sous l'en-tête, une courte citation, en lignes qui commencent par >.
 
 ## Sources
 
-Une fiche par document et par édition, dans sources/. Un document en ligne reste chez son éditeur : la fiche donne son lien (location, plus bas). Un document hors ligne qui peut être partagé entre dans sources/, sous l'id de sa fiche. En texte quand la conversion garde tout ce qui compte : le contrôle le lit, et un agent y cherche plus facilement. Un document fait de parties qui se lisent séparément (les tables d'un dictionnaire, les requêtes d'un catalogue) devient un dossier du nom de sa fiche, avec un fichier par partie, du nom de la partie (dictionnaire-cora-2020/TB_MVT_RUM.txt) : l'agent ouvre la partie qu'il cherche, pas le document entier. Sinon, par exemple pour garder des schémas, dans son format d'origine. (method/adr/0014, 0015)
+Une fiche par document et par édition, dans sources/. Un document en ligne reste chez son éditeur, car une copie vieillirait sans qu'on le voie : la fiche donne son lien (location, plus bas). Un document hors ligne qui peut être partagé entre dans sources/, sous l'id de sa fiche. En texte quand la conversion garde tout ce qui compte : le contrôle le lit, et un agent y cherche plus facilement. Un document fait de parties qui se lisent séparément (les tables d'un dictionnaire, les requêtes d'un catalogue) devient un dossier du nom de sa fiche, avec un fichier par partie, du nom de la partie (dictionnaire-cora-2020/TB_MVT_RUM.txt) : l'agent ouvre la partie qu'il cherche, pas le document entier. Sinon, par exemple pour garder des schémas, dans son format d'origine.
 
 ```markdown
 ---
@@ -74,7 +74,7 @@ authority: vendor-doc
 ---
 ```
 
-location dit où lire le document. Pour un document hors ligne, c'est son fichier ou son dossier dans sources/ ; s'il n'y entre pas, l'endroit où la personne le trouve. Pour un document public, c'est le lien vers le fichier de cette édition, chez son éditeur officiel : pour le PMSI, l'ATIH, le Bulletin officiel, Légifrance ou ameli. Une page « dernière version » change de document à chaque édition ; un fichier garde le sien. Un site qui regroupe les liens, comme lespmsi.com, aide à trouver le document ; la fiche cite le fichier de l'éditeur. (method/adr/0013)
+location dit où lire le document. Pour un document hors ligne, c'est son fichier ou son dossier dans sources/ ; s'il n'y entre pas, l'endroit où la personne le trouve. Pour un document public, c'est le lien vers le fichier de cette édition, chez son éditeur officiel : pour le PMSI, l'ATIH, le Bulletin officiel, Légifrance ou ameli. Une page « dernière version » change de document à chaque édition ; un fichier garde le sien. Un site qui regroupe les liens, comme lespmsi.com, aide à trouver le document ; la fiche cite le fichier de l'éditeur.
 
 ```markdown
 ---

@@ -1,10 +1,10 @@
 # 0029 — Deux mainteneurs à égalité
 
-Statut : accepté, 2026-10-16 (Francesco, dans le fil du projet : « Pierre is on equal foot, oligarchy not monarchy », puis « both of us should be able to merge », avec de l'aide pour voir où ils divergent ; CODEOWNERS sans relecture obligatoire : « un buon compromesso »). Modifie 0000 (ligne CODEOWNERS).
+Statut : accepté, 2026-10-16 (Francesco, dans le fil du projet : « Pierre is on equal foot, oligarchy not monarchy », puis « both of us should be able to merge », avec de l'aide pour voir où ils divergent ; CODEOWNERS sans relecture obligatoire : « un buon compromesso »).
 
 ## Contexte
 
-La v0.4 prévoyait des mainteneurs, au pluriel (0000). Le texte du dépôt n'en nommait qu'un, Francesco, et la règle 7 lui réservait les changements de règle. Pierre en a pourtant fusionné lui-même (#26, #29), et Francesco ne s'y oppose pas tant qu'ils ne divergent pas. Sur GitHub, Francesco est administrateur et Pierre a le droit d'écriture, qui suffit pour fusionner.
+La v0.4 prévoyait des mainteneurs, au pluriel. Le texte du dépôt n'en nommait qu'un, Francesco, et la règle 7 lui réservait les changements de règle. Pierre en a pourtant fusionné lui-même (#26, #29), et Francesco ne s'y oppose pas tant qu'ils ne divergent pas. Sur GitHub, Francesco est administrateur et Pierre a le droit d'écriture, qui suffit pour fusionner.
 
 À deux, un vote à la majorité ne départage personne : il faut l'accord des deux. La pratique courante, celle de la fondation Apache par exemple, en a deux formes : la relecture avant la fusion (review-then-commit), ou la fusion libre, que l'autre peut contester après coup (commit-then-review).
 
@@ -17,7 +17,7 @@ Pour que l'autre voie chaque changement de règle, .github/CODEOWNERS nomme les 
 ## Alternatives écartées
 
 - **Un seul mainteneur qui tranche :** c'est ce que disait le texte ; Francesco l'a refusé, et la PR #54, un CODEOWNERS à son seul nom, a été fermée.
-- **Relecture obligatoire par l'autre avant la fusion** (le réglage « require review from code owners » sur main) : 0000 la prévoyait dès qu'il y aurait plusieurs mainteneurs. Francesco veut que chacun puisse fusionner ; elle ralentirait chaque changement de règle, alors qu'ils n'ont pas encore divergé. À reprendre au premier désaccord qui arrive trop tard.
+- **Relecture obligatoire par l'autre avant la fusion** (le réglage « require review from code owners » sur main) : la v0.4 la prévoyait dès qu'il y aurait plusieurs mainteneurs. Francesco veut que chacun puisse fusionner ; elle ralentirait chaque changement de règle, alors qu'ils n'ont pas encore divergé. À reprendre au premier désaccord qui arrive trop tard.
 - **Un fichier MAINTAINERS.md, comme le modèle de la CNCF :** pour deux noms, la définition du glossaire suffit.
 
 ## Conséquences
