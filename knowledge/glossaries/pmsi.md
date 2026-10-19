@@ -2,14 +2,8 @@
 
 Les termes du contexte pmsi. Un titre par terme (## pmsi:terme), puis la définition en français. Règles : method/layout.md, « Termes et glossaires ».
 
-## pmsi:ccam
+## pmsi:envoi
 
-Alias : CCAM, classification commune des actes médicaux, acte CCAM
+Alias : envoi, envois, transmission, M1, M2, M3, M4, M5, M6, M7, M8, M9, M10, M11, M12
 
-La classification commune des actes médicaux : un code de sept caractères par acte (quatre lettres puis trois chiffres), complété s'il y a lieu d'une extension PMSI. La version descriptive à usage PMSI est publiée chaque année par l'ATIH.
-
-## pmsi:icr
-
-Alias : ICR, indice de coût relatif
-
-L'indice de coût relatif d'un acte de la CCAM, publié par l'ATIH : le poids relatif de l'acte en ressources de bloc opératoire et de plateau technique. Une valeur par acte et par activité, pour un médecin salarié et pour un médecin non salarié.
+La transmission des données PMSI d'un établissement à l'ATIH, sur la plateforme e-PMSI. En MCO, elle se fait chaque mois et cumule l'année : l'envoi M8 porte les RSS sortis de janvier à août.

@@ -27,14 +27,61 @@ GROUP BY ANNEE;
 
 ## Les règles
 
-1. Seulement des colonnes agrégées, nommées une par une. Jamais SELECT *. Une colonne d'effectif s'appelle N_… ou NB_… (N_SEJ, NB_PATIENTS) : c'est là que le contrôle cherche les effectifs de 1 à 9 en clair.
-2. Pour connaître les colonnes : un seul SELECT, avec WHERE 1=0. La réponse a les en-têtes et aucune ligne. C'est le seul SELECT * admis, et une telle requête n'a pas besoin des règles 3 à 5.
+1. Seulement des colonnes agrégées. Une colonne d'effectif s'appelle N_… ou NB_… (N_SEJ, NB_PATIENTS) : c'est là que le contrôle cherche les effectifs de 1 à 9 en clair.
+2. Les colonnes sont nommées une par une : jamais SELECT *. Pour connaître les tables et les colonnes que ni les claims ni sources/ ne donnent, interroger le catalogue de la base (ALL_TAB_COLUMNS sous Oracle, INFORMATION_SCHEMA.COLUMNS sous SQL Server), en no-person-data : il donne aussi le type et la taille de chaque colonne.
 3. Toute statistique calculée sur moins de 10 personnes, séjours ou actes sort comme <10, minimum et maximum compris. Le masquage est écrit dans la requête.
 4. On cache aussi les totaux qui permettraient de recalculer une cellule masquée (suppression secondaire) : total 25, cellules visibles 12 et 8, donc la cellule cachée vaut 5.
 5. La première colonne affiche l'id de la requête ; les suivantes, la base et l'heure d'exécution.
 6. Une requête exécutée ne change plus. Une nouvelle version est un nouveau fichier, avec un nouvel id.
 
-Les règles 1 à 5 valent pour masked ; les règles 2 et 6, pour toutes les requêtes. Le contrôle lit la requête sans ses commentaires. Il vérifie SELECT *, et pour masked la présence du seuil (< 10 ou <= 9), d'un agrégat et de l'id. Il ne vérifie pas que le masquage est juste, ni les règles 4 et 6.
+Les règles 1, 3 et 4 valent pour masked ; les règles 2, 5 et 6, pour toutes les requêtes. Le contrôle lit la requête sans ses commentaires. Il vérifie SELECT * et l'id, et pour masked la présence du seuil (< 10 ou <= 9) et d'un agrégat. Il ne vérifie pas que le masquage est juste, ni les règles 4 et 6.
+
+## Un script sur un fichier
+
+Quand la donnée est dans un fichier gardé à l'hôpital, comme le fichier groupé d'un envoi, la requête est un script : un fichier .R ou .py dans knowledge/queries/, nommé comme une requête (method/adr/0026).
+
+- **Langage et paquets :** R ou Python, avec les paquets que la personne a déjà à l'hôpital. Dans le doute, l'agent lui demande.
+- **En-tête :** les quatre mêmes lignes, commentées par `#`. system : le système qui a produit le fichier.
+- **Règles :** 1 et 3 à 6. Le script imprime un seul tableau d'agrégats, masqués dans le script ; ses premières colonnes sont l'id, le nom du fichier lu et l'heure. Il n'affiche ni n'écrit aucune ligne du fichier.
+- **Colonnes du fichier :** à la place de la règle 2, ses positions viennent de la fiche de son format, dans sources/.
+- **Lire la base :** quand le résultat demande l'état actuel de chaque ligne du fichier, le script lit aussi le système de son en-tête, sur la connexion que la personne a ouverte. La requête SQL nomme ses colonnes ; ses lignes restent en mémoire, et seul le tableau d'agrégats sort.
+- **Chemins et connexion :** les seules lignes que la personne adapte. Les changer ne compte pas comme une modification.
+
+```r
+# id: 20261016-grp-rum-par-mois
+# system: cora
+# person_data: masked
+# purpose: compter les RUM du fichier groupé d'un envoi par mois de sortie de l'UM (étape 2 du plan)
+fichier <- "CHEMIN/VERS/fichier.grp"
+l <- readLines(fichier, encoding = "latin1")
+n <- table(substr(l, 105, 110))
+print(data.frame(QUERY_ID = "20261016-grp-rum-par-mois", DATABASE_NAME = basename(fichier),
+                 RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"), MOIS = names(n),
+                 N_RUM = ifelse(n < 10, "<10", as.character(n))), row.names = FALSE)
+```
+
+Le contrôle lit le script sans ses commentaires : il cherche l'id entre guillemets, et pour masked un comptage (sum, length, table, len, Counter…) et le seuil < 10. Il ne vérifie pas que le script n'imprime rien d'autre.
+
+## Une routine
+
+Un calcul qu'on refait à l'hôpital avec d'autres réglages (d'autres codes, d'autres fichiers) devient une routine : un dossier knowledge/routines/<id>/, avec son code `<id>.R` ou `<id>.py` et `README.md` (method/adr/0027). L'id dit ce que la routine calcule, sans date.
+
+- **Le code :** une fonction qui prend les réglages en paramètres. Trois lignes d'en-tête, commentées par `#` : id, system, purpose.
+- **README.md :** la méthode, en français : ce que la routine compte, chaque paramètre, ses limites. Ce qu'elle suppose sur les données (les positions d'un fichier, une clé de jointure) s'écrit en claims, que le README cite.
+- **Le résultat reste à l'hôpital.** Il n'entre pas dans le dépôt. Non masqué, il ne se colle pas non plus dans une conversation (privacy.md).
+- **Un chiffre qui doit devenir une preuve :** une requête de knowledge/queries/ (« Un script sur un fichier »), avec tout son calcul dans le script. Elle ne charge pas la routine : une requête exécutée ne change plus (règle 6), une routine si.
+
+```r
+# id: grp-rum-par-mois
+# system: cora
+# purpose: compter les RUM d'un fichier groupé par mois de sortie de l'UM
+grp_rum_par_mois <- function(fichier) {
+  l <- readLines(fichier, encoding = "latin1")
+  print(table(MOIS = substr(l, 105, 110)))
+}
+```
+
+Le contrôle vérifie le dossier de la routine, son README.md et son en-tête, et qu'aucune requête ne la charge. Il ne lit pas ce qu'elle imprime.
 
 ## Aller
 

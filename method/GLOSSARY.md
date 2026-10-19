@@ -9,7 +9,10 @@ Une affirmation sur les données du CHU, dans un fichier, avec ses preuves. Form
 Une observation dans un fichier : l'exécution d'une requête, ou la lecture d'un passage. Format : evidence.md.
 
 ## requête (query)
-Un fichier .sql préparé par un agent et exécuté à l'hôpital par une personne. Format : queries.md.
+Un fichier .sql, ou un script .R ou .py pour un fichier gardé à l'hôpital, préparé par un agent et exécuté à l'hôpital par une personne. Format : queries.md.
+
+## routine
+Un calcul qu'on refait à l'hôpital avec d'autres réglages : un script R ou Python et sa méthode, dans knowledge/routines/<id>/. Son résultat reste à l'hôpital. Format : queries.md, « Une routine ».
 
 ## source
 La fiche d'un document : titre, éditeur, édition, où le trouver, autorité. Une fiche par édition.
@@ -35,9 +38,6 @@ Un claim cité dans depends_on : le claim s'appuie dessus.
 ## claim atomique
 Un claim qu'un seul test peut réfuter. Voir claims.md, « Taille ».
 
-## claim d'enquête
-La réponse à la question d'une enquête, construite sur des claims atomiques. Il est dans knowledge/claims/ comme les autres, et le README de l'enquête le cite dans Conclusions. Voir claims.md, « Claim sans preuve propre ».
-
 ## relecture (review)
 Le contrôle d'un claim au moment où on le réutilise : par une autre personne (reviewed), ou par son auteur dans une nouvelle session (author-reread). Voir review.md.
 
@@ -51,4 +51,4 @@ Tout accroc pendant une session. La retro (.agents/skills/retro/SKILL.md) les re
 Les deux niveaux des contrôles : ROUGE bloque, ORANGE signale un travail à faire. Voir checks.md.
 
 ## mainteneur
-La personne qui garde les règles du jeu : Francesco pour l'instant.
+Une des deux personnes qui gardent les règles du jeu, à égalité : Francesco et Pierre (FrancescoMonti-source et p-pinson sur GitHub). Comment ils décident : AGENTS.md, règle 7.

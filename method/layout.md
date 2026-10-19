@@ -7,15 +7,16 @@ Le type d'un fichier décide de son dossier, quel que soit son sujet.
 | sources/ | document : sa fiche, et le texte d'un document hors ligne | evidence.md, « Sources » |
 | knowledge/claims/ | claim | claims.md |
 | knowledge/evidence/ | preuve : une lecture ou une exécution | evidence.md |
-| knowledge/queries/ | requête préparée pour l'hôpital (.sql) | queries.md |
+| knowledge/queries/ | requête préparée pour l'hôpital (.sql, ou .R ou .py pour un fichier) | queries.md |
+| knowledge/routines/<id>/ | routine : son code et son README.md | queries.md, « Une routine » |
 | knowledge/glossaries/ | contexte : son glossaire ; README.md est la carte des contextes | « Termes et glossaires », plus bas |
 | investigations/<id>/ | enquête : son README.md, seul | investigations/README.md |
 
 Un document lu dix fois donne une fiche dans sources/ et dix preuves dans knowledge/evidence/.
 
-Le sujet s'écrit dans le fichier : les terms d'un claim (pmsi:rum), ses tables (cora:TB_MVT_RUM), le system d'une requête. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres. La réponse d'une enquête aussi : le README de l'enquête la cite dans Conclusions.
+Le sujet s'écrit dans le fichier : les terms d'un claim (pmsi:rum), ses tables (cora:TB_MVT_RUM), le system d'une requête. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres.
 
-Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), leurs raisons (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision du mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
+Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des décisions qui comptent (method/adr/), les étapes (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision d'un mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
 
 ## Ids et noms de fichiers
 
