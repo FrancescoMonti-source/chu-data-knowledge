@@ -1,13 +1,11 @@
 ---
 name: frame
-description: Cadrer avec la personne une question sur les données du CHU, et retrouver ce que le dépôt en sait, avant d'écrire une requête, d'ouvrir une enquête ou de compter. Utiliser dès qu'une question nouvelle porte sur ces données (un chiffre, une extraction, une comparaison, une définition, ce que dit un document, dans CORA, OpRoom, le PMSI ou un autre contexte de knowledge/glossaries/README.md), même quand elle paraît rapide ; et quand une session reprend une enquête.
+description: Cadrer avec la personne une question sur les données du CHU, et retrouver ce que le dépôt en sait, avant d'écrire une requête, d'ouvrir une enquête ou de compter. Utiliser dès qu'une question nouvelle porte sur ces données (un chiffre, une extraction, une comparaison, une définition, ce que dit un document, dans CORA, OpRoom, le PMSI ou un autre contexte de knowledge/glossaries/README.md), même quand elle paraît rapide.
 ---
 
 # frame
 
 Cadrer coûte moins que refaire. frame s'assure avec la personne qu'on sait quelle question on pose, ce qu'on en sait déjà, et que personne n'y travaille déjà, avant de dépenser quoi que ce soit. Pendant le cadrage, rien ne s'écrit dans le dépôt.
-
-Si la personne reprend une enquête qu'elle nomme : la reprendre (investigations/README.md, « La branche »), puis passer à l'étape en cours de son plan.
 
 1. **Regarder si quelqu'un a déjà posé la question**, dès qu'on en connaît le sujet : les issues, ouvertes et fermées, les pull requests ouvertes et les branches d'enquête (investigations/README.md, « La branche »), les questions des enquêtes passées (method/layout.md, « Retrouver ce qu'on sait »). Si quelque chose y répond ou y travaille, le montrer à la personne, avec son cadrage, et elle choisit : s'arrêter là, et frame est finie ; rejoindre le travail en cours (même section) ; ou poser une autre question. Si rien n'existe, le dire en une ligne.
    Fini quand : ces quatre endroits ont été cherchés ; rien n'y répond, ou la personne a choisi.

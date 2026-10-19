@@ -1,6 +1,6 @@
 ---
 name: relay
-description: "Dans une enquête ouverte, préparer une requête qu'une personne exécutera à l'hôpital, puis enregistrer le résultat comme preuve. Utiliser quand une étape du plan demande des données d'un système de l'hôpital, comme CORA (la liste : knowledge/glossaries/README.md). Sans enquête ouverte, une demande de données commence par frame."
+description: "Dans une enquête ouverte, préparer une requête qu'une personne exécutera à l'hôpital, puis enregistrer le résultat comme preuve. Utiliser quand une étape du plan demande des données d'un système de l'hôpital, comme CORA (la liste : knowledge/glossaries/README.md), et quand la personne rapporte un résultat. Sans enquête ouverte, une demande de données commence par frame."
 ---
 
 # relay
