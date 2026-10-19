@@ -30,6 +30,8 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
    ```
 
    Sous macOS ou Linux, `.venv/bin/python`. Si pip demande Microsoft Visual C++, votre Python est trop récent pour que PyYAML y soit prêt à installer : relancez la deuxième ligne après `$env:PYYAML_FORCE_LIBYAML = "0"` (PowerShell), qui installe PyYAML sans sa partie en C, plus lente mais suffisante.
+
+   À chaque session, activez le .venv dans le terminal d'où vous lancez l'agent, sinon `python checks/check.py` ne trouve pas PyYAML : `.venv/Scripts/Activate.ps1` dans PowerShell ; s'il refuse, `.venv\Scripts\activate.bat` dans l'invite de commandes (cmd) ; sous macOS ou Linux, `source .venv/bin/activate`.
 2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie.
 3. Installer les deux skills externes. Les skills du parcours (frame, research, relay, sediment, retro) arrivent avec le dépôt ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
 4. Poser votre question.
