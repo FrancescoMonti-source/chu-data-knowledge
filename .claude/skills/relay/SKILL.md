@@ -5,7 +5,7 @@ description: "Préparer une requête qu'une personne exécutera à l'hôpital, p
 
 # relay
 
-Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md. Sans enquête ouverte, frame d'abord : l'enquête peut s'ouvrir avant la fin du cadrage (frame, étape 3).
+Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md. Sans enquête ouverte, l'ouvrir d'abord (investigations/README.md, « La branche »).
 
 ## Aller
 

@@ -52,7 +52,7 @@ Les principes, un mot chacun :
 
 Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
 
-Chaque skill sert une action, à n'importe quel moment d'une demande ; l'ordre vient du plan de l'enquête, pas des skills. Lire ne demande aucune skill : le dépôt, les issues, un document. Une requête, une preuve ou un claim s'écrit sur la branche d'une enquête (investigations/README.md, « L'issue ou le dépôt »).
+Chaque skill sert une action, à n'importe quel moment d'une demande ; l'ordre vient du plan de l'enquête, pas des skills. Lire ne demande aucune skill : le dépôt, les issues, un document. Une requête, une preuve ou un claim s'écrit sur la branche d'une enquête (investigations/README.md, « La branche »).
 
 - **frame :** avant de répondre à une question nouvelle sur les données du CHU : la cadrer avec la personne, et retrouver ce que le dépôt en sait.
 - **research :** avant d'enregistrer ce que dit un document.
