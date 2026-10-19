@@ -8,9 +8,7 @@ disable-model-invocation: true
 
 La retro se fait en parlant : la personne sait ce qui l'a gênée, l'agent sait ce qu'il a fait. Elle note et propose ; un mainteneur corrige.
 
-Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois qu'il revient, un commentaire.
-
-1. **Relever** les accrocs de la session : corrections de la personne, contrôles qui ont échoué, étapes refaites, outils refusés, règles cherchées ou mal comprises. Les présenter en une ligne chacun, et demander à la personne ce qui manque.
+1. **Relever** les accrocs de la période que la personne indique (par défaut, la session), dans la conversation et dans les commits, pull requests et issues de cette période : corrections de la personne, contrôles qui ont échoué, étapes refaites, outils refusés, règles cherchées ou mal comprises. Les présenter en une ligne chacun, et demander à la personne ce qui manque.
    Fini quand : la personne a confirmé la liste. Une liste vide est un bon résultat : la retro s'arrête là.
 2. **Comprendre** chaque accroc avec la personne : ce qui s'est passé, et pourquoi. Prendre la première cause qui convient, dans cet ordre :
    - **check :** un contrôle aurait attrapé l'erreur. Une règle qu'on peut contrôler devient un contrôle, avec son test.
@@ -23,5 +21,5 @@ Chaque problème est une issue GitHub avec l'étiquette friction ; chaque fois q
    Fini quand : chaque accroc a une cause et une correction que la personne accepte, ou il est écarté avec sa raison.
 3. **Chercher** parmi les issues friction, ouvertes et fermées, celle qui décrit le même accroc : `gh issue list --label friction --state all`, puis `gh issue view <n>`. Sans `gh`, demander la liste à la personne.
    Fini quand : chaque accroc gardé est relié à une issue, ou il est nouveau.
-4. **Écrire.** Accroc déjà connu : un commentaire « Occurrence : <date>, <skill>, <enquête> : <ce qui s'est passé> », et `gh issue reopen` si l'issue était fermée. Accroc nouveau : une issue au format de .github/ISSUE_TEMPLATE/friction.md, avec l'étiquette friction. Sans `gh`, donner le texte à la personne, qui le colle. Décrire l'accroc, jamais les données : aucun extrait de résultat (method/privacy.md).
+4. **Écrire.** Accroc déjà connu : un commentaire « Occurrence : <date>, <skill>, <enquête, s'il y en a une> : <ce qui s'est passé> », et `gh issue reopen` si l'issue était fermée. Accroc nouveau : une issue au format de .github/ISSUE_TEMPLATE/friction.md, avec l'étiquette friction. Sans `gh`, donner le texte à la personne, qui le colle. Décrire l'accroc, jamais les données : aucun extrait de résultat (method/privacy.md).
    Fini quand : chaque accroc gardé a son issue ou son commentaire, et la personne sait quelles issues ont deux occurrences ou plus.
