@@ -20,23 +20,23 @@ review: unreviewed
 id: mvt-rum-lien
 kind: empirical
 author: Francesco
-statement: "Dans CORA, TB_MVT_RUM relie chaque mouvement aux RUM qui le contiennent."
-scope: "CORA, MCO, 2023-2026"
-refuted_if: "un mouvement MCO sans aucune ligne dans TB_MVT_RUM"
+statement: "Dans CORA, depuis 2021, une jointure interne sur TB_MVT_RUM perd plus de la moitié des actes : seuls les mouvements entrés dans un RSS y ont une ligne."
+scope: "CORA, 2021-2026"
+refuted_if: "pour une année depuis 2021, plus de 60 % des actes ont leur mouvement dans TB_MVT_RUM"
 maturity: observed
 lifecycle: active
 terms: [cora:mouvement, cora:rum]
-tables: [cora:TB_MVT, cora:TB_MVT_RUM]
+tables: [cora:TB_ACTE, cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261008-mvt-rum]
 depends_on: []
 ---
 ## Pour s'en servir
 
-Joindre TB_MVT à TB_MVT_RUM par ID_MVT pour passer d'un mouvement à ses RUM.
+Partir de TB_MVT pour voir tous les mouvements. Ne filtrer sur TB_MVT_RUM que pour le champ PMSI, et le dire.
 
 ## Ce qui l'appuie
 
-Raisonnement et limites.
+Le dictionnaire dit que TB_MVT_RUM relie les mouvements aux RUM ; il ne dit pas lesquels y manquent. Raisonnement et limites.
 
 Points ouverts : non vérifié sur l'instance de production.
 ```
@@ -49,7 +49,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
 | author | la personne pour qui l'agent écrit (« Les personnes ») |
-| statement | l'affirmation, en une phrase, dite pour qui interroge les données : ce qu'une variable permet ou non, une règle, un piège |
+| statement | l'affirmation, en une phrase |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
 | lifecycle | active · challenged · superseded · withdrawn |
@@ -57,6 +57,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | tables | les tables nommées, chacune avec son système (cora:TB_MVT_RUM), ou [] |
 | supported_by | les ids des preuves, ou [] pour un claim qui ne s'appuie que sur des prémisses |
 | depends_on | les ids des prémisses, ou [] |
+| refuted_if · responsible, reconsider_when | selon la sorte (« Trois sortes ») |
 | challenges, supersedes | facultatifs : les ids contestés ou remplacés (review.md) |
 
 Clés et valeurs en anglais ; texte libre en français. Toutes les valeurs sont lues comme du texte : no reste « no ».
@@ -104,6 +105,6 @@ Le claim n'a pas de champ authority : l'autorité est dans la fiche de la source
 
 ## Citer un claim
 
-Toute réponse qui utilise un claim cite son état de relecture : « mvt-rum-lien (unreviewed) ». Un agent lit aussi les claims qu'il ne déclare pas.
+Toute réponse qui utilise un claim cite son état de relecture : « mvt-rum-lien (unreviewed) », même pour un claim lu sans le déclarer dans depends_on.
 
 Un reviewed peut être périmé : `python checks/check.py` le signale en ORANGE. Un agent qui ne peut pas lancer le script (app web) écrit « reviewed, à jour non vérifié ».
