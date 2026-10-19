@@ -22,7 +22,14 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
 
 ## Commencer
 
-1. Cloner le dépôt, puis `pip install -r requirements.txt`.
+1. Cloner le dépôt, puis installer PyYAML, dont les contrôles ont besoin, dans un environnement Python propre au dépôt (le dossier .venv) :
+
+   ```bash
+   python -m venv .venv
+   .venv/Scripts/python -m pip install -r requirements.txt
+   ```
+
+   Sous macOS ou Linux, `.venv/bin/python`. Si pip demande Microsoft Visual C++, votre Python est trop récent pour que PyYAML y soit prêt à installer : relancez la deuxième ligne après `$env:PYYAML_FORCE_LIBYAML = "0"` (PowerShell), qui installe PyYAML sans sa partie en C, plus lente mais suffisante.
 2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie.
 3. Installer les deux skills externes. Les skills du parcours (frame, research, relay, sediment, retro) arrivent avec le dépôt ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
 4. Poser votre question.
