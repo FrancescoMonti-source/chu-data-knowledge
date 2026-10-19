@@ -1,6 +1,6 @@
 # 0034 — frame retrouve ce que le dépôt sait ; research et relay servent les étapes du plan
 
-Statut : proposé, 2026-10-18 (Francesco, révision des skills). Modifie 0006 (une skill par activité, pour frame et research), 0016 (frame écrit après le cadrage), 0021, 0023 et 0024 (la recherche dans le dépôt est celle de frame).
+Statut : proposé, 2026-10-18 (Francesco, révision des skills). Modifie 0006 (une skill par activité, pour frame et research), 0016 (frame écrit après le cadrage), 0021, 0023 et 0024 (la recherche dans le dépôt est celle de frame). Modifié par 0036 : chaque skill se déclenche par l'action qu'elle sert ; le parcours n'a plus de temps fixes.
 
 ## Contexte
 

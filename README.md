@@ -33,14 +33,16 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
 flowchart TD
     Q["Demande"] --> F["frame — Préciser le besoin, retrouver ce qu'on sait"]
     F --> T["Répondre ou préparer la routine"]
-    F -. "quelque chose manque" .-> E["Enquête — research et/ou relay"]
+    F -. "quelque chose manque" .-> E["Enquête — son plan choisit l'action suivante"]
     T -. "découverte utile à vérifier" .-> E
-    E --> S["sediment — Claims, réponse, clôture"]
+    E <--> D["research — enregistrer ce que dit un document"]
+    E <--> R["relay — une requête pour l'hôpital"]
+    E <--> S["sediment — claims, entrée, clôture"]
     T -->|"routine à conserver"| PR["PR vers main"]
     S --> PR
 ```
 
-Les pointillés sont des possibilités, pas des étapes. Une demande peut finir en réponse, en routine, en claims, ou les trois. Dès qu'elle fait entrer quelque chose dans le dépôt (une routine, des claims), l'agent ouvre une pull request ; un mainteneur la fusionne.
+Les pointillés sont des possibilités, pas des étapes. Dans une enquête, research, relay et sediment servent chacune une action, dans l'ordre que le plan demande, autant de fois qu'il faut. Une demande peut finir en réponse, en routine, en claims, ou les trois. Dès qu'elle fait entrer quelque chose dans le dépôt (une routine, des claims), l'agent ouvre une pull request ; un mainteneur la fusionne.
 
 ## Finir une session
 

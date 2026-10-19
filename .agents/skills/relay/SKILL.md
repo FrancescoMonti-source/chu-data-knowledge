@@ -1,11 +1,11 @@
 ---
 name: relay
-description: "Dans une enquête ouverte, préparer une requête qu'une personne exécutera à l'hôpital, puis enregistrer le résultat comme preuve. Utiliser quand une étape du plan demande des données d'un système de l'hôpital, comme CORA (la liste : knowledge/glossaries/README.md). Sans enquête ouverte, une demande de données commence par frame."
+description: "Préparer une requête qu'une personne exécutera à l'hôpital, puis enregistrer le résultat comme preuve. Utiliser avant d'écrire une requête pour un système de l'hôpital, comme CORA (la liste : knowledge/glossaries/README.md), même pour un seul chiffre qui aide à cadrer ; et quand la personne rapporte un résultat."
 ---
 
 # relay
 
-Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md.
+Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md. Sans enquête ouverte, frame d'abord : l'enquête peut s'ouvrir avant la fin du cadrage (frame, étape 3).
 
 ## Aller
 
@@ -24,5 +24,3 @@ Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md.
    Fini quand : aucune donnée de personne ni aucun effectif de 1 à 9 n'apparaît en clair ; pour masked, le résultat ne contient que des agrégats.
 6. **Écrire et enregistrer** la preuve d'exécution (method/evidence.md ; investigations/README.md, « La branche »).
    Fini quand : la preuve est enregistrée.
-
-Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ». sediment quand les preuves suffisent pour répondre.

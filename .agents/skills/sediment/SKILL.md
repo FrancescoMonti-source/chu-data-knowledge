@@ -1,9 +1,11 @@
 ---
 name: sediment
-description: Transformer les preuves d'une enquête en claims et les faire entrer dans le dépôt. Utiliser quand les preuves suffisent pour répondre ; aussi pour réutiliser, contester ou remplacer un claim, et pour suspendre ou fermer une enquête.
+description: "Transformer les preuves d'une enquête en claims et les faire entrer dans le dépôt. Utiliser avant d'écrire un claim, à tout moment de l'enquête ; avant de réutiliser, contester ou remplacer un claim ; avant de faire entrer une partie de l'enquête dans main ; et pour suspendre ou fermer une enquête."
 ---
 
 # sediment
+
+Un claim s'écrit dès qu'une preuve le porte : étapes 1 à 3. Les étapes 4 à 6 viennent quand une partie de l'enquête doit entrer dans main, ou quand elle s'arrête.
 
 1. **Écrire les claims.** D'abord, pour chaque conclusion, y compris la réponse à la question de l'enquête : que fera de ce résultat l'agent qui interrogera les données plus tard ? Ce qu'il en fera donne le claim (claims.md, « Ce qui mérite un claim ») ; une conclusion qui ne change rien à la façon d'interroger reste dans le README ou dans l'issue, et la réponse dans le commentaire qui ferme l'issue (étape 6). Puis un claim par usage et par test possible (claims.md, « Taille »), dans knowledge/claims/, avec ses termes dans terms, ses preuves dans supported_by et ses prémisses dans depends_on, et la section « Pour s'en servir » (claims.md, « Le corps »).
    Fini quand : chaque conclusion qui change la façon d'interroger les données est un claim ; chaque claim cite ses preuves ou ses prémisses ; et sa section « Pour s'en servir » dit à un agent quoi faire, sans qu'il lise la suite.

@@ -42,7 +42,7 @@ Les principes, un mot chacun :
 | écrire une preuve ou une fiche de source | method/evidence.md |
 | préparer une requête ou une routine, enregistrer un résultat | method/queries.md |
 | réutiliser, relire ou contester un claim | method/review.md |
-| ouvrir, retrouver ou reprendre une enquête, écrire dans son issue | investigations/README.md |
+| ouvrir, retrouver ou reprendre une enquête, revoir son plan, noter un choix, écrire dans son issue | investigations/README.md |
 | corriger une friction | method/maintenance.md |
 | comprendre un message ROUGE ou ORANGE | method/checks.md |
 | comprendre un mot de la méthode | method/GLOSSARY.md |
@@ -52,9 +52,12 @@ Les principes, un mot chacun :
 
 Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans .claude/skills/, générée par `python checks/sync_skills.py` : on ne modifie que .agents/skills/.
 
-- **frame :** toute question nouvelle sur les données du CHU, et toute reprise d'enquête, commence par frame : la cadrer avec la personne, et retrouver ce que le dépôt en sait ; puis répondre, préparer une routine, ou ouvrir une enquête si quelque chose manque.
-- Pour chaque étape du plan d'une enquête : **research** pour lire un document, **relay** pour l'aller-retour à l'hôpital.
-- **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
+Chaque skill sert une action, à n'importe quel moment d'une demande ; l'ordre vient du plan de l'enquête, pas des skills. Lire ne demande aucune skill : le dépôt, les issues, un document. Une requête, une preuve ou un claim s'écrit sur la branche d'une enquête (investigations/README.md, « L'issue ou le dépôt »).
+
+- **frame :** avant de répondre à une question nouvelle sur les données du CHU : la cadrer avec la personne, et retrouver ce que le dépôt en sait.
+- **research :** avant d'enregistrer ce que dit un document.
+- **relay :** avant d'écrire une requête pour l'hôpital, et quand son résultat revient.
+- **sediment :** avant d'écrire, réutiliser ou contester un claim, de faire entrer une partie de l'enquête, de la suspendre ou de la fermer.
 - **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
 
 Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de method/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon method/layout.md (« Termes et glossaires »), un lien entre deux contextes comme un claim, un ADR dans method/adr/, selon son README.md.
