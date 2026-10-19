@@ -1,6 +1,6 @@
 # 0018 — Ranger par type de fichier : knowledge/ et method/
 
-Statut : accepté, 2026-10-12 (Francesco, après une revue de la structure du dépôt). L'extension du point 9 aux fichiers non lus, ajoutée pendant la mise en œuvre, acceptée le 2026-10-13. Modifié par 0032 : la réponse d'une enquête ne va dans knowledge/claims/ que si elle mérite un claim.
+Statut : accepté, 2026-10-12 (Francesco, après une revue de la structure du dépôt). L'extension du point 9 aux fichiers non lus, ajoutée pendant la mise en œuvre, acceptée le 2026-10-13. Point 2 mis à jour le 2026-10-19, selon le choix de Francesco du 2026-10-16 : la réponse d'une enquête ne va dans knowledge/claims/ que si elle mérite un claim.
 
 ## Contexte
 
@@ -28,7 +28,7 @@ method/adr/             les ADR (ancien docs/adr/)
 AGENTS.md, README.md, checks/ et .agents/skills/ ne bougent pas.
 
 1. **Le type décide du dossier.** Le sujet d'un fichier ne choisit plus rien. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres.
-2. **Plus de promotion.** La réponse d'une enquête va dans knowledge/claims/ dès qu'elle est écrite, et le README de l'enquête la cite dans Conclusions. Rien ne bouge quand une autre enquête la réutilise. La relecture au réemploi reste (review.md) : le contrôle donne déjà un ROUGE quand on s'appuie sur le claim d'une autre personne sans relecture à jour, un ORANGE si le nouveau claim reste provisional.
+2. **Plus de promotion.** La réponse d'une enquête, si elle mérite un claim (claims.md), va dans knowledge/claims/ dès qu'elle est écrite, et le README de l'enquête la cite dans Conclusions. Rien ne bouge quand une autre enquête la réutilise. La relecture au réemploi reste (review.md) : le contrôle donne déjà un ROUGE quand on s'appuie sur le claim d'une autre personne sans relecture à jour, un ORANGE si le nouveau claim reste provisional.
 3. **Le contexte s'écrit dans le fichier.** Trois règles remplacent ce que disait le dossier :
    - une requête porte `-- system: <contexte>` dans son en-tête ; une exécution prend ce système par sa requête, sans le recopier ;
    - un claim cite au moins un terme dans terms ;
@@ -63,7 +63,6 @@ Le sens des contextes reste : chaque contexte garde son glossaire, et une corres
 
 - method/layout.md perd les règles de rangement par sujet et la promotion. claims.md, evidence.md, queries.md, investigations/README.md, les skills, AGENTS.md et le README suivent les nouveaux chemins ; le README montre l'arbre. review.md, checks.md et sediment écrivent la règle de confiance sur la portée.
 - Le contrôle lit knowledge/. Il perd les trois ROUGE de rangement : tables dans domains/, exécution hors de systems/, appui d'un claim de systems/ ou domains/ sur une réponse d'enquête. Il gagne les contrôles des points 3, 4 et 9, chacun avec son test.
-- Les ADR 0005, 0009, 0010, 0012, 0016 et 0017 gardent leur texte ; leur Statut dit « modifié par 0018 ». Dans les ADR plus anciens, docs/agents/ désigne method/, docs/adr/ method/adr/, et un GLOSSARY.md un glossaire de knowledge/glossaries/.
 - sources/ ne bouge pas.
 
 ## Hors de cette décision

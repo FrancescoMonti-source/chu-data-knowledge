@@ -6,7 +6,7 @@ Statut : accepté, 2026-10-16 (Francesco, carte de l'enquête revalorisation-chi
 
 Un agent cherche ce que sait le dépôt à partir des termes d'une question (layout.md, « Retrouver ce qu'on sait »). Mais une question arrive avec les mots de la personne : « DMS », « HDJ », « venue », « TMI », un nom de colonne. Le terme du glossaire porte un autre nom, ou l'agent ne connaît pas le jargon du CHU. Il ne trouve pas le claim, conclut que le dépôt ne sait rien et ouvre une enquête inutile.
 
-0016 a écarté la ligne _Avoid_ de domain-modeling jusqu'à ce qu'une enquête rencontre deux mots pour une même chose. La migration de la base de connaissances de dim-code en apporte plusieurs dizaines : son glossaire relie déjà séjour, venue et hospitalisation, HDJ et hôpital de jour, TMI et TROS à leurs fiches.
+Le dépôt avait écarté la ligne _Avoid_ de domain-modeling jusqu'à ce qu'une enquête rencontre deux mots pour une même chose. La migration de la base de connaissances de dim-code en apporte plusieurs dizaines : son glossaire relie déjà séjour, venue et hospitalisation, HDJ et hôpital de jour, TMI et TROS à leurs fiches.
 
 ## Décision
 
