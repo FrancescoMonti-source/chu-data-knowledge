@@ -20,13 +20,13 @@ review: unreviewed
 id: mvt-rum-lien
 kind: empirical
 author: Francesco
-statement: "Dans CORA, seuls les mouvements entrés dans un RSS ont une ligne dans TB_MVT_RUM : une jointure interne perd les autres, comme les consultations externes."
+statement: "Dans CORA, depuis 2021, une jointure interne sur TB_MVT_RUM perd plus de la moitié des actes : seuls les mouvements entrés dans un RSS y ont une ligne."
 scope: "CORA, 2021-2026"
-refuted_if: "des mouvements de consultation externe présents dans TB_MVT_RUM"
+refuted_if: "pour une année depuis 2021, plus de 60 % des actes ont leur mouvement dans TB_MVT_RUM"
 maturity: observed
 lifecycle: active
 terms: [cora:mouvement, cora:rum]
-tables: [cora:TB_MVT, cora:TB_MVT_RUM]
+tables: [cora:TB_ACTE, cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261008-mvt-rum]
 depends_on: []
 ---
