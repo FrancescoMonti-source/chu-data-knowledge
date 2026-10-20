@@ -20,7 +20,7 @@ review: unreviewed
 id: mvt-rum-lien
 kind: empirical
 author: Francesco
-statement: "Dans CORA, depuis 2021, ne pas joindre les actes à TB_MVT_RUM par une jointure interne : seuls les mouvements entrés dans un RSS y ont une ligne."
+statement: "Dans CORA, depuis 2021, TB_MVT_RUM ne contient que les mouvements entrés dans un RSS : une jointure interne sur cette table perd la majorité des actes."
 scope: "CORA, 2021-2026"
 refuted_if: "pour une année depuis 2021, plus de 60 % des actes ont leur mouvement dans TB_MVT_RUM"
 maturity: observed
@@ -49,7 +49,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
 | author | la personne pour qui l'agent écrit (« Les personnes ») |
-| statement | la consigne pour l'agent, en une phrase : ce qu'il fait ou évite. Un chiffre n'y entre que si la consigne en dépend |
+| statement | l'affirmation qui guide un agent qui découvre les données, en une phrase. Test : si l'agent l'ignore, écrit-il une requête fausse ou tire-t-il une conclusion fausse ? Un constat chiffré (« en telle année, tant de tel événement ») ne passe pas le test : il va dans « Ce qui l'appuie ». Un chiffre n'entre dans le statement que si l'usage en dépend |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
 | lifecycle | active · challenged · superseded · withdrawn |
