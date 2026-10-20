@@ -61,3 +61,9 @@ Un enregistrement de TB_DIAG : un code CIM-10 rattaché à un mouvement (ID_MVT,
 Alias : TB_INTERVENTION, intervention, interventions, intervention de bloc, NO_INTERVENTION, NO_INTERVENTION_CCAM, NO_INTERVENTION_EXT
 
 Une intervention au bloc : une ligne de TB_INTERVENTION, ou un groupe d'actes de TB_ACTE qui partagent le même NO_INTERVENTION_CCAM.
+
+## cora:utilisateur
+
+Alias : UTIL, V_UTIL, CODE_UTIL, ID_UTIL
+
+Un compte de personne qui saisit ou modifie des données dans CORA (acte, séjour), connu par un identifiant et un code. Les colonnes qui le désignent (nom, prénom, matricule, RPPS) sont des données de personne : seulement des agrégats.
