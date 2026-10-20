@@ -49,7 +49,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
 | author | la personne pour qui l'agent écrit (« Les personnes ») |
-| statement | l'affirmation qui guide un agent qui découvre les données, en une phrase. Test : si l'agent l'ignore, écrit-il une requête fausse ou tire-t-il une conclusion fausse ? Un constat chiffré (« en telle année, tant de tel événement ») ne passe pas le test : il va dans « Ce qui l'appuie ». Un chiffre n'entre dans le statement que si l'usage en dépend |
+| statement | l'affirmation qui guide un agent qui découvre les données, en une phrase. Test : si l'agent l'ignore, écrit-il une requête fausse ou tire-t-il une conclusion fausse ? Un constat, chiffré ou non, qui ne guide aucun usage (« en telle année, tant de tel événement ») ne passe pas le test : il va dans « Ce qui l'appuie ». Un chiffre reste dans le statement quand il guide l'usage |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
 | lifecycle | active · challenged · superseded · withdrawn |
