@@ -37,3 +37,9 @@ Le code PMSI qui dit comment un séjour commence ou finit : mutation (6, dans le
 Alias : provenance, destination, CODE_PROVENANCE, CODE_DESTINATION
 
 Le code PMSI qui précise d'où vient un séjour (provenance) ou où va le patient (destination) quand le mode d'entrée ou de sortie est une mutation ou un transfert. Pour la destination, d'après le dictionnaire CORA 2020 : 1 court séjour, 2 SSR (SMR), 3 soins de longue durée, 4 psychiatrie, 6 hospitalisation à domicile, 7 structure d'hébergement médico-social ; pour la provenance, 5 est un service d'urgence.
+
+## pmsi:htp
+
+Alias : HTP, hospitalisation à temps partiel, hospitalisation de jour en SMR, HDJ SMR
+
+L'hospitalisation à temps partiel de jour en SMR. Son groupe de réadaptation (très intense I, intense J, modérée K, indifférenciée L, pédiatrique H) se décide sur le score de réadaptation par jour de la semaine ; elle est valorisée par journée de présence (ATIH, manuel des GME, notice technique de financement SMR).

@@ -67,3 +67,9 @@ Une intervention au bloc : une ligne de TB_INTERVENTION, ou un groupe d'actes de
 Alias : UTIL, V_UTIL, CODE_UTIL, ID_UTIL
 
 Un compte de personne qui saisit ou modifie des données dans CORA (acte, séjour), connu par un identifiant et un code. Les colonnes qui le désignent (nom, prénom, matricule, RPPS) sont des données de personne : seulement des agrégats.
+
+## cora:rhs
+
+Alias : RHS, résumé hebdomadaire de séjour, TB_MVT_SSR_SEM, mouvement-semaine SMR
+
+Un enregistrement de TB_MVT_SSR_SEM : un mouvement d'une unité de SMR découpé par semaine calendaire (lundi au dimanche), identifié par ID_MVT et NO_SEMAINE. Il porte les jours de présence de la semaine, le groupage (GME), le score de réadaptation et les montants.

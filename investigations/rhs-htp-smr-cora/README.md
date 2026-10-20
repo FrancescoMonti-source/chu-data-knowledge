@@ -13,6 +13,15 @@ Issue : #96
 - **Lien avec DIM-code :** les faits sur les données découverts ici passent par sediment ; l'analyse elle-même (simulation, écarts) vit dans DIM-code.
 
 ## Choix
+- **Identifier la HTP par TYPE_HOSPIT_SSR = 2 :** TYPE_ACTIVITE est vide ; le contrôle est le nombre de patients, 158, attendu par Pierre.
+- **Score d'un RHS par SCORE_RR :** il respecte les seuils de l'ATIH pour les GN 0127 et 0406 ; on ne recalcule pas depuis les actes (TB_ACTE_CSARR.POIDS), faute de besoin.
+- **RHS hebdomadaire simulé = une personne-semaine :** moyenne des SCORE_RR pondérée par les jours de présence, avec les seuils du GN ; une semaine à GN différents n'est pas simulée (groupe inchangé), un vrai regroupement demandant la fonction de groupage.
+- **Valorisation par les tarifs de l'ATIH :** MNT_GMT de CORA les égale à moins de 0,1 %, et aucun coefficient n'est nécessaire pour retrouver les montants.
+- **Plan revu :** les étapes 4 et 5 se réduisent à ces contrôles ; l'analyse elle-même est dans DIM-code (étude `2026-10_htp_smr_rhs_hebdo`), qui n'est pas une preuve de CDK.
 
 ## Conclusions
-Aucune pour l'instant.
+Claims (tous unreviewed, auteur Pierre) :
+- `htp-smr-type-hospit-ssr` : repérer la HTP par TYPE_HOSPIT_SSR = 2.
+- `rhs-htp-une-venue` : un RHS de HTP est une venue ; regrouper par personne et par semaine.
+- `score-rr-htp-score-par-jour` : SCORE_RR est le score par jour du groupage.
+- `mnt-gmt-htp-tarif-journee` : MNT_GMT est le tarif de la journée ; MNT_GMT_HEBDO et la facturation SMR ne servent pas.
