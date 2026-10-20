@@ -34,6 +34,14 @@ person_data: masked
 
 Une valeur inconnue s'écrit unknown. Un claim empirique observed demande une exécution sans unknown.
 
+## Lire un résultat masqué
+
+Dans un résultat masqué, `<10` veut dire un effectif de 0 à 9, pas une valeur manquante. Pour tout chiffre qu'on tire d'une exécution (moyenne, somme, part) :
+
+- une cellule `<10` compte pour 0 dans une moyenne ou une somme, et le chiffre le dit (« cellules <10 comptées pour 0 ») ; ne pas exclure la période ou la ligne ;
+- une cellule masquée dont le total et les autres cellules sont visibles se retrouve par différence (queries.md, règle 4) ; sans total, elle reste inconnue, et le chiffre qui en dépend aussi ;
+- le chiffre cité dans un claim est recalculé depuis le fichier de preuve, avec ces règles ; il n'est jamais repris d'un message ou d'une analyse précédente.
+
 ## Lecture
 
 Un passage lu dans un document.

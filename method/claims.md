@@ -20,7 +20,7 @@ review: unreviewed
 id: mvt-rum-lien
 kind: empirical
 author: Francesco
-statement: "Dans CORA, depuis 2021, une jointure interne sur TB_MVT_RUM perd plus de la moitié des actes : seuls les mouvements entrés dans un RSS y ont une ligne."
+statement: "Dans CORA, depuis 2021, ne pas joindre les actes à TB_MVT_RUM par une jointure interne : seuls les mouvements entrés dans un RSS y ont une ligne."
 scope: "CORA, 2021-2026"
 refuted_if: "pour une année depuis 2021, plus de 60 % des actes ont leur mouvement dans TB_MVT_RUM"
 maturity: observed
@@ -36,7 +36,7 @@ Partir de TB_MVT pour voir tous les mouvements. Ne filtrer sur TB_MVT_RUM que po
 
 ## Ce qui l'appuie
 
-Le dictionnaire dit que TB_MVT_RUM relie les mouvements aux RUM ; il ne dit pas lesquels y manquent. Raisonnement et limites.
+Le dictionnaire dit que TB_MVT_RUM relie les mouvements aux RUM ; il ne dit pas lesquels y manquent. Une jointure interne perd plus de la moitié des actes depuis 2021 (20261008-mvt-rum). Raisonnement et limites.
 
 Points ouverts : non vérifié sur l'instance de production.
 ```
@@ -49,7 +49,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
 | author | la personne pour qui l'agent écrit (« Les personnes ») |
-| statement | l'affirmation, en une phrase |
+| statement | la consigne pour l'agent, en une phrase : ce qu'il fait ou évite. Un chiffre n'y entre que si la consigne en dépend |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
 | lifecycle | active · challenged · superseded · withdrawn |

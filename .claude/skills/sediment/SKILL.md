@@ -8,7 +8,8 @@ description: Transformer les preuves d'une enquête en claims et les faire entre
 D'abord, demander à la personne ce que devient l'enquête : elle se ferme, elle est suspendue, ou elle continue après un résultat partiel. Les étapes 5 et 6 en dépendent ; si elle continue, sediment s'arrête à l'étape 5.
 
 1. **Écrire les claims.** Passer chaque conclusion, y compris la réponse à la question de l'enquête, au test de method/claims.md (« Ce qui mérite un claim »). Celles qui le passent deviennent des claims dans knowledge/claims/, un par usage (« Taille »), avec leur section « Pour s'en servir ». Les autres restent dans le README ou l'issue ; la réponse va dans le commentaire qui ferme l'issue (étape 6).
-   Fini quand : chaque conclusion qui passe le test est un claim, et aucune autre ; chaque « Pour s'en servir » dit à un agent quoi faire sans qu'il lise la suite.
+   Une mesure nouvelle sur un sujet déjà couvert par un claim modifie ce claim (statement, « Pour s'en servir » ou « Ce qui l'appuie ») ; elle n'ajoute ni section ni paragraphe de mesures. Si le claim a été relu et doit changer, review.md.
+   Fini quand : chaque conclusion qui passe le test est un claim, et aucune autre ; chaque statement dit quoi faire, pas combien ; chaque « Pour s'en servir » dit à un agent quoi faire sans qu'il lise la suite ; aucune mesure nouvelle n'est ajoutée à un claim existant sous forme de section.
 2. **Relire ce qu'on réutilise** (review.md). Pour chaque prémisse, selon sa sorte :
    - **claim d'une autre personne, sans relecture à jour :** la relecture au réemploi. La personne lit le travail refait et l'approuve avant que l'agent écrive le bloc review à son nom.
    - **claim de la même personne, venu d'une autre enquête :** author-reread, que la personne fait dans une nouvelle session ; l'agent le lui demande et attend qu'elle revienne.

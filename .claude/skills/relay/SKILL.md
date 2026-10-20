@@ -24,5 +24,7 @@ Le protocole et ses règles : method/queries.md. Le filtre : method/privacy.md.
    Fini quand : aucune donnée de personne ni aucun effectif de 1 à 9 n'apparaît en clair ; pour masked, le résultat ne contient que des agrégats.
 6. **Écrire et enregistrer** la preuve d'exécution (method/evidence.md ; investigations/README.md, « La branche »).
    Fini quand : la preuve est enregistrée.
+7. **Calculer** chaque chiffre dont l'enquête se sert depuis le fichier de preuve, selon method/evidence.md, « Lire un résultat masqué ».
+   Fini quand : chaque chiffre cité est recalculé depuis la preuve, et celui qui dépend d'une cellule masquée inconnue est marqué inconnu.
 
 Ensuite : l'étape suivante du plan. Un résultat peut demander un document (research) ou une autre requête ; il ne l'impose pas. Un plan revu ou une décision de méthode : investigations/README.md, « Le plan » et « Choix ». sediment quand les preuves suffisent pour répondre.
