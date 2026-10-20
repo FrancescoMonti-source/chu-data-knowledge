@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:acte, cora:intervention]
 tables: [cora:TB_ACTE, cora:TB_SITE]
-supported_by: [20261014-epoques-actes-resultat, 20261015-sites-bloc-resultat, 20261015-dim-code-cascade-chainage]
+supported_by: [20261014-epoques-actes-resultat, 20261015-sites-bloc-resultat, 20261015-dim-code-cascade-chainage, 20261019-actes-ecran-annee-resultat]
 depends_on: [epoques-codage-actes]
 ---
 ## Pour s'en servir
@@ -32,7 +32,8 @@ BLOC ne vaut que 'O' ou 'N' : pas de '1' ni d'autre valeur à prendre en compte.
 Garder les deux origines : ne pas filtrer sur l'application, car les actes de bloc passent du flux CPage (application 10) à la saisie dans CORA (sans application, ECRAN renseigné) en 2025. Pour regrouper les actes d'une même intervention, grouper par NO_INTERVENTION_CCAM (grouper-actes-par-no-intervention-ccam).
 
 **À ne pas utiliser :**
-- **TB_ACTE.NO_INTERVENTION :** il ne couvre que les actes saisis dans l'écran Bloc.
+- **TB_ACTE.NO_INTERVENTION :** il n'existe presque que pour les actes saisis dans CORA (voir grouper-actes-par-no-intervention-ccam).
+- **ECRAN = 'BLO' comme repère des actes de bloc saisis dans CORA :** il en oublie 61 % en 2025 et 41 % en 2026 ; les autres passent par les écrans RUM, RSS, AUT, EXT.
 - **TB_INTERVENTION avant 2026 :** elle est incomplète (interventions-cora-flux-oproom).
 
 **Ce qu'il faut dire si une analyse remonte avant 2022 :**
@@ -47,6 +48,8 @@ Actes par mois et par application (20261014-epoques-actes-resultat) :
 
 - **Actes sur un site de bloc :** environ 14 000 à 17 700 par an en 2014-2016, 10 000 à 12 400 en 2018-2019, puis 56 600 en 2021, 40 900 en 2022, 42 500 en 2023, 43 700 en 2024 et 52 500 en 2025. Part du flux CPage : 71 % en 2021, 97 % en 2022, 96 % en 2023, 88 % en 2024, 38 % en 2025.
 - **Site vide :** environ 63 400 actes en 2020 et 147 000 en 2021, presque tous de l'application 10 ; environ 1 800 en 2018 et 2 900 en 2019 ; moins de 10 par mois et par application les autres années.
+
+Écran de saisie des actes de site de bloc saisis dans CORA (20261019-actes-ecran-annee-resultat) : ECRAN = 'BLO' en porte 12 805 sur 32 742 en 2025 et 23 041 sur 38 914 en 2026 ; le reste passe par RUM (11 372 ; 6 641), RSS (2 402 ; 6 702), AUT (4 986 ; 1 103), EXT (754 ; 1 398).
 
 Les sommes annuelles additionnent des cases mensuelles, dont certaines sont masquées (<10) : elles sont arrondies.
 

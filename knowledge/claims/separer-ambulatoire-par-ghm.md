@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:rss]
 tables: [cora:TB_SYNTH_RSS]
-supported_by: [20261015-classes-rss-resultat]
+supported_by: [20261015-classes-rss-resultat, 20261019-ghm-sixieme-duree-rss-resultat]
 depends_on: [type-prise-en-charge-mco]
 ---
 ## Pour s'en servir
@@ -21,7 +21,7 @@ Pour séparer les séjours de 0 nuit que type-prise-en-charge-mco classe en ambu
 - **Hôpital de jour de médecine :** lettre de type M, quel que soit le niveau (Z, T, 1…).
 - **Le reste :** types Z (CMD 28 mise à part) et les RSS de type C ou K sans niveau J. Ils sont peu nombreux ; les garder à part et les compter.
 
-CODE_GHM ne porte que 4 caractères, sans la CMD : la lettre de type est le premier caractère, le niveau le dernier. Ne pas se servir de TYPE_PEC.
+CODE_GHM a toujours 4 caractères, sans la CMD (le GHM complet est `TRIM(CODE_CMD) || TRIM(CODE_GHM)`) : la lettre de type est le premier caractère, le niveau le dernier. Seuls 1 à 4 sont des niveaux de sévérité ordonnés ; J, T, Z, E et A à D n'en sont pas. Ne pas se servir de TYPE_PEC.
 
 ## Ce qui l'appuie
 
