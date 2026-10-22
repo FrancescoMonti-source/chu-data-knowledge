@@ -19,4 +19,7 @@ Issue : #100
 - **Binômes GHM × DP manquants (plan revu, 2026-10-22) :** Pierre voit dans l'étude dms_fme des binômes GHM × DP fréquents en 2025 et absents en 2026. Le regroupement des UF liées (5622 + 5618, 5623 + 5619, 5627 + 5616, justifié par 20261022-um-pole-fme-uf-trois-sources) ne les fait pas tous revenir. Deux requêtes testent d'autres causes, sans UF : le binôme disparaît-il du pôle (20261022-fme-binomes-ghm-dp-pole-par-annee), et le codage ou la durée de 2026 sont-ils incomplets ou changés mois par mois (20261022-fme-sejours-par-mois-sortie). Hypothèses dans l'issue.
 
 ## Conclusions
-Aucune pour l'instant.
+Résultat partiel (2026-10-22) ; l'enquête continue (table des changements de numéros d'UF).
+- uf-du-rum-hebergement : l'UF d'un RUM se lit dans ID_UNITE_HEBERG (unreviewed).
+- uf-hebergeante-change-en-2026 : l'UF hébergeante d'une même activité peut changer (unreviewed).
+Les binômes GHM × DP « manquants » de l'étude dms_fme ne donnent pas de claim : les deux binômes absents en 2026 avaient 2 séjours en 2025.
