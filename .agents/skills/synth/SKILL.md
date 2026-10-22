@@ -9,7 +9,7 @@ Le générateur : tools/synth/ (README.md : réglages, ce qui est mesuré ou sup
 
 1. **Décider.** Le code a-t-il besoin de lignes pour s'exécuter ou se tester (une requête Python, un calcul, un rapport, un test) ? Alors continuer. Si la question demande un chiffre de l'hôpital, il vient d'une requête que la personne exécute (relay), jamais d'ici.
    Fini quand : l'usage est « tester du code ».
-2. **Lister puis générer.** `python tools/synth/generate.py --list` donne les tables et leurs colonnes (les vrais noms de CORA ou d'OpRoom : le code écrit pour elles tourne à l'hôpital sans changement). Puis, avec la graine par défaut et un volume qui suffit (`--scale 0.02` ; `--perimeter fme` pour des UF d'un pôle) :
+2. **Lister puis générer.** `python tools/synth/generate.py --list` donne les tables et leurs colonnes (les noms de CORA ou d'OpRoom, sauf les tables préfixées SYNTH_, qui n'existent pas à l'hôpital : ne pas les lire dans le code livré ; un nom ou une colonne que ni CDK ni la liste ne donne reste à vérifier). Puis, avec la graine par défaut et un volume qui suffit (`--scale 0.02` ; `--perimeter fme` pour des UF d'un pôle) :
    `python tools/synth/generate.py --out <dossier hors dépôt> --years 2022-2025 --families rss`
    Dans un test Python : `synth.generate(...)` (README.md, « Utiliser »). Ne pas écrire de générateur à côté : s'il manque une table ou une colonne, le dire à la personne et proposer l'ajout (README.md, « Ajouter une source »).
    Fini quand : les CSV et manifest.json existent hors du dépôt, avec une graine écrite dans le code ou le README de l'étude.

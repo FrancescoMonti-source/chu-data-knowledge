@@ -27,7 +27,9 @@ tables, manifest = synth.generate(seed=1, scale=0.02, years=range(2022, 2026), f
 | `--scale` | part du volume réel : 1 = autant de séjours que l'hôpital (≈ 170 000 RSS par an ; 0,02 suffit pour un test) |
 | `--years` | `2022-2025` ou `2022,2024` |
 | `--perimeter` | `hospital` (marginales de l'hôpital) ou `fme` (cellules UF × GHM × GHS × DP du pôle, avec UF d'hébergement) |
-| `--families` | `rss` (TB_SYNTH_RSS, TB_SEJOUR, et en `fme` TB_SYNTH_RUM, REF_UF_POLE_FME, PMSI_LIB_GHS_TARIF), `bloc` (OR_INTERVENTIONS, TB_ACTE), `htp` (TB_MVT_SSR_SEM, 2025) |
+| `--families` | `rss` (TB_SYNTH_RSS, TB_SEJOUR, et en `fme` TB_SYNTH_RUM, SYNTH_REF_UF_POLE_FME, PMSI_LIB_GHS_TARIF), `bloc` (OR_INTERVENTIONS, TB_ACTE), `htp` (TB_MVT_SSR_SEM, 2025) |
+
+Les tables préfixées `SYNTH_` n'existent pas dans CORA : ce sont des référentiels de commodité (ici les UF du pôle FME) ; ne pas supposer qu'elles existent à l'hôpital, et lire les vraies tables par leurs claims. `PMSI_LIB_GHS_TARIF` porte le nom de la vraie table mais pas forcément ses colonnes.
 
 La sortie est un CSV par table et `manifest.json` : graine, réglages, effectifs, sources lues et **hypothèses** de chaque famille. Les lignes générées ne se versionnent pas : la graine et les réglages les refont.
 

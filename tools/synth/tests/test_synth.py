@@ -91,7 +91,7 @@ class Generation(unittest.TestCase):
     def test_perimetre_fme(self):
         t, m = synth.generate(seed=3, scale=0.1, years=[2025], perimeter="fme")
         self.assertIn("fme", m["provenance"])
-        self.assertTrue({"TB_SYNTH_RUM", "REF_UF_POLE_FME", "PMSI_LIB_GHS_TARIF"} <= set(t))
+        self.assertTrue({"TB_SYNTH_RUM", "SYNTH_REF_UF_POLE_FME", "PMSI_LIB_GHS_TARIF"} <= set(t))
         self.assertTrue(t["TB_SYNTH_RSS"]["ID_UNITE_HEBERG"].isin(calib.table("fme_uf.csv")["code_uf"]).all())
 
 

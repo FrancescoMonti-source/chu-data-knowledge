@@ -246,5 +246,5 @@ def _fme(rng, scale: float, years: list[int]) -> dict[str, pd.DataFrame]:
     rum = pd.concat([rum] + extra, ignore_index=True)
     df["NB_RUM"] = df["ID_RSS"].map(rum["ID_RSS"].value_counts())
     out = _rss_columns(df)
-    return {"TB_SYNTH_RSS": out, "TB_SYNTH_RUM": rum, "TB_SEJOUR": _sejour(df, rng, p, extras=False), "REF_UF_POLE_FME": calib.table("fme_uf.csv"),
+    return {"TB_SYNTH_RSS": out, "TB_SYNTH_RUM": rum, "TB_SEJOUR": _sejour(df, rng, p, extras=False), "SYNTH_REF_UF_POLE_FME": calib.table("fme_uf.csv"),
             "PMSI_LIB_GHS_TARIF": calib.table("ghs_tarif.csv").rename(columns={"code_ghm_racine": "CODE_GHM_RACINE"})}
