@@ -1,0 +1,54 @@
+code_pole,libelle_pole,code_um,libelle_um,code_uf,libelle_uf,uf_active,debut_lien_pole,fin_lien_pole,qualifie_sejour
+menf,"Pôle femme, mère et enfant",5010,URG.ET UHCD PED.CHIR,5010,URG.ET UHCD PED.CHIR,O,,,0
+menf,"Pôle femme, mère et enfant",5015,URG.ET UHCD PED.MED.,5015,URG.ET UHCD PED.MED.,O,,,0
+menf,"Pôle femme, mère et enfant",5602,NEONATALOGIE SI 3EME,5602,NEONATALOGIE SI 3EME,O,,,1
+menf,"Pôle femme, mère et enfant",5602,NEONATALOGIE SI 3EME,5602,NEONATALOGIE SI 3EME,O,,,1
+menf,"Pôle femme, mère et enfant",5602,NEONATALOGIE SI 3EME,5602,NEONATALOGIE SI 3EME,O,,,1
+menf,"Pôle femme, mère et enfant",5603,NEONATALOGIE SI 4EME,5603,NEONATALOGIE SI 4EME,O,,,1
+menf,"Pôle femme, mère et enfant",5603,NEONATALOGIE SI 4EME,5603,NEONATALOGIE SI 4EME,O,,,1
+menf,"Pôle femme, mère et enfant",5603,NEONATALOGIE SI 4EME,5603,NEONATALOGIE SI 4EME,O,,,1
+menf,"Pôle femme, mère et enfant",5604,NEONATALOGIE 3EME,5604,NEONATALOGIE 3EME,O,,,1
+menf,"Pôle femme, mère et enfant",5604,NEONATALOGIE 3EME,5604,NEONATALOGIE 3EME,O,,,1
+menf,"Pôle femme, mère et enfant",5605,NEONATALOGIE 4EME,5605,NEONATALOGIE 4EME,O,,,1
+menf,"Pôle femme, mère et enfant",5607,UNITE KANGOUROU,5607,UNITE KANGOUROU,O,,,1
+menf,"Pôle femme, mère et enfant",5608,EQUIPE MOBI PERINAT,5608,EQUIPE MOBI PERINAT,O,,,1
+menf,"Pôle femme, mère et enfant",5612,HEMATO-ONCO.PED 4EME,5612,HEMATO-ONCO.PED 4EME,O,,,1
+menf,"Pôle femme, mère et enfant",5613,HEMATO-ONCO PED SI,5613,HEMATO-ONCO PED SI,O,,,1
+menf,"Pôle femme, mère et enfant",5613,HEMATO-ONCO PED SI,5613,HEMATO-ONCO PED SI,O,,,1
+menf,"Pôle femme, mère et enfant",5614,HEMATO.ONCO.PED.HJ,5614,HEMATO.ONCO.PED.HJ,O,,,1
+menf,"Pôle femme, mère et enfant",5617,PED MED  HJ,5617,PED MED  HJ,O,,,1
+menf,"Pôle femme, mère et enfant",5618,PED.MED.SC GRAND ENF,5618,PED.MED.SC GRAND ENF,O,,,1
+menf,"Pôle femme, mère et enfant",5618,PED.MED.SC GRAND ENF,5622,PEDIATRIE MED.ENFANT,O,,,1
+menf,"Pôle femme, mère et enfant",5619,PED.M.SC NOURRISSONS,5619,PED.M.SC NOURRISSONS,O,,,1
+menf,"Pôle femme, mère et enfant",5619,PED.M.SC NOURRISSONS,5623,PED.MED.NOURRISSONS,O,,,1
+menf,"Pôle femme, mère et enfant",5621,PEDIATRIE.MED.H.JOUR,5621,PEDIATRIE.MED.H.JOUR,O,,,1
+menf,"Pôle femme, mère et enfant",5622,PEDIATRIE MED.ENFANT,5622,PEDIATRIE MED.ENFANT,O,,,1
+menf,"Pôle femme, mère et enfant",5623,PED.MED.NOURRISSONS,5623,PED.MED.NOURRISSONS,O,,,1
+menf,"Pôle femme, mère et enfant",5624,PED.MED.HEMODIALYSE,5624,PED.MED.HEMODIALYSE,O,,,1
+menf,"Pôle femme, mère et enfant",5626,PED.MED HJ DIALYSE,5626,PED.MED HJ DIALYSE,N,,,1
+menf,"Pôle femme, mère et enfant",5627,PEDIATRIE M3,5616,SANTE MENTALE M3,O,,,1
+menf,"Pôle femme, mère et enfant",5627,PEDIATRIE M3,5627,PEDIATRIE M3,O,,,1
+menf,"Pôle femme, mère et enfant",5628,PSYCHOPATHO.ADO.,5628,PSYCHOPATHO.ADO.,O,,,1
+menf,"Pôle femme, mère et enfant",5629,HDJ ADO.6E ETAGE,5629,HDJ ADO.6E ETAGE,O,,,1
+menf,"Pôle femme, mère et enfant",5637,PED NEONAT HJ,5637,PED NEONAT HJ,O,,,1
+menf,"Pôle femme, mère et enfant",5659,REA. NEONATALE,5659,REA. NEONATALE,O,,,1
+menf,"Pôle femme, mère et enfant",5660,REA.PEDIATRIQUE,5660,REA.PEDIATRIQUE,N,,,1
+menf,"Pôle femme, mère et enfant",5661,REA. PEDIATRIQUE,5661,REA. PEDIATRIQUE,O,,,1
+menf,"Pôle femme, mère et enfant",5661,REA. PEDIATRIQUE,5661,REA. PEDIATRIQUE,O,,,1
+menf,"Pôle femme, mère et enfant",5685,HDJ TROUBLES APPR.,5685,HDJ TROUBLES APPR.,O,,,1
+menf,"Pôle femme, mère et enfant",5854,UA PED PLAN BLANC,5854,UA PED PLAN BLANC,O,,,1
+menf,"Pôle femme, mère et enfant",5855,PLAN BLANC PEDIATRIE,5855,PLAN BLANC PEDIATRIE,O,,,1
+menf,"Pôle femme, mère et enfant",6152,SC CHIR PEDIATRIQUE,6152,SC CHIR PEDIATRIQUE,O,,,1
+menf,"Pôle femme, mère et enfant",6153,CHIRURGIE PEDIATRI 2,6153,CHIRURGIE PEDIATRI 2,O,,,1
+menf,"Pôle femme, mère et enfant",6154,CHIRURGIE PEDIATRI 1,6154,CHIRURGIE PEDIATRI 1,O,,,1
+menf,"Pôle femme, mère et enfant",6161,GYNECO-OBS.GYNECO.1,6161,GYNECO-OBS.GYNECO.1,O,,,1
+menf,"Pôle femme, mère et enfant",6162,GYNECO-OBS.GYNECO HS,6162,GYNECO-OBS.GYNECO HS,N,,,1
+menf,"Pôle femme, mère et enfant",6163,GYNECO-OBS.OBSTET.1,6163,GYNECO-OBS.OBSTET.1,O,,,1
+menf,"Pôle femme, mère et enfant",6164,UNITE GYNECO SOCIALE,6164,UNITE GYNECO SOCIALE,O,,,1
+menf,"Pôle femme, mère et enfant",6166,GYNECO-OBS.GR.PATHO.,6166,GYNECO-OBS.GR.PATHO.,O,,,1
+menf,"Pôle femme, mère et enfant",6167,GYNECO-OBS.OBSTET.2,6167,GYNECO-OBS.OBSTET.2,O,,,1
+menf,"Pôle femme, mère et enfant",6168,HDJ CLIN GYNECO OBST,6168,HDJ CLIN GYNECO OBST,O,,,1
+menf,"Pôle femme, mère et enfant",6196,CHIRURGIE PEDIA HDJ,6196,CHIRURGIE PEDIA HDJ,O,,,1
+menf,"Pôle femme, mère et enfant",6199,HDJ CHIR PED MULTI,6199,HDJ CHIR PED MULTI,O,,,1
+menf,"Pôle femme, mère et enfant",6260,HDJ AMP CLINIQUE,6260,HDJ AMP CLINIQUE,O,,,1
+menf,"Pôle femme, mère et enfant",8896,U.N.I.D.E.P,,,,,,1
