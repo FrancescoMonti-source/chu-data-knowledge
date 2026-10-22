@@ -11,12 +11,13 @@ Le type d'un fichier décide de son dossier, quel que soit son sujet.
 | knowledge/routines/<id>/ | routine : son code et son README.md | queries.md, « Une routine » |
 | knowledge/glossaries/ | contexte : son glossaire ; README.md est la carte des contextes | « Termes et glossaires », plus bas |
 | investigations/<id>/ | enquête : son README.md, seul | investigations/README.md |
+| tools/<outil>/ | outil : son code, sa calibration, son README.md | README.md de l'outil |
 
 Un document lu dix fois donne une fiche dans sources/ et dix preuves dans knowledge/evidence/.
 
 Le sujet s'écrit dans le fichier : les terms d'un claim (pmsi:rum), ses tables (cora:TB_MVT_RUM), le system d'une requête. Un pont entre deux contextes est un claim de knowledge/claims/, comme les autres.
 
-Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des choix difficiles à défaire (method/adr/), les skills (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision d'un mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
+Un outil (tools/) sert aux agents sans contenir de connaissance : aujourd'hui, le générateur de données synthétiques (tools/synth/), calibré sur des agrégats déjà masqués du dépôt. Le reste du dépôt dit comment on travaille : AGENTS.md, les conventions (method/), les raisons des choix difficiles à défaire (method/adr/), les skills (.agents/skills/), les contrôles (checks/). Un fait vaut par ses preuves, une règle du dépôt par la décision d'un mainteneur : ce qu'on découvre sur les données du CHU, même un piège de jointure, devient un claim avec ses preuves.
 
 ## Ids et noms de fichiers
 

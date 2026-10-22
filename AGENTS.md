@@ -55,6 +55,7 @@ Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans 
 - **frame :** toute question nouvelle sur les données du CHU commence par frame : la cadrer avec la personne, et retrouver ce que le dépôt en sait.
 - Pour chaque étape du plan d'une enquête : **research** pour lire un document, **relay** pour l'aller-retour à l'hôpital.
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
+- **synth :** tester du code sur des lignes synthétiques (tools/synth/) quand CORA ou OpRoom ne sont pas accessibles ; jamais pour répondre à une question sur l'hôpital.
 - **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
 
 Attendues hors du dépôt, installées par chacun : writing-for-agents (à chaque modification d'une skill, de ce fichier ou de method/ ; jamais pour un claim) et domain-modeling (pour éprouver un terme avec la personne et le confronter aux claims). Ce que domain-modeling fait écrire suit les formats du dépôt plutôt que les siens : un terme selon method/layout.md (« Termes et glossaires »), un lien entre deux contextes comme un claim, un ADR dans method/adr/, selon son README.md.

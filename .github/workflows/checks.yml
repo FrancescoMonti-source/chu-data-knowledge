@@ -14,3 +14,5 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m unittest discover checks
       - run: python checks/check.py
+      - run: pip install -r tools/synth/requirements.txt
+      - run: python -m unittest discover tools/synth/tests

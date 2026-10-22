@@ -1,0 +1,186 @@
+{
+ "annee": 2025,
+ "assumptions": [
+  "cellules < 10 RHS omises (leur nombre est dans n_cells_lt10) : le total généré est un peu inférieur au réel",
+  "score RR d'un RHS : loi bêta bornée par le min et le max observés, d'espérance égale à la moyenne observée (forme non mesurée)",
+  "montant GMT d'un RHS : log-normale de moyenne observée par cellule, sigma 0,25 (non mesuré) ; le montant hebdomadaire est nul (comme mesuré)",
+  "une semaine de 2025 tirée uniformément ; un patient par RHS sauf une part de patients à plusieurs RHS (non mesurée à ce niveau)"
+ ],
+ "cells": [
+  {
+   "gn": "0127",
+   "gr": "I",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 310.65,
+   "n_rhs": 363,
+   "score_max": 360.0,
+   "score_min": 155.0,
+   "score_moy": 195.0
+  },
+  {
+   "gn": "0127",
+   "gr": "J",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 283.91,
+   "n_rhs": 604,
+   "score_max": 140.0,
+   "score_min": 60.0,
+   "score_moy": 106.2
+  },
+  {
+   "gn": "0127",
+   "gr": "K",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 251.41,
+   "n_rhs": 71,
+   "score_max": 0.0,
+   "score_min": 0.0,
+   "score_moy": 0.0
+  },
+  {
+   "gn": "0403",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 154.34,
+   "n_rhs": 56,
+   "score_max": 540.0,
+   "score_min": 0.0,
+   "score_moy": 283.0
+  },
+  {
+   "gn": "0406",
+   "gr": "I",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 220.42,
+   "n_rhs": 444,
+   "score_max": 540.0,
+   "score_min": 220.0,
+   "score_moy": 315.6
+  },
+  {
+   "gn": "0406",
+   "gr": "J",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 160.84,
+   "n_rhs": 106,
+   "score_max": 195.0,
+   "score_min": 110.0,
+   "score_moy": 154.9
+  },
+  {
+   "gn": "0406",
+   "gr": "K",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 159.39,
+   "n_rhs": 40,
+   "score_max": 85.0,
+   "score_min": 0.0,
+   "score_moy": 13.9
+  },
+  {
+   "gn": "0409",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 163.32,
+   "n_rhs": 21,
+   "score_max": 540.0,
+   "score_min": 85.0,
+   "score_moy": 294.5
+  },
+  {
+   "gn": "0415",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 206.08,
+   "n_rhs": 66,
+   "score_max": 470.0,
+   "score_min": 55.0,
+   "score_moy": 287.1
+  },
+  {
+   "gn": "0518",
+   "gr": "I",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 144.03,
+   "n_rhs": 15,
+   "score_max": 470.0,
+   "score_min": 230.0,
+   "score_moy": 327.0
+  },
+  {
+   "gn": "0603",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 187.57,
+   "n_rhs": 14,
+   "score_max": 370.0,
+   "score_min": 140.0,
+   "score_moy": 262.1
+  },
+  {
+   "gn": "0821",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 155.47,
+   "n_rhs": 20,
+   "score_max": 540.0,
+   "score_min": 0.0,
+   "score_moy": 297.0
+  },
+  {
+   "gn": "0878",
+   "gr": "I",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 266.09,
+   "n_rhs": 36,
+   "score_max": 470.0,
+   "score_min": 160.0,
+   "score_moy": 317.8
+  },
+  {
+   "gn": "1906",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 237.76,
+   "n_rhs": 44,
+   "score_max": 260.0,
+   "score_min": 0.0,
+   "score_moy": 159.8
+  },
+  {
+   "gn": "1909",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 298.72,
+   "n_rhs": 663,
+   "score_max": 375.0,
+   "score_min": 0.0,
+   "score_moy": 139.4
+  },
+  {
+   "gn": "2318",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 225.47,
+   "n_rhs": 101,
+   "score_max": 440.0,
+   "score_min": 0.0,
+   "score_moy": 228.3
+  },
+  {
+   "gn": "2703",
+   "gr": "L",
+   "jours_par_rhs": 1.0,
+   "mnt_gmt_moyen": 237.71,
+   "n_rhs": 74,
+   "score_max": 440.0,
+   "score_min": 55.0,
+   "score_moy": 278.1
+  }
+ ],
+ "n_cells_lt10": 5,
+ "sources": [
+  "evidence:20261020-rhs-htp-gn-gr-montants-2025-resultat",
+  "evidence:20261020-rhs-htp-scores-par-gn-gr-2025-resultat"
+ ]
+}
