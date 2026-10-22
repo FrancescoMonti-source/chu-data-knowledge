@@ -66,13 +66,15 @@ def sejour(tables: dict, years) -> list[dict]:
 
 def bloc(tables: dict, years) -> list[dict]:
     p = calib.params("bloc")["durees_moyennes"]
-    i, rows = tables["OR_INTERVENTIONS"], []
+    i, rows = tables["INTERVENTIONS"], []
+    mins = lambda a, b: (pd.to_datetime(i[a]) - pd.to_datetime(i[b])).dt.total_seconds() / 60
+    cols = {"occupation_min": mins("FIN", "DEBUT"), "tros_min": mins("DEBUT_BIONET", "DEBUT"), "incision_min": mins("FIN_INCISION", "DEBUT_INCISION")}
     for y in map(str, years):
-        g = i[i["DATE_INTERVENTION"].str[:4] == y]
-        if y not in p or not len(g):
+        sel = i["DEBUT"].str[:4] == y
+        if y not in p or not sel.any():
             continue
-        for col, k in (("DUREE_OCCUPATION_MIN", "occupation_min"), ("DUREE_TROS_MIN", "tros_min"), ("DUREE_INCISION_MIN", "incision_min")):
-            rows.append({"mesure": f"bloc {k} moyenne", "cle": y, "cible": p[y][k], "obtenu": float(g[col].mean()), "tolerance": 0.06 * p[y][k]})
+        for k, s in cols.items():
+            rows.append({"mesure": f"bloc {k} moyenne", "cle": y, "cible": p[y][k], "obtenu": float(s[sel].mean()), "tolerance": 0.06 * p[y][k]})
     return rows
 
 

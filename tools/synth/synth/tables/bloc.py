@@ -1,4 +1,4 @@
-"""OR_INTERVENTIONS (OpRoom) et TB_ACTE (CORA) synthétiques : volumes par mois et bloc, durées, saisie des actes."""
+"""INTERVENTIONS (extraction OpRoom) et TB_ACTE (CORA) synthétiques : volumes par mois et bloc, durées, saisie des actes."""
 from __future__ import annotations
 
 import string
@@ -70,13 +70,26 @@ def _interventions(rng, p: dict, scale: float, years: list[int]) -> pd.DataFrame
         occ[idx] = _lognormal(rng, d["occupation_min"], p["sigma_duree"], len(idx))
         out.loc[idx, "_f_tros"] = d["tros_min"] / d["occupation_min"]
         out.loc[idx, "_f_inc"] = d["incision_min"] / d["tros_min"]
-    out["DUREE_OCCUPATION_MIN"] = occ.round().astype(int)
-    out["DUREE_TROS_MIN"] = (occ * out["_f_tros"] * _unit_mean_beta(rng, 8, 1.2, n)).round().clip(1).astype(int).clip(upper=out["DUREE_OCCUPATION_MIN"])
-    out["DUREE_INCISION_MIN"] = (out["DUREE_TROS_MIN"] * out["_f_inc"] * _unit_mean_beta(rng, 4, 3, n)).round().clip(1).astype(int).clip(upper=out["DUREE_TROS_MIN"])
-    out = out.drop(columns=["_f_tros", "_f_inc"])
+    occupation = pd.Series(occ).round().clip(1).astype(int)
+    tros = (occ * out["_f_tros"] * _unit_mean_beta(rng, 8, 1.2, n)).round().clip(1).astype(int).clip(upper=occupation)
+    incision = (tros * out["_f_inc"] * _unit_mean_beta(rng, 4, 3, n)).round().clip(1).astype(int).clip(upper=tros)
+    start = pd.to_datetime(out["DATE_INTERVENTION"]) + pd.to_timedelta(rng.integers(8 * 60, 18 * 60, size=n), unit="min")
+    offset = (rng.random(n) * (tros - incision)).astype(int)
+    fmt = "%Y-%m-%d %H:%M:%S"
+    # noms de l'extraction INTERVENTIONS d'OpRoom (requêtes knowledge/queries/*oproom*) ; valeurs en texte, vide = NULL
+    out["DEBUT"] = start.dt.strftime(fmt)
+    out["FIN"] = (start + pd.to_timedelta(occupation, unit="min")).dt.strftime(fmt)
+    out["DEBUT_BIONET"] = (start + pd.to_timedelta(tros, unit="min")).dt.strftime(fmt)
+    out["DEBUT_INCISION"] = (start + pd.to_timedelta(offset, unit="min")).dt.strftime(fmt)
+    out["FIN_INCISION"] = (start + pd.to_timedelta(offset + incision, unit="min")).dt.strftime(fmt)
+    out["SALLE_CODE"] = np.where(out.pop("SITE_GILLIES"), "SALLE GILLIES", "SALLE " + pd.Series(rng.integers(1, 15, size=n)).astype(str))
+    out["SALLE"] = out["SALLE_CODE"]
+    out["SALLE_VIRTUELLE"] = np.where(out["SALLE_VIRTUELLE"], "1", "0")
+    out["ETAT"] = "4"
+    out = out.drop(columns=["_f_tros", "_f_inc", "DATE_INTERVENTION"])
     rates = np.array([p["taux_annee"].get(y, p["taux_annee"][max(p["taux_annee"])]).get("p_plusieurs_chirurgiens", 0.12) for y in year])
-    out["N_CHIRURGIENS"] = 1 + (rng.random(n) < rates).astype(int)
-    out.loc[rng.random(n) < np.array([p["taux_annee"].get(y, p["taux_annee"][max(p["taux_annee"])]).get("p_sans_chirurgien", 0.001) for y in year]), "N_CHIRURGIENS"] = 0
+    out["NB_CHIRURGIENS"] = 1 + (rng.random(n) < rates).astype(int)
+    out.loc[rng.random(n) < np.array([p["taux_annee"].get(y, p["taux_annee"][max(p["taux_annee"])]).get("p_sans_chirurgien", 0.001) for y in year]), "NB_CHIRURGIENS"] = 0
     return out
 
 
@@ -120,4 +133,4 @@ def _actes(rng, p: dict, scale: float, years: list[int]) -> pd.DataFrame:
 @generator("bloc")
 def bloc(rng: np.random.Generator, scale: float, years: list[int]) -> dict[str, pd.DataFrame]:
     p = calib.params("bloc")
-    return {"OR_INTERVENTIONS": _interventions(rng, p, scale, years), "TB_ACTE": _actes(rng, p, scale, years)}
+    return {"INTERVENTIONS": _interventions(rng, p, scale, years), "TB_ACTE": _actes(rng, p, scale, years)}

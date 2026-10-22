@@ -83,9 +83,12 @@ class Generation(unittest.TestCase):
         self.assertTrue(self.m["provenance"]["rss"]["sources"])
 
     def test_bloc(self):
-        i = self.t["OR_INTERVENTIONS"]
-        self.assertTrue((i["DUREE_INCISION_MIN"] <= i["DUREE_TROS_MIN"]).all() and (i["DUREE_TROS_MIN"] <= i["DUREE_OCCUPATION_MIN"]).all())
-        self.assertGreater(i["DUREE_OCCUPATION_MIN"].mean(), i["DUREE_OCCUPATION_MIN"].median())
+        i = self.t["INTERVENTIONS"]
+        d = lambda a, b: (pd.to_datetime(i[a]) - pd.to_datetime(i[b])).dt.total_seconds() / 60
+        occ = d("FIN", "DEBUT")
+        self.assertTrue((d("FIN_INCISION", "DEBUT_INCISION") <= d("DEBUT_BIONET", "DEBUT")).all() and (d("DEBUT_BIONET", "DEBUT") <= occ).all())
+        self.assertGreater(occ.mean(), occ.median())
+        self.assertTrue(i["SALLE_VIRTUELLE"].isin(["0", "1"]).all())
 
     @unittest.skipUnless(calib.available("fme.json"), "calibration FME absente")
     def test_perimetre_fme(self):

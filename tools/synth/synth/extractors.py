@@ -221,9 +221,9 @@ def bloc(src: Sources) -> dict:
         "durees_moyennes": durees, "taux_annee": rates, "actes_mix_mois": actes_mix, "actes_n_mois": actes_n, "p_no_intervention": p_interv,
         "delai_saisie": delai, "actes_par_intervention": actes_par_interv, "p_saisie": p_saisie, "sigma_duree": 0.55,
         "assumptions": [
-            "forme des durées de bloc : log-normale de moyenne mesurée (OR_INTERVENTIONS durées moyennes) et d'écart-type logarithmique sigma_duree, non mesuré ; incision ≤ TROS ≤ occupation par construction",
+            "forme des durées de bloc : log-normale de moyenne mesurée (INTERVENTIONS durées moyennes) et d'écart-type logarithmique sigma_duree, non mesuré ; incision ≤ TROS ≤ occupation par construction",
             "spécialité, bloc, anesthésie, priorité : tirés séparément (seule l'anesthésie dépend de la spécialité, mesurée) : les liaisons bloc × spécialité ne sont pas reproduites",
-            "aucun lien généré entre TB_ACTE et OR_INTERVENTIONS (le chaînage est un sujet de claims, pas simulé) ; NO_INTERVENTION est un entier aléatoire quand il est renseigné",
+            "aucun lien généré entre TB_ACTE et INTERVENTIONS (le chaînage est un sujet de claims, pas simulé) ; NO_INTERVENTION est un entier aléatoire quand il est renseigné",
             "TB_ACTE.ECRAN : valeur fictive « ECR » quand l'écran est renseigné (seule la présence est mesurée)",
             "code CCAM : forme 4 lettres + 3 chiffres tirée au hasard, non mesurée",
             "dans un mois, un jour est tiré uniformément",

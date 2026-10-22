@@ -27,7 +27,7 @@ tables, manifest = synth.generate(seed=1, scale=0.02, years=range(2022, 2026), f
 | `--scale` | part du volume réel : 1 = autant de séjours que l'hôpital (≈ 170 000 RSS par an ; 0,02 suffit pour un test) |
 | `--years` | `2022-2025` ou `2022,2024` |
 | `--perimeter` | `hospital` (marginales de l'hôpital) ou `fme` (cellules UF × GHM × GHS × DP du pôle, avec UF d'hébergement) |
-| `--families` | `rss` (TB_SYNTH_RSS, TB_SEJOUR, et en `fme` TB_SYNTH_RUM, SYNTH_REF_UF_POLE_FME, PMSI_LIB_GHS_TARIF), `bloc` (OR_INTERVENTIONS, TB_ACTE), `htp` (TB_MVT_SSR_SEM, 2025) |
+| `--families` | `rss` (TB_SYNTH_RSS, TB_SEJOUR, et en `fme` TB_SYNTH_RUM, SYNTH_REF_UF_POLE_FME, PMSI_LIB_GHS_TARIF), `bloc` (INTERVENTIONS, l'extraction OpRoom des requêtes de CDK ; TB_ACTE), `htp` (TB_MVT_SSR_SEM, 2025) |
 
 Les tables préfixées `SYNTH_` n'existent pas dans CORA : ce sont des référentiels de commodité (ici les UF du pôle FME) ; ne pas supposer qu'elles existent à l'hôpital, et lire les vraies tables par leurs claims. `PMSI_LIB_GHS_TARIF` porte le nom de la vraie table mais pas forcément ses colonnes.
 
@@ -37,7 +37,7 @@ La sortie est un CSV par table et `manifest.json` : graine, réglages, effectifs
 
 Chaque paramètre vient d'un agrégat du dépôt ou est une hypothèse écrite dans `assumptions` (calibration/*.json, manifeste). Mesuré, entre autres : le volume annuel de RSS ; la part des séances, des 0 nuit et des séjours d'au moins une nuit ; la répartition type de GHM × sixième caractère ; la répartition des durées par niveau de sévérité ; les modes de sortie, destinations, provenances ; la version de groupage par semestre ; la forme des codes CIM-10 ; la part de GHS 9999 ; la part de séjours sans RSS et de séjours ouverts ; pour le pôle FME, chaque cellule UF × GHM × GHS × DP à 3 caractères et la durée moyenne de chacune ; pour le bloc, volumes par mois et bloc, spécialités, durées moyennes d'occupation, de TROS et d'incision, délais de saisie des actes.
 
-Supposé, et à ne pas prendre pour une mesure : la forme des durées dans chaque cellule (gamma-Poisson, dispersion `phi` non mesurée), la queue des durées de 5 nuits et plus, la racine de GHM hors pôle FME (tirée au hasard dans le référentiel des GHS), le chapitre CIM-10 du DP hors pôle FME, les montants, les liaisons entre variables que l'agrégat ne donne pas (bloc × spécialité, TB_ACTE × OR_INTERVENTIONS : aucun lien généré). La liste exacte est dans le manifeste.
+Supposé, et à ne pas prendre pour une mesure : la forme des durées dans chaque cellule (gamma-Poisson, dispersion `phi` non mesurée), la queue des durées de 5 nuits et plus, la racine de GHM hors pôle FME (tirée au hasard dans le référentiel des GHS), le chapitre CIM-10 du DP hors pôle FME, les montants, les liaisons entre variables que l'agrégat ne donne pas (bloc × spécialité, TB_ACTE × INTERVENTIONS : aucun lien généré). La liste exacte est dans le manifeste.
 
 Un test de fidélité (`python -m synth.fidelity` depuis tools/synth, ou le test unittest) vérifie que les lignes générées retrouvent les agrégats de calibration. Il vérifie la cohérence avec la calibration, pas la vérité de la calibration.
 
@@ -61,7 +61,8 @@ Les agrégats sources contiennent des `<10` et des `masqué`. Une cellule `<10` 
 - Les durées ne sont mesurées que par classes (0, 1, 2, 3, 4, 5+ nuits) ou par moyennes. Une requête qui rendrait des quantiles de durée par CMD améliorerait le plus la fidélité.
 - Hors pôle FME, un RSS n'a pas d'UF ni de RUM ; hors 2025, pas de RHS.
 - Les séjours ouverts sont supposés sans RSS.
-- Les noms de colonnes suivent le catalogue (knowledge/evidence, catalogues de colonnes) quand il les donne ; les colonnes d'OR_INTERVENTIONS et de TB_ACTE générées sont indicatives.
+- Les noms de colonnes suivent le catalogue (knowledge/evidence, catalogues de colonnes) quand il les donne ; TB_ACTE générée est indicative ; INTERVENTIONS reprend les colonnes lues par les requêtes oproom de knowledge/queries/.
+- Pas de tables de structure de CORA (TB_MVT, TB_UNITE, TB_UNITE_POLE_UM) : un code qui les joint ne s'essaie ici que sur ce que l'agent fabrique à la main ; c'est la première extension utile (un agent de l'évaluation l'a relevé).
 - Fichiers de calibration volumineux : ghs_tarif.csv (référentiel des GHS, 1,3 Mo) et fme_cells.csv (0,5 Mo).
 
 ## Règles du dépôt
