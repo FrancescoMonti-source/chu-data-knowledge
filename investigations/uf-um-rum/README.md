@@ -13,6 +13,8 @@ Issue : #100
 - **Branche :** claude/project-thread-mgw97o, imposée par la session, au lieu de investigation/uf-um-rum.
 
 ## Choix
+- **Colonnes à tester :** ID_UF_ATTRIB est vide pour pratiquement tous les RUM de 2022 à 2026 (20261022-rum-uf-attrib-par-annee : moins de 10 renseignés par année). Le catalogue (20261022-uf-um-catalogue) montre trois autres colonnes d'unité dans TB_SYNTH_RUM : UF_ATTRIB (code, VARCHAR2), ID_UNITE_HEBERG et ID_UNITE_RESP_MED. On les mesure avant de choisir (plan revu).
+- **Référentiel figé en attendant :** Pierre indique ref_uf2umpmsi.txt (dépôt redsan, FrancescoMonti-source, inst/extdata/reference), qui donne pour chaque UF (SEJUF) son regroupement d'UM de séjour (SEJUM, ex. PEDE) et l'UM PMSI (UM_PMSI). Il rattache UF 5622 à l'UM 5618 et UF 5623 à l'UM 5619. C'est une piste à lire et à confronter à CORA, pas une preuve.
 
 ## Conclusions
 Aucune pour l'instant.
