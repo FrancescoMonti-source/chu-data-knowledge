@@ -24,6 +24,7 @@ Issue : #103
 - **Supplément USIP :** TB_SYNTH_RSS a une colonne MNT_JOUR_USIP, en plus de NB_JOUR_SOINS_INT et NB_JOUR_SURV_CONT (20261023-usip-catalogue) ; la valorisation la lit.
 - **Actes d'endartériectomie : les neuf actes de thromboendartériectomie carotidienne utilisés** (EBFA002, 003, 006, 008, 009, 010, 012, 015, 016). Les trois actes du cadrage (EBFA003, 009, 010) ont moins de 10 actes par an chacun, EBFA010 aucun depuis 2022, alors que EBFA016 en a 47 à 59 par an (20261023-ccam-endarteriectomie-carotide) ; Francesco a choisi la liste complète (carte du 2026-10-23).
 - **Périodes d'octobre à août :** avant = 2022-10 à 2023-08, 2023-10 à 2024-08, 2024-10 à 2025-08 ; après = 2025-10 à 2026-08 ; mêmes mois de part et d'autre, pour écarter la saisonnalité ; septembre et octobre 2026 ne sont pas encore groupés.
+- **La DMS est celle du séjour entier, pas du passage dans l'unité** (Francesco, 2026-10-23) : avant l'ouverture, l'USIP n'existait pas, donc seule la durée de tout le RSS se compare ; la durée dans l'unité reste une description (20261023-usip-typologie-flux). Un séjour de SMR qui suit n'est pas compté.
 - **Comparaison générale (étape 3) :** les RSS passés par l'UF 6284 avant, contre ceux passés par l'USIP après, avec leur casemix (CMD, racines) pour lire l'effet du triplement des lits (4 puis 12) ; DMS en hospitalisation complète seulement (au moins une nuit).
 
 ## Conclusions
