@@ -22,5 +22,8 @@ Issue : #103
 - **Avant l'USIP, l'UF 6284.** L'UF 6284 « REA CHIR U72 SI » (4 lits, autorisation 24C depuis mars 2025, 02B ou 02C en 2024 et début 2025, 03A avant) s'arrête en octobre 2025, quand 6281 commence (20261023-usip-uf-structure, 20261023-usip-mvt-rum-par-mois) : la période « avant » compte ses passages comme ceux d'une unité de même rôle.
 - **Passage = RUM de l'UM 6281.** Les mouvements de l'UF 6281 ont un RUM, sauf moins de 10 certains mois et les deux derniers mois, pas encore groupés ; ces RUM portent l'UM 6281 et l'UF d'hébergement 6281 (20261023-usip-mvt-rum-par-mois).
 - **Supplément USIP :** TB_SYNTH_RSS a une colonne MNT_JOUR_USIP, en plus de NB_JOUR_SOINS_INT et NB_JOUR_SURV_CONT (20261023-usip-catalogue) ; la valorisation la lit.
+- **Actes d'endartériectomie : les neuf actes de thromboendartériectomie carotidienne utilisés** (EBFA002, 003, 006, 008, 009, 010, 012, 015, 016). Les trois actes du cadrage (EBFA003, 009, 010) ont moins de 10 actes par an chacun, EBFA010 aucun depuis 2022, alors que EBFA016 en a 47 à 59 par an (20261023-ccam-endarteriectomie-carotide) ; Francesco a choisi la liste complète (carte du 2026-10-23).
+- **Périodes d'octobre à août :** avant = 2022-10 à 2023-08, 2023-10 à 2024-08, 2024-10 à 2025-08 ; après = 2025-10 à 2026-08 ; mêmes mois de part et d'autre, pour écarter la saisonnalité ; septembre et octobre 2026 ne sont pas encore groupés.
+- **Comparaison générale (étape 3) :** les RSS passés par l'UF 6284 avant, contre ceux passés par l'USIP après, avec leur casemix (CMD, racines) pour lire l'effet du triplement des lits (4 puis 12) ; DMS en hospitalisation complète seulement (au moins une nuit).
 
 ## Conclusions
