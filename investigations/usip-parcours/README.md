@@ -4,10 +4,10 @@ Personne : Francesco
 Issue : #103
 
 ## Cadrage
-- **But :** répondre à une demande d'appui du DIM : typologie et flux des patients de l'USIP ; DMS et valorisation par GHS avant et après l'ouverture ; effet du passage à l'USIP sur la DMS des endartériectomies carotidiennes, qui n'y passaient pas avant ; évolution de la DMS des patients de chirurgie digestive qui y passent.
+- **But :** répondre, pour le DIM, à une question de la direction : typologie et flux des patients de l'USIP ; DMS et valorisation par GHS avant et après l'ouverture ; effet du passage à l'USIP sur la DMS des endartériectomies carotidiennes, qui n'y passaient pas avant selon la direction ; évolution de la DMS des patients de chirurgie digestive qui y passent.
 - **Source :** CORA de production (CWPROD, schéma CORA_REC), requêtes exécutées par Francesco.
 - **Passage à l'USIP :** un RUM dans l'unité de l'USIP (Francesco). Le lien entre le mouvement dans l'UF 6281 et le RUM se mesure à l'étape 1 avant de s'en servir.
-- **Ouverture :** date lue dans CORA (premier mois d'activité régulière de l'UF 6281), à confirmer par le DIM. Hypothèse de Francesco : début 2026 ; l'UF 6281 manque du fichier structure de 2025.
+- **Ouverture :** date lue dans CORA (premier mois d'activité régulière de l'UF 6281), à confirmer auprès de la direction. Hypothèse de Francesco : début 2026 ; l'UF 6281 manque du fichier structure de 2025.
 - **Périodes :** trois ans avant l'ouverture, et tout ce qui suit, par date de sortie ; les deux à trois derniers mois sont écartés, parce que leurs RSS ne sont pas encore codés (rss-mois-recents-non-codes).
 - **DMS :** en nuitées et en journées (duree-sejour-journees-ou-nuitees) ; en heures aussi, puisque CORA garde l'heure d'entrée et de sortie (date-et-heure-dans-deux-colonnes), en disant la part des sorties à minuit, plus forte en 2025 et 2026.
 - **Valorisation :** MONTANT_GHS (montant-ghs-rss), et le tarif à une année fixe (tarif-ghs-jointure-couverture), pour qu'un changement de tarif ne passe pas pour un changement de casemix ; plus les journées de suppléments de soins intensifs et de surveillance continue.
@@ -18,7 +18,7 @@ Issue : #103
 - **Branche :** claude/project-thread-hsi2z1, imposée par la session, au lieu de investigation/usip-parcours.
 
 ## Choix
-- **Ouverture : octobre 2025, et non début 2026.** L'UF 6281 « USIP CHIRURIGICALE » est rattachée à l'UM 6281 depuis le 2025-10-01, avec l'autorisation 24C et 12 lits (20261023-usip-uf-structure) ; ses premiers mouvements datent d'octobre 2025, aucun avant (20261023-usip-mvt-rum-par-mois). Date à confirmer par le DIM.
+- **Ouverture : octobre 2025, et non début 2026.** L'UF 6281 « USIP CHIRURIGICALE » est rattachée à l'UM 6281 depuis le 2025-10-01, avec l'autorisation 24C et 12 lits (20261023-usip-uf-structure) ; ses premiers mouvements datent d'octobre 2025, aucun avant (20261023-usip-mvt-rum-par-mois). Date à confirmer auprès de la direction.
 - **Avant l'USIP, l'UF 6284.** L'UF 6284 « REA CHIR U72 SI » (4 lits, autorisation 24C depuis mars 2025, 02B ou 02C en 2024 et début 2025, 03A avant) s'arrête en octobre 2025, quand 6281 commence (20261023-usip-uf-structure, 20261023-usip-mvt-rum-par-mois) : la période « avant » compte ses passages comme ceux d'une unité de même rôle.
 - **Passage = RUM de l'UM 6281.** Les mouvements de l'UF 6281 ont un RUM, sauf moins de 10 certains mois et les deux derniers mois, pas encore groupés ; ces RUM portent l'UM 6281 et l'UF d'hébergement 6281 (20261023-usip-mvt-rum-par-mois).
 - **Supplément USIP :** TB_SYNTH_RSS a une colonne MNT_JOUR_USIP, en plus de NB_JOUR_SOINS_INT et NB_JOUR_SURV_CONT (20261023-usip-catalogue) ; la valorisation la lit.
