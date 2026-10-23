@@ -28,3 +28,8 @@ Issue : #103
 - **Comparaison générale (étape 3) :** les RSS passés par l'UF 6284 avant, contre ceux passés par l'USIP après, restent une catégorie de PASSAGE et une description, pas la réponse : les lits passent de 4 à 12, donc l'USIP reçoit sans doute des patients moins lourds. La réponse vient de groupes définis sans l'unité : endartériectomies, chirurgie digestive, et racines de GHM les plus fréquentes à l'USIP, choisies d'après 20261023-usip-typologie-flux. DMS en hospitalisation complète seulement (au moins une nuit).
 
 ## Conclusions
+Résultat partiel (2026-10-23), à relire avant d'en tirer des claims ; chiffres de 20261023-usip-dms-valorisation-2 et 20261023-usip-typologie-flux, cases <10 laissées de côté.
+- Endartériectomies carotidiennes : DMS moyenne 7,5, 8,8 et 8,2 nuitées les trois années avant, 7,2 après ; après l'ouverture, 8,0 avec passage à l'USIP (49 RSS) et 6,0 sans (29), médiane 5 dans les deux cas. En 2024-2025, 22 RSS sur 85 visibles passaient déjà par l'UF 6284.
+- Chirurgie digestive (GHM C, au moins une nuit) : DMS moyenne 10,4, 9,2 et 9,5 avant, 10,2 après ; part passée par l'unité de 12-13 % à 20 % ; DMS des patients de l'USIP 17,2 (médiane 13), contre 18,2 à 22,5 (médiane 14 à 16) pour ceux de l'UF 6284 avant.
+- USIP : 1 256 RSS contre 575 à 679 par période pour l'UF 6284 ; nouvelles spécialités (CMD 01, ORL) ; DMS 13,3 contre 14,4 à 16,0.
+- PRIX_2026_MOY vaut environ la moitié de MONTANT_GHS_MOY : le plus petit PRIX d'un GHM n'est sans doute pas le tarif public ; ne pas s'en servir avant de lire la table de tarif.
