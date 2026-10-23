@@ -1,0 +1,55 @@
+---
+id: 20261023-usip-uf-structure-resultat
+type: execution
+query: 20261023-usip-uf-structure
+run_at: 2026-10-23 14:17
+database: CWPROD
+executed_by: Francesco
+modified: no
+person_data: no-person-data
+---
+| QUERY_ID | DATABASE_NAME | RUN_AT | CODE_UF | LIBELLE_UF | UF_ACTIF | UF_REA | CODE_UM | LIBELLE_UM | UM_ACTIF | DATE_DEBUT_LIEN | DATE_FIN_LIEN | TYPE_AUTORISATION | DATE_EFFET_AUTORISATION | LITS_AUTORISES |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 2605 | BLOC URG.CHIR.DIGEST | N | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 2615 | BLOC SPE CHIR DIGES | O | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 2642 | BLOC URO.DIGEST LOC | N | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 2663 | BLOC AMBU.CHIR. DIG. | N | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 2668 | BLOC SP CH DIG ROBEC | O | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6280 | REA.CHIRURGICALE | N | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6281 | USIP CHIRURIGICALE | O | N | 6281 | USIP CHIRURIGICALE | O | 2025-10-01 | 2099-12-31 | 24C | 2025-10-01 | 12 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6282 | REA.CHIR.UNITE 70 | O | O | 6282 | REA.CHIR.UNITE 70 | O | 2004-01-01 | 2099-01-01 | 01A | 2004-01-01 | 6 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6283 | REA.CHIR.UNITE 71 | O | O | 6283 | REA.CHIR.UNITE 71 | O | 2004-01-01 | 2015-10-31 | 01A | 2004-01-01 | 11 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6283 | REA.CHIR.UNITE 71 | O | O | 6283 | REA.CHIR.UNITE 71 | O | 2015-11-01 |  | 01A | 2015-11-01 | 12 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6284 | REA CHIR U72 SI | O | N | 6284 | REA CHIR U72 SI | O | 2016-01-01 | 2020-03-28 | 03A | 2016-01-01 | 4 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6284 | REA CHIR U72 SI | O | N | 6284 | REA CHIR U72 SI | O | 2020-03-29 | 2020-05-25 | 01A | 2020-03-29 | 4 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6284 | REA CHIR U72 SI | O | N | 6284 | REA CHIR U72 SI | O | 2020-05-26 | 2023-12-31 | 03A | 2020-05-26 | 4 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6284 | REA CHIR U72 SI | O | N | 6284 | REA CHIR U72 SI | O | 2024-01-01 | 2024-12-31 | 02B | 2024-01-01 | 4 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6284 | REA CHIR U72 SI | O | N | 6284 | REA CHIR U72 SI | O | 2025-01-01 | 2025-02-28 | 02C | 2025-01-01 | 4 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6284 | REA CHIR U72 SI | O | N | 6284 | REA CHIR U72 SI | O | 2025-03-01 | 2025-12-31 | 24C | 2025-03-01 | 4 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6285 | REA.CHIR.U75 S.A.R | O | O | 6285 | REA.CHIR.U75 S.A.R | O | 2004-01-01 | 2015-10-31 | 01A | 2004-01-01 | 2 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6285 | REA.CHIR.U75 S.A.R | O | O | 6285 | REA.CHIR.U75 S.A.R | O | 2015-11-01 |  | 01A | 2015-11-01 | 1 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6286 | REA SALLE REVEIL 7EM | N | N | 6286 | REA SALLE REVEIL 7EM | N | 2020-03-17 | 2020-05-13 | 01A | 2020-03-17 | 0 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6286 | REA SALLE REVEIL 7EM | N | N | 6286 | REA SALLE REVEIL 7EM | N | 2020-05-14 | 2020-06-08 | 03A | 2020-05-14 | 0 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6287 | REA S REVEIL 2E DER | N | O | 6287 | REA S REVEIL 2E DER | N | 2020-03-24 | 2020-04-16 | 01A | 2020-03-24 | 0 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-04-01 | 2020-10-22 | 01A | 2020-04-01 | 8 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-10-23 | 2020-10-28 | 01A | 2020-10-23 | 9 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-10-29 | 2020-11-05 | 01A | 2020-10-29 | 15 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-11-06 | 2020-11-26 | 01A | 2020-11-06 | 19 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-11-27 | 2020-11-30 | 01A | 2020-11-27 | 18 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-12-01 | 2020-12-03 | 01A | 2020-12-01 | 14 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2020-12-05 | 2020-12-08 | 01A | 2020-12-05 | 9 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-03-13 | 2021-03-21 | 01A | 2021-03-13 | 9 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-03-22 | 2021-03-26 | 01A | 2021-03-22 | 14 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-03-27 | 2021-04-01 | 01A | 2021-03-27 | 16 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-04-02 | 2021-04-06 | 01A | 2021-04-02 | 19 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-04-07 | 2021-05-10 | 01A | 2021-04-07 | 20 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-05-11 | 2021-05-19 | 01A | 2021-05-11 | 16 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6288 | REA EPHEMERE | O | O | 6288 | REA EPHEMERE | O | 2021-05-20 |  | 01A | 2021-05-20 | 12 |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6289 | REA ROBEC | O | O | 6289 | REA ROBEC | O | 2020-11-16 | 2099-01-01 | 01A | 2020-11-16 |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6300 | CHIRURGIE DIGESTIVE | N | N |  |  |  |  |  |  |  |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6310 | CHIR.DIG.JEAN LOYGUE | O | N | 6310 | CHIR.DIG.JEAN LOYGUE | O | 2004-01-01 | 2099-01-01 | 53 | 2004-01-01 |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6311 | HDJ CHIR DIG | O | N | 6311 | HDJ CHIR DIG | O | 2024-04-01 |  | 53 | 2024-04-01 |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6320 | CHIR.DIG.MONDOR | O | N | 6320 | CHIR.DIG.MONDOR | O | 2004-01-01 | 2099-01-01 | 53 | 2004-01-01 |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6330 | CHIR.DIG.JOUANNEAU | O | N | 6330 | CHIR.DIG.JOUANNEAU | O | 2004-01-01 | 2099-01-01 | 53 | 2004-01-01 |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 6340 | CHIR DIGESTIVE UAAP | O | N | 6340 | CHIR DIGESTIVE UAAP | O | 2004-01-01 | 2099-01-01 | 53 | 2004-01-01 |  |
+| 20261023-usip-uf-structure | CWPROD | 2026-10-23 14:17 | 8840 | CHIR.DIG.CS | O | N |  |  |  |  |  |  |  |  |

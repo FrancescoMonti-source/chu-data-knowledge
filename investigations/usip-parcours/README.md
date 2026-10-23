@@ -18,5 +18,9 @@ Issue : #103
 - **Branche :** claude/project-thread-hsi2z1, imposée par la session, au lieu de investigation/usip-parcours.
 
 ## Choix
+- **Ouverture : octobre 2025, et non début 2026.** L'UF 6281 « USIP CHIRURIGICALE » est rattachée à l'UM 6281 depuis le 2025-10-01, avec l'autorisation 24C et 12 lits (20261023-usip-uf-structure) ; ses premiers mouvements datent d'octobre 2025, aucun avant (20261023-usip-mvt-rum-par-mois). Date à confirmer par le DIM.
+- **Avant l'USIP, l'UF 6284.** L'UF 6284 « REA CHIR U72 SI » (4 lits, autorisation 24C depuis mars 2025, 02B ou 02C en 2024 et début 2025, 03A avant) s'arrête en octobre 2025, quand 6281 commence (20261023-usip-uf-structure, 20261023-usip-mvt-rum-par-mois) : la période « avant » compte ses passages comme ceux d'une unité de même rôle.
+- **Passage = RUM de l'UM 6281.** Les mouvements de l'UF 6281 ont un RUM, sauf moins de 10 certains mois et les deux derniers mois, pas encore groupés ; ces RUM portent l'UM 6281 et l'UF d'hébergement 6281 (20261023-usip-mvt-rum-par-mois).
+- **Supplément USIP :** TB_SYNTH_RSS a une colonne MNT_JOUR_USIP, en plus de NB_JOUR_SOINS_INT et NB_JOUR_SURV_CONT (20261023-usip-catalogue) ; la valorisation la lit.
 
 ## Conclusions
