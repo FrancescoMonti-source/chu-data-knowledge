@@ -19,4 +19,9 @@ Issue : #108
 - **Version ancienne du fichier optionnelle :** une seule version est sur le poste de Pierre ; `--ancien` compare à une autre s'il en a une, sinon l'historique du fichier reste non établi.
 
 ## Conclusions
-En attente des résultats (étapes 1 à 4 du plan, #108).
+Résultats reçus le 2026-10-26 (20261026-structure-fichier-vs-cora-resultat, 20261026-structure-mouvements-hors-fichier-resultat) ; les claims restent à écrire avec Pierre (étape 5 du plan, #108).
+- Le Code UF du fichier est un CODE_UNITE de TB_UNITE pour 675 des 1 187 UF ; 235 sont aussi un CODE_UNITE_MED, avec le même libellé pour 220 ; 512 ne sont dans aucune des deux tables.
+- Dans CORA, 241 des 246 UF liées à une UM l'ont avec une UM de même code : au niveau du code, UF et UM ne se distinguent pas pour ces UF.
+- Le pôle du fichier a le libellé du pôle de CORA pour 161 des 225 UF qui ont un pôle dans CORA, avec un autre code ; 64 diffèrent par le code et le libellé.
+- Aucune UF du fichier n'a de date de fin passée : le fichier ne garde pas les UF fermées. Une seule version du fichier : son historique n'est pas établi.
+- Mouvements 2022-2025 hors fichier : 1 028, 880, 714 et 604 par an, sur plus de 900 000.
