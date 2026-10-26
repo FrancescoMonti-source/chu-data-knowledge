@@ -10,7 +10,7 @@ Un enregistrement de TB_SEJOUR : un passage d'un patient au CHU, d'une date d'en
 
 ## cora:rss
 
-Alias : RSS, TB_SYNTH_RSS, résumé de sortie standardisé
+Alias : RSS, TB_SYNTH_RSS, résumé de sortie standardisé, séjour MCO
 
 Un enregistrement de TB_SYNTH_RSS : le résultat du groupage MCO d'un séjour dans CORA, fait d'un ou plusieurs RUM. Un séjour s'y relie par ses mouvements : TB_MVT, puis TB_MVT_RUM, qui porte l'ID_RSS.
 
@@ -85,3 +85,15 @@ Un compte de personne qui saisit ou modifie des données dans CORA (acte, séjou
 Alias : RHS, résumé hebdomadaire de séjour, TB_MVT_SSR_SEM, mouvement-semaine SMR
 
 Un enregistrement de TB_MVT_SSR_SEM : un mouvement d'une unité de SMR découpé par semaine calendaire (lundi au dimanche), identifié par ID_MVT et NO_SEMAINE. Il porte les jours de présence de la semaine, le groupage (GME), le score de réadaptation et les montants.
+
+## cora:duree-sejour
+
+Alias : DMS, durée moyenne de séjour, durée de séjour, DUREE_SEJOUR, journées, nuitées, nuit
+
+La durée d'un séjour d'hospitalisation complète, comptée en journées (sortie − entrée + 1) ou en nuitées (sortie − entrée) ; elles diffèrent de 1 par séjour. La DMS est la moyenne de cette durée. Sans unité précisée, la durée n'est pas définie.
+
+## cora:type-prise-en-charge
+
+Alias : type de prise en charge, prise en charge, hospitalisation complète, HC, ambulatoire, AMBU, séance, séjour d'au moins une nuit
+
+Le classement d'un séjour CORA en hospitalisation complète, ambulatoire ou séance, reconstruit depuis son RSS. Ce n'est pas TYPE_SEJOUR (cora:type-sejour), et un séjour sans RSS n'est pas classé.
