@@ -5,7 +5,7 @@ query: 20261026-usip-temoin-candidats
 run_at: 2026-10-26 16:48
 database: CWPROD
 executed_by: Francesco
-modified: unknown
+modified: no
 person_data: masked
 ---
 | QUERY_ID | DATABASE_NAME | RUN_AT | GROUPE | LIBELLE | N_RSS_2223 | N_RSS_2324 | N_RSS_2425 | N_RSS_2526 | DMS_2223 | DMS_2324 | DMS_2425 | DMS_2526 | PCT_UNITE_2425 | PCT_UNITE_2526 | PCT_SOINS_CRIT_2425 | PCT_SOINS_CRIT_2526 | AGE_MOY_2526 |
