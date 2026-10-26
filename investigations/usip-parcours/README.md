@@ -33,7 +33,7 @@ Issue : #103
 ## Conclusions
 Claim que la branche fait entrer : tarif-ghs-par-ghm-et-code-ghs (unreviewed), le tarif d'un RSS se joint par le GHM et le CODE_GHS. Il conteste tarif-ghs-jointure-couverture (unreviewed), passé à challenged ; Pierre et Francesco tranchent. Le claim sur l'arrêt de l'UF 6284 le mois où l'UF 6281 commence attend une confirmation de l'hôpital (Francesco, 2026-10-26).
 
-Résultats, qui ne guident aucune requête et ne deviennent pas des claims (2026-10-23 ; chiffres de 20261023-usip-dms-valorisation-2 et 20261023-usip-typologie-flux, cases <10 laissées de côté) :
-- Endartériectomies carotidiennes : DMS moyenne 7,5, 8,8 et 8,2 nuitées les trois années avant, 7,2 après ; après l'ouverture, 8,0 avec passage à l'USIP (49 RSS) et 6,0 sans (29), médiane 5 dans les deux cas. En 2024-2025, 22 RSS sur 85 visibles passaient déjà par l'UF 6284.
+Résultats, qui ne guident aucune requête et ne deviennent pas des claims (2026-10-23 et 2026-10-26 ; chiffres de 20261023-usip-dms-valorisation-2, 20261023-usip-typologie-flux et 20261026-usip-temoin-candidats, cases <10 laissées de côté) :
+- Endartériectomies carotidiennes, tous RSS : DMS moyenne 7,9, 9,2 et 8,1 nuitées les trois années avant, 7,6 après ; 25 % passent par l'UF 6284 en 2024-2025, 60 % par l'USIP en 2025-2026 (20261026-usip-temoin-candidats-resultat). Après l'ouverture, 8,0 nuitées avec passage à l'USIP et 6,0 sans passage par une unité de soins critiques, médiane 5 dans les deux cas (20261023-usip-dms-valorisation-2-resultat).
 - Chirurgie digestive (GHM C, au moins une nuit) : DMS moyenne 10,4, 9,2 et 9,5 avant, 10,2 après ; part passée par l'unité de 12-13 % à 20 % ; DMS des patients de l'USIP 17,2 (médiane 13), contre 18,2 à 22,5 (médiane 14 à 16) pour ceux de l'UF 6284 avant.
 - USIP : 1 256 RSS contre 575 à 679 par période pour l'UF 6284 ; nouvelles spécialités (CMD 01, ORL) ; DMS 13,3 contre 14,4 à 16,0.

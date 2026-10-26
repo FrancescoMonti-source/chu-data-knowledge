@@ -10,10 +10,10 @@ person_data: masked
 ---
 | QUERY_ID | DATABASE_NAME | RUN_AT | POPULATION | PASSAGE | PERIODE | N_RSS | N_GHS_9999 | N_SANS_PRIX_2026 | N_HEURES_EXCLUS | N_DECES | NUITEES_MOY | JOURNEES_MOY | NUITEES_MED | HEURES_MOY | HEURES_MED | MONTANT_GHS_MOY | PRIX_2026_MOY | SUPPLEMENTS_MOY | MNT_USIP_MOY | MNT_SI_MOY | MNT_SC_MOY | MNT_REA_MOY | JOURS_SI_MOY | JOURS_SC_MOY |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2022-10 à 2023-08 | 66 | 0 | 0 | 0 | 0 | 7.52 | 8.52 | 5.5 | 185.4 | 137.3 | 6608 | 3078 | 163 | 0 | 158 | 5 | 0 | 0.33 | 0.02 |
-| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2023-10 à 2024-08 | 67 | 0 | 0 | 0 | <10 | 8.79 | 9.79 | 5 | 215.7 | 129.9 | 7775 | 3089 | 169 | 0 | 169 | 0 | 0 | 0.34 | 0 |
-| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2024-10 à 2025-08 | 63 | 0 | 0 | 0 | <10 | 7.08 | 8.08 | 6 | 175.4 | 151.7 | 7935 | 3077 | 238 | 0 | 166 | 0 | 63 | 0.33 | 0 |
-| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2025-10 à 2026-08 | 29 | 0 | 0 | 0 | 0 | 6 | 7 | 5 | 149.6 | 124.5 | 7555 | 3022 | 461 | 0 | 104 | 0 | 357 | 0.21 | 0 |
+| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2022-10 à 2023-08 | masqué | 0 | 0 | 0 | 0 | 7.52 | 8.52 | 5.5 | 185.4 | 137.3 | 6608 | 3078 | 163 | 0 | 158 | 5 | 0 | 0.33 | 0.02 |
+| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2023-10 à 2024-08 | masqué | 0 | 0 | 0 | <10 | 8.79 | 9.79 | 5 | 215.7 | 129.9 | 7775 | 3089 | 169 | 0 | 169 | 0 | 0 | 0.34 | 0 |
+| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2024-10 à 2025-08 | masqué | 0 | 0 | 0 | <10 | 7.08 | 8.08 | 6 | 175.4 | 151.7 | 7935 | 3077 | 238 | 0 | 166 | 0 | 63 | 0.33 | 0 |
+| 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | aucun | 2025-10 à 2026-08 | masqué | 0 | 0 | 0 | 0 | 6 | 7 | 5 | 149.6 | 124.5 | 7555 | 3022 | 461 | 0 | 104 | 0 | 357 | 0.21 | 0 |
 | 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | réa chir | 2022-10 à 2023-08 | <10 | 0 | 0 | 0 | 0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | réa chir | 2023-10 à 2024-08 | <10 | 0 | 0 | 0 | 0 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | 20261023-usip-dms-valorisation-2 | CWPROD | 2026-10-23 14:51 | CAROTIDE | réa chir | 2024-10 à 2025-08 | <10 | 0 | 0 | 0 | <10 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
