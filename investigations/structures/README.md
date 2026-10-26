@@ -25,3 +25,7 @@ Résultats reçus le 2026-10-26 (20261026-structure-fichier-vs-cora-resultat, 20
 - Le pôle du fichier a le libellé du pôle de CORA pour 161 des 225 UF qui ont un pôle dans CORA, avec un autre code ; 64 diffèrent par le code et le libellé.
 - Aucune UF du fichier n'a de date de fin passée : le fichier ne garde pas les UF fermées. Une seule version du fichier : son historique n'est pas établi.
 - Mouvements 2022-2025 hors fichier : 1 028, 880, 714 et 604 par an, sur plus de 900 000.
+
+Vérification des colonnes d'unité (2026-10-26, 20261026-tb-unite-drapeaux-uf-um-resultat, 20261026-rum-um-et-uf-2025-resultat) :
+- Les 838 lignes de TB_UNITE ont le drapeau UF à O ; 711 ont aussi le drapeau UM à O, alors que TB_UNITE_MEDICALE n'a que 281 UM : le drapeau UM ne repère pas les UM. Aucune ligne n'a de fils (ID_PERE ne désigne aucun TB_UNITE.ID_UNITE).
+- RUM de janvier à septembre 2025 (182 312) : ID_UNITE_MEDICALE est une UM pour tous ; ID_UNITE_HEBERG est une UF reliée à cette UM par TB_UNITE_M_UNITE pour tous, et égale à l'UF d'un de ses mouvements pour 182 252. Les tests croisés par identifiant (ID_UNITE_MEDICALE comme TB_UNITE.ID_UNITE : 100 % ; ID_UNITE_HEBERG comme ID_UNITE_MED : 33 %) ne distinguent rien : les numéros se recouvrent.
