@@ -64,3 +64,10 @@ def test_copie_texte_sans_colonnes_de_personnes(tmp_path):
     assert texte.splitlines()[0] == "| Code Service | Libellé Service | Code UF |"
     assert "Médecine A / test" in texte
     assert len(ecartees) == 5
+
+
+def test_site_connu(monkeypatch):
+    monkeypatch.delenv("STRUCTURE_SITE", raising=False)
+    assert rs.site_connu(None, None) == rs.SITE
+    assert rs.site_connu("http://h/s/", None) == "http://h/s"
+    assert rs.site_connu(None, URL) == BASE

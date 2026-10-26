@@ -2,15 +2,14 @@
 
 Le nom du fichier porte sa date (`Structure-JJMMAAAA.xlsx`, dossier `files/AAAA/MM/`). Le script sonde les
 jours récents du plus récent au plus ancien jusqu'à trouver un fichier : aucune URL exacte à fournir. Il ne
-lui faut que le site (`--site`, ou `--url` d'une version quelconque), donné une seule fois puis mémorisé dans
-`config/local_structure.yaml` (ignoré par Git) : le code ne contient aucun nom de serveur.
+lui faut le site, `SITE` ci-dessous (ou `--site`, `--url`).
 
 Le fichier est une donnée interne : il va dans `data/external/structure/` (ignoré par Git), jamais dans un commit.
 
 Avec `--texte`, une copie texte (une par feuille, sans les colonnes de personnes) est écrite à côté, aussi en local.
 Rien de `local/` n'est versionné (.gitignore) ; la fiche de la source est `sources/structure-chu-AAAA-MM-JJ.md`.
 
-Usage :  python sources\\structures\\recuperer_structure.py --site http://<intranet>/<site> [--texte]  (ensuite sans argument)
+Usage :  python sources\\structures\\recuperer_structure.py [--texte]
 """
 
 from __future__ import annotations
@@ -25,12 +24,10 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-import yaml
-
 logger = logging.getLogger("structure")
 
 LOCAL = Path(__file__).resolve().parent / "local"  # ignoré par Git
-CONFIG_LOCALE = LOCAL / "site.yaml"
+SITE = "http://intranet4/controle-de-gestion"  # les fichiers sont dans SITE/files/AAAA/MM/
 DESTINATION = LOCAL
 MOTIF_URL = re.compile(r"^(?P<base>.+)/files/\d{4}/\d{2}/(?P<prefixe>[^/]*?)\d{8}(?P<suffixe>\.[A-Za-z0-9]+)$")
 MOTIF_NOM = re.compile(r"\d{8}")
@@ -76,17 +73,13 @@ def chercher_derniere(base: str, prefixe: str, suffixe: str, aujourdhui: dt.date
     return None
 
 
-def site_connu(site: str | None, url: str | None, config: Path = CONFIG_LOCALE) -> str | None:
-    """Site de l'intranet : argument, URL d'un fichier, variable STRUCTURE_SITE, puis config locale (mémorisée)."""
+def site_connu(site: str | None, url: str | None) -> str:
+    """Site de l'intranet : argument, URL d'un fichier, variable STRUCTURE_SITE, puis SITE."""
     if site:
         return site.rstrip("/")
     if url:
         return modele(url)[0]
-    if os.environ.get("STRUCTURE_SITE"):
-        return os.environ["STRUCTURE_SITE"].rstrip("/")
-    if config.exists():
-        return (yaml.safe_load(config.read_text(encoding="utf-8")) or {}).get("site")
-    return None
+    return os.environ.get("STRUCTURE_SITE", SITE).rstrip("/")
 
 
 def telecharger(url: str, dossier: Path) -> Path:
@@ -157,7 +150,7 @@ def ecrire_texte(xlsx: Path) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--site", help="racine du site de l'intranet (mémorisée dans config/local_structure.yaml)")
+    p.add_argument("--site", help=f"racine du site de l'intranet (défaut {SITE})")
     p.add_argument("--url", help="ou l'URL d'une version connue, dont on déduit le site")
     p.add_argument("--prefixe", default="Structure-", help="début du nom de fichier (défaut Structure-)")
     p.add_argument("--extension", default=".xlsx", help="extension (défaut .xlsx)")
@@ -167,12 +160,6 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     site = site_connu(args.site, args.url)
-    if not site:
-        p.error("site inconnu : donner --site (ou --url) une première fois")
-    if site != site_connu(None, None):
-        CONFIG_LOCALE.parent.mkdir(parents=True, exist_ok=True)
-        CONFIG_LOCALE.write_text(yaml.safe_dump({"site": site}), encoding="utf-8")
-        logger.info("Site mémorisé dans %s", CONFIG_LOCALE)
     try:
         trouvee = chercher_derniere(site, args.prefixe, args.extension, dt.date.today(), args.jours)
     except (urllib.error.URLError, OSError) as e:

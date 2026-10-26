@@ -3,7 +3,7 @@ id: structure-chu-2026-10-09
 title: "Fichier Structure du CHU : pôles, services et UF"
 publisher: "contrôle de gestion du CHU de Rouen"
 edition: "mise à jour du 09/10/2026"
-location: "intranet du CHU, site du contrôle de gestion, dossier files/2026/10/ ; fichier Structure-09102026.xlsx. Il n'est pas dans le dépôt : on le récupère avec sources/structures/recuperer_structure.py, dans sources/structures/local/ (ignoré par Git) sur le poste de Pierre"
+location: "http://intranet4/controle-de-gestion/files/2026/10/Structure-09102026.xlsx (intranet du CHU, dossiers files/AAAA/MM/ ; non joignable depuis le cloud). Il n'est pas dans le dépôt : on récupère la dernière version avec sources/structures/recuperer_structure.py, dans sources/structures/local/ (ignoré par Git) sur le poste de Pierre"
 authority: local
 ---
 
