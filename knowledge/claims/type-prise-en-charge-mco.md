@@ -9,7 +9,7 @@ responsible: Pierre
 reconsider_when: "une variable de CORA classe les séjours de façon constante dans le temps ; une méthode est établie pour les séjours sans RSS (#25) ; l'ATIH change la définition des séances ou des séjours de 0 nuit"
 maturity: documented
 lifecycle: active
-terms: [cora:sejour, cora:rss, cora:type-sejour]
+terms: [cora:sejour, cora:rss, cora:type-sejour, cora:type-prise-en-charge]
 tables: [cora:TB_SEJOUR, cora:TB_MVT, cora:TB_MVT_RUM, cora:TB_SYNTH_RSS]
 supported_by: [20261013-kb-type-sejour-rss]
 depends_on: [type-sejour-non-fiable]
