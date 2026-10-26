@@ -7,7 +7,7 @@ location: "http://intranet4/controle-de-gestion/files/2026/10/Structure-09102026
 authority: local
 ---
 
-Le fichier est confidentiel et reste sur le poste de Pierre. Une feuille, « Fichier Structure », une ligne par UF (environ 1 190), sous une ligne de titre. Colonnes, telles qu'elles sont nommées :
+Le fichier est confidentiel et reste sur le poste de l'utilisateur. Une feuille, « Fichier Structure », une ligne par UF (environ 1 190), sous une ligne de titre. Colonnes, telles qu'elles sont nommées :
 
 - Code Pôle, Libellé Pôle
 - Code Service, Libellé Service
