@@ -10,8 +10,8 @@ person_data: masked
 ---
 | QUERY_ID | DATABASE_NAME | RUN_AT | GROUPE | LIBELLE | N_RSS_2223 | N_RSS_2324 | N_RSS_2425 | N_RSS_2526 | DMS_2223 | DMS_2324 | DMS_2425 | DMS_2526 | PCT_UNITE_2425 | PCT_UNITE_2526 | PCT_SOINS_CRIT_2425 | PCT_SOINS_CRIT_2526 | AGE_MOY_2526 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | ENDARTERIECTOMIE |  | 74 | 75 | 89 | 82 | 7.9 | 9.2 | 8.1 | 7.6 | 25 | 60 | 35 | 67 | 71 |
-| 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | PONTAGE FEMORAL |  | 82 | 71 | 82 | 84 | 13.9 | 15.6 | 17 | 15 | <10 | 33 | 23 | 42 | 66 |
+| 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | ENDARTERIECTOMIE |  | 74 | 75 | 89 | 82 | 7.9 | 9.2 | 8.1 | 7.6 | 25 | 60 | masqué | masqué | 71 |
+| 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | PONTAGE FEMORAL |  | 82 | 71 | 82 | 84 | 13.9 | 15.6 | 17 | 15 | <10 | 33 | 23 | masqué | 66 |
 | 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | 01C03 | Craniotomies pour traumatisme, âge supérieur à 17 ans, niveau 1 | 72 | 88 | 94 | 55 | 16.7 | 25 | 17.7 | 19.3 | <10 | <10 | 63 | 73 | 54 |
 | 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | 01C04 | Craniotomies en dehors de tout traumatisme, âge supérieur à 17 ans, niveau 1 | 520 | 480 | 477 | 507 | 14.5 | 13.2 | 12.2 | 13 | <10 | 3 | 60 | 64 | 60 |
 | 20261026-usip-temoin-candidats | CWPROD | 2026-10-26 16:48 | 01K03 | Autres actes thérapeutiques par voie vasculaire du système nerveux, niveau 1 | 114 | 112 | 115 | 129 | 9.6 | 8.3 | 7.3 | 8.3 | <10 | <10 | 10 | <10 | 71 |
