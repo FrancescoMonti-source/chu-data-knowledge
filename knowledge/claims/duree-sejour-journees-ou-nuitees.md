@@ -9,7 +9,7 @@ responsible: Pierre
 reconsider_when: "une analyse doit suivre une définition externe de la durée (ATIH, ScanSanté) qui compte autrement, ou la règle doit s'étendre aux séjours hors hospitalisation complète"
 maturity: documented
 lifecycle: active
-terms: [cora:sejour]
+terms: [cora:sejour, cora:duree-sejour]
 tables: [cora:TB_SEJOUR]
 supported_by: [20261014-revue-pr38, 20261019-ghm-sixieme-duree-rss-resultat]
 depends_on: []
