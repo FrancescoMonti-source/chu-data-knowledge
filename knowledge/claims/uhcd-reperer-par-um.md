@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:rss, cora:passage-urgences]
 tables: [cora:TB_SYNTH_RSS, cora:TB_SYNTH_RUM, cora:TB_UNITE_MEDICALE]
-supported_by: [20261027-tarif-ghs-5xxx-uhcd-resultat, 20261014-structure-uf-urgences-resultat]
+supported_by: [20261027-tarif-ghs-5xxx-uhcd-resultat, 20261027-tarif-ghs-5xxx-seul-ou-second-resultat, 20261014-structure-uf-urgences-resultat]
 depends_on: []
 ---
 ## Pour s'en servir
@@ -22,13 +22,13 @@ WHERE TRIM(u.CODE_UNITE_MED) IN ('5701', '5720', '5015', '5010')
 ```
 
 - Le drapeau UHCD de TB_UNITE ne repère rien : il n'est jamais 'O' (drapeaux-cora-valeurs-propres).
-- Un GHS 5xxx ne suffit pas à repérer l'UHCD : des UM d'obstétrique et d'hôpital de jour ont aussi des RSS en 5xxx (tarif-ghs-par-ghm-et-code-ghs).
+- Un GHS 5xxx ne suffit pas à repérer l'UHCD : le GHS ordinaire des GHM des CMD 14 et 15 et d'une partie de la CMD 13 est lui-même numéroté 5xxx, et des UM d'hôpital de jour ont aussi des RSS en 5xxx (tarif-ghs-par-ghm-et-code-ghs).
 - Ces codes sont aussi des codes d'UF : dans CORA, chacun est une UF de TB_UNITE liée à l'UM de même code et de même libellé (20261014-structure-uf-urgences-resultat), et un mouvement (TB_MVT.ID_UNITE_M) y porte ce code comme UF. Ce claim lit l'UM du RUM, dans le contexte cora ; hors de ce contexte (EDSaN par exemple), ne pas lire ces codes comme des UM sans le vérifier.
 
 ## Ce qui l'appuie
 
-RSS finis en 2025 (20261027-tarif-ghs-5xxx-uhcd-resultat) : 26 218 des 30 371 RSS groupés dans un GHS 5xxx n'ont qu'un RUM. Parmi les quinze UM qui en ont le plus, quatre sont des urgences : 5701 (S.A.U. urgences médicales, 14 934 RSS), 5720 (urgences St Julien, 3 130), 5015 (urgences et UHCD pédiatriques médicales, 1 194) et 5010 (urgences et UHCD pédiatriques chirurgicales, 274). Dans chacune, moins de 10 RSS d'un seul RUM sont dans un autre GHS.
+RSS finis en 2025 (20261027-tarif-ghs-5xxx-uhcd-resultat) : 26 218 des 30 371 RSS groupés dans un GHS 5xxx n'ont qu'un RUM. Parmi les quinze UM qui en ont le plus, quatre sont des urgences : 5701 (S.A.U. urgences médicales, 14 934 RSS), 5720 (urgences St Julien, 3 130), 5015 (urgences et UHCD pédiatriques médicales, 1 194) et 5010 (urgences et UHCD pédiatriques chirurgicales, 274). Dans chacune, moins de 10 RSS d'un seul RUM sont dans un autre GHS. Leur GHS 5xxx est une ligne à côté d'un GHS ordinaire de leur GHM, sauf pour 15 RSS de 5701 et moins de 10 dans chacune des trois autres UM, dont le GHM n'a que des lignes 5xxx (20261027-tarif-ghs-5xxx-seul-ou-second-resultat).
 
 Des sources secondaires décrivent ce GHS depuis la campagne MCO 2021 : un séjour dont toutes les UM relèvent de l'UHCD est payé par un GHS dédié, un par racine de GHM, au même prix quelle que soit sa durée. C'est la ligne 5xxx commune à la racine, sans borne, de PMSI_LIB_GHS_TARIF (tarif-ghs-par-ghm-et-code-ghs).
 
-Points ouverts : le texte officiel (arrêté du 19 février 2015 dit « forfaits », notice technique de financement de l'ATIH) n'est pas lu ; la liste des UM peut être incomplète, car une UM de moins de 100 RSS d'un seul RUM en 5xxx en 2025 n'est pas nommée dans la preuve ; les UM de maternité 6163 et 6167 ont aussi presque tous leurs RSS d'un seul RUM en 5xxx, pour une raison non établie (piste de Francesco : le GHS ordinaire de certains GHM d'obstétrique est numéroté 5xxx, 5500 pour 14Z15Z ; éprouvée par 20261027-tarif-ghs-5xxx-seul-ou-second) ; dans TB_UNITE, ces quatre UF et 5802 (S.A.U. urgences chirurgicales) ont TYPE_AUTORISATION 07A ou 07B, seules parmi les UF lues par 20261014-structure-uf-urgences ; 07 y est la « zone de surveillance de courte durée » (dictionnaire-cora-2020, TB_UNITE), 07A et 07B l'UHCD des structures des urgences générales et pédiatriques (liste des types d'autorisation d'UM donnée par Francesco le 2026-10-27, texte officiel non relu) : ce type repérerait l'UHCD sans liste de codes, ce qui reste à éprouver, et 5802, absente des quinze UM de la preuve, manque peut-être ; les RSS de plusieurs RUM passés par ces UM ne sont pas comptés ; seule l'année 2025 est lue.
+Points ouverts : le texte officiel (arrêté du 19 février 2015 dit « forfaits », notice technique de financement de l'ATIH) n'est pas lu ; la liste des UM peut être incomplète, car une UM de moins de 100 RSS d'un seul RUM en 5xxx en 2025 n'est pas nommée dans la preuve ; dans TB_UNITE, ces quatre UF et 5802 (S.A.U. urgences chirurgicales) ont TYPE_AUTORISATION 07A ou 07B, seules parmi les UF lues par 20261014-structure-uf-urgences ; 07 y est la « zone de surveillance de courte durée » (dictionnaire-cora-2020, TB_UNITE), 07A et 07B l'UHCD des structures des urgences générales et pédiatriques (liste des types d'autorisation d'UM donnée par Francesco le 2026-10-27, texte officiel non relu) : ce type repérerait l'UHCD sans liste de codes, ce qui reste à éprouver, et 5802, absente des quinze UM de la preuve, manque peut-être ; les RSS de plusieurs RUM passés par ces UM ne sont pas comptés ; seule l'année 2025 est lue.
