@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:rss, pmsi:ghm]
 tables: [cora:PMSI_LIB_GHS_TARIF, cora:TB_SYNTH_RSS]
-supported_by: [20261023-tarif-ghs-lignes-et-ratio-resultat, 20261026-tarif-ghs-5xxx-et-ecarts-resultat]
+supported_by: [20261023-tarif-ghs-lignes-et-ratio-resultat, 20261026-tarif-ghs-5xxx-et-ecarts-resultat, 20261027-tarif-ghs-5xxx-nuits-et-type-resultat]
 depends_on: []
 challenges: [tarif-ghs-jointure-couverture]
 ---
@@ -42,8 +42,8 @@ Dans les sept racines lues (04C02, 05C02, 05C03, 05C10, 06C03, 06C04, 07C09), ch
 
 RSS de MONTANT_GHS positif finis de 2022 à août 2026, hors CMD 90 et GHS 9999, joints par le GHM et le CODE_GHS à leur date de fin (20261026-tarif-ghs-5xxx-et-ecarts-resultat) : chaque année, tous sauf 26 à 56 trouvent leur ligne, moins de 10 en trouvent plusieurs, et le PRIX égale MONTANT_GHS à 0,50 € près pour plus de 99 % des RSS joints (tous en 2022, 2025 et 2026). Le rapport entre MONTANT_GHS et PRIX vaut 1 du 5e au 95e centile, chaque année. Sur les RSS d'au moins une nuit finis d'octobre 2025 à août 2026, hors CMD 28, ce rapport vaut 1 en médiane, et 3,494 avec le plus petit PRIX du GHM (20261023-tarif-ghs-lignes-et-ratio-resultat).
 
-Le CHU groupe des RSS dans les GHS 5xxx : de 27 198 à 30 371 par an de 2022 à 2025, 20 389 de janvier à août 2026. Tous trouvent leur ligne par les deux clés, avec un rapport médian de 1 : la ligne 5xxx est leur tarif (20261026-tarif-ghs-5xxx-et-ecarts-resultat).
+Le CHU groupe des RSS dans les GHS 5xxx : de 27 198 à 30 371 par an de 2022 à 2025, 20 389 de janvier à août 2026. Tous trouvent leur ligne par les deux clés, avec un rapport médian de 1 : la ligne 5xxx est leur tarif (20261026-tarif-ghs-5xxx-et-ecarts-resultat). Ce ne sont pas que des séjours sans nuitée : en 2025, sur ces 30 371 RSS, 16 082 ont au moins une nuitée et 1 068 ont un GHM de chirurgie (20261027-tarif-ghs-5xxx-nuits-et-type-resultat). Un GHS 5xxx ne repère donc pas un hôpital de jour, ni le GHS « intermédiaire » de la gradation des prises en charge ambulatoires, qui ne concerne que les séjours sans nuitée.
 
 Ce claim conteste tarif-ghs-jointure-couverture (unreviewed). Sa clé, le GHM complet « pas CODE_GHS », prend la bonne colonne pour le GHM, mais un agent qui la suit obtient deux lignes ou plus par RSS. Sa mesure de couverture, qui dit seulement si un RSS trouve au moins une ligne, n'en dépend pas.
 
-Points ouverts : la règle qui groupe un RSS dans un GHS 5xxx plutôt que dans l'autre GHS de son GHM n'est pas établie (à chercher dans les textes tarifaires de l'ATIH) ; en 2023, 911 RSS joints ont un PRIX qui diffère de MONTANT_GHS, 26 en 2024, pour une raison non étudiée ; le sens de GET_LIBELLE n'est pas établi ; les lignes par GHM ne sont comptées qu'au 2026-06-30.
+Points ouverts : la règle qui groupe un RSS dans un GHS 5xxx plutôt que dans l'autre GHS de son GHM n'est pas établie (à chercher dans les textes tarifaires de l'ATIH ; la gradation peut en expliquer une partie, les 13 262 séjours de médecine sans nuitée de 2025, pas le reste) ; en 2023, 911 RSS joints ont un PRIX qui diffère de MONTANT_GHS, 26 en 2024, pour une raison non étudiée ; le sens de GET_LIBELLE n'est pas établi ; les lignes par GHM ne sont comptées qu'au 2026-06-30.
