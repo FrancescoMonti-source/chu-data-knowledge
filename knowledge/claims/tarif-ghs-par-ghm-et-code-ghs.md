@@ -1,0 +1,50 @@
+---
+review: unreviewed
+id: tarif-ghs-par-ghm-et-code-ghs
+kind: empirical
+author: Francesco
+statement: "Dans CORA, PMSI_LIB_GHS_TARIF porte presque toujours plusieurs lignes valides pour un même GHM, car l'arrêté « forfaits » associe à un GHM plusieurs GHS selon la prise en charge (art. 6 à 6 quater ; annexes 1, 1 bis et 1 ter) : pour le tarif d'un RSS, joindre à la fois le GHM complet (TRIM(GHS)) et le CODE_GHS du RSS ; par le GHM seul, chaque RSS trouve deux lignes ou plus, et le plus petit PRIX sous-estime le tarif de la plupart des RSS."
+scope: "CORA de production (CWPROD, schéma CORA_REC), lignes de PMSI_LIB_GHS_TARIF valides au 2026-06-30 ; RSS de TB_SYNTH_RSS finis de janvier 2022 à août 2026, hors GHS 9999 et CMD 90, tarif lu à la date de fin du RSS ; lus le 2026-10-23 et le 2026-10-27"
+refuted_if: "au 2026-06-30, moins de la moitié des GHM ont deux lignes valides ou plus dans PMSI_LIB_GHS_TARIF, ou, pour une année de 2022 à 2026, moins de 95 % des RSS de MONTANT_GHS positif, joints par le GHM et le CODE_GHS à leur date de fin, ont un PRIX égal à MONTANT_GHS à 0,50 € près"
+maturity: observed
+lifecycle: active
+terms: [cora:rss, pmsi:ghm]
+tables: [cora:PMSI_LIB_GHS_TARIF, cora:TB_SYNTH_RSS]
+supported_by: [20261023-tarif-ghs-lignes-et-ratio-resultat, 20261026-tarif-ghs-5xxx-et-ecarts-resultat, 20261027-arrete-forfaits-art-6, 20261027-arrete-forfaits-art-6-ter, 20261027-arrete-forfaits-uhcd, 20261027-annexes-ghs-14z15z]
+depends_on: []
+challenges: [tarif-ghs-jointure-couverture]
+---
+## Pour s'en servir
+
+Pour le tarif des RSS `s` à une date fixe `d`, joindre par les deux clés une ligne par couple :
+
+```sql
+LEFT JOIN (
+  SELECT TRIM(GHS) AS GHM6, TRIM(CODE_GHS) AS CODE_GHS, MIN(PRIX) AS PRIX
+  FROM CORA_REC.PMSI_LIB_GHS_TARIF
+  WHERE DATE_DEBUT <= d AND DATE_FIN >= d
+  GROUP BY TRIM(GHS), TRIM(CODE_GHS)
+) t
+  ON t.GHM6 = TRIM(s.CODE_CMD) || TRIM(s.CODE_GHM)
+ AND t.CODE_GHS = TRIM(s.CODE_GHS)
+```
+
+- La colonne GHS porte le GHM sur 6 caractères ; CODE_GHS porte le numéro du GHS sur 4 caractères, comme TB_SYNTH_RSS.CODE_GHS.
+- Ne pas prendre, pour un GHM, le plus petit PRIX ni une ligne quelconque, ni écarter les GHS 5xxx : chaque ligne est le tarif des seuls RSS groupés dans son GHS.
+- La catégorie d'un GHS (annexe 1, GHS intermédiaire de l'annexe 1 bis, GHS monorum UHCD de l'annexe 1 ter) se lit dans les annexes de l'année, pas dans son premier chiffre : 14Z15Z a les GHS 5500, 5503 et 5713, et seul 5713 est monorum UHCD.
+- Un couple peut avoir deux lignes valides à la même date : sans le GROUP BY, ses RSS sont comptés deux fois. À la date de chaque RSS, joindre la table puis grouper par RSS (MIN(PRIX)), comme la requête 20261026-tarif-ghs-5xxx-et-ecarts.
+- À tarif constant (des RSS de plusieurs années au tarif d'une même date), garder le GHM et le CODE_GHS de chaque RSS et prendre la ligne valide à cette date. Compter à part les RSS dont le couple n'a pas de ligne à cette date (PRIX vide), et les RSS de GHS 9999.
+
+## Ce qui l'appuie
+
+Un séjour donne un seul GHS, mais un GHM peut en avoir plusieurs (arrêté du 19 février 2015 dit « forfaits », chapitre 3). L'art. 6 choisit selon un acte, un diagnostic ou un recours : 05C021 donne le GHS 1524 quand l'acte DBKA009 est fait, 1430 sinon (20261027-arrete-forfaits-art-6). Une prise en charge de moins d'une journée donne un GHS de l'annexe 1, ou un GHS intermédiaire de l'annexe 1 bis (art. 6 ter, 20261027-arrete-forfaits-art-6-ter). Une prise en charge en UHCD donne un GHS de l'annexe 1 si elle produit plusieurs RUM, un GHS monorum UHCD de l'annexe 1 ter si elle n'en produit qu'un (art. 6 quater et 12, 20261027-arrete-forfaits-uhcd). Ces articles ont le même texte au 1er mars 2022 et au 1er juin 2023, à un code de diagnostic près (art. 6, 21°). Les trois annexes peuvent porter des GHS en 5xxx : pour 14Z15Z, 5503 est en annexe 1 bis et 5713 en annexe 1 ter (20261027-annexes-ghs-14z15z).
+
+Lignes valides au 2026-06-30 (20261023-tarif-ghs-lignes-et-ratio-resultat) : 2 205 GHM ont deux lignes, 426 trois ou plus, 25 une seule. Les GHS 5xxx portent 2 876 lignes sur 5 735, pour 2 609 GHM ; ce sont 918 GHS distincts. Le LIBELLE_GHS reprend celui du GHM : il ne dit pas la catégorie du GHS. 5 727 couples GHM et CODE_GHS ont une ligne, 4 en ont deux ou plus, au même PRIX (20261026-tarif-ghs-5xxx-et-ecarts-resultat).
+
+Dans les sept racines lues (04C02, 05C02, 05C03, 05C10, 06C03, 06C04, 07C09), chaque GHM a la ligne de son GHS, et une ligne d'un GHS 5xxx commun à toute la racine, de borne basse 0 et de borne haute 999, 1,9 à 5,3 fois moins chère. Par exemple, 04C021 a le GHS 1005 à 8 038,05 € et le GHS 5181 à 4 327,69 €. Les GHM de 05C02 et 05C03 ont en plus les deux GHS de l'art. 6 : 05C021 a les GHS 1430 à 17 719,34 € et 1524 à 20 945,39 €. Écarter le GHS 5xxx ne suffit donc pas à trouver la ligne d'un RSS.
+
+RSS de MONTANT_GHS positif finis de 2022 à août 2026, hors CMD 90 et GHS 9999, joints par le GHM et le CODE_GHS à leur date de fin (20261026-tarif-ghs-5xxx-et-ecarts-resultat) : chaque année, tous sauf 26 à 56 trouvent leur ligne, moins de 10 en trouvent plusieurs, et le PRIX égale MONTANT_GHS à 0,50 € près pour plus de 99 % des RSS joints (tous en 2022, 2025 et 2026). Le rapport entre MONTANT_GHS et PRIX vaut 1 du 5e au 95e centile, chaque année. Le CHU groupe des RSS dans les GHS 5xxx (de 27 198 à 30 371 par an de 2022 à 2025, 20 389 de janvier à août 2026) : tous trouvent leur ligne par les deux clés, avec un rapport médian de 1. Sur les RSS d'au moins une nuit finis d'octobre 2025 à août 2026, hors CMD 28, ce rapport vaut 1 en médiane, et 3,494 avec le plus petit PRIX du GHM (20261023-tarif-ghs-lignes-et-ratio-resultat).
+
+Ce claim conteste tarif-ghs-jointure-couverture (unreviewed). Sa clé, le GHM complet « pas CODE_GHS », prend la bonne colonne pour le GHM, mais un agent qui la suit obtient deux lignes ou plus par RSS. Sa mesure de couverture, qui dit seulement si un RSS trouve au moins une ligne, n'en dépend pas.
+
+Points ouverts : les 918 GHS 5xxx de PMSI_LIB_GHS_TARIF ne sont pas confrontés code par code aux annexes de l'année ; en 2023, 911 RSS joints ont un PRIX qui diffère de MONTANT_GHS, 26 en 2024, pour une raison non étudiée ; le sens de GET_LIBELLE n'est pas établi ; les lignes par GHM ne sont comptées qu'au 2026-06-30.
