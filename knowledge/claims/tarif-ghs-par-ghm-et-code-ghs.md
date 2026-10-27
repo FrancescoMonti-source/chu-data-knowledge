@@ -16,22 +16,27 @@ challenges: [tarif-ghs-jointure-couverture]
 ---
 ## Pour s'en servir
 
-Pour le tarif d'un RSS `s` à une date `d`, joindre par les deux clés :
+Pour le tarif des RSS `s` à une date fixe `d`, joindre par les deux clés une ligne par couple :
 
 ```sql
-JOIN CORA_REC.PMSI_LIB_GHS_TARIF t
-  ON TRIM(t.GHS) = TRIM(s.CODE_CMD) || TRIM(s.CODE_GHM)
- AND TRIM(t.CODE_GHS) = TRIM(s.CODE_GHS)
- AND t.DATE_DEBUT <= d AND t.DATE_FIN >= d
+LEFT JOIN (
+  SELECT TRIM(GHS) AS GHM6, TRIM(CODE_GHS) AS CODE_GHS, MIN(PRIX) AS PRIX
+  FROM CORA_REC.PMSI_LIB_GHS_TARIF
+  WHERE DATE_DEBUT <= d AND DATE_FIN >= d
+  GROUP BY TRIM(GHS), TRIM(CODE_GHS)
+) t
+  ON t.GHM6 = TRIM(s.CODE_CMD) || TRIM(s.CODE_GHM)
+ AND t.CODE_GHS = TRIM(s.CODE_GHS)
 ```
 
 - La colonne GHS porte le GHM sur 6 caractères ; CODE_GHS porte le numéro du GHS sur 4 caractères, comme TB_SYNTH_RSS.CODE_GHS.
 - Ne pas prendre, pour un GHM, le plus petit PRIX ni une ligne quelconque, ni écarter les GHS 5xxx : la ligne 5xxx, le plus souvent la moins chère du GHM, est le tarif des seuls RSS groupés dans ce GHS.
-- À tarif constant (des RSS de plusieurs années au tarif d'une même date), garder le GHM et le CODE_GHS de chaque RSS et prendre la ligne valide à cette date. Compter à part les RSS dont le couple n'a pas de ligne à cette date, et les RSS de GHS 9999.
+- Un couple peut avoir deux lignes valides à la même date : sans le GROUP BY, ses RSS sont comptés deux fois. À la date de chaque RSS, joindre la table puis grouper par RSS (MIN(PRIX)), comme la requête 20261026-tarif-ghs-5xxx-et-ecarts.
+- À tarif constant (des RSS de plusieurs années au tarif d'une même date), garder le GHM et le CODE_GHS de chaque RSS et prendre la ligne valide à cette date. Compter à part les RSS dont le couple n'a pas de ligne à cette date (PRIX vide), et les RSS de GHS 9999.
 
 ## Ce qui l'appuie
 
-Lignes valides au 2026-06-30 (20261023-tarif-ghs-lignes-et-ratio-resultat) : 2 205 GHM ont deux lignes, 426 trois ou plus, 25 une seule. Les GHS 5xxx portent 2 876 lignes sur 5 735, pour 2 609 GHM, et 2 755 d'entre elles ont la borne haute 999 . Ce sont 918 GHS distincts, soit près de trois GHM par GHS 5xxx en moyenne. Leur LIBELLE_GHS reprend celui du GHM (04C021, 05C021 et les cinq libellés 5xxx les plus fréquents) : il ne dit pas ce qu'est un GHS 5xxx. 5 727 couples GHM et CODE_GHS ont une ligne, 4 en ont deux ou plus, au même PRIX (20261026-tarif-ghs-5xxx-et-ecarts-resultat).
+Lignes valides au 2026-06-30 (20261023-tarif-ghs-lignes-et-ratio-resultat) : 2 205 GHM ont deux lignes, 426 trois ou plus, 25 une seule. Les GHS 5xxx portent 2 876 lignes sur 5 735, pour 2 609 GHM, et 2 755 d'entre elles ont la borne haute 999. Ce sont 918 GHS distincts, soit près de trois GHM par GHS 5xxx en moyenne. Leur LIBELLE_GHS reprend celui du GHM (04C021, 05C021 et les cinq libellés 5xxx les plus fréquents) : il ne dit pas ce qu'est un GHS 5xxx. 5 727 couples GHM et CODE_GHS ont une ligne, 4 en ont deux ou plus, au même PRIX (20261026-tarif-ghs-5xxx-et-ecarts-resultat).
 
 Dans les sept racines lues (04C02, 05C02, 05C03, 05C10, 06C03, 06C04, 07C09), chaque GHM a la ligne de son GHS, et une ligne d'un GHS 5xxx commun à toute la racine, de borne basse 0 et de borne haute 999, 1,9 à 5,3 fois moins chère. Par exemple, 04C021 a le GHS 1005 à 8 038,05 € et le GHS 5181 à 4 327,69 €. Les GHM de 05C02 et 05C03 ont en plus deux GHS propres : 05C021 a les GHS 1430 à 17 719,34 € et 1524 à 20 945,39 €. Écarter le GHS 5xxx ne suffit donc pas à trouver la ligne d'un RSS.
 
