@@ -18,5 +18,6 @@ Issue : #113
 - **Branche :** claude/project-thread-pgynof, imposée par la session, au lieu de investigation/reinterventions-bariatrique.
 
 ## Choix
+- **Tzedakis et al. 2026 cité par son DOI, sans fiche dans sources/** (10.1097/SLA.0000000000007105 ; table S3 du matériel supplémentaire, lue le 2026-10-27) : method/evidence.md n'a pas d'autorité pour un article publié, et une valeur nouvelle demanderait une décision de mainteneur. Ses listes d'actes servent à écrire les requêtes ; elles ne soutiennent aucun claim.
 
 ## Conclusions
