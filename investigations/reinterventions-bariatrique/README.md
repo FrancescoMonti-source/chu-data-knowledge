@@ -19,5 +19,15 @@ Issue : #113
 
 ## Choix
 - **Tzedakis et al. 2026 cité par son DOI, sans fiche dans sources/** (10.1097/SLA.0000000000007105 ; table S3 du matériel supplémentaire, lue le 2026-10-27) : method/evidence.md n'a pas d'autorité pour un article publié, et une valeur nouvelle demanderait une décision de mainteneur. Ses listes d'actes servent à écrire les requêtes ; elles ne soutiennent aucun claim.
+- **Actes index : HFFC018, HFFA011, HFCC003 et HFCA001** (sleeve et bypass, par cœlioscopie ou laparotomie) : les autres codes de la subdivision sont rares ou absents depuis 2022 (20261028-actes-bariatriques-par-an-resultat), et l'anneau ou le stimulateur ne sont pas une chirurgie bariatrique au sens de la question.
+- **Grade tiré des seuls actes, comme dans l'article** (plan revu du 2026-10-28) : les actes de grade IV de S3 comprennent les forfaits de réanimation ; les jours de supplément et les UM de soins critiques ne sont pas nécessaires pour une première réponse, et l'arrêté « forfaits » n'a pas été lu pour cela.
+- **Listes de S3 adaptées à la chirurgie bariatrique**, d'après les libellés de la CCAM 2026 : 20 actes retirés (diagnostiques, ou sans lien probable à 90 jours), 33 actes biliaires gardés à part (lithiase après amaigrissement), 35 actes ajoutés (endoprothèses de l'estomac et du duodénum, gestes par cœlioscopie absents de S3, actes bariatriques en reprise). Les listes sont dans la requête 20261028-retours-j90-grade.
+- **STATUT_PROG abandonné** pour « non programmée » : il vaut 'A' presque partout (statut-prog-a-sans-trace-de-preadmission).
+- **Non programmée : tout retour qui n'est pas créé avant son jour d'entrée** (Francesco, 2026-10-28) : être créé à l'avance est le seul signal fiable d'un séjour programmé (sejour-cree-avant-entree-programme), et une entrée directe le jour même après une chirurgie est le plus souvent un rappel par l'équipe.
+- **Années regroupées (2022-2025) dans le dépôt** : par année, presque toutes les cases seraient sous 10. Le nombre d'une année se calcule à l'hôpital, sur une copie non masquée de la requête.
+- **Complications du séjour index comptées à part** (classe « 0 séjour index ») : le questionnaire parle de ré-hospitalisation, mais son titre dit « réinterventions précoces » ; la question est posée au demandeur.
 
 ## Conclusions
+- reintervention-bariatrique-par-actes-du-retour (unreviewed, provisional) : la réponse à la question. Repérer les réinterventions par les actes de complication du séjour de retour, pas par un second acte bariatrique ; quelques cas par an au CHU.
+- sejour-cree-avant-entree-programme (unreviewed, provisional) : un séjour créé avant son jour d'entrée est programmé ; l'inverse ne vaut pas.
+- statut-prog-a-sans-trace-de-preadmission (unreviewed, provisional) : STATUT_PROG ne repère pas les séjours programmés, contrairement au dictionnaire.
