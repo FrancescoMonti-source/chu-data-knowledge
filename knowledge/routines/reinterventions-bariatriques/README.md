@@ -10,7 +10,7 @@ On la lance à l'hôpital. Son résultat y reste : il n'entre pas dans le dépô
 
 ```text
 source("CHEMIN/VERS/knowledge/routines/reinterventions-bariatriques/reinterventions-bariatriques.R")
-r <- reinterventions_bariatriques(connexion = function() redsan:::.cora_connect(), annees = 2025, masquer = FALSE, sejours = TRUE)
+r <- reinterventions_bariatriques(connexion = function() redsan:::.cora_connect(), annees = 2022:2025, masquer = FALSE, sejours = TRUE)
 ```
 
 La routine imprime une ligne par année, puis une ligne d'explication par colonne, puis, avec sejours = TRUE, la liste des séjours. La réponse au questionnaire est la colonne N_REINTERVENTIONS. Elle rend aussi, sans les imprimer une seconde fois, `r$comptes` et `r$sejours` (NULL sans sejours = TRUE).
@@ -23,11 +23,11 @@ La routine imprime une ligne par année, puis une ligne d'explication par colonn
 | annees | 2022:2025 | les années de l'intervention (le jour du premier acte index du séjour) |
 | actes_index | HFFC018, HFFA011, HFCC003, HFCA001 | les actes qui font une intervention : sleeve et bypass, par cœlioscopie ou laparotomie |
 | masquer | TRUE | FALSE donne les vrais effectifs, pour la personne seule à l'hôpital : la première ligne dit alors « masque : non » (method/privacy.md) |
-| sejours | FALSE | TRUE ajoute la liste des séjours concernés ; elle demande masquer = FALSE, car une liste de séjours ne se masque pas |
+| sejours | FALSE | TRUE ajoute la liste de tous les retours ; elle demande masquer = FALSE, car une liste de séjours ne se masque pas |
 
 ## Ce que la routine lit
 
-- **CORA :** TB_ACTE (ID_SEJOUR, DATE_ACTE, CODE_ACTE), TB_SEJOUR (ID_SEJOUR, ID_PATIENT, NO_SEJOUR, DATE_ENTREE, DATE_SORTIE, UF_ENTREE, DATE_CREAT), TB_SYNTH_RSS (ID_SEJOUR) ; pour la liste des séjours, V_CCAM_NV (CODE, TYPE, LIBELLE_LONG), jointe sur le code de l'acte avec TYPE = 'A', qui n'ajoute aucune ligne (ccam-nv-une-ligne-par-code, unreviewed). Un séjour compte s'il est sorti et relié à un RSS par TB_SYNTH_RSS.ID_SEJOUR (joindre-rss-par-id-sejour, unreviewed). Le calcul se fait dans CORA : seuls les comptes par année reviennent dans R, et, avec sejours = TRUE, une ligne par retour et par acte de grade III ou IV.
+- **CORA :** TB_ACTE (ID_SEJOUR, DATE_ACTE, CODE_ACTE), TB_SEJOUR (ID_SEJOUR, ID_PATIENT, NO_SEJOUR, DATE_ENTREE, DATE_SORTIE, UF_ENTREE, DATE_CREAT), TB_SYNTH_RSS (ID_SEJOUR, et DP_RETENU pour la liste des séjours) ; pour la liste des séjours, V_CCAM_NV (CODE, TYPE, LIBELLE_LONG), jointe sur le code de l'acte avec TYPE = 'A', qui n'ajoute aucune ligne (ccam-nv-une-ligne-par-code, unreviewed). Un séjour compte s'il est sorti et relié à un RSS par TB_SYNTH_RSS.ID_SEJOUR (joindre-rss-par-id-sejour, unreviewed). Le calcul se fait dans CORA : seuls les comptes par année reviennent dans R, et, avec sejours = TRUE, une ligne par retour et par acte, et le DP de chaque RSS des retours.
 - **UF d'urgences :** 5701, 5802, 5709, 5015, 5010 et 5720 (drapeau-urgence-uf-non-fiable, uhcd-reperer-par-um, unreviewed).
 - **Actes de grade III ou IV :** les listes de la requête 20261028-retours-j90-grade, recopiées dans la routine. Grade IV : les actes de grade IV de la table S3 de Tzedakis et al. 2026 (DOI 10.1097/SLA.0000000000007105), forfaits de réanimation compris. Grade III : les actes de grade III gardés de S3, plus les 35 actes ajoutés pour la chirurgie bariatrique (endoprothèses de l'estomac et du duodénum, gestes par cœlioscopie, actes bariatriques en reprise). Les actes biliaires et les actes retirés de S3 ne comptent pas. Le choix de ces listes : investigations/reinterventions-bariatrique/README.md, « Choix ».
 
@@ -52,7 +52,7 @@ Un retour peut suivre deux interventions : il compte alors dans chacune de leurs
 
 ## La liste des séjours
 
-Avec sejours = TRUE, une ligne par retour de J1 à J90 avec un acte de grade III ou IV, programmé ou non : ANNEE, NO_SEJOUR_INDEX et DATE_INTERVENTION, NO_SEJOUR_RETOUR (TB_SEJOUR.NO_SEJOUR, le n° de séjour officiel, d'après le dictionnaire CORA 2020) et DATE_ENTREE_RETOUR, JOUR (J + n), GRADE (le plus haut), ACTES (les actes des listes trouvés dans le retour, chacun avec son libellé : « code : libellé », séparés par « ; »), ENTREE (la classe de programmation), DANS_LA_REPONSE (oui pour les retours comptés dans N_REINTERVENTIONS) et A_VERIFIER (oui pour un retour créé le jour de son entrée sans urgence : un séjour programmé dont la préadmission manque y tombe aussi). Une liste de séjours est une donnée de personne : elle ne s'enregistre pas hors de l'hôpital et ne se colle pas dans une conversation (method/privacy.md).
+Avec sejours = TRUE, une ligne par retour de J1 à J90, avec ou sans acte de grade III ou IV, programmé ou non : elle sert aussi à voir ce que le nombre ne compte pas. ANNEE, NO_SEJOUR_INDEX et DATE_INTERVENTION, NO_SEJOUR_RETOUR (TB_SEJOUR.NO_SEJOUR, le n° de séjour officiel, d'après le dictionnaire CORA 2020) et DATE_ENTREE_RETOUR, JOUR (J + n), ENTREE (la classe de programmation), DP (le DP de chaque RSS du retour), GRADE (le plus haut, vide sans acte des listes), ACTES_GRADE_3_4 et AUTRES_ACTES (les actes du retour, des listes ou non, chacun avec son libellé : « code : libellé », séparés par « ; »), DANS_LA_REPONSE (oui pour les retours comptés dans N_REINTERVENTIONS) et A_VERIFIER (oui pour un retour compté, créé le jour de son entrée sans urgence : un séjour programmé dont la préadmission manque y tombe aussi). Une liste de séjours est une donnée de personne : elle ne s'enregistre pas hors de l'hôpital et ne se colle pas dans une conversation (method/privacy.md).
 
 ## Masquage
 
