@@ -24,7 +24,7 @@ Issue : #113
 - **Listes de S3 adaptées à la chirurgie bariatrique**, d'après les libellés de la CCAM 2026 : 20 actes retirés (diagnostiques, ou sans lien probable à 90 jours), 33 actes biliaires gardés à part (lithiase après amaigrissement), 35 actes ajoutés (endoprothèses de l'estomac et du duodénum, gestes par cœlioscopie absents de S3, actes bariatriques en reprise). Les listes sont dans la requête 20261028-retours-j90-grade.
 - **STATUT_PROG abandonné** pour « non programmée » : il vaut 'A' presque partout (statut-prog-a-sans-trace-de-preadmission).
 - **Non programmée : tout retour qui n'est pas créé avant son jour d'entrée** (Francesco, 2026-10-28) : être créé à l'avance est le seul signal fiable d'un séjour programmé (sejour-cree-avant-entree-programme), et une entrée directe le jour même après une chirurgie est le plus souvent un rappel par l'équipe.
-- **Années regroupées (2022-2025) dans le dépôt** : par année, presque toutes les cases seraient sous 10. Le nombre d'une année se calcule à l'hôpital, sur une copie non masquée de la requête.
+- **Années regroupées (2022-2025) dans le dépôt** : par année, presque toutes les cases seraient sous 10. Le nombre d'une année se calcule à l'hôpital, avec la routine reinterventions-bariatriques : une ligne par année, la réponse dans la colonne N_REINTERVENTIONS.
 - **Complications du séjour index comptées à part** (classe « 0 séjour index ») : le questionnaire parle de ré-hospitalisation, mais son titre dit « réinterventions précoces » ; la question est posée au demandeur.
 
 ## Conclusions

@@ -18,7 +18,7 @@ depends_on: [joindre-rss-par-id-sejour, sejour-cree-avant-entree-programme]
 - **Intervention index :** HFFC018 et HFFA011 (sleeve), HFCC003 et HFCA001 (bypass). Les autres codes de la subdivision 07.03.02.09 sont rares (stimulateur gastrique, anneau repositionné ou retiré) ou absents depuis 2022 ; J0 est le jour du premier de ces actes dans le séjour.
 - **Réintervention :** un acte des listes de la requête 20261028-retours-j90-grade dans le séjour de retour : grade IV (actes de grade IV de la table S3 de Tzedakis et al. 2026, forfaits de réanimation YYYY015 et YYYY020 compris), grade III (actes de grade III gardés, plus les actes ajoutés pour la chirurgie bariatrique). Les actes biliaires restent à part : une lithiase après l'amaigrissement n'est pas une complication de l'intervention.
 - **Non programmée :** un retour qui n'est pas créé avant son jour d'entrée (sejour-cree-avant-entree-programme).
-- **Effectifs :** quelques cas par an. Le compte d'une année se fait à l'hôpital, sur une copie non masquée de la requête ; le dépôt ne garde que le résultat masqué. Les retours dans un autre établissement manquent.
+- **Effectifs :** quelques cas par an. Le compte d'une année se fait à l'hôpital, avec la routine reinterventions-bariatriques, qui reprend le calcul de la requête par année ; le dépôt ne garde que le résultat masqué de la requête. Les retours dans un autre établissement manquent.
 
 ## Ce qui l'appuie
 
