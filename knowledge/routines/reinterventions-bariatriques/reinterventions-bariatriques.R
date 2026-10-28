@@ -115,16 +115,18 @@ SELECT ANNEE,
        COUNT(DISTINCT CASE WHEN PROG = 0 AND GRADE_3_4 = 1 THEN ID_INDEX END) AS N_COMPLICATIONS_SEJOUR_INDEX
 FROM gr
 GROUP BY ANNEE")
-  # Une ligne par retour et par acte de grade III ou IV ; R les réunit par retour
+  # Une ligne par retour et par acte de grade III ou IV, avec son libellé (ccam-nv-une-ligne-par-code) ; R les réunit par retour
   sql_sejours <- paste0(ctes, "
 SELECT t.ANNEE, t.ID_INDEX, t.ID_SEJOUR, TRIM(si.NO_SEJOUR) AS NO_SEJOUR_INDEX, TO_CHAR(i.J0, 'YYYY-MM-DD') AS DATE_INTERVENTION,
        TRIM(sr.NO_SEJOUR) AS NO_SEJOUR_RETOUR, TO_CHAR(t.JD, 'YYYY-MM-DD') AS DATE_ENTREE_RETOUR, t.JD - i.J0 AS JOUR, t.PROG,
-       TRIM(a.CODE_ACTE) AS CODE_ACTE, CASE WHEN TRIM(a.CODE_ACTE) IN (", liste(grade_4), ") THEN 4 ELSE 3 END AS GRADE
+       TRIM(a.CODE_ACTE) AS CODE_ACTE, TRIM(v.LIBELLE_LONG) AS LIBELLE,
+       CASE WHEN TRIM(a.CODE_ACTE) IN (", liste(grade_4), ") THEN 4 ELSE 3 END AS GRADE
 FROM ret t
 JOIN idx i ON i.ID_SEJOUR = t.ID_INDEX
 JOIN CORA_REC.TB_SEJOUR si ON si.ID_SEJOUR = t.ID_INDEX
 JOIN CORA_REC.TB_SEJOUR sr ON sr.ID_SEJOUR = t.ID_SEJOUR
 JOIN CORA_REC.TB_ACTE a ON a.ID_SEJOUR = t.ID_SEJOUR AND TRUNC(a.DATE_ACTE) >= t.JD
+LEFT JOIN CORA_REC.V_CCAM_NV v ON TRIM(v.CODE) = TRIM(a.CODE_ACTE) AND v.TYPE = 'A'
 WHERE t.PROG > 0 AND ", acte_grade)
 
   con <- connexion()
@@ -177,7 +179,8 @@ WHERE t.PROG > 0 AND ", acte_grade)
                              "DATE_ENTREE_RETOUR", "JOUR", "PROG")]
   k <- cle[!duplicated(cle)]
   s$GRADE <- as.numeric(tapply(l$GRADE, cle, max)[k])
-  s$ACTES <- as.character(tapply(l$CODE_ACTE, cle, function(x) paste(sort(unique(x)), collapse = ", "))[k])
+  acte <- ifelse(is.na(l$LIBELLE) | l$LIBELLE == "", l$CODE_ACTE, paste0(l$CODE_ACTE, " : ", l$LIBELLE))
+  s$ACTES <- as.character(tapply(acte, cle, function(x) paste(sort(unique(x)), collapse = " ; "))[k])
   s$ENTREE <- c("1" = "par une UF d'urgences", "2" = "après un séjour d'urgences la veille ou le jour même",
                 "3" = "sans urgence, créé le jour de l'entrée ou après", "4" = "créé avant le jour d'entrée")[as.character(s$PROG)]
   s$DANS_LA_REPONSE <- ifelse(s$PROG %in% 1:3, "oui", "non")
