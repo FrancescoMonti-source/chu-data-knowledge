@@ -1,13 +1,14 @@
 # id: reinterventions-bariatriques
 # system: cora
-# purpose: compter, par année de l'intervention, les réhospitalisations MCO non programmées de J1 à J90 avec un acte de complication de grade Clavien-Dindo III ou IV après une sleeve ou un bypass, le nombre que demande le questionnaire sur l'obésité (#113)
+# purpose: compter, par année de l'intervention, les réhospitalisations MCO non programmées de J1 à J90 avec un acte de complication de grade Clavien-Dindo III ou IV après une sleeve ou un bypass, le nombre que demande le questionnaire sur l'obésité (#113) ; sur demande, la liste des séjours concernés, pour les vérifier en dossier
 # La méthode, les paramètres et les limites : README.md, à côté de ce fichier.
 # R de base et DBI. Le résultat reste à l'hôpital (method/queries.md, « Une routine »).
 
 reinterventions_bariatriques <- function(connexion, annees = 2022:2025,
                                          actes_index = c("HFFC018", "HFFA011", "HFCC003", "HFCA001"),
-                                         masquer = TRUE) {
+                                         masquer = TRUE, sejours = FALSE) {
   stopifnot(is.function(connexion), length(annees) > 0, annees == round(annees), length(actes_index) > 0)
+  if (sejours && masquer) stop("La liste des séjours ne se masque pas : la demander avec masquer = FALSE, pour soi seul à l'hôpital.")
   ancien <- options(width = 400)
   on.exit(options(ancien))
 
@@ -53,10 +54,13 @@ reinterventions_bariatriques <- function(connexion, annees = 2022:2025,
   fin <- paste0("DATE '", max(annees) + 1, "-01-01'")
   # Le séjour d'urgences de la veille d'un retour entré jusqu'à fin mars de l'année suivante
   fin_urg <- paste0("DATE '", max(annees) + 1, "-05-01'")
+  # Un acte de grade IV compte dès J0 + 4 dans le séjour index (DELTA_IV), dès l'entrée dans un retour
+  acte_grade <- paste0("((TRIM(a.CODE_ACTE) IN (", liste(grade_4), ") AND TRUNC(a.DATE_ACTE) >= t.JD + t.DELTA_IV)
+       OR TRIM(a.CODE_ACTE) IN (", liste(grade_3), "))")
 
   # PROG : 0 le séjour index ; pour un retour, 1 entré par une UF d'urgences, 2 séjour d'urgences la veille
   # ou le jour même, 3 sans urgence et créé le jour d'entrée ou après, 4 créé avant le jour d'entrée
-  sql <- paste0("
+  ctes <- paste0("
 WITH idx AS (
   SELECT a.ID_SEJOUR, s.ID_PATIENT, TRUNC(s.DATE_SORTIE) AS SORTIE, MIN(TRUNC(a.DATE_ACTE)) AS J0,
          EXTRACT(YEAR FROM MIN(TRUNC(a.DATE_ACTE))) AS ANNEE
@@ -95,31 +99,41 @@ ret AS (
 ),
 gr AS (
   SELECT t.ID_INDEX, t.ANNEE, t.ID_SEJOUR, t.PROG,
-         MAX(CASE WHEN TRIM(a.CODE_ACTE) IN (", liste(grade_4), ")
-                       AND TRUNC(a.DATE_ACTE) >= t.JD + t.DELTA_IV THEN 1
-                  WHEN TRIM(a.CODE_ACTE) IN (", liste(grade_3), ") THEN 1
-                  ELSE 0 END) AS GRADE_3_4
+         MAX(CASE WHEN ", acte_grade, " THEN 1 ELSE 0 END) AS GRADE_3_4
   FROM ret t
   LEFT JOIN CORA_REC.TB_ACTE a ON a.ID_SEJOUR = t.ID_SEJOUR AND TRUNC(a.DATE_ACTE) >= t.JD
   GROUP BY t.ID_INDEX, t.ANNEE, t.ID_SEJOUR, t.PROG
-)
+)")
+  sql_comptes <- paste0(ctes, "
 SELECT ANNEE,
        COUNT(DISTINCT CASE WHEN PROG = 0 THEN ID_INDEX END) AS N_INTERVENTIONS,
        COUNT(DISTINCT CASE WHEN PROG > 0 THEN ID_SEJOUR END) AS N_RETOURS,
        COUNT(DISTINCT CASE WHEN PROG IN (1, 2, 3) THEN ID_SEJOUR END) AS N_RETOURS_NON_PROGRAMMES,
        COUNT(DISTINCT CASE WHEN PROG IN (1, 2, 3) AND GRADE_3_4 = 1 THEN ID_SEJOUR END) AS N_REINTERVENTIONS,
+       COUNT(DISTINCT CASE WHEN PROG IN (1, 2) AND GRADE_3_4 = 1 THEN ID_SEJOUR END) AS N_REINTERVENTIONS_URGENCES,
        COUNT(DISTINCT CASE WHEN PROG IN (1, 2, 3) AND GRADE_3_4 = 1 THEN ID_INDEX END) AS N_INTERVENTIONS_REPRISES,
        COUNT(DISTINCT CASE WHEN PROG = 0 AND GRADE_3_4 = 1 THEN ID_INDEX END) AS N_COMPLICATIONS_SEJOUR_INDEX
 FROM gr
 GROUP BY ANNEE")
+  # Une ligne par retour et par acte de grade III ou IV ; R les réunit par retour
+  sql_sejours <- paste0(ctes, "
+SELECT t.ANNEE, t.ID_INDEX, t.ID_SEJOUR, TRIM(si.NO_SEJOUR) AS NO_SEJOUR_INDEX, TO_CHAR(i.J0, 'YYYY-MM-DD') AS DATE_INTERVENTION,
+       TRIM(sr.NO_SEJOUR) AS NO_SEJOUR_RETOUR, TO_CHAR(t.JD, 'YYYY-MM-DD') AS DATE_ENTREE_RETOUR, t.JD - i.J0 AS JOUR, t.PROG,
+       TRIM(a.CODE_ACTE) AS CODE_ACTE, CASE WHEN TRIM(a.CODE_ACTE) IN (", liste(grade_4), ") THEN 4 ELSE 3 END AS GRADE
+FROM ret t
+JOIN idx i ON i.ID_SEJOUR = t.ID_INDEX
+JOIN CORA_REC.TB_SEJOUR si ON si.ID_SEJOUR = t.ID_INDEX
+JOIN CORA_REC.TB_SEJOUR sr ON sr.ID_SEJOUR = t.ID_SEJOUR
+JOIN CORA_REC.TB_ACTE a ON a.ID_SEJOUR = t.ID_SEJOUR AND TRUNC(a.DATE_ACTE) >= t.JD
+WHERE t.PROG > 0 AND ", acte_grade)
 
   con <- connexion()
   on.exit(DBI::dbDisconnect(con), add = TRUE)
-  n <- DBI::dbGetQuery(con, sql)
+  n <- DBI::dbGetQuery(con, sql_comptes)
   base <- DBI::dbGetQuery(con, "SELECT SYS_CONTEXT('USERENV', 'DB_NAME') AS DB FROM DUAL")[[1]]
   names(n) <- toupper(names(n))
   comptes <- c("N_INTERVENTIONS", "N_RETOURS", "N_RETOURS_NON_PROGRAMMES", "N_REINTERVENTIONS",
-               "N_INTERVENTIONS_REPRISES", "N_COMPLICATIONS_SEJOUR_INDEX")
+               "N_REINTERVENTIONS_URGENCES", "N_INTERVENTIONS_REPRISES", "N_COMPLICATIONS_SEJOUR_INDEX")
   # Une année sans intervention a une ligne, à zéro
   n <- merge(data.frame(ANNEE = annees), n, all.x = TRUE)
   for (k in comptes) n[[k]] <- ifelse(is.na(n[[k]]), 0, as.numeric(n[[k]]))
@@ -130,16 +144,17 @@ GROUP BY ANNEE")
     if (!is.null(parent)) out[x >= 10 & (parent - x) >= 1 & (parent - x) <= 9] <- "masqué"
     out
   }
-  # Chaque compte est une partie du précédent, sauf les complications du séjour index, une partie des interventions
+  # Chaque compte est une partie d'un autre : son parent
   parents <- c(N_RETOURS = "N_INTERVENTIONS", N_RETOURS_NON_PROGRAMMES = "N_RETOURS",
-               N_REINTERVENTIONS = "N_RETOURS_NON_PROGRAMMES", N_INTERVENTIONS_REPRISES = "N_REINTERVENTIONS",
-               N_COMPLICATIONS_SEJOUR_INDEX = "N_INTERVENTIONS")
+               N_REINTERVENTIONS = "N_RETOURS_NON_PROGRAMMES", N_REINTERVENTIONS_URGENCES = "N_REINTERVENTIONS",
+               N_INTERVENTIONS_REPRISES = "N_REINTERVENTIONS", N_COMPLICATIONS_SEJOUR_INDEX = "N_INTERVENTIONS")
   res <- data.frame(ANNEE = n$ANNEE, N_INTERVENTIONS = masque(n$N_INTERVENTIONS), stringsAsFactors = FALSE)
   for (k in names(parents)) res[[k]] <- masque(n[[k]], parent = if (k == "N_RETOURS") NULL else n[[parents[[k]]]])
   # Les retours vont jusqu'à fin mars de l'année suivante, et les deux derniers mois ne sont pas codés
   res$COMPLETE <- ifelse(Sys.Date() >= as.Date(paste0(res$ANNEE + 1, "-07-01")), "oui", "non")
+  run_at <- format(Sys.time(), "%Y-%m-%d %H:%M")
 
-  cat("Base :", base, "| exécutée le", format(Sys.time(), "%Y-%m-%d %H:%M"), "| masque :", if (masquer) "oui" else "non", "\n")
+  cat("Base :", base, "| exécutée le", run_at, "| masque :", if (masquer) "oui" else "non", "\n")
   cat("Réponse au questionnaire : la colonne N_REINTERVENTIONS, une ligne par année de l'intervention.\n\n")
   print(res, right = FALSE, row.names = FALSE)
   cat("\n",
@@ -147,9 +162,29 @@ GROUP BY ANNEE")
       "N_RETOURS : autres séjours MCO du même patient, entrés de J1 à J90 après l'intervention.\n",
       "N_RETOURS_NON_PROGRAMMES : ceux qui n'ont pas été créés dans CORA avant leur jour d'entrée.\n",
       "N_REINTERVENTIONS : ceux-ci, avec au moins un acte de grade III ou IV. C'est le nombre du questionnaire.\n",
+      "N_REINTERVENTIONS_URGENCES : parmi elles, celles entrées par les urgences : le minimum sûr. Les autres sont à vérifier en dossier (sejours = TRUE).\n",
       "N_INTERVENTIONS_REPRISES : interventions suivies d'au moins une réintervention (si l'unité est le patient).\n",
       "N_COMPLICATIONS_SEJOUR_INDEX : interventions avec un acte de grade III ou IV dans leur propre séjour ; hors réponse.\n",
       "COMPLETE : non, si les retours de la fin de l'année ne sont pas encore tous codés.\n", sep = "")
-  invisible(data.frame(DATABASE_NAME = base, RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"),
-                       MASQUE = if (masquer) "oui" else "non", res, stringsAsFactors = FALSE))
+  res <- data.frame(DATABASE_NAME = base, RUN_AT = run_at, MASQUE = if (masquer) "oui" else "non", res,
+                    stringsAsFactors = FALSE)
+  if (!sejours) return(invisible(list(comptes = res, sejours = NULL)))
+
+  l <- DBI::dbGetQuery(con, sql_sejours)
+  names(l) <- toupper(names(l))
+  cle <- paste(l$ID_INDEX, l$ID_SEJOUR)
+  s <- l[!duplicated(cle), c("ANNEE", "NO_SEJOUR_INDEX", "DATE_INTERVENTION", "NO_SEJOUR_RETOUR",
+                             "DATE_ENTREE_RETOUR", "JOUR", "PROG")]
+  k <- cle[!duplicated(cle)]
+  s$GRADE <- as.numeric(tapply(l$GRADE, cle, max)[k])
+  s$ACTES <- as.character(tapply(l$CODE_ACTE, cle, function(x) paste(sort(unique(x)), collapse = ", "))[k])
+  s$ENTREE <- c("1" = "par une UF d'urgences", "2" = "après un séjour d'urgences la veille ou le jour même",
+                "3" = "sans urgence, créé le jour de l'entrée ou après", "4" = "créé avant le jour d'entrée")[as.character(s$PROG)]
+  s$DANS_LA_REPONSE <- ifelse(s$PROG %in% 1:3, "oui", "non")
+  s$A_VERIFIER <- ifelse(s$PROG == 3, "oui : un séjour programmé sans préadmission ?", "")
+  s$PROG <- NULL
+  s <- s[order(s$ANNEE, s$DATE_INTERVENTION, s$DATE_ENTREE_RETOUR), ]
+  cat("\nSéjours concernés : un retour de J1 à J90 avec un acte de grade III ou IV, par ligne. Cette liste reste à l'hôpital.\n\n")
+  print(s, right = FALSE, row.names = FALSE)
+  invisible(list(comptes = res, sejours = s))
 }
