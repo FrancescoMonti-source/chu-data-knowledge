@@ -54,6 +54,7 @@ Les skills du dépôt sont dans .agents/skills/. Claude Code lit une copie dans 
 
 - **frame :** toute question nouvelle sur les données du CHU commence par frame : la cadrer avec la personne, et retrouver ce que le dépôt en sait.
 - Pour chaque étape du plan d'une enquête : **research** pour lire un document, **relay** pour l'aller-retour à l'hôpital.
+- **pmsi :** une question sur une règle du PMSI ou de la facturation hospitalière, sans donnée du CHU : répondre en citant la source de la bonne campagne.
 - **sediment :** écrire les claims, relire, contester, faire entrer, fermer.
 - **write :** tout document qu'une personne lira (note de méthode, rapport, courriel) : partir de ce que le lecteur doit pouvoir faire, et le tester avec un agent neuf avant de l'envoyer.
 - **retro :** en fin de session, quand la personne la lance : relever les accrocs avec elle, puis ouvrir ou compléter une issue friction. Quand la personne dit qu'elle s'arrête, lui proposer la retro.
