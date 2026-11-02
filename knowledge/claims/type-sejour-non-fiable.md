@@ -7,7 +7,7 @@ statement: "Dans CORA, TYPE_SEJOUR ne permet pas de classer les séjours MCO par
 scope: "CORA de production (CWPROD, schéma CORA_REC), séjours reliés à un RSS par TB_MVT puis TB_MVT_RUM, années de sortie 2018 à 2025"
 refuted_if: "une même valeur de TYPE_SEJOUR pour presque tous (plus de 98 %) les séjours groupés en MCO sortis le jour de leur entrée, chaque année de 2018 à 2025"
 maturity: observed
-lifecycle: active
+lifecycle: challenged
 terms: [cora:sejour, cora:rss, cora:type-sejour]
 tables: [cora:TB_SEJOUR, cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261013-type-sejour-mco-un-jour-resultat]
