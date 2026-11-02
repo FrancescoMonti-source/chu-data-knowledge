@@ -43,3 +43,9 @@ Le code PMSI qui précise d'où vient un séjour (provenance) ou où va le patie
 Alias : HTP, hospitalisation à temps partiel, hospitalisation de jour en SMR, HDJ SMR
 
 L'hospitalisation à temps partiel de jour en SMR. Son groupe de réadaptation (très intense I, intense J, modérée K, indifférenciée L, pédiatrique H) se décide sur le score de réadaptation par jour de la semaine ; elle est valorisée par journée de présence (ATIH, manuel des GME, notice technique de financement SMR).
+
+## pmsi:ip-dms
+
+Alias : IP-DMS, IPDMS, indice de performance de la DMS, DMS attendue, DMS de référence, OVALIDE
+
+Le rapport entre les journées observées d'un ensemble de RSS et les journées attendues : pour chaque RSS, la DMS nationale de son GHM, à l'année PMSI du séjour (fichier OVALIDE de l'ATIH). Au-dessus de 1, les séjours sont plus longs que la référence à GHM égal. La variation de la DMS observée entre deux périodes se sépare en variation de la DMS attendue (le casemix) et variation de l'écart observée − attendue (l'excès).
