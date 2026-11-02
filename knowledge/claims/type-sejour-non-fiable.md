@@ -7,7 +7,7 @@ statement: "Dans CORA, TYPE_SEJOUR ne permet pas de classer les séjours MCO par
 scope: "CORA de production (CWPROD, schéma CORA_REC), séjours reliés à un RSS par TB_MVT puis TB_MVT_RUM, années de sortie 2018 à 2025"
 refuted_if: "une même valeur de TYPE_SEJOUR pour presque tous (plus de 98 %) les séjours groupés en MCO sortis le jour de leur entrée, chaque année de 2018 à 2025"
 maturity: observed
-lifecycle: challenged
+lifecycle: active
 terms: [cora:sejour, cora:rss, cora:type-sejour]
 tables: [cora:TB_SEJOUR, cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261013-type-sejour-mco-un-jour-resultat]
@@ -23,4 +23,6 @@ Séjours groupés en MCO sortis le jour de leur entrée, part codée 'HDJ' parmi
 
 Le dictionnaire CORA 2020 présente TYPE_SEJOUR comme un moyen de distinguer les sortes de séjours (sources/dictionnaire-cora-2020/TB_SEJOUR.txt) ; les données ne le permettent pas de façon constante.
 
-Points ouverts : ce que sont les séjours d'un jour restés en 'MCO' depuis 2021 ; le contexte du changement (paramétrage, interface, date exacte) ; les séjours sans RSS (#25), hors du champ de la mesure.
+Les séjours d'un jour restés en 'MCO' depuis 2021 sont en UM d'hospitalisation complète : TYPE_SEJOUR suit le type de l'unité, pas la durée (type-sejour-suit-mode-hospit-um).
+
+Points ouverts : le contexte du changement (paramétrage, interface, date exacte) ; les séjours sans RSS (#25), hors du champ de la mesure.
