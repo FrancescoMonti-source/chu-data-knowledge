@@ -12,6 +12,6 @@ check, pointer, drift, unclear-step ou dead-weight : <ce que la personne et l'ag
 <le fichier et le changement>
 
 ## Occurrences
-- <date>, <skill>, <enquête> : <ce qui s'est passé>
+- <date>, <skill>, <enquête, s'il y en a une> : <ce qui s'est passé>
 
 Les occurrences suivantes sont des commentaires.

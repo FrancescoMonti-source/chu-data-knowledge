@@ -36,7 +36,7 @@ L'empreinte couvre l'en-tête du claim (sauf review et lifecycle), son corps, la
 ## Contestation
 
 1. La personne qui trouve une preuve contraire passe le claim à `lifecycle: challenged`, et écrit un claim avec `challenges: [<id>]` et ses preuves. Ça entre dès que les contrôles passent.
-2. L'auteur et la personne qui conteste décident ensemble ; s'ils ne sont pas d'accord, le mainteneur tranche. Trois dénouements :
+2. L'auteur et la personne qui conteste décident ensemble ; s'ils ne sont pas d'accord, les mainteneurs tranchent ensemble ; sans accord, le claim reste challenged. Trois dénouements :
    - **confirmé :** le claim revient à active ;
    - **remplacé :** un claim corrigé déclare `supersedes: [<id>]`, et l'ancien passe à superseded ;
    - **retiré :** le claim passe à withdrawn.

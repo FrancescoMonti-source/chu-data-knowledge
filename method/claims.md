@@ -2,7 +2,7 @@
 
 Un claim est une affirmation sur les données du CHU, soutenue par des preuves. Un fichier par claim, dans knowledge/claims/.
 
-Un claim s'écrit pour l'agent suivant, celui qui interrogera les données : il lui dit ce qu'il peut faire ou doit éviter. Une variable fiable ou non, et depuis quand ; une jointure ; un piège ; une méthode pour retrouver ou classer quelque chose. Les chiffres appuient le claim : ils vont dans son corps, rarement dans statement.
+Un claim s'écrit pour l'agent suivant, celui qui interrogera les données : il lui dit ce qu'il peut faire ou doit éviter. Une variable fiable ou non, et depuis quand ; une jointure ; un piège ; une méthode pour retrouver ou classer quelque chose. Les chiffres appuient le claim : ils vont dans son corps. statement n'en garde un que si la consigne en dépend.
 
 ## Ce qui mérite un claim
 
@@ -12,7 +12,7 @@ Un claim se justifie s'il apprend à l'agent ce que les sources ne lui disent pa
 - il dit ce qu'aucune source ne dit et qui change la façon d'interroger : un piège, une période de validité, une jointure, une méthode ;
 - il pose une décision de l'équipe.
 
-Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus. Ce que deviennent alors sa preuve et sa requête, et un claim jugé inutile : investigations/README.md, « L'issue ou le dépôt ».
+Ce qu'une source dit déjà, et qu'un agent trouve en l'ouvrant (une colonne, un lien du dictionnaire), n'est pas recopié en claim. Une mesure qui n'oriente encore aucun usage n'est pas un claim non plus, même quand elle répond à la question d'une enquête. Ce que deviennent alors sa preuve et sa requête, et un claim jugé inutile : investigations/README.md, « L'issue ou le dépôt ».
 
 ```markdown
 ---
@@ -20,23 +20,23 @@ review: unreviewed
 id: mvt-rum-lien
 kind: empirical
 author: Francesco
-statement: "Dans CORA, TB_MVT_RUM relie chaque mouvement aux RUM qui le contiennent."
-scope: "CORA, MCO, 2023-2026"
-refuted_if: "un mouvement MCO sans aucune ligne dans TB_MVT_RUM"
+statement: "Dans CORA, depuis 2021, TB_MVT_RUM ne contient que les mouvements entrés dans un RSS : une jointure interne sur cette table perd la majorité des actes."
+scope: "CORA, 2021-2026"
+refuted_if: "pour une année depuis 2021, plus de 60 % des actes ont leur mouvement dans TB_MVT_RUM"
 maturity: observed
 lifecycle: active
 terms: [cora:mouvement, cora:rum]
-tables: [cora:TB_MVT, cora:TB_MVT_RUM]
+tables: [cora:TB_ACTE, cora:TB_MVT, cora:TB_MVT_RUM]
 supported_by: [20261008-mvt-rum]
 depends_on: []
 ---
 ## Pour s'en servir
 
-Joindre TB_MVT à TB_MVT_RUM par ID_MVT pour passer d'un mouvement à ses RUM.
+Partir de TB_MVT pour voir tous les mouvements. Ne filtrer sur TB_MVT_RUM que pour le champ PMSI, et le dire.
 
 ## Ce qui l'appuie
 
-Raisonnement et limites.
+Le dictionnaire dit que TB_MVT_RUM relie les mouvements aux RUM ; il ne dit pas lesquels y manquent. Une jointure interne perd plus de la moitié des actes depuis 2021 (20261008-mvt-rum). Raisonnement et limites.
 
 Points ouverts : non vérifié sur l'instance de production.
 ```
@@ -49,7 +49,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | id | le nom du fichier |
 | kind | documentary · empirical · decision |
 | author | la personne pour qui l'agent écrit (« Les personnes ») |
-| statement | l'affirmation, en une phrase, dite pour qui interroge les données : ce qu'une variable permet ou non, une règle, un piège |
+| statement | l'affirmation qui guide un agent qui découvre les données, en une phrase. Test : si l'agent l'ignore, écrit-il une requête fausse ou tire-t-il une conclusion fausse ? Un constat, chiffré ou non, qui ne guide aucun usage (« en telle année, tant de tel événement ») ne passe pas le test : il va dans « Ce qui l'appuie ». Un chiffre reste dans le statement quand il guide l'usage |
 | scope | où et quand elle vaut : système, champ, période |
 | maturity | documented · observed · provisional |
 | lifecycle | active · challenged · superseded · withdrawn |
@@ -57,6 +57,7 @@ Points ouverts : non vérifié sur l'instance de production.
 | tables | les tables nommées, chacune avec son système (cora:TB_MVT_RUM), ou [] |
 | supported_by | les ids des preuves, ou [] pour un claim qui ne s'appuie que sur des prémisses |
 | depends_on | les ids des prémisses, ou [] |
+| refuted_if · responsible, reconsider_when | selon la sorte (« Trois sortes ») |
 | challenges, supersedes | facultatifs : les ids contestés ou remplacés (review.md) |
 
 Clés et valeurs en anglais ; texte libre en français. Toutes les valeurs sont lues comme du texte : no reste « no ».
@@ -81,7 +82,7 @@ Une personne s'écrit toujours de la même façon, dans author, responsible, exe
 
 ## Claim sans preuve propre
 
-Un claim peut ne citer que des prémisses (supported_by: []) : c'est le cas de la réponse à une question. Il prend la sorte de sa conclusion. Sa maturité vient de ses prémisses : provisional si l'une d'elles l'est ; sinon observed s'il est empirical et qu'une prémisse au moins est observed ; sinon documented. documented et observed disent ce qui appuie un claim, pas à quel point il est sûr : seul provisional est plus faible. L'auteur peut toujours choisir provisional, par prudence. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
+Un claim peut ne citer que des prémisses (supported_by: []). Il prend la sorte de sa conclusion. Sa maturité vient de ses prémisses : provisional si l'une d'elles l'est ; sinon observed s'il est empirical et qu'une prémisse au moins est observed ; sinon documented. documented et observed disent ce qui appuie un claim, pas à quel point il est sûr : seul provisional est plus faible. L'auteur peut toujours choisir provisional, par prudence. Ses appuis sont contrôlés à travers ses prémisses. Un claim sans preuve et sans prémisse bloque.
 
 ## Taille
 
@@ -89,7 +90,7 @@ Un claim est ce qu'on peut réfuter avec un seul test. Deux affirmations sont s�
 
 Une règle d'usage qui découle d'un constat se sépare de lui quand elle dépend d'un choix : le constat (« TYPE_SEJOUR change de codage en 2020 ») est empirical ; la méthode qu'on adopte à la place est un claim decision qui déclare depends_on vers lui.
 
-La réponse à une question combine plusieurs faits : elle devient un claim d'enquête qui déclare depends_on vers les claims atomiques. Si l'un d'eux tombe, on sait quoi revoir.
+Un claim qui combine plusieurs faits déclare depends_on vers les claims atomiques : si l'un d'eux tombe, on sait quoi revoir.
 
 ## Le corps
 
@@ -104,6 +105,6 @@ Le claim n'a pas de champ authority : l'autorité est dans la fiche de la source
 
 ## Citer un claim
 
-Toute réponse qui utilise un claim cite son état de relecture : « mvt-rum-lien (unreviewed) ». Un agent lit aussi les claims qu'il ne déclare pas.
+Toute réponse qui utilise un claim cite son état de relecture : « mvt-rum-lien (unreviewed) », même pour un claim lu sans le déclarer dans depends_on.
 
 Un reviewed peut être périmé : `python checks/check.py` le signale en ORANGE. Un agent qui ne peut pas lancer le script (app web) écrit « reviewed, à jour non vérifié ».

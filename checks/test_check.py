@@ -26,6 +26,38 @@ FROM TB_MVT_RUM
 GROUP BY ANNEE;
 """
 
+SCRIPT = """\
+# id: 20261016-grp-rss
+# system: cora
+# person_data: masked
+# purpose: compter les RSS par mois dans un fichier groupé
+l <- readLines("CHEMIN/VERS/fichier.grp")
+n <- table(substr(l, 105, 110))
+print(data.frame(QUERY_ID = "20261016-grp-rss", MOIS = names(n),
+                 N_RSS = ifelse(n < 10, "<10", as.character(n))))
+"""
+
+PY_SCRIPT = """\
+# id: 20261016-grp-rss
+# system: cora
+# person_data: masked
+# purpose: compter les RSS par mois dans un fichier groupé
+from collections import Counter
+n = Counter(l[104:110] for l in open("CHEMIN/VERS/fichier.grp", encoding="latin-1"))
+for mois, k in sorted(n.items()):
+    print("20261016-grp-rss", mois, "<10" if k < 10 else k)
+"""
+
+ROUTINE = """\
+# id: grp-par-mois
+# system: cora
+# purpose: compter les RSS d'un fichier groupé par mois de sortie
+grp_par_mois <- function(fichier) {
+  n <- table(substr(readLines(fichier), 105, 110))
+  print(data.frame(MOIS = names(n), N_RSS = as.character(n)))
+}
+"""
+
 EXECUTION = """\
 ---
 id: 20261008-mvt-rum
@@ -402,6 +434,8 @@ class RepositoryTest(unittest.TestCase):
     def test_modified_execution_keeps_the_sql(self):
         self.edit("knowledge/evidence/20261008-mvt-rum.md", "modified: no", "modified: yes")
         self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "version exécutée")
+        self.edit("knowledge/evidence/20261008-mvt-rum.md", "| <10 |\n", "| <10 |\n\n```r\nl <- 1\n```\n")
+        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "```sql")
 
     def test_query_names_its_system(self):
         path = "knowledge/queries/20261007-mvt-rum.sql"
@@ -426,13 +460,119 @@ class RepositoryTest(unittest.TestCase):
         self.assertTrue(any("première colonne" in m for m in problems), problems)
         self.assertTrue(any("<10" in m for m in problems), problems)
 
-    def test_select_star_only_for_column_names(self):
-        self.write({"knowledge/queries/20261011-colonnes.sql":
-                    "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
-                    "SELECT * FROM TB_MVT WHERE 1=0;\n"})
+    def test_script_on_a_file_is_a_query(self):
+        path = "knowledge/queries/20261016-grp-rss.R"
+        self.write({path: SCRIPT,
+                    "knowledge/evidence/20261016-grp-rss-resultat.md": EXECUTION
+                    .replace("id: 20261008-mvt-rum", "id: 20261016-grp-rss-resultat")
+                    .replace("query: 20261007-mvt-rum", "query: 20261016-grp-rss")})
         self.assertClean()
-        self.edit("knowledge/queries/20261011-colonnes.sql", " WHERE 1=0", "")
-        self.assertProblem(RED, "knowledge/queries/20261011-colonnes.sql", "SELECT *")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "modified: no", "modified: yes")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "version exécutée")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "| <10 |\n", "| <10 |\n\n```sql\nSELECT 1\n```\n")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "```r")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```sql\nSELECT 1", "```r\nl <- 1")
+        self.assertClean()
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```r\nl <- 1\n```\n", "```r\n```\n")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "version exécutée")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "```r\n```\n", "```r\nl <- 1\n")
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "pas fermé")
+
+    def test_python_script_is_a_query(self):
+        path = "knowledge/queries/20261016-grp-rss.py"
+        self.write({path: PY_SCRIPT,
+                    "knowledge/evidence/20261016-grp-rss-resultat.md": EXECUTION
+                    .replace("id: 20261008-mvt-rum", "id: 20261016-grp-rss-resultat")
+                    .replace("query: 20261007-mvt-rum", "query: 20261016-grp-rss")
+                    .replace("modified: no", "modified: yes")})
+        self.assertProblem(RED, "knowledge/evidence/20261016-grp-rss-resultat.md", "```python")
+        self.edit("knowledge/evidence/20261016-grp-rss-resultat.md", "| <10 |\n", "| <10 |\n\n```python\nn = 1\n```\n")
+        self.assertClean()
+        self.write({path: PY_SCRIPT.replace('"<10" if k < 10 else k', "k")})
+        self.assertProblem(RED, path, "<10")
+        self.write({path: PY_SCRIPT.replace("for mois", 'exec(open("knowledge/routines/grp-par-mois/grp-par-mois.py").read())\nfor mois')})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+
+    def test_masked_script_rules(self):
+        path = "knowledge/queries/20261016-grp-rss.R"
+        self.write({path: SCRIPT.replace('QUERY_ID = "20261016-grp-rss", ', "")
+                    .replace('ifelse(n < 10, "<10", as.character(n))', "n  # < 10")
+                    .replace("table(", "unique(")})
+        problems = [p["message"] for p in self.run_checks() if p["path"] == path]
+        for words in ("première colonne", "agrégats", "<10"):
+            self.assertTrue(any(words in m for m in problems), problems)
+        self.write({path: SCRIPT.replace("# system: cora", "-- system: cora")})
+        self.assertProblem(RED, path, "obligatoire")
+
+    def test_lowercase_r_is_an_r_script(self):
+        """RStudio enregistre en .R ou en .r : le contrôle les lit de la même façon, sous Windows comme sous Linux."""
+        path = "knowledge/queries/20261016-grp-rss.r"
+        self.write({path: SCRIPT,
+                    "knowledge/evidence/20261016-grp-rss-resultat.md": EXECUTION
+                    .replace("id: 20261008-mvt-rum", "id: 20261016-grp-rss-resultat")
+                    .replace("query: 20261007-mvt-rum", "query: 20261016-grp-rss")
+                    .replace("modified: no", "modified: yes")
+                    .replace("| <10 |\n", "| <10 |\n\n```r\nl <- 1\n```\n"),
+                    "knowledge/routines/grp-par-mois/grp-par-mois.r": ROUTINE,
+                    "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n"})
+        self.assertClean()
+        self.write({path: SCRIPT.replace('ifelse(n < 10, "<10", as.character(n))', "n")})
+        self.assertProblem(RED, path, "<10")
+        self.write({path: SCRIPT.replace("l <- readLines", 'source("knowledge/routines/grp-par-mois/grp-par-mois.r")\nl <- readLines')})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+
+    def routine_files(self):
+        return {"knowledge/routines/grp-par-mois/grp-par-mois.R": ROUTINE,
+                "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n\nCe que la routine compte.\n"}
+
+    def test_routine_is_a_tool_with_its_method(self):
+        """Son résultat reste à l'hôpital : une routine non masquée passe le contrôle."""
+        path = "knowledge/routines/grp-par-mois/grp-par-mois.R"
+        self.write(self.routine_files())
+        self.assertClean()
+        self.edit(path, "# system: cora", "# system: corra")
+        self.assertProblem(RED, path, "corra")
+        self.edit(path, "# system: corra\n", "")
+        self.assertProblem(RED, path, "obligatoire")
+        self.write({path: ROUTINE})
+        (self.root / "knowledge/routines/grp-par-mois/README.md").unlink()
+        self.assertProblem(RED, path, "README.md")
+        (self.root / path).unlink()
+        self.write({"knowledge/routines/checks/checks.py": "# id: checks\n# system: cora\n# purpose: test\n"
+                    "# né le 12/03/1951\n", "knowledge/routines/checks/README.md": "# checks\n"})
+        self.assertProblem(RED, "knowledge/routines/checks/checks.py", "naissance")
+        (self.root / "knowledge/routines/checks/checks.py").unlink()
+        self.write({"knowledge/routines/grp-par-mois/grp-par-mois.py":
+                    "# id: grp-par-mois\n# system: cora\n# purpose: compter les RSS par mois\nprint(1)\n",
+                    "knowledge/routines/grp-par-mois/README.md": "# grp-par-mois\n"})
+        self.assertClean()
+
+    def test_routine_lives_in_its_own_folder(self):
+        self.write(self.routine_files())
+        (self.root / "knowledge/routines/grp-par-mois").rename(self.root / "knowledge/routines/grp")
+        self.assertProblem(RED, "knowledge/routines/grp/grp-par-mois.R", "dossier à son nom")
+        self.write({"knowledge/routines/grp/notes.txt": "brouillon\n"})
+        self.assertProblem(RED, "knowledge/routines/grp/notes.txt", "ne lit pas")
+
+    def test_query_does_not_load_a_routine(self):
+        path = "knowledge/queries/20261016-grp-rss.R"
+        self.write(self.routine_files())
+        self.write({path: SCRIPT.replace("l <- readLines", 'source("CHEMIN/VERS/knowledge/routines/grp-par-mois/grp-par-mois.R")\nl <- readLines')})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+        self.write({path: SCRIPT.replace("l <- readLines", "source('C:\\\\depot\\\\knowledge\\\\routines\\\\grp-par-mois\\\\grp-par-mois.R')\nl <- readLines")})
+        self.assertProblem(RED, path, "ne charge pas une routine")
+        self.write({path: SCRIPT.replace("l <- readLines", "# même calcul que la routine grp-par-mois (knowledge/routines/grp-par-mois/grp-par-mois.R)\nl <- readLines")})
+        self.assertClean()
+
+    def test_catalogue_query_names_columns_and_shows_its_id(self):
+        path = "knowledge/queries/20261011-colonnes.sql"
+        header = "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: no-person-data\n-- purpose: lister les colonnes\n"
+        self.write({path: header + "SELECT '20261011-colonnes' AS query_id, COLUMN_NAME FROM ALL_TAB_COLUMNS;\n"})
+        self.assertClean()
+        self.write({path: header + "SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS;\n"})
+        self.assertProblem(RED, path, "première colonne")
+        self.write({path: header + "SELECT '20261011-colonnes' AS query_id, t.* FROM TB_MVT t WHERE 1=0;\n"})
+        self.assertProblem(RED, path, "SELECT *")
 
     # Données personnelles
 
@@ -453,8 +593,13 @@ class RepositoryTest(unittest.TestCase):
         self.assertProblem(RED, "investigations/2026-test/README.md", "naissance")
 
     def test_small_count_in_masked_result_is_red(self):
-        self.edit("knowledge/evidence/20261008-mvt-rum.md", "| 2025 | <10 |", "| 2025 | 7 |")
-        self.assertProblem(RED, "knowledge/evidence/20261008-mvt-rum.md", "inférieur à 10")
+        path = "knowledge/evidence/20261008-mvt-rum.md"
+        self.edit(path, "| 2025 | <10 |", "| 2025 | 7 |")
+        self.assertProblem(RED, path, "inférieur à 10")
+        self.edit(path, "| N_MVT |", "| N |")
+        self.assertProblem(RED, path, "inférieur à 10")
+        self.edit(path, "| N |", "| NO_UF |")
+        self.assertClean()
 
     # Rangement
 
@@ -493,6 +638,14 @@ class RepositoryTest(unittest.TestCase):
     def test_skill_copies_must_match(self):
         self.write({".agents/skills/frame/SKILL.md": "---\nname: frame\n---\nCadrer.\n"})
         self.assertProblem(RED, ".claude/skills", "diffère")
+        sync(self.root)
+        self.assertClean()
+
+    def test_skill_header_must_be_yaml(self):
+        self.write({".agents/skills/relay/SKILL.md": "---\nname: relay\ndescription: Relayer (la liste : README.md).\n---\n"})
+        sync(self.root)
+        self.assertProblem(RED, ".agents/skills/relay/SKILL.md", "illisible")
+        self.edit(".agents/skills/relay/SKILL.md", "Relayer (la liste : README.md).", '"Relayer (la liste : README.md)."')
         sync(self.root)
         self.assertClean()
 
@@ -550,11 +703,11 @@ class RepositoryTest(unittest.TestCase):
         for words in ("clé non admise", "UTF-8", "texte simple"):
             self.assertIn(words, messages)
 
-    def test_masked_query_for_column_names(self):
-        self.write({"knowledge/queries/20261011-colonnes.sql":
-                    "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: masked\n-- purpose: lister les colonnes\n"
-                    "SELECT * FROM TB_PATIENT WHERE 1=0;\n"})
-        self.assertClean()
+    def test_where_1_equals_0_does_not_allow_select_star(self):
+        path = "knowledge/queries/20261011-colonnes.sql"
+        self.write({path: "-- id: 20261011-colonnes\n-- system: cora\n-- person_data: masked\n-- purpose: lister les colonnes\n"
+                          "SELECT * FROM TB_PATIENT WHERE 1=0;\n"})
+        self.assertProblem(RED, path, "SELECT *")
 
     def test_select_star_variants_and_repeated_header(self):
         path = "knowledge/queries/20261007-mvt-rum.sql"
@@ -580,12 +733,6 @@ class RepositoryTest(unittest.TestCase):
         self.edit("knowledge/queries/20261007-mvt-rum.sql", "       ANNEE,", "       'a--b' AS LIBELLE, t.*,")
         self.assertProblem(RED, "knowledge/queries/20261007-mvt-rum.sql", "SELECT *")
 
-    def test_column_names_query_is_a_single_select(self):
-        path = "knowledge/queries/20261013-patients.sql"
-        self.write({path: "-- id: 20261013-patients\n-- system: cora\n-- person_data: masked\n-- purpose: test\n"
-                          "SELECT * FROM TB_PATIENT WHERE 1=0 UNION SELECT * FROM TB_PATIENT;\n"})
-        self.assertProblem(RED, path, "SELECT *")
-
     def test_masked_result_is_a_markdown_table(self):
         path = "knowledge/evidence/20261008-mvt-rum.md"
         table = "| query_id | ANNEE | N_MVT |\n|---|---|---|\n| 20261007-mvt-rum | 2024 | 1520 |\n" \
@@ -610,8 +757,11 @@ class RepositoryTest(unittest.TestCase):
         self.assertClean()
 
     def test_birth_date_in_a_table_column(self):
-        self.write({"investigations/2026-test/README.md": "| SEXE | DATE_NAISSANCE |\n|---|---|\n| F | 1951-03-12 |\n"})
-        self.assertProblem(RED, "investigations/2026-test/README.md", "tableau")
+        # DATE_NAIS et DATE_NAIS_LUN : les noms de TB_PATIENT dans le dictionnaire CORA.
+        for column in ("DATE_NAISSANCE", "DATE_NAIS", "DATE_NAIS_LUN"):
+            with self.subTest(column=column):
+                self.write({"investigations/2026-test/README.md": f"| SEXE | {column} |\n|---|---|\n| F | 1951-03-12 |\n"})
+                self.assertProblem(RED, "investigations/2026-test/README.md", "tableau")
 
     # Exemples de method/
 
@@ -620,9 +770,16 @@ class RepositoryTest(unittest.TestCase):
         folders = set()
         for doc in sorted(DOCS.glob("*.md")):
             text = normalized(doc.read_text(encoding="utf-8"))
-            for language, example in re.findall(r"^```(markdown|sql)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
+            for language, example in re.findall(r"^```(markdown|sql|r)\n(.*?)^```", text, re.MULTILINE | re.DOTALL):
                 if language == "sql":
                     name = f"knowledge/queries/{query_header(example)[0]['id']}.sql"
+                elif language == "r":
+                    header = query_header(example, "#")[0]
+                    routine = "person_data" not in header  # une routine n'a pas de person_data : son résultat reste à l'hôpital
+                    name = (f"knowledge/routines/{header['id']}/{header['id']}.R" if routine
+                            else f"knowledge/queries/{header['id']}.R")
+                    if routine:
+                        self.write({f"knowledge/routines/{header['id']}/README.md": "# Méthode\n"})
                 elif example.startswith("---\n"):
                     header = front_matter(example)[0]
                     folder = ("knowledge/claims" if "kind" in header else
@@ -631,8 +788,8 @@ class RepositoryTest(unittest.TestCase):
                 else:
                     continue
                 self.write({name: example})
-                folders.add(name.split("/")[-2])
-        self.assertEqual(folders, {"claims", "evidence", "queries", "sources"})
+                folders.add("routines" if "/routines/" in name else name.split("/")[-2])
+        self.assertEqual(folders, {"claims", "evidence", "queries", "routines", "sources"})
         self.assertClean()
 
     # Ligne de commande

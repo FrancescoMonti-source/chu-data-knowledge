@@ -9,14 +9,14 @@ responsible: Pierre
 reconsider_when: "une analyse doit suivre une définition externe de la durée (ATIH, ScanSanté) qui compte autrement, ou la règle doit s'étendre aux séjours hors hospitalisation complète"
 maturity: documented
 lifecycle: active
-terms: [cora:sejour]
+terms: [cora:sejour, cora:duree-sejour]
 tables: [cora:TB_SEJOUR]
-supported_by: [20261014-revue-pr38]
+supported_by: [20261014-revue-pr38, 20261019-ghm-sixieme-duree-rss-resultat]
 depends_on: []
 ---
 ## Pour s'en servir
 
-Devant « durée de séjour », « DMS » ou « durée moyenne » sans unité, ne pas choisir : demander à la personne si elle veut des journées ou des nuitées. Puis, pour les séjours d'hospitalisation complète, à partir des dates du séjour :
+Devant « durée de séjour », « DMS » ou « durée moyenne » sans unité, ne pas choisir : demander à la personne si elle veut des journées ou des nuitées. Puis, pour les séjours d'hospitalisation complète, à partir des dates du séjour (pour les nuitées d'un RSS, TB_SYNTH_RSS.DUREE_SEJOUR convient : elle est déjà en nuitées, égale à `TRUNC(DATE_FIN) - TRUNC(DATE_DEBUT)`, sauf pour les séances de la CMD 28, où elle vaut au moins 1) :
 
 ```sql
 TRUNC(s.DATE_SORTIE) - TRUNC(s.DATE_ENTREE) + 1 AS NB_JOURNEES,

@@ -11,9 +11,10 @@ Un contexte est un système, c'est-à-dire un logiciel ou une base, comme CORA ;
 | edsan | système | edsan.md |
 | icca | système | icca.md |
 | oproom | système | oproom.md |
+| structure | domaine | structure.md |
 
 Les mots de la méthode (claim, preuve, enquête…) ne forment pas un contexte : method/GLOSSARY.md les définit, sans préfixe.
 
 ## Ponts
 
-Aucun pour l'instant (définition : method/GLOSSARY.md). On les trouve en cherchant les claims dont le champ terms mélange deux préfixes.
+Définition : method/GLOSSARY.md. On les trouve en cherchant les claims dont le champ terms mélange deux préfixes.

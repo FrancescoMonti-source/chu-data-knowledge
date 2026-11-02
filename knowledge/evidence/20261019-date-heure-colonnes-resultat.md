@@ -1,0 +1,57 @@
+---
+id: 20261019-date-heure-colonnes-resultat
+type: execution
+query: 20261019-date-heure-colonnes
+run_at: 2026-10-19 17:45
+database: CWPROD
+executed_by: Pierre
+modified: no
+person_data: masked
+---
+| QUERY_ID | DATABASE_NAME | RUN_AT | TABLE_NAME | COLONNE_DATE | ANNEE | N | N_DATE_AVEC_HEURE | PCT_DATE_AVEC_HEURE | N_HEURE_RENSEIGNEE | N_HEURE_MEME_JOUR | PCT_HEURE_MEME_JOUR | N_HEURE_DATE_FICTIVE | N_HEURE_NON_NULLE |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2018 | 293441 | <10 |  | masqué | 293440 |  | <10 | 293439 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2019 | 338971 | <10 |  | 338971 | 338971 | 100 | <10 | 338971 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2020 | 447681 | <10 |  | 447681 | 447681 | 100 | <10 | 447426 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2021 | 788583 | <10 |  | masqué | 788581 |  | <10 | 788006 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2022 | 808443 | <10 |  | 808443 | 808443 | 100 | <10 | 807763 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2023 | 804812 | <10 |  | masqué | 804810 |  | <10 | 804437 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2024 | 820476 | <10 |  | 820476 | 820476 | 100 | <10 | 820297 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2025 | 831423 | <10 |  | masqué | 831422 |  | <10 | 831354 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_ACTE | DATE_ACTE | 2026 | 558034 | <10 |  | 558034 | 558034 | 100 | <10 | 557985 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2018 | 907674 | <10 |  | 907674 | 907674 | 100 | <10 | 906423 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2019 | 905492 | <10 |  | 905492 | 905492 | 100 | <10 | 903555 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2020 | 794042 | <10 |  | 794042 | 794042 | 100 | <10 | 792758 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2021 | 920223 | <10 |  | 920223 | 920223 | 100 | <10 | 917960 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2022 | 929801 | <10 |  | 929801 | 929801 | 100 | <10 | 926893 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2023 | 933448 | <10 |  | 933448 | 933448 | 100 | <10 | 930431 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2024 | 967577 | <10 |  | 967577 | 967577 | 100 | <10 | 964822 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2025 | 1002817 | <10 |  | 1002817 | 1002817 | 100 | <10 | 999763 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_DEBUT_MVT | 2026 | 845966 | <10 |  | 845966 | 845966 | 100 | <10 | 844333 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2018 | 851040 | <10 |  | 851040 | 851040 | 100 | <10 | 850562 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2019 | masqué | <10 |  | 856019 | 856019 | 100 | <10 | 855626 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2020 | masqué | <10 |  | 734243 | 734243 | 100 | <10 | 734174 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2021 | 916294 | <10 |  | 916294 | 916294 | 100 | <10 | 916135 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2022 | 895772 | <10 |  | 895772 | 895772 | 100 | <10 | 895610 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2023 | 916078 | <10 |  | 916078 | 916078 | 100 | <10 | 907633 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2024 | 972108 | <10 |  | 972108 | 972108 | 100 | <10 | 971181 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2025 | 971500 | <10 |  | 971500 | 971500 | 100 | <10 | 949698 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_MVT | DATE_FIN_MVT | 2026 | 839968 | <10 |  | 839968 | 839968 | 100 | <10 | 809203 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2018 | 859229 | <10 |  | 859229 | 859229 | 100 | <10 | 857878 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2019 | 861113 | <10 |  | 861113 | 861113 | 100 | <10 | 858943 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2020 | 732697 | <10 |  | 732697 | 732697 | 100 | <10 | 731429 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2021 | 843832 | <10 |  | 843832 | 843832 | 100 | <10 | 841608 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2022 | 853167 | <10 |  | 853167 | 853167 | 100 | <10 | 850311 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2023 | 858680 | <10 |  | 858680 | 858680 | 100 | <10 | 855696 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2024 | 892812 | <10 |  | 892812 | 892812 | 100 | <10 | 890115 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2025 | 922017 | <10 |  | 922017 | 922017 | 100 | <10 | 919005 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_ENTREE | 2026 | 753221 | <10 |  | 753221 | 753221 | 100 | <10 | 751631 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2018 | 784929 | <10 |  | 784929 | 784929 | 100 | <10 | 784437 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2019 | 790759 | <10 |  | 790759 | 790759 | 100 | <10 | 790366 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2020 | 672956 | <10 |  | 672956 | 672956 | 100 | <10 | 672901 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2021 | 840250 | <10 |  | 840250 | 840250 | 100 | <10 | 840134 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2022 | 819472 | <10 |  | 819472 | 819472 | 100 | <10 | 819372 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2023 | 845368 | <10 |  | 845368 | 845368 | 100 | <10 | 832918 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2024 | 897244 | <10 |  | 897244 | 897244 | 100 | <10 | 896417 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2025 | 891061 | <10 |  | 891061 | 891061 | 100 | <10 | 869325 |
+| 20261019-date-heure-colonnes | CWPROD | 2026-10-19 17:45 | TB_SEJOUR | DATE_SORTIE | 2026 | 747011 | <10 |  | 747011 | 747011 | 100 | <10 | 716290 |
