@@ -1,6 +1,6 @@
 # Relecture et contestation
 
-Un claim entre vérifié par son auteur et par le contrôle, sans autre relecteur : unreviewed veut dire exactement cela. Il est relu quand quelqu'un le réutilise. N'importe qui peut le contester à tout moment.
+Un claim entre vérifié par son auteur et par le contrôle, sans autre relecteur : unreviewed veut dire exactement cela. Quand quelqu'un le réutilise, son agent relit les preuves et refait les calculs, et la personne approuve (« Au réemploi »). N'importe qui peut le contester à tout moment.
 
 ## Quand relire
 
