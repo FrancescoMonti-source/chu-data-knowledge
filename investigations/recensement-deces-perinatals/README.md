@@ -14,6 +14,7 @@ Comparaison : entre signaux, pour voir lesquels se recoupent.
 ## Choix
 - Le recensement est plus large que les cas examinés en RMM : l'extraction ne retire ni les IMG, ni les morts fœtales spontanées avant le travail, ni les décès « consentis » (Francesco, 15/10, d'après § 1.b et § 1.c de l'instruction).
 - Hors périmètre pour l'instant : organisation des RMM, vérification des dossiers et certificats, corrections du codage, relevé annuel (Francesco, 15/10).
+- Convention de temps : J0 est le jour de naissance, donc le « 28e jour de vie » (§ 1.b, annexe 1.2) est J27, comme « de J0 à J27 » (§ 1.c) ; l'âge au décès se compte en jours de calendrier (date du décès moins date de naissance, sans l'heure), de 0 à 27 (Francesco, 02/11). Reste à choisir la date du décès : sortie du séjour ou TB_PATIENT.DATE_DECES.
 - La fiche de la source entre seule, par la PR #41, avant l'enquête.
 
 ## Conclusions
