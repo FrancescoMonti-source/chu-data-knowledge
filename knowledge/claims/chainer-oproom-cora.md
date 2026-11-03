@@ -78,4 +78,4 @@ liens <- merge(oproom, cles, by = "I_KEY", all.x = TRUE)
 
 Forme de NO_INTERVENTION_EXT depuis novembre 2023 (20261015-forme-no-intervention-ext-resultat), chaque chiffre remplacé par 9 : « 999999-9 » pour les 44 162 interventions de l'application 16 et pour 56 interventions sans application ; vide pour 354 interventions sans application ; aucune autre forme.
 
-Que le nombre soit OR_INTERVENTIONS.I_KEY, et le second chiffre la phase, vient du chaînage écrit par Pierre dans DIM-code pour le mapping OpRoom → CCAM (20261015-dim-code-chainage-oproom). La kb de DIM-code parlait d'un numéro « sur 10 chiffres » : c'est la forme de l'export Excel d'OpRoom, pas celle de CORA.
+Que le nombre soit OR_INTERVENTIONS.I_KEY, et le second chiffre la phase, vient du chaînage écrit par l'utilisateur DIM dans DIM-code pour le mapping OpRoom → CCAM (20261015-dim-code-chainage-oproom). La kb de DIM-code parlait d'un numéro « sur 10 chiffres » : c'est la forme de l'export Excel d'OpRoom, pas celle de CORA.

@@ -4,8 +4,8 @@ id: icr-table-cora-ccam
 kind: empirical
 author: Pierre
 supersedes: [icr-sans-table-cora]
-statement: "Dans CORA de production, l'ICR d'un acte CCAM est dans CORA_CCAM.PMSI_CCAM_ICR (synonyme CORA_REC.PMSI_CCAM_ICR), clé CODE, EXTENSION_ATIH, PHASE, ACTIVITE, valeur ICR : le compte de Pierre voit cette table depuis fin octobre 2026 ; écrire la requête sur elle plutôt que de joindre un fichier ATIH, après un comptage direct qui confirme qu'elle se lit et qu'ICR est renseigné."
-scope: "CORA de production (CWPROD), catalogue Oracle lu avec le compte de Pierre le 2026-10-26 (la table n'y figurait pas le 2026-10-19) ; contenu de la table non lu"
+statement: "Dans CORA de production, l'ICR d'un acte CCAM est dans CORA_CCAM.PMSI_CCAM_ICR (synonyme CORA_REC.PMSI_CCAM_ICR), clé CODE, EXTENSION_ATIH, PHASE, ACTIVITE, valeur ICR : le compte de l'utilisateur DIM voit cette table depuis fin octobre 2026 ; écrire la requête sur elle plutôt que de joindre un fichier ATIH, après un comptage direct qui confirme qu'elle se lit et qu'ICR est renseigné."
+scope: "CORA de production (CWPROD), catalogue Oracle lu avec le compte de l'utilisateur DIM le 2026-10-26 (la table n'y figurait pas le 2026-10-19) ; contenu de la table non lu"
 refuted_if: "SELECT COUNT(*) FROM CORA_REC.PMSI_CCAM_ICR donne ORA-00942, ou 0 ligne, ou la colonne ICR est vide ou constante"
 maturity: observed
 lifecycle: active

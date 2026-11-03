@@ -3,7 +3,7 @@ review: unreviewed
 id: reperer-actes-de-bloc
 kind: empirical
 author: Pierre
-statement: "Dans CORA, on ne peut pas récupérer les actes de bloc avec certitude avant 2022 : jusqu'en septembre 2020 ils viennent de reprises d'historique, et en 2020-2021 ID_SITE est vide pour environ 63 000 et 147 000 actes. Depuis 2022, prendre les actes dont le site de réalisation est un site de bloc (TB_ACTE.ID_SITE → TB_SITE.BLOC = 'O'), hors salle de naissance, plus les actes des UF 5508, 6510 et 6196 que Pierre range dans le bloc, quelle que soit leur origine, flux CPage jusqu'en 2024 ou saisie dans CORA depuis 2025."
+statement: "Dans CORA, on ne peut pas récupérer les actes de bloc avec certitude avant 2022 : jusqu'en septembre 2020 ils viennent de reprises d'historique, et en 2020-2021 ID_SITE est vide pour environ 63 000 et 147 000 actes. Depuis 2022, prendre les actes dont le site de réalisation est un site de bloc (TB_ACTE.ID_SITE → TB_SITE.BLOC = 'O'), hors salle de naissance, plus les actes des UF 5508, 6510 et 6196 que l'utilisateur DIM range dans le bloc, quelle que soit leur origine, flux CPage jusqu'en 2024 ou saisie dans CORA depuis 2025."
 scope: "CORA de production (CWPROD, schéma CORA_REC), tables TB_ACTE et TB_SITE, actes datés de 2014 à 2025, lus le 2026-10-14"
 refuted_if: "plus de 10 000 actes d'une année autre que 2020 et 2021 ont ID_SITE vide, ou la saisie CORA porte moins de la moitié des actes de bloc de 2025"
 maturity: observed
@@ -24,7 +24,7 @@ FROM CORA_REC.TB_ACTE a
 JOIN CORA_REC.TB_MVT m ON m.ID_MVT = a.ID_MVT
 LEFT JOIN CORA_REC.TB_SITE si ON si.ID_SITE = a.ID_SITE
 WHERE (si.BLOC = 'O' AND TRIM(si.CODE_SITE) <> '2620')   -- 2620 OBS SALLE NAISSANCE : des accouchements
-   OR TRIM(m.ID_UNITE_M) IN ('5508', '6510', '6196')     -- UF du mouvement, non paramétrées bloc, rangées dans le bloc par Pierre
+   OR TRIM(m.ID_UNITE_M) IN ('5508', '6510', '6196')     -- UF du mouvement, non paramétrées bloc, rangées dans le bloc par l'utilisateur DIM
 ```
 
 BLOC ne vaut que 'O' ou 'N' : pas de '1' ni d'autre valeur à prendre en compte.
@@ -40,7 +40,7 @@ Garder les deux origines : ne pas filtrer sur l'application, car les actes de bl
 - **2020 et 2021 :** une partie des actes n'a pas de site et sort du périmètre, sans que l'activité baisse.
 - **Avant octobre 2020 :** les actes viennent de reprises d'historique (epoques-codage-actes).
 
-**Trois UF hors des sites de bloc :** 6510 (niveau 4 UCA), 5508 (hépato-gastro-entérologie) et 6196 (chirurgie pédiatrique HDJ) portent des interventions OpRoom, mais leurs actes ne sont pas sur un site paramétré bloc. Pierre a rangé dans le périmètre du bloc les actes portés par un mouvement de ces UF (20261015-dim-code-cascade-chainage) : les inclure, et le dire.
+**Trois UF hors des sites de bloc :** 6510 (niveau 4 UCA), 5508 (hépato-gastro-entérologie) et 6196 (chirurgie pédiatrique HDJ) portent des interventions OpRoom, mais leurs actes ne sont pas sur un site paramétré bloc. L'utilisateur DIM a rangé dans le périmètre du bloc les actes portés par un mouvement de ces UF (20261015-dim-code-cascade-chainage) : les inclure, et le dire.
 
 ## Ce qui l'appuie
 

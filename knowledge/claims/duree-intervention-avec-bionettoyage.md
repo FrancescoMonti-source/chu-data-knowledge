@@ -34,6 +34,6 @@ Moyennes en minutes, de 2023 à 2026 :
 - **Incision (phase OPERAT) :** 63, 60, 60 et 60.
 - **Bionettoyage (début du BIONET → fin) :** 12, 11, 12 et 12.
 
-Définitions : le benchmark de l'ARS Rhône-Alpes, qui suit la méthode de l'ANAP et de la MeaH, compte une intervention de l'entrée en salle à la fin de la remise en état, et fait du TROS la somme de ces durées (20261015-ars-definition-tros). Pour Pierre, le TMI est la moyenne de ces durées, nettoyage compris, et le TROS leur somme sur une journée (20261015-precision-tmi-tros).
+Définitions : le benchmark de l'ARS Rhône-Alpes, qui suit la méthode de l'ANAP et de la MeaH, compte une intervention de l'entrée en salle à la fin de la remise en état, et fait du TROS la somme de ces durées (20261015-ars-definition-tros). Pour l'utilisateur DIM, le TMI est la moyenne de ces durées, nettoyage compris, et le TROS leur somme sur une journée (20261015-precision-tmi-tros).
 
 La kb de DIM-code proposait d'arrêter le TROS au début du bionettoyage (note:oproom.definition.tros, « définition proposée »). Cette proposition n'est pas reprise.

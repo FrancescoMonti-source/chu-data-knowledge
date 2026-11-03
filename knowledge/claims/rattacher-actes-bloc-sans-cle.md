@@ -30,4 +30,4 @@ L'implémentation est dans DIM-code, `analysis/2026-10_chainage_oproom_ccam/chai
 
 Analyse de DIM-code du 2026-10-05 (20261015-dim-code-cascade-chainage) : sur 207 671 actes de bloc, 82,5 % rattachés (chaîné 7,9 %, intervention unique 66,1 %, date la plus proche 8,0 %, vote 0,5 %) et 17,3 % sans intervention OpRoom dans le séjour. Exactitude contre le chaînage direct depuis avril 2025 : 100 % pour l'intervention unique, 99,4 % pour la date la plus proche, 85,9 % pour le vote (71 actes). Sur 144 643 interventions OpRoom : codage retrouvé pour 82,2 %, aucun pour 15,4 % (surtout UF 6510 et 5508), séjour absent de CORA pour 2,3 %.
 
-Ces chiffres viennent d'une analyse de Pierre, faite avant ce dépôt, et non d'une requête de CDK : la refaire en suivant method/queries.md avant de les citer comme une mesure.
+Ces chiffres viennent d'une analyse de l'utilisateur DIM, faite avant ce dépôt, et non d'une requête de CDK : la refaire en suivant method/queries.md avant de les citer comme une mesure.

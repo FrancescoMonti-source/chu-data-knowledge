@@ -28,4 +28,4 @@ Dire dans l'analyse combien de séjours ont été retirés. Ce filtre ne règle 
 
 ## Ce qui l'appuie
 
-Les séjours sans sortie ni mouvement ne sont reliés à rien (sejour-sans-sortie-ni-mouvement-vide) ; les préadmissions sans sortie ne portent presque jamais d'acte ni de RSS (preadmission-sans-sortie-sans-activite). Pierre avait posé la règle avant la mesure, « si elles ne sont chaînées à rien, on peut les virer », puis l'a étendue à toutes les préadmissions sans sortie, y compris celles de 2016 qui ont un RSS et celles qui ont un diagnostic (20261014-decision-sejours-sans-mouvement).
+Les séjours sans sortie ni mouvement ne sont reliés à rien (sejour-sans-sortie-ni-mouvement-vide) ; les préadmissions sans sortie ne portent presque jamais d'acte ni de RSS (preadmission-sans-sortie-sans-activite). L'utilisateur DIM avait posé la règle avant la mesure, « si elles ne sont chaînées à rien, on peut les virer », puis l'a étendue à toutes les préadmissions sans sortie, y compris celles de 2016 qui ont un RSS et celles qui ont un diagnostic (20261014-decision-sejours-sans-mouvement).
