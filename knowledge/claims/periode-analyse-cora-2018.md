@@ -28,4 +28,4 @@ Défauts mesurés avant 2018 :
 - 2016-2017 : 97 à 100 % des séjours clos sans RSS relié par TB_MVT → TB_MVT_RUM, contre 3 % en 2014-2015 et 80 % depuis 2018 (20261013-sejours-sans-rss-resultat ; #25).
 - 2014-2015 : peu de séjours (environ 130 000 et 142 000 par an, contre 860 000 en 2018).
 
-L'utilisateur DIM a fixé le 1er janvier 2018 au vu de ces défauts (20261014-decision-periode-analyse).
+Pierre a fixé le 1er janvier 2018 au vu de ces défauts (20261014-decision-periode-analyse).
