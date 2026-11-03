@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [pmsi:mort-ne, cora:diagnostic]
 tables: [cora:TB_DIAG, cora:TB_MVT]
-supported_by: [20261102-morts-foetales-codes-resultat, 20261102-codes-mortinatalite-detail-resultat, 20261102-mortnes-p964]
+supported_by: [20261102-morts-foetales-codes-resultat, 20261102-codes-mortinatalite-detail-resultat, 20261102-mortnes-p964, 20261103-mortnes-p964-ne-vivant]
 depends_on: []
 ---
 ## Pour s'en servir
@@ -21,7 +21,7 @@ Avant 2019, P95 n'a pas d'extension : ce claim ne dit pas comment séparer IMG e
 
 ## Ce qui l'appuie
 
-Depuis 2021, P96.4 ne marque plus l'IMG d'un mort-né, que porte l'extension de P95 ; il reste le marqueur de l'IMG d'un enfant né vivant (20261102-mortnes-p964).
+Depuis 2021, P96.4 ne marque plus l'IMG d'un mort-né, que porte l'extension de P95 ; il reste le marqueur de l'IMG d'un enfant né vivant (20261102-mortnes-p964), seul moyen de la repérer, car les extensions ne concernent que P95 (20261103-mortnes-p964-ne-vivant). Le libellé CIM-10 de P96.4, « Interruption de la grossesse affectant le fœtus et le nouveau-né », ne dit pas cette restriction : lu seul, il pousse à le prendre pour toute IMG.
 
 Patients qui portent P95 et dont le séjour porte aussi P964 (20261102-morts-foetales-codes-resultat) : 70 en 2018-2021, 78 en 2022-2025, donc sans baisse après l'instruction. Séjours avec P964 en DAS (20261102-codes-mortinatalite-detail-resultat) : 21 en 2022, 26 en 2023.
 
