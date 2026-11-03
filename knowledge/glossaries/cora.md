@@ -26,6 +26,18 @@ Alias : UF, unité fonctionnelle, unité, TB_UNITE, CODE_UNITE, UF d'entrée, UF
 
 Une unité du thésaurus TB_UNITE, désignée par son code (CODE_UNITE). Un séjour porte son UF d'entrée (TB_SEJOUR.UF_ENTREE), chaque mouvement l'UF où il a lieu (TB_MVT.ID_UNITE_M, qui contient le code et non un identifiant).
 
+## cora:um
+
+Alias : UM, unité médicale, TB_UNITE_MEDICALE, CODE_UNITE_MED
+
+Une unité médicale du thésaurus TB_UNITE_MEDICALE, désignée par son code (CODE_UNITE_MED) ; une UM regroupe une ou plusieurs UF (lien TB_UNITE_M_UNITE, daté) et se rattache à un pôle. Une UM n'est pas un service : un service regroupe une ou plusieurs UM.
+
+## cora:rum
+
+Alias : RUM, résumé d'unité médicale, TB_SYNTH_RUM
+
+Un enregistrement de TB_SYNTH_RUM : le passage d'un séjour dans une unité médicale, une des lignes d'un RSS. Il porte son UM et son UF d'hébergement (ID_UNITE_HEBERG).
+
 ## cora:passage-urgences
 
 Alias : urgences, passage aux urgences, SAU, UF d'urgences, URGENCE, UF_URGENCE, TYPE_SEJOUR URG
