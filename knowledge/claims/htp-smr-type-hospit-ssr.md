@@ -19,6 +19,6 @@ Pour la HTP, filtrer `TB_MVT_SSR_SEM.TYPE_HOSPIT_SSR = 2` ; ne pas filtrer sur `
 
 ## Ce qui l'appuie
 
-En 2025, TB_MVT_SSR_SEM compte 15 010 RHS de TYPE_HOSPIT_SSR = 1 et 2 750 de TYPE_HOSPIT_SSR = 2, et aucune autre valeur (20261020-rhs-htp-colonnes-2025-resultat). TYPE_ACTIVITE est vide dans les deux lignes. Les 2 750 RHS de type 2 portent tous un GME dont le 5e caractère est I, J, K ou L, c'est-à-dire un groupe de réadaptation de HTP (20261020-rhs-htp-gn-gr-montants-2025-resultat), et ils concernent 158 patients, le nombre attendu par Pierre pour la HTP (20261020-patients-htp-2025-2-resultat).
+En 2025, TB_MVT_SSR_SEM compte 15 010 RHS de TYPE_HOSPIT_SSR = 1 et 2 750 de TYPE_HOSPIT_SSR = 2, et aucune autre valeur (20261020-rhs-htp-colonnes-2025-resultat). TYPE_ACTIVITE est vide dans les deux lignes. Les 2 750 RHS de type 2 portent tous un GME dont le 5e caractère est I, J, K ou L, c'est-à-dire un groupe de réadaptation de HTP (20261020-rhs-htp-gn-gr-montants-2025-resultat), et ils concernent 158 patients, le nombre attendu par l'utilisateur DIM pour la HTP (20261020-patients-htp-2025-2-resultat).
 
 Points ouverts : les autres années ne sont pas lues ; TYPE_HOSPIT_SSR = 2 est « hospitalisation de jour en soins de suite médicalisés » dans le dictionnaire, rien ne prouve ici qu'il ne couvre pas aussi une activité de rééducation.

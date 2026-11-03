@@ -6,7 +6,7 @@ author: Pierre
 statement: "Au CHU, une requête OpRoom se met au point sur QBLOCT, la base de test, et une mesure qui sert de preuve vient de QBLOCP, la base de production ; un résultat de QBLOCT ne décrit pas l'activité réelle."
 scope: "OpRoom, toute requête et toute mesure"
 responsible: Pierre
-reconsider_when: "QBLOCT est rafraîchie à partir de la production et cesse de recevoir des saisies de test, ou Pierre obtient un accès direct à QBLOCP"
+reconsider_when: "QBLOCT est rafraîchie à partir de la production et cesse de recevoir des saisies de test, ou l'utilisateur DIM obtient un accès direct à QBLOCP"
 maturity: documented
 lifecycle: active
 terms: [oproom:base]
@@ -22,4 +22,4 @@ depends_on: []
 
 ## Ce qui l'appuie
 
-Pierre l'a fixé le 2026-10-14 (20261014-decision-qbloct). Pierre a accès à QBLOCT ; QBLOCP n'est atteinte que par une personne qui y a accès.
+L'utilisateur DIM l'a fixé le 2026-10-14 (20261014-decision-qbloct). L'utilisateur DIM a accès à QBLOCT ; QBLOCP n'est atteinte que par une personne qui y a accès.

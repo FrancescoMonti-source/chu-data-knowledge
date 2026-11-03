@@ -3,9 +3,9 @@ review: unreviewed
 id: schemas-cwprod-visibles
 kind: empirical
 author: Pierre
-statement: "Sur CWPROD, le compte de Pierre ne voit des objets que dans 8 schémas sur 93 : les référentiels de codage et de tarification (CIM-10, CCAM, CSARR, ICR, listes d'exclusion, DATIM, LPP) sont dans CORA_CCAM et atteints par des synonymes de CORA_REC ; la structure de l'établissement n'est que dans CORA_REC. Avant d'écrire qu'une table « n'existe pas dans CORA », la chercher dans CORA_CCAM et CORA_CCAM_CNAM."
-scope: "CWPROD, catalogue Oracle des schémas non maintenus par Oracle, objets visibles par le compte de Pierre, lu le 2026-10-26"
-refuted_if: "ALL_TABLES, lu avec le compte de Pierre, montre des tables dans un schéma autre que CORA_REC, CORA_CCAM, CORA_CCAM_CNAM, CORA_UTIL, CORA_LOG, CORA_GEN, INTEG ou ZEXPLOIT, ou une table de structure d'établissement (UF, UM, service, pôle) dans CORA_CCAM, CORA_UTIL ou CORA_LOG"
+statement: "Sur CWPROD, le compte de l'utilisateur DIM ne voit des objets que dans 8 schémas sur 93 : les référentiels de codage et de tarification (CIM-10, CCAM, CSARR, ICR, listes d'exclusion, DATIM, LPP) sont dans CORA_CCAM et atteints par des synonymes de CORA_REC ; la structure de l'établissement n'est que dans CORA_REC. Avant d'écrire qu'une table « n'existe pas dans CORA », la chercher dans CORA_CCAM et CORA_CCAM_CNAM."
+scope: "CWPROD, catalogue Oracle des schémas non maintenus par Oracle, objets visibles par le compte de l'utilisateur DIM, lu le 2026-10-26"
+refuted_if: "ALL_TABLES, lu avec le compte de l'utilisateur DIM, montre des tables dans un schéma autre que CORA_REC, CORA_CCAM, CORA_CCAM_CNAM, CORA_UTIL, CORA_LOG, CORA_GEN, INTEG ou ZEXPLOIT, ou une table de structure d'établissement (UF, UM, service, pôle) dans CORA_CCAM, CORA_UTIL ou CORA_LOG"
 maturity: observed
 lifecycle: active
 terms: [cora:uf, cora:um]

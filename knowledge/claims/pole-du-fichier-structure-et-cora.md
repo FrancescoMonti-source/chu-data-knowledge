@@ -25,4 +25,4 @@ Parmi les 675 UF du fichier dont le code est un CODE_UNITE de TB_UNITE (20261026
 
 Limites : « libellé différent » veut dire différent après normalisation ; renommage, abréviation ou vraie réorganisation ne sont pas distingués. Le pôle de CORA est celui de l'UM liée à l'UF, pas une colonne de l'UF. Les 446 UF sans pôle et les 512 codes hors TB_UNITE ne sont pas comparables : 962 des 1 187 UF du fichier (81 %) n'ont aucun pôle côté CORA.
 
-Points ouverts : la cause des 64 écarts (à voir avec Pierre, UF par UF, hors dépôt) ; combien de pôles compte le fichier au total (non enregistré dans une preuve) ; le pôle d'une UM a changé pour 5 UM (liens datés) : le pôle d'avant n'est pas comparé.
+Points ouverts : la cause des 64 écarts (à voir avec l'utilisateur DIM, UF par UF, hors dépôt) ; combien de pôles compte le fichier au total (non enregistré dans une preuve) ; le pôle d'une UM a changé pour 5 UM (liens datés) : le pôle d'avant n'est pas comparé.
