@@ -15,7 +15,7 @@ depends_on: [uf-du-rum-hebergement]
 ---
 ## Pour s'en servir
 
-Avant de suivre une UF ou une UM sur plusieurs années, relever pour chaque UM l'UF qui héberge ses RUM chaque année (ID_UNITE_HEBERG joint à TB_UNITE), et regrouper les UF liées. Un écart de volume d'une UF ou d'une UM entre deux années est d'abord un changement d'hébergement à vérifier, pas un changement d'activité. Le piège ne touche qu'une minorité d'UM, mais dans plusieurs pôles : ne pas le limiter au pôle femme-mère-enfant ni à 2026.
+Avant de suivre une UF ou une UM sur plusieurs années, relever pour chaque UM l'UF qui héberge ses RUM chaque année (ID_UNITE_HEBERG joint à TB_UNITE), et regrouper les UF liées. Un écart de volume d'une UF ou d'une UM entre deux années peut refléter un changement d'hébergement, un changement de parcours de soin (par exemple le virage ambulatoire) ou, plus rarement, un réel changement d'activité. Le piège ne touche qu'une minorité d'UM, mais dans plusieurs pôles.
 
 Cas connus (même lecture) : UM 5530 (surveillance continue cardiologique) hébergée par l'UF 5522 depuis 2024 ; UM 6241 (chirurgie cardiaque, soins continus) par l'UF 6245 depuis 2025 ; UM 5618 et 5619 par les UF 5622 et 5623 depuis 2025 ; UM 5627 en partie par l'UF 5616 en 2026.
 
