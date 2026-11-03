@@ -29,4 +29,9 @@ Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claim
 - historique-rattachement-uf-um-cora : le lien UF-UM est quasi fixe ; 77 UF ont un lien sans date de début.
 - Mis à jour : referentiels-pmsi-dans-cora (listes d'exclusion et CIM_HIERARCHIE désormais visibles, contenu non lu) et service-et-pole-depuis-fichier-structure (le fichier ne retire pas une UF fermée dans CORA : 68 UF inactives y restent, 136 en sont absentes).
 
+Résultats du 2026-11-03 (suite) :
+- icr-table-cora-ccam mis à jour : la table se lit, 29 800 lignes, ICR renseigné ; deux lignes par clé, critère à identifier (20261103-icr-cle-liberale).
+- referentiels-pmsi-dans-cora mis à jour : listes d'exclusion et CIM_HIERARCHIE (avec CMA et NIVEAU_SEVERITE) se lisent.
+- specialite-absente-des-uf (nouveau) : TYPE_ACTIVITE est vide pour les 839 UF ; aucune spécialité au niveau de l'UF.
+
 Non établi : la spécialité (ni le fichier ni TB_UNITE n'en portent au niveau de l'UF) ; le contenu des tables vues dans CORA_CCAM ; la version du fichier avant 2026-10-09. L'enquête reste ouverte pour ces points.
