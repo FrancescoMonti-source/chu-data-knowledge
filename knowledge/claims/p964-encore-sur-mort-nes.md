@@ -3,7 +3,7 @@ review: unreviewed
 id: p964-encore-sur-mort-nes
 kind: empirical
 author: Francesco
-statement: "Dans CORA, P96.4 reste codé sur des séjours d'enfant mort-né (P95) après 2021, alors que depuis l'instruction de 2021 il ne marque plus l'IMG d'un mort-né : pour repérer une IMG de mort-né, prendre l'extension P95+0, pas P96.4."
+statement: "Dans CORA, P96.4 reste codé sur des séjours d'enfant mort-né (P95) après 2021, alors que depuis l'instruction de 2021 il ne marque plus l'IMG d'un mort-né : à partir de 2019, pour repérer une IMG de mort-né, prendre l'extension P95+0, pas P96.4."
 scope: "CORA de production (CWPROD, schéma CORA_REC), diagnostics de 2018 à 2025, lus le 2026-11-02"
 refuted_if: "de 2022 à 2025, aucun patient qui porte P95 n'a P964 sur son séjour"
 maturity: observed
@@ -15,7 +15,9 @@ depends_on: []
 ---
 ## Pour s'en servir
 
-IMG d'un enfant mort-né : DP `P95+0`. MFS : `P95+1`, `P95+2` ou `P95+8`. Ne pas compter P964 comme une IMG de mort-né : sur ces séjours il double ou contredit l'extension de P95. Une IMG d'enfant né vivant se cherche par P964 sur un séjour sans P95.
+À partir de 2019 : IMG d'un enfant mort-né, DP `P95+0` ; MFS, `P95+1`, `P95+2` ou `P95+8`. Ne pas compter P964 comme une IMG de mort-né : sur ces séjours il double ou contredit l'extension de P95. Une IMG d'enfant né vivant se cherche par P964 sur un séjour sans P95.
+
+Avant 2019, P95 n'a pas d'extension : ce claim ne dit pas comment séparer IMG et MFS sur ces années (P964 était alors le marqueur, à vérifier).
 
 ## Ce qui l'appuie
 

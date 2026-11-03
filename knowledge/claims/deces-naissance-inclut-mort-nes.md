@@ -15,7 +15,7 @@ depends_on: []
 ---
 ## Pour s'en servir
 
-Un décès de nouveau-né né vivant : séjour de naissance avec `MODE_SORTIE = '9'` et aucun diagnostic P95 (`CODE_DIAG LIKE 'P95%'`, par TB_DIAG.ID_MVT → TB_MVT.ID_SEJOUR). Un enfant mort-né : les mêmes séjours, avec P95 en DP. Sans ce filtre, un comptage de la mortalité néonatale à J0 compte surtout des mort-nés.
+Un décès d'enfant né vivant : séjour sorti par décès (`MODE_SORTIE = '9'`) de J0 à J27, sans diagnostic P95 (`CODE_DIAG LIKE 'P95%'`, par TB_DIAG.ID_MVT → TB_MVT.ID_SEJOUR), qu'il soit le séjour de naissance ou non (transfert ici, réhospitalisation). Un enfant mort-né : un séjour de naissance sorti par décès, avec P95 en DP. Sans ce filtre, un comptage de la mortalité néonatale à J0 compte surtout des mort-nés.
 
 ## Ce qui l'appuie
 
