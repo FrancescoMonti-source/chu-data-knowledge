@@ -7,7 +7,7 @@ statement: "Dans CORA de production, aucune table ni vue ICR n'est visible pour 
 scope: "CORA de production (CWPROD), catalogue Oracle de tous les schémas non maintenus par Oracle, objets visibles par le compte de Pierre, lu le 2026-10-19"
 refuted_if: "ALL_OBJECTS, lu avec le compte de Pierre ou un autre, montre une table, une vue ou un synonyme nommé PMSI_CCAM_ICR ou contenant ICR entre soulignés, ou V_CCAM_NV a une colonne ICR"
 maturity: observed
-lifecycle: active
+lifecycle: superseded
 terms: [cora:acte]
 tables: [cora:PMSI_CCAM_ICR, cora:V_CCAM_NV]
 supported_by: [20261019-catalogue-objets-g3-resultat]
