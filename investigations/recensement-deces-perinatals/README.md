@@ -19,4 +19,13 @@ Comparaison : entre signaux, pour voir lesquels se recoupent.
 - La fiche de la source entre seule, par la PR #41, avant l'enquête.
 
 ## Conclusions
-Aucune pour l'instant.
+Réponse : oui, CORA retrouve les décès du recensement par le séjour de l'enfant, avec deux angles morts. Enfants mort-nés : DP P95, dont l'extension sépare IMG (P95+0) et MFS (P95+1, +2, +8), à 22 SA ou plus, ou 500 g ou plus. Enfants nés vivants décédés de J0 à J27 : séjour de naissance sorti par décès, sans P95. Grossesse unique : côté mère, par le lien de séjour. Angles morts : les cas « consentis », sans code, et les enfants nés ici et décédés ailleurs après un transfert.
+
+Claims, tous unreviewed :
+- deces-naissance-inclut-mort-nes (unreviewed)
+- mort-nes-sous-22-sa-avant-2025 (unreviewed)
+- p964-encore-sur-mort-nes (unreviewed)
+- lien-enfant-mere-par-no-sejour (unreviewed)
+- naissance-par-date-pas-mode-n (unreviewed)
+
+Pas de claim : TB_PERINAT vide, POID_NAISSANCE partiel, RANG_NAISSANCE vide (Francesco, 03/11) ; la forme P95+1 des codes, que donnent ensemble le texte (P95.+1, 20261102-mortnes-p95-extensions) et code-cim10-sans-point (unreviewed).

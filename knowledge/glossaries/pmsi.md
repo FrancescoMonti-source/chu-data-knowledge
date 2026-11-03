@@ -43,3 +43,15 @@ Le code PMSI qui précise d'où vient un séjour (provenance) ou où va le patie
 Alias : HTP, hospitalisation à temps partiel, hospitalisation de jour en SMR, HDJ SMR
 
 L'hospitalisation à temps partiel de jour en SMR. Son groupe de réadaptation (très intense I, intense J, modérée K, indifférenciée L, pédiatrique H) se décide sur le score de réadaptation par jour de la semaine ; elle est valorisée par journée de présence (ATIH, manuel des GME, notice technique de financement SMR).
+
+## pmsi:mort-ne
+
+Alias : mort-né, mort-nés, enfant né sans vie, mortinatalité, MFS, mort fœtale spontanée, IMG, interruption médicale de grossesse, P95
+
+Un enfant né sans vie, après une mort fœtale spontanée (MFS) ou une interruption médicale de grossesse (IMG). Il a son propre séjour, avec un RUM, à partir de 22 semaines d'aménorrhée révolues ou d'un poids d'au moins 500 g ; son DP est un code P95.
+
+## pmsi:sejour-naissance
+
+Alias : séjour de naissance, naissance, nouveau-né, nouveau-nés, mode d'entrée N
+
+Le séjour d'un enfant qui commence à sa naissance dans l'établissement, enfants mort-nés compris. Dans le PMSI, son mode d'entrée est N (« Naissance »).
