@@ -1,9 +1,9 @@
 -- id: 20261102-codes-mortinatalite-detail
 -- system: cora
 -- person_data: masked
--- purpose: voir comment CORA stocke les extensions des codes de mortinatalité (P95 sur le séjour de l'enfant, Z37 sur le séjour de la mère, depuis 2019 : 20261102-mortnes-p95-extensions, 20261102-mortnes-z37-mere) et combien de séjours portent chacune, par année, avec la part à 36 SA et plus : base du recensement des morts fœtales (étape 5 du plan, #42)
+-- purpose: voir comment CORA stocke les extensions des codes de mortinatalité (P95 sur le séjour de l'enfant, Z37 sur le séjour de la mère, depuis 2019 : 20261102-mortnes-p95-extensions ; Z37 : instruction-mort-nes-pmsi-2021, annexe I, § III.3.1) et combien de séjours portent chacune, par année, avec la part à 36 SA et plus : base du recensement des morts fœtales (étape 5 du plan, #42)
 -- Oracle, schéma CORA_REC. Diagnostics de TB_DIAG rattachés à un mouvement (chemin-actes-diags-par-mouvement), datés par le début du mouvement (dater-diagnostic-par-mouvement), de 2018 à 2025 (periode-analyse-cora-2018).
--- Codes gardés : tout code qui commence par P95, Z37, P964 ou P015 (grossesse multiple côté enfant, 20261102-mortnes-grossesse-multiple), points retirés. CODE sort tel que CORA le stocke après TRIM et sans les points, pour voir la forme des extensions (« + » ou autre).
+-- Codes gardés : tout code qui commence par P95, Z37, P964 ou P015 (grossesse multiple côté enfant, instruction-mort-nes-pmsi-2021, annexe I, § III.2), points retirés. CODE sort tel que CORA le stocke après TRIM et sans les points, pour voir la forme des extensions (« + » ou autre).
 -- Lignes : CODE × TYPE_DIAG ('P' DP, 'S' DAS, 'R' DR) × ANNEE. N : séjours (TB_MVT.ID_SEJOUR) qui portent ce code à ce rang cette année-là ; N_SA_36 : parmi eux, ceux dont la plus grande SEM_AMENORHEE des mouvements est 36 ou plus.
 -- Masquage : chaque effectif < 10 sort en <10. N sort en « masqué » quand N moins N_SA_36 est entre 1 et 9. Aucune ligne de total.
 WITH dx AS (
