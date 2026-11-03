@@ -23,7 +23,7 @@ Quand une question demande une spécialité (« par spécialité », « chirurgi
 - **Spécialités de la CCAM :** CORA_CCAM.CCAM_CODE_SPE (CODE_SPE, LIB_SPE, 96 lignes) et CCAM_SPE_CCAM (CLE, LIB_CODE_SPE) concernent les actes, pas l'UF.
 - **TB_SPECIALITE** (CORA_REC : ID_SPECIALITE, LIBELLE_SPECIALITE, CODE_EXPORT, 3 lignes d'après les statistiques) et TB_THESAURUS_SPECIALITE (CORA_REC, type d'intervention) existent mais leur rôle n'est pas établi : ne pas les utiliser avant de les avoir lues.
 
-Pour une spécialité par service ou par UF, demander à la personne la correspondance qu'elle utilise, ou la déduire de l'activité (par exemple la spécialité de l'intervention) en le disant.
+Pour une spécialité par service ou par UF, passer par le fichier Structure (choix de Pierre, 2026-11-03) : `python sources\\structures\\exporter_services.py` écrit en local la liste des services du fichier avec une colonne `specialite` vide ; Pierre la remplit, et `--annote` en contrôle la couverture (comptages seulement). La table reste locale, comme le fichier : un agent du cloud ne la lit pas, il reçoit une jointure faite à l'hôpital ou des agrégats par spécialité. La liste des spécialités (nomenclature) est celle que Pierre choisit, à écrire dans la table.
 
 ## Ce qui l'appuie
 
