@@ -9,11 +9,11 @@ Issue : #96
 - **Population :** tous les RHS de HTP SMR de 2025, détail par GN. L'utilisateur DIM confirme qu'en 2025 plusieurs RHS étaient transmis pour une même personne et une même semaine, un par venue.
 - **Mesure :** pour un RHS, ses actes et leurs poids, ses jours de présence, son score par jour, son GME et son tarif, tels que CORA les enregistre.
 - **Définitions du manuel (lectures, non des claims) :** score par jour = somme des pondérations des actes de la semaine / jours de présence (manuel GME 2025, § 3.3.2.2) ; groupe de réadaptation par seuils du GN (0147 : 60 et 150) ; valorisation = journées de présence × tarif du GMT (notice 162-5-2025).
-- **Montants :** L'utilisateur DIM n'a pas les coefficients géographique et de transition ; il pense qu'on peut retrouver les montants dans CORA (étape 5 du plan).
+- **Montants :** Pierre n'a pas les coefficients géographique et de transition ; il pense qu'on peut retrouver les montants dans CORA (étape 5 du plan).
 - **Lien avec DIM-code :** les faits sur les données découverts ici passent par sediment ; l'analyse elle-même (simulation, écarts) vit dans DIM-code.
 
 ## Choix
-- **Identifier la HTP par TYPE_HOSPIT_SSR = 2 :** TYPE_ACTIVITE est vide ; le contrôle est le nombre de patients, 158, attendu par l'utilisateur DIM.
+- **Identifier la HTP par TYPE_HOSPIT_SSR = 2 :** TYPE_ACTIVITE est vide ; le contrôle est le nombre de patients, 158, attendu par Pierre.
 - **Score d'un RHS par SCORE_RR :** il respecte les seuils de l'ATIH pour les GN 0127 et 0406 ; on ne recalcule pas depuis les actes (TB_ACTE_CSARR.POIDS), faute de besoin.
 - **RHS hebdomadaire simulé = une personne-semaine :** moyenne des SCORE_RR pondérée par les jours de présence, avec les seuils du GN ; une semaine à GN différents n'est pas simulée (groupe inchangé), un vrai regroupement demandant la fonction de groupage.
 - **Valorisation par les tarifs de l'ATIH :** MNT_GMT de CORA les égale à moins de 0,1 %, et aucun coefficient n'est nécessaire pour retrouver les montants.
