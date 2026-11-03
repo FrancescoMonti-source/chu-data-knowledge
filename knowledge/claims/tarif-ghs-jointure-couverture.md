@@ -7,7 +7,7 @@ statement: "Dans CORA, le tarif d'un RSS se retrouve dans PMSI_LIB_GHS_TARIF en 
 scope: "CORA de production (CWPROD, schéma CORA_REC), RSS de TB_SYNTH_RSS groupés (CODE_GHM renseigné, CMD différente de 90) finis de 2022 au 2026-10-20, tarif lu au dernier jour du mois de fin du RSS (approximation mensuelle), lus le 2026-10-20"
 refuted_if: "au jour près, plus de 95 % des RSS groupés d'une année de 2022 à 2025 trouvent une ligne valide de PMSI_LIB_GHS_TARIF, ou la jointure par CODE_GHS retrouve autant de tarifs que celle par le GHM complet"
 maturity: observed
-lifecycle: active
+lifecycle: challenged
 terms: [cora:rss, pmsi:ghm]
 tables: [cora:PMSI_LIB_GHS_TARIF, cora:TB_SYNTH_RSS]
 supported_by: [20261019-tarif-ghs-couverture-4-resultat, 20261019-ghs-tarif-periodes-2-resultat]
