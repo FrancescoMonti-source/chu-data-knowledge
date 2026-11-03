@@ -21,5 +21,5 @@ Issue : #100
 ## Conclusions
 Résultat partiel (2026-10-22) ; l'enquête continue (table des changements de numéros d'UF).
 - uf-du-rum-hebergement : l'UF d'un RUM se lit dans ID_UNITE_HEBERG (unreviewed).
-- uf-hebergeante-change-en-2026 : l'UF hébergeante d'une même activité peut changer (unreviewed).
+- uf-hebergeante-change-depuis-2024 : l'UF hébergeante d'une même activité peut changer, tous pôles, depuis 2024 (unreviewed).
 Les binômes GHM × DP « manquants » de l'étude dms_fme ne donnent pas de claim : les deux binômes absents en 2026 avaient 2 séjours en 2025.
