@@ -19,4 +19,11 @@ Issue : #109
 Pierre veut savoir s'il faut prendre la structure (services, pôles, spécialités) dans CORA ou dans le fichier Structure. Les tables de CORA_REC vues par l'inventaire mais jamais comparées au fichier (TB_HIST_UNITE, TB_HIST_UNITE_M_UNITE) sont mesurées par 20261027-structure-historique-cora.py : UF fermées et hors fichier, rattachement UF-UM dans le temps, UM contre service du fichier. La spécialité n'a pas de colonne dans le fichier (sources/structure-chu-2026-10-09.md) ; côté CORA, TB_UNITE porte TYPE_ACTIVITE (thésaurus TB_THES_TYPE_ACTIVITE) : à mesurer ensuite si Pierre en a besoin.
 
 ## Conclusions
-Aucune : résultats non reçus.
+Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claims (tous unreviewed) :
+- schemas-cwprod-visibles : 8 schémas sur 93 ont des objets visibles ; les référentiels de codage sont dans CORA_CCAM, la structure seulement dans CORA_REC.
+- icr-table-cora-ccam : PMSI_CCAM_ICR est visible dans CORA_CCAM ; remplace icr-sans-table-cora (superseded). Contenu non lu.
+- service-d-une-um : une UM tient dans un seul service du fichier (234 UM sur 281 ont une UF dans le fichier).
+- historique-rattachement-uf-um-cora : le lien UF-UM est quasi fixe ; 77 UF ont un lien sans date de début.
+- Mis à jour : referentiels-pmsi-dans-cora (listes d'exclusion et CIM_HIERARCHIE désormais visibles, contenu non lu) et service-et-pole-depuis-fichier-structure (le fichier ne retire pas une UF fermée dans CORA : 68 UF inactives y restent, 136 en sont absentes).
+
+Non établi : la spécialité (ni le fichier ni TB_UNITE n'en portent au niveau de l'UF) ; le contenu des tables vues dans CORA_CCAM ; la version du fichier avant 2026-10-09. L'enquête reste ouverte pour ces points.
