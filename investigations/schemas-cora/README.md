@@ -18,6 +18,9 @@ Issue : #109
 ## Suite (2026-10-27)
 Pierre veut savoir s'il faut prendre la structure (services, pôles, spécialités) dans CORA ou dans le fichier Structure. Les tables de CORA_REC vues par l'inventaire mais jamais comparées au fichier (TB_HIST_UNITE, TB_HIST_UNITE_M_UNITE) sont mesurées par 20261027-structure-historique-cora.py : UF fermées et hors fichier, rattachement UF-UM dans le temps, UM contre service du fichier. La spécialité n'a pas de colonne dans le fichier (sources/structure-chu-2026-10-09.md) ; côté CORA, TB_UNITE porte TYPE_ACTIVITE (thésaurus TB_THES_TYPE_ACTIVITE) : à mesurer ensuite si Pierre en a besoin.
 
+## Suite (2026-11-03)
+Les tables vues dans CORA_CCAM ne sont pas lues : trois requêtes les lisent par les synonymes de CORA_REC ou le catalogue (20261103-icr-lecture, 20261103-exclusions-cma-lecture, 20261103-colonnes-exclusions-specialites) et une compte les UF par type d'activité (20261103-uf-type-activite), seul attribut d'UF proche d'une spécialité. La spécialité médicale d'un service n'est ni dans le fichier ni dans TB_UNITE : Pierre dit ce qu'il entend par là avant toute autre mesure.
+
 ## Conclusions
 Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claims (tous unreviewed) :
 - schemas-cwprod-visibles : 8 schémas sur 93 ont des objets visibles ; les référentiels de codage sont dans CORA_CCAM, la structure seulement dans CORA_REC.
