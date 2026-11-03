@@ -7,7 +7,7 @@ Issue : #39
 But : migrer les fiches OpRoom de la kb de DIM-code en claims qui disent à un agent comment compter les interventions et mesurer leurs durées. Population : interventions terminées ou clôturées (I_STATE 2 et 4) d'OpRoom, commencées depuis le 2023-01-01. Source : QBLOCP (production), par l'extraction de `requete_oproom.py` du 2026-10-09. Unité : l'intervention.
 
 ## Choix
-- Développer sur QBLOCT, mesurer sur QBLOCP : décision de l'utilisateur DIM (claim developper-sur-qbloct).
+- Développer sur QBLOCT, mesurer sur QBLOCP : décision de Pierre (claim developper-sur-qbloct).
 - L'utilisateur DIM n'a pas accès à QBLOCP : une personne qui y a accès a lancé `analysis/2026-10_casemix_bloc/requete_oproom.py --base QBLOCP` (DIM-code), une ligne par intervention. L'extraction reste sur le poste de l'utilisateur DIM, dans `data/raw/OpRoom/` de DIM-code, hors de Git : elle contient le numéro d'admission et la clé du chirurgien.
 - Les requêtes de l'enquête s'exécutent sur cette extraction et non sur Oracle : `scripts/cdk/executer_requetes_cdk.py --oproom-extraction` la charge dans une base SQLite en mémoire (table INTERVENTIONS, une colonne par colonne du CSV, valeurs en texte, vide = NULL ; table META avec la base et la date de l'extraction), puis exécute la requête et contrôle le masquage avant d'écrire. Le SQL est donc celui de SQLite. Aucune requête ne lit NO_ADMISSION ni CHIRURGIEN_KEY autrement que pour compter.
 - Ce que l'extraction ne contient pas (tables de facturation, vacations, temps de référence, statistiques Oracle) attend une requête SQL sur QBLOCP : plan de #39, étape 6.

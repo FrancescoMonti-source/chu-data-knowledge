@@ -16,7 +16,7 @@ Issue : #109
 - **Candidats repérés par le nom d'objet et par quelques noms de colonnes clés** (liste dans l'en-tête de 20261026-schemas-candidats-colonnes) : un filtre large vaut mieux qu'un objet manqué, la lecture écarte le bruit.
 
 ## Suite (2026-10-27)
-L'utilisateur DIM veut savoir s'il faut prendre la structure (services, pôles, spécialités) dans CORA ou dans le fichier Structure. Les tables de CORA_REC vues par l'inventaire mais jamais comparées au fichier (TB_HIST_UNITE, TB_HIST_UNITE_M_UNITE) sont mesurées par 20261027-structure-historique-cora.py : UF fermées et hors fichier, rattachement UF-UM dans le temps, UM contre service du fichier. La spécialité n'a pas de colonne dans le fichier (sources/structure-chu-2026-10-09.md) ; côté CORA, TB_UNITE porte TYPE_ACTIVITE (thésaurus TB_THES_TYPE_ACTIVITE) : à mesurer ensuite si l'utilisateur DIM en a besoin.
+Pierre veut savoir s'il faut prendre la structure (services, pôles, spécialités) dans CORA ou dans le fichier Structure. Les tables de CORA_REC vues par l'inventaire mais jamais comparées au fichier (TB_HIST_UNITE, TB_HIST_UNITE_M_UNITE) sont mesurées par 20261027-structure-historique-cora.py : UF fermées et hors fichier, rattachement UF-UM dans le temps, UM contre service du fichier. La spécialité n'a pas de colonne dans le fichier (sources/structure-chu-2026-10-09.md) ; côté CORA, TB_UNITE porte TYPE_ACTIVITE (thésaurus TB_THES_TYPE_ACTIVITE) : à mesurer ensuite si Pierre en a besoin.
 
 ## Conclusions
 Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claims (tous unreviewed) :
