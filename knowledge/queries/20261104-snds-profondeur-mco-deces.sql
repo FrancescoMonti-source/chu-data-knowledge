@@ -5,7 +5,7 @@
 -- Oracle. Lit T_MCO20 à T_MCO25 (B, C) pour le FINESS juridique 760780239 (CHU de Rouen), IR_BEN_R pour les décès, et le catalogue par noms exacts (pas de motif : le catalogue est très lent).
 -- Lignes : sorties du CHU par mois ; sorties à chaînage valide par an ; sorties avec mode de sortie 9 (décès) par an ; décès du référentiel par mois depuis 2024 ; existence des tables de 2026.
 -- Masquage : N_LIGNES sort en <10 sous 10 (de 0 à 9). Pas de total.
--- Peut durer plusieurs minutes : IR_BEN_R est lu en entier (un seul passage).
+-- IR_BEN_R est lu une seule fois (un seul passage, COUNT(*) sans DISTINCT : une ligne par PSA, donc un décès peut compter plus d'une fois : c'est la profondeur qu'on cherche, pas un effectif de décès). IR_PRS_F n'est pas lue.
 SELECT '20261104-snds-profondeur-mco-deces' AS QUERY_ID,
        SYS_CONTEXT('USERENV', 'DB_NAME') AS DATABASE_NAME,
        TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI') AS RUN_AT,
@@ -79,7 +79,7 @@ FROM (
   SELECT 'pmsi_chu_sortie_deces_par_an', '2025', COUNT(*)
   FROM T_MCO25B B WHERE B.ETA_NUM = '760780239' AND B.SOR_MOD = '9'
   UNION ALL
-  SELECT 'ir_ben_r_deces_par_mois', TO_CHAR(R.BEN_DCD_DTE, 'YYYY-MM'), COUNT(DISTINCT R.BEN_IDT_ANO)
+  SELECT 'ir_ben_r_deces_par_mois', TO_CHAR(R.BEN_DCD_DTE, 'YYYY-MM'), COUNT(*)
   FROM IR_BEN_R R WHERE R.BEN_DCD_DTE >= DATE '2024-01-01' AND R.BEN_DCD_DTE < DATE '2100-01-01'
   GROUP BY TO_CHAR(R.BEN_DCD_DTE, 'YYYY-MM')
   UNION ALL
