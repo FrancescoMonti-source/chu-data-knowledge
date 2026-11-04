@@ -26,3 +26,5 @@ Comparaison : ce que disent les sources contre ce qu'on observe sur le portail.
 - tables-snds-vues-profil-108 (unreviewed)
 - referentiels-hdh-absents-profil-108 (unreviewed)
 - lots-annee-en-cours-snds-cumulatifs (unreviewed)
+- sej-np-stc-urg-codes-non-binaires (unreviewed)
+- joindre-pmsi-mco-referentiel-par-nir (unreviewed)
