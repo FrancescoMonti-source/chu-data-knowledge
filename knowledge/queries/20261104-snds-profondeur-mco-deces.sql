@@ -2,8 +2,8 @@
 -- system: snds
 -- person_data: masked
 -- purpose: profondeur des tables PMSI MCO du CHU (2020 à 2025) et des décès du référentiel, pour l'étude de mortalité à 90 jours après chirurgie oncologique digestive (étape 4 du plan, #127)
--- Oracle. Lit T_MCO20 à T_MCO25 (B, C) pour le FINESS juridique 760780239 (CHU de Rouen), IR_BEN_R pour les décès, et le catalogue par noms exacts (pas de motif : le catalogue est très lent).
--- Lignes : sorties du CHU par mois ; sorties à chaînage valide par an ; sorties avec mode de sortie 9 (décès) par an ; décès du référentiel par mois depuis 2024 ; existence des tables de 2026.
+-- Oracle. Lit T_MCO20 à T_MCO25 (B, C), les lots T_MCO26_01 à 05 (C) pour le FINESS juridique 760780239 (CHU de Rouen), IR_BEN_R pour les décès, et le catalogue par noms exacts (pas de motif : le catalogue est très lent).
+-- Lignes : sorties du CHU par mois ; sorties à chaînage valide par an ; sorties avec mode de sortie 9 (décès) par an ; décès du référentiel par mois depuis 2024 ; sorties du CHU par mois dans chacun des lots 2026 (T_MCO26_01C à 05C, mis à disposition par lots, le dernier couvrant environ jusqu'à août : un mois présent dans deux lots dirait un recouvrement) et existence des tables de 2026 par noms exacts.
 -- Masquage : N_LIGNES sort en <10 sous 10 (de 0 à 9). Pas de total.
 -- IR_BEN_R est lu une seule fois (un seul passage, COUNT(*) sans DISTINCT : une ligne par PSA, donc un décès peut compter plus d'une fois : c'est la profondeur qu'on cherche, pas un effectif de décès). IR_PRS_F n'est pas lue.
 SELECT '20261104-snds-profondeur-mco-deces' AS QUERY_ID,
@@ -83,6 +83,23 @@ FROM (
   FROM IR_BEN_R R WHERE R.BEN_DCD_DTE >= DATE '2024-01-01' AND R.BEN_DCD_DTE < DATE '2100-01-01'
   GROUP BY TO_CHAR(R.BEN_DCD_DTE, 'YYYY-MM')
   UNION ALL
+  SELECT 'pmsi_chu_sorties_par_mois_lot_2026_01' AS SOURCE, TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM') AS PERIODE, COUNT(*) AS N
+  FROM T_MCO26_01C C WHERE C.ETA_NUM = '760780239' GROUP BY TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM')
+  UNION ALL
+  SELECT 'pmsi_chu_sorties_par_mois_lot_2026_02' AS SOURCE, TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM') AS PERIODE, COUNT(*) AS N
+  FROM T_MCO26_02C C WHERE C.ETA_NUM = '760780239' GROUP BY TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM')
+  UNION ALL
+  SELECT 'pmsi_chu_sorties_par_mois_lot_2026_03' AS SOURCE, TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM') AS PERIODE, COUNT(*) AS N
+  FROM T_MCO26_03C C WHERE C.ETA_NUM = '760780239' GROUP BY TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM')
+  UNION ALL
+  SELECT 'pmsi_chu_sorties_par_mois_lot_2026_04' AS SOURCE, TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM') AS PERIODE, COUNT(*) AS N
+  FROM T_MCO26_04C C WHERE C.ETA_NUM = '760780239' GROUP BY TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM')
+  UNION ALL
+  SELECT 'pmsi_chu_sorties_par_mois_lot_2026_05' AS SOURCE, TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM') AS PERIODE, COUNT(*) AS N
+  FROM T_MCO26_05C C WHERE C.ETA_NUM = '760780239' GROUP BY TO_CHAR(C.EXE_SOI_DTF, 'YYYY-MM')
+  UNION ALL
   SELECT 'tables_2026_visibles', O.OBJECT_NAME, COUNT(*)
-  FROM ALL_OBJECTS O WHERE O.OBJECT_NAME IN ('T_MCO25B', 'T_MCO26B', 'T_MCO26C') GROUP BY O.OBJECT_NAME
+  FROM ALL_OBJECTS O
+  WHERE O.OBJECT_NAME IN ('T_MCO26B', 'T_MCO26_01B', 'T_MCO26_02B', 'T_MCO26_03B', 'T_MCO26_04B', 'T_MCO26_05B', 'T_MCO26_06B')
+  GROUP BY O.OBJECT_NAME
 ) t;
