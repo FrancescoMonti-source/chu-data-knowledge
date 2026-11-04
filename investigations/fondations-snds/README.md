@@ -20,6 +20,7 @@ Comparaison : ce que disent les sources contre ce qu'on observe sur le portail.
 - Dans la preuve 20261104-snds-familles-tables-resultat, le propriétaire des synonymes privés, qui est l'identifiant de connexion de Pierre, est remplacé par UTILISATEUR : un identifiant de personne n'entre pas dans le dépôt public (method/privacy.md).
 - Les algorithmes de la BOAS (gitlab.com/healthdatahub/boas) ont une fiche quand une étude en lit un, pas avant.
 - La profondeur des tables utilisées (étape 4) se mène dans l'étude DIM-code 2026-11_mortalite_chir_onco_digestive, première étude SNDS de l'utilisateur : deux requêtes, 20261104-snds-profondeur-mco-deces-v2 (sorties du CHU par mois de 2020 à 2025, décès du référentiel par mois, tables de 2026) et 20261104-snds-valeurs-codes-mco-chu-v2 (valeurs de SEJ_NP, STC_URG, ENT_MOD, SOR_MOD, SEJ_TYP, clé de jointure PMSI-référentiel, BEN_DCD_DTE reste traité en R : 1600-01-01 = pas de décès). Leur résultat décide la fin du suivi de cette étude.
+- Ce que code SEJ_NP n'est écrit ni dans la documentation lue ni dans le dictionnaire du HDH (Pierre, 2026-11-04) : la requête 20261105-snds-sej-np-croisements-mco-chu le croise avec le mode d'entrée (ENT_MOD), la provenance (ENT_PRV), STC_URG et le type de GHM, pour définir la réadmission non programmée de l'étude de mortalité. Hypothèse de Pierre : le mode d'entrée est le meilleur indicateur de programmation. Résultat attendu, puis claim.
 
 ## Conclusions
 - roracle-fonctionne-portail-snds (unreviewed)
