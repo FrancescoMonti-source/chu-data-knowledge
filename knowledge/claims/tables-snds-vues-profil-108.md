@@ -3,7 +3,7 @@ review: unreviewed
 id: tables-snds-vues-profil-108
 kind: empirical
 author: Pierre
-statement: "Sur le portail (profil 108), les tables du SNDS sont des vues du schéma PROFIL_108, lisibles sans préfixe par des synonymes privés de l'utilisateur ; ces synonymes manquent pour le PMSI de 2006 et pour une douzaine de vues : une requête sur T_MCO06B sans préfixe échoue, elles se lisent avec le préfixe : PROFIL_108.T_MCO06B."
+statement: "Sur le portail (profil 108), les tables du SNDS sont des vues du schéma PROFIL_108, lisibles sans préfixe par des synonymes privés de l'utilisateur ; ces synonymes manquent pour le PMSI de 2006 et pour une douzaine de vues, qu'il faut appeler avec le préfixe (PROFIL_108.T_MCO06B se lit)."
 scope: "portail SNDS de la Cnam, base IPIAMPR2, profil 108, catalogue du 2026-11-04"
 refuted_if: "les synonymes de l'utilisateur couvrent les tables PMSI de 2006 (T_MCO06B…), ou une requête sur T_MCO06B sans préfixe aboutit"
 maturity: observed
