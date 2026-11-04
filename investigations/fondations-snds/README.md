@@ -16,6 +16,11 @@ Comparaison : ce que disent les sources contre ce qu'on observe sur le portail.
 - La documentation n'est pas recopiée : elle reste chez son éditeur, et chaque document lu a sa fiche dans sources/, avec un lien figé sur un commit du dépôt GitLab du HDH (le site documentation-snds.health-data-hub.fr est inaccessible depuis l'environnement de l'agent, ses sources GitLab le sont).
 - Le circuit de travail (scripts envoyés par presse-papiers, sortie des agrégats par `sortir()` puis `snds_retour.py`) est un outil de DIM-code, pas un fait des données : il vit dans DIM-code (`.agents/habitudes/circuit.md`, PR #44 de DIM-code), pas ici.
 - Seuil de masquage : 10 pour tout ce qui sort du portail, comme dans le reste du dépôt, alors que la charte du portail exige 5 (Pierre, 2026-11-04).
+- La requête du catalogue complet (20261104-snds-objets-visibles) a été abandonnée après plus de 20 minutes ; elle est remplacée par 20261104-snds-familles-tables, filtrée sur les préfixes des tables du schéma du HDH et regroupée par famille. Une requête de catalogue sur ce portail cherche des noms exacts ou des préfixes, jamais tout le catalogue.
+- Dans la preuve 20261104-snds-familles-tables-resultat, le propriétaire des synonymes privés, qui est l'identifiant de connexion de Pierre, est remplacé par UTILISATEUR : un identifiant de personne n'entre pas dans le dépôt public (method/privacy.md).
 - Les algorithmes de la BOAS (gitlab.com/healthdatahub/boas) ont une fiche quand une étude en lit un, pas avant.
 
 ## Conclusions
+- roracle-fonctionne-portail-snds (unreviewed)
+- tables-snds-vues-profil-108 (unreviewed)
+- referentiels-hdh-absents-profil-108 (unreviewed)
