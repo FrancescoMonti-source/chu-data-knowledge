@@ -25,3 +25,4 @@ Comparaison : ce que disent les sources contre ce qu'on observe sur le portail.
 - roracle-fonctionne-portail-snds (unreviewed)
 - tables-snds-vues-profil-108 (unreviewed)
 - referentiels-hdh-absents-profil-108 (unreviewed)
+- lots-annee-en-cours-snds-cumulatifs (unreviewed)
