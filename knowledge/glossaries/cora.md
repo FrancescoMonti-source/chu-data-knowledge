@@ -97,3 +97,9 @@ La durée d'un séjour d'hospitalisation complète, comptée en journées (sorti
 Alias : type de prise en charge, prise en charge, hospitalisation complète, HC, ambulatoire, AMBU, séance, séjour d'au moins une nuit
 
 Le classement d'un séjour CORA en hospitalisation complète, ambulatoire ou séance, reconstruit depuis son RSS. Ce n'est pas TYPE_SEJOUR (cora:type-sejour), et un séjour sans RSS n'est pas classé.
+
+## cora:cas
+
+Alias : CAS, casemix en CAS, C K N O S X, chirurgie peu invasif obstétrique nouveau-nés séances autres
+
+Le classement d'un RSS en six catégories (C chirurgie, K peu invasif, N nouveau-nés, O obstétrique, S séances, X autres) de la requête par défaut « casemix en CAS » de CORA. Règle : cas-casemix-cora.
