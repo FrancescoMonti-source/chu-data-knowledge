@@ -16,5 +16,6 @@ Issue : #133
 - **Branche :** claude/project-thread-pp06dr, imposée par la session, au lieu de investigation/ghs-par-sejour.
 
 ## Choix
+- **Une cellule de plus masquée dans 20261110-pie-rss-sejour-resultat :** N_PB_GHS_POS en 2025, dont l'écart à N_ME0_ET_MS0 valait de 1 à 9 ; la requête ne comparait N_PB_GHS_POS qu'à N_PB, lui-même masqué (suppression secondaire, queries.md règle 4).
 
 ## Conclusions
