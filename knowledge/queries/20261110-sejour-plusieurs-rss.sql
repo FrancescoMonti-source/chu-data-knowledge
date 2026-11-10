@@ -4,9 +4,9 @@
 -- purpose: étape 6 du plan (#133, enquête ghs-par-sejour) : dire pourquoi environ 3 900 séjours par an ont plusieurs RSS (20261110-pie-rss-sejour-resultat), en testant l'hypothèse d'un passage dans une unité hors MCO entre deux RSS (dictionnaire-cora-2020, TB_SYNTH_RSS) et celle des séances (un RSS par séance)
 -- Oracle, schéma CORA_REC. Mêmes RSS et même année que 20261110-pie-rss-sejour : RSS groupés (CODE_GHM renseigné, CODE_CMD différent de '90') dont DATE_FIN va du 2022-01-01 au 2025-12-31 ; un séjour (ID_SEJOUR) en a plusieurs quand il en compte deux ou plus ; son année est celle de la plus grande DATE_FIN de ses RSS.
 -- Paires : les RSS d'un séjour rangés par DATE_DEBUT ; une paire = un RSS et le suivant. ECART_J = TRUNC(DATE_DEBUT du suivant) − TRUNC(DATE_FIN du précédent), en jours : chevauchement (< 0), même jour (0), écart (>= 1).
--- Mouvement hors RSS dans l'intervalle : un mouvement du séjour (TB_MVT.ID_SEJOUR) absent de TB_MVT_RUM, dont le jour de début (DATE_DEBUT_MVT) va du jour de fin du RSS précédent au jour de début du suivant. Son unité : TB_UNITE joint par TRIM(CODE_UNITE) = TRIM(TB_MVT.ID_UNITE_M) (joindre-uf-par-code), drapeaux SSR, PSY, HAD, URGENCE, UHCD, EXTERNE, GESTION_PMSI à 'O' (dictionnaire-cora-2020, TB_UNITE ; drapeaux-cora-valeurs-propres). Un séjour compte dans chaque drapeau qu'a l'un de ses mouvements : les colonnes de drapeaux se recouvrent. N_SEJ_HORS_SANS_DRAPEAU : aucun drapeau, ou UF introuvable.
+-- Mouvement hors RSS dans l'intervalle : un mouvement du séjour (TB_MVT.ID_SEJOUR) absent de TB_MVT_RUM, dont le jour de début (DATE_DEBUT_MVT) va du jour de fin du RSS précédent au jour de début du suivant. Son unité : TB_UNITE joint par TRIM(CODE_UNITE) = TRIM(TB_MVT.ID_UNITE_M) (joindre-uf-par-code), drapeaux GESTION_PMSI (unité MCO soumise au PMSI), SSR, PSY et HAD à 'O' (dictionnaire-cora-2020, TB_UNITE). GESTION_PMSI a bien des 'O' ; SSR, PSY et HAD n'ont pas été lus (drapeaux-cora-valeurs-propres) ; URGENCE, UHCD et EXTERNE ne sont pas pris : URGENCE manque aux UF d'urgences (drapeau-urgence-uf-non-fiable), UHCD n'est jamais 'O', EXTERNE est 'O' pour 543 unités sur 838 (drapeaux-cora-valeurs-propres). Un séjour compte dans chaque drapeau qu'a l'un de ses mouvements : les colonnes de drapeaux se recouvrent. N_SEJ_HORS_SANS_DRAPEAU : aucun drapeau, ou UF introuvable.
 -- Séances : RSS de CMD 28. N_SEJ_AVEC_SEANCE : au moins un RSS de séance ; N_SEJ_TOUT_SEANCE : tous ses RSS en sont.
--- Colonnes : N_SEJ ; N_SEJ_2_RSS, N_SEJ_3_RSS_PLUS ; N_PAIRES, N_PAIRES_CHEVAUCHE, N_PAIRES_MEME_JOUR, N_PAIRES_ECART ; N_SEJ_MVT_HORS_RSS, puis N_SEJ_HORS_<drapeau> ; N_SEJ_AVEC_SEANCE, N_SEJ_TOUT_SEANCE.
+-- Colonnes : N_SEJ ; N_SEJ_2_RSS, N_SEJ_3_RSS_PLUS ; N_PAIRES, N_PAIRES_CHEVAUCHE, N_PAIRES_MEME_JOUR, N_PAIRES_ECART ; N_SEJ_MVT_HORS_RSS, puis N_SEJ_HORS_GESTION_PMSI, N_SEJ_HORS_SSR, N_SEJ_HORS_PSY, N_SEJ_HORS_HAD, N_SEJ_HORS_SANS_DRAPEAU ; N_SEJ_AVEC_SEANCE, N_SEJ_TOUT_SEANCE.
 -- Masquage : tout effectif < 10 sort en <10. Suppression secondaire (règle 4) : N_SEJ_2_RSS et N_SEJ_3_RSS_PLUS font N_SEJ : si l'un vaut de 1 à 9, l'autre sort en « masqué » ; les trois sortes de paires font N_PAIRES : si l'une vaut de 1 à 9, N_PAIRES sort en « masqué », et de même si N_PAIRES − N_SEJ vaut de 1 à 9 ; chaque colonne N_SEJ_HORS_… sort en « masqué » si son écart à N_SEJ ou à N_SEJ_MVT_HORS_RSS vaut de 1 à 9, N_SEJ_MVT_HORS_RSS si son écart à N_SEJ vaut de 1 à 9 ; N_SEJ_AVEC_SEANCE et N_SEJ_TOUT_SEANCE si leur écart entre eux ou à N_SEJ vaut de 1 à 9. Aucune ligne de total.
 WITH r AS (
   SELECT s.ID_RSS, s.ID_SEJOUR, s.DATE_DEBUT, s.DATE_FIN,
@@ -47,13 +47,10 @@ drap AS (
          MAX(CASE WHEN TRIM(u.SSR) = 'O' THEN 1 ELSE 0 END) AS D_SSR,
          MAX(CASE WHEN TRIM(u.PSY) = 'O' THEN 1 ELSE 0 END) AS D_PSY,
          MAX(CASE WHEN TRIM(u.HAD) = 'O' THEN 1 ELSE 0 END) AS D_HAD,
-         MAX(CASE WHEN TRIM(u.URGENCE) = 'O' THEN 1 ELSE 0 END) AS D_URG,
-         MAX(CASE WHEN TRIM(u.UHCD) = 'O' THEN 1 ELSE 0 END) AS D_UHCD,
-         MAX(CASE WHEN TRIM(u.EXTERNE) = 'O' THEN 1 ELSE 0 END) AS D_EXT,
          MAX(CASE WHEN TRIM(u.GESTION_PMSI) = 'O' THEN 1 ELSE 0 END) AS D_MCO,
          MAX(CASE WHEN u.CODE_UNITE IS NULL
-                    OR NOT (TRIM(u.SSR) = 'O' OR TRIM(u.PSY) = 'O' OR TRIM(u.HAD) = 'O' OR TRIM(u.URGENCE) = 'O'
-                            OR TRIM(u.UHCD) = 'O' OR TRIM(u.EXTERNE) = 'O' OR TRIM(u.GESTION_PMSI) = 'O')
+                    OR NOT (TRIM(u.SSR) = 'O' OR TRIM(u.PSY) = 'O' OR TRIM(u.HAD) = 'O'
+                            OR TRIM(u.GESTION_PMSI) = 'O')
                   THEN 1 ELSE 0 END) AS D_AUCUN
   FROM mvt_hors h
   LEFT JOIN CORA_REC.TB_UNITE u ON TRIM(u.CODE_UNITE) = h.UF
@@ -66,7 +63,6 @@ agg_s AS (
          SUM(CASE WHEN m.NB_RSS >= 3 THEN 1 ELSE 0 END) AS N3,
          SUM(CASE WHEN d.ID_SEJOUR IS NOT NULL THEN 1 ELSE 0 END) AS NH,
          SUM(NVL(d.D_SSR, 0)) AS H_SSR, SUM(NVL(d.D_PSY, 0)) AS H_PSY, SUM(NVL(d.D_HAD, 0)) AS H_HAD,
-         SUM(NVL(d.D_URG, 0)) AS H_URG, SUM(NVL(d.D_UHCD, 0)) AS H_UHCD, SUM(NVL(d.D_EXT, 0)) AS H_EXT,
          SUM(NVL(d.D_MCO, 0)) AS H_MCO, SUM(NVL(d.D_AUCUN, 0)) AS H_AUCUN,
          SUM(m.AVEC_SEANCE) AS SA, SUM(m.TOUT_SEANCE) AS ST
   FROM multi m
@@ -84,7 +80,8 @@ agg_p AS (
   GROUP BY m.ANNEE
 ),
 t AS (
-  SELECT s.*, p.NP, p.P_CHEV, p.P_JOUR, p.P_ECART
+  SELECT s.ANNEE, s.N_SEJ, s.N2, s.N3, s.NH, s.H_SSR, s.H_PSY, s.H_HAD, s.H_MCO, s.H_AUCUN,
+         s.SA, s.ST, p.NP, p.P_CHEV, p.P_JOUR, p.P_ECART
   FROM agg_s s
   JOIN agg_p p ON p.ANNEE = s.ANNEE
 )
@@ -106,9 +103,6 @@ SELECT '20261110-sejour-plusieurs-rss' AS query_id,
        CASE WHEN H_SSR < 10 THEN '<10' WHEN N_SEJ - H_SSR BETWEEN 1 AND 9 OR NH - H_SSR BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_SSR) END AS N_SEJ_HORS_SSR,
        CASE WHEN H_PSY < 10 THEN '<10' WHEN N_SEJ - H_PSY BETWEEN 1 AND 9 OR NH - H_PSY BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_PSY) END AS N_SEJ_HORS_PSY,
        CASE WHEN H_HAD < 10 THEN '<10' WHEN N_SEJ - H_HAD BETWEEN 1 AND 9 OR NH - H_HAD BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_HAD) END AS N_SEJ_HORS_HAD,
-       CASE WHEN H_URG < 10 THEN '<10' WHEN N_SEJ - H_URG BETWEEN 1 AND 9 OR NH - H_URG BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_URG) END AS N_SEJ_HORS_URGENCE,
-       CASE WHEN H_UHCD < 10 THEN '<10' WHEN N_SEJ - H_UHCD BETWEEN 1 AND 9 OR NH - H_UHCD BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_UHCD) END AS N_SEJ_HORS_UHCD,
-       CASE WHEN H_EXT < 10 THEN '<10' WHEN N_SEJ - H_EXT BETWEEN 1 AND 9 OR NH - H_EXT BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_EXT) END AS N_SEJ_HORS_EXTERNE,
        CASE WHEN H_MCO < 10 THEN '<10' WHEN N_SEJ - H_MCO BETWEEN 1 AND 9 OR NH - H_MCO BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_MCO) END AS N_SEJ_HORS_GESTION_PMSI,
        CASE WHEN H_AUCUN < 10 THEN '<10' WHEN N_SEJ - H_AUCUN BETWEEN 1 AND 9 OR NH - H_AUCUN BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(H_AUCUN) END AS N_SEJ_HORS_SANS_DRAPEAU,
        CASE WHEN SA < 10 THEN '<10' WHEN N_SEJ - SA BETWEEN 1 AND 9 OR SA - ST BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(SA) END AS N_SEJ_AVEC_SEANCE,
