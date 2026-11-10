@@ -4,7 +4,7 @@
 -- purpose: étape 6 du plan (#133, enquête ghs-par-sejour), suite de 20261110-sejour-plusieurs-rss-eg-resultat : le guide MCO 2026 (chapitre I, § 1) fait deux séjours-patients, donc deux RSS, d'une prise en charge dans deux entités géographiques ; compter, sur tous les RSS et pas seulement les séjours à plusieurs RSS, ceux dont les RUM sont dans plusieurs entités géographiques, et le mode de sortie du RUM au changement d'entité
 -- Oracle, schéma CORA_REC. RSS groupés (CODE_GHM renseigné, CODE_CMD différent de '90'), DATE_FIN du 2022-01-01 au 2025-12-31, année = celle de DATE_FIN ; seuls les RSS à deux RUM ou plus (TB_SYNTH_RUM.ID_RSS) sont comptés.
 -- Entité géographique (EG) d'un RUM, d'après dictionnaire-cora-2020 : son UF (ID_UNITE_HEBERG, identifiant de TB_UNITE, uf-du-rum-hebergement), puis TB_EG_UNITE. Une UF qui a une seule EG donne cette EG ; une UF qui en a plusieurs, ou aucune, ne donne pas d'EG.
--- Colonnes, par année : N_RSS_MULTI_RUM : RSS à deux RUM ou plus ; N_RSS_PLUSIEURS_EG : parmi eux, RSS dont les RUM qui ont une EG sont dans deux EG ou plus ; découpé selon le séjour (ID_SEJOUR) en N_PEG_SEJOUR_1_RSS (le séjour n'a que ce RSS) et N_PEG_SEJOUR_N_RSS (le séjour a d'autres RSS) ; et selon MODE_SORTIE du RUM qui précède le premier changement d'EG (RUM rangés par DATE_DEBUT_RUM, DATE_FIN_RUM, ID_RUM, en sautant les RUM sans EG) en N_PEG_SORTIE_6 (mutation), N_PEG_SORTIE_7 (transfert), N_PEG_SORTIE_AUTRE ; N_RSS_UF_PLUSIEURS_EG : RSS dont un RUM a une UF à plusieurs EG ; N_RSS_UF_SANS_EG : RSS dont un RUM n'a pas d'UF ou une UF sans EG. Thésaurus, pas des personnes, non masqués : N_EG (lignes de TB_EG), N_UF_PLUSIEURS_EG (UF de TB_EG_UNITE à plusieurs EG), N_UF_SANS_EG (UF de TB_UNITE absentes de TB_EG_UNITE).
+-- Colonnes, par année : N_RSS_MULTI_RUM : RSS à deux RUM ou plus ; N_RSS_PLUSIEURS_EG : parmi eux, RSS dont les RUM qui ont une EG sont dans deux EG ou plus ; découpé selon le séjour (ID_SEJOUR) en N_PEG_SEJOUR_1_RSS (le séjour n'a que ce RSS) et N_PEG_SEJOUR_N_RSS (le séjour a d'autres RSS) ; et selon MODE_SORTIE du RUM qui précède le premier changement d'EG (RUM rangés par DATE_DEBUT_RUM, DATE_FIN_RUM, ID_RUM, en sautant les RUM sans EG) en N_PEG_SORTIE_6 (mutation), N_PEG_SORTIE_7 (transfert), N_PEG_SORTIE_AUTRE ; N_RSS_UF_PLUSIEURS_EG : RSS dont un RUM a une UF à plusieurs EG ; N_RSS_UF_SANS_EG : RSS dont un RUM n'a pas d'UF ou une UF sans EG. Thésaurus, pas des personnes, non masqués, sans préfixe N_ (queries.md, règle 1, réserve N_ aux effectifs) : EG_TOTAL (lignes de TB_EG), UF_A_PLUSIEURS_EG (UF de TB_EG_UNITE à plusieurs EG), UF_SANS_EG (UF de TB_UNITE absentes de TB_EG_UNITE).
 -- Masquage : tout effectif < 10 sort en <10. Suppression secondaire (règle 4) : N_RSS_PLUSIEURS_EG a deux découpages (séjour ; mode de sortie) et est inclus dans N_RSS_MULTI_RUM. Il sort en « masqué » si une part d'un découpage est < 10 ou si son écart à N_RSS_MULTI_RUM vaut de 1 à 9 ; alors, dans chaque découpage sans part < 10, la plus petite part sort aussi en « masqué », pour que la somme des parts ne le redonne pas. N_RSS_UF_PLUSIEURS_EG et N_RSS_UF_SANS_EG sortent en « masqué » si leur écart à N_RSS_MULTI_RUM vaut de 1 à 9. Aucune ligne de total.
 WITH r AS (
   SELECT s.ID_RSS, s.ID_SEJOUR, EXTRACT(YEAR FROM s.DATE_FIN) AS ANNEE
@@ -83,10 +83,10 @@ f AS (
   FROM a
 ),
 u AS (
-  SELECT (SELECT COUNT(*) FROM CORA_REC.TB_EG) AS N_EG,
-         (SELECT COUNT(*) FROM ueg WHERE NEG > 1) AS N_UF_PLUSIEURS_EG,
+  SELECT (SELECT COUNT(*) FROM CORA_REC.TB_EG) AS EG_TOTAL,
+         (SELECT COUNT(*) FROM ueg WHERE NEG > 1) AS UF_A_PLUSIEURS_EG,
          (SELECT COUNT(*) FROM CORA_REC.TB_UNITE t
-           WHERE NOT EXISTS (SELECT 1 FROM CORA_REC.TB_EG_UNITE e WHERE e.ID_UNITE = t.ID_UNITE)) AS N_UF_SANS_EG
+           WHERE NOT EXISTS (SELECT 1 FROM CORA_REC.TB_EG_UNITE e WHERE e.ID_UNITE = t.ID_UNITE)) AS UF_SANS_EG
   FROM DUAL
 )
 SELECT '20261110-rss-plusieurs-eg' AS query_id,
@@ -112,9 +112,9 @@ SELECT '20261110-rss-plusieurs-eg' AS query_id,
             ELSE TO_CHAR(f.MA) END AS N_PEG_SORTIE_AUTRE,
        CASE WHEN f.UM < 10 THEN '<10' WHEN f.NM - f.UM BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(f.UM) END AS N_RSS_UF_PLUSIEURS_EG,
        CASE WHEN f.US < 10 THEN '<10' WHEN f.NM - f.US BETWEEN 1 AND 9 THEN 'masqué' ELSE TO_CHAR(f.US) END AS N_RSS_UF_SANS_EG,
-       TO_CHAR(u.N_EG) AS N_EG,
-       TO_CHAR(u.N_UF_PLUSIEURS_EG) AS N_UF_PLUSIEURS_EG,
-       TO_CHAR(u.N_UF_SANS_EG) AS N_UF_SANS_EG
+       TO_CHAR(u.EG_TOTAL) AS EG_TOTAL,
+       TO_CHAR(u.UF_A_PLUSIEURS_EG) AS UF_A_PLUSIEURS_EG,
+       TO_CHAR(u.UF_SANS_EG) AS UF_SANS_EG
 FROM f
 CROSS JOIN u
 ORDER BY f.ANNEE;
