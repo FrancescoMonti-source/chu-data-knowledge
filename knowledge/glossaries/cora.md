@@ -34,9 +34,9 @@ Une unité médicale du thésaurus TB_UNITE_MEDICALE, désignée par son code (C
 
 ## cora:eg
 
-Alias : EG, entité géographique, site, TB_EG, FINESS géographique
+Alias : EG, entité géographique, établissement géographique, TB_EG, FINESS géographique
 
-Un enregistrement de TB_EG : un établissement géographique (un site) du CHU, avec son code (CODE_EG), son libellé et son numéro FINESS géographique. TB_EG_UNITE relie chaque UF (TB_UNITE.ID_UNITE) à son EG.
+Un enregistrement de TB_EG : un établissement géographique (un site) du CHU, avec son code (CODE_EG), son libellé et son numéro FINESS géographique. TB_EG_UNITE relie chaque UF (TB_UNITE.ID_UNITE) à son EG. À ne pas confondre avec TB_SITE, le thésaurus des lieux de réalisation des actes.
 
 ## cora:rum
 

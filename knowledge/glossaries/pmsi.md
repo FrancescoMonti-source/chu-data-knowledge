@@ -36,7 +36,7 @@ Le code PMSI qui dit comment un séjour commence ou finit : mutation (6, vers ou
 
 Alias : PIE, prestation interétablissement, prestation inter-établissements, transfert provisoire
 
-La prise en charge, par un établissement prestataire B (une autre entité géographique, de la même entité juridique ou d'une autre), d'un patient hospitalisé dans un établissement demandeur A, pour un acte ou une prestation, en au plus deux journées civiles (une nuit au plus en B), dans le même champ d'activité. B produit un RSS aux modes d'entrée et de sortie « 0 » et facture A ; A garde un seul séjour, suspendu pendant la prestation. Exception : les séances (CMD 28), dont B facture le GHS.
+La prise en charge, par un établissement prestataire B (une autre entité géographique, de la même entité juridique ou d'une autre), d'un patient hospitalisé dans un établissement demandeur A, pour un acte ou une prestation, en au plus deux journées civiles (une nuit au plus en B), dans le même champ d'activité. B produit un RSS aux modes d'entrée et de sortie « 0 » et facture A ; A garde un seul séjour, suspendu pendant la prestation. Exception : les séances de dialyse rénale, de radiothérapie et de chimiothérapie, dont B facture le GHS (la dialyse en unité de dialyse médicalisée, par un forfait D11) ; les autres séances de la CMD 28 suivent le cas général.
 
 ## pmsi:provenance-destination
 

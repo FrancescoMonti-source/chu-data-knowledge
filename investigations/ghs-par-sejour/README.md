@@ -23,6 +23,7 @@ Issue : #133
 - **20261110-sejour-plusieurs-rss-eg limitée à 2022-2024 :** en 2025, la somme de ses cellules redonnait le nombre de paires, masqué dans 20261110-sejour-plusieurs-rss-ecarts-resultat.
 - **20261110-rss-plusieurs-eg exécutée deux fois :** à la première exécution, trois colonnes de thésaurus (nombre d'EG, d'UF à plusieurs EG, d'UF sans EG) commençaient par N_ et le contrôle les lisait comme des effectifs de personnes ; renommées sans N_, la requête a été relancée, avec les mêmes chiffres. Seule la seconde exécution est conservée.
 - **Deux plus petites classes toujours cachées dans 20261110-rss-plusieurs-eg-um :** leur somme redonnait N_RSS_PLUSIEURS_EG, masqué dans 20261110-rss-plusieurs-eg-resultat. Une seule classe est sortie chaque année, donc masquée ; son absence de concurrente suffit à la conclusion.
+- **N_SEJ_AVEC_SEANCE de 2023 se retrouve par différence :** N_SEJ de 20261110-sejour-plusieurs-rss-resultat moins N_SEJ de 20261110-sejour-plusieurs-rss-type-resultat. C'est un grand nombre, et N_SEJ_TOUT_SEANCE reste caché : le petit écart protégé reste inconnu. Laissé tel quel.
 - **Site d'un RUM par l'UF d'hébergement, site d'une UM par ses UF :** TB_SYNTH_RSS.ID_ETABLIS est vide, TB_UNITE_MEDICALE n'a pas de site ; TB_EG_UNITE et TB_UNITE_M_UNITE sont lus sans dates.
 
 ## Conclusions
@@ -34,7 +35,10 @@ Claims :
 - pie-prestataire-valorisees-cora (unreviewed)
 - eg-du-rum-par-uf-hebergement (unreviewed)
 - sejour-plusieurs-rss-changement-eg (unreviewed)
+- rss-deux-eg-en-mutation (unreviewed, provisional)
 
 Termes ajoutés : edsan:evtid, cora:eg, pmsi:pie. Terme corrigé : pmsi:mode-entree-sortie (le guide distingue mutation et transfert par l'entité géographique, pas par l'entité juridique).
 
-Points ouverts, laissés dans l'issue : les 105 paires de RSS sur le même site (Charles Nicolle) en 2024 ; la cause des changements de site codés en mutation dans un seul RSS ; la hausse des RSS de PIE prestataire en 2025.
+Points ouverts, laissés dans l'issue : les 105 paires de RSS sur le même site (Charles Nicolle) en 2024, peut-être les 94 séjours HDJ de la même année ; la cause des changements de site codés en mutation dans un seul RSS, à commencer par le réglage GRP_FINESS_GEOD de CORA (requête 20261110-config-groupage-finess-geo, à exécuter) ; la hausse des RSS de PIE prestataire en 2025, peut-être des PIE entre deux sites du CHU.
+
+Relecture à froid de la PR #134 : la claim rss-deux-eg-en-mutation est séparée de sejour-plusieurs-rss-changement-eg et ne dit plus « erreur de codage » ; l'exception des séances est réduite à la dialyse, la radiothérapie et la chimiothérapie ; code-destination-2-est-smr (Pierre) est corrigé pour le mode 7.
