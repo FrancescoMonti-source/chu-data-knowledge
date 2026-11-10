@@ -3,14 +3,14 @@ review: unreviewed
 id: sejour-plusieurs-rss-changement-eg
 kind: empirical
 author: Francesco
-statement: "Dans CORA, hors séries de séances (CMD 28), un séjour (ID_SEJOUR, un NO_SEJOUR) a plusieurs RSS parce que le patient change d'entité géographique du CHU : un RSS par site, le suivant commençant le jour où le précédent finit, en sortie et en entrée 7 ; un transfert (7) entre deux RSS d'un même séjour n'est donc pas une sortie du CHU. Environ 7 % des changements de site restent pourtant dans un seul RSS, en mutation (6)."
+statement: "Dans CORA, hors séries de séances (CMD 28), un séjour (ID_SEJOUR, un NO_SEJOUR) a plusieurs RSS parce que le patient change d'entité géographique du CHU : un RSS par site, le suivant commençant le jour où le précédent finit, en sortie et en entrée 7 ; un transfert (7) entre deux RSS d'un même séjour n'est donc pas une sortie du CHU. Environ 7 % des changements de site restent pourtant dans un seul RSS, codés en mutation (6) alors que l'UM change de site : une erreur de codage."
 scope: "CORA de production (CWPROD, schéma CORA_REC), RSS groupés finis de 2022 à 2025 et leurs séjours, règles du guide méthodologique MCO 2026, lus le 2026-11-10"
-refuted_if: "pour une année, plus de 10 % des paires de RSS consécutifs d'un même séjour sans séance sont dans la même entité géographique, ou ne s'enchaînent pas le même jour, ou plus de 20 % des RSS à deux RUM ou plus dont les RUM sont dans deux entités géographiques changent d'entité par une mutation"
+refuted_if: "pour une année, plus de 10 % des paires de RSS consécutifs d'un même séjour sans séance sont dans la même entité géographique, ou ne s'enchaînent pas le même jour, ou plus de 20 % des changements de site d'une année restent dans un seul RSS, ou plus de 10 de ces RSS gardent la même UM"
 maturity: observed
 lifecycle: active
 terms: [cora:sejour, cora:rss, cora:eg, pmsi:mode-entree-sortie, pmsi:pie]
 tables: [cora:TB_SYNTH_RSS, cora:TB_SYNTH_RUM, cora:TB_SEJOUR, cora:TB_EG_UNITE, cora:TB_EG]
-supported_by: [20261110-sejour-plusieurs-rss-resultat, 20261110-sejour-plusieurs-rss-type-resultat, 20261110-sejour-plusieurs-rss-ecarts-resultat, 20261110-sejour-plusieurs-rss-etab-resultat, 20261110-sejour-plusieurs-rss-eg-resultat, 20261110-rss-plusieurs-eg-resultat, 20261110-pie-rss-sejour-resultat, 20261110-guide-sejour-patient-eg, 20261110-guide-un-rss-par-eg, 20261110-guide-mode-sortie-6-7, 20261110-guide-pie-demandeur]
+supported_by: [20261110-rss-plusieurs-eg-um-resultat, 20261110-sejour-plusieurs-rss-resultat, 20261110-sejour-plusieurs-rss-type-resultat, 20261110-sejour-plusieurs-rss-ecarts-resultat, 20261110-sejour-plusieurs-rss-etab-resultat, 20261110-sejour-plusieurs-rss-eg-resultat, 20261110-rss-plusieurs-eg-resultat, 20261110-pie-rss-sejour-resultat, 20261110-guide-sejour-patient-eg, 20261110-guide-un-rss-par-eg, 20261110-guide-mode-sortie-6-7, 20261110-guide-pie-demandeur]
 depends_on: [eg-du-rum-par-uf-hebergement]
 ---
 ## Pour s'en servir
@@ -19,7 +19,7 @@ depends_on: [eg-du-rum-par-uf-hebergement]
 - **Montant d'un séjour :** chaque RSS est valorisé à part ; le montant du séjour est la somme de ses RSS, PIE prestataires écartées pour un montant facturé (pie-prestataire-valorisees-cora). Le GHS ne s'additionne pas : un séjour à deux sites a deux GHS.
 - **Transferts :** une sortie 7 suivie, le même jour, d'un RSS du même séjour est un changement de site du CHU, pas un transfert vers un autre établissement. Pour compter les transferts hors du CHU, écarter les RSS dont le séjour a un RSS suivant.
 - **Durée ou parcours d'un séjour :** de la DATE_DEBUT du premier RSS à la DATE_FIN du dernier ; le site de chaque RSS se lit par ses RUM (eg-du-rum-par-uf-hebergement).
-- **Changement de site dans un seul RSS :** il existe (environ 200 RSS par an, presque tous en mutation 6, contre la règle du guide). Un RSS n'est donc pas toujours mono-site : pour le site, lire chaque RUM.
+- **Changement de site dans un seul RSS :** il existe (environ 200 RSS par an, presque tous en mutation 6, avec une UM d'un autre site : une erreur de codage, contre la règle du guide). Un RSS n'est donc pas toujours mono-site : pour le site, lire chaque RUM. Pour un contrôle qualité du codage, ces RSS sont la liste à revoir.
 
 ## Ce qui l'appuie
 
@@ -33,6 +33,6 @@ Les deux RSS d'une paire sont dans deux sites différents (20261110-sejour-plusi
 
 Les PIE n'expliquent pas ces séjours : moins de 10 séjours à plusieurs RSS par an en ont une (20261110-pie-rss-sejour-resultat), et l'établissement demandeur garde un seul RSS (20261110-guide-pie-demandeur).
 
-Changements de site dans un seul RSS (20261110-rss-plusieurs-eg-resultat) : sur environ 39 000 RSS à deux RUM ou plus par an, 192, 230, 225 et 203 changent de site par une mutation (6), moins de 10 par un transfert (7), moins de 10 autrement ; 124 à 143 par an sont le seul RSS de leur séjour. Rapportés aux changements de site entre RSS (environ 2 900 à 3 200 par an), ils en font environ 7 %.
+Changements de site dans un seul RSS (20261110-rss-plusieurs-eg-resultat) : sur environ 39 000 RSS à deux RUM ou plus par an, 192, 230, 225 et 203 changent de site par une mutation (6), moins de 10 par un transfert (7), moins de 10 autrement ; 124 à 143 par an sont le seul RSS de leur séjour. Rapportés aux changements de site entre RSS (environ 2 900 à 3 200 par an), ils en font environ 7 %. Au premier changement de site, l'UM du RUM suivant est d'un autre site que celle du précédent pour tous ces RSS, chaque année : la seule classe présente est « UM d'EG différente », aucun RSS ne garde la même UM ni deux UM du même site (20261110-rss-plusieurs-eg-um-resultat ; site d'une UM déduit de ses UF par TB_UNITE_M_UNITE, une UM étant située dans un seul établissement géographique, 20261110-guide-sejour-patient-eg). Ce n'est donc pas un simple hébergement sur un autre site.
 
-Points ouverts : les 105 paires Charles Nicolle vers Charles Nicolle de 2024 ne sont pas expliquées ; TB_EG_UNITE n'a pas de dates ; on ne sait pas si les changements de site en mutation sont des erreurs de codage ou un hébergement sur un autre site.
+Points ouverts : les 105 paires Charles Nicolle vers Charles Nicolle de 2024 ne sont pas expliquées ; TB_EG_UNITE n'a pas de dates ; les liens UF-site et UF-UM sont ceux d'aujourd'hui, sans dates ; la cause des mutations entre sites (saisie des mouvements, paramétrage du découpage des RSS) n'est pas connue.

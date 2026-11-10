@@ -20,5 +20,21 @@ Issue : #133
 - **Une cellule de plus masquée dans 20261110-iep-evtid-correspondance-resultat :** N_EVTID_RETOUR_MEME_IEP, dont l'écart à N_IEP_MATCHED, d'une autre ligne, borne N_EVTID_RETOUR_AUTRE (suppression secondaire entre lignes, queries.md règle 4).
 - **Cellules de plus masquées dans 20261110-sejour-plusieurs-rss-ecarts-resultat :** N_ECART_0 de 2022 à 2024 et N_PAIRES de 2025. Le nombre de paires d'une année se retrouve par N_RSS − N_SEJ de 20261110-sejour-plusieurs-rss-type-resultat ; avec N_ECART_0, il rendait la somme des autres classes d'écart (de 1 à 9), et en 2025 il rendait N_SEJ, masqué dans l'autre résultat (suppression secondaire entre résultats).
 - **N_ETAB_DIFFERENT de 2025 masqué dans 20261110-sejour-plusieurs-rss-etab-resultat :** ID_ETABLIS est vide pour tous ces RSS (ETABLIS_DISTINCTS = 0), donc la colonne compte toutes les paires ; elle rendait le nombre de paires de 2025, masqué dans 20261110-sejour-plusieurs-rss-ecarts-resultat.
+- **20261110-sejour-plusieurs-rss-eg limitée à 2022-2024 :** en 2025, la somme de ses cellules redonnait le nombre de paires, masqué dans 20261110-sejour-plusieurs-rss-ecarts-resultat.
+- **20261110-rss-plusieurs-eg exécutée deux fois :** à la première exécution, trois colonnes de thésaurus (nombre d'EG, d'UF à plusieurs EG, d'UF sans EG) commençaient par N_ et le contrôle les lisait comme des effectifs de personnes ; renommées sans N_, la requête a été relancée, avec les mêmes chiffres. Seule la seconde exécution est conservée.
+- **Deux plus petites classes toujours cachées dans 20261110-rss-plusieurs-eg-um :** leur somme redonnait N_RSS_PLUSIEURS_EG, masqué dans 20261110-rss-plusieurs-eg-resultat. Une seule classe est sortie chaque année, donc masquée ; son absence de concurrente suffit à la conclusion.
+- **Site d'un RUM par l'UF d'hébergement, site d'une UM par ses UF :** TB_SYNTH_RSS.ID_ETABLIS est vide, TB_UNITE_MEDICALE n'a pas de site ; TB_EG_UNITE et TB_UNITE_M_UNITE sont lus sans dates.
 
 ## Conclusions
+
+Réponse : la requête de Mikael lit TB_SYNTH_RSS, une ligne par RSS. Elle signale les RSS de PIE où le CHU est prestataire (modes 0 et 0), valorisés par CORA mais non facturés à l'assurance maladie hors séances. Le NO_SEJOUR de CORA est l'IEP, unique par séjour, et redsan::edsan_ct le relie un pour un à l'EVTID. Un séjour a plusieurs RSS pour une série de séances ou un changement de site du CHU ; le montant d'un EVTID est la somme de ses RSS, ses GHS ne s'additionnent pas.
+
+Claims :
+- iep-evtid-par-edsan-ct (unreviewed)
+- pie-prestataire-valorisees-cora (unreviewed)
+- eg-du-rum-par-uf-hebergement (unreviewed)
+- sejour-plusieurs-rss-changement-eg (unreviewed)
+
+Termes ajoutés : edsan:evtid, cora:eg, pmsi:pie. Terme corrigé : pmsi:mode-entree-sortie (le guide distingue mutation et transfert par l'entité géographique, pas par l'entité juridique).
+
+Points ouverts, laissés dans l'issue : les 105 paires de RSS sur le même site (Charles Nicolle) en 2024 ; la cause des changements de site codés en mutation dans un seul RSS ; la hausse des RSS de PIE prestataire en 2025.
