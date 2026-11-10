@@ -17,5 +17,6 @@ Issue : #133
 
 ## Choix
 - **Une cellule de plus masquée dans 20261110-pie-rss-sejour-resultat :** N_PB_GHS_POS en 2025, dont l'écart à N_ME0_ET_MS0 valait de 1 à 9 ; la requête ne comparait N_PB_GHS_POS qu'à N_PB, lui-même masqué (suppression secondaire, queries.md règle 4).
+- **Une cellule de plus masquée dans 20261110-iep-evtid-correspondance-resultat :** N_EVTID_RETOUR_MEME_IEP, dont l'écart à N_IEP_MATCHED, d'une autre ligne, borne N_EVTID_RETOUR_AUTRE (suppression secondaire entre lignes, queries.md règle 4).
 
 ## Conclusions
