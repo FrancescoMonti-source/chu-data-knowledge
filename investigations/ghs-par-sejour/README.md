@@ -19,5 +19,6 @@ Issue : #133
 - **Une cellule de plus masquée dans 20261110-pie-rss-sejour-resultat :** N_PB_GHS_POS en 2025, dont l'écart à N_ME0_ET_MS0 valait de 1 à 9 ; la requête ne comparait N_PB_GHS_POS qu'à N_PB, lui-même masqué (suppression secondaire, queries.md règle 4).
 - **Une cellule de plus masquée dans 20261110-iep-evtid-correspondance-resultat :** N_EVTID_RETOUR_MEME_IEP, dont l'écart à N_IEP_MATCHED, d'une autre ligne, borne N_EVTID_RETOUR_AUTRE (suppression secondaire entre lignes, queries.md règle 4).
 - **Cellules de plus masquées dans 20261110-sejour-plusieurs-rss-ecarts-resultat :** N_ECART_0 de 2022 à 2024 et N_PAIRES de 2025. Le nombre de paires d'une année se retrouve par N_RSS − N_SEJ de 20261110-sejour-plusieurs-rss-type-resultat ; avec N_ECART_0, il rendait la somme des autres classes d'écart (de 1 à 9), et en 2025 il rendait N_SEJ, masqué dans l'autre résultat (suppression secondaire entre résultats).
+- **N_ETAB_DIFFERENT de 2025 masqué dans 20261110-sejour-plusieurs-rss-etab-resultat :** ID_ETABLIS est vide pour tous ces RSS (ETABLIS_DISTINCTS = 0), donc la colonne compte toutes les paires ; elle rendait le nombre de paires de 2025, masqué dans 20261110-sejour-plusieurs-rss-ecarts-resultat.
 
 ## Conclusions
