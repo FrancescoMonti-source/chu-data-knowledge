@@ -39,6 +39,6 @@ Claims :
 
 Termes ajoutés : edsan:evtid, cora:eg, pmsi:pie. Terme corrigé : pmsi:mode-entree-sortie (le guide distingue mutation et transfert par l'entité géographique, pas par l'entité juridique).
 
-Points ouverts, laissés dans l'issue : les 105 paires de RSS sur le même site (Charles Nicolle) en 2024, peut-être les 94 séjours HDJ de la même année ; la cause des changements de site codés en mutation dans un seul RSS, à commencer par le réglage GRP_FINESS_GEOD de CORA (requête 20261110-config-groupage-finess-geo, à exécuter) ; la hausse des RSS de PIE prestataire en 2025, peut-être des PIE entre deux sites du CHU.
+Points ouverts, laissés dans l'issue : les 105 paires de RSS sur le même site (Charles Nicolle) en 2024, peut-être les 94 séjours HDJ de la même année ; la cause des changements de site codés en mutation dans un seul RSS, le réglage de CORA mis hors de cause (groupage par FINESS géographique actif depuis 2016, 20261110-config-groupage-finess-geo-resultat) ; la hausse des RSS de PIE prestataire en 2025, peut-être des PIE entre deux sites du CHU.
 
 Relecture à froid de la PR #134 : la claim rss-deux-eg-en-mutation est séparée de sejour-plusieurs-rss-changement-eg et ne dit plus « erreur de codage » ; l'exception des séances est réduite à la dialyse, la radiothérapie et la chimiothérapie ; code-destination-2-est-smr (Pierre) est corrigé pour le mode 7.
