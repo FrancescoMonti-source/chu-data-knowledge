@@ -16,5 +16,13 @@ Issue : #135
 - **Branche :** claude/project-thread-ltp11c, imposée par la session, au lieu de investigation/dialyse-pediatrique (#123).
 
 ## Choix
+Aucune décision de méthode après le cadrage.
 
 ## Conclusions
+
+Réponse : en 2025, 802 séances de dialyse pour des patients de moins de 18 ans le jour de la séance, toutes en hémodialyse (28Z04Z), pour 12 patients, toutes dans l'UF 5624 : les deux lectures de « pédiatrique » donnent le même chiffre. 1 154 en 2023 (10 patients), 1 078 en 2024 (11 patients) ; 2022 masqué (moins de 10 patients). À part, moins de 10 RSS d'hospitalisation par an d'enfants dialysés pendant leur séjour (suppléments, pas des séances) (20261112-dialyse-pediatrique-resultat).
+
+Claims :
+- seances-dialyse-un-rss-par-seance (unreviewed)
+
+Prémisses de la requête, non relues : age-entree-a-recalculer, uf-du-rum-hebergement, joindre-rss-par-id-sejour (unreviewed).
