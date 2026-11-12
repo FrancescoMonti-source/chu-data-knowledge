@@ -16,7 +16,7 @@ Issue : #135
 - **Branche :** claude/project-thread-ltp11c, imposée par la session, au lieu de investigation/dialyse-pediatrique (#123).
 
 ## Choix
-Aucune décision de méthode après le cadrage.
+- **Plan revu, étape 2 :** un collègue cible les séances par le GHS 9617 et trouve plusieurs séances par NO_SEJOUR ; l'arrêté « forfaits » réserve le GHS 9617 au GHM 28Z04Z pris en charge « en centre pour enfants », sans condition d'âge (20261112-arrete-forfaits-hemodialyse-ghs). La requête 20261112-dialyse-ghs-sejour compare GHS, âge et UF, et compte les NO_SEJOUR à côté des RSS.
 
 ## Conclusions
 
