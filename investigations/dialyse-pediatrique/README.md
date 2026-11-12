@@ -22,6 +22,8 @@ Issue : #135
 
 Réponse : en 2025, 802 séances de dialyse pour des patients de moins de 18 ans le jour de la séance, toutes en hémodialyse (28Z04Z), pour 12 patients, toutes dans l'UF 5624 : les deux lectures de « pédiatrique » donnent le même chiffre. 1 154 en 2023 (10 patients), 1 078 en 2024 (11 patients) ; 2022 masqué (moins de 10 patients). À part, moins de 10 RSS d'hospitalisation par an d'enfants dialysés pendant leur séjour (suppléments, pas des séances) (20261112-dialyse-pediatrique-resultat).
 
+Comparaison avec un ciblage par GHS 9617 : ces 802 séances sont toutes en GHS 9617, réparties sur 60 NO_SEJOUR ; le GHS 9617 compte aussi moins de 10 patients de 18 ans ou plus de l'UF 5624. Compter les NO_SEJOUR donne 60, pas 802 (20261112-dialyse-ghs-sejour-resultat).
+
 Claims :
 - seances-dialyse-un-rss-par-seance (unreviewed)
 
