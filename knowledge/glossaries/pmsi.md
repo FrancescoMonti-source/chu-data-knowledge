@@ -30,7 +30,13 @@ La classe de la classification PMSI dans laquelle le groupage range un RSS : la 
 
 Alias : mode d'entrée, mode de sortie, MODE_ENTREE, MODE_SORTIE
 
-Le code PMSI qui dit comment un séjour commence ou finit : mutation (6, dans le même établissement), transfert (7, vers ou depuis une autre entité juridique), domicile (8), décès (9, en sortie). Un mode 6 ou 7 se complète d'une provenance ou d'une destination.
+Le code PMSI qui dit comment un séjour commence ou finit : mutation (6, vers ou depuis une autre unité médicale de la même entité géographique), transfert (7, vers ou depuis une autre entité géographique, y compris un autre site du même établissement), domicile (8), décès (9, en sortie). Un mode 6 ou 7 se complète d'une provenance ou d'une destination.
+
+## pmsi:pie
+
+Alias : PIE, prestation interétablissement, prestation inter-établissements, transfert provisoire
+
+La prise en charge, par un établissement prestataire B (une autre entité géographique, de la même entité juridique ou d'une autre), d'un patient hospitalisé dans un établissement demandeur A, pour un acte ou une prestation, en au plus deux journées civiles (une nuit au plus en B), dans le même champ d'activité. B produit un RSS aux modes d'entrée et de sortie « 0 » et facture A ; A garde un seul séjour, suspendu pendant la prestation. Exception : les séances de dialyse rénale, de radiothérapie et de chimiothérapie, dont B facture le GHS (la dialyse en unité de dialyse médicalisée, par un forfait D11) ; les autres séances de la CMD 28 suivent le cas général.
 
 ## pmsi:provenance-destination
 
