@@ -25,3 +25,15 @@ Une table du PMSI national dans le SNDS, déclinée par année : le nom porte l'
 Alias : IR_, tables IR, référentiel, IR_BEN_R, IR_ESM_R, IR_VAC_F, IR_ACS_R, IR_IMB_R
 
 Une table de référentiel du SNDS, dont le nom commence par IR_ (bénéficiaires, établissements, nomenclatures).
+
+## snds:passage-urgences
+
+Alias : passé par les urgences, séjour passé par les urgences, SEJ_URG, séjour non programmé (au sens du SNDS)
+
+Un séjour MCO du SNDS repéré comme venu des urgences par la règle de la macro SEJ_URG de la Cnam et du HDH (claim sejour-passe-par-les-urgences-regle-cnam). Ce n'est pas « non programmé » : la règle repère l'urgence, elle ne dit pas qu'un séjour sans urgences était programmé.
+
+## snds:rum
+
+Alias : RUM, UM du SNDS, T_MCOaaUM
+
+Un résumé d'unité médicale du PMSI MCO tel que le SNDS le donne : une ligne de T_MCOaaUM par RUM d'un séjour, ordonnée par RUM_ORD_NUM. Il porte le type d'autorisation de l'UM (AUT_TYP1_UM) mais pas le code de l'UM du CHU : ce n'est ni une UM de CORA ni un service.
