@@ -32,3 +32,4 @@ Comparaison : ce que disent les sources contre ce qu'on observe sur le portail.
 - entree-domicile-melange-programme-et-urgences (unreviewed, modifié le 2026-11-16)
 - sejour-passe-par-les-urgences-regle-cnam (unreviewed)
 - um-mco-sans-service-ni-dates (unreviewed)
+- libelles-ghm-finess-cim-sur-le-portail (unreviewed)
