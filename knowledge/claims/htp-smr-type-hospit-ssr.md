@@ -1,5 +1,10 @@
 ---
-review: unreviewed
+review:
+  status: reviewed
+  by: Francesco
+  at: 2026-11-16
+  work: "effectifs recalculés depuis 20261020-rhs-htp-colonnes-2025-resultat et 20261020-rhs-htp-gn-gr-montants-2025-resultat, mêmes chiffres (sauf moins de 10 RHS de type 2 sans GME, corrigé) ; manuel des GME 2026 lu (20261115-manuel-gme-groupes-readaptation) ; nouvelle requête par UF exécutée par Francesco (20261115-rhs-type-hospit-par-uf-2025-resultat) : type 2 dans les UF d'hôpital de jour, type 1 dans les UF avec lits"
+  fingerprint: 5039857a4e08
 id: htp-smr-type-hospit-ssr
 kind: empirical
 author: Pierre
