@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:rhs, pmsi:htp]
 tables: [cora:TB_MVT_SSR_SEM]
-supported_by: [20261020-rhs-htp-colonnes-2025-resultat, 20261020-rhs-htp-gn-gr-montants-2025-resultat, 20261020-patients-htp-2025-2-resultat, 20261115-manuel-gme-groupes-readaptation]
+supported_by: [20261020-rhs-htp-colonnes-2025-resultat, 20261020-rhs-htp-gn-gr-montants-2025-resultat, 20261020-patients-htp-2025-2-resultat, 20261115-manuel-gme-groupes-readaptation, 20261115-rhs-type-hospit-par-uf-2025-resultat]
 depends_on: []
 ---
 ## Pour s'en servir
@@ -21,4 +21,6 @@ Pour la HTP, filtrer `TB_MVT_SSR_SEM.TYPE_HOSPIT_SSR = 2` ; ne pas filtrer sur `
 
 En 2025, TB_MVT_SSR_SEM compte 15 010 RHS de TYPE_HOSPIT_SSR = 1 et 2 750 de TYPE_HOSPIT_SSR = 2, et aucune autre valeur (20261020-rhs-htp-colonnes-2025-resultat). TYPE_ACTIVITE est vide dans les deux lignes. Les RHS de type 2 qui ont un GME (tous sauf moins de 10) ont pour 5e caractère I, J, K ou L, c'est-à-dire un groupe de réadaptation de HTP (20261020-rhs-htp-gn-gr-montants-2025-resultat) : le manuel des GME 2026 donne les codes H, I, J, K, L à l'hospitalisation partielle et P, S, T, U à l'hospitalisation complète (20261115-manuel-gme-groupes-readaptation). Ils concernent 158 patients, le nombre attendu par l'utilisateur DIM pour la HTP (20261020-patients-htp-2025-2-resultat).
 
-Points ouverts : les autres années ne sont pas lues ; TYPE_HOSPIT_SSR = 2 est « hospitalisation de jour en soins de suite médicalisés » dans le dictionnaire, rien ne prouve ici qu'il ne couvre pas aussi une activité de rééducation.
+Par unité (20261115-rhs-type-hospit-par-uf-2025-resultat) : les RHS de type 2 sont tous dans les deux UF d'hôpital de jour SMR, 7136 (SMR HDJ OISSEL, 1 828) et 7129 (SMR HDJ BG, masqué), sauf moins de 10 sans UF de mouvement ; les 15 010 RHS de type 1 sont dans 11 UF d'hospitalisation complète, aucun dans une UF d'hôpital de jour.
+
+Points ouverts : les autres années ne sont pas lues.
