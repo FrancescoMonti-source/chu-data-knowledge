@@ -13,5 +13,7 @@ Issue : #138
 - **Branche :** claude/project-thread-u52yqu, imposée par la session, au lieu de investigation/ipp-patient-vs-sejour.
 
 ## Choix
+- **Comptage sans valeur d'IPP :** on compare les colonnes par leur remplissage et leur égalité, sans sortir aucune valeur : la requête reste masquée.
 
 ## Conclusions
+- `ipp-dans-tb-patient` (unreviewed) : l'IPP se lit dans TB_PATIENT.IPP_PATIENT ; TB_SEJOUR.IPP_PATIENT est vide pour plus de 99 % des séjours.
