@@ -33,7 +33,7 @@ GROUP BY ANNEE;
 4. On cache aussi les totaux qui permettraient de recalculer une cellule masquée (suppression secondaire) : total 25, cellules visibles 12 et 8, donc la cellule cachée vaut 5.
 5. La première colonne affiche l'id de la requête ; les suivantes, la base et l'heure d'exécution.
 6. Une requête exécutée ne change plus. Une nouvelle version est un nouveau fichier, avec un nouvel id.
-7. Un code CIM-10 se cherche par racine : `Z510` s'écrit `LIKE 'Z510%'` (ou `startsWith(x, "Z510")`), jamais `= 'Z510'` ni dans une liste d'égalités, pour tout code de moins de 6 caractères. Code exact seulement si la personne le demande explicitement. Les établissements codent des extensions (Z5100, Z5101) : une égalité exacte ne trouve rien, sans erreur (code-cim10-sans-point pour la forme des codes).
+7. Un code CIM-10 se cherche par racine, quelle que soit sa longueur : le code demandé et tous ceux qui commencent par lui. `I10` s'écrit `LIKE 'I10%'` (I10, I100…), `Z510` s'écrit `LIKE 'Z510%'` (Z5100, Z5101…), `C509` s'écrit `LIKE 'C509%'` ; en R `startsWith(x, "Z510")`. Jamais `= 'Z510'` ni une liste d'égalités. Code exact seulement si la personne le demande explicitement. Les établissements codent des extensions (Z5100, Z5101) : une égalité exacte ne trouve rien, sans erreur (code-cim10-sans-point pour la forme des codes).
 
 Les règles 1, 3 et 4 valent pour masked ; les règles 2 et 5 à 7, pour toutes les requêtes. Le contrôle lit la requête sans ses commentaires. Il vérifie SELECT * et l'id, et pour masked la présence du seuil (< 10 ou <= 9) et d'un agrégat. Il ne vérifie pas que le masquage est juste, ni les règles 4, 6 et 7.
 
