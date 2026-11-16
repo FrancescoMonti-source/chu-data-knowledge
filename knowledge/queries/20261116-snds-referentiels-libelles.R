@@ -40,6 +40,6 @@ referentiels <- function() {
   } else ajouter("oracle", "erreur de lecture", substr(gsub("[\r\n]+", " ", o), 1, 150))
   tableau <- data.frame(QUERY_ID = id, DATABASE_NAME = "IPIAMPR2.WORLD + ~/rfcommun", RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"),
                         do.call(rbind, res), row.names = NULL)
-  sortir(tableau, id, entete = FALSE)
+  sortir(tableau, id, person_data = "no-person-data", entete = FALSE)
 }
 referentiels()
