@@ -38,6 +38,8 @@ referentiels <- function() {
     }
     if (!nrow(o)) ajouter("oracle", "colonnes", "aucune table trouvée")
   } else ajouter("oracle", "erreur de lecture", substr(gsub("[\r\n]+", " ", o), 1, 150))
+  ascii <- function(x) gsub("\\?+", "?", iconv(as.character(x), to = "ASCII//TRANSLIT", sub = "?"))   # le presse-papiers Citrix altere les accents
+  res <- lapply(res, function(d) { d[] <- lapply(d, ascii); d })
   tableau <- data.frame(QUERY_ID = id, DATABASE_NAME = "IPIAMPR2.WORLD + ~/rfcommun", RUN_AT = format(Sys.time(), "%Y-%m-%d %H:%M"),
                         do.call(rbind, res), row.names = NULL)
   sortir(tableau, id, person_data = "no-person-data", entete = FALSE)
