@@ -61,3 +61,15 @@ Un enfant né sans vie, après une mort fœtale spontanée (MFS) ou une interrup
 Alias : séjour de naissance, naissance, nouveau-né, nouveau-nés, mode d'entrée N
 
 Le séjour d'un enfant qui commence à sa naissance dans l'établissement, enfants mort-nés compris. Dans le PMSI, son mode d'entrée est N (« Naissance »).
+
+## pmsi:acte-ccam
+
+Alias : acte CCAM, code CCAM, CCAM, CDC_ACT, CCAM_COD, code acte
+
+Un acte médical codé selon la Classification commune des actes médicaux : un code de quatre lettres et trois chiffres (topographie sur deux lettres, action, mode d'accès ou technique, puis un numéro), avec son activité et sa phase. Dans le PMSI MCO du SNDS, les actes des séjours sont dans T_MCOaaA (CDC_ACT), ceux des consultations externes dans T_MCOaaFMSTC (CCAM_COD).
+
+## pmsi:medecine-nucleaire
+
+Alias : médecine nucléaire, MN, scintigraphie, TEP, TEP-scan, PET-scan, radiothérapie interne vectorisée, RIV, iode 131, radioembolisation, SIRT
+
+L'activité qui utilise des produits radio-isotopiques : diagnostique (scintigraphies, tomographie par émission de positons, détections isotopiques) ou thérapeutique (radiothérapie interne vectorisée, iode 131, radioembolisation hépatique). Elle n'a pas de diagnostic de séance : on la repère par ses actes CCAM.
