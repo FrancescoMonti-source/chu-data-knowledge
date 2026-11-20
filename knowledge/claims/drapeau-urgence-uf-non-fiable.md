@@ -15,7 +15,7 @@ depends_on: []
 ---
 ## Pour s'en servir
 
-Ne pas filtrer les UF sur TB_UNITE.URGENCE = 'O' pour trouver les urgences : le filtre perd les UF qui reçoivent presque tous les passages. Les champs du séjour ne suppléent pas (sejour-sans-signal-urgences). Aucune méthode n'est encore établie pour repérer les UF d'urgences : en attendant, nommer les UF retenues dans l'analyse et le dire (#30).
+Ne pas filtrer les UF sur TB_UNITE.URGENCE = 'O' pour trouver les urgences : le filtre perd les UF qui reçoivent presque tous les passages. Les champs du séjour ne suppléent pas (sejour-sans-signal-urgences). Pour repérer les UF d'urgences, prendre celles du service « ACCUEIL ET URGENCES » du fichier Structure (uf-urgences-par-service-structure).
 
 ## Ce qui l'appuie
 

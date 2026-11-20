@@ -3,9 +3,9 @@ review: unreviewed
 id: icr-sans-table-cora
 kind: empirical
 author: Pierre
-statement: "Dans CORA de production, aucune table ni vue ICR n'est visible pour le compte de Pierre : PMSI_CCAM_ICR, que le dictionnaire 2020 décrit, est absente du catalogue, et V_CCAM_NV n'a pas de colonne ICR ; ne pas écrire de requête sur une table ICR de CORA, et prendre l'ICR d'un fichier ATIH joint par code d'acte."
-scope: "CORA de production (CWPROD), catalogue Oracle de tous les schémas non maintenus par Oracle, objets visibles par le compte de Pierre, lu le 2026-10-19"
-refuted_if: "ALL_OBJECTS, lu avec le compte de Pierre ou un autre, montre une table, une vue ou un synonyme nommé PMSI_CCAM_ICR ou contenant ICR entre soulignés, ou V_CCAM_NV a une colonne ICR"
+statement: "Dans CORA de production, aucune table ni vue ICR n'est visible pour le compte de l'utilisateur DIM : PMSI_CCAM_ICR, que le dictionnaire 2020 décrit, est absente du catalogue, et V_CCAM_NV n'a pas de colonne ICR ; ne pas écrire de requête sur une table ICR de CORA, et prendre l'ICR d'un fichier ATIH joint par code d'acte."
+scope: "CORA de production (CWPROD), catalogue Oracle de tous les schémas non maintenus par Oracle, objets visibles par le compte de l'utilisateur DIM, lu le 2026-10-19"
+refuted_if: "ALL_OBJECTS, lu avec le compte de l'utilisateur DIM ou un autre, montre une table, une vue ou un synonyme nommé PMSI_CCAM_ICR ou contenant ICR entre soulignés, ou V_CCAM_NV a une colonne ICR"
 maturity: observed
 lifecycle: superseded
 terms: [cora:acte]

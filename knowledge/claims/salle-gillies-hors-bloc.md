@@ -23,4 +23,4 @@ Le périmètre de salles retenu par le tableau de bord des blocs est dans `analy
 
 Interventions par année, spécialité et salle (20261014-oproom-specialites-salles-resultat) : en salle GILLIES, moins de 10 par spécialité en 2023 ; 406 sur 1 610 en ORL et 205 sur 781 en CMF en 2024 ; 509 sur 1 676 en ORL, 352 sur 1 002 en CMF et 90 sur 90 en dermatologie en 2025 ; 396 sur 1 317 en ORL, 336 sur 906 en CMF et 105 sur 105 en dermatologie jusqu'au 2026-10-09 ; moins de 10 pour chaque autre spécialité.
 
-Que la salle soit hors bloc vient de Pierre, qui l'a établi en reproduisant le tableau de bord officiel des blocs (20261014-kb-gillies).
+Que la salle soit hors bloc vient de l'utilisateur DIM, qui l'a établi en reproduisant le tableau de bord officiel des blocs (20261014-kb-gillies).

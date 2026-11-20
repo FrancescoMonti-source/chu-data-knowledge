@@ -32,6 +32,12 @@ Alias : UM, unité médicale, TB_UNITE_MEDICALE, CODE_UNITE_MED
 
 Une unité médicale du thésaurus TB_UNITE_MEDICALE, désignée par son code (CODE_UNITE_MED) ; une UM regroupe une ou plusieurs UF (lien TB_UNITE_M_UNITE, daté) et se rattache à un pôle. Une UM n'est pas un service : un service regroupe une ou plusieurs UM.
 
+## cora:eg
+
+Alias : EG, entité géographique, établissement géographique, TB_EG, FINESS géographique
+
+Un enregistrement de TB_EG : un établissement géographique (un site) du CHU, avec son code (CODE_EG), son libellé et son numéro FINESS géographique. TB_EG_UNITE relie chaque UF (TB_UNITE.ID_UNITE) à son EG. À ne pas confondre avec TB_SITE, le thésaurus des lieux de réalisation des actes.
+
 ## cora:rum
 
 Alias : RUM, résumé d'unité médicale, TB_SYNTH_RUM
