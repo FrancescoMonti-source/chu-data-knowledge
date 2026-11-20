@@ -18,6 +18,6 @@ Issue : #155
 ## Choix
 - MONTANT_GHS_EUR masqué dans la preuve 20261120-z512-h353-seances-2026-resultat quand N_RSS ou NB_SEANCES l'est : divisé par le tarif du GHS (411,08 € pour 9616), il redonnait l'effectif masqué.
 - Le recodage se compte sur les séances : dans l'UF 5170, un RSS porte une séance (MONTANT_GHS = séances × 411,08 €), et presque toutes ont un jour BGLB001.
-- Recodage en hôpital de jour : GHS 398 (Francesco, test au groupeur). La borne ACE se calcule au tarif CCAM de BGLB001 et BZQK001 plus le forfait SE2, la liste 2 de l'annexe 11 étant lue comme celle du SE2 (correspondance non lue dans l'arrêté « forfaits »).
+- Recodage en hôpital de jour : GHS 398 (Francesco, test au groupeur). La borne ACE se calcule au tarif CCAM de BGLB001 et BZQK001 plus le forfait SE2 : la liste 2 de l'annexe 11 est celle du SE2 (arrêté « forfaits » de 2015, art. 16, preuve 20261120-arrete-forfaits-2015-art-16-se2).
 
 ## Conclusions
