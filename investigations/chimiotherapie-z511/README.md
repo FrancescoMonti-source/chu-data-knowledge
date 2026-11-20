@@ -17,4 +17,4 @@ Issue : #148
 - **Le guide ne dit rien de Z511 en DAS :** il fait mettre Z51.1 en DP pour toute chimiothérapie (séances ou hospitalisation complète). Le DAS en hospitalisation complète vient de Pierre ; l'enquête le mesure plutôt que de le supposer.
 
 ## Conclusions
-Le claim chimiotherapie-par-z511 (unreviewed), déjà ouvert dans la PR #146 ; les mesures de l'étape 2 viendront le compléter.
+- chimiotherapie-par-z511 (unreviewed) : pas d'acte de chimiothérapie, Z511 en DP et, en hospitalisation complète, en DAS (un tiers des séjours HC à Z511 l'ont seulement en DAS, TYPE_DIAG = 'S'). Appuyé sur le guide MCO 2026, la précision de Pierre, 20261120-z511-dp-das-par-annee-resultat et 20261120-z511-type-diag-resultat.
