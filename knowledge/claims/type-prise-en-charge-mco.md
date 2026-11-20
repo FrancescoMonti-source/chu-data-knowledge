@@ -23,6 +23,8 @@ Relier le séjour à son RSS par les mouvements (TB_MVT → TB_MVT_RUM → TB_SY
 3. TB_SYNTH_RSS.DUREE_SEJOUR = 0 : ambulatoire (hôpital de jour de médecine et chirurgie ambulatoire confondus) ;
 4. sinon : hospitalisation complète ; DUREE_SEJOUR vide : non renseigné.
 
+« Ambulatoire » veut dire ici 0 nuit, pas une unité d'hospitalisation partielle : environ 16 000 séjours de 0 nuit par an sont dans une UM d'hospitalisation complète (type-sejour-suit-mode-hospit-um). Pour compter par type d'unité, suivre ce claim, et dire lequel des deux classements on suit.
+
 Un séjour qui porte plusieurs RSS (rare) se classe sur un RSS choisi explicitement ; le dire dans l'analyse.
 
 ## Ce qui l'appuie
