@@ -34,8 +34,9 @@ GROUP BY ANNEE;
 5. La première colonne affiche l'id de la requête ; les suivantes, la base et l'heure d'exécution.
 6. Une requête exécutée ne change plus. Une nouvelle version est un nouveau fichier, avec un nouvel id.
 7. Un code CIM-10 se cherche par racine, quelle que soit sa longueur : le code demandé et tous ceux qui commencent par lui. `I10` s'écrit `LIKE 'I10%'` (I10, I100…), `Z510` s'écrit `LIKE 'Z510%'` (Z5100, Z5101…), `C509` s'écrit `LIKE 'C509%'` ; en R `startsWith(x, "Z510")`. Jamais `= 'Z510'` ni une liste d'égalités. Code exact seulement si la personne le demande explicitement. Les établissements codent des extensions (Z5100, Z5101) : une égalité exacte ne trouve rien, sans erreur (code-cim10-sans-point pour la forme des codes).
+8. Une très grosse table (SNDS : DCIR dont ER_PRS_F, IR_BEN_R, une année du PMSI national) ne se parcourt pas pour y chercher des clés : ni sous-requête corrélée (`EXISTS`, `IN (SELECT …)`), ni jointure avec la table entière. On lit d'abord la liste des clés cherchées, puis on les cherche par paquets `IN ('…', …)` de 900 au plus (Oracle refuse plus de 1000 valeurs). Une requête longue se découpe en étapes (par année, par exemple), chacune en cache, la plus lourde en dernier. Un `EXISTS` sur 14 000 NIR dans IR_BEN_R a tourné plus de 15 minutes sans finir ; les mêmes NIR par paquets sont passés.
 
-Les règles 1, 3 et 4 valent pour masked ; les règles 2 et 5 à 7, pour toutes les requêtes. Le contrôle lit la requête sans ses commentaires. Il vérifie SELECT * et l'id, et pour masked la présence du seuil (< 10 ou <= 9) et d'un agrégat. Il ne vérifie pas que le masquage est juste, ni les règles 4, 6 et 7.
+Les règles 1, 3 et 4 valent pour masked ; les règles 2 et 5 à 8, pour toutes les requêtes. Le contrôle lit la requête sans ses commentaires. Il vérifie SELECT * et l'id, et pour masked la présence du seuil (< 10 ou <= 9) et d'un agrégat. Il ne vérifie pas que le masquage est juste, ni les règles 4, 6, 7 et 8.
 
 ## Un script sur un fichier
 
@@ -87,6 +88,8 @@ Le contrôle vérifie le dossier de la routine, son README.md et son en-tête, e
 ## Aller
 
 Le message qui accompagne la requête donne deux lignes à la personne : à quelle étape du plan sert la requête et ce qui change selon le résultat ; où et comment l'exécuter. Il lui rappelle de prévenir si elle modifie la requête.
+
+Il dit ce que coûtera l'exécution : les grosses tables lues et une durée attendue, même approximative. Si elle peut dépasser quelques minutes, il le dit clairement avant que la personne lance, et propose de la découper (règle 8).
 
 Il donne aussi une ligne par règle qui s'applique à la requête : comment elle la respecte. Par exemple : « Règle 4 : la ligne TOTAL est masquée dès qu'une cellule l'est. » Avec ces lignes, la personne vérifie le masquage avant d'exécuter.
 
