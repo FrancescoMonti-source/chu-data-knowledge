@@ -23,4 +23,6 @@ Séjours groupés en MCO sortis le jour de leur entrée, part codée 'HDJ' parmi
 
 Le dictionnaire CORA 2020 présente TYPE_SEJOUR comme un moyen de distinguer les sortes de séjours (sources/dictionnaire-cora-2020/TB_SEJOUR.txt) ; les données ne le permettent pas de façon constante.
 
-Points ouverts : ce que sont les séjours d'un jour restés en 'MCO' depuis 2021 ; le contexte du changement (paramétrage, interface, date exacte) ; les séjours sans RSS (#25), hors du champ de la mesure.
+Les séjours d'un jour restés en 'MCO' depuis 2021 sont en UM d'hospitalisation complète : TYPE_SEJOUR suit le type de l'unité, pas la durée (type-sejour-suit-mode-hospit-um).
+
+Points ouverts : le contexte du changement (paramétrage, interface, date exacte) ; les séjours sans RSS (#25), hors du champ de la mesure.

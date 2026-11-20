@@ -33,7 +33,7 @@ Les mainteneurs, Francesco et Pierre, fusionnent les pull requests et décident 
 
    À chaque session, activez le .venv dans le terminal d'où vous lancez l'agent, sinon `python checks/check.py` ne trouve pas PyYAML : `.venv/Scripts/Activate.ps1` dans PowerShell ; s'il refuse, `.venv\Scripts\activate.bat` dans l'invite de commandes (cmd) ; sous macOS ou Linux, `source .venv/bin/activate`.
 2. L'ouvrir avec votre agent. Codex lit AGENTS.md ; Claude Code lit CLAUDE.md, qui y renvoie.
-3. Installer les deux skills externes. Les skills du dépôt (frame, research, relay, sediment, retro) arrivent avec lui ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
+3. Installer les deux skills externes. Les skills du dépôt (frame, research, relay, pmsi, sediment, write, retro) arrivent avec lui ; deux autres, writing-for-agents et domain-modeling, s'installent à part, une fois pour tous vos projets (en bas).
 4. Poser votre question.
 
 ## Le parcours d'une demande
@@ -77,7 +77,7 @@ Comment on travaille :
 AGENTS.md               règles pour les agents et pointeurs
 method/                 les conventions : écrire un claim, une preuve, une requête
 method/adr/             les décisions et leurs raisons (ADR : Architecture Decision Record)
-.agents/skills/         les skills : frame, research, relay, sediment, retro
+.agents/skills/         les skills : frame, research, relay, pmsi, sediment, write, retro
 checks/                 les contrôles et leurs tests, lancés par les agents et par la CI
 ```
 

@@ -30,7 +30,13 @@ La classe de la classification PMSI dans laquelle le groupage range un RSS : la 
 
 Alias : mode d'entrée, mode de sortie, MODE_ENTREE, MODE_SORTIE
 
-Le code PMSI qui dit comment un séjour commence ou finit : mutation (6, dans le même établissement), transfert (7, vers ou depuis une autre entité juridique), domicile (8), décès (9, en sortie). Un mode 6 ou 7 se complète d'une provenance ou d'une destination.
+Le code PMSI qui dit comment un séjour commence ou finit : mutation (6, vers ou depuis une autre unité médicale de la même entité géographique), transfert (7, vers ou depuis une autre entité géographique, y compris un autre site du même établissement), domicile (8), décès (9, en sortie). Un mode 6 ou 7 se complète d'une provenance ou d'une destination.
+
+## pmsi:pie
+
+Alias : PIE, prestation interétablissement, prestation inter-établissements, transfert provisoire
+
+La prise en charge, par un établissement prestataire B (une autre entité géographique, de la même entité juridique ou d'une autre), d'un patient hospitalisé dans un établissement demandeur A, pour un acte ou une prestation, en au plus deux journées civiles (une nuit au plus en B), dans le même champ d'activité. B produit un RSS aux modes d'entrée et de sortie « 0 » et facture A ; A garde un seul séjour, suspendu pendant la prestation. Exception : les séances de dialyse rénale, de radiothérapie et de chimiothérapie, dont B facture le GHS (la dialyse en unité de dialyse médicalisée, par un forfait D11) ; les autres séances de la CMD 28 suivent le cas général.
 
 ## pmsi:provenance-destination
 
@@ -49,3 +55,27 @@ L'hospitalisation à temps partiel de jour en SMR. Son groupe de réadaptation (
 Alias : IP-DMS, IPDMS, indice de performance de la DMS, DMS attendue, DMS de référence, OVALIDE
 
 Le rapport entre les journées observées d'un ensemble de RSS et les journées attendues : pour chaque RSS, la DMS nationale de son GHM, à l'année PMSI du séjour (fichier OVALIDE de l'ATIH). Au-dessus de 1, les séjours sont plus longs que la référence à GHM égal. La variation de la DMS observée entre deux périodes se sépare en variation de la DMS attendue (le casemix) et variation de l'écart observée − attendue (l'excès).
+
+## pmsi:mort-ne
+
+Alias : mort-né, mort-nés, enfant né sans vie, mortinatalité, MFS, mort fœtale spontanée, IMG, interruption médicale de grossesse, P95
+
+Un enfant né sans vie, après une mort fœtale spontanée (MFS) ou une interruption médicale de grossesse (IMG). Il a son propre séjour, avec un RUM, à partir de 22 semaines d'aménorrhée révolues ou d'un poids d'au moins 500 g ; son DP est un code P95.
+
+## pmsi:sejour-naissance
+
+Alias : séjour de naissance, naissance, nouveau-né, nouveau-nés, mode d'entrée N
+
+Le séjour d'un enfant qui commence à sa naissance dans l'établissement, enfants mort-nés compris. Dans le PMSI, son mode d'entrée est N (« Naissance »).
+
+## pmsi:acte-ccam
+
+Alias : acte CCAM, code CCAM, CCAM, CDC_ACT, CCAM_COD, code acte
+
+Un acte médical codé selon la Classification commune des actes médicaux : un code de quatre lettres et trois chiffres (topographie sur deux lettres, action, mode d'accès ou technique, puis un numéro), avec son activité et sa phase. Dans le PMSI MCO du SNDS, les actes des séjours sont dans T_MCOaaA (CDC_ACT), ceux des consultations externes dans T_MCOaaFMSTC (CCAM_COD).
+
+## pmsi:medecine-nucleaire
+
+Alias : médecine nucléaire, MN, scintigraphie, TEP, TEP-scan, PET-scan, radiothérapie interne vectorisée, RIV, iode 131, radioembolisation, SIRT
+
+L'activité qui utilise des produits radio-isotopiques : diagnostique (scintigraphies, tomographie par émission de positons, détections isotopiques) ou thérapeutique (radiothérapie interne vectorisée, iode 131, radioembolisation hépatique). Elle n'a pas de diagnostic de séance : on la repère par ses actes CCAM.

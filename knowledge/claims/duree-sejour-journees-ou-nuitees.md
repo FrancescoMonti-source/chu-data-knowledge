@@ -27,4 +27,4 @@ TRUNC(s.DATE_SORTIE) - TRUNC(s.DATE_ENTREE)     AS NB_NUITEES
 
 ## Ce qui l'appuie
 
-Pierre l'a fixé dans sa revue de la PR #38 (20261014-revue-pr38). La kb de DIM-code comptait par défaut en journées ; Pierre préfère que l'agent demande l'unité.
+L'utilisateur DIM l'a fixé dans sa revue de la PR #38 (20261014-revue-pr38). La kb de DIM-code comptait par défaut en journées ; l'utilisateur DIM préfère que l'agent demande l'unité.

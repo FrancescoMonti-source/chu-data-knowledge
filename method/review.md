@@ -1,12 +1,12 @@
 # Relecture et contestation
 
-Un claim est relu quand quelqu'un le réutilise, pas quand il entre. N'importe qui peut le contester à tout moment.
+Un claim entre vérifié par son auteur et par le contrôle, sans autre relecteur : unreviewed veut dire exactement cela. Il est relu quand quelqu'un le réutilise (« Quand relire »). N'importe qui peut le contester à tout moment.
 
 ## Quand relire
 
 Utiliser un claim pour répondre ou pour écrire une requête ne demande pas de relire ses preuves : son en-tête et son corps suffisent, avec son état de relecture. On ouvre ses preuves seulement dans les cas ci-dessous, ou quand un résultat le contredit.
 
-- **Au réemploi.** Avant qu'un claim dépende (depends_on) du claim d'une autre personne, celle qui le réutilise, avec son agent, relit les preuves et refait les calculs à partir des résultats conservés, sans nouvel aller-retour à l'hôpital. Sans relecture à jour, le contrôle bloque (ROUGE). Un claim provisional peut quand même s'appuyer dessus : ORANGE.
+- **Au réemploi.** Avant qu'un claim dépende (depends_on) du claim d'une autre personne, l'agent de celle qui le réutilise relit les preuves et refait les calculs à partir des résultats conservés, sans nouvel aller-retour à l'hôpital ; la personne approuve le travail refait. Sans relecture à jour, le contrôle bloque (ROUGE). Un claim provisional peut quand même s'appuyer dessus : ORANGE.
 - **Son propre claim, depuis une autre enquête :** relecture dans une nouvelle session, sans le raisonnement d'origine. Elle s'écrit author-reread : ce n'est pas une deuxième personne, et elle ne compte pas comme relecture pour les autres. Règle de confiance : le contrôle ne l'exige pas.
 - **La portée, à chaque réemploi.** Un claim vaut dans la portée qu'il déclare (scope). Avant de s'appuyer dessus, vérifier qu'elle couvre le nouvel usage : la réponse d'une enquête vaut pour le cadrage de cette enquête. Règle de confiance : le contrôle ne lit pas le scope.
 
