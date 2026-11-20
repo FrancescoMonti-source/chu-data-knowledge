@@ -16,5 +16,7 @@ Issue : #155
 - Comparaison : actuel (séances 28Z17Z) contre recodé (un séjour 02C..J par séance) ; et, en borne basse, une facturation en consultation externe (ACE), si un contrôle refusait l'hôpital de jour (instruction « gradation » de 2020).
 
 ## Choix
+- MONTANT_GHS_EUR masqué dans la preuve 20261120-z512-h353-seances-2026-resultat quand N_RSS ou NB_SEANCES l'est : divisé par le tarif du GHS (411,08 € pour 9616), il redonnait l'effectif masqué.
+- Le recodage se compte sur les séances : dans l'UF 5170, un RSS porte une séance (MONTANT_GHS = séances × 411,08 €), et presque toutes ont un jour BGLB001.
 
 ## Conclusions
