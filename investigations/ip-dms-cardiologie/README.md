@@ -15,7 +15,7 @@ Issue : #111
 - Un RSS compte dans chaque UF qu'il traverse : les UF ne s'additionnent pas.
 
 ## Conclusions
-- `ip-dms-expliquer-casemix-niveaux-exces` : comment expliquer une hausse d'IP-DMS (décision, Pierre, non relu).
+- Terme `pmsi:ip-dms` (glossaire pmsi). La méthode de décomposition n'est pas sédimentée : Pierre l'a jugée peu utile (relecture de la PR #112, 2026-11-20) ; elle reste dans l'étude DIM-code.
 - `uf-urgences-par-service-structure` : quelles UF sont les urgences (décision, Pierre, non relu). Répond aussi à l'issue #30.
 
-Les deux claims reposent sur des claims non relus du même auteur : relecture à la réutilisation (method/review.md).
+Le claim repose sur un claim non relu du même auteur : relecture à la réutilisation (method/review.md).
