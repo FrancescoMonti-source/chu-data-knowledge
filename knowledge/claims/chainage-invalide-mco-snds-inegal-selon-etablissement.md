@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [snds:chainage-invalide, snds:table-pmsi-annuelle, snds:profil-108]
 tables: [snds:T_MCOaaB, snds:T_MCOaaC]
-supported_by: [20261120-snds-chainage-invalide-mco-resultat, 20261120-spf-taux-codes-retour-mco]
+supported_by: [20261120-snds-chainage-invalide-mco-resultat, 20261120-spf-taux-codes-retour-mco, 20261120-snds-chainage-invalide-profil-nir-v2-resultat]
 depends_on: [filtre-chainage-snds-patients-pas-activite]
 ---
 ## Pour s'en servir
@@ -29,6 +29,6 @@ En 2025, parmi les séjours invalides : NIR_RET = 2 seul 61 %, NIR_RET = 1 seul 
 
 Établissements : en 2025, 1215 des 1890 ETA_NUM ont au moins un séjour invalide, 26 en ont plus de 10 % et 22 plus de 50 % ; l'établissement médian (au moins 100 séjours) en a 0,14 %. Les 10 premiers portent 30 % des séjours invalides, et il en faut 196 pour atteindre 80 %. Le FINESS 980500003 a 59,5 % de séjours invalides (NIR_RET = 2) ; 750712184 (AP-HP) en a 37 446, soit 2,5 % de son activité. Au CHU de Rouen (760780239), la part va de 0,3 à 1,4 % selon l'année, presque toujours NIR_RET = 2.
 
-Patients : en 2025, 1,2 % chez les 18-64 ans contre 0,5 % chez les 65 ans et plus ; 3,9 % chez les nouveau-nés (CMD 15) et quand l'âge est inconnu ; 51 % des prestations inter-établissements (SEJ_TYP = B).
+Patients : en 2025, 1,2 % chez les 18-64 ans contre 0,5 % chez les 65 ans et plus ; 3,9 % chez les nouveau-nés (CMD 15) et quand l'âge est inconnu ; 51 % des prestations inter-établissements (SEJ_TYP = B). Les séjours NIR_RET = 2 résident plus souvent hors de France (département 99, 13 %), en 9F (10 %), à Paris et en Seine-Saint-Denis (20261120-snds-chainage-invalide-profil-nir-v2-resultat) : exclure les chaînages invalides retire surtout ces territoires.
 
 Points ouverts : le sens de chaque valeur de NIR_RET n'est pas lu ; que NIR_RET = 2 corresponde à l'AME ou aux NIR provisoires vient de la fiche AME du HDH (20261120-hdh-ame-codes-retour) et n'est pas testé dans les données ; l'identité de 980500003 n'est pas vérifiée dans le référentiel FINESS.

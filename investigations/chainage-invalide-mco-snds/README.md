@@ -14,8 +14,10 @@ Issue : #147
 - Cadrage confirmé par Pierre le 2026-11-20.
 
 ## Choix
+- Étape 4 : la v1 de la requête (EXISTS sur IR_BEN_R) a été arrêtée après 15 min ; la v2 cherche l'échantillon par paquets de NIR (2026-11-20).
 - Les FINESS des 20 établissements les plus touchés par année sortent avec leurs comptages masqués : un établissement n'est pas une personne (accord de Pierre, 2026-11-20).
 
 ## Conclusions
 - filtre-chainage-snds-patients-pas-activite (unreviewed) : le filtre ne s'applique qu'aux analyses par patient, pas aux comptes de séjours.
 - chainage-invalide-mco-snds-inegal-selon-etablissement (unreviewed) : environ 1 % des séjours depuis 2020, surtout NIR_RET = 2, très inégal selon l'établissement et l'âge.
+- nir-ret-1-2-hors-referentiel-beneficiaires (unreviewed) : les NIR_ANO_17 à NIR_RET = 1 ou 2 ne sont pas dans IR_BEN_R ; ceux en échec de cohérence seule le sont le plus souvent.
