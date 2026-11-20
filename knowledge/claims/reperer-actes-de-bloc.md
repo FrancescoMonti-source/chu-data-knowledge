@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:acte, cora:intervention]
 tables: [cora:TB_ACTE, cora:TB_SITE]
-supported_by: [20261014-epoques-actes-resultat, 20261015-sites-bloc-resultat, 20261015-dim-code-cascade-chainage, 20261019-actes-ecran-annee-resultat]
+supported_by: [20261014-epoques-actes-resultat, 20261015-sites-bloc-resultat, 20261015-dim-code-cascade-chainage, 20261019-actes-ecran-annee-resultat, 20261120-uf-bloc-filtre-mouvement-site-resultat]
 depends_on: [epoques-codage-actes]
 ---
 ## Pour s'en servir
@@ -42,6 +42,8 @@ Garder les deux origines : ne pas filtrer sur l'application, car les actes de bl
 
 **Trois UF hors des sites de bloc :** 6510 (niveau 4 UCA), 5508 (hépato-gastro-entérologie) et 6196 (chirurgie pédiatrique HDJ) portent des interventions OpRoom, mais leurs actes ne sont pas sur un site paramétré bloc. Pierre a rangé dans le périmètre du bloc les actes portés par un mouvement de ces UF (20261015-dim-code-cascade-chainage) : les inclure, et le dire.
 
+Le filtre sur l'UF du mouvement (celui de la requête ci-dessus) prend beaucoup plus d'actes que le filtre sur le site de l'acte (`TB_SITE.CODE_SITE` égal au code de l'UF) : en 2025, 5508 compte 1 043 actes par le site et au moins 1 386 de plus par le mouvement seul, 6196 880 et au moins 1 416 de plus, 6510 4 693 et au moins 7 455 de plus (hors les sites déjà paramétrés bloc, que la première condition prend de toute façon ; effectifs < 10 non comptés). Ces actes en plus sont faits sur des sites non paramétrés bloc : endoscopie (H.G.E.ENDOSCOPIE AG : 924 pour 5508, 2 208 pour 6510), anesthésie, imagerie, consultations. Dans l'autre sens, aucun site d'UF ne porte 10 actes ou plus dont le mouvement est ailleurs (20261120-uf-bloc-filtre-mouvement-site-resultat). Dire quel des deux filtres est appliqué.
+
 ## Ce qui l'appuie
 
 Actes par mois et par application (20261014-epoques-actes-resultat) :
@@ -54,3 +56,5 @@ Actes par mois et par application (20261014-epoques-actes-resultat) :
 Les sommes annuelles additionnent des cases mensuelles, dont certaines sont masquées (<10) : elles sont arrondies.
 
 Sites de réalisation (20261015-sites-bloc-resultat) : BLOC vaut 'O' pour 183 sites et 'N' pour 611, vide pour un seul. Parmi les sites 'O' actifs, les blocs de spécialité (BLOC SPE …, de 2611 à 2668) et OBS SALLE NAISSANCE (2620), qui porte de 5 300 à 6 200 actes par an de 2022 à 2025 ; la plupart des autres sites 'O' sont inactifs et sans acte. Sites 'N' qui portent des actes de chirurgie ambulatoire ou d'endoscopie interventionnelle : 6510 (de 2 766 à 4 707 actes par an depuis 2023), 5508 (653 à 1 064) et 6196 (494 à 887).
+
+Le filtre sur l'UF du mouvement et celui sur le site de l'acte prennent des actes différents pour 5508, 6196 et 6510 (20261120-uf-bloc-filtre-mouvement-site-resultat) : la preuve sur les sites (20261015-sites-bloc-resultat) décrit le second, la requête applique le premier.

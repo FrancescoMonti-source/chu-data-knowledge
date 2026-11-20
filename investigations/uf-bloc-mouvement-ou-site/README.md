@@ -14,4 +14,4 @@ Issue : #131 (question 1)
 - Comparer les deux filtres, pour chaque UF, en trois groupes : pris par les deux, par le mouvement seul, par le site seul (requête 20261120-uf-bloc-filtre-mouvement-site).
 
 ## Conclusions
-Aucune pour l'instant : la requête n'est pas exécutée.
+- reperer-actes-de-bloc (mis à jour, unreviewed) : les deux filtres prennent des actes différents ; le mouvement prend beaucoup plus que le site (20261120-uf-bloc-filtre-mouvement-site-resultat). Reste à Pierre de dire lequel il veut.
