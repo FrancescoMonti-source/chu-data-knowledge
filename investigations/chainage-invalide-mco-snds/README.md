@@ -11,8 +11,9 @@ Issue : #147
 - Unité : le séjour (ETA_NUM, RSA_NUM).
 - Définition opérationnelle : séjour « invalide » = l'un des codes du filtre HDH n'est pas '0', valeur vide comprise, ou pas de ligne dans T_MCOaaC.
 - Mesures : part par année ; valeurs et combinaisons des codes ; répartition par type de séjour, âge, forme du NIR_ANO_17, SEJ_TYP ; concentration par établissement ; CHU de Rouen.
-- À trancher (proposé à Pierre le 2026-11-20, en attente de sa confirmation) : la période et la définition ci-dessus.
+- Cadrage confirmé par Pierre le 2026-11-20.
 
 ## Choix
+- Les FINESS des 20 établissements les plus touchés par année sortent avec leurs comptages masqués : un établissement n'est pas une personne (accord de Pierre, 2026-11-20).
 
 ## Conclusions
