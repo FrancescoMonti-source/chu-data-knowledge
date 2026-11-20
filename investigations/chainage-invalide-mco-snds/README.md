@@ -17,3 +17,5 @@ Issue : #147
 - Les FINESS des 20 établissements les plus touchés par année sortent avec leurs comptages masqués : un établissement n'est pas une personne (accord de Pierre, 2026-11-20).
 
 ## Conclusions
+- filtre-chainage-snds-patients-pas-activite (unreviewed) : le filtre ne s'applique qu'aux analyses par patient, pas aux comptes de séjours.
+- chainage-invalide-mco-snds-inegal-selon-etablissement (unreviewed) : environ 1 % des séjours depuis 2020, surtout NIR_RET = 2, très inégal selon l'établissement et l'âge.

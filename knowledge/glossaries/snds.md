@@ -37,3 +37,9 @@ Un séjour MCO du SNDS repéré comme venu des urgences par la règle de la macr
 Alias : RUM, UM du SNDS, T_MCOaaUM
 
 Un résumé d'unité médicale du PMSI MCO tel que le SNDS le donne : une ligne de T_MCOaaUM par RUM d'un séjour, ordonnée par RUM_ORD_NUM. Il porte le type d'autorisation de l'UM (AUT_TYP1_UM) mais pas le code de l'UM du CHU : ce n'est ni une UM de CORA ni un service.
+
+## snds:chainage-invalide
+
+Alias : codes retour, code retour du chaînage, clés de chaînage incorrectes, NIR_RET, NAI_RET, SEX_RET, SEJ_RET, FHO_RET, PMS_RET, DAT_RET, COH_NAI_RET, COH_SEX_RET, CR_OK, filtre de chaînage
+
+Un séjour du PMSI dont l'un des codes retour du chaînage de la table C (T_MCOaaC pour le MCO) n'est pas '0' : NIR_RET, NAI_RET, SEX_RET, SEJ_RET, FHO_RET, PMS_RET, DAT_RET (depuis 2006), COH_NAI_RET et COH_SEX_RET (depuis 2013). Une valeur vide, ou l'absence de ligne dans la table C, compte comme invalide. Le « filtre de chaînage » garde les séjours dont tous ces codes sont à '0'.
