@@ -10,7 +10,7 @@ maturity: observed
 lifecycle: active
 terms: [cora:acte, cora:intervention]
 tables: [cora:TB_ACTE, cora:TB_SITE]
-supported_by: [20261014-epoques-actes-resultat, 20261015-sites-bloc-resultat, 20261015-dim-code-cascade-chainage, 20261019-actes-ecran-annee-resultat, 20261120-uf-bloc-filtre-mouvement-site-resultat]
+supported_by: [20261014-epoques-actes-resultat, 20261015-sites-bloc-resultat, 20261015-dim-code-cascade-chainage, 20261019-actes-ecran-annee-resultat, 20261120-uf-bloc-filtre-mouvement-site-resultat, 20261120-uf-bloc-site-par-annee-application-resultat]
 depends_on: [epoques-codage-actes]
 ---
 ## Pour s'en servir
@@ -42,7 +42,7 @@ Garder les deux origines : ne pas filtrer sur l'application, car les actes de bl
 
 **Trois UF hors des sites de bloc :** 6510 (niveau 4 UCA), 5508 (hépato-gastro-entérologie) et 6196 (chirurgie pédiatrique HDJ) portent des interventions OpRoom, mais leurs actes ne sont pas sur un site paramétré bloc. Pierre a rangé dans le périmètre du bloc les actes portés par un mouvement de ces UF (20261015-dim-code-cascade-chainage) : les inclure, et le dire.
 
-Le filtre sur l'UF du mouvement (celui de la requête ci-dessus) prend beaucoup plus d'actes que le filtre sur le site de l'acte (`TB_SITE.CODE_SITE` égal au code de l'UF) : en 2025, 5508 compte 1 043 actes par le site et au moins 1 386 de plus par le mouvement seul, 6196 880 et au moins 1 416 de plus, 6510 4 693 et au moins 7 455 de plus (hors les sites déjà paramétrés bloc, que la première condition prend de toute façon ; effectifs < 10 non comptés). Ces actes en plus sont faits sur des sites non paramétrés bloc : endoscopie (H.G.E.ENDOSCOPIE AG : 924 pour 5508, 2 208 pour 6510), anesthésie, imagerie, consultations. Dans l'autre sens, aucun site d'UF ne porte 10 actes ou plus dont le mouvement est ailleurs (20261120-uf-bloc-filtre-mouvement-site-resultat). Dire quel des deux filtres est appliqué.
+Le filtre sur l'UF du mouvement (celui de la requête ci-dessus) prend beaucoup plus d'actes que le filtre sur le site de l'acte (`TB_SITE.CODE_SITE` égal au code de l'UF) : en 2025, 5508 compte 1 043 actes par le site et au moins 1 386 de plus par le mouvement seul, 6196 880 et au moins 1 416 de plus, 6510 4 693 et au moins 7 455 de plus (hors les sites déjà paramétrés bloc, que la première condition prend de toute façon ; effectifs < 10 non comptés). Ces actes en plus sont faits sur des sites non paramétrés bloc : endoscopie (H.G.E.ENDOSCOPIE AG : 924 pour 5508, 2 208 pour 6510), anesthésie, imagerie, consultations. Dans l'autre sens, aucun site d'UF ne porte 10 actes ou plus dont le mouvement est ailleurs (20261120-uf-bloc-filtre-mouvement-site-resultat). Dire quel des deux filtres est appliqué. Le site de l'acte n'est pas absent pour ces UF : de 2022 à 2026, et dans le flux CPage (application 10) comme dans la saisie CORA, moins de 10 actes par année, UF et application ont un ID_SITE vide (20261120-uf-bloc-site-par-annee-application-resultat). Passer par le mouvement n'est donc pas imposé par un site manquant.
 
 ## Ce qui l'appuie
 

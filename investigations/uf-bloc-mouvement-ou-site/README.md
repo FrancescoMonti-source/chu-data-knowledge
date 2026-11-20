@@ -13,7 +13,7 @@ Issue : #131 (question 1)
 ## Choix
 - Comparer les deux filtres, pour chaque UF, en trois groupes : pris par les deux, par le mouvement seul, par le site seul (requête 20261120-uf-bloc-filtre-mouvement-site).
 
-- Hypothèse de Pierre (2026-11-20) : on passe par le mouvement parce que, avant 2026, les actes ne sont pas saisis dans CORA et n'ont pas de site. À vérifier par année et par application d'origine (requête 20261120-uf-bloc-site-par-annee-application) ; reperer-actes-de-bloc dit déjà que ID_SITE est vide pour moins de 10 actes par mois et par application hors 2020 et 2021.
+- Hypothèse de Pierre (2026-11-20) : on passe par le mouvement parce que, avant 2026, les actes ne sont pas saisis dans CORA et n'ont pas de site. Réfutée le 2026-11-20 : le site est renseigné pour les actes de ces UF de 2022 à 2026, flux CPage compris. Vérifiée par année et par application d'origine (requête 20261120-uf-bloc-site-par-annee-application) ; reperer-actes-de-bloc dit déjà que ID_SITE est vide pour moins de 10 actes par mois et par application hors 2020 et 2021.
 
 ## Conclusions
 - reperer-actes-de-bloc (mis à jour, unreviewed) : les deux filtres prennent des actes différents ; le mouvement prend beaucoup plus que le site (20261120-uf-bloc-filtre-mouvement-site-resultat). Reste à Pierre de dire lequel il veut.
