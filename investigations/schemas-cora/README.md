@@ -18,6 +18,9 @@ Issue : #109
 ## Suite (2026-10-27)
 Pierre veut savoir s'il faut prendre la structure (services, pôles, spécialités) dans CORA ou dans le fichier Structure. Les tables de CORA_REC vues par l'inventaire mais jamais comparées au fichier (TB_HIST_UNITE, TB_HIST_UNITE_M_UNITE) sont mesurées par 20261027-structure-historique-cora.py : UF fermées et hors fichier, rattachement UF-UM dans le temps, UM contre service du fichier. La spécialité n'a pas de colonne dans le fichier (sources/structure-chu-2026-10-09.md) ; côté CORA, TB_UNITE porte TYPE_ACTIVITE (thésaurus TB_THES_TYPE_ACTIVITE) : à mesurer ensuite si Pierre en a besoin.
 
+## Suite (2026-11-03)
+Les tables vues dans CORA_CCAM ne sont pas lues : trois requêtes les lisent par les synonymes de CORA_REC ou le catalogue (20261103-icr-lecture, 20261103-exclusions-cma-lecture, 20261103-colonnes-exclusions-specialites) et une compte les UF par type d'activité (20261103-uf-type-activite), seul attribut d'UF proche d'une spécialité. La spécialité médicale d'un service n'est ni dans le fichier ni dans TB_UNITE : Pierre dit ce qu'il entend par là avant toute autre mesure.
+
 ## Conclusions
 Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claims (tous unreviewed) :
 - schemas-cwprod-visibles : 8 schémas sur 93 ont des objets visibles ; les référentiels de codage sont dans CORA_CCAM, la structure seulement dans CORA_REC.
@@ -25,5 +28,10 @@ Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claim
 - service-d-une-um : une UM tient dans un seul service du fichier (234 UM sur 281 ont une UF dans le fichier).
 - historique-rattachement-uf-um-cora : le lien UF-UM est quasi fixe ; 77 UF ont un lien sans date de début.
 - Mis à jour : referentiels-pmsi-dans-cora (listes d'exclusion et CIM_HIERARCHIE désormais visibles, contenu non lu) et service-et-pole-depuis-fichier-structure (le fichier ne retire pas une UF fermée dans CORA : 68 UF inactives y restent, 136 en sont absentes).
+
+Résultats du 2026-11-03 (suite) :
+- icr-table-cora-ccam mis à jour : la table se lit, 29 800 lignes, ICR renseigné ; deux lignes par clé, critère à identifier (20261103-icr-cle-liberale).
+- referentiels-pmsi-dans-cora mis à jour : listes d'exclusion et CIM_HIERARCHIE (avec CMA et NIVEAU_SEVERITE) se lisent.
+- specialite-dans-libelle-service-structure (nouveau) : TYPE_ACTIVITE est vide pour les 839 UF ; aucune colonne de spécialité normalisée, elle se lit dans le Libellé Service du fichier Structure (164 services, cliniques et non cliniques mêlés).
 
 Non établi : la spécialité (ni le fichier ni TB_UNITE n'en portent au niveau de l'UF) ; le contenu des tables vues dans CORA_CCAM ; la version du fichier avant 2026-10-09. L'enquête reste ouverte pour ces points.
