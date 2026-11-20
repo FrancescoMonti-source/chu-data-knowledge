@@ -32,6 +32,6 @@ Résultats reçus le 2026-10-26 (catalogue) et le 2026-11-03 (historique). Claim
 Résultats du 2026-11-03 (suite) :
 - icr-table-cora-ccam mis à jour : la table se lit, 29 800 lignes, ICR renseigné ; deux lignes par clé, critère à identifier (20261103-icr-cle-liberale).
 - referentiels-pmsi-dans-cora mis à jour : listes d'exclusion et CIM_HIERARCHIE (avec CMA et NIVEAU_SEVERITE) se lisent.
-- specialite-absente-des-uf (nouveau) : TYPE_ACTIVITE est vide pour les 839 UF ; aucune spécialité au niveau de l'UF.
+- specialite-dans-libelle-service-structure (nouveau) : TYPE_ACTIVITE est vide pour les 839 UF ; aucune colonne de spécialité normalisée, elle se lit dans le Libellé Service du fichier Structure (164 services, cliniques et non cliniques mêlés).
 
 Non établi : la spécialité (ni le fichier ni TB_UNITE n'en portent au niveau de l'UF) ; le contenu des tables vues dans CORA_CCAM ; la version du fichier avant 2026-10-09. L'enquête reste ouverte pour ces points.

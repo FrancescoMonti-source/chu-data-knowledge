@@ -1,7 +1,8 @@
 """Prépare, depuis le fichier Structure, la liste des services à annoter d'une spécialité, puis contrôle l'annotation.
 
-Le fichier Structure n'a pas de colonne de spécialité (claim specialite-absente-des-uf) : la spécialité d'un
-service est une table de correspondance que Pierre tient en local, à partir du service du fichier.
+Le fichier Structure n'a pas de colonne de spécialité normalisée (claim specialite-dans-libelle-service-structure) : le
+Libellé Service en tient lieu, mêlant services cliniques et non cliniques. La spécialité d'un service est une table de
+correspondance que Pierre tient en local, à partir du service du fichier.
 
     python sources\\structures\\exporter_services.py                 écrit local/services-a-annoter-AAAAMMJJ.csv
     python sources\\structures\\exporter_services.py --annote FICHIER   compte les services annotés et les UF couvertes
