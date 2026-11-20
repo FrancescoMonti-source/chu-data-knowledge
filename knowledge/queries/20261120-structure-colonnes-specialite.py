@@ -4,6 +4,7 @@
 # purpose: lire les titres de toutes les colonnes du fichier Structure et repérer celle qui donne une spécialité (ou une discipline) : à quel niveau (service ou UF), combien de valeurs, lesquelles (enquête schemas-cora, claim specialite-absente-des-uf)
 # Python, avec openpyxl. Le script lit le fichier Structure local (sources/structures/local/Structure-*.xlsx, ou --fichier). Il écrit un seul tableau, en console : une ligne par colonne du fichier avec son titre, son nombre de lignes renseignées, son nombre de valeurs distinctes et, par service, le nombre de services qui ont plusieurs valeurs (la colonne est-elle au niveau du service ou de l'UF ?).
 # Les colonnes dont le titre évoque une personne (chef, responsable, nom, prénom, médecin, cadre, contact, mail, téléphone) ne sont lues que pour compter : leurs valeurs ne sortent jamais. Pour les autres colonnes dont le titre évoque une spécialité (spécialité, discipline, activité, type, catégorie, nature, DMT, SAE, discipline), le script liste aussi les valeurs distinctes avec le nombre d'UF qui les portent : ce sont des libellés d'activité, pas des personnes.
+# Les valeurs de « Libellé Service » sont toujours listées (Pierre y a repéré la spécialité, 2026-11-20).
 # Il ne lit aucune table de l'hôpital. Il affiche le tableau et l'écrit, avec son en-tête de preuve d'exécution, dans retour-structure/ (à pousser, comme celui de 20261026-structure-fichier-vs-cora).
 # Usage : python knowledge/queries/20261120-structure-colonnes-specialite.py [--fichier CHEMIN/Structure-AAAAMMJJ.xlsx] [--sortie DOSSIER]
 # Chemins : le seul argument à adapter est --fichier ; par défaut, le Structure-*.xlsx le plus récent de sources/structures/local/.
@@ -89,9 +90,10 @@ def main():
         if any(m in n[pos] for m in PERSONNE):
             ligne(pos, titre, "personne_valeurs_non_lues", len(renseignes), len(distincts), multi)
             continue
-        candidate = any(m in n[pos] for m in SPECIALITE)
+        service = "LIBELLE SERVICE" in n[pos]   # Pierre y a lu la spécialité (2026-11-20) : valeurs listées, avec un plafond plus haut
+        candidate = service or any(m in n[pos] for m in SPECIALITE)
         ligne(pos, titre, "candidate_specialite" if candidate else "autre", len(renseignes), len(distincts), multi)
-        if candidate and len(distincts) <= 80:
+        if candidate and len(distincts) <= (400 if service else 80):
             par_valeur = Counter(v for v, _ in renseignes)
             for v, nb in sorted(par_valeur.items(), key=lambda x: -x[1]):
                 ligne(pos, titre, "valeur", "", "", "", v, nb)
